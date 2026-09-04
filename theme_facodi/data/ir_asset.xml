@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <asset id="theme_facodi.primary_variables_scss" name="FACODI Primary Variables SCSS">
+        <field name="key">theme_facodi.primary_variables_scss</field>
+        <bundle>web._assets_primary_variables</bundle>
+        <path>theme_facodi/static/src/scss/primary_variables.scss</path>
+    </asset>
+</odoo>
