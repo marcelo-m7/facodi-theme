@@ -21,4 +21,9 @@ if grep -R -nE 'request\.env|sudo\(\)|href="/theme_facodi/static/src/img/favicon
   fail "theme QWeb contains business-data access or a forced favicon"
 fi
 
+grep -Fq 'a1818df4ade65406c0cacae8b1ea676e6f70095f' .github/workflows/ci.yml || fail "CI must pin design-themes"
+grep -Fq '/mnt/design-themes' .github/workflows/ci.yml || fail "CI must mount design-themes"
+grep -Fq -- '-i theme_facodi' .github/workflows/ci.yml || fail "CI must install theme_facodi"
+grep -Fq -- '--test-tags /theme_facodi' .github/workflows/ci.yml || fail "CI must run theme_facodi tests"
+
 echo "PASS: theme module contract"
