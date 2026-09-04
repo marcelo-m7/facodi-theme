@@ -1,0 +1,23 @@
+// FACODI Website Builder variables.
+// Keep this file limited to Odoo theme variables as required by Odoo 19.
+
+$o-color-palettes: map-merge($o-color-palettes, (
+    'facodi': (
+        'o-color-1': #6a4bff,
+        'o-color-2': #5dc7ff,
+        'o-color-3': #f7f6ff,
+        'o-color-4': #ffffff,
+        'o-color-5': #1f1e42,
+        'menu': 4,
+        'footer': 3,
+        'copyright': 3,
+    ),
+));
+
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'facodi');
+
+$o-website-values-palettes: (
+    (
+        'color-palettes-name': 'facodi',
+    ),
+);

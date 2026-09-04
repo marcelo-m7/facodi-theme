@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_layout" inherit_id="website.layout" name="FACODI Website Layout">
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="class" add="facodi-site" separator=" "/>
+        </xpath>
+        <xpath expr="//head" position="inside">
+            <meta name="theme-color" content="#6a4bff"/>
+            <link rel="icon" type="image/svg+xml" href="/website_facodi/static/src/img/favicon.svg"/>
+        </xpath>
+    </template>
+</odoo>

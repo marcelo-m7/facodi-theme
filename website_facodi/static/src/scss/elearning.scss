@@ -1,0 +1,22 @@
+.facodi-site {
+    .o_wslides_home_main,
+    .o_wslides_course_main,
+    .o_wslides_lesson_main {
+        --facodi-learning-radius: 1rem;
+    }
+
+    .o_wslides_course_card,
+    .o_wslides_slides_list_slide,
+    .o_wslides_lesson_card {
+        border-radius: var(--facodi-learning-radius, 1rem);
+    }
+
+    .o_wslides_course_card {
+        transition: transform 160ms ease, box-shadow 160ms ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 38px rgba(106, 75, 255, 0.14);
+        }
+    }
+}
