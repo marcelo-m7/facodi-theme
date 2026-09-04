@@ -103,6 +103,7 @@ docs/architecture.md
 docs/ci-cd.md
 docs/deployment.md
 docs/gcp-staging.md
+addons/facodi-theme                        # Gitlink advanced to the green theme SHA
 ```
 
 ---
@@ -166,7 +167,7 @@ bash tests/test_module_contract.sh
 
 Expected: `FAIL: theme_facodi manifest missing`.
 
-- [ ] **Step 3: Create the minimal Odoo theme manifest and standard lifecycle data**
+- [ ] **Step 3: Create the minimal Odoo theme manifest and lifecycle data**
 
 Create empty `theme_facodi/__init__.py`.
 
@@ -197,6 +198,8 @@ Create `theme_facodi/__manifest__.py`:
             "s_facodi_hero",
             "s_facodi_learning_journey",
             "s_facodi_institutional",
+            "s_features",
+            "s_call_to_action",
         ],
     },
     "installable": True,
@@ -235,7 +238,7 @@ Create the three view files as valid intentional empty Odoo data files for this 
 <odoo/>
 ```
 
-Move the existing project-owned logo/favicon SVGs with `git mv`. Create `theme_facodi/static/description/theme_facodi.svg` as a lightweight purple/blue SVG preview using SVG primitives only.
+Move existing project-owned logo/favicon SVGs with `git mv`. Create `theme_facodi/static/description/theme_facodi.svg` as a lightweight purple/blue SVG preview using SVG primitives only.
 
 - [ ] **Step 4: Remove the legacy addon directory**
 
@@ -245,9 +248,9 @@ After moving reusable assets:
 git rm -r website_facodi
 ```
 
-If `git mv` already removed individual files from that tree, delete only what remains.
+If `git mv` already removed individual files, delete only the remaining legacy files.
 
-- [ ] **Step 5: Run the contract and confirm GREEN**
+- [ ] **Step 5: Run contract and confirm GREEN**
 
 ```bash
 bash tests/test_module_contract.sh
@@ -329,7 +332,7 @@ Rename the CI database to `theme_facodi_ci` everywhere. Use this Odoo run:
             --stop-after-init
 ```
 
-Update the PostgreSQL start/readiness DB name from `website_facodi_ci` to `theme_facodi_ci`.
+Update PostgreSQL start/readiness to use `theme_facodi_ci`.
 
 - [ ] **Step 4: Run contract + CI**
 
@@ -348,7 +351,7 @@ git commit -m "ci: test theme against pinned Odoo design themes"
 
 ---
 
-### Task 3: Implement the FACODI palette and separated theme assets
+### Task 3: Implement FACODI palette and separated theme assets
 
 **Files:**
 - Create: `theme_facodi/static/src/scss/primary_variables.scss`
@@ -454,7 +457,7 @@ $o-color-palettes-compatibility-indexes: (1: 'facodi');
 $o-theme-color-palettes-compatibility-indexes: (1: 'facodi');
 ```
 
-Do not force `header-template` or `footer-template`. The first release preserves the site's active standard configuration and styles the standard chrome.
+Do not force `header-template` or `footer-template`. Preserve the active standard configuration while styling standard chrome.
 
 - [ ] **Step 4: Implement Bootstrap/reusable/global styles**
 
@@ -514,9 +517,9 @@ $border-radius-sm: .625rem !default;
 }
 ```
 
-Create `snippets.scss` with the single comment `// FACODI Website Builder snippet styles.` and `website_slides.scss` with `// Standard website_slides presentation refinements.`. They are populated in Tasks 4 and 5.
+Create `snippets.scss` with `// FACODI Website Builder snippet styles.` and `website_slides.scss` with `// Standard website_slides presentation refinements.`. They are populated in later tasks.
 
-- [ ] **Step 5: Register the frontend bundle**
+- [ ] **Step 5: Register frontend bundle**
 
 Add to the manifest:
 
@@ -540,7 +543,7 @@ Primary variables remain registered through `ir.asset` only.
 bash tests/test_module_contract.sh
 ```
 
-Require green GitHub Actions asset compilation, then:
+Require green CI asset compilation, then:
 
 ```bash
 git add theme_facodi tests/test_module_contract.sh
@@ -549,7 +552,7 @@ git commit -m "feat: add FACODI Odoo theme palette and assets"
 
 ---
 
-### Task 4: Add editable FACODI Website Builder snippets
+### Task 4: Add editable FACODI Website Builder composition
 
 **Files:**
 - Modify: `theme_facodi/views/snippets.xml`
@@ -558,8 +561,20 @@ git commit -m "feat: add FACODI Odoo theme palette and assets"
 - Create: `theme_facodi/tests/test_website.py`
 
 **Interfaces:**
-- Consumes: `website.snippets`, standard Website Builder editing, Bootstrap grid/utilities.
-- Produces: snippet group `facodi` and view keys `theme_facodi.s_facodi_hero`, `theme_facodi.s_facodi_learning_journey`, `theme_facodi.s_facodi_institutional`.
+- Consumes: `website.snippets`, standard Website Builder editing, Bootstrap utilities.
+- Produces: snippet group `facodi`; view keys `theme_facodi.s_facodi_hero`, `theme_facodi.s_facodi_learning_journey`, `theme_facodi.s_facodi_institutional`.
+
+**Spec-section mapping:**
+
+```text
+FACODI Hero                         -> custom s_facodi_hero
+Learning Journey + How it works     -> custom s_facodi_learning_journey
+Institutional / SEA-EU presentation -> custom neutral s_facodi_institutional
+Open Learning                       -> standard s_features/s_call_to_action composition
+Community CTA                       -> standard s_call_to_action composition
+General CTA                         -> standard s_call_to_action composition
+Course Discovery                    -> standard /slides surface linked from hero/CTA; no QWeb ORM query
+```
 
 - [ ] **Step 1: Write failing snippet registration test**
 
@@ -587,13 +602,13 @@ class TestFacodiTheme(HttpCase):
         self.assertEqual(set(views.mapped("key")), keys)
 ```
 
-- [ ] **Step 2: Run Odoo tests and confirm RED**
+- [ ] **Step 2: Run Odoo test and confirm RED**
 
-Use the CI-equivalent Odoo command with `--test-tags /theme_facodi`.
+Use the CI-equivalent command with `--test-tags /theme_facodi`.
 
-Expected: the snippet keys are absent.
+Expected: snippet keys absent.
 
-- [ ] **Step 3: Register the FACODI snippet group and snippets**
+- [ ] **Step 3: Register the FACODI group and three focused snippets**
 
 Replace `views/snippets.xml` with:
 
@@ -680,8 +695,6 @@ Replace `views/snippets.xml` with:
 </odoo>
 ```
 
-The institutional block is neutral editable website copy; it does not encode a funding/business rule.
-
 - [ ] **Step 4: Implement snippet SCSS**
 
 Replace `snippets.scss` with:
@@ -722,15 +735,11 @@ Replace `snippets.scss` with:
 }
 ```
 
-- [ ] **Step 5: Verify GREEN**
+- [ ] **Step 5: Verify GREEN and Website Builder behavior**
 
-Run the fast contract and Odoo CI. Expected: the three snippet keys exist, XML parses and frontend assets compile.
+Run fast contract + Odoo CI. Then Website -> Edit -> Blocks: group `FACODI` must appear and each block must support insertion, text editing, moving and deletion.
 
-- [ ] **Step 6: Website Builder smoke test**
-
-On a test instance: Website -> Edit -> Blocks. Confirm group `FACODI` appears and each block can be inserted, text-edited, moved and deleted with standard controls.
-
-- [ ] **Step 7: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
 git add theme_facodi
@@ -749,8 +758,8 @@ git commit -m "feat: add editable FACODI website snippets"
 - Modify: `tests/test_module_contract.sh`
 
 **Interfaces:**
-- Consumes: `website.layout`, standard Odoo favicon/logo, standard `website_slides` routes/markup.
-- Produces: `facodi-site` layout class, theme-color metadata, visual-only eLearning adaptation.
+- Consumes: `website.layout`, standard favicon/logo behavior, standard `website_slides` routes/markup.
+- Produces: `facodi-site` styling hook, theme-color metadata and visual-only eLearning adaptation.
 
 - [ ] **Step 1: Add failing preservation/route tests**
 
@@ -772,7 +781,7 @@ Extend `test_website.py`:
         self.assertEqual(response.status_code, 200)
 ```
 
-Append to `tests/test_module_contract.sh`:
+Append repository contract:
 
 ```bash
 [[ ! -d theme_facodi/controllers ]] || fail "presentation theme must not add parallel learning routes/controllers"
@@ -815,7 +824,7 @@ No favicon `<link>`, hard-coded logo, complete header replacement or complete fo
 
 - [ ] **Step 5: Verify actual Odoo 19 selectors before styling**
 
-Open rendered Odoo 19 `/slides`, a course and a lesson. For each selector below, confirm it exists in the current DOM/source before retaining the rule:
+Inspect rendered Odoo 19 `/slides`, one course and one lesson. Retain only selectors that actually exist from this candidate set:
 
 ```text
 .o_wslides_home_main
@@ -825,11 +834,11 @@ Open rendered Odoo 19 `/slides`, a course and a lesson. For each selector below,
 .progress-bar
 ```
 
-Remove nonexistent selectors from the implementation; do not create replacement markup just to satisfy CSS.
+Do not create replacement markup to satisfy CSS.
 
-- [ ] **Step 6: Implement `website_slides.scss` with only verified selectors**
+- [ ] **Step 6: Implement eLearning SCSS using verified selectors**
 
-The expected implementation, when all listed selectors are present, is:
+When all candidates are present, use:
 
 ```scss
 .facodi-site .o_wslides_home_main,
@@ -854,9 +863,11 @@ The expected implementation, when all listed selectors are present, is:
 }
 ```
 
-- [ ] **Step 7: Verify tests, assets and responsive behavior**
+If a candidate selector is absent, omit only its rule and record the verified selector set in the commit description.
 
-Require Odoo CI PASS. At widths 375px, 768px and 1440px verify standard navigation, visible keyboard focus, working `/slides` navigation, no hover-only content, and reduced-motion behavior for the custom snippet transition.
+- [ ] **Step 7: Verify tests/assets/responsiveness**
+
+Require Odoo CI PASS. At widths 375px, 768px and 1440px verify standard navigation, visible keyboard focus, working `/slides`, no hover-only content and reduced-motion behavior.
 
 - [ ] **Step 8: Commit**
 
@@ -875,12 +886,10 @@ git commit -m "feat: style standard Website and eLearning surfaces"
 - Modify: `tests/test_module_contract.sh`
 
 **Interfaces:**
-- Consumes: final theme contracts from Tasks 1-5.
+- Consumes: implemented contracts from Tasks 1-5.
 - Produces: current operator/contributor documentation for `theme_facodi`.
 
 - [ ] **Step 1: Add failing documentation assertions**
-
-Append:
 
 ```bash
 if grep -R -n 'website_facodi' README.md docs/architecture.md; then
@@ -893,11 +902,11 @@ grep -Fq 'odoo/design-themes' docs/architecture.md || fail "architecture must do
 
 - [ ] **Step 2: Run and confirm RED**
 
-Expected: README/architecture still name `website_facodi`.
+Expected: current README/architecture still name the legacy active addon.
 
-- [ ] **Step 3: Rewrite README with the implemented contract**
+- [ ] **Step 3: Rewrite README with current contract**
 
-State exactly:
+State:
 
 ```text
 repository: facodi-theme
@@ -910,7 +919,7 @@ no facodi_learning dependency
 no forced favicon/logo
 ```
 
-Use this installation example:
+Installation example:
 
 ```bash
 odoo -d facodi \
@@ -937,9 +946,9 @@ Odoo 19 Community
      └── presentation-only website_slides styling
 ```
 
-Document the standard-first decision rule and the prohibition on business-data queries in QWeb.
+Document the standard-first decision rule and prohibition on business-data queries in QWeb.
 
-- [ ] **Step 5: Verify GREEN and commit**
+- [ ] **Step 5: Verify and commit**
 
 ```bash
 bash tests/test_module_contract.sh
@@ -949,7 +958,7 @@ git commit -m "docs: document evolved FACODI Odoo theme"
 
 ---
 
-### Task 7: Add the one-time `website_facodi` -> `theme_facodi` registry migration to `facodi-monorepo`
+### Task 7: Add one-time module-registry migration to `facodi-monorepo`
 
 **Repository:** `marcelo-m7/facodi-monorepo`
 
@@ -958,17 +967,15 @@ git commit -m "docs: document evolved FACODI Odoo theme"
 - Modify: `tests/test_repository_contract.sh`
 
 **Interfaces:**
-- Consumes: monorepo `.env`, Docker Compose, PostgreSQL service `db`.
-- Produces: idempotent rename of `ir_module_module.name` and `ir_model_data.module` before the first `theme_facodi` upgrade.
+- Consumes: monorepo `.env`, Docker Compose and PostgreSQL service `db`.
+- Produces: idempotent rename of `ir_module_module.name` and `ir_model_data.module` from `website_facodi` to `theme_facodi`.
 
-- [ ] **Step 1: Add failing migration-script contract tests**
-
-Append:
+- [ ] **Step 1: Add failing migration contract tests**
 
 ```bash
 [[ -x scripts/migrate-theme-module-name.sh ]] || fail "theme module rename migration must be executable"
 grep -Fq 'ir_module_module' scripts/migrate-theme-module-name.sh || fail "migration must update ir_module_module"
-grep -Fq 'ir_model_data' scripts/migrate-theme-module-name.sh || fail "migration must update ir_model_data ownership"
+grep -Fq 'ir_model_data' scripts/migrate-theme-module-name.sh || fail "migration must update ir_model_data"
 grep -Fq 'theme_facodi' scripts/migrate-theme-module-name.sh || fail "migration target missing"
 ```
 
@@ -978,9 +985,9 @@ grep -Fq 'theme_facodi' scripts/migrate-theme-module-name.sh || fail "migration 
 bash tests/test_repository_contract.sh
 ```
 
-Expected: migration script missing.
+Expected: script missing.
 
-- [ ] **Step 3: Implement Compose-based idempotent migration**
+- [ ] **Step 3: Implement Compose-based migration**
 
 Create executable `scripts/migrate-theme-module-name.sh`:
 
@@ -1056,28 +1063,21 @@ SQL
 echo "Renamed website_facodi registry/XML-ID ownership to theme_facodi."
 ```
 
-This script changes module metadata/XML-ID ownership only. It must not delete Website pages, menus, views or attachments.
+This script changes module metadata/XML-ID ownership only and must not delete Website pages, menus, views or attachments.
 
-- [ ] **Step 4: Test three migration cases on a disposable database/stack**
+- [ ] **Step 4: Test migration cases on disposable DB/stack**
 
 Verify:
 
 ```text
-Case A: website_facodi exists, theme_facodi absent -> rename succeeds
-Case B: run again after Case A -> no-op exit 0
-Case C: both module records exist -> abort exit 1
+A: website_facodi exists, theme_facodi absent -> rename succeeds
+B: run again after A -> no-op exit 0
+C: both module records exist -> abort exit 1 before mutation
 ```
 
-For Case A verify:
+For A verify `ir_module_module` and `ir_model_data` ownership now use `theme_facodi`.
 
-```sql
-SELECT name, state FROM ir_module_module WHERE name IN ('website_facodi', 'theme_facodi');
-SELECT module, name FROM ir_model_data WHERE name='website_layout';
-```
-
-Expected ownership/module name: `theme_facodi` only.
-
-- [ ] **Step 5: Verify contract and commit**
+- [ ] **Step 5: Verify and commit**
 
 ```bash
 bash tests/test_repository_contract.sh
@@ -1087,11 +1087,12 @@ git commit -m "feat: add FACODI theme module rename migration"
 
 ---
 
-### Task 8: Pin `odoo/design-themes`, bake only `theme_common`, switch runtime to `theme_facodi`
+### Task 8: Integrate the verified theme and pinned `theme_common` into `facodi-monorepo`
 
 **Repository:** `marcelo-m7/facodi-monorepo`
 
 **Files:**
+- Update Gitlink: `addons/facodi-theme`
 - Modify: `.gitmodules`
 - Add Gitlink: `vendor/odoo-design-themes`
 - Modify: `docker/Dockerfile`
@@ -1106,10 +1107,23 @@ git commit -m "feat: add FACODI theme module rename migration"
 - Modify: `docs/gcp-staging.md`
 
 **Interfaces:**
-- Consumes: green `feat/evolve-odoo19-theme`, migration helper from Task 7, `odoo/design-themes@a1818df...`.
-- Produces: image modules `theme_common`, `facodi_learning`, `theme_facodi`; runtime module list `facodi_learning,theme_facodi`.
+- Consumes: green remote branch `feat/evolve-odoo19-theme`, migration helper from Task 7, `odoo/design-themes@a1818df4ade65406c0cacae8b1ea676e6f70095f`.
+- Produces: runtime modules `facodi_learning,theme_facodi`; image modules `theme_common`, `facodi_learning`, `theme_facodi`.
 
-- [ ] **Step 1: Add failing composition/runtime assertions**
+- [ ] **Step 1: Resolve and advance the theme Gitlink first**
+
+```bash
+THEME_SHA="$(git ls-remote https://github.com/marcelo-m7/facodi-theme.git refs/heads/feat/evolve-odoo19-theme | awk '{print $1}')"
+test -n "$THEME_SHA"
+printf 'Integrating FACODI theme SHA: %s\n' "$THEME_SHA"
+git -C addons/facodi-theme fetch origin "$THEME_SHA"
+git -C addons/facodi-theme checkout "$THEME_SHA"
+git add addons/facodi-theme
+```
+
+Before continuing, confirm the GitHub Actions run associated with `THEME_SHA` succeeded. If it is pending or failed, stop this task.
+
+- [ ] **Step 2: Add failing composition/runtime assertions against the now-advanced submodule**
 
 Update `tests/test_repository_contract.sh`:
 
@@ -1121,20 +1135,20 @@ git ls-files --stage vendor/odoo-design-themes | grep -Eq '^160000 ' || fail "ve
 grep -Fq 'vendor/odoo-design-themes' .gitmodules || fail "design-themes submodule declaration missing"
 grep -Fq 'theme_common' docker/Dockerfile || fail "Dockerfile must explicitly bake theme_common"
 grep -Fq 'FACODI_MODULES=facodi_learning,theme_facodi' .env.example || fail "runtime module list must use theme_facodi"
-grep -Fq 'migrate-theme-module-name.sh' scripts/deploy-image.sh || fail "deploy script must invoke theme module rename migration"
+grep -Fq 'migrate-theme-module-name.sh' scripts/deploy-image.sh || fail "deploy script must invoke module rename migration"
 ```
 
-Replace existing current-state checks for `website_facodi` with `theme_facodi`.
+Replace active current-state checks for `website_facodi` with `theme_facodi`.
 
-- [ ] **Step 2: Run and confirm RED**
+- [ ] **Step 3: Run and confirm RED**
 
 ```bash
 bash tests/test_repository_contract.sh
 ```
 
-Expected: new upstream/theme/runtime assertions fail.
+Expected: upstream design-themes/runtime integration assertions fail, while the `theme_facodi` manifest assertion succeeds because the submodule was advanced in Step 1.
 
-- [ ] **Step 3: Pin upstream design-themes**
+- [ ] **Step 4: Add/pin upstream design-themes**
 
 ```bash
 git submodule add -b 19.0 https://github.com/odoo/design-themes.git vendor/odoo-design-themes
@@ -1142,28 +1156,26 @@ git -C vendor/odoo-design-themes checkout a1818df4ade65406c0cacae8b1ea676e6f7009
 git add .gitmodules vendor/odoo-design-themes
 ```
 
-The Gitlink SHA is the actual reproducibility boundary.
+- [ ] **Step 5: Bake only `theme_common`**
 
-- [ ] **Step 4: Bake only `theme_common` from upstream**
-
-Update `docker/Dockerfile` so it keeps the existing FACODI-addon discovery loop and adds:
+Add to `docker/Dockerfile`:
 
 ```dockerfile
 COPY vendor/odoo-design-themes/theme_common/ /opt/odoo-theme-common/
 ```
 
-Inside the existing `RUN` block, after FACODI addon copying:
+Inside the existing `RUN` block, after FACODI-addon discovery/copying:
 
 ```dockerfile
 test -f /opt/odoo-theme-common/__manifest__.py; \
 cp -a /opt/odoo-theme-common /mnt/extra-addons/theme_common; \
 ```
 
-Do not copy `vendor/odoo-design-themes/` wholesale.
+Do not copy the entire upstream design-themes repository into `/mnt/extra-addons`.
 
-- [ ] **Step 5: Update repository validation**
+- [ ] **Step 6: Update repository validator**
 
-Require:
+Require three Gitlinks/manifests:
 
 ```bash
 git ls-files --stage addons/facodi-learning | grep -Eq '^160000 ' || fail "addons/facodi-learning is not a Gitlink"
@@ -1175,7 +1187,7 @@ git ls-files --stage vendor/odoo-design-themes | grep -Eq '^160000 ' || fail "ve
 [[ -f vendor/odoo-design-themes/theme_common/__manifest__.py ]] || fail "theme_common manifest is missing"
 ```
 
-Also reject accidental full upstream copying:
+Reject accidental full-upstream baking:
 
 ```bash
 if grep -Eq 'COPY[[:space:]]+vendor/odoo-design-themes/[[:space:]]' docker/Dockerfile; then
@@ -1183,7 +1195,7 @@ if grep -Eq 'COPY[[:space:]]+vendor/odoo-design-themes/[[:space:]]' docker/Docke
 fi
 ```
 
-- [ ] **Step 6: Switch runtime module list and invoke migration before state resolution**
+- [ ] **Step 7: Switch runtime module list and invoke migration before state resolution**
 
 `.env.example`:
 
@@ -1209,13 +1221,13 @@ call:
 bash "$ROOT_DIR/scripts/migrate-theme-module-name.sh"
 ```
 
-This must execute before the loop that decides install vs update state.
+This must run before the loop that decides install vs update state.
 
-- [ ] **Step 7: Update current docs**
+- [ ] **Step 8: Update current docs**
 
-Replace active `website_facodi` technical-module references with `theme_facodi` in current README/deployment/architecture/CI/staging docs. Historical design/plan documents may retain the old name when describing prior state.
+Replace active technical-module references with `theme_facodi`. Historical specs/plans may retain `website_facodi` when describing prior state.
 
-Document first rename deployment as:
+Document the first rename deployment:
 
 ```text
 1. verify database + filestore backup;
@@ -1224,10 +1236,10 @@ Document first rename deployment as:
 4. resolve install/update state for facodi_learning and theme_facodi;
 5. run Odoo install/upgrade;
 6. start Odoo and healthcheck;
-7. later deployments no-op the rename because website_facodi is absent.
+7. subsequent deploys no-op the rename because website_facodi is absent.
 ```
 
-- [ ] **Step 8: Run contract/validator/image build**
+- [ ] **Step 9: Run contract/validator/image build**
 
 ```bash
 bash tests/test_repository_contract.sh
@@ -1247,53 +1259,37 @@ docker run --rm --entrypoint bash facodi-theme-evolution:test -lc \
 
 Expected: exit 0.
 
-- [ ] **Step 9: Commit**
+- [ ] **Step 10: Commit integration including exact theme SHA**
 
 ```bash
-git add .gitmodules vendor/odoo-design-themes docker/Dockerfile .env.example scripts tests README.md docs
-git commit -m "build: integrate theme_facodi and pinned theme_common"
+git add addons/facodi-theme .gitmodules vendor/odoo-design-themes docker/Dockerfile .env.example scripts tests README.md docs
+git commit -m "build: integrate theme_facodi at ${THEME_SHA}"
 ```
 
 ---
 
-### Task 9: Advance the theme submodule and perform fresh/migrated staging validation
+### Task 9: Perform fresh-database, migrated-database and visual staging validation
 
 **Repositories:**
 - `marcelo-m7/facodi-theme`
 - `marcelo-m7/facodi-monorepo`
 
 **Files:**
-- Update Gitlink: `facodi-monorepo/addons/facodi-theme`
+- No planned production-file changes; any discovered defect starts a focused fix cycle with a failing regression test before code changes.
 
 **Interfaces:**
-- Consumes: green remote branch `feat/evolve-odoo19-theme` and Task 8 monorepo integration.
-- Produces: one immutable Odoo image validated on fresh and migrated databases.
+- Consumes: green theme CI and green monorepo integration commit.
+- Produces: staging evidence that the evolved theme installs, migrates safely and preserves the current FACODI identity/standard Odoo editing behavior.
 
-- [ ] **Step 1: Verify theme branch is fully green**
+- [ ] **Step 1: Re-run repository-level verification**
 
-In `facodi-theme`:
+Theme repo:
 
 ```bash
 bash tests/test_module_contract.sh
-git rev-parse HEAD
 ```
 
-Require the GitHub Actions run for that exact HEAD to report success. Do not integrate a theme SHA whose CI is pending or failed.
-
-- [ ] **Step 2: Resolve the exact green remote branch SHA without a placeholder**
-
-In `facodi-monorepo`:
-
-```bash
-THEME_SHA="$(git ls-remote https://github.com/marcelo-m7/facodi-theme.git refs/heads/feat/evolve-odoo19-theme | awk '{print $1}')"
-test -n "$THEME_SHA"
-printf 'Integrating FACODI theme SHA: %s\n' "$THEME_SHA"
-git -C addons/facodi-theme fetch origin "$THEME_SHA"
-git -C addons/facodi-theme checkout "$THEME_SHA"
-git add addons/facodi-theme
-```
-
-- [ ] **Step 3: Run complete monorepo validation**
+Monorepo:
 
 ```bash
 bash tests/test_repository_contract.sh
@@ -1301,9 +1297,9 @@ bash scripts/validate-repository.sh
 docker build -f docker/Dockerfile -t facodi-odoo:theme-evolution .
 ```
 
-- [ ] **Step 4: Validate a fresh database**
+- [ ] **Step 2: Validate a fresh database**
 
-Start the existing Compose stack with:
+Run with:
 
 ```dotenv
 FACODI_IMAGE=facodi-odoo:theme-evolution
@@ -1321,7 +1317,7 @@ website_facodi absent
 /slides returns HTTP 200
 ```
 
-- [ ] **Step 5: Validate the rename on a disposable copy of an existing database**
+- [ ] **Step 3: Validate migration on a disposable copy of an existing database**
 
 Before deployment record:
 
@@ -1339,31 +1335,41 @@ WHERE name IN ('website_facodi', 'theme_facodi');
 SELECT count(*) FROM website_page;
 ```
 
-Expected: `theme_facodi | installed`, no `website_facodi` row, and unchanged `website_page` count. Open the existing homepage and confirm editor-created content is still present.
+Expected: only `theme_facodi | installed` and unchanged `website_page` count. Open the existing homepage and confirm editor-created content remains present.
 
-- [ ] **Step 6: Perform visual acceptance against `edu-open2`**
+- [ ] **Step 4: Verify Website Builder behavior**
 
-Compare staging with `https://edu-open2.odoo.com` at desktop and mobile widths. Acceptance criteria:
+Confirm:
+
+```text
+FACODI snippet group appears
+custom snippets insert successfully
+text remains editable
+blocks can move/delete normally
+standard header/footer controls remain available
+standard logo/favicon controls remain authoritative
+```
+
+- [ ] **Step 5: Perform visual acceptance against `edu-open2`**
+
+Compare staging with `https://edu-open2.odoo.com` at desktop and mobile widths. Require:
 
 ```text
 purple/blue FACODI identity remains dominant
 standard Odoo navigation remains editable
-FACODI snippets are editable/movable blocks
+FACODI snippets feel consistent with the existing site
 no lime/black identity takeover
 /slides remains standard website_slides behavior
 course/lesson navigation works
-logo/favicon remain configurable through Odoo
+logo/favicon remain configurable
 keyboard focus remains visible
 ```
 
-If a color token differs materially from the current website, change only the demonstrably different theme token and rerun the relevant theme tests/CI.
+If a color token differs materially from the live site, add a regression/contract assertion for the corrected token, change only that theme value and rerun theme CI before repeating acceptance.
 
-- [ ] **Step 7: Commit submodule advancement**
+- [ ] **Step 6: Record validation in PR description/review notes**
 
-```bash
-git add addons/facodi-theme
-git commit -m "chore: advance FACODI theme evolution to ${THEME_SHA}"
-```
+Include exact theme commit SHA, monorepo commit SHA, design-themes pin, fresh DB result, migrated DB result and the manual Website Builder/visual acceptance result. Do not claim validation without completed checks.
 
 ---
 
@@ -1395,8 +1401,8 @@ staging visual comparison with edu-open2              PASS
 
 ## Rollback Boundary
 
-The first deployment that renames the installed module must be preceded by the normal database + filestore backup. Image rollback alone is not a complete rollback boundary because the module registry/XML-ID ownership changes from `website_facodi` to `theme_facodi`. If validation fails after the migration, restore the pre-deployment database/filestore backup together with the previous image; do not reconstruct the old module metadata manually.
+The first deployment that renames the installed module must be preceded by the normal database + filestore backup. Image rollback alone is not a complete rollback boundary because module registry/XML-ID ownership changes from `website_facodi` to `theme_facodi`. If validation fails after the migration, restore the pre-deployment database/filestore backup together with the previous image; do not reconstruct old module metadata manually.
 
 ## Implementation Order
 
-Execute Tasks 1-6 in `facodi-theme` first. Require a green exact theme commit before Tasks 7-8 change the monorepo. Task 9 is the integration/staging gate and must not start until both repositories' preceding tests are green.
+Execute Tasks 1-6 in `facodi-theme` first and push a green `feat/evolve-odoo19-theme`. Execute Task 7 in `facodi-monorepo`, then Task 8 advances the verified theme Gitlink before changing integration contracts. Task 9 is the final staging gate and starts only after both repositories' preceding checks are green.
