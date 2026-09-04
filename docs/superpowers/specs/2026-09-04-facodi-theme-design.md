@@ -3,186 +3,63 @@
 Date: 2026-09-04
 Target: Odoo 19 Community
 Repository: `marcelo-m7/facodi-theme`
+Technical addon: `website_facodi`
 
 ## Purpose
 
-`facodi-theme` is the presentation-only Odoo addon responsible for FACODI visual identity across the public website and eLearning experience. It must not contain video-analysis, curriculum-mapping or other FACODI business logic.
+FACODI Theme is the presentation-only addon for the FACODI visual identity across Odoo Website and eLearning. It is independently installable and contains no analysis, curriculum-mapping or other learning-domain business logic.
 
-The addon must be independently installable on an Odoo 19 Community database with the standard Website/eLearning applications.
+## Odoo 19 naming decision
 
-## Architectural principles
+The repository name stays `facodi-theme`, while the technical addon is `website_facodi`. The earlier draft name `facodi_theme` was replaced to follow Odoo's website-theme/module naming convention and make the module's responsibility explicit.
 
-1. Use Odoo's standard Website/theme mechanisms rather than replacing the Website application.
-2. Keep branding, SCSS, templates, snippets and website-specific presentation concerns in this repository only.
-3. Do not duplicate business models owned by Odoo or other FACODI addons.
-4. Avoid hard-coded environment/domain values in templates.
-5. Prefer inheritance of standard Odoo/QWeb views and reusable SCSS variables/components to copying full standard templates.
-6. Preserve accessibility, responsive behavior and translation support.
-7. The theme may visually enhance `website_slides`, but it must not require `facodi_learning`.
+## Standard-first principles
 
-## Odoo module
+1. Use Odoo Website Builder/theme variables before custom CSS.
+2. Load palette variables through `web._assets_primary_variables` and frontend styles through `web.assets_frontend`.
+3. Inherit `website.layout` rather than copying standard header/footer/page templates.
+4. Preserve the dynamic classes Odoo puts on `#wrapwrap`; FACODI adds its class to the existing `t-attf-class`.
+5. Keep standard Website logo/company branding configurable by administrators.
+6. Keep standard `website_slides` routes, membership, permissions, progress and content rendering authoritative.
+7. Use no JavaScript unless a future presentation requirement cannot be satisfied by standard Odoo/Bootstrap behavior.
+8. No dependency on `facodi_learning`.
 
-Technical module name:
+## Initial visual system
 
-`facodi_theme`
+The initial palette follows the existing FACODI web identity: primary `#6a4bff`, secondary `#5dc7ff`, light surface `#f7f6ff`, body text `#1f1e42`, heading text `#111035`. It is registered as an Odoo color palette so standard components remain coherent with Website Builder.
 
-Initial dependencies:
-
-- `website`
-- `website_slides`
-
-The module must not depend on `facodi_learning`.
-
-## Scope
-
-The first complete repository provides a coherent FACODI theme foundation for:
-
-- global typography
-- color palette and semantic design tokens
-- header/navigation
-- footer
-- buttons and links
-- cards
-- website sections
-- forms
-- alerts/badges
-- eLearning course cards
-- eLearning content/lesson presentation
-- responsive layout adjustments
-- FACODI reusable website snippets where standard blocks are insufficient
-
-The implementation should allow the visual layer to evolve without changing learning-domain logic.
+Typography uses system-font fallbacks. No font binary is committed. Project-owned SVG logo/favicon assets are included.
 
 ## Asset architecture
 
-SCSS is organized by responsibility rather than as one large stylesheet:
-
 ```text
-static/src/scss/
-├── _variables.scss
-├── _typography.scss
-├── _components.scss
-├── _website.scss
-├── _elearning.scss
-└── theme.scss
+website_facodi/static/src/scss/
+├── primary_variables.scss  Odoo Website Builder palette
+├── theme.scss              global FACODI visual refinements
+└── elearning.scss          standard website_slides visual refinements
 ```
-
-Static assets such as icons and project-owned images live under `static/src/img/`.
-
-No external font binary is committed unless licensing and redistribution are explicitly approved. Prefer web-safe/system typography or runtime-loaded/licensed assets configured separately.
 
 ## View architecture
 
-QWeb/XML templates are grouped by responsibility:
+`views/website_layout.xml` inherits `website.layout`, adds the `facodi-site` styling hook to the standard dynamic `#wrapwrap` class, and supplies theme-color/favicon metadata. Standard navigation/header/footer templates remain untouched.
 
-```text
-views/
-├── website_templates.xml
-├── website_layout.xml
-├── elearning_templates.xml
-└── snippets.xml
-```
+The initial eLearning customization is CSS-only because standard `website_slides` markup already exposes suitable stable classes; duplicating or replacing QWeb templates would increase upgrade risk without adding functional value.
 
-Theme inheritance should target stable standard template extension points. Full replacement of an upstream template is avoided unless inheritance cannot achieve the required result.
+## Testing
 
-## Design tokens
+CI installs `website_facodi` with its standard dependencies on a clean Odoo 19/PostgreSQL 16 database, compiles frontend asset bundles and uses an Odoo `HttpCase` to verify `/`, `/slides`, and the inherited FACODI layout hook.
 
-FACODI identity is expressed through semantic variables rather than repeated literal styling values.
+## Monorepo contract
 
-Token groups include:
-
-- primary/secondary/accent surfaces
-- text and muted text
-- borders
-- background surfaces
-- success/warning/error/info semantics
-- border radius
-- spacing conventions
-- typography scale
-- container behavior
-
-Odoo/Bootstrap primitives should be reused where practical so standard components remain visually coherent.
-
-## Website behavior
-
-The theme must not introduce business actions through JavaScript merely for styling. JavaScript is included only when required for presentation behavior that cannot be implemented through standard Odoo/Bootstrap behavior.
-
-Any JavaScript added must be small, progressive-enhancement oriented and covered by an explicit reason in documentation.
-
-## eLearning integration
-
-The theme may inherit standard `website_slides` templates to improve:
-
-- course catalog presentation
-- course hero/header
-- lesson/content cards
-- progress indicators
-- navigation hierarchy
-- mobile readability
-
-It must not change content ownership, course membership logic, access control, completion rules or analysis behavior.
-
-## Translation and accessibility
-
-- User-facing strings are translatable through normal Odoo mechanisms.
-- Interactive controls preserve accessible labels/focus behavior.
-- Visual contrast should be sufficient for primary text and actionable elements.
-- Templates use semantic HTML where possible.
-- Responsive behavior must be tested at mobile and desktop widths.
-
-## Testing and verification
-
-The repository must verify at minimum:
-
-- module installs on a clean Odoo 19 Community database with Website/eLearning dependencies
-- XML/QWeb templates load without errors
-- assets compile successfully
-- no dependency on `facodi_learning`
-- public website route renders after installation
-- standard eLearning pages still render after theme installation
-
-CI must not depend on production data or external secrets.
-
-## Repository structure
-
-```text
-facodi-theme/
-├── facodi_theme/
-│   ├── __init__.py
-│   ├── __manifest__.py
-│   ├── views/
-│   ├── data/
-│   ├── static/src/scss/
-│   ├── static/src/img/
-│   ├── static/src/js/
-│   └── tests/
-├── .github/workflows/
-│   └── ci.yml
-├── docs/
-│   └── architecture.md
-├── .gitignore
-├── LICENSE
-└── README.md
-```
-
-## Public contract with `facodi-monorepo`
-
-The repository root contains exactly one installable Odoo addon directory named `facodi_theme` plus repository-level documentation/CI files.
-
-`facodi-monorepo` consumes this repository as a Git submodule under:
-
-`addons/facodi-theme`
-
-The monorepo pins an exact commit. Updating this repository does not update a running environment until the monorepo intentionally advances its submodule pointer and builds a new immutable image.
+The repository root exposes exactly one installable Odoo addon directory, `website_facodi`. `facodi-monorepo` consumes the repository at `addons/facodi-theme` and pins an exact commit in each immutable application image.
 
 ## Out of scope
 
-- video analysis
-- AI/provider integration
+- FACODI learning/analysis models
 - curriculum mapping
+- external AI/provider integration
+- custom authentication or navigation business logic
 - deployment infrastructure
 - Docker image publishing
 - PostgreSQL management
-- replacement of Odoo Website/eLearning business models
-
-These boundaries keep theme changes visually focused and allow FACODI learning functionality to evolve independently.
+- copied standard Website/eLearning templates

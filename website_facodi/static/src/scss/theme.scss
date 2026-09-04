@@ -1,0 +1,47 @@
+.facodi-site {
+    --facodi-heading-color: #111035;
+    --facodi-muted-color: rgba(31, 30, 66, 0.68);
+    --facodi-card-shadow: 0 20px 40px rgba(106, 75, 255, 0.12);
+    --facodi-soft-border: rgba(106, 75, 255, 0.12);
+
+    color: #1f1e42;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--facodi-heading-color);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    .btn {
+        border-radius: 0.8rem;
+    }
+
+    .btn-primary {
+        box-shadow: 0 10px 24px rgba(106, 75, 255, 0.2);
+    }
+
+    .card,
+    .o_card {
+        border-color: var(--facodi-soft-border);
+        border-radius: 1rem;
+    }
+
+    #top .navbar,
+    .o_header_mobile {
+        backdrop-filter: blur(16px);
+    }
+
+    #top .navbar-brand img {
+        max-height: 2.75rem;
+    }
+
+    .o_footer {
+        border-top: 1px solid var(--facodi-soft-border);
+    }
+}
