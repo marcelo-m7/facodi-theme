@@ -14,6 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Theme repository contract
+        run: bash tests/test_module_contract.sh
+
+      - name: Checkout pinned Odoo design themes
+        run: |
+          git clone --filter=blob:none https://github.com/odoo/design-themes.git "$RUNNER_TEMP/design-themes"
+          git -C "$RUNNER_TEMP/design-themes" checkout a1818df4ade65406c0cacae8b1ea676e6f70095f
+          test -f "$RUNNER_TEMP/design-themes/theme_common/__manifest__.py"
+
       - name: Start PostgreSQL 16
         run: |
           docker network create facodi-theme-ci
@@ -21,10 +30,10 @@ jobs:
             --network facodi-theme-ci \
             -e POSTGRES_USER=odoo \
             -e POSTGRES_PASSWORD=odoo \
-            -e POSTGRES_DB=website_facodi_ci \
+            -e POSTGRES_DB=theme_facodi_ci \
             postgres:16
           for i in $(seq 1 30); do
-            if docker exec facodi-theme-db pg_isready -U odoo -d website_facodi_ci; then
+            if docker exec facodi-theme-db pg_isready -U odoo -d theme_facodi_ci; then
               exit 0
             fi
             sleep 2
@@ -39,14 +48,15 @@ jobs:
             -e PORT=5432 \
             -e USER=odoo \
             -e PASSWORD=odoo \
-            -v "$GITHUB_WORKSPACE:/mnt/extra-addons:ro" \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
             odoo:19.0 \
-            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
             --workers=0 \
             --without-demo=True \
-            -d website_facodi_ci \
-            -i website_facodi \
-            --test-tags /website_facodi \
+            -d theme_facodi_ci \
+            -i theme_facodi \
+            --test-tags /theme_facodi \
             --stop-after-init
 
       - name: PostgreSQL logs on failure
