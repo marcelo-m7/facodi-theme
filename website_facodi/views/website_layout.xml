@@ -6,7 +6,6 @@
         </xpath>
         <xpath expr="//head" position="inside">
             <meta name="theme-color" content="#6a4bff"/>
-            <link rel="icon" type="image/svg+xml" href="/website_facodi/static/src/img/favicon.svg"/>
         </xpath>
     </template>
 </odoo>
