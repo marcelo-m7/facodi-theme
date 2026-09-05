@@ -17,7 +17,11 @@ grep -Fq 'Theme/Education' theme_facodi/__manifest__.py || fail "theme category 
 grep -Fq 'theme_facodi.primary_variables_scss' theme_facodi/data/ir_asset.xml || fail "primary variables asset key missing"
 grep -Fq 'web._assets_primary_variables' theme_facodi/data/ir_asset.xml || fail "primary variables bundle missing"
 
-if grep -R -nE 'request\.env|sudo\(\)|href="/theme_facodi/static/src/img/favicon\.svg"|/web/content/431' theme_facodi --include='*.xml'; then
+# The production-safe header mirrors Odoo's own website.layout header-state
+# expressions. Outside that compatibility shell, theme QWeb must not perform
+# business-data access or hard-code database-specific assets.
+if grep -R -nE 'request\.env|sudo\(\)|href="/theme_facodi/static/src/img/favicon\.svg"|/web/content/431' \
+    theme_facodi --include='*.xml' --exclude='header.xml'; then
   fail "theme QWeb contains business-data access, a database asset id, or a forced favicon"
 fi
 
@@ -28,8 +32,10 @@ if grep -Eq '^[[:space:]]*#wrapwrap[[:space:]]+h[1-6]' theme_facodi/static/src/s
   fail "website.scss must not override Website Builder heading colors globally"
 fi
 
-# Native selectable FACODI header: Odoo keeps the outer header, Website menus,
-# Portal identity and the standard mobile header. FACODI owns only composition.
+# Production-safe selectable FACODI header. Existing Website databases may have
+# COW/header customizations that remove the inner <nav>, so the FACODI template
+# owns the stable outer header shell while composing its contents exclusively
+# from Odoo Website/Portal building blocks.
 for path in \
   theme_facodi/models/__init__.py \
   theme_facodi/models/theme_models.py \
@@ -57,14 +63,19 @@ grep -Fq 'html_builder.assets' theme_facodi/__manifest__.py \
 grep -Fq 'theme_facodi/static/src/builder/**/*' theme_facodi/__manifest__.py \
   || fail "FACODI builder assets missing"
 
-if grep -R -n '<xpath[^>]*expr="//header"[^>]*position="replace"' theme_facodi --include='*.xml'; then
-  fail "theme must not replace the complete Odoo header"
-fi
-
 grep -Fq 'id="template_header_facodi"' theme_facodi/views/header.xml \
   || fail "selectable FACODI header template missing"
-grep -Fq 'xpath expr="//header//nav" position="replace"' theme_facodi/views/header.xml \
-  || fail "FACODI header must replace only the standard nav extension point"
+grep -Fq 'xpath expr="//header" position="replace"' theme_facodi/views/header.xml \
+  || fail "FACODI header must target the stable outer header shell"
+if grep -Fq 'xpath expr="//header//nav" position="replace"' theme_facodi/views/header.xml; then
+  fail "FACODI header must not depend on an existing inner nav"
+fi
+grep -Fq 't-if="not no_header"' theme_facodi/views/header.xml \
+  || fail "header must preserve the standard no_header contract"
+grep -Fq 'data-anchor="true"' theme_facodi/views/header.xml \
+  || fail "header must preserve the standard Odoo anchor"
+grep -Fq 't-call="website.navbar"' theme_facodi/views/header.xml \
+  || fail "header must compose the standard Website navbar"
 grep -Fq 'website.placeholder_header_brand' theme_facodi/views/header.xml \
   || fail "header must retain standard configurable Website brand"
 grep -Fq 'website.navbar_nav' theme_facodi/views/header.xml \
@@ -77,6 +88,12 @@ grep -Fq 'portal.placeholder_user_sign_in' theme_facodi/views/header.xml \
   || fail "header must retain standard Portal sign-in"
 grep -Fq 'portal.user_dropdown' theme_facodi/views/header.xml \
   || fail "header must retain standard Portal user dropdown"
+grep -Fq 'website.template_header_mobile' theme_facodi/views/header.xml \
+  || fail "header must retain the standard Odoo mobile header"
+grep -Fq 'header_bg_color_class' theme_facodi/views/header.xml \
+  || fail "header must preserve Website Builder header color state"
+grep -Fq 'header_visible' theme_facodi/views/header.xml \
+  || fail "header must preserve per-page header visibility"
 
 grep -Fq 't-inherit="website.HeaderTemplateOption"' theme_facodi/static/src/builder/header.xml \
   || fail "FACODI header must extend native header picker"
@@ -246,7 +263,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.5.0.0"' theme_facodi/__manifest__.py || fail "native-header release version missing"
+grep -Fq '"version": "19.0.5.0.1"' theme_facodi/__manifest__.py || fail "production-safe header release version missing"
 
 if grep -Rq 'prefers-color-scheme: dark\|background-image: none !important' theme_facodi/static/src/scss; then
   fail "partial dark mode or hidden editorial cover regression"
