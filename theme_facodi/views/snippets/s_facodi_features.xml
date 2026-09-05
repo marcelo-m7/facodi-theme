@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_features" name="FACODI Learning principles">
+        <section class="s_facodi_features facodi-section o_cc o_cc1" data-snippet="s_facodi_features" data-name="FACODI Learning principles">
+            <div class="container">
+                <h2 class="mb-4">Knowledge grows when it is shared.</h2>
+                <div class="facodi-grid">
+                    <article class="facodi-panel">
+                        <h3>Open resources</h3>
+                        <p>Explore materials you can study, discuss and share.</p>
+                    </article>
+                    <article class="facodi-panel">
+                        <h3>At your own pace</h3>
+                        <p>Organise your learning journey around your goals.</p>
+                    </article>
+                    <article class="facodi-panel">
+                        <h3>In community</h3>
+                        <p>Exchange perspectives and take part in building knowledge.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
