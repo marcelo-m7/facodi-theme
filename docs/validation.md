@@ -11,7 +11,7 @@ the existing development runtime on 8069 and Odoo Online were not modified.
 
 - Theme-only clean install and upgrade: passed; latest suite **8 tests**.
 - Independent Learning clean install and upgrade: passed.
-- Both addons clean install: passed; final combined upgrade **32 tests**, zero failures/errors (8 theme + 24 Learning).
+- Both addons clean install: passed; final combined upgrade **33 tests**, zero failures/errors (8 theme + 25 Learning).
 - Compiled frontend stylesheets fetched over HTTP; no Sass error CSS. Native default color combination uses Paper and Ink. The stock inline course gradient becomes Ink/Blue while editorial images remain intact.
 - Contract script: passed; QWeb, manifests, snippets, no runtime database IDs or Enterprise dependency.
 - Native page picker: all **10 compositions** render three editable FACODI sections.
