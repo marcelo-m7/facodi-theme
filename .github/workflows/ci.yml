@@ -17,6 +17,9 @@ jobs:
       - name: Theme repository contract
         run: bash tests/test_module_contract.sh
 
+      - name: Native Odoo i18n contract
+        run: bash tests/test_i18n_contract.sh
+
       - name: Checkout pinned Odoo design themes
         run: |
           git clone --filter=blob:none https://github.com/odoo/design-themes.git "$RUNNER_TEMP/design-themes"
