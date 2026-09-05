@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_faq" name="FACODI Frequently asked questions">
+        <section class="s_facodi_faq facodi-section o_cc o_cc1" data-snippet="s_facodi_faq" data-name="FACODI Frequently asked questions">
+            <div class="container">
+                <h2>Questions to get started.</h2>
+                <div class="facodi-faq">
+                    <details>
+                        <summary>Where can I find the courses?</summary>
+                        <p class="mt-3">Browse the available learning paths in the course catalogue.</p>
+                        <a href="/slides">Open course catalogue</a>
+                    </details>
+                    <details>
+                        <summary>How can I contribute?</summary>
+                        <p class="mt-3">Use the contact page to share your proposal with FACODI.</p>
+                        <a href="/contactus">Open contact page</a>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
