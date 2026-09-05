@@ -9,5 +9,7 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_learning_journey",
             "theme_facodi.s_facodi_institutional",
         }
-        views = self.env["ir.ui.view"].search([("key", "in", list(keys))])
+        # Theme modules are loaded as template records first; Odoo copies them
+        # to ir.ui.view only when the theme is applied to a website.
+        views = self.env["theme.ir.ui.view"].search([("key", "in", list(keys))])
         self.assertEqual(set(views.mapped("key")), keys)
