@@ -16,31 +16,32 @@
             <t t-snippet="theme_facodi.s_facodi_course_cta" string="Course catalogue CTA" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
         </xpath>
     </template>
+
     <template id="s_facodi_hero" name="FACODI Hero">
         <section class="s_facodi_hero facodi-hero o_cc o_cc1" data-snippet="s_facodi_hero" data-name="FACODI Hero">
             <div class="facodi-hero-copy">
                 <p class="facodi-kicker">
                     <i class="fa fa-circle" aria-hidden="true"/>
-                    Aprenda em comunidade
+                    <span>Learn together with the community</span>
                 </p>
-                <h1>Seu próximo capítulo começa em rede.</h1>
+                <h1>Your next chapter starts in a network.</h1>
                 <p class="facodi-lead">
-                    Currículos oficiais, recursos abertos e uma comunidade que transforma conhecimento em possibilidade.
+                    Official curricula, open resources and a community that turns knowledge into possibility.
                 </p>
                 <div class="facodi-actions">
                     <a class="btn facodi-button facodi-button-primary" href="/slides">
-                        Explorar cursos
+                        <span>Explore courses</span>
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true"/>
                     </a>
                     <a class="btn facodi-button facodi-button-secondary" href="/web/login">
-                        Continuar aprendendo
+                        <span>Continue learning</span>
                     </a>
                 </div>
             </div>
-            <div class="facodi-hero-board" aria-label="Mapa de aprendizagem">
+            <div class="facodi-hero-board" aria-label="Learning map">
                 <div class="facodi-board-top">
-                    <span>Mapa de aprendizagem</span>
-                    <span class="facodi-live-dot">Aberto</span>
+                    <span>Learning map</span>
+                    <span class="facodi-live-dot">Open</span>
                 </div>
                 <div class="facodi-board-path">
                     <div class="facodi-path-node is-complete">
@@ -53,21 +54,22 @@
                 </div>
                 <div class="facodi-board-cards">
                     <div>
-                        <span>Descubra</span>
-                        <strong>Encontre um curso</strong>
+                        <span>Discover</span>
+                        <strong>Find a course</strong>
                     </div>
                     <div class="is-selected">
-                        <span>Aprenda</span>
-                        <strong>No seu ritmo</strong>
+                        <span>Learn</span>
+                        <strong>At your own pace</strong>
                     </div>
                     <div>
-                        <span>Contribua</span>
-                        <strong>Em comunidade</strong>
+                        <span>Contribute</span>
+                        <strong>In community</strong>
                     </div>
                 </div>
             </div>
         </section>
     </template>
+
     <template id="s_facodi_learning_journey" name="FACODI Learning Journey">
         <section class="s_facodi_learning_journey o_cc o_cc1 py-5" data-snippet="s_facodi_learning_journey" data-name="Learning Journey">
             <div class="container py-lg-4">
@@ -75,149 +77,150 @@
                     <div>
                         <p class="facodi-kicker">
                             <i class="fa fa-circle" aria-hidden="true"/>
-                            Como funciona
+                            <span>How it works</span>
                         </p>
-                        <h2>Três passos para começar a aprender.</h2>
+                        <h2>Three steps to start learning.</h2>
                     </div>
                 </div>
                 <div class="facodi-stat-row">
                     <article class="facodi-stat-card facodi-mint">
-                        <span>Passo 01</span>
-                        <strong>Descubra</strong>
-                        <small>Explore o catálogo e encontre um percurso alinhado aos seus objetivos.</small>
+                        <span>Step 01</span>
+                        <strong>Discover</strong>
+                        <small>Explore the catalogue and find a learning path aligned with your goals.</small>
                         <i class="fa fa-search" aria-hidden="true"/>
                     </article>
                     <article class="facodi-stat-card facodi-sky">
-                        <span>Passo 02</span>
-                        <strong>Aprenda</strong>
-                        <small>Siga conteúdos organizados ao seu ritmo e acompanhe a sua evolução.</small>
+                        <span>Step 02</span>
+                        <strong>Learn</strong>
+                        <small>Follow organised content at your own pace and track your progress.</small>
                         <i class="fa fa-book" aria-hidden="true"/>
                     </article>
                     <article class="facodi-stat-card facodi-sun">
-                        <span>Passo 03</span>
-                        <strong>Contribua</strong>
-                        <small>Partilhe recursos e ajude outras pessoas a construir conhecimento.</small>
+                        <span>Step 03</span>
+                        <strong>Contribute</strong>
+                        <small>Share resources and help other people build knowledge.</small>
                         <i class="fa fa-users" aria-hidden="true"/>
                     </article>
                 </div>
             </div>
         </section>
     </template>
+
     <template id="s_facodi_institutional" name="FACODI Institutional">
         <section class="s_facodi_institutional facodi-open-section o_cc o_cc2" data-snippet="s_facodi_institutional" data-name="FACODI Institutional">
             <div>
                 <p class="facodi-kicker">
                     <i class="fa fa-circle" aria-hidden="true"/>
-                    Conhecimento que circula
+                    <span>Knowledge in motion</span>
                 </p>
-                <h2>Uma faculdade aberta para quem quer construir o futuro.</h2>
+                <h2>An open college for anyone who wants to build the future.</h2>
             </div>
             <div class="facodi-open-actions">
                 <p>
-                    Estude com roteiros claros, contribua com recursos revistos e transforme o seu percurso em algo que outras pessoas também podem seguir.
+                    Study with clear learning paths, contribute reviewed resources and turn your journey into something other people can follow too.
                 </p>
                 <a class="btn facodi-button facodi-button-secondary" href="/contactus">
-                    Contactar a FACODI
+                    <span>Contact FACODI</span>
                     <i class="fa fa-arrow-right ms-1" aria-hidden="true"/>
                 </a>
             </div>
         </section>
     </template>
+
     <template id="s_facodi_intro" name="FACODI Editorial intro">
         <section class="s_facodi_intro facodi-section o_cc o_cc1" data-snippet="s_facodi_intro" data-name="FACODI Editorial intro">
             <div class="container">
-                <p class="facodi-kicker">FACODI · Conhecimento aberto</p>
-                <h1>Aprender é construir em conjunto.</h1>
-                <p class="facodi-lead">Um espaço para apresentar ideias, partilhar recursos e dar contexto ao seu percurso de aprendizagem.</p>
+                <p class="facodi-kicker">FACODI · Open knowledge</p>
+                <h1>Learning means building together.</h1>
+                <p class="facodi-lead">A space to present ideas, share resources and give context to your learning journey.</p>
             </div>
         </section>
     </template>
+
     <template id="s_facodi_features" name="FACODI Learning principles">
         <section class="s_facodi_features facodi-section o_cc o_cc1" data-snippet="s_facodi_features" data-name="FACODI Learning principles">
             <div class="container">
-                <h2 class="mb-4">Conhecimento que se partilha.</h2>
+                <h2 class="mb-4">Knowledge grows when it is shared.</h2>
                 <div class="facodi-grid">
                     <article class="facodi-panel">
-                        <h3>Recursos abertos</h3>
-                        <p>Explore materiais que pode estudar, discutir e partilhar.</p>
+                        <h3>Open resources</h3>
+                        <p>Explore materials you can study, discuss and share.</p>
                     </article>
                     <article class="facodi-panel">
-                        <h3>No seu ritmo</h3>
-                        <p>Organize o seu percurso de acordo com os seus objetivos.</p>
+                        <h3>At your own pace</h3>
+                        <p>Organise your learning journey around your goals.</p>
                     </article>
                     <article class="facodi-panel">
-                        <h3>Em comunidade</h3>
-                        <p>Troque perspetivas e participe na construção de conhecimento.</p>
+                        <h3>In community</h3>
+                        <p>Exchange perspectives and take part in building knowledge.</p>
                     </article>
                 </div>
             </div>
         </section>
     </template>
+
     <template id="s_facodi_community" name="FACODI Community and contribution">
         <section class="s_facodi_community facodi-section o_cc o_cc1" data-snippet="s_facodi_community" data-name="FACODI Community and contribution">
             <div class="container">
-                <h2>O conhecimento cresce com a sua participação.</h2>
-                <p class="facodi-lead">Partilhe uma ideia, proponha um recurso ou converse connosco sobre formas de colaborar.</p>
+                <h2>Knowledge grows through your participation.</h2>
+                <p class="facodi-lead">Share an idea, propose a resource or talk to us about ways to collaborate.</p>
                 <div class="facodi-actions">
-                    <a href="/contactus" class="btn facodi-button facodi-button-primary">Quero contribuir</a>
+                    <a href="/contactus" class="btn facodi-button facodi-button-primary">I want to contribute</a>
                 </div>
             </div>
         </section>
     </template>
+
     <template id="s_facodi_roadmap" name="FACODI Roadmap">
         <section class="s_facodi_roadmap facodi-section o_cc o_cc1" data-snippet="s_facodi_roadmap" data-name="FACODI Roadmap">
             <div class="container">
-                <h2 class="mb-4">Do propósito à prática.</h2>
+                <h2 class="mb-4">From purpose to practice.</h2>
                 <ol class="facodi-grid list-unstyled">
                     <li class="facodi-panel">
-                        <h3>Escutar</h3>
-                        <p>Identificar necessidades e reunir contributos da comunidade.</p>
+                        <h3>Listen</h3>
+                        <p>Identify needs and gather contributions from the community.</p>
                     </li>
                     <li class="facodi-panel">
-                        <h3>Construir</h3>
-                        <p>Organizar recursos e desenvolver percursos de aprendizagem.</p>
+                        <h3>Build</h3>
+                        <p>Organise resources and develop learning paths.</p>
                     </li>
                     <li class="facodi-panel">
-                        <h3>Rever</h3>
-                        <p>Aprender com a experiência e melhorar em conjunto.</p>
+                        <h3>Review</h3>
+                        <p>Learn from experience and improve together.</p>
                     </li>
                 </ol>
             </div>
         </section>
     </template>
+
     <template id="s_facodi_faq" name="FACODI Frequently asked questions">
         <section class="s_facodi_faq facodi-section o_cc o_cc1" data-snippet="s_facodi_faq" data-name="FACODI Frequently asked questions">
             <div class="container">
-                <h2>Perguntas para começar.</h2>
+                <h2>Questions to get started.</h2>
                 <div class="facodi-faq">
                     <details>
-                        <summary>Onde encontro os cursos?</summary>
-                        <p class="mt-3">
-                            Consulte o
-                            <a href="/slides">catálogo de cursos</a>
-                             para conhecer os percursos disponíveis.
-                        </p>
+                        <summary>Where can I find the courses?</summary>
+                        <p class="mt-3">Browse the available learning paths in the course catalogue.</p>
+                        <a href="/slides">Open course catalogue</a>
                     </details>
                     <details>
-                        <summary>Como posso contribuir?</summary>
-                        <p class="mt-3">
-                            Use a
-                            <a href="/contactus">página de contacto</a>
-                             para partilhar a sua proposta com a FACODI.
-                        </p>
+                        <summary>How can I contribute?</summary>
+                        <p class="mt-3">Use the contact page to share your proposal with FACODI.</p>
+                        <a href="/contactus">Open contact page</a>
                     </details>
                 </div>
             </div>
         </section>
     </template>
+
     <template id="s_facodi_course_cta" name="FACODI Course catalogue CTA">
         <section class="s_facodi_course_cta facodi-section o_cc o_cc1" data-snippet="s_facodi_course_cta" data-name="FACODI Course catalogue CTA">
             <div class="container">
-                <h2>Encontre o seu próximo percurso.</h2>
-                <p class="facodi-lead">Explore os cursos e escolha por onde quer começar.</p>
+                <h2>Find your next learning path.</h2>
+                <p class="facodi-lead">Explore the courses and choose where you want to begin.</p>
                 <div class="facodi-actions">
                     <a href="/slides" class="btn facodi-button facodi-button-primary">
-                        Explorar cursos
+                        <span>Explore courses</span>
                         <i class="fa fa-arrow-right" aria-hidden="true"/>
                     </a>
                 </div>
