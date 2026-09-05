@@ -28,7 +28,6 @@
     },
     "assets": {
         "web.assets_frontend": [
-            "theme_facodi/static/src/scss/bootstrap_overridden.scss",
             "theme_facodi/static/src/scss/components.scss",
             "theme_facodi/static/src/scss/website.scss",
             "theme_facodi/static/src/scss/snippets.scss",

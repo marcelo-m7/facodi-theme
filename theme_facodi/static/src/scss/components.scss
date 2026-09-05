@@ -1,5 +1,5 @@
 .facodi-kicker {
-    color: $facodi-purple;
+    color: $primary;
     font-size: .8125rem;
     font-weight: 700;
     letter-spacing: .08em;
@@ -7,8 +7,8 @@
 }
 
 .facodi-card {
-    border: 1px solid rgba($facodi-ink, .12);
+    border: 1px solid rgba($body-color, .12);
     border-radius: 1rem;
-    background: $facodi-white;
-    box-shadow: 0 .5rem 2rem rgba($facodi-ink, .06);
+    background: $white;
+    box-shadow: 0 .5rem 2rem rgba($body-color, .06);
 }
