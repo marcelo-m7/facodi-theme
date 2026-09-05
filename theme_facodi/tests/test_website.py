@@ -12,9 +12,9 @@ class TestFacodiTheme(HttpCase):
         )
         cls.assertTrue(theme, "theme_facodi module record must exist")
         website.theme_id = theme
-        theme._theme_get_stream_themes().with_context(load_all_views=True)._theme_load(
-            website
-        )
+        theme._theme_get_stream_themes().with_context(
+            load_all_views=True, apply_new_theme=True
+        )._theme_load(website)
 
     def test_facodi_snippets_are_registered(self):
         keys = {
