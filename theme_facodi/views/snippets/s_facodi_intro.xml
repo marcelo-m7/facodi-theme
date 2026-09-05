@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_intro" name="FACODI Editorial intro">
+        <section class="s_facodi_intro facodi-section o_cc o_cc1" data-snippet="s_facodi_intro" data-name="FACODI Editorial intro">
+            <div class="container">
+                <p class="facodi-kicker">FACODI · Open knowledge</p>
+                <h1>Learning means building together.</h1>
+                <p class="facodi-lead">A space to present ideas, share resources and give context to your learning journey.</p>
+            </div>
+        </section>
+    </template>
+</odoo>
