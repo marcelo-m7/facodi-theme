@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<odoo>
+    <template id="new_page_template_groups" inherit_id="website.new_page_template_groups" name="FACODI page compositions">
+        <xpath expr="//div[@id='basic']" position="after">
+            <div id="facodi">FACODI</div>
+        </xpath>
+    </template>
+    <!-- Odoo 19 page generator cannot format qualified snippet keys (list vs tuple).
+         Keep native primary section templates explicit until upstream fixes it. -->
+    <template id="new_page_template_sections_facodi_about" name="FACODI About">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_institutional"/>
+            <t t-snippet-call="theme_facodi.s_facodi_features"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_community" name="FACODI Community">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_community"/>
+            <t t-snippet-call="theme_facodi.s_facodi_faq"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_contribution" name="FACODI Contribution">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_features"/>
+            <t t-snippet-call="theme_facodi.s_facodi_community"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_editorial" name="FACODI Editorial">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_features"/>
+            <t t-snippet-call="theme_facodi.s_facodi_course_cta"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_home" name="FACODI Home">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_hero"/>
+            <t t-snippet-call="theme_facodi.s_facodi_learning_journey"/>
+            <t t-snippet-call="theme_facodi.s_facodi_course_cta"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_how" name="FACODI How">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_learning_journey"/>
+            <t t-snippet-call="theme_facodi.s_facodi_faq"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_manifesto" name="FACODI Manifesto">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_institutional"/>
+            <t t-snippet-call="theme_facodi.s_facodi_community"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_partners" name="FACODI Partners">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_features"/>
+            <t t-snippet-call="theme_facodi.s_facodi_community"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_pathways" name="FACODI Pathways">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_learning_journey"/>
+            <t t-snippet-call="theme_facodi.s_facodi_course_cta"/>
+        </div>
+    </template>
+    <template id="new_page_template_sections_facodi_roadmap" name="FACODI Roadmap">
+        <div id="wrap">
+            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_roadmap"/>
+            <t t-snippet-call="theme_facodi.s_facodi_community"/>
+        </div>
+    </template>
+</odoo>

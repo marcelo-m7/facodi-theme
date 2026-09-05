@@ -28,44 +28,18 @@
                         </button>
 
                         <div id="top_menu_collapse" class="collapse navbar-collapse">
-                            <ul class="navbar-nav top_menu ms-auto align-items-lg-center gap-lg-1">
+                            <ul id="top_menu" class="navbar-nav top_menu ms-auto align-items-lg-center gap-lg-1">
                                 <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                    <li t-if="submenu.is_visible and submenu.child_id"
-                                        class="nav-item dropdown facodi-menu-item"
-                                        role="presentation">
-                                        <a t-att-href="submenu.page_id.url if submenu.page_id else submenu._clean_url()"
-                                           class="nav-link facodi-menu-parent-link"
-                                           role="menuitem"
-                                           aria-haspopup="true">
-                                            <span t-field="submenu.name"/>
-                                        </a>
-                                        <ul class="dropdown-menu facodi-dropdown-menu" role="menu">
-                                            <t t-foreach="submenu.child_id" t-as="child">
-                                                <li t-if="child.is_visible" role="presentation">
-                                                    <a t-att-href="child._clean_url()"
-                                                       class="dropdown-item"
-                                                       role="menuitem">
-                                                        <span t-field="child.name"/>
-                                                    </a>
-                                                </li>
-                                            </t>
-                                        </ul>
-                                    </li>
-                                    <li t-elif="submenu.is_visible"
-                                        class="nav-item facodi-menu-item"
-                                        role="presentation">
-                                        <a t-att-href="submenu._clean_url()"
-                                           class="nav-link"
-                                           role="menuitem">
-                                            <span t-field="submenu.name"/>
-                                        </a>
-                                    </li>
+                                    <t t-call="website.submenu"
+                                       item_class.f="nav-item"
+                                       link_class.f="nav-link"
+                                       dropdown_menu_classes.f="facodi-dropdown-menu"/>
                                 </t>
-
                                 <t t-call="portal.placeholder_user_sign_in"
                                    _item_class.f="nav-item ms-lg-2"
                                    _link_class.f="btn facodi-button facodi-button-primary"/>
                                 <t t-call="portal.user_dropdown"
+                                   _user_name="True"
                                    _item_class.f="nav-item dropdown ms-lg-2"
                                    _link_class.f="btn facodi-button facodi-button-primary border-0"
                                    _dropdown_menu_class.f="dropdown-menu-end"/>
@@ -93,8 +67,7 @@
                                 <span t-field="footer_menu.name"/>
                             </a>
                         </t>
-                        <a href="/contactus">Contato</a>
-                        <a href="/web/login">Minha conta</a>
+                        <a href="/my">Minha conta</a>
                     </nav>
 
                     <p class="facodi-footer-meta">

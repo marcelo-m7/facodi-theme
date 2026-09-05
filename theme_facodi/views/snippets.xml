@@ -1,32 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" ?>
 <odoo>
     <template id="snippets" inherit_id="website.snippets" name="FACODI snippets">
         <xpath expr="//t[@id='installed_snippets_hook']" position="after">
-            <t snippet-group="facodi"
-               t-snippet="website.s_snippet_group"
-               string="FACODI"
-               t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t snippet-group="facodi" t-snippet="website.s_snippet_group" string="FACODI" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
         </xpath>
         <xpath expr="//snippets[@id='snippet_structure']" position="inside">
-            <t t-snippet="theme_facodi.s_facodi_hero"
-               string="FACODI Hero"
-               group="facodi"
-               t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
-            <t t-snippet="theme_facodi.s_facodi_learning_journey"
-               string="Learning Journey"
-               group="facodi"
-               t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
-            <t t-snippet="theme_facodi.s_facodi_institutional"
-               string="Institutional"
-               group="facodi"
-               t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_hero" string="FACODI Hero" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_learning_journey" string="Learning Journey" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_institutional" string="Institutional" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_intro" string="Editorial intro" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_features" string="Learning principles" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_community" string="Community and contribution" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_roadmap" string="Roadmap" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_faq" string="Frequently asked questions" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_course_cta" string="Course catalogue CTA" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
         </xpath>
     </template>
-
     <template id="s_facodi_hero" name="FACODI Hero">
-        <section class="s_facodi_hero facodi-hero o_cc o_cc1"
-                 data-snippet="s_facodi_hero"
-                 data-name="FACODI Hero">
+        <section class="s_facodi_hero facodi-hero o_cc o_cc1" data-snippet="s_facodi_hero" data-name="FACODI Hero">
             <div class="facodi-hero-copy">
                 <p class="facodi-kicker">
                     <i class="fa fa-circle" aria-hidden="true"/>
@@ -46,7 +37,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="facodi-hero-board" aria-label="Mapa de aprendizagem">
                 <div class="facodi-board-top">
                     <span>Mapa de aprendizagem</span>
@@ -62,18 +52,24 @@
                     <div class="facodi-path-node">03</div>
                 </div>
                 <div class="facodi-board-cards">
-                    <div><span>Descubra</span><strong>Encontre um curso</strong></div>
-                    <div class="is-selected"><span>Aprenda</span><strong>No seu ritmo</strong></div>
-                    <div><span>Contribua</span><strong>Em comunidade</strong></div>
+                    <div>
+                        <span>Descubra</span>
+                        <strong>Encontre um curso</strong>
+                    </div>
+                    <div class="is-selected">
+                        <span>Aprenda</span>
+                        <strong>No seu ritmo</strong>
+                    </div>
+                    <div>
+                        <span>Contribua</span>
+                        <strong>Em comunidade</strong>
+                    </div>
                 </div>
             </div>
         </section>
     </template>
-
     <template id="s_facodi_learning_journey" name="FACODI Learning Journey">
-        <section class="s_facodi_learning_journey o_cc o_cc1 py-5"
-                 data-snippet="s_facodi_learning_journey"
-                 data-name="Learning Journey">
+        <section class="s_facodi_learning_journey o_cc o_cc1 py-5" data-snippet="s_facodi_learning_journey" data-name="Learning Journey">
             <div class="container py-lg-4">
                 <div class="facodi-section-heading">
                     <div>
@@ -84,7 +80,6 @@
                         <h2>Três passos para começar a aprender.</h2>
                     </div>
                 </div>
-
                 <div class="facodi-stat-row">
                     <article class="facodi-stat-card facodi-mint">
                         <span>Passo 01</span>
@@ -108,11 +103,8 @@
             </div>
         </section>
     </template>
-
     <template id="s_facodi_institutional" name="FACODI Institutional">
-        <section class="s_facodi_institutional facodi-open-section o_cc o_cc2"
-                 data-snippet="s_facodi_institutional"
-                 data-name="FACODI Institutional">
+        <section class="s_facodi_institutional facodi-open-section o_cc o_cc2" data-snippet="s_facodi_institutional" data-name="FACODI Institutional">
             <div>
                 <p class="facodi-kicker">
                     <i class="fa fa-circle" aria-hidden="true"/>
@@ -128,6 +120,107 @@
                     Contactar a FACODI
                     <i class="fa fa-arrow-right ms-1" aria-hidden="true"/>
                 </a>
+            </div>
+        </section>
+    </template>
+    <template id="s_facodi_intro" name="FACODI Editorial intro">
+        <section class="s_facodi_intro facodi-section o_cc o_cc1" data-snippet="s_facodi_intro" data-name="FACODI Editorial intro">
+            <div class="container">
+                <p class="facodi-kicker">FACODI · Conhecimento aberto</p>
+                <h1>Aprender é construir em conjunto.</h1>
+                <p class="facodi-lead">Um espaço para apresentar ideias, partilhar recursos e dar contexto ao seu percurso de aprendizagem.</p>
+            </div>
+        </section>
+    </template>
+    <template id="s_facodi_features" name="FACODI Learning principles">
+        <section class="s_facodi_features facodi-section o_cc o_cc1" data-snippet="s_facodi_features" data-name="FACODI Learning principles">
+            <div class="container">
+                <h2 class="mb-4">Conhecimento que se partilha.</h2>
+                <div class="facodi-grid">
+                    <article class="facodi-panel">
+                        <h3>Recursos abertos</h3>
+                        <p>Explore materiais que pode estudar, discutir e partilhar.</p>
+                    </article>
+                    <article class="facodi-panel">
+                        <h3>No seu ritmo</h3>
+                        <p>Organize o seu percurso de acordo com os seus objetivos.</p>
+                    </article>
+                    <article class="facodi-panel">
+                        <h3>Em comunidade</h3>
+                        <p>Troque perspetivas e participe na construção de conhecimento.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="s_facodi_community" name="FACODI Community and contribution">
+        <section class="s_facodi_community facodi-section o_cc o_cc1" data-snippet="s_facodi_community" data-name="FACODI Community and contribution">
+            <div class="container">
+                <h2>O conhecimento cresce com a sua participação.</h2>
+                <p class="facodi-lead">Partilhe uma ideia, proponha um recurso ou converse connosco sobre formas de colaborar.</p>
+                <div class="facodi-actions">
+                    <a href="/contactus" class="btn facodi-button facodi-button-primary">Quero contribuir</a>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="s_facodi_roadmap" name="FACODI Roadmap">
+        <section class="s_facodi_roadmap facodi-section o_cc o_cc1" data-snippet="s_facodi_roadmap" data-name="FACODI Roadmap">
+            <div class="container">
+                <h2 class="mb-4">Do propósito à prática.</h2>
+                <ol class="facodi-grid list-unstyled">
+                    <li class="facodi-panel">
+                        <h3>Escutar</h3>
+                        <p>Identificar necessidades e reunir contributos da comunidade.</p>
+                    </li>
+                    <li class="facodi-panel">
+                        <h3>Construir</h3>
+                        <p>Organizar recursos e desenvolver percursos de aprendizagem.</p>
+                    </li>
+                    <li class="facodi-panel">
+                        <h3>Rever</h3>
+                        <p>Aprender com a experiência e melhorar em conjunto.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </template>
+    <template id="s_facodi_faq" name="FACODI Frequently asked questions">
+        <section class="s_facodi_faq facodi-section o_cc o_cc1" data-snippet="s_facodi_faq" data-name="FACODI Frequently asked questions">
+            <div class="container">
+                <h2>Perguntas para começar.</h2>
+                <div class="facodi-faq">
+                    <details>
+                        <summary>Onde encontro os cursos?</summary>
+                        <p class="mt-3">
+                            Consulte o
+                            <a href="/slides">catálogo de cursos</a>
+                             para conhecer os percursos disponíveis.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Como posso contribuir?</summary>
+                        <p class="mt-3">
+                            Use a
+                            <a href="/contactus">página de contacto</a>
+                             para partilhar a sua proposta com a FACODI.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="s_facodi_course_cta" name="FACODI Course catalogue CTA">
+        <section class="s_facodi_course_cta facodi-section o_cc o_cc1" data-snippet="s_facodi_course_cta" data-name="FACODI Course catalogue CTA">
+            <div class="container">
+                <h2>Encontre o seu próximo percurso.</h2>
+                <p class="facodi-lead">Explore os cursos e escolha por onde quer começar.</p>
+                <div class="facodi-actions">
+                    <a href="/slides" class="btn facodi-button facodi-button-primary">
+                        Explorar cursos
+                        <i class="fa fa-arrow-right" aria-hidden="true"/>
+                    </a>
+                </div>
             </div>
         </section>
     </template>

@@ -49,6 +49,7 @@ jobs:
             -e USER=odoo \
             -e PASSWORD=odoo \
             -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
             -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
             odoo:19.0 \
             --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
@@ -58,6 +59,20 @@ jobs:
             -i theme_facodi \
             --test-tags /theme_facodi \
             --stop-after-init
+
+      - name: Upgrade theme and rerun regression tests
+        run: |
+          docker run --rm \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 --without-demo=True \
+            -d theme_facodi_ci -u theme_facodi \
+            --test-tags /theme_facodi --stop-after-init
 
       - name: PostgreSQL logs on failure
         if: failure()
