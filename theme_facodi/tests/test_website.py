@@ -13,3 +13,17 @@ class TestFacodiTheme(HttpCase):
         # to ir.ui.view only when the theme is applied to a website.
         views = self.env["theme.ir.ui.view"].search([("key", "in", list(keys))])
         self.assertEqual(set(views.mapped("key")), keys)
+
+    def test_homepage_uses_facodi_layout_class(self):
+        response = self.url_open("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("facodi-site", response.text)
+
+    def test_standard_favicon_is_not_replaced(self):
+        response = self.url_open("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn("/theme_facodi/static/src/img/favicon.svg", response.text)
+
+    def test_elearning_catalog_renders(self):
+        response = self.url_open("/slides")
+        self.assertEqual(response.status_code, 200)
