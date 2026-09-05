@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_community" name="FACODI Community and contribution">
+        <section class="s_facodi_community facodi-section o_cc o_cc1" data-snippet="s_facodi_community" data-name="FACODI Community and contribution">
+            <div class="container">
+                <h2>Knowledge grows through your participation.</h2>
+                <p class="facodi-lead">Share an idea, propose a resource or talk to us about ways to collaborate.</p>
+                <div class="facodi-actions">
+                    <a href="/contactus" class="btn facodi-button facodi-button-primary">I want to contribute</a>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
