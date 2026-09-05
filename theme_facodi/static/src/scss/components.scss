@@ -91,8 +91,8 @@
         padding: 1.0625rem;
         position: relative;
 
-        > span,
-        > small {
+        > .facodi-stat-eyebrow,
+        > .facodi-stat-copy {
             display: block;
             font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
             font-size: .64rem;
@@ -101,10 +101,11 @@
             text-transform: uppercase;
         }
 
-        > strong {
+        > .facodi-stat-title {
             display: block;
             font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
             font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+            font-weight: 700;
             line-height: 1;
             margin: 1.125rem 0 .3125rem;
         }
