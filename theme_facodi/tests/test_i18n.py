@@ -35,6 +35,14 @@ class TestFacodiThemeTranslations(HttpCase):
             cls.website
         )
 
+    def _website_view(self, key):
+        view = self.env["ir.ui.view"].search(
+            [("key", "=", key), ("website_id", "=", self.website.id)],
+            limit=1,
+        )
+        self.assertTrue(view, f"website view {key} must exist")
+        return view
+
     def test_english_is_the_default_website_language(self):
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
@@ -46,31 +54,72 @@ class TestFacodiThemeTranslations(HttpCase):
 
     def test_standard_website_language_routes_render_theme_translations(self):
         cases = {
-            "pt": "Faculdade Comunitária Digital. Ensino superior aberto, colaborativo e acessível.",
-            "es": "Facultad Comunitaria Digital. Educación superior abierta, colaborativa y accesible.",
-            "fr": "Faculté Communautaire Numérique. Enseignement supérieur ouvert, collaboratif et accessible.",
+            "pt": (
+                "Faculdade Comunitária Digital. Ensino superior aberto, colaborativo e acessível.",
+                "Código aberto para aprender em público.",
+                "Criado por",
+            ),
+            "es": (
+                "Facultad Comunitaria Digital. Educación superior abierta, colaborativa y accesible.",
+                "Código abierto para aprender en público.",
+                "Creado por",
+            ),
+            "fr": (
+                "Faculté Communautaire Numérique. Enseignement supérieur ouvert, collaboratif et accessible.",
+                "Code ouvert pour apprendre en public.",
+                "Créé par",
+            ),
         }
-        for url_code, expected in cases.items():
+        for url_code, expected_terms in cases.items():
             with self.subTest(language=url_code):
                 response = self.url_open(f"/{url_code}/")
                 self.assertEqual(response.status_code, 200)
-                self.assertIn(expected, response.text)
+                for expected in expected_terms:
+                    self.assertIn(expected, response.text)
 
     def test_builder_snippet_copy_uses_native_translations(self):
-        view = self.env["ir.ui.view"].search(
-            [
-                ("key", "=", "theme_facodi.s_facodi_hero"),
-                ("website_id", "=", self.website.id),
-            ],
-            limit=1,
-        )
-        self.assertTrue(view)
+        hero = self._website_view("theme_facodi.s_facodi_hero")
         expected_by_lang = {
-            "en_US": "Learn together with the community",
-            "pt_PT": "Aprenda em comunidade",
-            "es_ES": "Aprende en comunidad",
-            "fr_FR": "Apprenez avec la communauté",
+            "en_US": (
+                "Learn together with the community",
+                "Explore courses",
+                "Learning map",
+                "Find a course",
+            ),
+            "pt_PT": (
+                "Aprenda em comunidade",
+                "Explorar cursos",
+                "Mapa de aprendizagem",
+                "Encontre um curso",
+            ),
+            "es_ES": (
+                "Aprende en comunidad",
+                "Explorar cursos",
+                "Mapa de aprendizaje",
+                "Encuentra un curso",
+            ),
+            "fr_FR": (
+                "Apprenez avec la communauté",
+                "Explorer les cours",
+                "Carte d’apprentissage",
+                "Trouvez un cours",
+            ),
         }
-        for lang, expected in expected_by_lang.items():
+        for lang, expected_terms in expected_by_lang.items():
             with self.subTest(language=lang):
-                self.assertIn(expected, view.with_context(lang=lang).arch_db)
+                arch = hero.with_context(lang=lang).arch_db
+                for expected in expected_terms:
+                    self.assertIn(expected, arch)
+
+    def test_learning_journey_cards_use_native_translations(self):
+        journey = self._website_view("theme_facodi.s_facodi_learning_journey")
+        expected_by_lang = {
+            "pt_PT": ("Como funciona", "Passo 01", "Descubra"),
+            "es_ES": ("Cómo funciona", "Paso 01", "Descubre"),
+            "fr_FR": ("Comment ça fonctionne", "Étape 01", "Découvrez"),
+        }
+        for lang, expected_terms in expected_by_lang.items():
+            with self.subTest(language=lang):
+                arch = journey.with_context(lang=lang).arch_db
+                for expected in expected_terms:
+                    self.assertIn(expected, arch)
