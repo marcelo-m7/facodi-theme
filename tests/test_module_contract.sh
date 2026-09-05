@@ -10,6 +10,7 @@ fail() {
 [[ ! -e website_facodi ]] || fail "legacy website_facodi addon must not remain installable"
 [[ -f theme_facodi/data/generate_primary_template.xml ]] || fail "primary template generator missing"
 [[ -f theme_facodi/data/ir_asset.xml ]] || fail "theme primary asset record missing"
+[[ ! -d theme_facodi/controllers ]] || fail "presentation theme must not add parallel learning routes/controllers"
 
 grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
