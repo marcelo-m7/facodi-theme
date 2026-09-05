@@ -1,3 +1,5 @@
+> Historical document: superseded where inconsistent with [current architecture](../../architecture.md) and the 2026-09-05 finalization plan.
+
 # FACODI Odoo 19 Website Theme Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
