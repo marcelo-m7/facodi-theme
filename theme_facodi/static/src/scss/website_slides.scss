@@ -1,36 +1,60 @@
-.facodi-site .o_wslides_home_main,
-.facodi-site .o_wslides_course_main {
-    color: $body-color;
-}
+body.o_wslides_body .facodi-site {
+    .o_record_cover_container[data-res-model="slide.channel"] {
+        background-color: var(--facodi-ink) !important;
+        background-image: none !important;
 
-.facodi-site .o_wslides_course_card {
-    overflow: hidden;
-    border-radius: 1rem;
-    border-color: rgba($body-color, .12);
-    transition: transform .2s ease, box-shadow .2s ease;
-}
+        .o_wslides_course_nav,
+        .o_wslides_course_nav_search {
+            background-color: rgba(20, 40, 70, .72);
+            border-color: rgba(255, 255, 255, .28);
+        }
 
-@media (hover: hover) {
-    .facodi-site .o_wslides_course_card:hover {
-        transform: translateY(-.125rem);
-        box-shadow: 0 .75rem 2rem rgba($body-color, .08);
+        .o_wslides_course_header,
+        .o_wslides_lesson_header {
+            color: #fff;
+        }
     }
-}
 
-.facodi-site .o_wslides_slides_list_slide {
-    border-radius: .75rem;
-}
+    .o_wslides_js_course_join_link.btn-primary,
+    .o_wslides_done_button.btn-primary {
+        background-color: var(--facodi-blue);
+        border: 2px solid var(--facodi-ink);
+        box-shadow: 2px 2px 0 var(--facodi-ink);
 
-.facodi-site .progress-bar {
-    background-color: $primary;
+        &:hover {
+            background-color: var(--facodi-cyan);
+            color: var(--facodi-ink);
+        }
+    }
+
+    .o_wslides_course_card {
+        border: 2px solid var(--facodi-ink);
+        border-radius: .625rem;
+        box-shadow: 3px 3px 0 var(--facodi-ink);
+        overflow: hidden;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+
+        &:hover {
+            box-shadow: 1px 1px 0 var(--facodi-ink);
+            transform: translate(2px, 2px);
+        }
+    }
+
+    .o_wslides_slides_list_slide {
+        border-radius: .5rem;
+    }
+
+    .progress-bar {
+        background-color: var(--facodi-blue);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .facodi-site .o_wslides_course_card {
+    body.o_wslides_body .facodi-site .o_wslides_course_card {
         transition: none;
-    }
 
-    .facodi-site .o_wslides_course_card:hover {
-        transform: none;
+        &:hover {
+            transform: none;
+        }
     }
 }

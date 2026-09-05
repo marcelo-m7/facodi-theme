@@ -1,39 +1,41 @@
-// FACODI Odoo Website theme variables.
+// FACODI Odoo Website theme variables, sourced from edu-open2.odoo.com.
 // Keep presentation tokens here so standard Website Builder controls remain authoritative.
 
-$facodi-purple: #6a4bff;
-$facodi-blue: #5dc7ff;
-$facodi-surface: #f7f6ff;
+$facodi-ink: #142846;
+$facodi-cyan: #37BED2;
+$facodi-blue: #3979C8;
+$facodi-mint: #A7E8BE;
+$facodi-sun: #EFFF00;
+$facodi-paper: #F9FAFB;
+$facodi-line: #40536D;
 $facodi-white: #ffffff;
-$facodi-ink: #1f1e42;
-$facodi-heading: #111035;
 
 $o-color-palettes: map-merge($o-color-palettes, (
     'facodi': (
-        'o-color-1': $facodi-purple,
-        'o-color-2': $facodi-blue,
-        'o-color-3': $facodi-surface,
+        'o-color-1': $facodi-ink,
+        'o-color-2': $facodi-sun,
+        'o-color-3': $facodi-paper,
         'o-color-4': $facodi-white,
         'o-color-5': $facodi-ink,
-        'o-cc1-bg': 'o-color-4',
+        'o-cc1-bg': 'o-color-3',
         'o-cc1-text': 'o-color-5',
         'o-cc1-headings': 'o-color-5',
         'o-cc1-link': 'o-color-1',
-        'o-cc1-btn-primary': 'o-color-1',
-        'o-cc1-btn-primary-text': 'o-color-4',
-        'o-cc2-bg': 'o-color-3',
+        'o-cc1-btn-primary': 'o-color-2',
+        'o-cc1-btn-primary-text': 'o-color-1',
+        'o-cc2-bg': 'o-color-4',
         'o-cc2-text': 'o-color-5',
         'o-cc2-headings': 'o-color-5',
         'o-cc2-link': 'o-color-1',
         'o-cc3-bg': 'o-color-1',
         'o-cc3-text': 'o-color-4',
         'o-cc3-headings': 'o-color-4',
-        'o-cc3-link': 'o-color-4',
+        'o-cc3-link': 'o-color-2',
         'o-cc4-bg': 'o-color-5',
         'o-cc4-text': 'o-color-4',
         'o-cc4-headings': 'o-color-4',
         'o-cc4-link': 'o-color-2',
-        'menu': 1,
+        'menu': 3,
         'footer': 4,
         'copyright': 4,
     ),
@@ -43,9 +45,9 @@ $o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'faco
 
 $o-theme-color-palettes: map-merge($o-theme-color-palettes, (
     'facodi': (
-        'alpha': $facodi-purple,
-        'beta': $facodi-blue,
-        'gamma': $facodi-surface,
+        'alpha': $facodi-ink,
+        'beta': $facodi-sun,
+        'gamma': $facodi-paper,
         'delta': $facodi-white,
         'epsilon': $facodi-ink,
     ),
@@ -54,10 +56,10 @@ $o-theme-color-palettes: map-merge($o-theme-color-palettes, (
 $o-website-values-palettes: append($o-website-values-palettes, (
     'color-palettes-name': 'facodi',
     'link-underline': 'never',
-    'btn-border-radius': .75rem,
-    'btn-border-radius-sm': .625rem,
-    'btn-border-radius-lg': .875rem,
-    'input-border-radius': .75rem,
+    'btn-border-radius': .5rem,
+    'btn-border-radius-sm': .375rem,
+    'btn-border-radius-lg': .625rem,
+    'input-border-radius': .5rem,
     'logo-height': 2.25rem,
 ));
 

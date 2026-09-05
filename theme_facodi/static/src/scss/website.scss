@@ -1,10 +1,184 @@
-#wrapwrap {
-    color: $body-color;
+.facodi-site {
+    --facodi-ink: #142846;
+    --facodi-cyan: #37BED2;
+    --facodi-blue: #3979C8;
+    --facodi-mint: #A7E8BE;
+    --facodi-sun: #EFFF00;
+    --facodi-paper: #F9FAFB;
+    --facodi-line: #40536D;
+    --facodi-shadow: 5px 5px 0 var(--facodi-ink);
+
+    background: var(--facodi-paper);
+    color: var(--facodi-ink);
+
+    .facodi-header {
+        background: var(--facodi-paper);
+        border-bottom: 2px solid var(--facodi-ink);
+        position: relative;
+        z-index: 10;
+
+        .facodi-nav-shell {
+            max-width: 90rem;
+            min-height: 4.5rem;
+            padding: 0 2rem;
+        }
+
+        .nav-link {
+            color: var(--facodi-ink);
+            font-size: .9rem;
+            font-weight: 600;
+            padding: .5rem .8rem !important;
+
+            &:hover {
+                color: var(--facodi-blue);
+            }
+        }
+    }
+
+    .facodi-menu-item {
+        position: relative;
+    }
+
+    .facodi-menu-parent-link {
+        flex: 1 1 auto;
+    }
+
+    .facodi-dropdown-menu {
+        border: 2px solid var(--facodi-ink);
+        border-radius: 0 0 .5rem .5rem;
+        box-shadow: 3px 3px 0 var(--facodi-ink);
+        display: none;
+    }
+
+    .facodi-menu-item:hover > .facodi-dropdown-menu,
+    .facodi-menu-item:focus-within > .facodi-dropdown-menu {
+        display: block;
+    }
+
+    .facodi-icon-button {
+        border: 2px solid var(--facodi-ink);
+        border-radius: .5rem;
+        box-shadow: 2px 2px 0 var(--facodi-ink);
+        color: var(--facodi-ink);
+    }
+
+    .facodi-footer {
+        background: var(--facodi-ink);
+        border-top: 2px solid var(--facodi-ink);
+        color: #fff;
+
+        .facodi-footer-inner {
+            display: grid;
+            gap: 1.875rem;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            margin: 0 auto;
+            max-width: 90rem;
+            padding: 3rem 8vw;
+        }
+
+        .facodi-wordmark,
+        .facodi-footer-links a,
+        .facodi-footer-meta a {
+            color: #fff;
+        }
+
+        p {
+            color: #C8D1DD;
+            font-size: .82rem;
+            line-height: 1.5;
+            margin: .875rem 0 0;
+            max-width: 21.875rem;
+        }
+
+        .facodi-footer-links {
+            display: grid;
+            gap: .5625rem;
+
+            a {
+                font-size: .84rem;
+                font-weight: 600;
+                text-decoration: none;
+
+                &:hover {
+                    color: var(--facodi-cyan);
+                }
+            }
+        }
+
+        .facodi-footer-meta {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .65rem;
+            text-align: right;
+
+            a:hover {
+                color: var(--facodi-cyan);
+            }
+        }
+    }
+
+    .navbar .nav-link:focus-visible,
+    .btn:focus-visible,
+    a:focus-visible {
+        outline: 3px solid var(--facodi-sun);
+        outline-offset: 3px;
+    }
 }
 
-#wrapwrap .navbar .nav-link:focus-visible,
-#wrapwrap .btn:focus-visible,
-#wrapwrap a:focus-visible {
-    outline: .1875rem solid rgba($secondary, .65);
-    outline-offset: .1875rem;
+@media (max-width: 991.98px) {
+    .facodi-site {
+        .facodi-header {
+            .facodi-nav-shell {
+                padding: 0 1.125rem;
+            }
+
+            .navbar-collapse {
+                padding: .75rem 0;
+            }
+
+            .facodi-dropdown-menu {
+                border: 0;
+                box-shadow: none;
+                display: block;
+                margin: 0;
+                padding: 0 0 .5rem 1rem;
+                position: static;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .facodi-site {
+        .facodi-footer .facodi-footer-inner {
+            grid-template-columns: 1fr;
+            padding: 3rem 1.5rem;
+        }
+
+        .facodi-footer .facodi-footer-meta {
+            text-align: left;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .facodi-site {
+        background: #15233B;
+        color: #F2F5F8;
+
+        .facodi-header {
+            background: #15233B;
+            border-color: #F2F5F8;
+
+            .facodi-wordmark,
+            .nav-link,
+            .facodi-icon-button {
+                color: #F2F5F8;
+            }
+
+            .nav-link:hover {
+                color: var(--facodi-cyan);
+            }
+        }
+    }
 }

@@ -1,14 +1,129 @@
-.facodi-kicker {
-    color: $primary;
-    font-size: .8125rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+.facodi-site {
+    .facodi-wordmark {
+        color: var(--facodi-ink);
+        font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-decoration: none;
+
+        span {
+            color: var(--facodi-blue);
+        }
+    }
+
+    .facodi-kicker {
+        color: var(--facodi-blue);
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .69rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+
+        .fa {
+            font-size: .5rem;
+            margin-right: .4375rem;
+        }
+    }
+
+    .facodi-button {
+        align-items: center;
+        border: 2px solid var(--facodi-ink);
+        border-radius: .5rem;
+        box-shadow: 3px 3px 0 var(--facodi-ink);
+        display: inline-flex;
+        font-size: .875rem;
+        font-weight: 700;
+        gap: .375rem;
+        justify-content: center;
+        min-height: 2.625rem;
+        padding: .5625rem 1rem;
+        transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+
+        &:hover {
+            box-shadow: 1px 1px 0 var(--facodi-ink);
+            color: inherit;
+            transform: translate(2px, 2px);
+        }
+    }
+
+    .facodi-button-primary {
+        background: var(--facodi-sun);
+        color: var(--facodi-ink);
+
+        &:hover {
+            background: var(--facodi-sun);
+            color: var(--facodi-ink);
+        }
+    }
+
+    .facodi-button-secondary {
+        background: #fff;
+        color: var(--facodi-ink);
+    }
+
+    .facodi-card,
+    .facodi-stat-card {
+        background: #fff;
+        border: 2px solid var(--facodi-ink);
+        border-radius: .625rem;
+        box-shadow: 4px 4px 0 var(--facodi-ink);
+    }
+
+    .facodi-stat-card {
+        min-height: 9.25rem;
+        padding: 1.0625rem;
+        position: relative;
+
+        > span,
+        > small {
+            display: block;
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .64rem;
+            font-weight: 700;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        > strong {
+            display: block;
+            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+            font-size: 2.4rem;
+            line-height: 1;
+            margin: 1.125rem 0 .3125rem;
+        }
+
+        > .fa {
+            font-size: 1.1rem;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+    }
+
+    .facodi-mint {
+        background: var(--facodi-mint);
+    }
+
+    .facodi-sky {
+        background: #AED1F0;
+    }
+
+    .facodi-sun {
+        background: var(--facodi-sun);
+    }
 }
 
-.facodi-card {
-    border: 1px solid rgba($body-color, .12);
-    border-radius: 1rem;
-    background: $white;
-    box-shadow: 0 .5rem 2rem rgba($body-color, .06);
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .facodi-button,
+        .facodi-card {
+            transition: none;
+        }
+
+        .facodi-button:hover {
+            transform: none;
+        }
+    }
 }
