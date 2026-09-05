@@ -3,13 +3,10 @@
     <template id="template_header_facodi"
               inherit_id="website.layout"
               name="FACODI Header Template">
-        <xpath expr="//header" position="attributes">
-            <attribute name="class" add="facodi-header" separator=" "/>
-        </xpath>
         <xpath expr="//header//nav" position="replace">
-            <nav data-name="Navbar"
-                 aria-label="Primary navigation"
-                 class="navbar navbar-expand-lg">
+            <t t-call="website.navbar">
+                <t t-set="_navbar_classes" t-valuef="d-none d-lg-block facodi-header"/>
+                <t t-set="_navbar_name">Primary navigation</t>
                 <div id="o_main_nav" class="container-fluid facodi-nav-shell">
                     <t t-call="website.placeholder_header_brand">
                         <t t-set="_link_class" t-valuef="facodi-wordmark"/>
@@ -35,7 +32,8 @@
                         </t>
                     </t>
                 </div>
-            </nav>
+            </t>
+            <t t-call="website.template_header_mobile"/>
         </xpath>
     </template>
 </odoo>
