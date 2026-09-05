@@ -21,6 +21,12 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_hero",
             "theme_facodi.s_facodi_learning_journey",
             "theme_facodi.s_facodi_institutional",
+            "theme_facodi.s_facodi_intro",
+            "theme_facodi.s_facodi_features",
+            "theme_facodi.s_facodi_community",
+            "theme_facodi.s_facodi_roadmap",
+            "theme_facodi.s_facodi_faq",
+            "theme_facodi.s_facodi_course_cta",
         }
         template_views = self.env["theme.ir.ui.view"].search(
             [("key", "in", list(keys))]
@@ -36,9 +42,31 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_hero": "facodi-hero-board",
             "theme_facodi.s_facodi_learning_journey": "facodi-stat-card",
             "theme_facodi.s_facodi_institutional": "facodi-open-section",
+            "theme_facodi.s_facodi_intro": "s_facodi_intro",
+            "theme_facodi.s_facodi_features": "facodi-grid",
+            "theme_facodi.s_facodi_community": "s_facodi_community",
+            "theme_facodi.s_facodi_roadmap": "s_facodi_roadmap",
+            "theme_facodi.s_facodi_faq": "facodi-faq",
+            "theme_facodi.s_facodi_course_cta": "s_facodi_course_cta",
         }
         for view in website_views:
             self.assertIn(expected_classes[view.key], view.arch_db)
+
+    def test_facodi_header_is_registered_as_native_theme_template(self):
+        theme_view = self.env["theme.ir.ui.view"].search(
+            [("key", "=", "theme_facodi.template_header_facodi")], limit=1
+        )
+        self.assertTrue(theme_view)
+        website_view = self.env["ir.ui.view"].search(
+            [
+                ("key", "=", "theme_facodi.template_header_facodi"),
+                ("website_id", "!=", False),
+            ],
+            limit=1,
+        )
+        self.assertTrue(website_view)
+        self.assertIn("website.placeholder_header_brand", website_view.arch_db)
+        self.assertIn("website.navbar_nav", website_view.arch_db)
 
     def test_homepage_uses_live_facodi_shell(self):
         response = self.url_open("/")
