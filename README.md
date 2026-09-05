@@ -4,9 +4,8 @@
 FACODI Website and eLearning presentation.
 
 The public Website at [edu-open2.odoo.com](https://edu-open2.odoo.com) is the
-visual source of truth. Release `19.0.3.0.0` replaces the unrelated purple
-prototype with a portable source implementation of the identity active in that
-Odoo instance.
+visual source of truth. Release `19.0.4.0.0` completes the reusable presentation library while preserving
+the identity active in that Odoo instance.
 
 ## Verified visual identity
 
@@ -35,9 +34,9 @@ system fonts without making remote font requests.
 - responsive dynamic header using standard `website.menu` records;
 - standard Portal sign-in and user dropdown;
 - dynamic footer using Website menu records and standard routes;
-- editable FACODI Hero, Learning Journey and Institutional snippets;
+- nine editable FACODI snippets and ten native New Page compositions;
 - presentation-only refinements for standard `website_slides` surfaces;
-- focus-visible, reduced-motion and dark-scheme behavior;
+- accessible two-color focus indicators and reduced-motion behavior;
 - optional preview, logo and favicon assets.
 
 The addon **does not import Website pages**. It does not overwrite Homepage,
@@ -108,7 +107,9 @@ GitHub Actions then uses PostgreSQL 16 and the official `odoo:19.0` image to:
 - install `theme_facodi` on a clean database;
 - compile frontend and theme assets;
 - run the addon `HttpCase` suite;
-- verify `/` and `/slides` remain standard working routes;
+- verify native menus, `/`, `/slides`, `/contactus` and `/web/login`;
+- render all ten native compositions and create a page with preserved editor content;
+- rerun regression tests on module upgrade;
 - confirm that the configured Website favicon is not replaced.
 
 ## Repository integration
@@ -120,3 +121,37 @@ monorepo; this repository contains only the installable presentation addon.
 ## License
 
 LGPL-3.0.
+
+## Builder library and page compositions
+
+Choose **New → Page → FACODI** to create a page from a composition. The theme
+registers templates; it creates no editorial pages automatically. Edit the
+new page using standard Website Builder and save normally. Course and contact
+links point to the canonical `/slides` and `/contactus` routes.
+
+| Composition | Snippets |
+|---|---|
+| Home | Hero, Learning Journey, Course CTA |
+| About | Editorial Intro, Institutional, Features |
+| Manifesto | Editorial Intro, Institutional, Community |
+| How | Editorial Intro, Learning Journey, FAQ |
+| Community | Editorial Intro, Community, FAQ |
+| Pathways | Editorial Intro, Learning Journey, Course CTA |
+| Contribution | Editorial Intro, Features, Community |
+| Roadmap | Editorial Intro, Roadmap, Community |
+| Partners | Editorial Intro, Features, Community |
+| Editorial | Editorial Intro, Features, Course CTA |
+
+The nine blocks are Hero, Learning Journey, Institutional, Editorial Intro,
+Features, Community/Contribution, Roadmap, FAQ and Course CTA. Compositions
+provide editable starting copy, without invented partners, metrics or testimonials.
+Publishers own final editorial text and URLs (including `/como-contribuir`).
+FAQ uses native keyboard-accessible disclosure elements with no duplicate IDs.
+
+Editorial course cover images remain visible. Website Builder color combinations
+remain authoritative; the theme does not partially switch colors based on OS dark mode.
+See [architecture](docs/architecture.md) for the native Odoo 19 generator workaround.
+
+## Validation evidence
+
+See [validation report](docs/validation.md) for the isolated Community install/upgrade matrix, browser checks and remaining deployment boundaries.

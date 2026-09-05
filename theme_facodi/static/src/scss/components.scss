@@ -1,4 +1,17 @@
 .facodi-site {
+    .facodi-lead {
+        font-size: 1.08rem;
+        line-height: 1.55;
+        margin: 1.5rem 0 1.75rem;
+        max-width: 35.625rem;
+    }
+
+    .facodi-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .875rem;
+    }
+
     .facodi-wordmark {
         color: var(--facodi-ink);
         font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
@@ -13,7 +26,7 @@
     }
 
     .facodi-kicker {
-        color: var(--facodi-blue);
+        color: inherit;
         font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
         font-size: .69rem;
         font-weight: 700;
@@ -73,6 +86,8 @@
 
     .facodi-stat-card {
         min-height: 9.25rem;
+        min-width: 0;
+        overflow-wrap: anywhere;
         padding: 1.0625rem;
         position: relative;
 
@@ -89,7 +104,7 @@
         > strong {
             display: block;
             font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
-            font-size: 2.4rem;
+            font-size: clamp(1.5rem, 2.8vw, 2.4rem);
             line-height: 1;
             margin: 1.125rem 0 .3125rem;
         }
@@ -125,5 +140,36 @@
         .facodi-button:hover {
             transform: none;
         }
+    }
+}
+
+// Structural primitives leave o_cc colors under Website Builder control.
+.facodi-site {
+    .facodi-section { padding: clamp(3rem, 6vw, 5rem) 0; }
+    .facodi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(Min(100%, 17rem), 1fr));
+        gap: 1.5rem;
+    }
+    .facodi-grid > *, .facodi-hero > * { min-width: 0; }
+    .facodi-panel {
+        border: 2px solid var(--facodi-ink);
+        border-radius: .625rem;
+        box-shadow: 4px 4px 0 var(--facodi-ink);
+        padding: 1.5rem;
+        overflow-wrap: anywhere;
+    }
+    .facodi-faq details {
+        border-bottom: 1px solid currentColor;
+        padding: 1rem 0;
+    }
+    .facodi-faq summary { cursor: pointer; font-weight: 700; }
+    .btn-primary, .btn-secondary, .form-control, .form-select, .alert, .page-link {
+        border-radius: .5rem;
+    }
+    :is(button, input, select, textarea, summary):focus-visible {
+        outline: 3px solid var(--facodi-ink);
+        outline-offset: 3px;
+        box-shadow: 0 0 0 6px #fff;
     }
 }

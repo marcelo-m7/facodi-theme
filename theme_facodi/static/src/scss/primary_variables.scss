@@ -53,7 +53,7 @@ $o-theme-color-palettes: map-merge($o-theme-color-palettes, (
     ),
 ));
 
-$o-website-values-palettes: append($o-website-values-palettes, (
+$o-website-values-palettes: ((
     'color-palettes-name': 'facodi',
     'link-underline': 'never',
     'btn-border-radius': .5rem,
@@ -61,7 +61,7 @@ $o-website-values-palettes: append($o-website-values-palettes, (
     'btn-border-radius-lg': .625rem,
     'input-border-radius': .5rem,
     'logo-height': 2.25rem,
-));
+),);
 
 $o-color-palettes-compatibility-indexes: (1: 'facodi');
 $o-theme-color-palettes-compatibility-indexes: (1: 'facodi');

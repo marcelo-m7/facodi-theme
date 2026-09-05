@@ -1,3 +1,5 @@
+> Historical document: superseded where inconsistent with [current architecture](../../architecture.md) and the 2026-09-05 finalization plan.
+
 # FACODI Live Odoo Theme Source Design
 
 ## Decision

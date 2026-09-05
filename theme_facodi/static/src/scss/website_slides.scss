@@ -1,7 +1,6 @@
 body.o_wslides_body .facodi-site {
     .o_record_cover_container[data-res-model="slide.channel"] {
-        background-color: var(--facodi-ink) !important;
-        background-image: none !important;
+        background-color: var(--facodi-ink);
 
         .o_wslides_course_nav,
         .o_wslides_course_nav_search {
@@ -57,4 +56,10 @@ body.o_wslides_body .facodi-site {
             transform: none;
         }
     }
+}
+
+// Odoo stores this default gradient inline in slide.channel.cover_properties.
+// Replace only that upstream default; preserve every editor-selected cover.
+body.o_wslides_body .facodi-site .o_record_cover_container[data-res-model="slide.channel"][style*="linear-gradient(120deg, #875A7B, #78516F)"] {
+    background-image: linear-gradient(120deg, var(--facodi-ink), var(--facodi-blue)) !important;
 }

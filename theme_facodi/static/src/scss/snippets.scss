@@ -21,19 +21,6 @@
         }
     }
 
-    .facodi-lead {
-        font-size: 1.08rem;
-        line-height: 1.55;
-        margin: 1.5rem 0 1.75rem;
-        max-width: 35.625rem;
-    }
-
-    .facodi-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: .875rem;
-    }
-
     .facodi-hero-board {
         align-self: center;
         background: var(--facodi-ink);
@@ -242,22 +229,6 @@
 
         .facodi-open-section {
             padding: 3.5rem 1.5rem;
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .facodi-site {
-        .s_facodi_learning_journey {
-            background: #1B2B45;
-        }
-
-        .facodi-section-heading h2 {
-            color: #F2F5F8;
-        }
-
-        .facodi-stat-card {
-            color: var(--facodi-ink);
         }
     }
 }

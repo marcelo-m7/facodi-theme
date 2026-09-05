@@ -8,7 +8,6 @@ fail() {
 
 [[ -f theme_facodi/__manifest__.py ]] || fail "theme_facodi manifest missing"
 [[ ! -e website_facodi ]] || fail "legacy website_facodi addon must not remain installable"
-[[ -f theme_facodi/data/generate_primary_template.xml ]] || fail "primary template generator missing"
 [[ -f theme_facodi/data/ir_asset.xml ]] || fail "theme primary asset record missing"
 [[ ! -d theme_facodi/controllers ]] || fail "presentation theme must not add parallel learning routes/controllers"
 
@@ -152,6 +151,27 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.3.0.0"' theme_facodi/__manifest__.py || fail "live-source release version missing"
+grep -Fq '"version": "19.0.4.0.0"' theme_facodi/__manifest__.py || fail "live-source release version missing"
 
 echo "PASS: theme module contract"
+
+if grep -Rq 'prefers-color-scheme: dark\|background-image: none !important' theme_facodi/static/src/scss; then
+  fail "partial dark mode or hidden editorial cover regression"
+fi
+grep -Fq 't-call="website.submenu"' theme_facodi/views/customizations.xml || fail "native submenu missing"
+python3 - <<'CHECK'
+import ast
+from pathlib import Path
+from xml.etree import ElementTree as ET
+manifest=ast.literal_eval(Path('theme_facodi/__manifest__.py').read_text())
+for path in Path('theme_facodi').rglob('*.xml'):
+    ET.parse(path)
+blocks={n.get('id') for n in ET.parse('theme_facodi/views/snippets.xml').getroot().findall('template')}
+pages=ET.parse('theme_facodi/views/page_templates.xml').getroot()
+compositions=[n for n in pages.findall('template') if n.get('id','').startswith('new_page_template_sections_')]
+assert len(compositions) == 10
+for page in compositions:
+    for node in page.iter('t'):
+        key=node.get('t-snippet-call')
+        assert key.startswith('theme_facodi.') and key.split('.')[1] in blocks
+CHECK
