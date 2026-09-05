@@ -18,9 +18,9 @@ done
 
 [[ ! -f "$I18N_DIR/en.po" ]] || fail "English is the source language and must not be duplicated as en.po"
 
-grep -Fq '"Language: pt_PT\\n"' "$I18N_DIR/pt.po" || fail "Portuguese catalogue must target pt_PT"
-grep -Fq '"Language: es_ES\\n"' "$I18N_DIR/es.po" || fail "Spanish catalogue must target es_ES"
-grep -Fq '"Language: fr_FR\\n"' "$I18N_DIR/fr.po" || fail "French catalogue must target fr_FR"
+grep -Fq '"Language: pt_PT\n"' "$I18N_DIR/pt.po" || fail "Portuguese catalogue must target pt_PT"
+grep -Fq '"Language: es_ES\n"' "$I18N_DIR/es.po" || fail "Spanish catalogue must target es_ES"
+grep -Fq '"Language: fr_FR\n"' "$I18N_DIR/fr.po" || fail "French catalogue must target fr_FR"
 
 # English is the canonical source language in QWeb. These phrases are also
 # smoke anchors used by the runtime translation tests.
