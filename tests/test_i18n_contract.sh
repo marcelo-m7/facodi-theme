@@ -22,6 +22,17 @@ grep -Fq '"Language: pt_PT\n"' "$I18N_DIR/pt.po" || fail "Portuguese catalogue m
 grep -Fq '"Language: es_ES\n"' "$I18N_DIR/es.po" || fail "Spanish catalogue must target es_ES"
 grep -Fq '"Language: fr_FR\n"' "$I18N_DIR/fr.po" || fail "French catalogue must target fr_FR"
 
+# Odoo design themes are loaded first as theme.ir.ui.view records. Translation
+# references therefore target that model/field and are copied into website
+# ir.ui.view records when the theme is selected.
+for catalogue in theme_facodi.pot pt.po es.po fr.po; do
+  grep -Fq 'model_terms:theme.ir.ui.view,arch:theme_facodi.' "$I18N_DIR/$catalogue" \
+    || fail "$catalogue must target theme.ir.ui.view arch translations"
+  if grep -Fq 'model_terms:ir.ui.view,arch_db:theme_facodi.' "$I18N_DIR/$catalogue"; then
+    fail "$catalogue must not target copied website views directly"
+  fi
+done
+
 # English is the canonical source language in QWeb. These phrases are also
 # smoke anchors used by the runtime translation tests.
 grep -Fq 'Learn together with the community' "$VIEWS_DIR/snippets.xml" || fail "snippet source language must be English"
