@@ -124,7 +124,7 @@
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 991.98px) {
     .facodi-site {
         .facodi-header {
             .facodi-nav-shell {
@@ -145,7 +145,11 @@
                 width: 100%;
             }
         }
+    }
+}
 
+@media (max-width: 720px) {
+    .facodi-site {
         .facodi-footer .facodi-footer-inner {
             grid-template-columns: 1fr;
             padding: 3rem 1.5rem;

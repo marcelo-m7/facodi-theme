@@ -60,8 +60,65 @@ grep -Fq 'web._assets_frontend_helpers' theme_facodi/data/ir_asset.xml || fail "
 grep -Fq 'facodi-header' theme_facodi/views/customizations.xml || fail "live FACODI header missing"
 grep -Fq 'facodi-footer' theme_facodi/views/customizations.xml || fail "live FACODI footer missing"
 grep -Fq 'website.menu_id.child_id' theme_facodi/views/customizations.xml || fail "header must use standard dynamic Website menus"
+grep -Fq 'website.placeholder_header_brand' theme_facodi/views/customizations.xml || fail "header must render the standard configurable Website brand"
 grep -Fq 'portal.placeholder_user_sign_in' theme_facodi/views/customizations.xml || fail "header must retain standard Portal sign-in"
 grep -Fq 'content="#142846"' theme_facodi/views/customizations.xml || fail "live browser theme color missing"
+
+python3 - <<'PY'
+from pathlib import Path
+from xml.etree import ElementTree
+
+
+source = Path("theme_facodi/views/customizations.xml")
+root = ElementTree.parse(source).getroot()
+header = root.find(".//template[@id='facodi_header']")
+if header is None:
+    raise SystemExit("FAIL: FACODI header template missing")
+
+parents = {
+    child: parent
+    for parent in header.iter()
+    for child in parent
+}
+
+brand_calls = [
+    node
+    for node in header.iter("t")
+    if node.get("t-call") == "website.placeholder_header_brand"
+]
+if len(brand_calls) != 1:
+    raise SystemExit("FAIL: header must call the standard Website brand exactly once")
+
+literal_brands = [
+    node
+    for node in header.iter("a")
+    if {"navbar-brand", "facodi-wordmark"}.issubset(
+        set(node.get("class", "").split())
+    )
+]
+if literal_brands:
+    raise SystemExit("FAIL: header must not replace the configured Website logo with literal text")
+
+for call_name in (
+    "portal.placeholder_user_sign_in",
+    "portal.user_dropdown",
+):
+    calls = [
+        node
+        for node in header.iter("t")
+        if node.get("t-call") == call_name
+    ]
+    if len(calls) != 1:
+        raise SystemExit(f"FAIL: header must call {call_name} exactly once")
+    call = calls[0]
+    if parents.get(call) is None or parents[call].tag != "ul":
+        raise SystemExit(f"FAIL: {call_name} must be a direct child of the navigation list")
+    if "ms-lg-2" not in call.get("_item_class.f", "").split():
+        raise SystemExit(f"FAIL: {call_name} must carry its own list-item spacing")
+PY
+
+grep -Fq '@media (max-width: 991.98px)' theme_facodi/static/src/scss/website.scss \
+  || fail "collapsed header rules must cover the full navbar-expand-lg range"
 
 for class_name in facodi-hero facodi-hero-board facodi-stat-card facodi-open-section; do
   grep -Fq "$class_name" theme_facodi/views/snippets.xml || fail "live FACODI snippet class missing: $class_name"

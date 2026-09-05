@@ -14,7 +14,8 @@
             <header id="top" data-name="FACODI Header" class="o_header_standard facodi-header">
                 <nav aria-label="Primary navigation" class="navbar navbar-expand-lg">
                     <div id="o_main_nav" class="container-fluid facodi-nav-shell">
-                        <a href="/" class="navbar-brand facodi-wordmark" aria-label="FACODI home">FACODI<span>.</span></a>
+                        <t t-call="website.placeholder_header_brand"
+                           _link_class.f="facodi-wordmark"/>
 
                         <button class="navbar-toggler facodi-icon-button"
                                 type="button"
@@ -61,14 +62,13 @@
                                     </li>
                                 </t>
 
-                                <li class="nav-item ms-lg-2">
-                                    <t t-call="portal.placeholder_user_sign_in"
-                                       _link_class.f="btn facodi-button facodi-button-primary"/>
-                                    <t t-call="portal.user_dropdown"
-                                       _item_class.f="nav-item dropdown"
-                                       _link_class.f="btn facodi-button facodi-button-primary border-0"
-                                       _dropdown_menu_class.f="dropdown-menu-end"/>
-                                </li>
+                                <t t-call="portal.placeholder_user_sign_in"
+                                   _item_class.f="nav-item ms-lg-2"
+                                   _link_class.f="btn facodi-button facodi-button-primary"/>
+                                <t t-call="portal.user_dropdown"
+                                   _item_class.f="nav-item dropdown ms-lg-2"
+                                   _link_class.f="btn facodi-button facodi-button-primary border-0"
+                                   _dropdown_menu_class.f="dropdown-menu-end"/>
                             </ul>
                         </div>
                     </div>

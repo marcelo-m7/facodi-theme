@@ -46,7 +46,10 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("facodi-site", response.text)
         self.assertIn('<meta name="theme-color" content="#142846"', response.text)
         self.assertIn("o_header_standard facodi-header", response.text)
-        self.assertIn("facodi-wordmark", response.text)
+        header_html = response.text.split("<header", 1)[1].split("</header>", 1)[0]
+        self.assertIn('data-name="Navbar Logo"', header_html)
+        self.assertIn("/web/image/website/", header_html)
+        self.assertIn("facodi-wordmark", header_html)
         self.assertIn("facodi-footer", response.text)
 
     def test_standard_favicon_is_not_replaced(self):
