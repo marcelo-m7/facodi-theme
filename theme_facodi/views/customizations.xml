@@ -24,7 +24,7 @@
                                 aria-controls="top_menu_collapse"
                                 aria-expanded="false"
                                 aria-label="Open navigation">
-                            <i class="fa fa-bars" aria-hidden="true"/>
+                            <i class="fa fa-bars" aria-hidden="true" t-translation="off"/>
                         </button>
 
                         <div id="top_menu_collapse" class="collapse navbar-collapse">
@@ -56,7 +56,7 @@
             <div id="footer" class="facodi-footer" data-name="FACODI Footer" t-if="not no_footer">
                 <div class="container-fluid facodi-footer-inner">
                     <div>
-                        <a href="/" class="facodi-wordmark">FACODI<span>.</span></a>
+                        <a href="/" class="facodi-wordmark" t-translation="off">FACODI<span>.</span></a>
                         <p>Digital Community College. Open, collaborative and accessible higher education.</p>
                     </div>
 
@@ -70,12 +70,14 @@
                         <a href="/my">My account</a>
                     </nav>
 
-                    <p class="facodi-footer-meta">
-                        <span>Open source for learning in public.</span><br/>
-                        <span t-esc="datetime.datetime.now().year"/> FACODI<br/>
-                        <span>Created by</span>
-                        <a href="https://open2.tech" target="_blank" rel="noopener noreferrer">Open2 Technology</a>
-                    </p>
+                    <div class="facodi-footer-meta">
+                        <div>Open source for learning in public.</div>
+                        <div t-translation="off"><span t-esc="datetime.datetime.now().year"/> FACODI</div>
+                        <div>
+                            Created by
+                            <a href="https://open2.tech" target="_blank" rel="noopener noreferrer" t-translation="off">Open2 Technology</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </xpath>
