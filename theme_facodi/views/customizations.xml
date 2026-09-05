@@ -23,7 +23,7 @@
                                 data-bs-target="#top_menu_collapse"
                                 aria-controls="top_menu_collapse"
                                 aria-expanded="false"
-                                aria-label="Abrir navegação">
+                                aria-label="Open navigation">
                             <i class="fa fa-bars" aria-hidden="true"/>
                         </button>
 
@@ -57,7 +57,7 @@
                 <div class="container-fluid facodi-footer-inner">
                     <div>
                         <a href="/" class="facodi-wordmark">FACODI<span>.</span></a>
-                        <p>Faculdade Comunitária Digital. Educação superior aberta, colaborativa e acessível.</p>
+                        <p>Digital Community College. Open, collaborative and accessible higher education.</p>
                     </div>
 
                     <nav class="facodi-footer-links" aria-label="Footer navigation">
@@ -67,13 +67,13 @@
                                 <span t-field="footer_menu.name"/>
                             </a>
                         </t>
-                        <a href="/my">Minha conta</a>
+                        <a href="/my">My account</a>
                     </nav>
 
                     <p class="facodi-footer-meta">
-                        Open source para aprender em público.<br/>
+                        <span>Open source for learning in public.</span><br/>
                         <span t-esc="datetime.datetime.now().year"/> FACODI<br/>
-                        Criado por
+                        <span>Created by</span>
                         <a href="https://open2.tech" target="_blank" rel="noopener noreferrer">Open2 Technology</a>
                     </p>
                 </div>
