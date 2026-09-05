@@ -67,17 +67,33 @@ class TestFacodiTheme(HttpCase):
         self.assertTrue(website_view)
         self.assertIn("website.placeholder_header_brand", website_view.arch_db)
         self.assertIn("website.navbar_nav", website_view.arch_db)
+        self.assertIn("website.template_header_mobile", website_view.arch_db)
 
     def test_homepage_uses_live_facodi_shell(self):
+        from lxml import html
+
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
         self.assertIn("facodi-site", response.text)
         self.assertIn('<meta name="theme-color" content="#142846"', response.text)
-        self.assertIn("o_header_standard facodi-header", response.text)
+        tree = html.fromstring(response.text)
+        desktop_nav = tree.xpath(
+            "//header//nav[contains(concat(' ', normalize-space(@class), ' '), ' facodi-header ')]"
+        )
+        self.assertEqual(len(desktop_nav), 1)
+        desktop_classes = set(desktop_nav[0].get("class", "").split())
+        self.assertIn("d-none", desktop_classes)
+        self.assertIn("d-lg-block", desktop_classes)
         header_html = response.text.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertIn('data-name="Navbar Logo"', header_html)
         self.assertIn("/web/image/website/", header_html)
         self.assertIn("facodi-wordmark", header_html)
+        self.assertTrue(
+            tree.xpath(
+                "//header//*[contains(concat(' ', normalize-space(@class), ' '), ' o_header_mobile_buttons_wrap ')]"
+            ),
+            "standard Odoo mobile header must remain rendered",
+        )
         self.assertIn("facodi-footer", response.text)
 
     def test_standard_favicon_is_not_replaced(self):
@@ -139,7 +155,7 @@ class TestFacodiTheme(HttpCase):
         )
 
     def test_native_templates_render_create_and_preserve_editor_content(self):
-        from lxml import html, etree
+        from lxml import etree, html
 
         website = self.env["website"].get_current_website()
         self.authenticate("admin", "admin")
