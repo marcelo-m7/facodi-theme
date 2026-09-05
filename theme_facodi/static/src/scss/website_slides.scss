@@ -1,1 +1,36 @@
-// Standard website_slides presentation refinements.
+.facodi-site .o_wslides_home_main,
+.facodi-site .o_wslides_course_main {
+    color: $body-color;
+}
+
+.facodi-site .o_wslides_course_card {
+    overflow: hidden;
+    border-radius: 1rem;
+    border-color: rgba($body-color, .12);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+@media (hover: hover) {
+    .facodi-site .o_wslides_course_card:hover {
+        transform: translateY(-.125rem);
+        box-shadow: 0 .75rem 2rem rgba($body-color, .08);
+    }
+}
+
+.facodi-site .o_wslides_slides_list_slide {
+    border-radius: .75rem;
+}
+
+.facodi-site .progress-bar {
+    background-color: $primary;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .o_wslides_course_card {
+        transition: none;
+    }
+
+    .facodi-site .o_wslides_course_card:hover {
+        transform: none;
+    }
+}
