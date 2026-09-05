@@ -12,10 +12,6 @@ class TestFacodiThemeTranslations(HttpCase):
         )
         if not cls.module:
             raise AssertionError("theme_facodi module record must exist")
-        cls.website.theme_id = cls.module
-        cls.module._theme_get_stream_themes().with_context(load_all_views=True)._theme_load(
-            cls.website
-        )
 
         Lang = cls.env["res.lang"]
         cls.lang_en = cls.env.ref("base.lang_en")
@@ -25,11 +21,19 @@ class TestFacodiThemeTranslations(HttpCase):
         if not (cls.lang_pt and cls.lang_es and cls.lang_fr):
             raise AssertionError("FACODI website languages must be available")
 
+        # Odoo stores theme source views in theme.ir.ui.view and transfers their
+        # stored translations to website-specific ir.ui.view copies in _post_copy.
+        # Load the native PO catalogues before applying/reloading the theme so the
+        # standard theme lifecycle can propagate those translations.
         cls.module._update_translations(["pt_PT", "es_ES", "fr_FR"])
         cls.website.language_ids = (
             cls.lang_en + cls.lang_pt + cls.lang_es + cls.lang_fr
         )
         cls.website.default_lang_id = cls.lang_en
+        cls.website.theme_id = cls.module
+        cls.module._theme_get_stream_themes().with_context(load_all_views=True)._theme_load(
+            cls.website
+        )
 
     def test_english_is_the_default_website_language(self):
         response = self.url_open("/")
