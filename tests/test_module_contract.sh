@@ -42,4 +42,11 @@ if grep -R -n '\$facodi-' theme_facodi/static/src/scss \
   fail "frontend SCSS must not depend on theme-primary-only FACODI variables"
 fi
 
+if grep -R -n 'website_facodi' README.md docs/architecture.md; then
+  fail "current docs still describe website_facodi as the active addon"
+fi
+
+grep -Fq 'theme_common' README.md || fail "README must document theme_common"
+grep -Fq 'odoo/design-themes' docs/architecture.md || fail "architecture must document upstream design-themes"
+
 echo "PASS: theme module contract"
