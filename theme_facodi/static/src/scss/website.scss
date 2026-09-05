@@ -1,0 +1,19 @@
+#wrapwrap {
+    color: $facodi-ink;
+}
+
+#wrapwrap h1,
+#wrapwrap h2,
+#wrapwrap h3,
+#wrapwrap h4,
+#wrapwrap h5,
+#wrapwrap h6 {
+    color: $facodi-heading;
+}
+
+#wrapwrap .navbar .nav-link:focus-visible,
+#wrapwrap .btn:focus-visible,
+#wrapwrap a:focus-visible {
+    outline: .1875rem solid rgba($facodi-blue, .65);
+    outline-offset: .1875rem;
+}

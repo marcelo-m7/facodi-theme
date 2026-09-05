@@ -26,6 +26,15 @@
             "s_call_to_action",
         ],
     },
+    "assets": {
+        "web.assets_frontend": [
+            "theme_facodi/static/src/scss/bootstrap_overridden.scss",
+            "theme_facodi/static/src/scss/components.scss",
+            "theme_facodi/static/src/scss/website.scss",
+            "theme_facodi/static/src/scss/snippets.scss",
+            "theme_facodi/static/src/scss/website_slides.scss",
+        ],
+    },
     "installable": True,
     "application": False,
 }

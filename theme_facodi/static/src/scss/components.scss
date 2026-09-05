@@ -1,0 +1,14 @@
+.facodi-kicker {
+    color: $facodi-purple;
+    font-size: .8125rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.facodi-card {
+    border: 1px solid rgba($facodi-ink, .12);
+    border-radius: 1rem;
+    background: $facodi-white;
+    box-shadow: 0 .5rem 2rem rgba($facodi-ink, .06);
+}

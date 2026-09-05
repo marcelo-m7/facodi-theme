@@ -1,0 +1,65 @@
+// FACODI Odoo Website theme variables.
+// Keep presentation tokens here so standard Website Builder controls remain authoritative.
+
+$facodi-purple: #6a4bff;
+$facodi-blue: #5dc7ff;
+$facodi-surface: #f7f6ff;
+$facodi-white: #ffffff;
+$facodi-ink: #1f1e42;
+$facodi-heading: #111035;
+
+$o-color-palettes: map-merge($o-color-palettes, (
+    'facodi': (
+        'o-color-1': $facodi-purple,
+        'o-color-2': $facodi-blue,
+        'o-color-3': $facodi-surface,
+        'o-color-4': $facodi-white,
+        'o-color-5': $facodi-ink,
+        'o-cc1-bg': 'o-color-4',
+        'o-cc1-text': 'o-color-5',
+        'o-cc1-headings': 'o-color-5',
+        'o-cc1-link': 'o-color-1',
+        'o-cc1-btn-primary': 'o-color-1',
+        'o-cc1-btn-primary-text': 'o-color-4',
+        'o-cc2-bg': 'o-color-3',
+        'o-cc2-text': 'o-color-5',
+        'o-cc2-headings': 'o-color-5',
+        'o-cc2-link': 'o-color-1',
+        'o-cc3-bg': 'o-color-1',
+        'o-cc3-text': 'o-color-4',
+        'o-cc3-headings': 'o-color-4',
+        'o-cc3-link': 'o-color-4',
+        'o-cc4-bg': 'o-color-5',
+        'o-cc4-text': 'o-color-4',
+        'o-cc4-headings': 'o-color-4',
+        'o-cc4-link': 'o-color-2',
+        'menu': 1,
+        'footer': 4,
+        'copyright': 4,
+    ),
+));
+
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'facodi');
+
+$o-theme-color-palettes: map-merge($o-theme-color-palettes, (
+    'facodi': (
+        'alpha': $facodi-purple,
+        'beta': $facodi-blue,
+        'gamma': $facodi-surface,
+        'delta': $facodi-white,
+        'epsilon': $facodi-ink,
+    ),
+));
+
+$o-website-values-palettes: append($o-website-values-palettes, (
+    'color-palettes-name': 'facodi',
+    'link-underline': 'never',
+    'btn-border-radius': .75rem,
+    'btn-border-radius-sm': .625rem,
+    'btn-border-radius-lg': .875rem,
+    'input-border-radius': .75rem,
+    'logo-height': 2.25rem,
+));
+
+$o-color-palettes-compatibility-indexes: map-merge($o-color-palettes-compatibility-indexes, (1: 'facodi'));
+$o-theme-color-palettes-compatibility-indexes: map-merge($o-theme-color-palettes-compatibility-indexes, (1: 'facodi'));
