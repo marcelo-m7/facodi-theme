@@ -82,8 +82,8 @@ reusable theme.
 
 Theme translations are stored on Odoo's theme view records and propagated to
 the Website-specific view copies by the standard theme lifecycle. If languages
-are enabled after the theme was already applied, update/reapply the theme after
-loading the module translations so the Website copies receive them.
+are enabled after the theme was already applied, load/update the module
+translations and then reapply the theme so the Website copies receive them.
 
 The New Page composition names are kept in English. Odoo 19 stores the
 `theme.ir.ui.view.name` field as a non-translatable technical label, so the
