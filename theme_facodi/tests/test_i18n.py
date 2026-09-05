@@ -10,7 +10,8 @@ class TestFacodiThemeTranslations(HttpCase):
         cls.module = cls.env["ir.module.module"].search(
             [("name", "=", "theme_facodi")], limit=1
         )
-        cls.assertTrue(cls.module, "theme_facodi module record must exist")
+        if not cls.module:
+            raise AssertionError("theme_facodi module record must exist")
         cls.website.theme_id = cls.module
         cls.module._theme_get_stream_themes().with_context(load_all_views=True)._theme_load(
             cls.website
@@ -21,7 +22,8 @@ class TestFacodiThemeTranslations(HttpCase):
         cls.lang_pt = Lang._activate_lang("pt_PT")
         cls.lang_es = Lang._activate_lang("es_ES")
         cls.lang_fr = Lang._activate_lang("fr_FR")
-        cls.assertTrue(cls.lang_pt and cls.lang_es and cls.lang_fr)
+        if not (cls.lang_pt and cls.lang_es and cls.lang_fr):
+            raise AssertionError("FACODI website languages must be available")
 
         cls.module._update_translations(["pt_PT", "es_ES", "fr_FR"])
         cls.website.language_ids = (
