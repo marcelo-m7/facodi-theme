@@ -21,8 +21,8 @@
         <section class="s_facodi_hero facodi-hero o_cc o_cc1" data-snippet="s_facodi_hero" data-name="FACODI Hero">
             <div class="facodi-hero-copy">
                 <p class="facodi-kicker">
-                    <i class="fa fa-circle" aria-hidden="true"/>
-                    <span>Learn together with the community</span>
+                    <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
+                    Learn together with the community
                 </p>
                 <h1>Your next chapter starts in a network.</h1>
                 <p class="facodi-lead">
@@ -30,22 +30,20 @@
                 </p>
                 <div class="facodi-actions">
                     <a class="btn facodi-button facodi-button-primary" href="/slides">
-                        <span>Explore courses</span>
-                        <i class="fa fa-arrow-right ms-1" aria-hidden="true"/>
+                        Explore courses
+                        <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
-                    <a class="btn facodi-button facodi-button-secondary" href="/web/login">
-                        <span>Continue learning</span>
-                    </a>
+                    <a class="btn facodi-button facodi-button-secondary" href="/web/login">Continue learning</a>
                 </div>
             </div>
             <div class="facodi-hero-board" aria-label="Learning map">
                 <div class="facodi-board-top">
-                    <span>Learning map</span>
-                    <span class="facodi-live-dot">Open</span>
+                    <div>Learning map</div>
+                    <div class="facodi-live-dot">Open</div>
                 </div>
                 <div class="facodi-board-path">
                     <div class="facodi-path-node is-complete">
-                        <i class="fa fa-compass" aria-hidden="true"/>
+                        <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
                     </div>
                     <div class="facodi-path-line is-complete"/>
                     <div class="facodi-path-node is-current">02</div>
@@ -54,16 +52,16 @@
                 </div>
                 <div class="facodi-board-cards">
                     <div>
-                        <span>Discover</span>
-                        <strong>Find a course</strong>
+                        <div class="facodi-board-card-label">Discover</div>
+                        <div class="facodi-board-card-title">Find a course</div>
                     </div>
                     <div class="is-selected">
-                        <span>Learn</span>
-                        <strong>At your own pace</strong>
+                        <div class="facodi-board-card-label">Learn</div>
+                        <div class="facodi-board-card-title">At your own pace</div>
                     </div>
                     <div>
-                        <span>Contribute</span>
-                        <strong>In community</strong>
+                        <div class="facodi-board-card-label">Contribute</div>
+                        <div class="facodi-board-card-title">In community</div>
                     </div>
                 </div>
             </div>
@@ -76,30 +74,30 @@
                 <div class="facodi-section-heading">
                     <div>
                         <p class="facodi-kicker">
-                            <i class="fa fa-circle" aria-hidden="true"/>
-                            <span>How it works</span>
+                            <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
+                            How it works
                         </p>
                         <h2>Three steps to start learning.</h2>
                     </div>
                 </div>
                 <div class="facodi-stat-row">
                     <article class="facodi-stat-card facodi-mint">
-                        <span>Step 01</span>
-                        <strong>Discover</strong>
-                        <small>Explore the catalogue and find a learning path aligned with your goals.</small>
-                        <i class="fa fa-search" aria-hidden="true"/>
+                        <div class="facodi-stat-eyebrow">Step 01</div>
+                        <div class="facodi-stat-title">Discover</div>
+                        <div class="facodi-stat-copy">Explore the catalogue and find a learning path aligned with your goals.</div>
+                        <i class="fa fa-search" aria-hidden="true" t-translation="off"/>
                     </article>
                     <article class="facodi-stat-card facodi-sky">
-                        <span>Step 02</span>
-                        <strong>Learn</strong>
-                        <small>Follow organised content at your own pace and track your progress.</small>
-                        <i class="fa fa-book" aria-hidden="true"/>
+                        <div class="facodi-stat-eyebrow">Step 02</div>
+                        <div class="facodi-stat-title">Learn</div>
+                        <div class="facodi-stat-copy">Follow organised content at your own pace and track your progress.</div>
+                        <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                     </article>
                     <article class="facodi-stat-card facodi-sun">
-                        <span>Step 03</span>
-                        <strong>Contribute</strong>
-                        <small>Share resources and help other people build knowledge.</small>
-                        <i class="fa fa-users" aria-hidden="true"/>
+                        <div class="facodi-stat-eyebrow">Step 03</div>
+                        <div class="facodi-stat-title">Contribute</div>
+                        <div class="facodi-stat-copy">Share resources and help other people build knowledge.</div>
+                        <i class="fa fa-users" aria-hidden="true" t-translation="off"/>
                     </article>
                 </div>
             </div>
@@ -110,8 +108,8 @@
         <section class="s_facodi_institutional facodi-open-section o_cc o_cc2" data-snippet="s_facodi_institutional" data-name="FACODI Institutional">
             <div>
                 <p class="facodi-kicker">
-                    <i class="fa fa-circle" aria-hidden="true"/>
-                    <span>Knowledge in motion</span>
+                    <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
+                    Knowledge in motion
                 </p>
                 <h2>An open college for anyone who wants to build the future.</h2>
             </div>
@@ -120,8 +118,8 @@
                     Study with clear learning paths, contribute reviewed resources and turn your journey into something other people can follow too.
                 </p>
                 <a class="btn facodi-button facodi-button-secondary" href="/contactus">
-                    <span>Contact FACODI</span>
-                    <i class="fa fa-arrow-right ms-1" aria-hidden="true"/>
+                    Contact FACODI
+                    <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                 </a>
             </div>
         </section>
@@ -220,8 +218,8 @@
                 <p class="facodi-lead">Explore the courses and choose where you want to begin.</p>
                 <div class="facodi-actions">
                     <a href="/slides" class="btn facodi-button facodi-button-primary">
-                        <span>Explore courses</span>
-                        <i class="fa fa-arrow-right" aria-hidden="true"/>
+                        Explore courses
+                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
                     </a>
                 </div>
             </div>
