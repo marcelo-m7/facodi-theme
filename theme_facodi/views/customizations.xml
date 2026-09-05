@@ -9,48 +9,6 @@
         </xpath>
     </template>
 
-    <template id="facodi_header" inherit_id="website.layout" name="FACODI Header">
-        <xpath expr="//header" position="replace">
-            <header id="top" data-name="FACODI Header" class="o_header_standard facodi-header">
-                <nav aria-label="Primary navigation" class="navbar navbar-expand-lg">
-                    <div id="o_main_nav" class="container-fluid facodi-nav-shell">
-                        <t t-call="website.placeholder_header_brand"
-                           _link_class.f="facodi-wordmark"/>
-
-                        <button class="navbar-toggler facodi-icon-button"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#top_menu_collapse"
-                                aria-controls="top_menu_collapse"
-                                aria-expanded="false"
-                                aria-label="Open navigation">
-                            <i class="fa fa-bars" aria-hidden="true" t-translation="off"/>
-                        </button>
-
-                        <div id="top_menu_collapse" class="collapse navbar-collapse">
-                            <ul id="top_menu" class="navbar-nav top_menu ms-auto align-items-lg-center gap-lg-1">
-                                <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                    <t t-call="website.submenu"
-                                       item_class.f="nav-item"
-                                       link_class.f="nav-link"
-                                       dropdown_menu_classes.f="facodi-dropdown-menu"/>
-                                </t>
-                                <t t-call="portal.placeholder_user_sign_in"
-                                   _item_class.f="nav-item ms-lg-2"
-                                   _link_class.f="btn facodi-button facodi-button-primary"/>
-                                <t t-call="portal.user_dropdown"
-                                   _user_name="True"
-                                   _item_class.f="nav-item dropdown ms-lg-2"
-                                   _link_class.f="btn facodi-button facodi-button-primary border-0"
-                                   _dropdown_menu_class.f="dropdown-menu-end"/>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-        </xpath>
-    </template>
-
     <template id="facodi_footer" inherit_id="website.layout" name="FACODI Footer">
         <xpath expr="//div[@id='footer']" position="replace">
             <div id="footer" class="facodi-footer" data-name="FACODI Footer" t-if="not no_footer">
