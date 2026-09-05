@@ -277,4 +277,3 @@ git push -u origin fix/live-odoo-theme
 
 Target `main`; summarize the live-source evidence, standard-first boundary and
 test output in the PR body.
-

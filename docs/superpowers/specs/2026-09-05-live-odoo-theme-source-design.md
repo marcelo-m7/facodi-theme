@@ -95,4 +95,3 @@ behavior, not portable theme source.
 8. No editorial page, controller, model or Enterprise dependency is added.
 9. Contract tests and Odoo HttpCase tests pass without warnings attributable to
    the addon.
-
