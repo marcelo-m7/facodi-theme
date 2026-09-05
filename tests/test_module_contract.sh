@@ -34,5 +34,11 @@ grep -Fq '#6a4bff' theme_facodi/static/src/scss/primary_variables.scss || fail "
 grep -Fq '#5dc7ff' theme_facodi/static/src/scss/primary_variables.scss || fail "FACODI blue missing"
 grep -Fq "'facodi'" theme_facodi/static/src/scss/primary_variables.scss || fail "FACODI palette missing"
 grep -Fq 'web.assets_frontend' theme_facodi/__manifest__.py || fail "frontend asset bundle missing"
+grep -Fq 'web._assets_frontend_helpers' theme_facodi/data/ir_asset.xml || fail "bootstrap overrides must use frontend helpers"
+
+if grep -R -n '\$facodi-' theme_facodi/static/src/scss \
+    --include='*.scss' --exclude='primary_variables.scss'; then
+  fail "frontend SCSS must not depend on theme-primary-only FACODI variables"
+fi
 
 echo "PASS: theme module contract"
