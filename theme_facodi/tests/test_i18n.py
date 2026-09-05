@@ -31,9 +31,9 @@ class TestFacodiThemeTranslations(HttpCase):
         )
         cls.website.default_lang_id = cls.lang_en
         cls.website.theme_id = cls.module
-        cls.module._theme_get_stream_themes().with_context(load_all_views=True)._theme_load(
-            cls.website
-        )
+        cls.module._theme_get_stream_themes().with_context(
+            load_all_views=True, apply_new_theme=True
+        )._theme_load(cls.website)
 
     def _website_view(self, key):
         view = self.env["ir.ui.view"].search(

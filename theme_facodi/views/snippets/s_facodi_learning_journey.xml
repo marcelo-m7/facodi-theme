@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_learning_journey" name="FACODI Learning Journey">
+        <section class="s_facodi_learning_journey o_cc o_cc1 py-5" data-snippet="s_facodi_learning_journey" data-name="Learning Journey">
+            <div class="container py-lg-4">
+                <div class="facodi-section-heading">
+                    <div>
+                        <p class="facodi-kicker">
+                            <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
+                            How it works
+                        </p>
+                        <h2>Three steps to start learning.</h2>
+                    </div>
+                </div>
+                <div class="facodi-stat-row">
+                    <article class="facodi-stat-card facodi-mint">
+                        <div class="facodi-stat-eyebrow">Step 01</div>
+                        <div class="facodi-stat-title">Discover</div>
+                        <div class="facodi-stat-copy">Explore the catalogue and find a learning path aligned with your goals.</div>
+                        <i class="fa fa-search" aria-hidden="true" t-translation="off"/>
+                    </article>
+                    <article class="facodi-stat-card facodi-sky">
+                        <div class="facodi-stat-eyebrow">Step 02</div>
+                        <div class="facodi-stat-title">Learn</div>
+                        <div class="facodi-stat-copy">Follow organised content at your own pace and track your progress.</div>
+                        <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
+                    </article>
+                    <article class="facodi-stat-card facodi-sun">
+                        <div class="facodi-stat-eyebrow">Step 03</div>
+                        <div class="facodi-stat-title">Contribute</div>
+                        <div class="facodi-stat-copy">Share resources and help other people build knowledge.</div>
+                        <i class="fa fa-users" aria-hidden="true" t-translation="off"/>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

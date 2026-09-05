@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_institutional" name="FACODI Institutional">
+        <section class="s_facodi_institutional facodi-open-section o_cc o_cc2" data-snippet="s_facodi_institutional" data-name="FACODI Institutional">
+            <div>
+                <p class="facodi-kicker">
+                    <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
+                    Knowledge in motion
+                </p>
+                <h2>An open college for anyone who wants to build the future.</h2>
+            </div>
+            <div class="facodi-open-actions">
+                <p>
+                    Study with clear learning paths, contribute reviewed resources and turn your journey into something other people can follow too.
+                </p>
+                <a class="btn facodi-button facodi-button-secondary" href="/contactus">
+                    Contact FACODI
+                    <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
+                </a>
+            </div>
+        </section>
+    </template>
+</odoo>

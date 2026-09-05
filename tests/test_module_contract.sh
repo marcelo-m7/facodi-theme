@@ -28,13 +28,104 @@ if grep -Eq '^[[:space:]]*#wrapwrap[[:space:]]+h[1-6]' theme_facodi/static/src/s
   fail "website.scss must not override Website Builder heading colors globally"
 fi
 
-# Default configurator snippets must not ship links to project pages that a clean
-# Website install does not create. /contactus and /slides are standard routes here.
-if grep -Fq 'href="/sobre"' theme_facodi/views/snippets.xml; then
+# Native selectable FACODI header: Odoo keeps the outer header, Website menus,
+# Portal identity and the standard mobile header. FACODI owns only composition.
+for path in \
+  theme_facodi/models/__init__.py \
+  theme_facodi/models/theme_models.py \
+  theme_facodi/views/header.xml \
+  theme_facodi/static/src/builder/header.xml \
+  theme_facodi/static/src/img/template_header_facodi.svg; do
+  [[ -f "$path" ]] || fail "missing native FACODI header file: $path"
+done
+
+grep -Fq 'from . import models' theme_facodi/__init__.py \
+  || fail "theme root must load models"
+grep -Fq 'from . import theme_models' theme_facodi/models/__init__.py \
+  || fail "theme models package must load theme_models"
+grep -Fq '_inherit = "theme.utils"' theme_facodi/models/theme_models.py \
+  || fail "theme.utils extension missing"
+grep -Fq 'theme_facodi.template_header_facodi' theme_facodi/models/theme_models.py \
+  || fail "FACODI header must be registered by theme.utils"
+grep -Fq '_theme_facodi_post_copy' theme_facodi/models/theme_models.py \
+  || fail "FACODI theme post-copy hook missing"
+
+grep -Fq 'views/header.xml' theme_facodi/__manifest__.py \
+  || fail "header view missing from manifest"
+grep -Fq 'html_builder.assets' theme_facodi/__manifest__.py \
+  || fail "Website Builder asset bundle missing"
+grep -Fq 'theme_facodi/static/src/builder/**/*' theme_facodi/__manifest__.py \
+  || fail "FACODI builder assets missing"
+
+if grep -R -n '<xpath[^>]*expr="//header"[^>]*position="replace"' theme_facodi --include='*.xml'; then
+  fail "theme must not replace the complete Odoo header"
+fi
+
+grep -Fq 'id="template_header_facodi"' theme_facodi/views/header.xml \
+  || fail "selectable FACODI header template missing"
+grep -Fq 'xpath expr="//header//nav" position="replace"' theme_facodi/views/header.xml \
+  || fail "FACODI header must replace only the standard nav extension point"
+grep -Fq 'website.placeholder_header_brand' theme_facodi/views/header.xml \
+  || fail "header must retain standard configurable Website brand"
+grep -Fq 'website.navbar_nav' theme_facodi/views/header.xml \
+  || fail "header must use standard navbar wrapper"
+grep -Fq 'website.menu_id.child_id' theme_facodi/views/header.xml \
+  || fail "header must use standard dynamic Website menus"
+grep -Fq 't-call="website.submenu"' theme_facodi/views/header.xml \
+  || fail "header must use native submenu recursion"
+grep -Fq 'portal.placeholder_user_sign_in' theme_facodi/views/header.xml \
+  || fail "header must retain standard Portal sign-in"
+grep -Fq 'portal.user_dropdown' theme_facodi/views/header.xml \
+  || fail "header must retain standard Portal user dropdown"
+
+grep -Fq 't-inherit="website.HeaderTemplateOption"' theme_facodi/static/src/builder/header.xml \
+  || fail "FACODI header must extend native header picker"
+grep -Fq "'header-template': 'facodi'" theme_facodi/static/src/builder/header.xml \
+  || fail "FACODI header picker must set facodi header-template"
+grep -Fq "views: ['theme_facodi.template_header_facodi']" theme_facodi/static/src/builder/header.xml \
+  || fail "FACODI picker must activate FACODI header view"
+
+# Every FACODI Website block must have one stable source file and one registry
+# entry. The XML ids stay unchanged so page compositions and i18n remain stable.
+SNIPPET_IDS=(
+  s_facodi_hero
+  s_facodi_learning_journey
+  s_facodi_institutional
+  s_facodi_intro
+  s_facodi_features
+  s_facodi_community
+  s_facodi_roadmap
+  s_facodi_faq
+  s_facodi_course_cta
+)
+
+[[ -f theme_facodi/views/snippets/snippets.xml ]] \
+  || fail "FACODI snippet registry missing"
+
+for snippet_id in "${SNIPPET_IDS[@]}"; do
+  path="theme_facodi/views/snippets/${snippet_id}.xml"
+  [[ -f "$path" ]] || fail "missing reusable snippet source: $path"
+  grep -Fq "id=\"${snippet_id}\"" "$path" \
+    || fail "snippet source does not define ${snippet_id}"
+  count="$(grep -R -h -o "id=\"${snippet_id}\"" theme_facodi/views/snippets --include='*.xml' | wc -l)"
+  [[ "$count" -eq 1 ]] || fail "${snippet_id} must be defined exactly once"
+  grep -Fq "t-snippet=\"theme_facodi.${snippet_id}\"" theme_facodi/views/snippets/snippets.xml \
+    || fail "${snippet_id} is not registered in Website Builder"
+done
+
+[[ ! -f theme_facodi/views/snippets.xml ]] \
+  || fail "legacy monolithic snippets.xml must be removed"
+
+# Default snippets must not ship links to project pages that a clean Website
+# install does not create. /contactus and /slides are standard routes here.
+if grep -R -Fq 'href="/sobre"' theme_facodi/views/snippets --include='*.xml'; then
   fail "default snippets must not link to undefined /sobre"
 fi
-grep -Fq 'href="/contactus"' theme_facodi/views/snippets.xml || fail "FACODI informational CTA must use the standard contact page"
+grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml' \
+  || fail "FACODI informational CTA must use the standard contact page"
 
+grep -Fq 'a1818df4ade65406ac0184382c0fd46f1023a22612c' .github/workflows/ci.yml >/dev/null 2>&1 \
+  && fail "CI contains an addon SHA where design-themes pin is expected"
 grep -Fq 'a1818df4ade65406c0cacae8b1ea676e6f70095f' .github/workflows/ci.yml || fail "CI must pin design-themes"
 grep -Fq '/mnt/design-themes' .github/workflows/ci.yml || fail "CI must mount design-themes"
 grep -Fq -- '-i theme_facodi' .github/workflows/ci.yml || fail "CI must install theme_facodi"
@@ -56,23 +147,18 @@ grep -Fq "'facodi'" theme_facodi/static/src/scss/primary_variables.scss || fail 
 grep -Fq 'web.assets_frontend' theme_facodi/__manifest__.py || fail "frontend asset bundle missing"
 grep -Fq 'web._assets_frontend_helpers' theme_facodi/data/ir_asset.xml || fail "bootstrap overrides must use frontend helpers"
 
-grep -Fq 'facodi-header' theme_facodi/views/customizations.xml || fail "live FACODI header missing"
 grep -Fq 'facodi-footer' theme_facodi/views/customizations.xml || fail "live FACODI footer missing"
-grep -Fq 'website.menu_id.child_id' theme_facodi/views/customizations.xml || fail "header must use standard dynamic Website menus"
-grep -Fq 'website.placeholder_header_brand' theme_facodi/views/customizations.xml || fail "header must render the standard configurable Website brand"
-grep -Fq 'portal.placeholder_user_sign_in' theme_facodi/views/customizations.xml || fail "header must retain standard Portal sign-in"
 grep -Fq 'content="#142846"' theme_facodi/views/customizations.xml || fail "live browser theme color missing"
 
 python3 - <<'PY'
 from pathlib import Path
 from xml.etree import ElementTree
 
-
-source = Path("theme_facodi/views/customizations.xml")
+source = Path("theme_facodi/views/header.xml")
 root = ElementTree.parse(source).getroot()
-header = root.find(".//template[@id='facodi_header']")
+header = root.find(".//template[@id='template_header_facodi']")
 if header is None:
-    raise SystemExit("FAIL: FACODI header template missing")
+    raise SystemExit("FAIL: FACODI native header template missing")
 
 parents = {
     child: parent
@@ -96,31 +182,40 @@ literal_brands = [
     )
 ]
 if literal_brands:
-    raise SystemExit("FAIL: header must not replace the configured Website logo with literal text")
+    raise SystemExit("FAIL: header must not replace configured Website logo with literal text")
 
-for call_name in (
-    "portal.placeholder_user_sign_in",
-    "portal.user_dropdown",
-):
+navbar_calls = [
+    node for node in header.iter("t") if node.get("t-call") == "website.navbar_nav"
+]
+if len(navbar_calls) != 1:
+    raise SystemExit("FAIL: header must call website.navbar_nav exactly once")
+navbar = navbar_calls[0]
+
+for call_name in ("portal.placeholder_user_sign_in", "portal.user_dropdown"):
     calls = [
-        node
-        for node in header.iter("t")
-        if node.get("t-call") == call_name
+        node for node in header.iter("t") if node.get("t-call") == call_name
     ]
     if len(calls) != 1:
         raise SystemExit(f"FAIL: header must call {call_name} exactly once")
     call = calls[0]
-    if parents.get(call) is None or parents[call].tag != "ul":
-        raise SystemExit(f"FAIL: {call_name} must be a direct child of the navigation list")
-    if "ms-lg-2" not in call.get("_item_class.f", "").split():
+    ancestor = parents.get(call)
+    while ancestor is not None and ancestor is not navbar:
+        ancestor = parents.get(ancestor)
+    if ancestor is not navbar:
+        raise SystemExit(f"FAIL: {call_name} must remain inside website.navbar_nav")
+    item_sets = [
+        child for child in call.findall("t") if child.get("t-set") == "_item_class"
+    ]
+    if len(item_sets) != 1 or "ms-lg-2" not in item_sets[0].get("t-valuef", "").split():
         raise SystemExit(f"FAIL: {call_name} must carry its own list-item spacing")
 PY
 
-grep -Fq '@media (max-width: 991.98px)' theme_facodi/static/src/scss/website.scss \
-  || fail "collapsed header rules must cover the full navbar-expand-lg range"
+grep -Fq '.o_header_mobile' theme_facodi/static/src/scss/website.scss \
+  || fail "theme must style the standard Odoo mobile header instead of replacing it"
 
 for class_name in facodi-hero facodi-hero-board facodi-stat-card facodi-open-section; do
-  grep -Fq "$class_name" theme_facodi/views/snippets.xml || fail "live FACODI snippet class missing: $class_name"
+  grep -R -Fq "$class_name" theme_facodi/views/snippets --include='*.xml' \
+    || fail "live FACODI snippet class missing: $class_name"
 done
 
 grep -Fq 'body.o_wslides_body .facodi-site' theme_facodi/static/src/scss/website_slides.scss \
@@ -151,27 +246,52 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.4.0.0"' theme_facodi/__manifest__.py || fail "live-source release version missing"
-
-echo "PASS: theme module contract"
+grep -Fq '"version": "19.0.5.0.0"' theme_facodi/__manifest__.py || fail "native-header release version missing"
 
 if grep -Rq 'prefers-color-scheme: dark\|background-image: none !important' theme_facodi/static/src/scss; then
   fail "partial dark mode or hidden editorial cover regression"
 fi
-grep -Fq 't-call="website.submenu"' theme_facodi/views/customizations.xml || fail "native submenu missing"
+
 python3 - <<'CHECK'
-import ast
 from pathlib import Path
 from xml.etree import ElementTree as ET
-manifest=ast.literal_eval(Path('theme_facodi/__manifest__.py').read_text())
+
 for path in Path('theme_facodi').rglob('*.xml'):
     ET.parse(path)
-blocks={n.get('id') for n in ET.parse('theme_facodi/views/snippets.xml').getroot().findall('template')}
-pages=ET.parse('theme_facodi/views/page_templates.xml').getroot()
-compositions=[n for n in pages.findall('template') if n.get('id','').startswith('new_page_template_sections_')]
+
+snippet_dir = Path('theme_facodi/views/snippets')
+blocks = set()
+for path in snippet_dir.glob('s_facodi_*.xml'):
+    root = ET.parse(path).getroot()
+    for node in root.findall('template'):
+        if node.get('id', '').startswith('s_facodi_'):
+            blocks.add(node.get('id'))
+
+expected = {
+    's_facodi_hero',
+    's_facodi_learning_journey',
+    's_facodi_institutional',
+    's_facodi_intro',
+    's_facodi_features',
+    's_facodi_community',
+    's_facodi_roadmap',
+    's_facodi_faq',
+    's_facodi_course_cta',
+}
+assert blocks == expected, (blocks, expected)
+
+pages = ET.parse('theme_facodi/views/page_templates.xml').getroot()
+compositions = [
+    node for node in pages.findall('template')
+    if node.get('id', '').startswith('new_page_template_sections_')
+]
 assert len(compositions) == 10
 for page in compositions:
     for node in page.iter('t'):
-        key=node.get('t-snippet-call')
-        assert key.startswith('theme_facodi.') and key.split('.')[1] in blocks
+        key = node.get('t-snippet-call')
+        if key:
+            assert key.startswith('theme_facodi.')
+            assert key.split('.', 1)[1] in expected
 CHECK
+
+echo "PASS: theme module contract"

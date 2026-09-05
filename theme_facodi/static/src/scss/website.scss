@@ -41,11 +41,15 @@
         box-shadow: 3px 3px 0 var(--facodi-ink);
     }
 
-    .facodi-icon-button {
-        border: 2px solid var(--facodi-ink);
-        border-radius: .5rem;
-        box-shadow: 2px 2px 0 var(--facodi-ink);
-        color: var(--facodi-ink);
+    .o_header_mobile {
+        background: var(--facodi-paper);
+        border-bottom: 2px solid var(--facodi-ink);
+
+        .navbar-toggler,
+        .o_header_mobile_buttons_wrap .btn {
+            border-color: var(--facodi-ink);
+            color: var(--facodi-ink);
+        }
     }
 
     .facodi-footer {
@@ -112,17 +116,8 @@
 }
 
 @media (max-width: 991.98px) {
-    .facodi-site {
-        .facodi-header {
-            .facodi-nav-shell {
-                padding: 0 1.125rem;
-            }
-
-            .navbar-collapse {
-                padding: .75rem 0;
-            }
-
-        }
+    .facodi-site .facodi-header .facodi-nav-shell {
+        padding: 0 1.125rem;
     }
 }
 

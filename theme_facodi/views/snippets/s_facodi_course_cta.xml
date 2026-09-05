@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_course_cta" name="FACODI Course catalogue CTA">
+        <section class="s_facodi_course_cta facodi-section o_cc o_cc1" data-snippet="s_facodi_course_cta" data-name="FACODI Course catalogue CTA">
+            <div class="container">
+                <h2>Find your next learning path.</h2>
+                <p class="facodi-lead">Explore the courses and choose where you want to begin.</p>
+                <div class="facodi-actions">
+                    <a href="/slides" class="btn facodi-button facodi-button-primary">
+                        Explore courses
+                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
