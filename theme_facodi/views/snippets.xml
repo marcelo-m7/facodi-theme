@@ -27,7 +27,7 @@
                         <p class="lead mb-4">Explore percursos de aprendizagem organizados a partir de conteúdos educativos abertos e públicos.</p>
                         <div class="d-flex flex-wrap gap-3">
                             <a class="btn btn-primary btn-lg" href="/slides">Explorar percursos</a>
-                            <a class="btn btn-outline-primary btn-lg" href="/sobre">Conhecer a FACODI</a>
+                            <a class="btn btn-outline-primary btn-lg" href="/contactus">Contactar a FACODI</a>
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -70,7 +70,7 @@
                             <p class="mb-0">Apresente aqui o enquadramento institucional, parceiros e iniciativas da FACODI usando o editor do Website.</p>
                         </div>
                         <div class="col-lg-4 text-lg-end">
-                            <a class="btn btn-primary" href="/sobre">Sobre a FACODI</a>
+                            <a class="btn btn-primary" href="/contactus">Contactar a FACODI</a>
                         </div>
                     </div>
                 </div>
