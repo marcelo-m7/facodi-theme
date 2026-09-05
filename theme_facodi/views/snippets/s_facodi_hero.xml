@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_hero" name="FACODI Hero">
+        <section class="s_facodi_hero facodi-hero o_cc o_cc1" data-snippet="s_facodi_hero" data-name="FACODI Hero">
+            <div class="facodi-hero-copy">
+                <p class="facodi-kicker">
+                    <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
+                    Learn together with the community
+                </p>
+                <h1>Your next chapter starts in a network.</h1>
+                <p class="facodi-lead">
+                    Official curricula, open resources and a community that turns knowledge into possibility.
+                </p>
+                <div class="facodi-actions">
+                    <a class="btn facodi-button facodi-button-primary" href="/slides">
+                        Explore courses
+                        <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
+                    </a>
+                    <a class="btn facodi-button facodi-button-secondary" href="/web/login">Continue learning</a>
+                </div>
+            </div>
+            <div class="facodi-hero-board" aria-label="Learning map">
+                <div class="facodi-board-top">
+                    <div>Learning map</div>
+                    <div class="facodi-live-dot">Open</div>
+                </div>
+                <div class="facodi-board-path">
+                    <div class="facodi-path-node is-complete">
+                        <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
+                    </div>
+                    <div class="facodi-path-line is-complete"/>
+                    <div class="facodi-path-node is-current">02</div>
+                    <div class="facodi-path-line"/>
+                    <div class="facodi-path-node">03</div>
+                </div>
+                <div class="facodi-board-cards">
+                    <div>
+                        <div class="facodi-board-card-label">Discover</div>
+                        <div class="facodi-board-card-title">Find a course</div>
+                    </div>
+                    <div class="is-selected">
+                        <div class="facodi-board-card-label">Learn</div>
+                        <div class="facodi-board-card-title">At your own pace</div>
+                    </div>
+                    <div>
+                        <div class="facodi-board-card-label">Contribute</div>
+                        <div class="facodi-board-card-title">In community</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
