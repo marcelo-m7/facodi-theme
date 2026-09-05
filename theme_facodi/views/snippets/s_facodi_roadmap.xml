@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_roadmap" name="FACODI Roadmap">
+        <section class="s_facodi_roadmap facodi-section o_cc o_cc1" data-snippet="s_facodi_roadmap" data-name="FACODI Roadmap">
+            <div class="container">
+                <h2 class="mb-4">From purpose to practice.</h2>
+                <ol class="facodi-grid list-unstyled">
+                    <li class="facodi-panel">
+                        <h3>Listen</h3>
+                        <p>Identify needs and gather contributions from the community.</p>
+                    </li>
+                    <li class="facodi-panel">
+                        <h3>Build</h3>
+                        <p>Organise resources and develop learning paths.</p>
+                    </li>
+                    <li class="facodi-panel">
+                        <h3>Review</h3>
+                        <p>Learn from experience and improve together.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </template>
+</odoo>
