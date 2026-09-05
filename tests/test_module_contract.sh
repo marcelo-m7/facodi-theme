@@ -22,6 +22,20 @@ if grep -R -nE 'request\.env|sudo\(\)|href="/theme_facodi/static/src/img/favicon
   fail "theme QWeb contains business-data access or a forced favicon"
 fi
 
+# Website Builder color combinations own semantic heading colors. A global
+# #wrapwrap heading override would make headings unreadable on dark combinations.
+if grep -Eq '^[[:space:]]*#wrapwrap[[:space:]]+h[1-6]' theme_facodi/static/src/scss/website.scss \
+   || grep -Fq 'color: $headings-color' theme_facodi/static/src/scss/website.scss; then
+  fail "website.scss must not override Website Builder heading colors globally"
+fi
+
+# Default configurator snippets must not ship links to project pages that a clean
+# Website install does not create. /contactus and /slides are standard routes here.
+if grep -Fq 'href="/sobre"' theme_facodi/views/snippets.xml; then
+  fail "default snippets must not link to undefined /sobre"
+fi
+grep -Fq 'href="/contactus"' theme_facodi/views/snippets.xml || fail "FACODI informational CTA must use the standard contact page"
+
 grep -Fq 'a1818df4ade65406c0cacae8b1ea676e6f70095f' .github/workflows/ci.yml || fail "CI must pin design-themes"
 grep -Fq '/mnt/design-themes' .github/workflows/ci.yml || fail "CI must mount design-themes"
 grep -Fq -- '-i theme_facodi' .github/workflows/ci.yml || fail "CI must install theme_facodi"
