@@ -1,0 +1,10 @@
+#wrapwrap {
+    color: $body-color;
+}
+
+#wrapwrap .navbar .nav-link:focus-visible,
+#wrapwrap .btn:focus-visible,
+#wrapwrap a:focus-visible {
+    outline: .1875rem solid rgba($secondary, .65);
+    outline-offset: .1875rem;
+}
