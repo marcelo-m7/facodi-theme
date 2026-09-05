@@ -89,5 +89,12 @@ fi
 
 grep -Fq 'theme_common' README.md || fail "README must document theme_common"
 grep -Fq 'odoo/design-themes' docs/architecture.md || fail "architecture must document upstream design-themes"
+grep -Fq 'edu-open2.odoo.com' README.md || fail "README must name the live visual source"
+grep -Fq '#142846' README.md || fail "README must document live FACODI ink"
+grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
+grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
+grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
+grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
+grep -Fq '"version": "19.0.3.0.0"' theme_facodi/__manifest__.py || fail "live-source release version missing"
 
 echo "PASS: theme module contract"

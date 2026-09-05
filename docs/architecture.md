@@ -1,89 +1,138 @@
 # FACODI Theme Architecture
 
-## Boundary
+## Architectural boundary
 
-`theme_facodi` owns presentation only.
+`theme_facodi` is a presentation-only Odoo 19 Community addon.
 
 ```text
 Odoo 19 Community
-├── website / Website Builder
+├── website + Website Builder
+├── portal
 ├── website_slides
 └── theme_common (pinned from odoo/design-themes)
           │
           ▼
      theme_facodi
-     ├── palette and Website theme values
+     ├── live FACODI palette
+     ├── dynamic header and footer
      ├── editable FACODI snippets
-     ├── narrow website.layout inheritance
-     └── presentation-only website_slides styling
+     └── eLearning presentation
 ```
 
-Website and eLearning domain behavior stays in the standard Odoo modules. The theme does not become the source of truth for course data, publication, membership, access or learner progress.
+Website owns pages and menus, Portal owns identity navigation, and eLearning
+owns courses and progress. The theme supplies no parallel controller, model or
+business workflow.
 
-## Upstream theme dependency
+## Live-source evidence
 
-`theme_common` is sourced from the official `odoo/design-themes` repository and must be pinned by the build/runtime composition layer. It is not copied into this repository.
+The visual authority is the FACODI website at `edu-open2.odoo.com`, database
+`edu-open2`, website id 2. Inspection on 2026-09-05 established this source
+state:
 
-The current implementation cycle uses commit:
+| Odoo record | Role in the live site |
+|---|---|
+| installed module `theme_default` | standard base theme |
+| attachment 431, `facodi-online.css` | FACODI visual rules |
+| view 2477, `codoo.facodi_online.header` | dynamic header |
+| view 2478, `codoo.facodi_online.footer` | FACODI footer |
+| view 2479, `codoo.facodi_online.assets` | database stylesheet link |
+| attachments 423, 424 and 775 | Website Builder palette and values |
+
+These ids document provenance only. The addon never reads or references them at
+runtime. The CSS attachment is decomposed into focused SCSS and the QWeb views
+are represented with module-owned XML ids.
+
+```text
+edu-open2 database artifacts
+          │ extract visual intent
+          ▼
+theme_facodi source files
+          │ standard theme lifecycle
+          ▼
+any clean Odoo 19 Community website
+```
+
+The database URL `/web/content/431`, duplicate YouTube hook and editorial page
+records are not copied. They are respectively a deployment artifact, behavior
+outside the theme boundary and site content.
+
+## Source ownership
+
+| File | Responsibility |
+|---|---|
+| `primary_variables.scss` | exact live palette and Website Builder combinations |
+| `bootstrap_overridden.scss` | geometric Bootstrap radii |
+| `components.scss` | wordmark, buttons, cards and reusable primitives |
+| `website.scss` | FACODI shell, header, footer, focus and color-scheme behavior |
+| `snippets.scss` | editable hero, journey and institutional compositions |
+| `website_slides.scss` | presentation of stable standard eLearning selectors |
+| `customizations.xml` | layout hook, dynamic header/footer and Portal templates |
+| `snippets.xml` | Builder registration and editable snippet markup |
+
+Frontend SCSS uses CSS custom properties under `.facodi-site`. This keeps the
+live cyan, blue, mint and sun accents available without coupling frontend
+bundles to theme-primary Sass compilation internals.
+
+## Odoo theme lifecycle
+
+The addon follows Odoo design-theme conventions:
+
+- technical module name `theme_facodi`;
+- `theme_common` sourced from official `odoo/design-themes`;
+- primary variables registered in `web._assets_primary_variables`;
+- Bootstrap overrides registered in `web._assets_frontend_helpers`;
+- `_generate_primary_snippet_templates` executed during installation;
+- theme QWeb copied into website-specific views when the theme is activated.
+
+The build currently pins `odoo/design-themes` commit:
 
 ```text
 a1818df4ade65406c0cacae8b1ea676e6f70095f
 ```
 
-## Theme lifecycle
+## Header and footer
 
-The addon follows Odoo design-theme conventions:
+The live layout cannot be reproduced by palette changes alone. The addon
+therefore replaces only the standard `header` and `#footer` extension points.
+It does not hard-code `website.menu` ids:
 
-- technical module name `theme_facodi`;
-- primary variables registered in `web._assets_primary_variables`;
-- Bootstrap-level overrides registered in `web._assets_frontend_helpers`;
-- `_generate_primary_snippet_templates` for Website Builder theme templates;
-- theme XML is loaded through Odoo's theme-template lifecycle before being copied to the selected website;
-- narrow QWeb inheritance instead of copied Website/eLearning templates.
+- top-level and child items come from `website.menu_id.child_id`;
+- URLs use standard menu helpers;
+- sign-in and account navigation call standard Portal templates;
+- mobile collapse uses Bootstrap behavior already shipped by Website;
+- footer navigation is derived from the same current Website menu.
 
-## Visual system
+No JavaScript is added for navigation.
 
-`primary_variables.scss` owns the FACODI palette, color combinations and Website theme defaults. Frontend SCSS uses standard Odoo/Bootstrap semantic variables after the theme palette has been resolved.
+## Website Builder and editorial content
 
-Styles are separated by responsibility:
+The three FACODI blocks are standard editable snippets. Their initial copy is
+translatable and their links use `/slides`, `/contactus` and `/web/login`, all
+standard routes available from declared dependencies.
 
-```text
-primary_variables.scss      Website Builder palette/theme values
-bootstrap_overridden.scss   Bootstrap shape defaults
-components.scss             reusable FACODI presentation primitives
-website.scss                global Website refinements
-snippets.scss               FACODI snippet styling
-website_slides.scss         standard eLearning presentation
-```
+The theme intentionally creates no `website.page` records. Existing FACODI
+pages such as Homepage, About, Manifesto, Community and Roadmap remain database
+content and can evolve independently of theme releases.
 
-## Website Builder
-
-Editors retain standard Odoo controls for pages, menus, sections, colors, header/footer, logo and favicon. FACODI snippets extend the standard snippet catalog rather than creating a parallel page builder.
-
-The theme never embeds ad-hoc `request.env`, `sudo()` or ORM searches in QWeb. Dynamic learning data must continue through supported Odoo Website/eLearning mechanisms.
-
-## Website and navigation
-
-`website.layout` is inherited only to add the `facodi-site` styling hook and theme-color metadata. The standard header/footer are preserved, including mobile navigation, login/portal behavior, language selection and Website branding records.
+Configured Website logos and favicons remain authoritative. Bundled SVG files
+are previews or optional assets and are never injected over Website settings.
 
 ## eLearning
 
-`website_slides` remains authoritative for `/slides`, course pages, lesson pages, membership and progress. The theme targets stable standard classes with SCSS and does not add duplicate routes, controllers or models.
-
-## Standard-first decision rule
-
-For every future presentation change:
-
-```text
-Does standard Odoo already provide it?
-├── yes → configure or style the standard capability
-└── no
-    ├── stable template/snippet extension point exists → inherit narrowly
-    └── otherwise → create one focused FACODI component
-```
-
-Do not replace complete application surfaces merely to change presentation.
+`website_slides` remains authoritative for the catalog, channel, lesson,
+membership and progress surfaces. Rules are scoped through
+`body.o_wslides_body .facodi-site` and target stable standard classes. There are
+no duplicate routes or QWeb data queries.
 
 ## Upgrade discipline
 
-Prefer palette/theme values first, standard Bootstrap/Odoo utilities second, narrow QWeb inheritance third, and custom components only when necessary. Any future JavaScript must solve a concrete theme/editor requirement and use the current Odoo frontend framework.
+For future changes, use this order:
+
+1. configure a standard Website/Bootstrap theme value;
+2. style a stable standard class;
+3. inherit a focused QWeb extension point;
+4. add a reusable FACODI snippet only when standard snippets are insufficient.
+
+Changes to visual tokens require source-contract assertions. Changes to
+rendered layout require `HttpCase` coverage on a clean database. Every release
+must compile assets and exercise both `/` and `/slides` in Odoo 19 Community.
