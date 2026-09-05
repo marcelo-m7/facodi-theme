@@ -61,5 +61,5 @@ $o-website-values-palettes: append($o-website-values-palettes, (
     'logo-height': 2.25rem,
 ));
 
-$o-color-palettes-compatibility-indexes: map-merge($o-color-palettes-compatibility-indexes, (1: 'facodi'));
-$o-theme-color-palettes-compatibility-indexes: map-merge($o-theme-color-palettes-compatibility-indexes, (1: 'facodi'));
+$o-color-palettes-compatibility-indexes: (1: 'facodi');
+$o-theme-color-palettes-compatibility-indexes: (1: 'facodi');
