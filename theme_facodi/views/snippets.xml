@@ -1,2 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo/>
+<odoo>
+    <template id="snippets" inherit_id="website.snippets" name="FACODI snippets">
+        <xpath expr="//t[@id='installed_snippets_hook']" position="after">
+            <t snippet-group="facodi"
+               t-snippet="website.s_snippet_group"
+               string="FACODI"
+               t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+        </xpath>
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+            <t t-snippet="theme_facodi.s_facodi_hero" string="FACODI Hero" group="facodi"
+               t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_learning_journey" string="Learning Journey" group="facodi"
+               t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_institutional" string="Institutional" group="facodi"
+               t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+        </xpath>
+    </template>
+
+    <template id="s_facodi_hero" name="FACODI Hero">
+        <section class="s_facodi_hero o_cc o_cc1 pt96 pb96" data-snippet="s_facodi_hero" data-name="FACODI Hero">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <p class="facodi-kicker mb-3">Faculdade Comunitária Digital</p>
+                        <h1 class="display-3 mb-4">Ensino superior acessível, aberto e comunitário.</h1>
+                        <p class="lead mb-4">Explore percursos de aprendizagem organizados a partir de conteúdos educativos abertos e públicos.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a class="btn btn-primary btn-lg" href="/slides">Explorar percursos</a>
+                            <a class="btn btn-outline-primary btn-lg" href="/sobre">Conhecer a FACODI</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="facodi-card s_facodi_hero__journey p-4 p-lg-5">
+                            <span class="facodi-kicker">A sua jornada</span>
+                            <ol class="list-unstyled mt-4 mb-0">
+                                <li><strong>01 · Descubra</strong><span>Encontre um percurso.</span></li>
+                                <li><strong>02 · Aprenda</strong><span>Estude no seu ritmo.</span></li>
+                                <li><strong>03 · Contribua</strong><span>Partilhe em comunidade.</span></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="s_facodi_learning_journey" name="FACODI Learning Journey">
+        <section class="s_facodi_learning_journey o_cc o_cc2 pt80 pb80" data-snippet="s_facodi_learning_journey" data-name="Learning Journey">
+            <div class="container">
+                <p class="facodi-kicker">Como funciona</p>
+                <h2 class="mb-5">Descubra, aprenda e contribua.</h2>
+                <div class="row g-4">
+                    <div class="col-md-4"><article class="facodi-card h-100 p-4"><span class="facodi-kicker">01</span><h3>Descubra</h3><p>Explore currículos, cursos e recursos educativos.</p></article></div>
+                    <div class="col-md-4"><article class="facodi-card h-100 p-4"><span class="facodi-kicker">02</span><h3>Aprenda</h3><p>Siga um percurso organizado usando os recursos disponíveis.</p></article></div>
+                    <div class="col-md-4"><article class="facodi-card h-100 p-4"><span class="facodi-kicker">03</span><h3>Contribua</h3><p>Ajude a melhorar e ampliar a aprendizagem em comunidade.</p></article></div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="s_facodi_institutional" name="FACODI Institutional">
+        <section class="s_facodi_institutional o_cc o_cc1 pt64 pb64" data-snippet="s_facodi_institutional" data-name="FACODI Institutional">
+            <div class="container">
+                <div class="facodi-card p-4 p-lg-5">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-8">
+                            <p class="facodi-kicker">Projeto universitário e comunitário</p>
+                            <h2>Aprendizagem digital aberta, organizada para circular.</h2>
+                            <p class="mb-0">Apresente aqui o enquadramento institucional, parceiros e iniciativas da FACODI usando o editor do Website.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a class="btn btn-primary" href="/sobre">Sobre a FACODI</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

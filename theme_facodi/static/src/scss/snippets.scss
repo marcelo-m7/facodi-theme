@@ -1,1 +1,33 @@
-// FACODI Website Builder snippet styles.
+.s_facodi_hero {
+    background:
+        radial-gradient(circle at 85% 20%, rgba($secondary, .28), transparent 32rem),
+        linear-gradient(180deg, rgba($light, .9), $body-bg);
+}
+
+.s_facodi_hero__journey li {
+    display: grid;
+    gap: .25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba($body-color, .1);
+}
+
+.s_facodi_hero__journey li:last-child {
+    border-bottom: 0;
+}
+
+.s_facodi_learning_journey .facodi-card {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+@media (hover: hover) {
+    .s_facodi_learning_journey .facodi-card:hover {
+        transform: translateY(-.25rem);
+        box-shadow: 0 .75rem 2.5rem rgba($body-color, .1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s_facodi_learning_journey .facodi-card {
+        transition: none;
+    }
+}
