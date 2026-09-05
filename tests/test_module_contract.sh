@@ -18,8 +18,8 @@ grep -Fq 'Theme/Education' theme_facodi/__manifest__.py || fail "theme category 
 grep -Fq 'theme_facodi.primary_variables_scss' theme_facodi/data/ir_asset.xml || fail "primary variables asset key missing"
 grep -Fq 'web._assets_primary_variables' theme_facodi/data/ir_asset.xml || fail "primary variables bundle missing"
 
-if grep -R -nE 'request\.env|sudo\(\)|href="/theme_facodi/static/src/img/favicon\.svg"' theme_facodi --include='*.xml'; then
-  fail "theme QWeb contains business-data access or a forced favicon"
+if grep -R -nE 'request\.env|sudo\(\)|href="/theme_facodi/static/src/img/favicon\.svg"|/web/content/431' theme_facodi --include='*.xml'; then
+  fail "theme QWeb contains business-data access, a database asset id, or a forced favicon"
 fi
 
 # Website Builder color combinations own semantic heading colors. A global
@@ -45,11 +45,38 @@ for file in primary_variables bootstrap_overridden components website snippets w
   [[ -f "theme_facodi/static/src/scss/${file}.scss" ]] || fail "missing ${file}.scss"
 done
 
-grep -Fq '#6a4bff' theme_facodi/static/src/scss/primary_variables.scss || fail "FACODI purple missing"
-grep -Fq '#5dc7ff' theme_facodi/static/src/scss/primary_variables.scss || fail "FACODI blue missing"
+for color in '#142846' '#37BED2' '#3979C8' '#A7E8BE' '#EFFF00' '#F9FAFB'; do
+  grep -Riq "$color" theme_facodi || fail "live FACODI color missing: $color"
+done
+
+if grep -RiqE '#6a4bff|#5dc7ff|#f7f6ff|#1f1e42|#111035' theme_facodi --exclude-dir=tests; then
+  fail "superseded purple FACODI identity must not remain"
+fi
+
 grep -Fq "'facodi'" theme_facodi/static/src/scss/primary_variables.scss || fail "FACODI palette missing"
 grep -Fq 'web.assets_frontend' theme_facodi/__manifest__.py || fail "frontend asset bundle missing"
 grep -Fq 'web._assets_frontend_helpers' theme_facodi/data/ir_asset.xml || fail "bootstrap overrides must use frontend helpers"
+
+grep -Fq 'facodi-header' theme_facodi/views/customizations.xml || fail "live FACODI header missing"
+grep -Fq 'facodi-footer' theme_facodi/views/customizations.xml || fail "live FACODI footer missing"
+grep -Fq 'website.menu_id.child_id' theme_facodi/views/customizations.xml || fail "header must use standard dynamic Website menus"
+grep -Fq 'portal.placeholder_user_sign_in' theme_facodi/views/customizations.xml || fail "header must retain standard Portal sign-in"
+grep -Fq 'content="#142846"' theme_facodi/views/customizations.xml || fail "live browser theme color missing"
+
+for class_name in facodi-hero facodi-hero-board facodi-stat-card facodi-open-section; do
+  grep -Fq "$class_name" theme_facodi/views/snippets.xml || fail "live FACODI snippet class missing: $class_name"
+done
+
+grep -Fq 'body.o_wslides_body .facodi-site' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "eLearning styling must be scoped to the active FACODI theme"
+grep -Fq '.o_record_cover_container[data-res-model="slide.channel"]' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "live eLearning course cover styling missing"
+grep -Fq '.o_wslides_js_course_join_link.btn-primary' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "live eLearning join action styling missing"
+
+if grep -R -n '<record[^>]*model="website.page"' theme_facodi --include='*.xml'; then
+  fail "presentation theme must not import editorial Website pages"
+fi
 
 if grep -R -n '\$facodi-' theme_facodi/static/src/scss \
     --include='*.scss' --exclude='primary_variables.scss'; then

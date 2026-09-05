@@ -5,7 +5,106 @@
             <attribute name="t-attf-class" add="facodi-site" separator=" "/>
         </xpath>
         <xpath expr="//head" position="inside">
-            <meta name="theme-color" content="#6a4bff"/>
+            <meta name="theme-color" content="#142846"/>
+        </xpath>
+    </template>
+
+    <template id="facodi_header" inherit_id="website.layout" name="FACODI Header">
+        <xpath expr="//header" position="replace">
+            <header id="top" data-name="FACODI Header" class="o_header_standard facodi-header">
+                <nav aria-label="Primary navigation" class="navbar navbar-expand-lg">
+                    <div id="o_main_nav" class="container-fluid facodi-nav-shell">
+                        <a href="/" class="navbar-brand facodi-wordmark" aria-label="FACODI home">FACODI<span>.</span></a>
+
+                        <button class="navbar-toggler facodi-icon-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#top_menu_collapse"
+                                aria-controls="top_menu_collapse"
+                                aria-expanded="false"
+                                aria-label="Abrir navegação">
+                            <i class="fa fa-bars" aria-hidden="true"/>
+                        </button>
+
+                        <div id="top_menu_collapse" class="collapse navbar-collapse">
+                            <ul class="navbar-nav top_menu ms-auto align-items-lg-center gap-lg-1">
+                                <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                    <li t-if="submenu.is_visible and submenu.child_id"
+                                        class="nav-item dropdown facodi-menu-item"
+                                        role="presentation">
+                                        <a t-att-href="submenu.page_id.url if submenu.page_id else submenu._clean_url()"
+                                           class="nav-link facodi-menu-parent-link"
+                                           role="menuitem"
+                                           aria-haspopup="true">
+                                            <span t-field="submenu.name"/>
+                                        </a>
+                                        <ul class="dropdown-menu facodi-dropdown-menu" role="menu">
+                                            <t t-foreach="submenu.child_id" t-as="child">
+                                                <li t-if="child.is_visible" role="presentation">
+                                                    <a t-att-href="child._clean_url()"
+                                                       class="dropdown-item"
+                                                       role="menuitem">
+                                                        <span t-field="child.name"/>
+                                                    </a>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </li>
+                                    <li t-elif="submenu.is_visible"
+                                        class="nav-item facodi-menu-item"
+                                        role="presentation">
+                                        <a t-att-href="submenu._clean_url()"
+                                           class="nav-link"
+                                           role="menuitem">
+                                            <span t-field="submenu.name"/>
+                                        </a>
+                                    </li>
+                                </t>
+
+                                <li class="nav-item ms-lg-2">
+                                    <t t-call="portal.placeholder_user_sign_in"
+                                       _link_class.f="btn facodi-button facodi-button-primary"/>
+                                    <t t-call="portal.user_dropdown"
+                                       _item_class.f="nav-item dropdown"
+                                       _link_class.f="btn facodi-button facodi-button-primary border-0"
+                                       _dropdown_menu_class.f="dropdown-menu-end"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </xpath>
+    </template>
+
+    <template id="facodi_footer" inherit_id="website.layout" name="FACODI Footer">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" class="facodi-footer" data-name="FACODI Footer" t-if="not no_footer">
+                <div class="container-fluid facodi-footer-inner">
+                    <div>
+                        <a href="/" class="facodi-wordmark">FACODI<span>.</span></a>
+                        <p>Faculdade Comunitária Digital. Educação superior aberta, colaborativa e acessível.</p>
+                    </div>
+
+                    <nav class="facodi-footer-links" aria-label="Footer navigation">
+                        <t t-foreach="website.menu_id.child_id" t-as="footer_menu">
+                            <a t-if="footer_menu.is_visible"
+                               t-att-href="footer_menu._clean_url()">
+                                <span t-field="footer_menu.name"/>
+                            </a>
+                        </t>
+                        <a href="/contactus">Contato</a>
+                        <a href="/web/login">Minha conta</a>
+                    </nav>
+
+                    <p class="facodi-footer-meta">
+                        Open source para aprender em público.<br/>
+                        <span t-esc="datetime.datetime.now().year"/> FACODI<br/>
+                        Criado por
+                        <a href="https://open2.tech" target="_blank" rel="noopener noreferrer">Open2 Technology</a>
+                    </p>
+                </div>
+            </div>
         </xpath>
     </template>
 </odoo>

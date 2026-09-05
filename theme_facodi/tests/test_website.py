@@ -32,11 +32,22 @@ class TestFacodiTheme(HttpCase):
         )
         self.assertEqual(set(website_views.mapped("key")), keys)
 
-    def test_homepage_uses_facodi_layout_class(self):
+        expected_classes = {
+            "theme_facodi.s_facodi_hero": "facodi-hero-board",
+            "theme_facodi.s_facodi_learning_journey": "facodi-stat-card",
+            "theme_facodi.s_facodi_institutional": "facodi-open-section",
+        }
+        for view in website_views:
+            self.assertIn(expected_classes[view.key], view.arch_db)
+
+    def test_homepage_uses_live_facodi_shell(self):
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
         self.assertIn("facodi-site", response.text)
-        self.assertIn('<meta name="theme-color" content="#6a4bff"', response.text)
+        self.assertIn('<meta name="theme-color" content="#142846"', response.text)
+        self.assertIn("o_header_standard facodi-header", response.text)
+        self.assertIn("facodi-wordmark", response.text)
+        self.assertIn("facodi-footer", response.text)
 
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")
