@@ -34,7 +34,7 @@
     }
 
     .facodi-board-top,
-    .facodi-board-cards strong {
+    .facodi-board-card-title {
         font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
         font-size: .68rem;
         font-weight: 700;
@@ -124,7 +124,7 @@
             }
         }
 
-        span {
+        .facodi-board-card-label {
             font-size: .78rem;
         }
     }
