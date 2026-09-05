@@ -1,0 +1,353 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * theme_facodi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.facodi_header
+msgid "Primary navigation"
+msgstr "Navegación principal"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.facodi_header
+msgid "Open navigation"
+msgstr "Abrir navegación"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.facodi_footer
+msgid "Digital Community College. Open, collaborative and accessible higher education."
+msgstr "Facultad Comunitaria Digital. Educación superior abierta, colaborativa y accesible."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.facodi_footer
+msgid "Footer navigation"
+msgstr "Navegación del pie de página"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.facodi_footer
+msgid "My account"
+msgstr "Mi cuenta"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.facodi_footer
+msgid "Open source for learning in public."
+msgstr "Código abierto para aprender en público."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.facodi_footer
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.snippets
+msgid "Learning Journey"
+msgstr "Recorrido de aprendizaje"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.snippets
+msgid "Institutional"
+msgstr "Institucional"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.snippets
+msgid "Editorial intro"
+msgstr "Introducción editorial"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.snippets
+msgid "Learning principles"
+msgstr "Principios de aprendizaje"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.snippets
+msgid "Community and contribution"
+msgstr "Comunidad y contribución"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.snippets
+msgid "Roadmap"
+msgstr "Hoja de ruta"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.snippets
+msgid "Frequently asked questions"
+msgstr "Preguntas frecuentes"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.snippets
+msgid "Course catalogue CTA"
+msgstr "Llamada al catálogo de cursos"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+msgid "Learn together with the community"
+msgstr "Aprende en comunidad"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+msgid "Your next chapter starts in a network."
+msgstr "Tu próximo capítulo comienza en red."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+msgid "Official curricula, open resources and a community that turns knowledge into possibility."
+msgstr "Planes de estudio oficiales, recursos abiertos y una comunidad que transforma el conocimiento en posibilidades."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_course_cta
+msgid "Explore courses"
+msgstr "Explorar cursos"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+msgid "Continue learning"
+msgstr "Seguir aprendiendo"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+msgid "Learning map"
+msgstr "Mapa de aprendizaje"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+msgid "Open"
+msgstr "Abierto"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Discover"
+msgstr "Descubre"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+msgid "Find a course"
+msgstr "Encuentra un curso"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Learn"
+msgstr "Aprende"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_features
+msgid "At your own pace"
+msgstr "A tu ritmo"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Contribute"
+msgstr "Contribuye"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_hero
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_features
+msgid "In community"
+msgstr "En comunidad"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "How it works"
+msgstr "Cómo funciona"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Three steps to start learning."
+msgstr "Tres pasos para empezar a aprender."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Step 01"
+msgstr "Paso 01"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Explore the catalogue and find a learning path aligned with your goals."
+msgstr "Explora el catálogo y encuentra un recorrido de aprendizaje alineado con tus objetivos."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Step 02"
+msgstr "Paso 02"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Follow organised content at your own pace and track your progress."
+msgstr "Sigue contenidos organizados a tu ritmo y controla tu progreso."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Step 03"
+msgstr "Paso 03"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_learning_journey
+msgid "Share resources and help other people build knowledge."
+msgstr "Comparte recursos y ayuda a otras personas a construir conocimiento."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_institutional
+msgid "Knowledge in motion"
+msgstr "Conocimiento en movimiento"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_institutional
+msgid "An open college for anyone who wants to build the future."
+msgstr "Una facultad abierta para quienes quieren construir el futuro."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_institutional
+msgid "Study with clear learning paths, contribute reviewed resources and turn your journey into something other people can follow too."
+msgstr "Estudia con recorridos claros, aporta recursos revisados y convierte tu recorrido en algo que otras personas también puedan seguir."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_institutional
+msgid "Contact FACODI"
+msgstr "Contactar con FACODI"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_intro
+msgid "FACODI · Open knowledge"
+msgstr "FACODI · Conocimiento abierto"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_intro
+msgid "Learning means building together."
+msgstr "Aprender es construir juntos."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_intro
+msgid "A space to present ideas, share resources and give context to your learning journey."
+msgstr "Un espacio para presentar ideas, compartir recursos y dar contexto a tu recorrido de aprendizaje."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_features
+msgid "Knowledge grows when it is shared."
+msgstr "El conocimiento crece cuando se comparte."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_features
+msgid "Open resources"
+msgstr "Recursos abiertos"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_features
+msgid "Explore materials you can study, discuss and share."
+msgstr "Explora materiales que puedes estudiar, debatir y compartir."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_features
+msgid "Organise your learning journey around your goals."
+msgstr "Organiza tu recorrido de aprendizaje en torno a tus objetivos."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_features
+msgid "Exchange perspectives and take part in building knowledge."
+msgstr "Intercambia perspectivas y participa en la construcción de conocimiento."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_community
+msgid "Knowledge grows through your participation."
+msgstr "El conocimiento crece con tu participación."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_community
+msgid "Share an idea, propose a resource or talk to us about ways to collaborate."
+msgstr "Comparte una idea, propón un recurso o habla con nosotros sobre formas de colaborar."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_community
+msgid "I want to contribute"
+msgstr "Quiero contribuir"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_roadmap
+msgid "From purpose to practice."
+msgstr "Del propósito a la práctica."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_roadmap
+msgid "Listen"
+msgstr "Escuchar"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_roadmap
+msgid "Identify needs and gather contributions from the community."
+msgstr "Identifica necesidades y reúne aportaciones de la comunidad."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_roadmap
+msgid "Build"
+msgstr "Construir"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_roadmap
+msgid "Organise resources and develop learning paths."
+msgstr "Organiza recursos y desarrolla recorridos de aprendizaje."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_roadmap
+msgid "Review"
+msgstr "Revisar"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_roadmap
+msgid "Learn from experience and improve together."
+msgstr "Aprende de la experiencia y mejora junto a la comunidad."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_faq
+msgid "Questions to get started."
+msgstr "Preguntas para empezar."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_faq
+msgid "Where can I find the courses?"
+msgstr "¿Dónde encuentro los cursos?"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_faq
+msgid "Browse the available learning paths in the course catalogue."
+msgstr "Consulta los recorridos de aprendizaje disponibles en el catálogo de cursos."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_faq
+msgid "Open course catalogue"
+msgstr "Abrir catálogo de cursos"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_faq
+msgid "How can I contribute?"
+msgstr "¿Cómo puedo contribuir?"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_faq
+msgid "Use the contact page to share your proposal with FACODI."
+msgstr "Usa la página de contacto para compartir tu propuesta con FACODI."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_faq
+msgid "Open contact page"
+msgstr "Abrir página de contacto"
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_course_cta
+msgid "Find your next learning path."
+msgstr "Encuentra tu próximo recorrido de aprendizaje."
+
+#. module: theme_facodi
+#: model_terms:ir.ui.view,arch_db:theme_facodi.s_facodi_course_cta
+msgid "Explore the courses and choose where you want to begin."
+msgstr "Explora los cursos y elige por dónde quieres empezar."
