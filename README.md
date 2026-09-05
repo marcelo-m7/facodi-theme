@@ -35,6 +35,7 @@ system fonts without making remote font requests.
 - standard Portal sign-in and user dropdown;
 - dynamic footer using Website menu records and standard routes;
 - nine editable FACODI snippets and ten native New Page compositions;
+- native Odoo translations for Portuguese (Portugal), Spanish and French, with English source copy;
 - presentation-only refinements for standard `website_slides` surfaces;
 - accessible two-color focus indicators and reduced-motion behavior;
 - optional preview, logo and favicon assets.
@@ -56,6 +57,38 @@ queries in QWeb.
 The former live database link `/web/content/431` is deliberately absent from
 the addon. Its `facodi-online.css` contents are represented by versioned SCSS,
 and no database-specific record id is required after installation.
+
+## Internationalization
+
+English is the canonical source language of the FACODI QWeb templates. The
+addon uses Odoo's native module translation mechanism and does not implement a
+parallel language selector, JavaScript translation store or per-language QWeb
+branches.
+
+The shipped catalogues are:
+
+- `theme_facodi/i18n/pt.po` for `pt_PT` — Português (Portugal);
+- `theme_facodi/i18n/es.po` for `es_ES` — Español;
+- `theme_facodi/i18n/fr.po` for `fr_FR` — Français.
+
+There is intentionally no `en.po`: English is the source language. The
+canonical extraction template is `theme_facodi/i18n/theme_facodi.pot`.
+
+On a FACODI Website, enable/publish English, `pt_PT`, `es_ES` and `fr_FR` using
+the standard Odoo Website language configuration and set English as the
+Website default language. Language activation and the default-language choice
+remain Website configuration rather than a hard-coded side effect of this
+reusable theme.
+
+Theme translations are stored on Odoo's theme view records and propagated to
+the Website-specific view copies by the standard theme lifecycle. If languages
+are enabled after the theme was already applied, update/reapply the theme after
+loading the module translations so the Website copies receive them.
+
+The New Page composition names are kept in English. Odoo 19 stores the
+`theme.ir.ui.view.name` field as a non-translatable technical label, so the
+addon does not introduce a custom translation layer for those names. Visible
+snippet copy and translatable Website Builder strings use native Odoo i18n.
 
 ## Runtime dependencies
 
@@ -94,10 +127,11 @@ header or footer should be reviewed before theme activation.
 
 ## Verification
 
-Run the fast repository contract:
+Run the fast repository contracts:
 
 ```bash
 bash tests/test_module_contract.sh
+bash tests/test_i18n_contract.sh
 ```
 
 GitHub Actions then uses PostgreSQL 16 and the official `odoo:19.0` image to:
@@ -107,9 +141,12 @@ GitHub Actions then uses PostgreSQL 16 and the official `odoo:19.0` image to:
 - install `theme_facodi` on a clean database;
 - compile frontend and theme assets;
 - run the addon `HttpCase` suite;
-- verify native menus, `/`, `/slides`, `/contactus` and `/web/login`;
+- activate `pt_PT`, `es_ES` and `fr_FR` in the disposable test Website while keeping English as default;
+- load the native PO catalogues through Odoo and reapply the theme using the standard lifecycle;
+- verify `/`, `/pt`, `/es` and `/fr` plus translated theme snippets and footer copy;
+- verify native menus, `/slides`, `/contactus` and `/web/login`;
 - render all ten native compositions and create a page with preserved editor content;
-- rerun regression tests on module upgrade;
+- rerun the same regression suite on module upgrade;
 - confirm that the configured Website favicon is not replaced.
 
 ## Repository integration
@@ -154,4 +191,4 @@ See [architecture](docs/architecture.md) for the native Odoo 19 generator workar
 
 ## Validation evidence
 
-See [validation report](docs/validation.md) for the isolated Community install/upgrade matrix, browser checks and remaining deployment boundaries.
+See [validation report](docs/validation.md) for the isolated Community install/upgrade matrix, multilingual checks, browser checks and remaining deployment boundaries.
