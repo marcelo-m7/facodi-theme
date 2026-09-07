@@ -20,6 +20,9 @@ jobs:
       - name: FACODI homepage dashboard contract
         run: bash tests/test_homepage_dashboard_contract.sh
 
+      - name: FACODI Website Foundation v2 contract
+        run: bash tests/test_foundation_v2_contract.sh
+
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
 
