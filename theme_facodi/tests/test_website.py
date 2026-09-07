@@ -21,10 +21,12 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_hero",
             "theme_facodi.s_facodi_learning_journey",
             "theme_facodi.s_facodi_course_showcase",
+            "theme_facodi.s_facodi_academic_areas",
             "theme_facodi.s_facodi_institutional",
             "theme_facodi.s_facodi_intro",
             "theme_facodi.s_facodi_features",
             "theme_facodi.s_facodi_community",
+            "theme_facodi.s_facodi_ecosystem",
             "theme_facodi.s_facodi_roadmap",
             "theme_facodi.s_facodi_faq",
             "theme_facodi.s_facodi_course_cta",
@@ -43,10 +45,12 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_hero": "facodi-hero-board",
             "theme_facodi.s_facodi_learning_journey": "facodi-stat-card",
             "theme_facodi.s_facodi_course_showcase": "facodi-course-grid",
+            "theme_facodi.s_facodi_academic_areas": "facodi-area-grid",
             "theme_facodi.s_facodi_institutional": "facodi-open-section",
             "theme_facodi.s_facodi_intro": "s_facodi_intro",
             "theme_facodi.s_facodi_features": "facodi-grid",
             "theme_facodi.s_facodi_community": "s_facodi_community",
+            "theme_facodi.s_facodi_ecosystem": "facodi-ecosystem-grid",
             "theme_facodi.s_facodi_roadmap": "s_facodi_roadmap",
             "theme_facodi.s_facodi_faq": "facodi-faq",
             "theme_facodi.s_facodi_course_cta": "s_facodi_course_cta",
@@ -74,6 +78,18 @@ class TestFacodiTheme(HttpCase):
             defaults["template_key"],
             "theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card",
         )
+
+        showcase = self.env["ir.ui.view"].search(
+            [
+                ("key", "=", "theme_facodi.s_facodi_course_showcase"),
+                ("website_id", "!=", False),
+            ],
+            limit=1,
+        )
+        self.assertTrue(showcase)
+        self.assertIn("s_dynamic_snippet_container", showcase.arch_db)
+        self.assertIn("s_dynamic_snippet_content", showcase.arch_db)
+        self.assertIn("dynamic_snippet_template", showcase.arch_db)
 
     def test_facodi_header_is_registered_as_native_theme_template(self):
         theme_view = self.env["theme.ir.ui.view"].search(
@@ -196,15 +212,16 @@ class TestFacodiTheme(HttpCase):
             tree = html.fromstring(template["template"])
             sections = tree.xpath("//section[@data-snippet]")
             section_counts.append(len(sections))
-            self.assertIn(len(sections), (3, 4), template)
+            self.assertIn(len(sections), (3, 4, 7), template)
             self.assertTrue(
                 all(
                     section.get("data-snippet").startswith("s_facodi_")
                     for section in sections
                 )
             )
-        self.assertEqual(section_counts.count(4), 1)
-        self.assertEqual(section_counts.count(3), 9)
+        self.assertEqual(section_counts.count(7), 1)
+        self.assertEqual(section_counts.count(4), 2)
+        self.assertEqual(section_counts.count(3), 7)
         sections_arch = "".join(
             etree.tostring(section, encoding="unicode") for section in sections
         )
@@ -247,6 +264,8 @@ class TestFacodiTheme(HttpCase):
         self.assertRegex(compiled.lower(), r"background-color:\s*#f9fafb")
         self.assertIn(".facodi-grid", compiled)
         self.assertIn(".facodi-course-grid", compiled)
+        self.assertIn(".facodi-area-grid", compiled)
+        self.assertIn(".facodi-ecosystem-grid", compiled)
         self.assertIn(
             "linear-gradient(120deg, var(--facodi-ink), var(--facodi-blue))", compiled
         )
