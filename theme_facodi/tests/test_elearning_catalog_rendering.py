@@ -243,3 +243,32 @@ class TestFacodiElearningCatalogRendering(HttpCase):
         self.assertTrue(fallback_media)
         self.assertFalse(fallback_media[0].xpath(".//img"))
         self.assertEqual(fallback_doc.slide_category, "article")
+
+    def test_catalogue_keeps_standard_hooks_in_portuguese_and_authenticated_sessions(self):
+        course = self._channel("FACODI Language Route Course")
+        lang_pt = self.env["res.lang"]._activate_lang("pt_PT")
+        self.website.language_ids = self.env.ref("base.lang_en") + lang_pt
+
+        localized = self.url_open("/pt/slides")
+        self.assertEqual(localized.status_code, 200)
+        localized_tree = html.fromstring(localized.text)
+        self.assertTrue(
+            localized_tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-slides-catalog ')]"
+            )
+        )
+        self.assertTrue(
+            localized_tree.xpath(
+                f"//a[contains(@href, '-{course.id}') or contains(@href, '/slides/{course.id}')]"
+            )
+        )
+
+        self.authenticate("admin", "admin")
+        authenticated = self.url_open("/slides")
+        self.assertEqual(authenticated.status_code, 200)
+        authenticated_tree = html.fromstring(authenticated.text)
+        self.assertTrue(
+            authenticated_tree.xpath(
+                "//a[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_course_card ')]"
+            )
+        )
