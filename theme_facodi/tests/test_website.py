@@ -134,9 +134,6 @@ class TestFacodiTheme(HttpCase):
             "standard Odoo mobile header must remain rendered",
         )
         self.assertIn("facodi-footer", response.text)
-        self.assertIn("facodi-hero-proof", response.text)
-        self.assertIn("Built for learners and contributors", response.text)
-        self.assertIn("Find a clear starting point", response.text)
 
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")
@@ -211,6 +208,7 @@ class TestFacodiTheme(HttpCase):
         group = next(group for group in payload["result"] if group["id"] == "facodi")
         self.assertEqual(len(group["templates"]), 10)
         section_counts = []
+        home_sections = None
         for template in group["templates"]:
             tree = html.fromstring(template["template"])
             sections = tree.xpath("//section[@data-snippet]")
@@ -222,11 +220,17 @@ class TestFacodiTheme(HttpCase):
                     for section in sections
                 )
             )
+            if "facodi-hero-proof" in template["template"]:
+                self.assertIsNone(home_sections, "FACODI Home template must be unique")
+                home_sections = sections
+                self.assertIn("Built for learners and contributors", template["template"])
+                self.assertIn("Find a clear starting point", template["template"])
         self.assertEqual(section_counts.count(7), 1)
         self.assertEqual(section_counts.count(4), 2)
         self.assertEqual(section_counts.count(3), 7)
+        self.assertIsNotNone(home_sections, "FACODI Home must render the learner hero")
         sections_arch = "".join(
-            etree.tostring(section, encoding="unicode") for section in sections
+            etree.tostring(section, encoding="unicode") for section in home_sections
         )
         result = website.with_context(website_id=website.id).new_page(
             name="FACODI editor fixture", sections_arch=sections_arch
