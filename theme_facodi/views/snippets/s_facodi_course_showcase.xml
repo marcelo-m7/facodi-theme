@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_course_showcase" name="FACODI Course Showcase">
+        <section class="s_facodi_course_showcase s_dynamic_snippet s_dynamic o_cc o_cc1"
+                 data-snippet="s_facodi_course_showcase"
+                 data-name="FACODI Course Showcase">
+            <div class="facodi-dashboard">
+                <aside class="facodi-side-nav" aria-label="Learning navigation">
+                    <p>My learning journey</p>
+                    <a class="is-active" href="/">
+                        <i class="fa fa-th-large" aria-hidden="true" t-translation="off"/>
+                        Overview
+                    </a>
+                    <a href="/slides">
+                        <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
+                        Courses
+                    </a>
+                    <a href="/website/search">
+                        <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
+                        Discover
+                    </a>
+                    <a href="/web/login">
+                        <i class="fa fa-bookmark-o" aria-hidden="true" t-translation="off"/>
+                        Saved
+                    </a>
+                    <a href="/contactus">
+                        <i class="fa fa-users" aria-hidden="true" t-translation="off"/>
+                        Community
+                    </a>
+                </aside>
+
+                <div class="facodi-dashboard-main">
+                    <div class="facodi-section-heading">
+                        <div>
+                            <p class="facodi-kicker">Learning catalogue</p>
+                            <h2>Published courses</h2>
+                        </div>
+                        <a href="/slides" class="facodi-text-link">
+                            Explore courses
+                            <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
+                        </a>
+                    </div>
+                    <div class="dynamic_snippet_template facodi-course-grid"/>
+                    <div class="missing_option_warning alert alert-info d-none mt-3">
+                        Course cards appear here when published courses are available.
+                    </div>
+                </div>
+
+                <aside class="facodi-insights" aria-label="Learning insights">
+                    <article class="facodi-roadmap-card">
+                        <div class="facodi-panel-label"><span>Next study</span></div>
+                        <h3>Explore the available courses</h3>
+                        <p>Open the catalogue and choose the next topic in your learning journey.</p>
+                        <a class="btn facodi-button facodi-button-secondary" href="/slides">
+                            View catalogue
+                            <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
+                        </a>
+                    </article>
+                </aside>
+            </div>
+        </section>
+    </template>
+
+    <template id="dynamic_filter_template_slide_channel_facodi_course_card"
+              name="FACODI Course Card">
+        <t t-foreach="records" t-as="data">
+            <t t-set="channel" t-value="data['_record']"/>
+            <a t-att-href="data.get('call_to_action_url') or '/slides'"
+               class="facodi-course-card"
+               t-att-aria-label="data.get('name')">
+                <div class="facodi-course-art">
+                    <img t-if="data.get('image_1920')"
+                         t-att-src="data.get('image_1920')"
+                         t-att-alt="data.get('name')"
+                         loading="lazy"/>
+                    <t t-else="">
+                        <span t-out="(data.get('name') or '')[:2].upper()"/>
+                        <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
+                    </t>
+                </div>
+                <div class="facodi-course-content">
+                    <div class="facodi-course-description" t-field="channel.description_short"/>
+                    <h3 t-out="data.get('name')"/>
+                    <div class="facodi-card-bottom">
+                        <span>
+                            <t t-out="data.get('total_slides') or 0"/>
+                            lessons
+                        </span>
+                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
+                    </div>
+                </div>
+            </a>
+        </t>
+    </template>
+</odoo>
