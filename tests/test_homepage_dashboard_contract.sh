@@ -24,6 +24,10 @@ grep -Fq 'class="s_facodi_course_showcase' "$SNIPPET" \
   || fail "course showcase root class is missing"
 grep -Fq 's_dynamic_snippet' "$SNIPPET" \
   || fail "course showcase must use Odoo dynamic snippet infrastructure"
+grep -Fq 's_dynamic_snippet_container' "$SNIPPET" \
+  || fail "course showcase must preserve Odoo dynamic snippet container contract"
+grep -Fq 's_dynamic_snippet_content' "$SNIPPET" \
+  || fail "course showcase must preserve Odoo dynamic snippet content contract"
 grep -Fq 'dynamic_snippet_template' "$SNIPPET" \
   || fail "course showcase must provide Odoo dynamic snippet render target"
 grep -Fq 'My learning journey' "$SNIPPET" \
