@@ -13,6 +13,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Theme repository contract
         run: bash tests/test_module_contract.sh
@@ -32,6 +34,13 @@ jobs:
           git -C "$RUNNER_TEMP/design-themes" checkout a1818df4ade65406c0cacae8b1ea676e6f70095f
           test -f "$RUNNER_TEMP/design-themes/theme_common/__manifest__.py"
 
+      - name: Prepare legacy theme release
+        run: |
+          LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
+          git worktree add --detach "$RUNNER_TEMP/facodi-theme-baseline" "$LEGACY_SHA"
+          grep -Fq '"version": "19.0.5.0.1"' "$RUNNER_TEMP/facodi-theme-baseline/theme_facodi/__manifest__.py"
+          grep -Fq '"version": "19.0.5.0.2"' theme_facodi/__manifest__.py
+
       - name: Start PostgreSQL 16
         run: |
           docker network create facodi-theme-ci
@@ -49,7 +58,7 @@ jobs:
           done
           exit 1
 
-      - name: Install theme and run Odoo tests
+      - name: Install legacy theme release and run Odoo tests
         run: |
           docker run --rm \
             --network facodi-theme-ci \
@@ -57,7 +66,7 @@ jobs:
             -e PORT=5432 \
             -e USER=odoo \
             -e PASSWORD=odoo \
-            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v "$RUNNER_TEMP/facodi-theme-baseline:/mnt/facodi-addons:ro" \
             -v facodi-theme-data:/var/lib/odoo \
             -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
             odoo:19.0 \
@@ -68,6 +77,20 @@ jobs:
             -i theme_facodi \
             --test-tags /theme_facodi \
             --stop-after-init
+
+      - name: Seed persisted legacy course showcase
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$RUNNER_TEMP/facodi-theme-baseline:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_seed_legacy_course_showcase.py
 
       - name: Upgrade theme and rerun regression tests
         run: |
@@ -82,6 +105,20 @@ jobs:
             --workers=0 --without-demo=True \
             -d theme_facodi_ci -u theme_facodi \
             --test-tags /theme_facodi --stop-after-init
+
+      - name: Verify legacy course showcase builder repair
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_verify_legacy_course_showcase.py
 
       - name: PostgreSQL logs on failure
         if: failure()
