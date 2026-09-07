@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_ecosystem" name="FACODI Ecosystem">
+        <section class="s_facodi_ecosystem facodi-section o_cc o_cc1"
+                 data-snippet="s_facodi_ecosystem"
+                 data-name="FACODI Ecosystem">
+            <div class="container">
+                <div class="facodi-section-heading">
+                    <div>
+                        <p class="facodi-kicker">
+                            <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
+                            Built in community
+                        </p>
+                        <h2>A learning ecosystem designed to stay open.</h2>
+                    </div>
+                </div>
+                <p class="facodi-lead">FACODI connects learners, contributors and university communities around public learning resources and reusable study paths.</p>
+                <div class="facodi-ecosystem-grid">
+                    <article class="facodi-ecosystem-card">
+                        <span class="facodi-ecosystem-index">01</span>
+                        <i class="fa fa-unlock-alt" aria-hidden="true" t-translation="off"/>
+                        <h3>Open resources</h3>
+                        <p>Use public materials as building blocks for accessible, shareable learning.</p>
+                    </article>
+                    <article class="facodi-ecosystem-card">
+                        <span class="facodi-ecosystem-index">02</span>
+                        <i class="fa fa-users" aria-hidden="true" t-translation="off"/>
+                        <h3>Community learning</h3>
+                        <p>Study, discuss and improve learning paths with people who are building knowledge together.</p>
+                    </article>
+                    <article class="facodi-ecosystem-card">
+                        <span class="facodi-ecosystem-index">03</span>
+                        <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
+                        <h3>University network</h3>
+                        <p>Create bridges between formal curricula, open resources and wider university communities.</p>
+                    </article>
+                </div>
+                <div class="facodi-ecosystem-actions">
+                    <a href="/contactus" class="btn facodi-button facodi-button-primary">
+                        Contribute to FACODI
+                        <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
+                    </a>
+                    <a href="/slides" class="btn facodi-button facodi-button-secondary">Explore the catalogue</a>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
