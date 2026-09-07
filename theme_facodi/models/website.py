@@ -9,10 +9,7 @@ class Website(models.Model):
         if snippet == "theme_facodi.s_facodi_course_showcase":
             return defaults | {
                 "filter_xmlid": "theme_facodi.dynamic_filter_published_courses",
-                "template_key": (
-                    "theme_facodi."
-                    "dynamic_filter_template_slide_channel_facodi_course_card"
-                ),
+                "template_key": "theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card",
                 "data_attributes": {
                     "snippet": "s_facodi_course_showcase",
                     "number-of-records": "6",
