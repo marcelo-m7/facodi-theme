@@ -120,3 +120,87 @@ class TestFacodiElearningCatalogRendering(HttpCase):
         )
         self.assertTrue(fallback_card)
         self.assertFalse(fallback_card[0].xpath(".//img"))
+
+    def test_training_and_documentation_keep_standard_hooks_with_facodi_type_cues(self):
+        training = self._channel("FACODI Training Content", channel_type="training")
+        with patch(
+            "odoo.addons.website_slides.models.slide_slide.SlideSlide._fetch_youtube_metadata",
+            return_value=({}, None),
+        ):
+            self._slide(
+                training,
+                "Video lesson",
+                slide_category="video",
+                source_type="external",
+                url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                sequence=1,
+            )
+        self._slide(
+            training,
+            "Article lesson",
+            slide_category="article",
+            html_content="<p>Accessible article content.</p>",
+            sequence=2,
+        )
+        self._slide(
+            training,
+            "Knowledge check",
+            slide_category="quiz",
+            sequence=3,
+        )
+
+        training_response = self.url_open(training.website_url)
+        self.assertEqual(training_response.status_code, 200)
+        training_tree = html.fromstring(training_response.text)
+        self.assertTrue(
+            training_tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_slides_list_slide ')]"
+            )
+        )
+        self.assertTrue(
+            training_tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_js_slides_list_slide_link ')]"
+            )
+        )
+        self.assertTrue(
+            training_tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-content-type-video ')]"
+            )
+        )
+        self.assertTrue(
+            training_tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-content-type-article ')]"
+            )
+        )
+        self.assertTrue(
+            training_tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-content-type-quiz ')]"
+            )
+        )
+
+        documentation = self._channel(
+            "FACODI Documentation Content",
+            channel_type="documentation",
+        )
+        doc_slide = self._slide(
+            documentation,
+            "Illustrated reference",
+            slide_category="infographic",
+            image_1920=_TINY_PNG,
+        )
+        documentation_response = self.url_open(documentation.website_url)
+        self.assertEqual(documentation_response.status_code, 200)
+        documentation_tree = html.fromstring(documentation_response.text)
+        lesson_cards = documentation_tree.xpath(
+            "//*[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_lesson_card ')]"
+        )
+        self.assertTrue(lesson_cards)
+        self.assertTrue(
+            documentation_tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-content-type-infographic ')]"
+            )
+        )
+        media = documentation_tree.xpath(
+            f"//*[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_lesson_card ')]//*[contains(@src, 'slide.slide/{doc_slide.id}/image_')]"
+        )
+        self.assertTrue(media)
