@@ -28,6 +28,9 @@ jobs:
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
 
+      - name: Responsive eLearning catalogue style contract
+        run: bash tests/test_elearning_catalog_style_contract.sh
+
       - name: Checkout pinned Odoo design themes
         run: |
           git clone --filter=blob:none https://github.com/odoo/design-themes.git "$RUNNER_TEMP/design-themes"
