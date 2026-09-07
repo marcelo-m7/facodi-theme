@@ -80,7 +80,7 @@
                     <img t-if="data.get('image_1920')"
                          t-att-src="data.get('image_1920')"
                          t-att-alt="data.get('name')"
-                         loading="lazy"/>
+                        loading="eager"/>
                     <t t-else="">
                         <span t-out="(data.get('name') or '')[:2].upper()"/>
                         <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
