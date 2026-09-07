@@ -31,17 +31,17 @@
             <div class="facodi-course-media ratio ratio-16x9">
                 <img t-if="facodi_visual and facodi_visual.get('kind') == 'channel'"
                      t-att-src="'/web/image/slide.channel/%s/image_512' % channel.id"
-                     alt=""
+                     t-att-alt="channel.name or 'FACODI course'"
                      loading="lazy"
                      decoding="async"/>
                 <img t-elif="facodi_visual and facodi_visual.get('kind') == 'slide'"
                      t-att-src="'/web/image/slide.slide/%s/image_512' % facodi_visual['slide'].id"
-                     t-att-alt="facodi_visual.get('alt') or ''"
+                     t-att-alt="facodi_visual.get('alt') or channel.name or 'FACODI course'"
                      loading="lazy"
                      decoding="async"/>
                 <img t-elif="facodi_visual and facodi_visual.get('kind') == 'youtube'"
                      t-att-src="facodi_visual.get('url')"
-                     t-att-alt="facodi_visual.get('alt') or ''"
+                     t-att-alt="facodi_visual.get('alt') or channel.name or 'FACODI course'"
                      loading="lazy"
                      decoding="async"
                      referrerpolicy="strict-origin-when-cross-origin"/>
