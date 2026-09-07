@@ -14,9 +14,6 @@
         <xpath expr="//link[@rel='canonical']" position="attributes">
             <attribute name="t-att-href">request.httprequest.url_root.rstrip('/') + ((request.httprequest.path[:-7].rstrip('/') or '/') if request.httprequest.path.rstrip('/').endswith('/facodi') else (request.httprequest.path.rstrip('/') or '/'))</attribute>
         </xpath>
-        <xpath expr="//meta[@property='og:url']" position="attributes">
-            <attribute name="t-att-content">request.httprequest.url_root.rstrip('/') + ((request.httprequest.path[:-7].rstrip('/') or '/') if request.httprequest.path.rstrip('/').endswith('/facodi') else (request.httprequest.path.rstrip('/') or '/'))</attribute>
-        </xpath>
     </template>
 
     <template id="facodi_footer" inherit_id="website.layout" name="FACODI Footer">
