@@ -7,6 +7,7 @@
         <xpath expr="//snippets[@id='snippet_structure']" position="inside">
             <t t-snippet="theme_facodi.s_facodi_hero" string="FACODI Hero" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
             <t t-snippet="theme_facodi.s_facodi_learning_journey" string="Learning Journey" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
+            <t t-snippet="theme_facodi.s_facodi_course_showcase" string="Course showcase" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
             <t t-snippet="theme_facodi.s_facodi_institutional" string="Institutional" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
             <t t-snippet="theme_facodi.s_facodi_intro" string="Editorial intro" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
             <t t-snippet="theme_facodi.s_facodi_features" string="Learning principles" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
