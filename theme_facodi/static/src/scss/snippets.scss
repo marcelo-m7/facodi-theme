@@ -33,6 +33,43 @@
         transform: rotate(1deg);
     }
 
+    .facodi-hero-proof {
+        border-top: 1px solid color-mix(in srgb, var(--facodi-ink) 28%, transparent);
+        margin-top: 2.25rem;
+        max-width: 38rem;
+        padding-top: 1rem;
+
+        > p {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .68rem;
+            font-weight: 700;
+            margin: 0 0 .75rem;
+            text-transform: uppercase;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            align-items: center;
+            display: flex;
+            font-size: .84rem;
+            font-weight: 600;
+            gap: .45rem;
+        }
+
+        .fa {
+            color: var(--facodi-blue);
+            font-size: .9rem;
+        }
+    }
+
     .facodi-board-top,
     .facodi-board-card-title {
         font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
@@ -438,6 +475,11 @@
         .facodi-hero-board {
             padding: 1.125rem;
             transform: none;
+        }
+
+        .facodi-hero-proof ul {
+            display: grid;
+            gap: .625rem;
         }
 
         .facodi-section-heading {

@@ -134,6 +134,9 @@ class TestFacodiTheme(HttpCase):
             "standard Odoo mobile header must remain rendered",
         )
         self.assertIn("facodi-footer", response.text)
+        self.assertIn("facodi-hero-proof", response.text)
+        self.assertIn("Built for learners and contributors", response.text)
+        self.assertIn("Find a clear starting point", response.text)
 
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")

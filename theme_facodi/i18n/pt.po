@@ -130,6 +130,26 @@ msgstr "Continuar a aprender"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Built for learners and contributors"
+msgstr "Para quem aprende e para quem contribui"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Find a clear starting point"
+msgstr "Encontre um ponto de partida claro"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Learn with structure at your pace"
+msgstr "Aprenda com estrutura, ao seu ritmo"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Share resources that help others learn"
+msgstr "Partilhe recursos que ajudam outras pessoas a aprender"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Learning map"
 msgstr "Mapa de aprendizagem"
 

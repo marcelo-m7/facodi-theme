@@ -18,6 +18,23 @@
                     </a>
                     <a class="btn facodi-button facodi-button-secondary" href="/web/login">Continue learning</a>
                 </div>
+                <div class="facodi-hero-proof">
+                    <p>Built for learners and contributors</p>
+                    <ul>
+                        <li>
+                            <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
+                            Find a clear starting point
+                        </li>
+                        <li>
+                            <i class="fa fa-list-ol" aria-hidden="true" t-translation="off"/>
+                            Learn with structure at your pace
+                        </li>
+                        <li>
+                            <i class="fa fa-share-alt" aria-hidden="true" t-translation="off"/>
+                            Share resources that help others learn
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="facodi-hero-board" aria-label="Learning map">
                 <div class="facodi-board-top">
