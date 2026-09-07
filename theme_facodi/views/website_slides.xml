@@ -74,6 +74,32 @@
     <template id="facodi_documentation_content_type_cue"
               inherit_id="website_slides.lesson_card"
               name="FACODI Documentation Content Type Cue">
+        <xpath expr="//div[@t-field='slide.image_1920']" position="replace">
+            <t t-if="slide.slide_category not in ('article', 'quiz', 'certification')">
+                <img t-if="slide.image_1920"
+                     t-att-src="'/web/image/slide.slide/%s/image_512' % slide.id"
+                     t-att-alt="slide.name or ''"
+                     class="w-100 rounded-top facodi-lesson-media"
+                     loading="lazy"
+                     decoding="async"/>
+                <img t-elif="slide.youtube_id"
+                     t-att-src="'https://i.ytimg.com/vi/%s/hqdefault.jpg' % slide.youtube_id"
+                     t-att-alt="slide.name or ''"
+                     class="w-100 rounded-top facodi-lesson-media"
+                     loading="lazy"
+                     decoding="async"
+                     referrerpolicy="strict-origin-when-cross-origin"/>
+                <div t-else=""
+                     class="w-100 o_wslides_lesson_card_image facodi-lesson-fallback text-center rounded-top d-flex align-items-center justify-content-center"
+                     aria-hidden="true">
+                    <i t-attf-class="fa #{slide.slide_icon_class} fa-3x"/>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//div[@t-else and contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_lesson_card_image ')]"
+               position="attributes">
+            <attribute name="class" add="facodi-lesson-fallback" separator=" "/>
+        </xpath>
         <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' card-body ')]/*[1]" position="before">
             <span t-attf-class="facodi-content-type facodi-content-type-#{slide.slide_category} badge rounded-pill mb-2 align-self-start">
                 <i t-attf-class="fa #{slide.slide_icon_class} me-1" aria-hidden="true"/>
