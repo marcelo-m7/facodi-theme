@@ -76,6 +76,7 @@ body.o_wslides_body .facodi-site {
         border: 1px solid rgba(20, 40, 70, .28);
         background-color: rgba(249, 250, 251, .92);
         color: var(--facodi-ink);
+        flex-shrink: 0;
         font-size: .72rem;
         font-weight: 700;
         letter-spacing: .02em;
@@ -175,11 +176,21 @@ body.o_wslides_body .facodi-site {
             border-color: rgba(20, 40, 70, .42);
         }
 
+        > .text-truncate.me-auto {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
         .o_wslides_js_slides_list_slide_link {
-            min-height: 2.75rem;
+            align-items: center;
             color: inherit;
+            display: flex;
+            gap: .5rem;
+            min-height: 2.75rem;
+            min-width: 0;
             text-decoration-thickness: .08em;
             text-underline-offset: .2em;
+            width: 100%;
         }
     }
 
