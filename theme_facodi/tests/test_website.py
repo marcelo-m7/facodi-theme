@@ -321,6 +321,15 @@ class TestFacodiTheme(HttpCase):
             "linear-gradient(120deg, var(--facodi-ink), var(--facodi-blue))", compiled
         )
 
+    def test_backend_and_print_assets_compile(self):
+        for bundle in ("web.assets_web", "web.assets_web_print"):
+            response = self.url_open(f"/web/assets/debug/{bundle}.css")
+            self.assertEqual(response.status_code, 200, bundle)
+            compiled = response.text.lower()
+            self.assertNotIn("css_error_message", compiled, bundle)
+            self.assertNotIn("sasserror", compiled, bundle)
+            self.assertNotIn("function rgb is missing argument", compiled, bundle)
+
     def test_authenticated_account_has_accessible_name(self):
         from lxml import html
 
