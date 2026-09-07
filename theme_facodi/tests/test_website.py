@@ -166,6 +166,7 @@ class TestFacodiTheme(HttpCase):
         self.assertNotIn("/facodi", canonicals[0].rstrip("/"))
 
         layout = self.env.ref("theme_facodi.website_layout")
+        self.assertIn(".get(request.lang.code,", layout.arch_db)
         for language in ("en_US", "pt_PT", "fr_FR", "es_ES"):
             self.assertIn(f"'{language}':", layout.arch_db)
 
