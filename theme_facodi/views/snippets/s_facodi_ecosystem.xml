@@ -35,6 +35,19 @@
                         <p>Create bridges between formal curricula, open resources and wider university communities.</p>
                     </article>
                 </div>
+                <section class="facodi-ecosystem-partners" aria-label="Partners and networks">
+                    <p class="facodi-panel-label">Partners and networks</p>
+                    <div class="facodi-ecosystem-actions">
+                        <a href="https://sea-eu.org/" class="btn facodi-button facodi-button-secondary" target="_blank" rel="noopener noreferrer">
+                            Explore SEA-EU
+                            <i class="fa fa-external-link ms-1" aria-hidden="true" t-translation="off"/>
+                        </a>
+                        <a href="https://corvanis.com/" class="btn facodi-button facodi-button-secondary" target="_blank" rel="noopener noreferrer">
+                            Meet Corvanis
+                            <i class="fa fa-external-link ms-1" aria-hidden="true" t-translation="off"/>
+                        </a>
+                    </div>
+                </section>
                 <div class="facodi-ecosystem-actions">
                     <a href="/contactus" class="btn facodi-button facodi-button-primary">
                         Contribute to FACODI

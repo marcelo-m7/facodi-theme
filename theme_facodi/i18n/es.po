@@ -592,6 +592,21 @@ msgstr "Crea puentes entre planes de estudio formales, recursos abiertos y comun
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+msgid "Partners and networks"
+msgstr "Socios y redes"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+msgid "Explore SEA-EU"
+msgstr "Explorar SEA-EU"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+msgid "Meet Corvanis"
+msgstr "Conocer Corvanis"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
 msgid "Contribute to FACODI"
 msgstr "Contribuir a FACODI"
 

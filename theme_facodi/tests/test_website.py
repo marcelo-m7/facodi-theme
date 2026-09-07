@@ -58,6 +58,18 @@ class TestFacodiTheme(HttpCase):
         for view in website_views:
             self.assertIn(expected_classes[view.key], view.arch_db)
 
+        ecosystem = website_views.filtered(
+            lambda view: view.key == "theme_facodi.s_facodi_ecosystem"
+        )
+        self.assertEqual(len(ecosystem), 1)
+        self.assertIn("facodi-ecosystem-partners", ecosystem.arch_db)
+        self.assertIn('href="https://sea-eu.org/"', ecosystem.arch_db)
+        self.assertIn('href="https://corvanis.com/"', ecosystem.arch_db)
+        self.assertEqual(
+            ecosystem.arch_db.count('target="_blank" rel="noopener noreferrer"'),
+            2,
+        )
+
     def test_course_showcase_uses_standard_dynamic_filter(self):
         dynamic_filter = self.env.ref("theme_facodi.dynamic_filter_published_courses")
         self.assertEqual(dynamic_filter.model_name, "slide.channel")
