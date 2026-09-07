@@ -20,6 +20,7 @@ class TestFacodiTheme(HttpCase):
         keys = {
             "theme_facodi.s_facodi_hero",
             "theme_facodi.s_facodi_learning_journey",
+            "theme_facodi.s_facodi_course_showcase",
             "theme_facodi.s_facodi_institutional",
             "theme_facodi.s_facodi_intro",
             "theme_facodi.s_facodi_features",
@@ -41,6 +42,7 @@ class TestFacodiTheme(HttpCase):
         expected_classes = {
             "theme_facodi.s_facodi_hero": "facodi-hero-board",
             "theme_facodi.s_facodi_learning_journey": "facodi-stat-card",
+            "theme_facodi.s_facodi_course_showcase": "facodi-course-grid",
             "theme_facodi.s_facodi_institutional": "facodi-open-section",
             "theme_facodi.s_facodi_intro": "s_facodi_intro",
             "theme_facodi.s_facodi_features": "facodi-grid",
@@ -51,6 +53,27 @@ class TestFacodiTheme(HttpCase):
         }
         for view in website_views:
             self.assertIn(expected_classes[view.key], view.arch_db)
+
+    def test_course_showcase_uses_standard_dynamic_filter(self):
+        dynamic_filter = self.env.ref("theme_facodi.dynamic_filter_published_courses")
+        self.assertEqual(dynamic_filter.model_name, "slide.channel")
+        self.assertEqual(dynamic_filter.limit, 6)
+        self.assertEqual(
+            dynamic_filter.filter_id.domain,
+            '[("website_published", "=", True)]',
+        )
+
+        defaults = self.env["website"]._get_snippet_defaults(
+            "theme_facodi.s_facodi_course_showcase"
+        )
+        self.assertEqual(
+            defaults["filter_xmlid"],
+            "theme_facodi.dynamic_filter_published_courses",
+        )
+        self.assertEqual(
+            defaults["template_key"],
+            "theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card",
+        )
 
     def test_facodi_header_is_registered_as_native_theme_template(self):
         theme_view = self.env["theme.ir.ui.view"].search(
@@ -168,16 +191,20 @@ class TestFacodiTheme(HttpCase):
         self.assertNotIn("error", payload)
         group = next(group for group in payload["result"] if group["id"] == "facodi")
         self.assertEqual(len(group["templates"]), 10)
+        section_counts = []
         for template in group["templates"]:
             tree = html.fromstring(template["template"])
             sections = tree.xpath("//section[@data-snippet]")
-            self.assertEqual(len(sections), 3, template)
+            section_counts.append(len(sections))
+            self.assertIn(len(sections), (3, 4), template)
             self.assertTrue(
                 all(
                     section.get("data-snippet").startswith("s_facodi_")
                     for section in sections
                 )
             )
+        self.assertEqual(section_counts.count(4), 1)
+        self.assertEqual(section_counts.count(3), 9)
         sections_arch = "".join(
             etree.tostring(section, encoding="unicode") for section in sections
         )
@@ -219,6 +246,7 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("#F9FAFB".lower(), compiled.lower())
         self.assertRegex(compiled.lower(), r"background-color:\s*#f9fafb")
         self.assertIn(".facodi-grid", compiled)
+        self.assertIn(".facodi-course-grid", compiled)
         self.assertIn(
             "linear-gradient(120deg, var(--facodi-ink), var(--facodi-blue))", compiled
         )

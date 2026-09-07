@@ -38,6 +38,7 @@
     <template id="new_page_template_sections_facodi_home" name="FACODI Home">
         <div id="wrap">
             <t t-snippet-call="theme_facodi.s_facodi_hero"/>
+            <t t-snippet-call="theme_facodi.s_facodi_course_showcase"/>
             <t t-snippet-call="theme_facodi.s_facodi_learning_journey"/>
             <t t-snippet-call="theme_facodi.s_facodi_course_cta"/>
         </div>

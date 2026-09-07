@@ -107,6 +107,7 @@ grep -Fq "views: ['theme_facodi.template_header_facodi']" theme_facodi/static/sr
 SNIPPET_IDS=(
   s_facodi_hero
   s_facodi_learning_journey
+  s_facodi_course_showcase
   s_facodi_institutional
   s_facodi_intro
   s_facodi_features
@@ -287,6 +288,7 @@ for path in snippet_dir.glob('s_facodi_*.xml'):
 expected = {
     's_facodi_hero',
     's_facodi_learning_journey',
+    's_facodi_course_showcase',
     's_facodi_institutional',
     's_facodi_intro',
     's_facodi_features',
