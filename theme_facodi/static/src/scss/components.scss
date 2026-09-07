@@ -66,7 +66,7 @@
         color: var(--facodi-ink);
 
         &:hover {
-            background: var(--facodi-sun);
+            background: var(--facodi-cyan);
             color: var(--facodi-ink);
         }
     }
@@ -74,6 +74,11 @@
     .facodi-button-secondary {
         background: #fff;
         color: var(--facodi-ink);
+
+        &:hover {
+            background: var(--facodi-mint);
+            color: var(--facodi-ink);
+        }
     }
 
     .facodi-card,
