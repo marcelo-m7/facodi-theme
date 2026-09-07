@@ -59,10 +59,11 @@
     <template id="facodi_training_content_type_cue"
               inherit_id="website_slides.course_slides_list_slide"
               name="FACODI Training Content Type Cue">
-        <xpath expr="//i[contains(@t-attf-class, 'slide.slide_icon_class')]" position="after">
+        <xpath expr="//a[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_js_slides_list_slide_link ')]"
+               position="inside">
             <t t-set="facodi_category_label"
                t-value="dict(slide._fields['slide_category']._description_selection(slide.env)).get(slide.slide_category, slide.slide_category)"/>
-            <span t-attf-class="facodi-content-type facodi-content-type-#{slide.slide_category} badge rounded-pill me-2"
+            <span t-attf-class="facodi-content-type facodi-content-type-#{slide.slide_category} badge rounded-pill ms-2"
                   t-out="facodi_category_label"/>
         </xpath>
     </template>
