@@ -12,6 +12,8 @@ REGISTRY="theme_facodi/views/snippets/snippets.xml"
 PAGES="theme_facodi/views/page_templates.xml"
 MANIFEST="theme_facodi/__manifest__.py"
 SCSS="theme_facodi/static/src/scss/foundation_v2.scss"
+COMPONENTS="theme_facodi/static/src/scss/components.scss"
+SLIDES="theme_facodi/static/src/scss/website_slides.scss"
 
 [[ -f "$AREAS" ]] || fail "academic areas snippet is missing"
 [[ -f "$ECOSYSTEM" ]] || fail "ecosystem snippet is missing"
@@ -95,5 +97,19 @@ grep -Fq '.s_facodi_ecosystem' "$SCSS" \
   || fail "ecosystem styles are missing"
 grep -Fq '.facodi-ecosystem-card' "$SCSS" \
   || fail "ecosystem card styles are missing"
+
+# Standard Website/Bootstrap components remain functional and receive only
+# scoped FACODI presentation overrides.
+for selector in '.badge' '.breadcrumb' '.dropdown-item' '.pagination'; do
+  grep -Fq "$selector" "$COMPONENTS" \
+    || fail "standard Website component personalization missing: $selector"
+done
+
+# eLearning personalization must target real website_slides classes instead of
+# replacing the standard course/slide templates.
+for selector in '.o_wslides_slide_list_category_header' '.o_wslides_slides_list_slide'; do
+  grep -Fq "$selector" "$SLIDES" \
+    || fail "standard eLearning presentation selector missing: $selector"
+done
 
 echo "PASS: FACODI Website Foundation v2 contract"
