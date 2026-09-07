@@ -2,7 +2,7 @@
 
 ## Architectural boundary
 
-`theme_facodi` is a presentation-only Odoo 19 Community theme addon.
+`theme_facodi` is a presentation-oriented Odoo 19 Community theme addon.
 
 ```text
 Odoo 19 Community
@@ -18,13 +18,14 @@ Odoo 19 Community
      ├── FACODI footer
      ├── reusable editable snippets
      ├── native New Page compositions
-     └── eLearning presentation
+     └── eLearning presentation helpers and QWeb inheritance
 ```
 
 Website owns pages, menus, logos, favicons and Website Builder state. Portal owns
 identity navigation. `website_slides` owns courses, lessons, enrolment and learner
 progress. The theme does not add parallel controllers, authentication logic or
-business-data models.
+business-data models. Its small `slide.channel` extension is read-only presentation
+logic used to resolve catalogue visuals in one batch.
 
 ## Live-source evidence
 
@@ -67,7 +68,9 @@ records are deliberately absent from the reusable theme.
 | `static/src/scss/components.scss` | wordmark, buttons, cards and reusable primitives |
 | `static/src/scss/website.scss` | FACODI shell, header/footer styling and focus behavior |
 | `static/src/scss/snippets.scss` | FACODI editable blocks and compositions |
-| `static/src/scss/website_slides.scss` | presentation of standard eLearning surfaces |
+| `static/src/scss/website_slides.scss` | responsive presentation of standard eLearning surfaces |
+| `models/slide_channel.py` | read-only batch resolver for catalogue visual sources |
+| `views/website_slides.xml` | focused inheritance of standard course and lesson templates |
 | `views/header.xml` | selectable FACODI desktop header composition plus native mobile header call |
 | `static/src/builder/header.xml` | FACODI entry in the native Website header picker |
 | `models/theme_models.py` | `theme.utils` registration and post-copy activation hook |
@@ -178,11 +181,39 @@ English is the canonical QWeb source language. Portuguese (`pt_PT`), Spanish
 translations are propagated to website-specific view copies by the standard theme
 lifecycle; no JavaScript language store or parallel language selector exists.
 
+The eLearning content-type cues reuse the translated selection labels already owned
+by `slide.slide.slide_category`, so the theme does not maintain a second translation
+vocabulary for Video, Article, Document, Image or Quiz.
+
 ## eLearning
 
-`website_slides` remains authoritative for catalog, channel, lesson, membership and
-progress surfaces. Theme rules target standard presentation classes only. There are
-no duplicate eLearning routes or QWeb business-data queries.
+`website_slides` remains authoritative for the catalogue, channels, lessons,
+membership, enrolment and progress. FACODI keeps the native routes, records and JS
+hooks and changes presentation through focused QWeb inheritance and SCSS.
+
+For `/slides`, the visual resolver receives the channel recordset already selected
+by Odoo and resolves one visual per channel with this priority:
+
+1. explicit `slide.channel.image_1920`;
+2. a published, non-category `slide.slide.image_1920`;
+3. a deterministic YouTube `hqdefault.jpg` URL derived from Odoo's stored
+   `slide.slide.youtube_id`;
+4. an HTML/CSS FACODI fallback with no broken image request.
+
+The resolver performs a single batch `slide.slide.search()` for channels that need
+content-derived visuals. It does not make HTTP requests, write derived images or
+persist provider thumbnails. The course-card template consumes the resulting map
+once per rendered result set rather than querying from each card.
+
+Documentation lesson cards use the same deterministic media policy for stored slide
+images and YouTube IDs and render an icon fallback when no media exists. Training and
+documentation views retain Odoo's standard card/list link classes and receive only
+FACODI content-type cues and styling.
+
+The catalogue grid is CSS Grid with 1, 2, 3, 4 and 5-column layouts at progressively
+wider breakpoints. Images use fixed aspect ratios with `object-fit: cover`, keyboard
+focus remains visible, and motion refinements are disabled under
+`prefers-reduced-motion`.
 
 ## Upgrade discipline
 

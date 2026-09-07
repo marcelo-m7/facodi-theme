@@ -28,6 +28,9 @@ jobs:
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
 
+      - name: Responsive eLearning catalogue style contract
+        run: bash tests/test_elearning_catalog_style_contract.sh
+
       - name: Checkout pinned Odoo design themes
         run: |
           git clone --filter=blob:none https://github.com/odoo/design-themes.git "$RUNNER_TEMP/design-themes"
@@ -39,7 +42,7 @@ jobs:
           LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
           git worktree add --detach "$RUNNER_TEMP/facodi-theme-baseline" "$LEGACY_SHA"
           grep -Fq '"version": "19.0.5.0.1"' "$RUNNER_TEMP/facodi-theme-baseline/theme_facodi/__manifest__.py"
-          grep -Fq '"version": "19.0.5.0.2"' theme_facodi/__manifest__.py
+          grep -Fq '"version": "19.0.5.0.3"' theme_facodi/__manifest__.py
 
       - name: Start PostgreSQL 16
         run: |

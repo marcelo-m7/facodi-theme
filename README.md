@@ -4,9 +4,10 @@
 FACODI Website and eLearning presentation.
 
 The public Website at [edu-open2.odoo.com](https://edu-open2.odoo.com) is the
-visual source of truth. Release `19.0.5.0.0` preserves that identity while
-moving the navigation onto Odoo 19's native selectable header-template
-mechanism and keeping the FACODI Website blocks reusable in Website Builder.
+visual source of truth. Release `19.0.5.0.3` preserves that identity while
+keeping navigation, Website Builder and eLearning behavior on standard Odoo 19
+mechanisms. It adds responsive course presentation and content-derived catalogue
+visuals without introducing a parallel course system.
 
 ## Verified visual identity
 
@@ -39,13 +40,15 @@ system fonts without making remote font requests.
 - dynamic footer using Website menu records and standard routes;
 - nine independently maintained editable FACODI snippets and ten native New Page compositions;
 - native Odoo translations for Portuguese (Portugal), Spanish and French, with English source copy;
-- presentation-only refinements for standard `website_slides` surfaces;
-- accessible two-color focus indicators and reduced-motion behavior;
+- responsive presentation refinements for standard `website_slides` catalogue, training and documentation surfaces;
+- dynamic course visuals resolved from explicit course covers, stored lesson images, Odoo YouTube IDs or an HTML fallback;
+- translated content-type cues using Odoo's own `slide_category` selection labels;
+- accessible focus indicators and reduced-motion behavior;
 - optional preview, logo and favicon assets.
 
 The addon **does not import Website pages**. It does not overwrite Homepage,
 About, Manifesto, Community, Roadmap or other editorial content. It also does
-not add controllers, course models, authentication logic or business-data
+not add controllers, a second course model, authentication logic or business-data
 queries in QWeb.
 
 ## Standard-first ownership
@@ -63,6 +66,28 @@ queries in QWeb.
 The former live database link `/web/content/431` is deliberately absent from
 the addon. Its `facodi-online.css` contents are represented by versioned SCSS,
 and no database-specific record id is required after installation.
+
+## eLearning catalogue visuals
+
+The `/slides` catalogue stays on Odoo's native controller, search/filtering and
+course-card templates. FACODI resolves visuals in one read-only batch with this
+priority:
+
+1. explicit `slide.channel.image_1920`;
+2. a published, non-category lesson with stored `slide.slide.image_1920`;
+3. `https://i.ytimg.com/vi/<youtube_id>/hqdefault.jpg`, using Odoo's stored
+   `slide.slide.youtube_id`;
+4. a FACODI HTML/CSS fallback without a broken image request.
+
+The resolver performs no HTTP fetch and writes no derived thumbnail back to Odoo.
+QWeb receives one visual map for the current channel recordset, avoiding an ORM
+search for each course card. Documentation lesson cards use the same stored-image,
+YouTube-ID and fallback policy.
+
+The catalogue uses a 1/2/3/4/5-column responsive CSS Grid across progressively
+wider breakpoints. Standard `website_slides` card/list links and JS hooks remain in
+the rendered DOM. Training and documentation cards receive FACODI content-type cues
+while labels continue to come from Odoo's translated selection metadata.
 
 ## Native header integration
 
@@ -149,7 +174,8 @@ reusable theme.
 Theme translations are stored on Odoo's theme view records and propagated to
 the Website-specific view copies by the standard theme lifecycle. The test
 suite loads the native catalogues before applying the theme and validates the
-localized `/pt`, `/es` and `/fr` Website routes.
+localized Website routes. eLearning content-type badges reuse Odoo's translated
+field-selection labels rather than duplicating those translations in the theme.
 
 The New Page composition names are kept in English. Odoo 19 stores the
 `theme.ir.ui.view.name` field as a non-translatable technical label, so the
@@ -198,25 +224,31 @@ Run the fast repository contracts:
 
 ```bash
 bash tests/test_module_contract.sh
+bash tests/test_homepage_dashboard_contract.sh
+bash tests/test_foundation_v2_contract.sh
 bash tests/test_i18n_contract.sh
+bash tests/test_elearning_catalog_style_contract.sh
 ```
 
 GitHub Actions then uses PostgreSQL 16 and the official `odoo:19.0` image to:
 
-- install `theme_facodi` on a clean database;
+- install the pinned legacy theme release on a clean database;
 - compile frontend and Website Builder assets;
 - apply the theme through the native `apply_new_theme` lifecycle;
 - verify the selectable FACODI desktop header and standard Odoo mobile header;
 - verify configured Website logo output, dynamic nested/external/active menu behavior and Portal identity actions;
-- activate `pt_PT`, `es_ES` and `fr_FR`, load the native PO catalogues and verify `/`, `/pt`, `/es` and `/fr`;
-- verify all nine Website-specific snippet copies;
-- verify `/slides`, `/contactus` and `/web/login`;
+- activate native Website languages and verify localized routes;
+- verify all reusable Website-specific snippet copies;
+- verify `/slides`, localized `/pt/slides`, authenticated catalogue rendering, `/contactus` and `/web/login`;
+- validate batch course-cover resolution, deterministic YouTube URLs and no-image fallbacks;
+- validate training/documentation content-type cues while preserving standard Odoo hooks;
 - render all ten New Page compositions and preserve editor-owned page HTML across theme reload;
 - compile and fetch frontend CSS without Sass errors;
-- rerun the same regression suite on `-u theme_facodi` upgrade;
+- rerun the regression suite on `-u theme_facodi` upgrade;
+- repair and verify persisted legacy dynamic-snippet builder markup;
 - confirm that the configured Website favicon is not replaced.
 
-Editorial course cover images remain visible. Website Builder color combinations
+Editorial course cover images remain authoritative. Website Builder color combinations
 remain authoritative; the theme does not partially switch colors based on OS
 dark mode.
 
