@@ -34,10 +34,10 @@ jobs:
           git -C "$RUNNER_TEMP/design-themes" checkout a1818df4ade65406c0cacae8b1ea676e6f70095f
           test -f "$RUNNER_TEMP/design-themes/theme_common/__manifest__.py"
 
-      - name: Prepare previous theme release
+      - name: Prepare legacy theme release
         run: |
-          BASE_SHA="$(git merge-base origin/main HEAD)"
-          git worktree add --detach "$RUNNER_TEMP/facodi-theme-baseline" "$BASE_SHA"
+          LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
+          git worktree add --detach "$RUNNER_TEMP/facodi-theme-baseline" "$LEGACY_SHA"
           grep -Fq '"version": "19.0.5.0.1"' "$RUNNER_TEMP/facodi-theme-baseline/theme_facodi/__manifest__.py"
           grep -Fq '"version": "19.0.5.0.2"' theme_facodi/__manifest__.py
 
@@ -58,7 +58,7 @@ jobs:
           done
           exit 1
 
-      - name: Install previous theme release and run Odoo tests
+      - name: Install legacy theme release and run Odoo tests
         run: |
           docker run --rm \
             --network facodi-theme-ci \
