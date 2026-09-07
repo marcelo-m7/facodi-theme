@@ -130,26 +130,6 @@ msgstr "Continuer à apprendre"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Built for learners and contributors"
-msgstr "Pour les apprenants et les contributeurs"
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Find a clear starting point"
-msgstr "Trouvez un point de départ clair"
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Learn with structure at your pace"
-msgstr "Apprenez avec une structure à votre rythme"
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Share resources that help others learn"
-msgstr "Partagez des ressources qui aident les autres à apprendre"
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Learning map"
 msgstr "Carte d’apprentissage"
 
@@ -589,21 +569,6 @@ msgstr "Réseau universitaire"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
 msgid "Create bridges between formal curricula, open resources and wider university communities."
 msgstr "Créez des passerelles entre les programmes formels, les ressources ouvertes et des communautés universitaires plus larges."
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
-msgid "Partners and networks"
-msgstr "Partenaires et réseaux"
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
-msgid "Explore SEA-EU"
-msgstr "Découvrir SEA-EU"
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
-msgid "Meet Corvanis"
-msgstr "Découvrir Corvanis"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem

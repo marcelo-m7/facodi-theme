@@ -128,26 +128,6 @@ msgstr ""
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Built for learners and contributors"
-msgstr ""
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Find a clear starting point"
-msgstr ""
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Learn with structure at your pace"
-msgstr ""
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Share resources that help others learn"
-msgstr ""
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Learning map"
 msgstr ""
 
@@ -586,21 +566,6 @@ msgstr ""
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
 msgid "Create bridges between formal curricula, open resources and wider university communities."
-msgstr ""
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
-msgid "Partners and networks"
-msgstr ""
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
-msgid "Explore SEA-EU"
-msgstr ""
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
-msgid "Meet Corvanis"
 msgstr ""
 
 #. module: theme_facodi
