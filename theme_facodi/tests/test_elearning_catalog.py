@@ -1,4 +1,5 @@
 import base64
+from unittest.mock import patch
 
 from odoo.tests import TransactionCase, tagged
 
@@ -40,6 +41,19 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
         vals.update(values)
         return self.Slide.create(vals)
 
+    def _youtube_slide(self, channel, name, **values):
+        values.update(
+            {
+                "slide_category": "video",
+                "source_type": "external",
+            }
+        )
+        with patch(
+            "odoo.addons.website_slides.models.slide_slide.SlideSlide._fetch_youtube_metadata",
+            return_value=({}, None),
+        ):
+            return self._slide(channel, name, **values)
+
     def test_visual_priority_prefers_explicit_course_cover(self):
         channel = self._channel("Explicit cover", image_1920=_TINY_PNG)
         self._slide(channel, "Content image", image_1920=_TINY_PNG)
@@ -52,11 +66,9 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
 
     def test_visual_priority_uses_stored_slide_image_before_youtube(self):
         channel = self._channel("Stored slide image")
-        youtube = self._slide(
+        youtube = self._youtube_slide(
             channel,
             "YouTube first in sequence",
-            slide_category="video",
-            source_type="external",
             url="https://youtu.be/dQw4w9WgXcQ",
             sequence=5,
         )
@@ -76,11 +88,9 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
 
     def test_visual_priority_uses_standard_youtube_id_without_http_fetch(self):
         channel = self._channel("YouTube fallback")
-        slide = self._slide(
+        slide = self._youtube_slide(
             channel,
             "YouTube lesson",
-            slide_category="video",
-            source_type="external",
             url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         )
         self.assertEqual(slide.youtube_id, "dQw4w9WgXcQ")
