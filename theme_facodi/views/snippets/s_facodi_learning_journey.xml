@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_learning_journey" name="FACODI Learning Journey">
-        <section class="s_facodi_learning_journey o_cc o_cc1 py-5" data-snippet="s_facodi_learning_journey" data-name="Learning Journey">
-            <div class="container py-lg-4">
+        <section class="s_facodi_learning_journey o_cc o_cc1 py-4" data-snippet="s_facodi_learning_journey" data-name="Learning Journey">
+            <div class="container">
                 <div class="facodi-section-heading">
                     <div>
                         <p class="facodi-kicker">
