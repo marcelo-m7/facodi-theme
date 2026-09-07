@@ -35,6 +35,7 @@
             "theme_facodi/static/src/scss/components.scss",
             "theme_facodi/static/src/scss/website.scss",
             "theme_facodi/static/src/scss/snippets.scss",
+            "theme_facodi/static/src/scss/foundation_v2.scss",
             "theme_facodi/static/src/scss/website_slides.scss",
         ],
         "html_builder.assets": [
