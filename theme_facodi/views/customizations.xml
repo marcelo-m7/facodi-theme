@@ -39,8 +39,10 @@
                         <div>Open source for learning in public.</div>
                         <div t-translation="off"><span t-esc="datetime.datetime.now().year"/> FACODI</div>
                         <div>
-                            Created by
-                            <a href="https://open2.tech" target="_blank" rel="noopener noreferrer" t-translation="off">Open2 Technology</a>
+                            Projeto por
+                            <a href="https://github.com/marcelo-m7" target="_blank" rel="noopener noreferrer" t-translation="off">Marcelo Santos</a>
+                            <span aria-hidden="true"> · </span>
+                            <span t-translation="off">Monynha Softwares</span>
                         </div>
                     </div>
                 </div>
