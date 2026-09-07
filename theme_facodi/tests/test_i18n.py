@@ -114,9 +114,9 @@ class TestFacodiThemeTranslations(HttpCase):
     def test_learning_journey_cards_use_native_translations(self):
         journey = self._website_view("theme_facodi.s_facodi_learning_journey")
         expected_by_lang = {
-            "pt_PT": ("Como funciona", "Passo 01", "Descubra"),
-            "es_ES": ("Cómo funciona", "Paso 01", "Descubre"),
-            "fr_FR": ("Comment ça fonctionne", "Étape 01", "Découvrez"),
+            "pt_PT": ("Como funciona", "Passo 01", "Descobrir"),
+            "es_ES": ("Cómo funciona", "Paso 01", "Descubrir"),
+            "fr_FR": ("Comment ça fonctionne", "Étape 01", "Découvrir"),
         }
         for lang, expected_terms in expected_by_lang.items():
             with self.subTest(language=lang):
