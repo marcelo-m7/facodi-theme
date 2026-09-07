@@ -55,4 +55,35 @@
             </div>
         </xpath>
     </template>
+
+    <template id="facodi_training_content_type_cue"
+              inherit_id="website_slides.course_slides_list_slide"
+              name="FACODI Training Content Type Cue">
+        <xpath expr="//i[contains(@t-attf-class, 'slide.slide_icon_class')]" position="after">
+            <span t-attf-class="facodi-content-type facodi-content-type-#{slide.slide_category} badge rounded-pill me-2">
+                <span t-if="slide.slide_category == 'video'">Video</span>
+                <span t-elif="slide.slide_category == 'article'">Article</span>
+                <span t-elif="slide.slide_category == 'quiz'">Quiz</span>
+                <span t-elif="slide.slide_category == 'document'">Document</span>
+                <span t-elif="slide.slide_category == 'infographic'">Infographic</span>
+                <span t-else="" t-out="(slide.slide_category or '').replace('_', ' ').title()"/>
+            </span>
+        </xpath>
+    </template>
+
+    <template id="facodi_documentation_content_type_cue"
+              inherit_id="website_slides.lesson_card"
+              name="FACODI Documentation Content Type Cue">
+        <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' card-body ')]/*[1]" position="before">
+            <span t-attf-class="facodi-content-type facodi-content-type-#{slide.slide_category} badge rounded-pill mb-2 align-self-start">
+                <i t-attf-class="fa #{slide.slide_icon_class} me-1" aria-hidden="true"/>
+                <span t-if="slide.slide_category == 'video'">Video</span>
+                <span t-elif="slide.slide_category == 'article'">Article</span>
+                <span t-elif="slide.slide_category == 'quiz'">Quiz</span>
+                <span t-elif="slide.slide_category == 'document'">Document</span>
+                <span t-elif="slide.slide_category == 'infographic'">Infographic</span>
+                <span t-else="" t-out="(slide.slide_category or '').replace('_', ' ').title()"/>
+            </span>
+        </xpath>
+    </template>
 </odoo>
