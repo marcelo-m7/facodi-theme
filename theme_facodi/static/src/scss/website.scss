@@ -27,7 +27,7 @@
     }
 
     .modal-content {
-        max-height: min(40vh, 20rem);
+        max-height: #{"min(40vh, 20rem)"};
         overflow-y: auto;
         padding-bottom: env(safe-area-inset-bottom);
     }
@@ -36,11 +36,11 @@
 @media (max-width: 620px) {
     .o_cookies_discrete.show {
         .modal-content {
-            max-height: min(50vh, 22rem);
+            max-height: #{"min(50vh, 22rem)"};
         }
 
         .modal-content > section > .container {
-            padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
+            padding-inline: #{"max(1rem, env(safe-area-inset-left))"} #{"max(1rem, env(safe-area-inset-right))"};
         }
 
         .modal-content .col-lg-4 {

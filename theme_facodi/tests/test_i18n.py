@@ -53,29 +53,39 @@ class TestFacodiThemeTranslations(HttpCase):
         self.assertNotIn("Faculdade Comunitária Digital.", response.text)
 
     def test_standard_website_language_routes_render_theme_translations(self):
+        from lxml import html
+
         cases = {
             "pt": (
                 "Faculdade Comunitária Digital. Ensino superior aberto, colaborativo e acessível.",
                 "Código aberto para aprender em público.",
                 "Criado por",
+                "Explore os cursos abertos, percursos de aprendizagem e recursos comunitários da FACODI",
             ),
             "es": (
                 "Facultad Comunitaria Digital. Educación superior abierta, colaborativa y accesible.",
                 "Código abierto para aprender en público.",
                 "Creado por",
+                "Descubre los cursos abiertos, itinerarios de aprendizaje y recursos comunitarios de FACODI",
             ),
             "fr": (
                 "Faculté Communautaire Numérique. Enseignement supérieur ouvert, collaboratif et accessible.",
                 "Code ouvert pour apprendre en public.",
                 "Créé par",
+                "Découvrez les cours ouverts, parcours d'apprentissage et ressources communautaires de FACODI",
             ),
         }
         for url_code, expected_terms in cases.items():
             with self.subTest(language=url_code):
                 response = self.url_open(f"/{url_code}/")
                 self.assertEqual(response.status_code, 200)
-                for expected in expected_terms:
+                for expected in expected_terms[:3]:
                     self.assertIn(expected, response.text)
+                description = html.fromstring(response.text).xpath(
+                    '//meta[@name="description"]/@content'
+                )
+                self.assertEqual(len(description), 1)
+                self.assertIn(expected_terms[3], description[0])
 
     def test_builder_snippet_copy_uses_native_translations(self):
         hero = self._website_view("theme_facodi.s_facodi_hero")

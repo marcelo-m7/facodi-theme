@@ -12,6 +12,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: theme_facodi
+#: model:ir.ui.view,website_meta_description:website.homepage
+msgid "Explore FACODI open courses, learning paths and community resources for accessible higher education."
+msgstr "Explore os cursos abertos, percursos de aprendizagem e recursos comunitários da FACODI para um ensino superior acessível."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home_metadata
+msgid "Browse FACODI open courses and learning resources for accessible higher education."
+msgstr "Pesquise cursos abertos e recursos de aprendizagem da FACODI para um ensino superior acessível."
+
+#. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_header
 msgid "Primary navigation"
 msgstr "Navegação principal"

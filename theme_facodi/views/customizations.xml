@@ -6,10 +6,6 @@
         </xpath>
         <xpath expr="//head" position="inside">
             <meta name="theme-color" content="#142846"/>
-            <t t-set="facodi_catalogue_page" t-value="request.httprequest.path.rstrip('/').endswith('/slides')"/>
-            <t t-set="facodi_meta_description" t-value="({'en_US': {'home': 'Explore FACODI open courses, learning paths and community resources for accessible higher education.', 'catalogue': 'Browse FACODI open courses and learning resources for accessible higher education.'}, 'pt_PT': {'home': 'Explore cursos abertos, percursos de aprendizagem e recursos comunitários do FACODI para um ensino superior acessível.', 'catalogue': 'Pesquise cursos abertos e recursos de aprendizagem do FACODI para um ensino superior acessível.'}, 'fr_FR': {'home': 'Découvrez les cours ouverts, parcours d’apprentissage et ressources communautaires de FACODI pour un enseignement supérieur accessible.', 'catalogue': 'Parcourez les cours ouverts et ressources d’apprentissage de FACODI pour un enseignement supérieur accessible.'}, 'es_ES': {'home': 'Descubre los cursos abiertos, itinerarios de aprendizaje y recursos comunitarios de FACODI para una educación superior accesible.', 'catalogue': 'Explora los cursos abiertos y recursos de aprendizaje de FACODI para una educación superior accesible.'}}.get(request.lang.code, {'home': 'Explore FACODI open courses, learning paths and community resources for accessible higher education.', 'catalogue': 'Browse FACODI open courses and learning resources for accessible higher education.'})).get('catalogue' if facodi_catalogue_page else 'home')"/>
-            <meta name="description" t-att-content="facodi_meta_description"/>
-            <meta property="og:description" t-att-content="facodi_meta_description"/>
         </xpath>
         <xpath expr="//link[@rel='canonical']" position="attributes">
             <attribute name="t-att-href">request.httprequest.url_root.rstrip('/') + ((request.httprequest.path[:-7].rstrip('/') or '/') if request.httprequest.path.rstrip('/').endswith('/facodi') else (request.httprequest.path.rstrip('/') or '/'))</attribute>
@@ -39,7 +35,7 @@
                         <div>Open source for learning in public.</div>
                         <div t-translation="off"><span t-esc="datetime.datetime.now().year"/> FACODI</div>
                         <div>
-                            Projeto por
+                            Created by
                             <a href="https://github.com/marcelo-m7" target="_blank" rel="noopener noreferrer" t-translation="off">Marcelo Santos</a>
                             <span aria-hidden="true"> · </span>
                             <span t-translation="off">Monynha Softwares</span>

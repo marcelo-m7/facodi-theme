@@ -165,10 +165,11 @@ class TestFacodiTheme(HttpCase):
         self.assertTrue(canonicals[0].endswith("/"))
         self.assertNotIn("/facodi", canonicals[0].rstrip("/"))
 
-        layout = self.env.ref("theme_facodi.website_layout")
-        self.assertIn(".get(request.lang.code,", layout.arch_db)
-        for language in ("en_US", "pt_PT", "fr_FR", "es_ES"):
-            self.assertIn(f"'{language}':", layout.arch_db)
+        website = self.env["website"].get_current_website()
+        homepage = self.env["website.page"].search(
+            [("url", "=", "/"), ("website_id", "=", website.id)], limit=1
+        )
+        self.assertIn("Explore FACODI open courses", homepage.website_meta_description)
 
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")
