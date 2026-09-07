@@ -147,6 +147,28 @@ class TestFacodiTheme(HttpCase):
         )
         self.assertIn("facodi-footer", response.text)
 
+    def test_homepage_metadata_uses_public_canonical_and_localized_descriptions(self):
+        from lxml import html
+
+        response = self.url_open("/")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+        descriptions = tree.xpath('//meta[@name="description"]/@content')
+        open_graph_descriptions = tree.xpath(
+            '//meta[@property="og:description"]/@content'
+        )
+        canonicals = tree.xpath('//link[@rel="canonical"]/@href')
+        self.assertEqual(len(descriptions), 1)
+        self.assertEqual(open_graph_descriptions, descriptions)
+        self.assertIn("FACODI", descriptions[0])
+        self.assertEqual(len(canonicals), 1)
+        self.assertTrue(canonicals[0].endswith("/"))
+        self.assertNotIn("/facodi", canonicals[0].rstrip("/"))
+
+        layout = self.env.ref("theme_facodi.website_layout")
+        for language in ("en_US", "pt_PT", "fr_FR", "es_ES"):
+            self.assertIn(f"'{language}':", layout.arch_db)
+
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
@@ -154,9 +176,15 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("/web/image/website/", response.text)
 
     def test_elearning_catalog_renders(self):
+        from lxml import html
+
         response = self.url_open("/slides")
         self.assertEqual(response.status_code, 200)
         self.assertIn("facodi-site", response.text)
+        tree = html.fromstring(response.text)
+        description = tree.xpath('//meta[@name="description"]/@content')
+        self.assertEqual(len(description), 1)
+        self.assertIn("Browse FACODI open courses", description[0])
 
     def test_native_menu_preserves_nested_and_external_links(self):
         from lxml import html
@@ -285,6 +313,8 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-course-grid", compiled)
         self.assertIn(".facodi-area-grid", compiled)
         self.assertIn(".facodi-ecosystem-grid", compiled)
+        self.assertIn(".o_cookies_discrete.show", compiled)
+        self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(
             "linear-gradient(120deg, var(--facodi-ink), var(--facodi-blue))", compiled
         )

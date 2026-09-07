@@ -8,6 +8,54 @@
     --facodi-line: #40536D;
     --facodi-shadow: 5px 5px 0 var(--facodi-ink);
 
+
+.o_cookies_discrete.show {
+    align-items: flex-end;
+    background: transparent;
+    display: flex !important;
+    pointer-events: none;
+
+    .modal-dialog {
+        margin: 0;
+        pointer-events: auto;
+        width: 100%;
+    }
+
+    .modal-dialog.s_popup_size_full {
+        height: auto;
+        min-height: 0;
+    }
+
+    .modal-content {
+        max-height: min(40vh, 20rem);
+        overflow-y: auto;
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+@media (max-width: 620px) {
+    .o_cookies_discrete.show {
+        .modal-content {
+            max-height: min(50vh, 22rem);
+        }
+
+        .modal-content > section > .container {
+            padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
+        }
+
+        .modal-content .col-lg-4 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            justify-content: flex-start;
+            text-align: start !important;
+        }
+
+        .modal-content .btn {
+            margin: 0 !important;
+        }
+    }
+}
     background: var(--facodi-paper);
     color: var(--facodi-ink);
 
