@@ -45,7 +45,28 @@
         background: var(--facodi-paper);
         border-bottom: 2px solid var(--facodi-ink);
 
-        .navbar-toggler,
+        > .o_main_nav > button[data-bs-target="#top_menu_collapse_mobile"] {
+            align-items: center;
+            border: 1px solid var(--facodi-ink);
+            color: var(--facodi-ink);
+            display: inline-flex;
+            justify-content: center;
+            min-height: 2.75rem;
+            min-width: 2.75rem;
+        }
+
+        .navbar-toggler-icon {
+            background-image:
+                linear-gradient(var(--facodi-ink), var(--facodi-ink)),
+                linear-gradient(var(--facodi-ink), var(--facodi-ink)),
+                linear-gradient(var(--facodi-ink), var(--facodi-ink));
+            background-position: center top, center center, center bottom;
+            background-repeat: no-repeat;
+            background-size: 100% 2px;
+            height: 1rem;
+            width: 1.35rem;
+        }
+
         .o_header_mobile_buttons_wrap .btn {
             border-color: var(--facodi-ink);
             color: var(--facodi-ink);
