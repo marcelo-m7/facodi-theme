@@ -53,7 +53,7 @@
 
                     <aside class="facodi-insights" aria-label="Learning insights">
                         <article class="facodi-roadmap-card">
-                            <div class="facodi-panel-label"><span>Next study</span></div>
+                            <div class="facodi-panel-label">Next study</div>
                             <h3>Explore the available courses</h3>
                             <p>Open the catalogue and choose the next topic in your learning journey.</p>
                             <a class="btn facodi-button facodi-button-secondary" href="/slides">
