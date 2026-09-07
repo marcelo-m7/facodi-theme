@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="facodi_courses_home"
+              inherit_id="website_slides.courses_home"
+              name="FACODI Courses Catalogue">
+        <xpath expr="//div[@id='wrap']/div[contains(concat(' ', normalize-space(@class), ' '), ' container ')][1]"
+               position="attributes">
+            <attribute name="class" add="facodi-slides-catalog" separator=" "/>
+        </xpath>
+    </template>
+
+    <template id="facodi_courses_search_results"
+              inherit_id="website_slides.courses_search_results"
+              name="FACODI Course Results">
+        <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_home_main ')]/*[1]"
+               position="before">
+            <t t-set="facodi_catalog_visuals"
+               t-value="channels._facodi_catalog_visuals()"/>
+        </xpath>
+        <xpath expr="//div[contains(@t-attf-class, 'row-cols-1')]"
+               position="attributes">
+            <attribute name="t-attf-class">facodi-slides-grid</attribute>
+        </xpath>
+    </template>
+
+    <template id="facodi_course_card"
+              inherit_id="website_slides.course_card"
+              name="FACODI Course Card Visual">
+        <xpath expr="//div[@t-field='channel.image_1920']" position="replace">
+            <t t-set="facodi_visual" t-value="facodi_catalog_visuals.get(channel.id)"/>
+            <div class="facodi-course-media ratio ratio-16x9">
+                <img t-if="facodi_visual and facodi_visual.get('kind') == 'channel'"
+                     t-att-src="'/web/image/slide.channel/%s/image_512' % channel.id"
+                     alt=""
+                     loading="lazy"
+                     decoding="async"/>
+                <img t-elif="facodi_visual and facodi_visual.get('kind') == 'slide'"
+                     t-att-src="'/web/image/slide.slide/%s/image_512' % facodi_visual['slide'].id"
+                     t-att-alt="facodi_visual.get('alt') or ''"
+                     loading="lazy"
+                     decoding="async"/>
+                <img t-elif="facodi_visual and facodi_visual.get('kind') == 'youtube'"
+                     t-att-src="facodi_visual.get('url')"
+                     t-att-alt="facodi_visual.get('alt') or ''"
+                     loading="lazy"
+                     decoding="async"
+                     referrerpolicy="strict-origin-when-cross-origin"/>
+                <div t-else=""
+                     class="facodi-course-fallback"
+                     aria-hidden="true">
+                    <span class="facodi-course-fallback-brand" t-translation="off">FACODI.</span>
+                    <strong t-out="(channel.name or '')[:2].upper()"/>
+                    <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
