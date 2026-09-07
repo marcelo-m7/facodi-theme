@@ -1,0 +1,147 @@
+.facodi-site {
+    .s_facodi_academic_areas,
+    .s_facodi_ecosystem {
+        border-bottom: 2px solid var(--facodi-ink);
+        border-top: 2px solid var(--facodi-ink);
+    }
+
+    .facodi-area-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .facodi-area-card {
+        border: 2px solid var(--facodi-ink);
+        border-radius: .7rem;
+        box-shadow: 4px 4px 0 var(--facodi-ink);
+        color: var(--facodi-ink);
+        display: flex;
+        flex-direction: column;
+        min-height: 20rem;
+        overflow-wrap: anywhere;
+        padding: 1.4rem;
+
+        h3 {
+            color: inherit;
+            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin: .45rem 0 1rem;
+        }
+
+        > p:not(.facodi-kicker) {
+            line-height: 1.55;
+        }
+
+        > a {
+            color: inherit;
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .68rem;
+            font-weight: 700;
+            margin-top: auto;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+
+    .facodi-area-icon {
+        align-items: center;
+        background: #fff;
+        border: 2px solid var(--facodi-ink);
+        border-radius: 50%;
+        display: inline-flex;
+        height: 2.8rem;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+        width: 2.8rem;
+    }
+
+    .facodi-paper {
+        background: #F9FAFB;
+    }
+
+    .s_facodi_ecosystem {
+        background: var(--facodi-ink);
+        color: #fff;
+
+        h2 {
+            color: #fff;
+        }
+    }
+
+    .facodi-ecosystem-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .facodi-ecosystem-card {
+        border: 1px solid rgba(255, 255, 255, .45);
+        border-radius: .7rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 15rem;
+        overflow-wrap: anywhere;
+        padding: 1.5rem;
+        position: relative;
+
+        h3 {
+            color: #fff;
+            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 1.25rem 0 .65rem;
+        }
+
+        p {
+            color: #E2E8F0;
+            line-height: 1.55;
+        }
+
+        > .fa {
+            color: var(--facodi-cyan);
+            font-size: 1.7rem;
+            margin-top: 1.35rem;
+        }
+    }
+
+    .facodi-ecosystem-index {
+        color: var(--facodi-mint);
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .66rem;
+        font-weight: 700;
+    }
+
+    .facodi-ecosystem-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .875rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .facodi-site {
+        .facodi-area-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .facodi-ecosystem-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .facodi-site {
+        .facodi-area-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .facodi-area-card {
+            min-height: 16rem;
+        }
+    }
+}

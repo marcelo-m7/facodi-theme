@@ -39,8 +39,33 @@ body.o_wslides_body .facodi-site {
         }
     }
 
+    .o_wslides_slide_list_category_header {
+        border-color: rgba(20, 40, 70, .28);
+        border-radius: .55rem .55rem 0 0;
+        font-weight: 700;
+    }
+
     .o_wslides_slides_list_slide {
+        border-color: rgba(20, 40, 70, .2);
         border-radius: .5rem;
+        transition: background-color 160ms ease, border-color 160ms ease;
+
+        &:hover {
+            background-color: rgba(167, 232, 190, .22);
+            border-color: rgba(20, 40, 70, .42);
+        }
+
+        .o_wslides_js_slides_list_slide_link {
+            color: inherit;
+            text-decoration-thickness: .08em;
+            text-underline-offset: .2em;
+        }
+    }
+
+    .progress {
+        border: 1px solid rgba(20, 40, 70, .2);
+        border-radius: 999px;
+        overflow: hidden;
     }
 
     .progress-bar {
@@ -49,10 +74,13 @@ body.o_wslides_body .facodi-site {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    body.o_wslides_body .facodi-site .o_wslides_course_card {
-        transition: none;
+    body.o_wslides_body .facodi-site {
+        .o_wslides_course_card,
+        .o_wslides_slides_list_slide {
+            transition: none;
+        }
 
-        &:hover {
+        .o_wslides_course_card:hover {
             transform: none;
         }
     }

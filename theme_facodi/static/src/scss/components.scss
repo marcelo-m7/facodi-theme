@@ -168,6 +168,67 @@
     .btn-primary, .btn-secondary, .form-control, .form-select, .alert, .page-link {
         border-radius: .5rem;
     }
+
+    // Keep Bootstrap/Odoo component semantics intact and add only a scoped
+    // FACODI presentation layer. Color-combination ownership stays with Odoo.
+    .badge {
+        border-radius: 999px;
+        font-weight: 700;
+        letter-spacing: .01em;
+        padding: .38em .68em;
+    }
+
+    .breadcrumb {
+        align-items: center;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .72rem;
+        gap: .15rem;
+        margin-bottom: 1.25rem;
+
+        a {
+            color: inherit;
+            font-weight: 700;
+            text-underline-offset: .2em;
+        }
+    }
+
+    .dropdown-menu {
+        border: 2px solid var(--facodi-ink);
+        border-radius: .5rem;
+        box-shadow: 3px 3px 0 rgba(20, 40, 70, .28);
+        padding: .4rem;
+    }
+
+    .dropdown-item {
+        border-radius: .35rem;
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
+            background: var(--facodi-mint);
+            color: var(--facodi-ink);
+        }
+    }
+
+    .pagination {
+        gap: .3rem;
+
+        .page-link {
+            border: 1px solid currentColor;
+            color: inherit;
+            font-weight: 700;
+            min-width: 2.35rem;
+            text-align: center;
+        }
+
+        .active > .page-link,
+        .page-link.active {
+            background: var(--facodi-blue);
+            border-color: var(--facodi-blue);
+            color: #fff;
+        }
+    }
+
     :is(button, input, select, textarea, summary):focus-visible {
         outline: 3px solid var(--facodi-ink);
         outline-offset: 3px;

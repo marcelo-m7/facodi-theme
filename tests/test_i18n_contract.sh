@@ -31,6 +31,12 @@ for catalogue in theme_facodi.pot pt.po es.po fr.po; do
   if grep -Fq 'model_terms:ir.ui.view,arch_db:theme_facodi.' "$I18N_DIR/$catalogue"; then
     fail "$catalogue must not target copied website views directly"
   fi
+  grep -Fq 'model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase' "$I18N_DIR/$catalogue" \
+    || fail "$catalogue must include course-showcase translations"
+  grep -Fq 'model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_academic_areas' "$I18N_DIR/$catalogue" \
+    || fail "$catalogue must include academic-area translations"
+  grep -Fq 'model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem' "$I18N_DIR/$catalogue" \
+    || fail "$catalogue must include ecosystem translations"
 done
 
 # English is the canonical source language in QWeb. These phrases are also
@@ -39,10 +45,16 @@ grep -Fq 'Learn together with the community' "$VIEWS_DIR/snippets/s_facodi_hero.
   || fail "hero source language must remain English"
 grep -Fq 'Digital Community College. Open, collaborative and accessible higher education.' "$VIEWS_DIR/customizations.xml" \
   || fail "website shell source language must be English"
+grep -Fq 'Published courses' "$VIEWS_DIR/snippets/s_facodi_course_showcase.xml" \
+  || fail "course showcase source language must remain English"
+grep -Fq 'Find your next field of study.' "$VIEWS_DIR/snippets/s_facodi_academic_areas.xml" \
+  || fail "academic areas source language must remain English"
+grep -Fq 'A learning ecosystem designed to stay open.' "$VIEWS_DIR/snippets/s_facodi_ecosystem.xml" \
+  || fail "ecosystem source language must remain English"
 
 # Portuguese content must be supplied through pt.po instead of being embedded
 # as an alternate QWeb branch or left as the source language.
-if grep -R -nE 'Aprenda em comunidade|Seu próximo capítulo|Explorar cursos|Minha conta|Faculdade Comunitária Digital|Criado por' "$VIEWS_DIR" --include='*.xml'; then
+if grep -R -nE 'Aprenda em comunidade|Seu próximo capítulo|Explorar cursos|Minha conta|Faculdade Comunitária Digital|Criado por|Cursos publicados|Área de estudo|Rede universitária' "$VIEWS_DIR" --include='*.xml'; then
   fail "Portuguese editorial copy must not remain hardcoded in source QWeb"
 fi
 
@@ -52,11 +64,35 @@ if grep -R -nE 't-if=.*(lang|language)|request\.(lang|language)|context.*lang.*=
   fail "theme must not implement custom per-language QWeb branching"
 fi
 
+FOUNDATION_MSGIDS=(
+  'Published courses'
+  'Explore the available courses'
+  'Find your next field of study.'
+  'Computing & Technology'
+  'Mathematics & Data'
+  'Business & Society'
+  'Languages & Culture'
+  'A learning ecosystem designed to stay open.'
+  'Open resources'
+  'Community learning'
+  'University network'
+  'Contribute to FACODI'
+)
+
 for catalogue in pt es fr; do
   grep -Fq 'msgid "Learn together with the community"' "$I18N_DIR/${catalogue}.po" \
     || fail "${catalogue}.po does not translate the hero language anchor"
   grep -Fq 'msgid "Digital Community College. Open, collaborative and accessible higher education."' "$I18N_DIR/${catalogue}.po" \
     || fail "${catalogue}.po does not translate the website shell language anchor"
+  for msgid in "${FOUNDATION_MSGIDS[@]}"; do
+    grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/${catalogue}.po" \
+      || fail "${catalogue}.po does not translate Foundation v2 string: ${msgid}"
+  done
+done
+
+for msgid in "${FOUNDATION_MSGIDS[@]}"; do
+  grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/theme_facodi.pot" \
+    || fail "theme_facodi.pot is missing Foundation v2 string: ${msgid}"
 done
 
 echo "PASS: native Odoo i18n contract"

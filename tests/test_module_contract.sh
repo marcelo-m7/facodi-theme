@@ -108,10 +108,12 @@ SNIPPET_IDS=(
   s_facodi_hero
   s_facodi_learning_journey
   s_facodi_course_showcase
+  s_facodi_academic_areas
   s_facodi_institutional
   s_facodi_intro
   s_facodi_features
   s_facodi_community
+  s_facodi_ecosystem
   s_facodi_roadmap
   s_facodi_faq
   s_facodi_course_cta
@@ -289,10 +291,12 @@ expected = {
     's_facodi_hero',
     's_facodi_learning_journey',
     's_facodi_course_showcase',
+    's_facodi_academic_areas',
     's_facodi_institutional',
     's_facodi_intro',
     's_facodi_features',
     's_facodi_community',
+    's_facodi_ecosystem',
     's_facodi_roadmap',
     's_facodi_faq',
     's_facodi_course_cta',
