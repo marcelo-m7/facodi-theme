@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_academic_areas" name="FACODI Academic Areas">
+        <section class="s_facodi_academic_areas facodi-section o_cc o_cc2"
+                 data-snippet="s_facodi_academic_areas"
+                 data-name="FACODI Academic Areas">
+            <div class="container">
+                <div class="facodi-section-heading">
+                    <div>
+                        <p class="facodi-kicker">
+                            <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
+                            Explore by area
+                        </p>
+                        <h2>Find your next field of study.</h2>
+                    </div>
+                    <a href="/slides" class="facodi-text-link">
+                        View all courses
+                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
+                    </a>
+                </div>
+                <p class="facodi-lead">Start from a broad academic area, then use the open catalogue to shape a learning path around your goals.</p>
+                <div class="facodi-area-grid">
+                    <article class="facodi-area-card facodi-mint">
+                        <div class="facodi-area-icon"><i class="fa fa-laptop" aria-hidden="true" t-translation="off"/></div>
+                        <p class="facodi-kicker">Area 01</p>
+                        <h3>Computing &amp; Technology</h3>
+                        <p>Programming, systems, web technologies and the foundations behind digital products.</p>
+                        <a href="/website/search">Discover resources <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
+                    </article>
+                    <article class="facodi-area-card facodi-sky">
+                        <div class="facodi-area-icon"><i class="fa fa-bar-chart" aria-hidden="true" t-translation="off"/></div>
+                        <p class="facodi-kicker">Area 02</p>
+                        <h3>Mathematics &amp; Data</h3>
+                        <p>Mathematical reasoning, statistics, data analysis and quantitative problem solving.</p>
+                        <a href="/website/search">Discover resources <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
+                    </article>
+                    <article class="facodi-area-card facodi-sun">
+                        <div class="facodi-area-icon"><i class="fa fa-briefcase" aria-hidden="true" t-translation="off"/></div>
+                        <p class="facodi-kicker">Area 03</p>
+                        <h3>Business &amp; Society</h3>
+                        <p>Organisations, entrepreneurship, economics and the social contexts that shape decisions.</p>
+                        <a href="/website/search">Discover resources <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
+                    </article>
+                    <article class="facodi-area-card facodi-paper">
+                        <div class="facodi-area-icon"><i class="fa fa-comments" aria-hidden="true" t-translation="off"/></div>
+                        <p class="facodi-kicker">Area 04</p>
+                        <h3>Languages &amp; Culture</h3>
+                        <p>Communication, languages and cultural perspectives for learning across communities.</p>
+                        <a href="/website/search">Discover resources <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
