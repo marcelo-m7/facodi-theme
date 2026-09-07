@@ -11,10 +11,11 @@ ECOSYSTEM="theme_facodi/views/snippets/s_facodi_ecosystem.xml"
 REGISTRY="theme_facodi/views/snippets/snippets.xml"
 PAGES="theme_facodi/views/page_templates.xml"
 MANIFEST="theme_facodi/__manifest__.py"
-SCSS="theme_facodi/static/src/scss/snippets.scss"
+SCSS="theme_facodi/static/src/scss/foundation_v2.scss"
 
 [[ -f "$AREAS" ]] || fail "academic areas snippet is missing"
 [[ -f "$ECOSYSTEM" ]] || fail "ecosystem snippet is missing"
+[[ -f "$SCSS" ]] || fail "Foundation v2 stylesheet is missing"
 
 grep -Fq 'id="s_facodi_academic_areas"' "$AREAS" \
   || fail "academic areas snippet id is missing"
@@ -48,6 +49,8 @@ for id in s_facodi_academic_areas s_facodi_ecosystem; do
   grep -Fq "views/snippets/${id}.xml" "$MANIFEST" \
     || fail "$id is not loaded by the manifest"
 done
+grep -Fq 'theme_facodi/static/src/scss/foundation_v2.scss' "$MANIFEST" \
+  || fail "Foundation v2 stylesheet is not loaded in frontend assets"
 
 python3 - <<'PY'
 from pathlib import Path
