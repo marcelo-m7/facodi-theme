@@ -187,7 +187,28 @@ class TestFacodiElearningCatalogRendering(HttpCase):
             "Illustrated reference",
             slide_category="infographic",
             image_1920=_TINY_PNG,
+            sequence=1,
         )
+        with patch(
+            "odoo.addons.website_slides.models.slide_slide.SlideSlide._fetch_youtube_metadata",
+            return_value=({}, None),
+        ):
+            youtube_doc = self._slide(
+                documentation,
+                "YouTube reference",
+                slide_category="video",
+                source_type="external",
+                url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                sequence=2,
+            )
+        fallback_doc = self._slide(
+            documentation,
+            "Text-only reference",
+            slide_category="article",
+            html_content="<p>Reference without stored media.</p>",
+            sequence=3,
+        )
+
         documentation_response = self.url_open(documentation.website_url)
         self.assertEqual(documentation_response.status_code, 200)
         documentation_tree = html.fromstring(documentation_response.text)
@@ -204,3 +225,21 @@ class TestFacodiElearningCatalogRendering(HttpCase):
             f"//*[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_lesson_card ')]//*[contains(@src, 'slide.slide/{doc_slide.id}/image_')]"
         )
         self.assertTrue(media)
+
+        youtube_card_media = documentation_tree.xpath(
+            "//div[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_lesson_card ')][.//a[normalize-space()='YouTube reference']]//img"
+        )
+        self.assertTrue(youtube_card_media)
+        self.assertEqual(
+            youtube_card_media[0].get("src"),
+            "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+        )
+        self.assertEqual(youtube_card_media[0].get("loading"), "lazy")
+        self.assertEqual(youtube_doc.youtube_id, "dQw4w9WgXcQ")
+
+        fallback_media = documentation_tree.xpath(
+            "//div[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_lesson_card ')][.//a[normalize-space()='Text-only reference']]//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-lesson-fallback ')]"
+        )
+        self.assertTrue(fallback_media)
+        self.assertFalse(fallback_media[0].xpath(".//img"))
+        self.assertEqual(fallback_doc.slide_category, "article")
