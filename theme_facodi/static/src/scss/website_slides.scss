@@ -1,7 +1,7 @@
 body.o_wslides_body .facodi-site {
     .facodi-slides-catalog {
-        width: min(calc(100% - 2rem), 1680px);
-        max-width: none;
+        width: calc(100% - 2rem);
+        max-width: 1680px;
         margin-inline: auto;
     }
 
