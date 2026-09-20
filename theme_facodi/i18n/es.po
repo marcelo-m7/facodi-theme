@@ -123,8 +123,8 @@ msgstr "Tu próximo capítulo comienza en red."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Official curricula, open resources and a community that turns knowledge into possibility."
-msgstr "Planes de estudio oficiales, recursos abiertos y una comunidad que transforma el conocimiento en posibilidades."
+msgid "Open learning resources and a community that turns knowledge into possibility."
+msgstr "Recursos de aprendizaje abiertos y una comunidad que transforma el conocimiento en posibilidades."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
