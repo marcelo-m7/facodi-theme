@@ -23,10 +23,24 @@
 
                     <nav class="facodi-footer-links" aria-label="Footer navigation">
                         <t t-foreach="website.menu_id.child_id" t-as="footer_menu">
-                            <a t-if="footer_menu.is_visible"
-                               t-att-href="footer_menu._clean_url()">
-                                <span t-field="footer_menu.name"/>
-                            </a>
+                            <div t-if="footer_menu.is_visible" class="facodi-footer-group">
+                                <a t-if="not footer_menu.child_id"
+                                   t-att-href="footer_menu._clean_url()">
+                                    <span t-field="footer_menu.name"/>
+                                </a>
+                                <span t-else="" class="facodi-footer-heading">
+                                    <span t-field="footer_menu.name"/>
+                                </span>
+                                <ul t-if="footer_menu.child_id">
+                                    <t t-foreach="footer_menu.child_id" t-as="footer_item">
+                                        <li t-if="footer_item.is_visible">
+                                            <a t-att-href="footer_item._clean_url()">
+                                                <span t-field="footer_item.name"/>
+                                            </a>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
                         </t>
                         <a href="/my">My account</a>
                     </nav>
