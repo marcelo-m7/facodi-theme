@@ -38,6 +38,16 @@
                                     <t t-set="dropdown_menu_classes" t-valuef="facodi-dropdown-menu"/>
                                 </t>
                             </t>
+                        </t>
+                        <ul class="navbar-nav align-items-center gap-2 flex-shrink-0 justify-content-end ps-3">
+                            <t t-call="website.placeholder_header_search_box"
+                               _layout.f="modal"
+                               _input_classes.f="border border-end-0 p-3"
+                               _submit_classes.f="border border-start-0 px-4 bg-o-color-4"
+                               _button_classes.f="o_navlink_background text-reset"/>
+                            <t t-call="website.placeholder_header_language_selector"
+                               _btn_class="nav-link"
+                               _dropdown_menu_class.f="dropdown-menu-end"/>
                             <t t-call="portal.placeholder_user_sign_in">
                                 <t t-set="_item_class" t-valuef="nav-item ms-lg-2"/>
                                 <t t-set="_link_class" t-valuef="btn facodi-button facodi-button-primary"/>
@@ -48,7 +58,7 @@
                                 <t t-set="_link_class" t-valuef="btn facodi-button facodi-button-primary border-0"/>
                                 <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
                             </t>
-                        </t>
+                        </ul>
                     </div>
                 </t>
                 <t t-call="website.template_header_mobile"/>
