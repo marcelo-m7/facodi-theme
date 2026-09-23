@@ -1,12 +1,10 @@
 from odoo import models
 
 
-FACODI_HOMEPAGE_META_DESCRIPTIONS = {
-    "en_US": "Explore FACODI open courses, learning paths and community resources for accessible higher education.",
-    "pt_PT": "Explore os cursos abertos, percursos de aprendizagem e recursos comunitários da FACODI para um ensino superior acessível.",
-    "es_ES": "Descubre los cursos abiertos, itinerarios de aprendizaje y recursos comunitarios de FACODI para una educación superior accesible.",
-    "fr_FR": "Découvrez les cours ouverts, parcours d'apprentissage et ressources communautaires de FACODI pour un enseignement supérieur accessible.",
-}
+_HOMEPAGE_META_DESCRIPTION = (
+    "Explore FACODI open courses, learning paths and community resources for "
+    "accessible higher education."
+)
 
 
 class ThemeUtils(models.AbstractModel):
@@ -23,12 +21,10 @@ class ThemeUtils(models.AbstractModel):
             [("url", "=", "/"), ("website_id", "=", website.id)], limit=1
         )
         if homepage:
-            active_languages = self.env["res.lang"].search(
-                [
-                    ("code", "in", tuple(FACODI_HOMEPAGE_META_DESCRIPTIONS)),
-                    ("active", "=", True),
-                ]
-            )
-            for language in active_languages.mapped("code"):
-                description = FACODI_HOMEPAGE_META_DESCRIPTIONS[language]
-                homepage.with_context(lang=language).website_meta_description = description
+            for language in website.language_ids.filtered("active"):
+                description = self.with_context(lang=language.code).env._(
+                    _HOMEPAGE_META_DESCRIPTION
+                )
+                homepage.with_context(
+                    lang=language.code
+                ).website_meta_description = description
