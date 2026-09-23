@@ -1,0 +1,13 @@
+.facodi-site {
+    .facodi-curriculum, .facodi-explore { padding-block: 2rem; :is(input, select, textarea, button, a):focus-visible { outline: 3px solid var(--facodi-ink); outline-offset: 3px; } }
+    .facodi-curriculum-card { border: 2px solid var(--facodi-ink); border-radius: .5rem; padding: 1.25rem; }
+    .facodi-curriculum-table { border: 2px solid var(--facodi-ink); max-width: 100%; overflow-x: auto; table { min-width: 46rem; width: 100%; } }
+    .facodi-coverage--covered { background: var(--facodi-mint); }
+    .facodi-coverage--partial { background: var(--facodi-sun); }
+    .facodi-coverage--gap { background: #e2e8f0; }
+    .facodi-explore { display: grid; gap: 1rem; }
+    .facodi-pathway-step { border-top: 2px solid var(--facodi-ink); display: grid; gap: 1rem; grid-template-columns: 3rem 1fr auto; padding: 1rem 0; }
+    .facodi-editorial-routes-list { border-block: 2px solid var(--facodi-ink); display: grid; grid-template-columns: repeat(3, 1fr); a { color: inherit; padding: 1rem; text-decoration: none; } }
+}
+@media (max-width: 767.98px) { .facodi-site .facodi-editorial-routes-list { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .facodi-site .facodi-curriculum *, .facodi-site .facodi-explore * { transition-duration: .01ms !important; } }

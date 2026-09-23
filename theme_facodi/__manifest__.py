@@ -26,6 +26,8 @@
         "views/snippets/s_facodi_roadmap.xml",
         "views/snippets/s_facodi_faq.xml",
         "views/snippets/s_facodi_course_cta.xml",
+        "views/snippets/s_facodi_editorial_pathway.xml",
+        "views/snippets/s_facodi_editorial_routes.xml",
         "views/snippets/snippets.xml",
         "views/page_templates.xml",
     ],
@@ -38,6 +40,7 @@
             "theme_facodi/static/src/scss/snippets.scss",
             "theme_facodi/static/src/scss/foundation_v2.scss",
             "theme_facodi/static/src/scss/website_slides.scss",
+            "theme_facodi/static/src/scss/curriculum.scss",
         ],
         "html_builder.assets": [
             "theme_facodi/static/src/builder/**/*",

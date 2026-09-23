@@ -17,6 +17,7 @@
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
             <t t-snippet-call="theme_facodi.s_facodi_institutional"/>
             <t t-snippet-call="theme_facodi.s_facodi_features"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_community" name="FACODI Community">
@@ -25,6 +26,7 @@
             <t t-snippet-call="theme_facodi.s_facodi_community"/>
             <t t-snippet-call="theme_facodi.s_facodi_ecosystem"/>
             <t t-snippet-call="theme_facodi.s_facodi_faq"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_contribution" name="FACODI Contribution">
@@ -32,6 +34,7 @@
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
             <t t-snippet-call="theme_facodi.s_facodi_features"/>
             <t t-snippet-call="theme_facodi.s_facodi_community"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_editorial" name="FACODI Editorial">
@@ -64,6 +67,7 @@
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
             <t t-snippet-call="theme_facodi.s_facodi_institutional"/>
             <t t-snippet-call="theme_facodi.s_facodi_community"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_partners" name="FACODI Partners">
@@ -71,14 +75,14 @@
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
             <t t-snippet-call="theme_facodi.s_facodi_ecosystem"/>
             <t t-snippet-call="theme_facodi.s_facodi_community"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_pathways" name="FACODI Pathways">
         <div id="wrap">
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
-            <t t-snippet-call="theme_facodi.s_facodi_academic_areas"/>
-            <t t-snippet-call="theme_facodi.s_facodi_learning_journey"/>
-            <t t-snippet-call="theme_facodi.s_facodi_course_cta"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_pathway"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_roadmap" name="FACODI Roadmap">
@@ -86,6 +90,7 @@
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
             <t t-snippet-call="theme_facodi.s_facodi_roadmap"/>
             <t t-snippet-call="theme_facodi.s_facodi_community"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
 </odoo>
