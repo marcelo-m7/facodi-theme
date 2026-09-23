@@ -45,15 +45,15 @@
                         <div class="facodi-footer-group facodi-footer-legal">
                             <span class="facodi-footer-heading">Legal</span>
                             <ul>
-                                <li><a href="/privacy-policy"><t t-if="request.context.get('lang') == 'pt_PT'">Politica de Privacidade</t><t t-elif="request.context.get('lang') == 'es_ES'">Politica de Privacidad</t><t t-elif="request.context.get('lang') == 'fr_FR'">Politique de Confidentialite</t><t t-else="">Privacy Policy</t></a></li>
-                                <li><a href="/cookie-policy"><t t-if="request.context.get('lang') == 'pt_PT'">Politica de Cookies</t><t t-elif="request.context.get('lang') == 'es_ES'">Politica de Cookies</t><t t-elif="request.context.get('lang') == 'fr_FR'">Politique de Cookies</t><t t-else="">Cookie Policy</t></a></li>
-                                <li><a href="/terms-and-conditions"><t t-if="request.context.get('lang') == 'pt_PT'">Termos e Condicoes</t><t t-elif="request.context.get('lang') == 'es_ES'">Terminos y Condiciones</t><t t-elif="request.context.get('lang') == 'fr_FR'">Conditions Generales</t><t t-else="">Terms and Conditions</t></a></li>
+                                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                <li><a href="/cookie-policy">Cookie Policy</a></li>
+                                <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
                             </ul>
                         </div>
                         <div class="facodi-footer-group">
                             <span class="facodi-footer-heading">Account</span>
                             <ul>
-                                <li><a href="/my"><t t-if="request.context.get('lang') == 'pt_PT'">Minha conta</t><t t-elif="request.context.get('lang') == 'es_ES'">Mi cuenta</t><t t-elif="request.context.get('lang') == 'fr_FR'">Mon compte</t><t t-else="">My account</t></a></li>
+                                <li><a href="/my">My account</a></li>
                             </ul>
                         </div>
                     </nav>

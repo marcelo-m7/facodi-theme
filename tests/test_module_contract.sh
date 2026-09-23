@@ -117,6 +117,8 @@ SNIPPET_IDS=(
   s_facodi_roadmap
   s_facodi_faq
   s_facodi_course_cta
+  s_facodi_editorial_pathway
+  s_facodi_editorial_routes
 )
 
 [[ -f theme_facodi/views/snippets/snippets.xml ]] \
@@ -153,6 +155,22 @@ grep -Fq -- '--test-tags /theme_facodi' .github/workflows/ci.yml || fail "CI mus
 
 for file in primary_variables bootstrap_overridden components website snippets website_slides; do
   [[ -f "theme_facodi/static/src/scss/${file}.scss" ]] || fail "missing ${file}.scss"
+done
+
+for selector in \
+  '.form-control' \
+  '.form-select' \
+  '.form-check-input' \
+  '.invalid-feedback' \
+  '.modal-content' \
+  '.offcanvas' \
+  '.accordion-button' \
+  '.nav-tabs' \
+  '.table' \
+  '.progress' \
+  '.oe_login_form'; do
+  grep -Fq "$selector" theme_facodi/static/src/scss/components.scss \
+    || fail "missing FACODI standard-component selector: $selector"
 done
 
 for color in '#142846' '#37BED2' '#3979C8' '#A7E8BE' '#EFFF00' '#F9FAFB'; do
@@ -300,6 +318,8 @@ expected = {
     's_facodi_roadmap',
     's_facodi_faq',
     's_facodi_course_cta',
+    's_facodi_editorial_pathway',
+    's_facodi_editorial_routes',
 }
 assert blocks == expected, (blocks, expected)
 

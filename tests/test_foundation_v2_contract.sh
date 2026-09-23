@@ -73,7 +73,7 @@ required = {
         'theme_facodi.s_facodi_ecosystem',
     },
     'new_page_template_sections_facodi_pathways': {
-        'theme_facodi.s_facodi_academic_areas',
+      'theme_facodi.s_facodi_editorial_pathway',
     },
     'new_page_template_sections_facodi_partners': {
         'theme_facodi.s_facodi_ecosystem',
