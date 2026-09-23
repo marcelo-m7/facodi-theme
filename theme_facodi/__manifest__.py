@@ -5,7 +5,7 @@
     "category": "Theme/Education",
     "sequence": 120,
     "author": "FACODI",
-    "website": "https://facodi.pt",
+    "website": "https://facodi.com",
     "license": "LGPL-3",
     "depends": ["theme_common", "website_slides"],
     "data": [

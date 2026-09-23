@@ -85,7 +85,7 @@
             <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
-    <template id="new_page_template_sections_facodi_roadmap" name="FACODI Roadmap">
+    <template id="new_page_template_sections_facodi_roadmap" name="FACODI Community Process">
         <div id="wrap">
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
             <t t-snippet-call="theme_facodi.s_facodi_roadmap"/>
