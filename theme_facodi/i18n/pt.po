@@ -589,3 +589,47 @@ msgstr "Contribuir para a FACODI"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
 msgid "Explore the catalogue"
 msgstr "Explorar o catálogo"
+
+#. module: theme_facodi
+msgid "Explore Roadmaps"
+msgstr "Explorar Roadmaps"
+
+#. module: theme_facodi
+msgid "Explore curricular units"
+msgstr "Explorar unidades curriculares"
+
+#. module: theme_facodi
+msgid "FACODI structure"
+msgstr "Estrutura FACODI"
+
+#. module: theme_facodi
+msgid "Navigate verified Roadmaps, curricular units and open courses with a community that turns knowledge into possibility."
+msgstr "Navegue por Roadmaps verificados, unidades curriculares e cursos abertos com uma comunidade que transforma conhecimento em possibilidades."
+
+#. module: theme_facodi
+msgid "Three ways to begin learning."
+msgstr "Três formas de começar a aprender."
+
+#. module: theme_facodi
+msgid "Choose a Roadmap"
+msgstr "Escolha um Roadmap"
+
+#. module: theme_facodi
+msgid "Start with a structured, publicly reviewed learning direction."
+msgstr "Comece por uma orientação de aprendizagem estruturada e revista publicamente."
+
+#. module: theme_facodi
+msgid "Start a course"
+msgstr "Comece um curso"
+
+#. module: theme_facodi
+msgid "Learn with published courses and content at your own pace."
+msgstr "Aprenda com cursos e conteúdos publicados ao seu ritmo."
+
+#. module: theme_facodi
+msgid "Find the right place to begin."
+msgstr "Encontre o ponto certo para começar."
+
+#. module: theme_facodi
+msgid "Use Roadmaps for direction, curricular units for verified context, and courses to start learning."
+msgstr "Use Roadmaps para orientação, unidades curriculares para contexto verificado e cursos para começar a aprender."

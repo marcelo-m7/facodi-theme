@@ -9,26 +9,29 @@
                             <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
                             How it works
                         </p>
-                        <h2>Three steps to start learning.</h2>
+                        <h2>Three ways to begin learning.</h2>
                     </div>
                 </div>
                 <div class="facodi-stat-row">
                     <article class="facodi-stat-card facodi-mint">
                         <div class="facodi-stat-eyebrow">Step 01</div>
-                        <div class="facodi-stat-title">Discover</div>
-                        <div class="facodi-stat-copy">Explore the catalogue and find a learning path aligned with your goals.</div>
+                        <div class="facodi-stat-title">Choose a Roadmap</div>
+                        <div class="facodi-stat-copy">Start with a structured, publicly reviewed learning direction.</div>
+                        <a href="/roadmaps" class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
                         <i class="fa fa-search" aria-hidden="true" t-translation="off"/>
                     </article>
                     <article class="facodi-stat-card facodi-sky">
                         <div class="facodi-stat-eyebrow">Step 02</div>
-                        <div class="facodi-stat-title">Learn</div>
-                        <div class="facodi-stat-copy">Follow organised content at your own pace and track your progress.</div>
+                        <div class="facodi-stat-title">Explore curricular units</div>
+                        <div class="facodi-stat-copy">See the verified academic reference, modules and reviewed coverage.</div>
+                        <a href="/unidades-curriculares" class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
                         <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                     </article>
                     <article class="facodi-stat-card facodi-sun">
                         <div class="facodi-stat-eyebrow">Step 03</div>
-                        <div class="facodi-stat-title">Contribute</div>
-                        <div class="facodi-stat-copy">Share resources and help other people build knowledge.</div>
+                        <div class="facodi-stat-title">Start a course</div>
+                        <div class="facodi-stat-copy">Learn with published courses and content at your own pace.</div>
+                        <a href="/slides" class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
                         <i class="fa fa-users" aria-hidden="true" t-translation="off"/>
                     </article>
                 </div>

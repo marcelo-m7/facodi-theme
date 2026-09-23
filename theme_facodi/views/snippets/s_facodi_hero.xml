@@ -9,14 +9,15 @@
                 </p>
                 <h1>Your next chapter starts in a network.</h1>
                 <p class="facodi-lead">
-                    Open learning resources and a community that turns knowledge into possibility.
+                    Navigate verified Roadmaps, curricular units and open courses with a community that turns knowledge into possibility.
                 </p>
                 <div class="facodi-actions">
-                    <a class="btn facodi-button facodi-button-primary" href="/slides">
-                        Explore courses
+                    <a class="btn facodi-button facodi-button-primary" href="/roadmaps">
+                        Explore Roadmaps
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
-                    <a class="btn facodi-button facodi-button-secondary" href="/web/login">Continue learning</a>
+                    <a class="btn facodi-button facodi-button-secondary" href="/unidades-curriculares">Explore curricular units</a>
+                    <a class="btn facodi-button facodi-button-secondary" href="/slides">Explore courses</a>
                 </div>
                 <div class="facodi-hero-proof">
                     <p>Built for learners and contributors</p>
@@ -36,9 +37,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="facodi-hero-board" aria-label="Learning map">
+            <div class="facodi-hero-board" aria-label="FACODI learning structure">
                 <div class="facodi-board-top">
-                    <div>Learning map</div>
+                    <div>FACODI structure</div>
                     <div class="facodi-live-dot">Open</div>
                 </div>
                 <div class="facodi-board-path">
@@ -52,16 +53,16 @@
                 </div>
                 <div class="facodi-board-cards">
                     <div>
-                        <div class="facodi-board-card-label">Discover</div>
-                        <div class="facodi-board-card-title">Find a course</div>
+                        <div class="facodi-board-card-label">Roadmap</div>
+                        <div class="facodi-board-card-title">Choose direction</div>
                     </div>
                     <div class="is-selected">
-                        <div class="facodi-board-card-label">Learn</div>
-                        <div class="facodi-board-card-title">At your own pace</div>
+                        <div class="facodi-board-card-label">Curricular unit</div>
+                        <div class="facodi-board-card-title">Understand coverage</div>
                     </div>
                     <div>
-                        <div class="facodi-board-card-label">Contribute</div>
-                        <div class="facodi-board-card-title">In community</div>
+                        <div class="facodi-board-card-label">Course and content</div>
+                        <div class="facodi-board-card-title">Learn at your pace</div>
                     </div>
                 </div>
             </div>
