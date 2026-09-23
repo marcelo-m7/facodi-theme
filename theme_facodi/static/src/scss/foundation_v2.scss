@@ -18,7 +18,6 @@
         color: var(--facodi-ink);
         display: flex;
         flex-direction: column;
-        min-height: 20rem;
         overflow-wrap: anywhere;
         padding: 1.4rem;
 
@@ -82,7 +81,6 @@
         border-radius: .7rem;
         display: flex;
         flex-direction: column;
-        min-height: 15rem;
         overflow-wrap: anywhere;
         padding: 1.5rem;
         position: relative;
@@ -120,16 +118,30 @@
         gap: .875rem;
         margin-top: 2rem;
     }
+
+    .facodi-ecosystem-partners {
+        border-top: 1px solid rgba(255, 255, 255, .3);
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+
+        .facodi-ecosystem-actions {
+            margin-top: .75rem;
+        }
+    }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     .facodi-site {
         .facodi-area-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .facodi-ecosystem-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            > :last-child {
+                grid-column: 1 / -1;
+            }
         }
     }
 }
@@ -140,8 +152,12 @@
             grid-template-columns: 1fr;
         }
 
-        .facodi-area-card {
-            min-height: 16rem;
+        .facodi-ecosystem-grid {
+            grid-template-columns: 1fr;
+
+            > :last-child {
+                grid-column: auto;
+            }
         }
     }
 }
