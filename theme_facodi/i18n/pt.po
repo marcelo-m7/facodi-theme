@@ -12,6 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: theme_facodi
+#. odoo-python
 #: code:addons/theme_facodi/models/theme_models.py:0
 msgid "Explore FACODI open courses, learning paths and community resources for accessible higher education."
 msgstr "Explore os cursos abertos, percursos de aprendizagem e recursos comunitários da FACODI para um ensino superior acessível."
