@@ -633,3 +633,14 @@ msgstr "Trouvez le bon point de depart."
 #. module: theme_facodi
 msgid "Use Roadmaps for direction, curricular units for verified context, and courses to start learning."
 msgstr "Utilisez les Roadmaps pour vous orienter, les unites d'enseignement pour un contexte verifie et les cours pour commencer a apprendre."
+
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
+msgid "Roadmaps"
+msgstr "Parcours"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
+msgid "Curricular Units"
+msgstr "Unités d’enseignement"
