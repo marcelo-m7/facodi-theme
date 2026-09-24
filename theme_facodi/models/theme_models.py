@@ -1,4 +1,11 @@
 from odoo import models
+from odoo.tools.translate import get_translation
+
+
+_HOMEPAGE_META_DESCRIPTION = (
+    "Explore FACODI open courses, learning paths and community resources for "
+    "accessible higher education."
+)
 
 
 class ThemeUtils(models.AbstractModel):
@@ -16,8 +23,10 @@ class ThemeUtils(models.AbstractModel):
         )
         if homepage:
             for language in website.language_ids.filtered("active"):
-                description = self.with_context(lang=language.code).env._(
-                    "Explore FACODI open courses, learning paths and community resources for accessible higher education."
+                description = get_translation(
+                    "theme_facodi",
+                    language.code,
+                    _HOMEPAGE_META_DESCRIPTION,
                 )
                 homepage.with_context(
                     lang=language.code
