@@ -27,6 +27,7 @@ class ThemeUtils(models.AbstractModel):
                     "theme_facodi",
                     language.code,
                     _HOMEPAGE_META_DESCRIPTION,
+                    (),
                 )
                 homepage.with_context(
                     lang=language.code
