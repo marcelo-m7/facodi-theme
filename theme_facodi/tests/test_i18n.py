@@ -137,9 +137,36 @@ class TestFacodiThemeTranslations(HttpCase):
     def test_course_dashboard_uses_native_translations(self):
         showcase = self._website_view("theme_facodi.s_facodi_course_showcase")
         expected_by_lang = {
-            "pt_PT": ("O meu percurso de aprendizagem", "Cursos publicados", "Próximo estudo", "Ver catálogo"),
-            "es_ES": ("Mi recorrido de aprendizaje", "Cursos publicados", "Próximo estudio", "Ver catálogo"),
-            "fr_FR": ("Mon parcours d’apprentissage", "Cours publiés", "Prochaine étude", "Voir le catalogue"),
+            "pt_PT": (
+                "Catálogo de aprendizagem",
+                "Roadmaps",
+                "Unidades Curriculares",
+                "Cursos",
+                "Contribua",
+                "Cursos publicados",
+                "Próximo estudo",
+                "Ver catálogo",
+            ),
+            "es_ES": (
+                "Catálogo de aprendizaje",
+                "Rutas",
+                "Unidades Curriculares",
+                "Cursos",
+                "Contribuye",
+                "Cursos publicados",
+                "Próximo estudio",
+                "Ver catálogo",
+            ),
+            "fr_FR": (
+                "Catalogue d’apprentissage",
+                "Parcours",
+                "Unités d’enseignement",
+                "Cours",
+                "Contribuez",
+                "Cours publiés",
+                "Prochaine étude",
+                "Voir le catalogue",
+            ),
         }
         for lang, expected_terms in expected_by_lang.items():
             with self.subTest(language=lang):
