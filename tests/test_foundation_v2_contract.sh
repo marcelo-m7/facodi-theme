@@ -28,8 +28,13 @@ for label in 'Computing &amp; Technology' 'Mathematics &amp; Data' 'Business &am
 done
 grep -Fq 'href="/slides"' "$AREAS" \
   || fail "academic areas must link to standard eLearning catalogue"
-grep -Fq 'href="/website/search"' "$AREAS" \
-  || fail "academic areas must link to standard Website search"
+grep -Fq 'href="/roadmaps"' "$AREAS" \
+  || fail "academic areas must link to FACODI Roadmaps"
+grep -Fq 'href="/unidades-curriculares"' "$AREAS" \
+  || fail "academic areas must link to FACODI curricular units"
+if grep -Fq 'href="/website/search"' "$AREAS"; then
+  fail "academic areas must not fall back to generic Website search"
+fi
 
 grep -Fq 'id="s_facodi_ecosystem"' "$ECOSYSTEM" \
   || fail "ecosystem snippet id is missing"
