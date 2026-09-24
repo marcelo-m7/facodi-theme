@@ -92,27 +92,43 @@ class TestFacodiThemeTranslations(HttpCase):
         expected_by_lang = {
             "en_US": (
                 "Learn together with the community",
-                "Explore courses",
-                "Learning map",
-                "Find a course",
+                "Navigate verified Roadmaps",
+                "Explore Roadmaps",
+                "Built for learners and contributors",
+                "Find a clear starting point",
+                "FACODI structure",
+                "Choose direction",
+                "Curricular unit",
             ),
             "pt_PT": (
                 "Aprenda em comunidade",
-                "Explorar cursos",
-                "Mapa de aprendizagem",
-                "Encontre um curso",
+                "Navegue por Roadmaps verificados",
+                "Explorar Roadmaps",
+                "Criado para estudantes e colaboradores",
+                "Encontre um ponto de partida claro",
+                "Estrutura FACODI",
+                "Escolha uma direção",
+                "Unidade Curricular",
             ),
             "es_ES": (
                 "Aprende en comunidad",
-                "Explorar cursos",
-                "Mapa de aprendizaje",
-                "Encuentra un curso",
+                "Navega por rutas verificadas",
+                "Explorar rutas",
+                "Creado para estudiantes y colaboradores",
+                "Encuentra un punto de partida claro",
+                "Estructura FACODI",
+                "Elige una dirección",
+                "Unidad Curricular",
             ),
             "fr_FR": (
                 "Apprenez avec la communauté",
-                "Explorer les cours",
-                "Carte d’apprentissage",
-                "Trouvez un cours",
+                "Parcourez des parcours vérifiés",
+                "Explorer les parcours",
+                "Conçu pour les apprenants et les contributeurs",
+                "Trouvez un point de départ clair",
+                "Structure FACODI",
+                "Choisissez une direction",
+                "Unité d’enseignement",
             ),
         }
         for lang, expected_terms in expected_by_lang.items():
@@ -124,9 +140,30 @@ class TestFacodiThemeTranslations(HttpCase):
     def test_learning_journey_cards_use_native_translations(self):
         journey = self._website_view("theme_facodi.s_facodi_learning_journey")
         expected_by_lang = {
-            "pt_PT": ("Como funciona", "Passo 01", "Descobrir"),
-            "es_ES": ("Cómo funciona", "Paso 01", "Descubrir"),
-            "fr_FR": ("Comment ça fonctionne", "Étape 01", "Découvrir"),
+            "pt_PT": (
+                "Como funciona",
+                "Três formas de começar a aprender.",
+                "Passo 01",
+                "Escolha um Roadmap",
+                "Consulte a referência académica verificada, os módulos e a cobertura revista.",
+                "Comece um curso",
+            ),
+            "es_ES": (
+                "Cómo funciona",
+                "Tres formas de empezar a aprender.",
+                "Paso 01",
+                "Elige una ruta",
+                "Consulta la referencia académica verificada, los módulos y la cobertura revisada.",
+                "Empieza un curso",
+            ),
+            "fr_FR": (
+                "Comment ça fonctionne",
+                "Trois facons de commencer a apprendre.",
+                "Étape 01",
+                "Choisissez un parcours",
+                "Consultez la référence académique vérifiée, les modules et la couverture examinée.",
+                "Commencez un cours",
+            ),
         }
         for lang, expected_terms in expected_by_lang.items():
             with self.subTest(language=lang):
