@@ -10,3 +10,22 @@ class ThemeUtils(models.AbstractModel):
 
     def _theme_facodi_post_copy(self, mod):
         self.enable_view("theme_facodi.template_header_facodi")
+        website = self.env["website"].get_current_website()
+        homepage = self.env["website.page"].search(
+            [("url", "=", "/"), ("website_id", "=", website.id)],
+            limit=1,
+        )
+        if not homepage:
+            return
+
+        # website.layout prioritizes the SEO field on website.page over QWeb
+        # fallback variables. Write the canonical source and each active locale
+        # through the native translated field, using a literal source string so
+        # Odoo loads the module's code translations correctly.
+        for language in website.language_ids.filtered("active"):
+            description = self.with_context(lang=language.code).env._(
+                "Explore FACODI open courses, learning paths and community resources for accessible higher education."
+            )
+            homepage.with_context(
+                lang=language.code
+            ).website_meta_description = description
