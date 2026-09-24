@@ -13,8 +13,6 @@ msgstr ""
 
 #. module: theme_facodi
 #: code:addons/theme_facodi/models/theme_models.py:0
-#: model:ir.ui.view,website_meta_description:website.homepage
-#: model_terms:ir.ui.view,arch:theme_facodi.facodi_homepage_metadata
 msgid "Explore FACODI open courses, learning paths and community resources for accessible higher education."
 msgstr "Descubre los cursos abiertos, itinerarios de aprendizaje y recursos comunitarios de FACODI para una educación superior accesible."
 
