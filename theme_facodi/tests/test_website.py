@@ -167,9 +167,14 @@ class TestFacodiTheme(HttpCase):
 
         website = self.env["website"].get_current_website()
         homepage = self.env["website.page"].search(
-            [("url", "=", "/"), ("website_id", "=", website.id)], limit=1
+            [("url", "=", "/"), ("website_id", "=", website.id)],
+            limit=1,
         )
-        self.assertIn("Explore FACODI open courses", homepage.website_meta_description)
+        self.assertTrue(homepage)
+        self.assertIn(
+            "Explore FACODI open courses",
+            homepage.with_context(lang="en_US").website_meta_description,
+        )
 
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")
@@ -255,7 +260,7 @@ class TestFacodiTheme(HttpCase):
             tree = html.fromstring(template["template"])
             sections = tree.xpath("//section[@data-snippet]")
             section_counts.append(len(sections))
-            self.assertIn(len(sections), (3, 4, 7), template)
+            self.assertIn(len(sections), (3, 4, 5, 7), template)
             self.assertTrue(
                 all(
                     section.get("data-snippet").startswith("s_facodi_")
@@ -268,8 +273,9 @@ class TestFacodiTheme(HttpCase):
                 self.assertIn("Built for learners and contributors", template["template"])
                 self.assertIn("Find a clear starting point", template["template"])
         self.assertEqual(section_counts.count(7), 1)
-        self.assertEqual(section_counts.count(4), 2)
-        self.assertEqual(section_counts.count(3), 7)
+        self.assertEqual(section_counts.count(5), 1)
+        self.assertEqual(section_counts.count(4), 5)
+        self.assertEqual(section_counts.count(3), 3)
         self.assertIsNotNone(home_sections, "FACODI Home must render the learner hero")
         sections_arch = "".join(
             etree.tostring(section, encoding="unicode") for section in home_sections

@@ -30,8 +30,22 @@ grep -Fq 's_dynamic_snippet_content' "$SNIPPET" \
   || fail "course showcase must preserve Odoo dynamic snippet content contract"
 grep -Fq 'dynamic_snippet_template' "$SNIPPET" \
   || fail "course showcase must provide Odoo dynamic snippet render target"
-grep -Fq 'My learning journey' "$SNIPPET" \
-  || fail "course showcase sidebar copy is missing"
+grep -Fq 'Learning catalogue' "$SNIPPET" \
+  || fail "course showcase learning-navigation label is missing"
+for route in '/roadmaps' '/unidades-curriculares' '/slides' '/contactus'; do
+  grep -Fq "href=\"$route\"" "$SNIPPET" \
+    || fail "course showcase learning navigation is missing $route"
+done
+for label in 'Roadmaps' 'Curricular Units' 'Courses' 'Contribute'; do
+  grep -Fq "$label" "$SNIPPET" \
+    || fail "course showcase learning navigation is missing label: $label"
+done
+if grep -Fq 'href="/web/login"' "$SNIPPET"; then
+  fail "homepage learning navigation must not present login as a Saved destination"
+fi
+if grep -Fq 'href="/website/search"' "$SNIPPET"; then
+  fail "homepage learning navigation must not use generic website search as Discover"
+fi
 grep -Fq 'Published courses' "$SNIPPET" \
   || fail "course showcase heading is missing"
 grep -Fq 'Next study' "$SNIPPET" \
