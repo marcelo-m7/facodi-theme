@@ -1,5 +1,4 @@
 from odoo import models
-from odoo.tools.translate import get_translation
 
 
 _HOMEPAGE_META_DESCRIPTION = (
@@ -22,13 +21,9 @@ class ThemeUtils(models.AbstractModel):
             [("url", "=", "/"), ("website_id", "=", website.id)], limit=1
         )
         if homepage:
-            for language in website.language_ids.filtered("active"):
-                description = get_translation(
-                    "theme_facodi",
-                    language.code,
-                    _HOMEPAGE_META_DESCRIPTION,
-                    (),
-                )
-                homepage.with_context(
-                    lang=language.code
-                ).website_meta_description = description
+            # website_meta_description is a translated standard Odoo field.
+            # Keep one canonical source value and let the native PO-backed field
+            # translations provide PT/ES/FR instead of overwriting each locale.
+            homepage.with_context(
+                lang="en_US"
+            ).website_meta_description = _HOMEPAGE_META_DESCRIPTION
