@@ -5,11 +5,6 @@
             <div id="facodi">FACODI</div>
         </xpath>
     </template>
-    <template id="facodi_homepage_metadata" inherit_id="website.homepage" name="FACODI homepage metadata">
-        <xpath expr="//t[@t-call='website.layout']" position="before">
-            <t t-set="website_meta_description">Explore FACODI open courses, learning paths and community resources for accessible higher education.</t>
-        </xpath>
-    </template>
     <template id="facodi_courses_home_metadata" inherit_id="website_slides.courses_home" name="FACODI course catalogue metadata">
         <xpath expr="//t[@t-call='website.layout']" position="before">
             <t t-set="website_meta_description">Browse FACODI open courses and learning resources for accessible higher education.</t>
