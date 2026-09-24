@@ -600,10 +600,13 @@ msgid "Explore Roadmaps"
 msgstr "Explorer les parcours"
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Explore curricular units"
 msgstr "Explorer les unites d'enseignement"
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "FACODI structure"
 msgstr "Structure FACODI"
 
@@ -613,6 +616,7 @@ msgid "Navigate verified Roadmaps, curricular units and open courses with a comm
 msgstr "Parcourez des parcours vérifiés, des unités d’enseignement et des cours ouverts avec une communauté qui transforme le savoir en possibilités."
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Three ways to begin learning."
 msgstr "Trois facons de commencer a apprendre."
 
@@ -623,14 +627,17 @@ msgid "Choose a Roadmap"
 msgstr "Choisissez un parcours"
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Start with a structured, publicly reviewed learning direction."
 msgstr "Commencez par une orientation d'apprentissage structuree et examinee publiquement."
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Start a course"
 msgstr "Commencez un cours"
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Learn with published courses and content at your own pace."
 msgstr "Apprenez avec des cours et des contenus publies a votre rythme."
 
