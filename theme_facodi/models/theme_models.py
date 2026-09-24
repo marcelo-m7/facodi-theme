@@ -1,4 +1,11 @@
 from odoo import models
+from odoo.tools.translate import LazyTranslate
+
+
+_lt = LazyTranslate(__name__)
+_HOMEPAGE_META_DESCRIPTION = _lt(
+    "Explore FACODI open courses, learning paths and community resources for accessible higher education."
+)
 
 
 class ThemeUtils(models.AbstractModel):
@@ -18,13 +25,12 @@ class ThemeUtils(models.AbstractModel):
         if not homepage:
             return
 
-        # website.layout prioritizes the SEO field on website.page over QWeb
-        # fallback variables. Write the canonical source and each active locale
-        # through the native translated field, using a literal source string so
-        # Odoo loads the module's code translations correctly.
+        # website.layout prioritizes website.page SEO fields. Keep the source
+        # term bound to theme_facodi with LazyTranslate, then evaluate it for
+        # each active Website language through the standard translated field.
         for language in website.language_ids.filtered("active"):
             description = self.with_context(lang=language.code).env._(
-                "Explore FACODI open courses, learning paths and community resources for accessible higher education."
+                _HOMEPAGE_META_DESCRIPTION
             )
             homepage.with_context(
                 lang=language.code
