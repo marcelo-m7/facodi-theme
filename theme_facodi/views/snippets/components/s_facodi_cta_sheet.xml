@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_cta_sheet" name="FACODI CTA Sheet">
+        <aside class="facodi-cta-sheet"
+               data-snippet="s_facodi_cta_sheet"
+               data-name="FACODI CTA Sheet">
+            <span class="facodi-cta-sheet-tape">Community notebook</span>
+            <div>
+                <p class="facodi-label">Have a useful resource?</p>
+                <h3>Add another page to the shared learning notebook.</h3>
+                <p>Send a public resource for review. FACODI keeps contribution separate from publication.</p>
+            </div>
+            <a class="facodi-button facodi-button-primary" href="/contribuir/recurso">Suggest a resource <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+        </aside>
+    </template>
+</odoo>

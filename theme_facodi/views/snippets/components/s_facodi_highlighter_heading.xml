@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_highlighter_heading" name="FACODI Highlighter Heading">
+        <div class="facodi-highlighter-heading"
+             data-snippet="s_facodi_highlighter_heading"
+             data-name="FACODI Highlighter Heading">
+            <p class="facodi-kicker">Open learning note</p>
+            <h2>Turn a useful idea into a <span class="facodi-highlighter-stroke facodi-highlighter-stroke-yellow">visible next step</span>.</h2>
+            <p>Use this heading to introduce a section, learning milestone, or community contribution.</p>
+        </div>
+    </template>
+</odoo>

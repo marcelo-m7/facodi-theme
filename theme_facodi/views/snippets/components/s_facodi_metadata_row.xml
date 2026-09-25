@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_metadata_row" name="FACODI Metadata Row">
+        <div class="facodi-metadata-row"
+             data-snippet="s_facodi_metadata_row"
+             data-name="FACODI Metadata Row"
+             aria-label="Learning metadata">
+            <span class="facodi-metadata-chip facodi-metadata-chip-cyan">UC-000</span>
+            <span class="facodi-metadata-chip facodi-metadata-chip-yellow">Core topic</span>
+            <span class="facodi-metadata-chip facodi-metadata-chip-mint">Open access</span>
+            <span class="facodi-metadata-chip facodi-metadata-chip-pink">Community</span>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_paper_card" name="FACODI Paper Card">
+        <article class="facodi-paper-card"
+                 data-snippet="s_facodi_paper_card"
+                 data-name="FACODI Paper Card">
+            <span class="facodi-paper-card-stripe facodi-paper-card-stripe-cyan" aria-hidden="true"/>
+            <p class="facodi-label">Open module</p>
+            <h3>Build a compact learning card</h3>
+            <p>Summarize a topic, assignment, resource collection, or community activity in a tactile paper surface.</p>
+            <a class="facodi-text-link" href="/slides">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+        </article>
+    </template>
+</odoo>
