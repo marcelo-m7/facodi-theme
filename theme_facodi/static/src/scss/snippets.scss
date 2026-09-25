@@ -439,7 +439,10 @@
 
 @media (max-width: 1100px) {
     .facodi-site {
-        .facodi-hero,    }
+        .facodi-hero {
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -489,18 +492,18 @@
         }
 
         .facodi-learning-entry-grid,
-        .facodi-learning-steps {
+        .facodi-learning-steps,
+        .facodi-community-grid {
             grid-template-columns: minmax(0, 1fr);
         }
 
         .facodi-institutional-sheet,
-        .facodi-closing-sheet {
+        .facodi-closing-sheet,
+        .facodi-catalogue-next {
             align-items: stretch;
             flex-direction: column;
         }
-
-        .facodi-dashboard-main,
-        .facodi-insights,    }
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
