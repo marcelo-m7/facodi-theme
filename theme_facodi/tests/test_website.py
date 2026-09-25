@@ -257,6 +257,8 @@ class TestFacodiTheme(HttpCase):
         description = tree.xpath('//meta[@name="description"]/@content')
         self.assertEqual(len(description), 1)
         self.assertIn("Browse FACODI open courses", description[0])
+        self.assertIn("facodi-learning-catalogue-hero", response.text)
+        self.assertIn("facodi-index-tabs--courses", response.text)
 
     def test_native_menu_preserves_nested_and_external_links(self):
         from lxml import html
@@ -393,6 +395,10 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-postit", compiled)
         self.assertIn(".facodi-learning-card", compiled)
         self.assertIn(".facodi-course-catalogue-paper", compiled)
+        self.assertIn(".facodi-learning-catalogue-hero", compiled)
+        self.assertIn(".facodi-index-tabs--courses", compiled)
+        self.assertIn(".facodi-course-record-card", compiled)
+        self.assertIn(".facodi-course-study-shell", compiled)
         self.assertIn(".o_wslides_course_card", compiled)
         self.assertIn(".o_wslides_slide_list_category_header", compiled)
         self.assertIn(".o_wslides_js_course_join_link.btn-primary", compiled)
