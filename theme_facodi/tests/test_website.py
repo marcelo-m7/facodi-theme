@@ -47,7 +47,7 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_course_showcase": "facodi-course-grid",
             "theme_facodi.s_facodi_academic_areas": "facodi-area-grid",
             "theme_facodi.s_facodi_institutional": "facodi-institutional-sheet",
-            "theme_facodi.s_facodi_intro": "s_facodi_intro",
+            "theme_facodi.s_facodi_intro": "facodi-editorial-intro-sheet",
             "theme_facodi.s_facodi_features": "facodi-learning-steps",
             "theme_facodi.s_facodi_community": "s_facodi_community",
             "theme_facodi.s_facodi_ecosystem": "facodi-ecosystem-grid",
@@ -225,6 +225,22 @@ class TestFacodiTheme(HttpCase):
             homepage.with_context(lang="en_US").website_meta_description,
         )
 
+    def test_campus_paper_shell_keeps_native_header_footer_and_forms(self):
+        from lxml import html
+
+        tree = html.fromstring(self.url_open("/").text)
+        self.assertTrue(tree.xpath("//header//*[contains(@class, 'facodi-nav-shell')]"))
+        self.assertTrue(
+            tree.xpath("//*[@id='footer' and contains(@class, 'facodi-footer-campus')]")
+        )
+        self.assertTrue(
+            tree.xpath("//*[@id='footer']//*[contains(@class, 'facodi-footer-note')]")
+        )
+
+        login = self.url_open("/web/login")
+        self.assertEqual(login.status_code, 200)
+        self.assertIn("form-control", login.text)
+
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
@@ -377,10 +393,17 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-postit", compiled)
         self.assertIn(".facodi-learning-card", compiled)
         self.assertIn(".facodi-course-catalogue-paper", compiled)
+        self.assertIn(".o_wslides_course_card", compiled)
+        self.assertIn(".o_wslides_slide_list_category_header", compiled)
+        self.assertIn(".o_wslides_js_course_join_link.btn-primary", compiled)
+        self.assertIn("var(--facodi-mint-strong)", compiled)
+        self.assertIn(".facodi-curriculum-pathway", compiled)
+        self.assertIn(".facodi-curriculum-map__unit", compiled)
+        self.assertIn(".facodi-coverage-badge", compiled)
         self.assertIn(".o_cookies_discrete.show", compiled)
         self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(
-            "linear-gradient(120deg, var(--facodi-ink), var(--facodi-blue))", compiled
+            "linear-gradient(120deg, var(--facodi-paper-warm), var(--facodi-mint))", compiled
         )
 
     def test_backend_and_print_assets_compile(self):

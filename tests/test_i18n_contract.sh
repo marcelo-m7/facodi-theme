@@ -140,4 +140,14 @@ for msgid in "${CAMPUS_PAPER_MSGIDS[@]}"; do
     || fail "theme_facodi.pot is missing Campus Paper string: ${msgid}"
 done
 
+
+for view in \
+  theme_facodi/views/header.xml \
+  theme_facodi/views/customizations.xml \
+  theme_facodi/views/snippets/s_facodi_intro.xml \
+  theme_facodi/views/snippets/s_facodi_editorial_routes.xml \
+  theme_facodi/views/snippets/s_facodi_editorial_pathway.xml; do
+  [[ -f "$view" ]] || fail "missing translated global/editorial view: $view"
+done
+
 echo "PASS: native Odoo i18n contract"

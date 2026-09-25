@@ -34,3 +34,5 @@ class TestFacodiHeaderCompatibility(HttpCase):
         response = self.url_open("/web/login")
         self.assertEqual(response.status_code, 200)
         self.assertIn("facodi-header", response.text)
+        self.assertIn("facodi-nav-shell", response.text)
+        self.assertIn("o_header_mobile", response.text)

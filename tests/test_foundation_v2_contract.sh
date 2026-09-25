@@ -155,4 +155,15 @@ if calls != expected:
     raise SystemExit(f"FAIL: homepage order {calls!r} != {expected!r}")
 PY
 
+INTRO="theme_facodi/views/snippets/s_facodi_intro.xml"
+ROUTES="theme_facodi/views/snippets/s_facodi_editorial_routes.xml"
+PATHWAY="theme_facodi/views/snippets/s_facodi_editorial_pathway.xml"
+
+grep -Fq 'facodi-editorial-intro-sheet' "$INTRO" \
+  || fail "editorial intro must expose a paper-sheet hook"
+grep -Fq 'facodi-editorial-route-card' "$ROUTES" \
+  || fail "editorial routes need reusable paper cards"
+grep -Fq 'facodi-editorial-pathway-sheet' "$PATHWAY" \
+  || fail "editorial pathway needs a paper-sheet hook"
+
 echo "PASS: FACODI Website Foundation v2 contract"
