@@ -42,7 +42,7 @@ class TestFacodiTheme(HttpCase):
         self.assertEqual(set(website_views.mapped("key")), keys)
 
         expected_classes = {
-            "theme_facodi.s_facodi_hero": "facodi-hero-board",
+            "theme_facodi.s_facodi_hero": "facodi-hero-study-board",
             "theme_facodi.s_facodi_learning_journey": "facodi-stat-card",
             "theme_facodi.s_facodi_course_showcase": "facodi-course-grid",
             "theme_facodi.s_facodi_academic_areas": "facodi-area-grid",
@@ -146,6 +146,18 @@ class TestFacodiTheme(HttpCase):
             "standard Odoo mobile header must remain rendered",
         )
         self.assertIn("facodi-footer", response.text)
+
+    def test_homepage_renders_campus_paper_hero(self):
+        from lxml import html
+
+        response = self.url_open("/")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+        hero = tree.xpath("//section[contains(concat(' ', normalize-space(@class), ' '), ' facodi-hero ')]")
+        self.assertEqual(len(hero), 1)
+        self.assertTrue(hero[0].xpath(".//*[contains(@class, 'facodi-hero-study-board')]"))
+        self.assertIn("Learn in public.", hero[0].text_content())
+        self.assertNotIn("real-time", hero[0].text_content().lower())
 
     def test_homepage_metadata_uses_public_canonical_and_localized_descriptions(self):
         from lxml import html
