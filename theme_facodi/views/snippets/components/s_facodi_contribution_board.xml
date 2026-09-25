@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_contribution_board" name="FACODI Contribution Board">
+        <section class="facodi-contribution-board" data-snippet="s_facodi_contribution_board" data-name="FACODI Contribution Board">
+            <article class="facodi-contribution-board__item">
+                <span class="facodi-label">Resource</span>
+                <h3>Suggest a public learning resource</h3>
+                <p>Share a useful course, video, playlist, article, or other public resource for review.</p>
+                <a class="facodi-text-link" href="/contribuir/recurso">Suggest a resource</a>
+            </article>
+            <article class="facodi-contribution-board__item">
+                <span class="facodi-label">Context</span>
+                <h3>Improve context or translation</h3>
+                <p>Help make descriptions, routes, and learning references clearer for more people.</p>
+                <a class="facodi-text-link" href="/contactus">Contact FACODI</a>
+            </article>
+            <article class="facodi-contribution-board__item">
+                <span class="facodi-label">Collaboration</span>
+                <h3>Build something together</h3>
+                <p>Propose a collaboration around open education, public resources, or community learning.</p>
+                <a class="facodi-text-link" href="/contactus">Start a conversation</a>
+            </article>
+        </section>
+    </template>
+</odoo>
