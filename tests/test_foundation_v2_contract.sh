@@ -6,6 +6,13 @@ fail() {
   exit 1
 }
 
+HERO="theme_facodi/views/snippets/s_facodi_hero.xml"
+
+for anchor in 'Learn in public.' 'Open higher education, one useful next step at a time.' 'Explore free courses' 'How FACODI works' 'facodi-hero-study-board' 'facodi-study-sheet' 'facodi-study-note' 'facodi-study-route'; do
+  grep -Fq "$anchor" "$HERO" || fail "Campus Paper hero missing: $anchor"
+done
+if grep -Fq 'facodi-live-dot' "$HERO"; then fail "hero must not imply live status without real data"; fi
+
 AREAS="theme_facodi/views/snippets/s_facodi_academic_areas.xml"
 ECOSYSTEM="theme_facodi/views/snippets/s_facodi_ecosystem.xml"
 REGISTRY="theme_facodi/views/snippets/snippets.xml"
