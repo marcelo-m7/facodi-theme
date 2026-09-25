@@ -15,9 +15,14 @@
     <template id="new_page_template_sections_facodi_about" name="FACODI About">
         <div id="wrap">
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_project_story"/>
+            <t t-snippet-call="theme_facodi.s_facodi_principles_ledger"/>
+            <section id="how-it-works">
+                <t t-snippet-call="theme_facodi.s_facodi_process_timeline"/>
+            </section>
             <t t-snippet-call="theme_facodi.s_facodi_institutional"/>
-            <t t-snippet-call="theme_facodi.s_facodi_features"/>
             <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
+            <t t-snippet-call="theme_facodi.s_facodi_cta_sheet"/>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_community" name="FACODI Community">
@@ -32,8 +37,10 @@
     <template id="new_page_template_sections_facodi_contribution" name="FACODI Contribution">
         <div id="wrap">
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
-            <t t-snippet-call="theme_facodi.s_facodi_features"/>
+            <t t-snippet-call="theme_facodi.s_facodi_contribution_board"/>
+            <t t-snippet-call="theme_facodi.s_facodi_process_timeline"/>
             <t t-snippet-call="theme_facodi.s_facodi_community"/>
+            <t t-snippet-call="theme_facodi.s_facodi_cta_sheet"/>
             <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
@@ -59,15 +66,17 @@
     <template id="new_page_template_sections_facodi_how" name="FACODI How">
         <div id="wrap">
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
-            <t t-snippet-call="theme_facodi.s_facodi_learning_journey"/>
+            <t t-snippet-call="theme_facodi.s_facodi_process_timeline"/>
             <t t-snippet-call="theme_facodi.s_facodi_faq"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_manifesto" name="FACODI Manifesto">
         <div id="wrap">
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
+            <t t-snippet-call="theme_facodi.s_facodi_principles_ledger"/>
+            <t t-snippet-call="theme_facodi.s_facodi_editorial_quote"/>
             <t t-snippet-call="theme_facodi.s_facodi_institutional"/>
-            <t t-snippet-call="theme_facodi.s_facodi_community"/>
             <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
     </template>
@@ -75,6 +84,7 @@
         <div id="wrap">
             <t t-snippet-call="theme_facodi.s_facodi_intro"/>
             <t t-snippet-call="theme_facodi.s_facodi_ecosystem"/>
+            <t t-snippet-call="theme_facodi.s_facodi_paper_card"/>
             <t t-snippet-call="theme_facodi.s_facodi_community"/>
             <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
         </div>
