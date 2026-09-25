@@ -429,3 +429,40 @@ body .facodi-site {
         background: var(--facodi-sun);
     }
 }
+
+
+body.o_wslides_body .facodi-site {
+    .facodi-course-alignment-sheet {
+        background: var(--facodi-paper-warm);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        margin-top: clamp(1.5rem, 4vw, 3rem);
+        min-width: 0;
+        padding: clamp(1rem, 2.5vw, 1.5rem);
+
+        h2,
+        p,
+        li,
+        a {
+            overflow-wrap: anywhere;
+        }
+
+        ul {
+            display: grid;
+            gap: .75rem;
+        }
+
+        li {
+            background: var(--facodi-surface-sheet);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 35%, transparent);
+            border-radius: var(--facodi-radius-sm);
+            min-width: 0;
+            padding: .75rem;
+        }
+    }
+
+    .facodi-course-study-shell .facodi-open-callout {
+        margin-top: clamp(1.5rem, 4vw, 3rem);
+    }
+}
