@@ -77,10 +77,15 @@ from pathlib import Path
 
 source = Path("theme_facodi/static/src/scss/website_slides.scss").read_text(encoding="utf-8")
 selector = '.o_record_cover_container[data-res-model="slide.channel"][style*="linear-gradient(120deg, #875A7B, #78516F)"]'
+override = "background-image: linear-gradient(120deg, var(--facodi-paper-warm), var(--facodi-mint)) !important;"
 start = source.find(selector)
 if start < 0:
     raise SystemExit("FAIL: exact default-cover override missing")
+if source.count(override) != 1:
+    raise SystemExit("FAIL: default-cover !important override must exist exactly once")
 block = source[start:]
+if override not in block:
+    raise SystemExit("FAIL: default-cover override must be scoped under the exact Odoo default selector")
 if ".o_wslides_course_header" not in block or ".o_wslides_lesson_header" not in block:
     raise SystemExit("FAIL: light default cover must explicitly restyle course and lesson headings")
 if "color: var(--facodi-ink)" not in block:
