@@ -33,6 +33,36 @@ grep -Fq ':focus-visible' "$SCSS" || fail "eLearning actions must expose keyboar
 grep -Fq 'prefers-reduced-motion' "$SCSS" || fail "eLearning motion must respect reduced-motion preferences"
 grep -Fq 'var(--facodi-shadow)' "$SCSS" || fail "eLearning cards must use shared Campus Paper shadow"
 grep -Fq 'var(--facodi-sun)' "$SCSS" || fail "eLearning primary actions must use the highlighter accent"
+
+for selector in \
+  '.facodi-learning-catalogue-hero' \
+  '.facodi-index-tabs--courses' \
+  '.facodi-course-record-card' \
+  '.facodi-course-study-shell'; do
+  grep -Fq "$selector" "$SCSS" || fail "missing D1 course selector: $selector"
+done
+
+SLIDES_XML="theme_facodi/views/website_slides.xml"
+for hook in \
+  'facodi-learning-catalogue-hero' \
+  'facodi-index-tabs--courses' \
+  'facodi-course-record-card' \
+  'facodi-course-study-shell'; do
+  grep -Fq "$hook" "$SLIDES_XML" || fail "missing D1 course QWeb hook: $hook"
+done
+
+for native_hook in \
+  'website_slides.courses_home' \
+  'website_slides.courses_search_results' \
+  'website_slides.course_card' \
+  'website_slides.course_main' \
+  'o_wslides_js_slides_list_slide_link'; do
+  grep -Fq "$native_hook" "$SLIDES_XML" || fail "native Odoo eLearning hook missing: $native_hook"
+done
+
+if grep -Eiq 'UC-[0-9]+|Professor [A-Z]|[0-9]{2,}% complete|[0-9]{2,}[[:space:]]+students' "$SLIDES_XML"; then
+  fail "course QWeb contains fabricated Stitch data"
+fi
 grep -Fq '[style*="linear-gradient(120deg, #875A7B, #78516F)"]' "$SCSS" || fail "default-cover override must remain editor-safe"
 
 for breakpoint in 576 992 1280 1600; do
@@ -55,6 +85,16 @@ if ".o_wslides_course_header" not in block or ".o_wslides_lesson_header" not in 
     raise SystemExit("FAIL: light default cover must explicitly restyle course and lesson headings")
 if "color: var(--facodi-ink)" not in block:
     raise SystemExit("FAIL: light default cover headings must use dark ink text")
+
+generic = '.o_record_cover_container[data-res-model="slide.channel"] {'
+for match in [i for i in range(len(source)) if source.startswith(generic, i)]:
+    prefix = source[max(0, match - 80):match]
+    if '[style*=' not in prefix:
+        block_end = source.find('}', match)
+        block = source[match:block_end]
+        if 'background-image:' in block and '!important' in block:
+            raise SystemExit("FAIL: custom course covers must not be force-overridden")
+
 PY
 
 echo "PASS: responsive eLearning catalogue style contract"
