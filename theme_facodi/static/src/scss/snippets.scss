@@ -1,169 +1,105 @@
 .facodi-site {
     .facodi-hero {
-        align-items: stretch;
-        border-bottom: 2px solid var(--facodi-ink);
+        align-items: center;
+        border-bottom: var(--facodi-border);
         display: grid;
-        gap: 3rem;
-        grid-template-columns: minmax(0, 1.1fr) minmax(24.375rem, .9fr);
+        gap: clamp(2rem, 5vw, 5rem);
+        grid-template-columns: minmax(0, 1.05fr) minmax(20rem, .95fr);
         margin: 0 auto;
         max-width: 90rem;
-        padding: 4.5rem 8vw;
+        overflow: hidden;
+        padding: clamp(3.5rem, 7vw, 7rem) 8vw;
+
+        > * { min-width: 0; }
 
         h1 {
+            color: var(--facodi-ink-deep);
             font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
-            font-size: clamp(2.8rem, 5.2vw, 5.5rem);
-            font-weight: 700;
-            letter-spacing: 0;
-            line-height: .98;
+            font-size: clamp(3rem, 6.2vw, 6.7rem);
+            font-weight: 800;
+            letter-spacing: -.055em;
+            line-height: .9;
             margin: 0;
-            max-width: 47.5rem;
+            max-width: 13ch;
+            overflow-wrap: anywhere;
             text-wrap: balance;
         }
     }
 
-    .facodi-hero-board {
-        align-self: center;
-        background: var(--facodi-ink);
-        border: 2px solid var(--facodi-ink);
-        border-radius: .75rem;
-        box-shadow: var(--facodi-shadow);
-        color: #fff;
-        overflow: hidden;
-        padding: 1.5rem;
+    .facodi-hero-subtitle {
+        font-size: clamp(1.2rem, 2.1vw, 1.8rem);
+        font-weight: 700;
+        margin: 1.25rem 0 0;
+        max-width: 31rem;
+        overflow-wrap: anywhere;
+    }
+
+    .facodi-hero-study-board {
+        min-height: 28rem;
+        position: relative;
+    }
+
+    .facodi-study-sheet {
+        margin-left: auto;
+        max-width: 28rem;
+        padding: 2rem;
         transform: rotate(1deg);
-    }
 
-    .facodi-hero-proof {
-        border-top: 1px solid color-mix(in srgb, var(--facodi-ink) 28%, transparent);
-        margin-top: 2.25rem;
-        max-width: 38rem;
-        padding-top: 1rem;
-
-        > p {
-            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-            font-size: .68rem;
-            font-weight: 700;
-            margin: 0 0 .75rem;
-            text-transform: uppercase;
-        }
-
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .5rem 1rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            align-items: center;
-            display: flex;
-            font-size: .84rem;
-            font-weight: 600;
-            gap: .45rem;
-        }
-
-        .fa {
-            color: var(--facodi-blue);
-            font-size: .9rem;
+        h2 {
+            font-size: clamp(1.6rem, 3vw, 2.5rem);
+            line-height: 1.05;
+            margin: 1rem 0 2rem;
+            overflow-wrap: anywhere;
         }
     }
 
-    .facodi-board-top,
-    .facodi-board-card-title {
-        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-        font-size: .68rem;
-        font-weight: 700;
-        letter-spacing: 0;
-        text-transform: uppercase;
-    }
-
-    .facodi-board-top {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .facodi-live-dot {
-        color: var(--facodi-mint);
-
-        &::before {
-            background: var(--facodi-mint);
-            border-radius: 50%;
-            content: "";
-            display: inline-block;
-            height: .4375rem;
-            margin-right: .3125rem;
-            width: .4375rem;
-        }
-    }
-
-    .facodi-board-path {
+    .facodi-study-route {
         align-items: center;
-        display: flex;
-        justify-content: space-between;
-        margin: 2.25rem .75rem 1.75rem;
-    }
-
-    .facodi-path-node {
-        align-items: center;
-        background: #fff;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        color: var(--facodi-ink);
-        display: flex;
-        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-        font-size: .72rem;
-        font-weight: 700;
-        height: 2.375rem;
-        justify-content: center;
-        width: 2.375rem;
-
-        &.is-complete {
-            background: var(--facodi-mint);
-            border-color: var(--facodi-mint);
-        }
-
-        &.is-current {
-            background: var(--facodi-cyan);
-            border-color: var(--facodi-cyan);
-        }
-    }
-
-    .facodi-path-line {
-        background: #fff;
-        height: 2px;
-        opacity: .4;
-        width: 28%;
-
-        &.is-complete {
-            background: var(--facodi-mint);
-            opacity: 1;
-        }
-    }
-
-    .facodi-board-cards {
         display: grid;
         gap: .5rem;
+        grid-template-columns: auto 1fr auto 1fr auto;
 
-        > div {
+        span {
             align-items: center;
-            background: rgba(255, 255, 255, .1);
-            border: 1px solid rgba(255, 255, 255, .25);
-            border-radius: .4375rem;
-            display: flex;
-            justify-content: space-between;
-            padding: .6875rem;
-
-            &.is-selected {
-                background: var(--facodi-blue);
-                border-color: var(--facodi-cyan);
-            }
+            background: var(--facodi-sun);
+            border: 2px solid var(--facodi-ink);
+            border-radius: 50%;
+            display: inline-flex;
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .7rem;
+            font-weight: 700;
+            height: 2.4rem;
+            justify-content: center;
+            width: 2.4rem;
         }
 
-        .facodi-board-card-label {
-            font-size: .78rem;
+        i {
+            border-top: 2px dashed var(--facodi-ink);
+            display: block;
         }
+    }
+
+    .facodi-study-note {
+        bottom: 1rem;
+        left: 0;
+        max-width: 14rem;
+        overflow-wrap: anywhere;
+        padding: 1.15rem;
+        position: absolute;
+        transform: rotate(-2deg);
+
+        strong {
+            display: block;
+            margin-top: .75rem;
+        }
+    }
+
+    .facodi-study-note-secondary {
+        bottom: auto;
+        left: auto;
+        right: 0;
+        top: 1.25rem;
+        transform: rotate(2deg);
     }
 
     .facodi-section-heading {
@@ -461,7 +397,7 @@
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 767.98px) {
     .facodi-site {
         .facodi-hero {
             gap: 2.125rem;
@@ -473,15 +409,10 @@
             }
         }
 
-        .facodi-hero-board {
-            padding: 1.125rem;
-            transform: none;
-        }
-
-        .facodi-hero-proof ul {
-            display: grid;
-            gap: .625rem;
-        }
+        .facodi-hero-study-board { min-height: 24rem; }
+        .facodi-study-sheet { margin: 0; transform: none; }
+        .facodi-study-note { bottom: .5rem; left: .5rem; }
+        .facodi-study-note-secondary { bottom: auto; left: auto; right: .5rem; top: .5rem; }
 
         .facodi-section-heading {
             align-items: flex-start;
@@ -526,7 +457,9 @@
 
 @media (prefers-reduced-motion: reduce) {
     .facodi-site {
-        .facodi-hero-board {
+        .facodi-study-sheet,
+        .facodi-study-note,
+        .facodi-study-note-secondary {
             transform: none;
         }
 
