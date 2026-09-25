@@ -6,3 +6,5 @@ Pre-flight: Task 8 consumes exact green SHAs from both owner repositories; no pr
 Ruling: this harness cannot create a local network-backed git worktree, so isolated GitHub feature branches plus exact-head GitHub Actions are the execution workspace. Cost if wrong: slower feedback; mitigated by observing RED/GREEN on branch CI.
 
 Task 1: Ruling: the CI release grep moved from Task 6 into Task 1 because the manifest version is bumped when the new asset is loaded; leaving the old grep would make the task's integration gate fail for a bookkeeping mismatch. Cost if wrong: release guard changes earlier than planned, with no runtime behavior change.
+
+Task 1: complete (CI run 36185027249 on exact branch head after implementation → success; D1 primitive, mobile, module, install/upgrade and builder-preservation gates all passed).
