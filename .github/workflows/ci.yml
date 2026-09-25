@@ -22,11 +22,17 @@ jobs:
       - name: FACODI Campus Paper design-system contract
         run: bash tests/test_campus_paper_contract.sh
 
+      - name: FACODI global shell contract
+        run: bash tests/test_global_shell_contract.sh
+
       - name: FACODI homepage dashboard contract
         run: bash tests/test_homepage_dashboard_contract.sh
 
       - name: FACODI Website Foundation v2 contract
         run: bash tests/test_foundation_v2_contract.sh
+
+      - name: FACODI curriculum presentation contract
+        run: bash tests/test_curriculum_style_contract.sh
 
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
@@ -48,7 +54,7 @@ jobs:
           LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
           git worktree add --detach "$RUNNER_TEMP/facodi-theme-baseline" "$LEGACY_SHA"
           grep -Fq '"version": "19.0.5.0.1"' "$RUNNER_TEMP/facodi-theme-baseline/theme_facodi/__manifest__.py"
-          grep -Fq '"version": "19.0.6.0.0"' theme_facodi/__manifest__.py
+          grep -Fq '"version": "19.0.7.0.0"' theme_facodi/__manifest__.py
 
       - name: Start PostgreSQL 16
         run: |

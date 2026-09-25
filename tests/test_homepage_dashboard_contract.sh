@@ -30,6 +30,12 @@ grep -Fq 's_dynamic_snippet_content' "$SNIPPET" \
   || fail "course showcase must preserve Odoo dynamic snippet content contract"
 grep -Fq 'dynamic_snippet_template' "$SNIPPET" \
   || fail "course showcase must provide Odoo dynamic snippet render target"
+grep -Fq "t-att-data-filter-id=\"env.ref('theme_facodi.dynamic_filter_published_courses').id\"" "$SNIPPET" \
+  || fail "course showcase must persist its dynamic filter on the snippet root"
+grep -Fq 'data-template-key="theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card"' "$SNIPPET" \
+  || fail "course showcase must persist its card template on the snippet root"
+grep -Fq 'data-number-of-records="6"' "$SNIPPET" \
+  || fail "course showcase must persist its record count on the snippet root"
 grep -Fq 'Learning catalogue' "$SNIPPET" \
   || fail "course showcase learning-navigation label is missing"
 for route in '/roadmaps' '/unidades-curriculares' '/slides' '/contribuir/recurso'; do

@@ -7,7 +7,7 @@ container with `odoo/design-themes` pinned at
 `a1818df4ade65406c0cacae8b1ea676e6f70095f`. The public FACODI sites are evidence
 and deployment targets only; this repository's CI does not modify production.
 
-Release under validation: `theme_facodi` `19.0.6.0.0`.
+Release under validation: `theme_facodi` `19.0.7.0.0`.
 
 ## Automated evidence required for release
 
@@ -47,6 +47,44 @@ or WCAG certification. Required manual/disposable-browser viewports for this
 release are 1440×1200, 1024×1366, 390×844 and 320×700 on the homepage, plus
 1440×1200 and 390×844 on `/slides`. No screenshot evidence is claimed unless
 those captures are actually produced and inspected.
+
+## Campus Paper global surfaces regression matrix
+
+Release `19.0.7.0.0` extends the Campus Paper gate to global Website,
+eLearning, curriculum and editorial surfaces.
+
+Automated source/runtime checks cover:
+
+- the native FACODI desktop header, standard Odoo mobile header, Portal
+  identity actions and an existing Website Builder header customization;
+- Campus Paper footer hooks and standard public form focus/touch behavior;
+- `website_slides` catalogue cards, exact default-cover replacement,
+  editor-selected cover preservation, course actions, progress, lesson rows,
+  navigation tabs, tags and profile/badge surfaces;
+- Roadmap/Curricular Unit card, filter, pathway, coverage and table hooks
+  exposed by `facodi-learning`, including shrinkable 320 px layouts and
+  internal table scrolling;
+- editorial intro, route and pathway snippets built from shared paper
+  primitives without changing their user-facing source copy;
+- native PT/ES/FR catalogues and the absence of language-specific QWeb
+  branches;
+- clean legacy install, upgrade to `19.0.7.0.0`, asset compilation and
+  persisted Website Builder/dynamic-snippet markup.
+
+Required browser acceptance before deployment promotion remains:
+
+- header + homepage at 1440×1200, 1024×1366, 390×844 and 320×700;
+- `/slides` at 1440×1200, 390×844 and 320×700;
+- one real course detail at desktop/mobile widths;
+- `/roadmaps`, one Roadmap detail, `/unidades-curriculares` and one
+  curricular-unit detail with the integrated `facodi-learning` addon;
+- one editorial page using intro/routes/pathway snippets;
+- keyboard focus, reduced-motion behavior and custom course-cover retention.
+
+The theme repository CI proves real Odoo rendering and asset compilation but
+does not claim pixel-perfect browser inspection. The integrated Roadmap/UC and
+viewport screenshot gate is therefore repeated in Phase C on the disposable
+deployment runtime before any production promotion.
 
 ## eLearning regression matrix
 
@@ -93,8 +131,10 @@ With Odoo core, the pinned design-themes checkout and this repository available 
 ```sh
 bash tests/test_module_contract.sh
 bash tests/test_campus_paper_contract.sh
+bash tests/test_global_shell_contract.sh
 bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
+bash tests/test_curriculum_style_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
 bash tests/test_mobile_interaction_contract.sh

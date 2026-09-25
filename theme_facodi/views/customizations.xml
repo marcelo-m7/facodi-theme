@@ -14,9 +14,9 @@
 
     <template id="facodi_footer" inherit_id="website.layout" name="FACODI Footer">
         <xpath expr="//div[@id='footer']" position="replace">
-            <div id="footer" class="facodi-footer" data-name="FACODI Footer" t-if="not no_footer">
+            <div id="footer" class="facodi-footer facodi-footer-campus" data-name="FACODI Footer" t-if="not no_footer">
                 <div class="container-fluid facodi-footer-inner">
-                    <div>
+                    <div class="facodi-footer-note">
                         <a href="/" class="facodi-wordmark" t-translation="off">FACODI<span>.</span></a>
                         <p>Digital Community College. Open, collaborative and accessible higher education.</p>
                     </div>

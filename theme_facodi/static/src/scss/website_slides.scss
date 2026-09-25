@@ -37,15 +37,23 @@ body.o_wslides_body .facodi-site {
         align-items: end;
         gap: .75rem;
         padding: clamp(1rem, 2vw, 1.5rem);
-        background: linear-gradient(135deg, var(--facodi-ink), var(--facodi-blue));
-        color: #fff;
+        background-color: var(--facodi-paper-warm);
+        background-image:
+            linear-gradient(color-mix(in srgb, var(--facodi-ink) 10%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--facodi-ink) 10%, transparent) 1px, transparent 1px);
+        background-size: 22px 22px;
+        color: var(--facodi-ink);
 
         .facodi-course-fallback-brand {
             grid-column: 1 / -1;
             align-self: start;
+            background: var(--facodi-sun);
+            border: 1px solid var(--facodi-ink);
             font-size: .75rem;
             font-weight: 800;
             letter-spacing: .12em;
+            padding: .3rem .45rem;
+            width: max-content;
         }
 
         strong {
@@ -103,8 +111,10 @@ body.o_wslides_body .facodi-site {
 
         .o_wslides_course_nav,
         .o_wslides_course_nav_search {
-            background-color: rgba(20, 40, 70, .72);
-            border-color: rgba(255, 255, 255, .28);
+            background-color: var(--facodi-paper-warm);
+            border: 1px solid var(--facodi-ink);
+            box-shadow: var(--facodi-shadow-hover);
+            color: var(--facodi-ink);
         }
 
         .o_wslides_course_header,
@@ -115,12 +125,14 @@ body.o_wslides_body .facodi-site {
 
     .o_wslides_js_course_join_link.btn-primary,
     .o_wslides_done_button.btn-primary {
-        background-color: var(--facodi-blue);
-        border: 2px solid var(--facodi-ink);
-        box-shadow: 2px 2px 0 var(--facodi-ink);
+        background-color: var(--facodi-sun);
+        border: var(--facodi-border);
+        box-shadow: var(--facodi-shadow-hover);
+        color: var(--facodi-ink);
 
-        &:hover {
-            background-color: var(--facodi-cyan);
+        &:hover,
+        &:focus-visible {
+            background-color: var(--facodi-mint);
             color: var(--facodi-ink);
         }
     }
@@ -128,27 +140,30 @@ body.o_wslides_body .facodi-site {
     .o_wslides_course_card {
         width: 100%;
         min-width: 0;
-        border: 2px solid var(--facodi-ink);
-        border-radius: .625rem;
-        box-shadow: 3px 3px 0 var(--facodi-ink);
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
         overflow: hidden;
         transition: transform 180ms ease, box-shadow 180ms ease;
 
-        &:hover {
-            box-shadow: 1px 1px 0 var(--facodi-ink);
+        &:hover,
+        &:focus-within {
+            box-shadow: var(--facodi-shadow-hover);
             transform: translate(2px, 2px);
         }
 
         .card-title {
             display: -webkit-box;
             overflow: hidden;
+            overflow-wrap: anywhere;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
         }
 
         &:focus-visible {
-            outline: 3px solid var(--facodi-cyan);
-            outline-offset: 4px;
+            outline: 0;
+            box-shadow: var(--facodi-focus-ring);
         }
     }
 
@@ -156,24 +171,27 @@ body.o_wslides_body .facodi-site {
     .o_wslides_js_slides_list_slide_link:focus-visible,
     .o_wslides_js_course_join_link:focus-visible,
     .o_wslides_done_button:focus-visible {
-        outline: 3px solid var(--facodi-cyan);
-        outline-offset: 3px;
+        outline: 0;
+        box-shadow: var(--facodi-focus-ring);
     }
 
     .o_wslides_slide_list_category_header {
-        border-color: rgba(20, 40, 70, .28);
-        border-radius: .55rem .55rem 0 0;
+        background: var(--facodi-mint);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius) var(--facodi-radius) 0 0;
         font-weight: 700;
     }
 
     .o_wslides_slides_list_slide {
-        border-color: rgba(20, 40, 70, .2);
-        border-radius: .5rem;
+        background: var(--facodi-surface-sheet);
+        border: 1px solid color-mix(in srgb, var(--facodi-ink) 32%, transparent);
+        border-radius: var(--facodi-radius);
         transition: background-color 160ms ease, border-color 160ms ease;
 
-        &:hover {
-            background-color: rgba(167, 232, 190, .22);
-            border-color: rgba(20, 40, 70, .42);
+        &:hover,
+        &:focus-within {
+            background: color-mix(in srgb, var(--facodi-mint) 30%, white);
+            border-color: var(--facodi-ink);
         }
 
         > .text-truncate.me-auto {
@@ -188,6 +206,7 @@ body.o_wslides_body .facodi-site {
             gap: .5rem;
             min-height: 2.75rem;
             min-width: 0;
+            overflow-wrap: anywhere;
             text-decoration-thickness: .08em;
             text-underline-offset: .2em;
             width: 100%;
@@ -195,19 +214,20 @@ body.o_wslides_body .facodi-site {
     }
 
     .progress {
-        border: 1px solid rgba(20, 40, 70, .2);
+        background: var(--facodi-paper-warm);
+        border: 1px solid var(--facodi-ink);
         border-radius: 999px;
         overflow: hidden;
     }
 
     .progress-bar {
-        background-color: var(--facodi-blue);
+        background-color: var(--facodi-mint-strong);
     }
 
     .o_wslides_course_sidebar,
     .o_wslides_slide_list_category_header {
-        border: 2px solid var(--facodi-ink);
-        box-shadow: 3px 3px 0 var(--facodi-ink);
+        border: var(--facodi-border);
+        box-shadow: var(--facodi-shadow-hover);
     }
 
     .o_wslides_nav_tabs {
@@ -224,8 +244,8 @@ body.o_wslides_body .facodi-site {
             }
 
             &:focus-visible {
-                outline: 3px solid var(--facodi-cyan);
-                outline-offset: 2px;
+                outline: 0;
+                box-shadow: var(--facodi-focus-ring);
             }
         }
     }
@@ -252,43 +272,7 @@ body.o_wslides_body .facodi-site {
     .o_wslides_channel_tag.o_color_9 {
         background: var(--facodi-cyan) !important;
     }
-}
 
-body .facodi-site {
-    #website_profile_badges,
-    .o_wprofile_user_profile,
-    .o_wprofile_users {
-        .card,
-        .border {
-            border-color: var(--facodi-ink);
-        }
-
-        .badge.text-bg-success {
-            background: var(--facodi-mint) !important;
-            color: var(--facodi-ink) !important;
-        }
-
-        .badge.text-bg-warning {
-            background: var(--facodi-sun) !important;
-            color: var(--facodi-ink) !important;
-        }
-    }
-
-    .wprofile_badge_img {
-        background: var(--facodi-paper-warm);
-        border: 2px solid var(--facodi-ink);
-        border-radius: 50%;
-        box-shadow: 3px 3px 0 var(--facodi-ink);
-    }
-
-    .karma_required {
-        border-color: var(--facodi-ink) !important;
-        color: var(--facodi-ink) !important;
-    }
-
-    .karma_required:not(.disabled):hover {
-        background: var(--facodi-sun);
-    }
 }
 
 @media (min-width: 576px) {
@@ -331,5 +315,48 @@ body .facodi-site {
 // Odoo stores this default gradient inline in slide.channel.cover_properties.
 // Replace only that upstream default; preserve every editor-selected cover.
 body.o_wslides_body .facodi-site .o_record_cover_container[data-res-model="slide.channel"][style*="linear-gradient(120deg, #875A7B, #78516F)"] {
-    background-image: linear-gradient(120deg, var(--facodi-ink), var(--facodi-blue)) !important;
+    background-image: linear-gradient(120deg, var(--facodi-paper-warm), var(--facodi-mint)) !important;
+
+    .o_wslides_course_header,
+    .o_wslides_lesson_header {
+        color: var(--facodi-ink);
+    }
+}
+
+
+body .facodi-site {
+    #website_profile_badges,
+    .o_wprofile_user_profile,
+    .o_wprofile_users {
+        .card,
+        .border {
+            border-color: var(--facodi-ink);
+        }
+
+        .badge.text-bg-success {
+            background: var(--facodi-mint) !important;
+            color: var(--facodi-ink) !important;
+        }
+
+        .badge.text-bg-warning {
+            background: var(--facodi-sun) !important;
+            color: var(--facodi-ink) !important;
+        }
+    }
+
+    .wprofile_badge_img {
+        background: var(--facodi-paper-warm);
+        border: var(--facodi-border);
+        border-radius: 50%;
+        box-shadow: var(--facodi-shadow-hover);
+    }
+
+    .karma_required {
+        border-color: var(--facodi-ink) !important;
+        color: var(--facodi-ink) !important;
+    }
+
+    .karma_required:not(.disabled):hover {
+        background: var(--facodi-sun);
+    }
 }

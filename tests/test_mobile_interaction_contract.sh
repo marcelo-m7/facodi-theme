@@ -66,6 +66,8 @@ if "width: 100%" not in anchor_block:
     raise SystemExit("FAIL: training slide link must make its row width tappable on mobile")
 PY
 
+grep -Fq 'facodi-footer-campus' theme_facodi/views/customizations.xml || fail "Campus Paper footer hook missing"
+grep -Fq '@media (max-width: 720px)' theme_facodi/static/src/scss/website.scss || fail "footer needs a phone layout"
 grep -Fq '@media (max-width: 767.98px)' theme_facodi/static/src/scss/snippets.scss || fail "homepage needs a dedicated phone breakpoint"
 grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/snippets.scss || fail "long translated homepage copy must wrap"
 
@@ -91,5 +93,15 @@ note = mobile.split(".facodi-study-note {", 1)[1].split("}", 1)[0]
 if "position: static" not in note:
     raise SystemExit("FAIL: phone study notes must leave absolute positioning")
 PY
+
+grep -Fq 'min-width: 0' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "eLearning cards and rows must remain shrinkable"
+grep -Fq 'overflow-wrap' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "long course and lesson text must wrap"
+
+grep -Fq 'overscroll-behavior-inline: contain' theme_facodi/static/src/scss/curriculum.scss \
+  || fail "wide curriculum tables must stay inside their scroll container"
+grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/curriculum.scss \
+  || fail "curriculum mobile layouts must collapse to one shrinkable column"
 
 echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"

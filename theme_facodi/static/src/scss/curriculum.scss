@@ -12,9 +12,10 @@
     .facodi-curriculum .card,
     .facodi-curriculum-card,
     .facodi-curriculum-pathway {
-        border: 2px solid var(--facodi-ink);
-        border-radius: .625rem;
-        box-shadow: 3px 3px 0 color-mix(in srgb, var(--facodi-ink) 82%, transparent);
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
     }
 
     .facodi-curriculum .card {
@@ -29,8 +30,8 @@
     .facodi-curriculum-card { padding: 1.25rem; }
 
     .facodi-curriculum-table {
-        border: 2px solid var(--facodi-ink);
-        border-radius: .625rem;
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
         max-width: 100%;
         overflow-x: auto;
 
@@ -39,7 +40,29 @@
 
     .facodi-curriculum .table-responsive {
         border: 1px solid color-mix(in srgb, var(--facodi-ink) 26%, transparent);
-        border-radius: .5rem;
+        border-radius: var(--facodi-radius);
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .facodi-curriculum form {
+        background: var(--facodi-paper-warm);
+        border: var(--facodi-border) !important;
+        border-radius: var(--facodi-radius) !important;
+        box-shadow: var(--facodi-shadow-hover);
+    }
+
+    .facodi-curriculum .alert {
+        border: 1px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius);
+    }
+
+    .facodi-curriculum code {
+        background: color-mix(in srgb, var(--facodi-sun) 50%, white);
+        border: 1px solid color-mix(in srgb, var(--facodi-ink) 38%, transparent);
+        border-radius: var(--facodi-radius-sm);
+        color: var(--facodi-ink);
+        padding: .1rem .3rem;
     }
 
     .facodi-coverage--covered { background: var(--facodi-mint); }
@@ -66,7 +89,7 @@
     .facodi-explore { display: grid; gap: 1rem; }
 
     .facodi-pathway-step {
-        border-top: 2px solid var(--facodi-ink);
+        border-top: 1px dashed var(--facodi-ink);
         display: grid;
         gap: 1rem;
         grid-template-columns: 3rem minmax(0, 1fr) auto;
@@ -74,17 +97,38 @@
     }
 
     .facodi-editorial-routes-list {
-        border-block: 2px solid var(--facodi-ink);
+        border: 0;
         display: grid;
+        gap: 1rem;
         grid-template-columns: repeat(3, minmax(0, 1fr));
 
-        a {
-            color: inherit;
-            padding: 1rem;
+        .facodi-editorial-route-card {
+            color: var(--facodi-ink);
+            min-width: 0;
+            padding: 1.25rem;
             text-decoration: none;
 
-            &:hover { background: color-mix(in srgb, var(--facodi-mint) 42%, transparent); }
+            strong,
+            span {
+                display: block;
+                overflow-wrap: anywhere;
+            }
+
+            span {
+                margin-top: .5rem;
+            }
+
+            &:hover,
+            &:focus-visible {
+                box-shadow: var(--facodi-shadow-hover);
+                color: var(--facodi-ink);
+                transform: translate(2px, 2px);
+            }
         }
+    }
+
+    .facodi-editorial-pathway-sheet {
+        padding: clamp(1.5rem, 4vw, 3rem);
     }
 
     .facodi-curriculum-pathway { overflow: hidden; }
@@ -92,6 +136,7 @@
     .facodi-curriculum-pathway__header {
         align-items: center;
         background: var(--facodi-mint);
+        border-bottom: var(--facodi-border);
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
@@ -102,9 +147,11 @@
     }
 
     .facodi-curriculum-map__unit {
+        background: var(--facodi-paper-warm);
         display: grid;
         gap: 1rem 1.5rem;
         grid-template-columns: minmax(13rem, 1.2fr) minmax(12rem, 1fr) minmax(14rem, 1.2fr);
+        min-width: 0;
         padding: clamp(1rem, 2vw, 1.35rem);
     }
 
@@ -138,11 +185,21 @@
 @media (max-width: 767.98px) {
     .facodi-site {
         .facodi-curriculum .display-5 { font-size: clamp(2rem, 10vw, 2.65rem); }
+        .facodi-curriculum form.row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+        }
         .facodi-editorial-routes-list,
-        .facodi-curriculum-map__unit { grid-template-columns: 1fr; }
+        .facodi-curriculum-map__unit { grid-template-columns: minmax(0, 1fr); }
         .facodi-curriculum-map__unit-coverage { grid-column: auto; }
         .facodi-pathway-step { grid-template-columns: 2.25rem minmax(0, 1fr); }
         .facodi-pathway-step > :last-child { grid-column: 2; }
+        .facodi-curriculum-table,
+        .facodi-curriculum .table-responsive {
+            max-width: 100%;
+            overflow-x: auto;
+            overscroll-behavior-inline: contain;
+        }
         .facodi-curriculum .table > :not(caption) > * > * { padding: .7rem .65rem; }
     }
 }
