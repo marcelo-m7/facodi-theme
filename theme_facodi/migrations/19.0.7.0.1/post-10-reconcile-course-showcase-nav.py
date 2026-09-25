@@ -145,7 +145,8 @@ def migrate(cr, version):
     View = env["ir.ui.view"].with_context(active_test=False)
     field = View._fields["arch_db"]
     canonical = env.ref(_CANONICAL_VIEW_XMLID)
-    canonical_stored = field._get_stored_translations(canonical) or {}
+    canonical_field = canonical._fields["arch"]
+    canonical_stored = canonical_field._get_stored_translations(canonical) or {}
 
     canonical_by_lang = {
         "en_US": _stored_value(canonical_stored, "en_US")
