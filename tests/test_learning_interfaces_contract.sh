@@ -36,4 +36,25 @@ if grep -R -nE 'My Notebook|Class Questions|Open Bibliography|verified answer|[0
   fail "unsupported Stitch-only learning feature or fictional student count found"
 fi
 
+CURRICULUM="theme_facodi/static/src/scss/curriculum.scss"
+SLIDES="theme_facodi/static/src/scss/website_slides.scss"
+
+for selector in \
+  '.facodi-record-card--roadmap' \
+  '.facodi-record-card--unit' \
+  '.facodi-roadmap-study-path' \
+  '.facodi-unit-layout' \
+  '.facodi-unit-main' \
+  '.facodi-reference-rail' \
+  '.facodi-module-detail'; do
+  grep -Fq "$selector" "$CURRICULUM" || fail "D1 curriculum integration selector missing: $selector"
+done
+
+grep -Fq '.facodi-course-alignment-sheet' "$SLIDES" \
+  || fail "D1 course alignment sheet styling missing"
+grep -Fq 'grid-template-columns: minmax(0, 8fr) minmax(18rem, 4fr)' "$CURRICULUM" \
+  || fail "UC detail must expose the approved desktop 8/4 layout"
+grep -Fq '@media (max-width: 1023.98px)' "$CURRICULUM" \
+  || fail "UC reference rail needs a tablet collapse gate"
+
 echo "PASS: D1 learning interface primitives contract"
