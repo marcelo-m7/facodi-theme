@@ -66,6 +66,8 @@ if "width: 100%" not in anchor_block:
     raise SystemExit("FAIL: training slide link must make its row width tappable on mobile")
 PY
 
+grep -Fq 'facodi-footer-campus' theme_facodi/views/customizations.xml || fail "Campus Paper footer hook missing"
+grep -Fq '@media (max-width: 720px)' theme_facodi/static/src/scss/website.scss || fail "footer needs a phone layout"
 grep -Fq '@media (max-width: 767.98px)' theme_facodi/static/src/scss/snippets.scss || fail "homepage needs a dedicated phone breakpoint"
 grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/snippets.scss || fail "long translated homepage copy must wrap"
 
