@@ -40,6 +40,9 @@ jobs:
       - name: Reusable Campus Paper component contract
         run: bash tests/test_reusable_component_contract.sh
 
+      - name: FACODI D2 editorial interfaces contract
+        run: bash tests/test_editorial_interfaces_contract.sh
+
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
 
