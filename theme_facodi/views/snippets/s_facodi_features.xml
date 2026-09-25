@@ -13,17 +13,17 @@
                 </div>
                 <div class="facodi-learning-steps">
                     <article class="facodi-sheet facodi-learning-step">
-                        <span class="facodi-label">01 · Starting point</span>
+                        <p class="facodi-label">01 · Starting point</p>
                         <h3>Choose a question</h3>
                         <p>Begin with something you genuinely want to understand.</p>
                     </article>
                     <article class="facodi-postit facodi-learning-step">
-                        <span class="facodi-label">02 · No rush</span>
+                        <p class="facodi-label">02 · No rush</p>
                         <h3>Study at your pace</h3>
                         <p>Follow courses, notes and references without pretending every learner moves the same way.</p>
                     </article>
                     <article class="facodi-note facodi-learning-step">
-                        <span class="facodi-label">03 · Continuity</span>
+                        <p class="facodi-label">03 · Continuity</p>
                         <h3>Follow the next useful thread</h3>
                         <p>Keep the connection that helped something click and share it when it can help someone else.</p>
                     </article>
