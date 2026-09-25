@@ -543,6 +543,66 @@ class TestFacodiTheme(HttpCase):
             "D2 must provide page-picker compositions without importing fixed Website pages",
         )
 
+    def test_d2_blog_index_and_articles_preserve_native_data(self):
+        from lxml import html
+
+        website = self.env["website"].get_current_website()
+        blog = self.env["blog.blog"].create(
+            {"name": "FACODI D2 Bulletin Fixture", "website_id": website.id}
+        )
+        tag = self.env["blog.tag"].create({"name": "D2 editorial"})
+        sparse = self.env["blog.post"].create(
+            {
+                "name": "Sparse D2 bulletin post",
+                "blog_id": blog.id,
+                "content": "<p>Sparse D2 content.</p>",
+                "is_published": True,
+            }
+        )
+        custom_cover = (
+            '{"background-image": "linear-gradient(45deg, #112233, #445566)", '
+            '"resize_class": "o_record_has_cover o_half_screen_height", "opacity": "0"}'
+        )
+        rich = self.env["blog.post"].create(
+            {
+                "name": "Rich D2 bulletin post",
+                "subtitle": "A real subtitle",
+                "blog_id": blog.id,
+                "author_id": self.env.user.id,
+                "tag_ids": [(4, tag.id)],
+                "content": "<h2>Rich section</h2><p>Rich D2 content.</p>",
+                "is_published": True,
+                "cover_properties": custom_cover,
+            }
+        )
+
+        index = self.url_open("/blog")
+        self.assertEqual(index.status_code, 200)
+        tree = html.fromstring(index.text)
+        self.assertTrue(tree.xpath("//*[contains(@class, 'facodi-blog-index')]"))
+        self.assertTrue(tree.xpath("//*[contains(@class, 'facodi-bulletin-hero')]"))
+        self.assertGreaterEqual(
+            len(tree.xpath("//article[contains(@class, 'facodi-bulletin-card')]")),
+            2,
+        )
+        self.assertIn(sparse.name, index.text)
+        self.assertIn(rich.name, index.text)
+
+        sparse_response = self.url_open(sparse.website_url)
+        self.assertEqual(sparse_response.status_code, 200)
+        self.assertIn("facodi-blog-article", sparse_response.text)
+        self.assertIn("facodi-blog-prose", sparse_response.text)
+        self.assertIn("Sparse D2 content.", sparse_response.text)
+        self.assertNotIn("A real subtitle", sparse_response.text)
+
+        rich_response = self.url_open(rich.website_url)
+        self.assertEqual(rich_response.status_code, 200)
+        self.assertIn("Rich D2 content.", rich_response.text)
+        self.assertIn("A real subtitle", rich_response.text)
+        self.assertIn("D2 editorial", rich_response.text)
+        self.assertIn("linear-gradient(45deg, #112233, #445566)", rich_response.text)
+        self.assertEqual(rich.cover_properties, custom_cover)
+
     def test_standard_forms_and_compiled_frontend_assets(self):
         from lxml import html
 
@@ -594,6 +654,10 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-module-detail", compiled)
         self.assertIn(".facodi-course-alignment-sheet", compiled)
         self.assertIn(".facodi-open-callout", compiled)
+        self.assertIn(".facodi-blog-index", compiled)
+        self.assertIn(".facodi-bulletin-card", compiled)
+        self.assertIn(".facodi-blog-article", compiled)
+        self.assertIn(".facodi-blog-prose", compiled)
         self.assertIn(".o_cookies_discrete.show", compiled)
         self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(
