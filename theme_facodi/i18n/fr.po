@@ -128,6 +128,7 @@ msgstr "Le savoir est partout. Trouvez votre prochaine étape."
 msgid "Open learning resources and a community that turns knowledge into possibility."
 msgstr "Ressources d’apprentissage ouvertes et une communauté qui transforme les connaissances en possibilités."
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
@@ -235,7 +236,7 @@ msgstr "Le savoir en mouvement"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
 msgid "We are still building. You can be part of it."
-msgstr "Nous construisons encore. Vous pouvez y prendre part."
+msgstr "Nous construisons encore. Tu peux en faire partie."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
@@ -293,7 +294,7 @@ msgstr "Échangez des points de vue et participez à la construction des connais
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 msgid "A good discovery deserves company."
-msgstr "Une bonne découverte mérite d'être partagée."
+msgstr "Une bonne découverte mérite d’être partagée."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
@@ -403,6 +404,7 @@ msgstr "Mon parcours d’apprentissage"
 msgid "Overview"
 msgstr "Vue d’ensemble"
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "Courses"
@@ -413,6 +415,7 @@ msgstr "Cours"
 msgid "Saved"
 msgstr "Enregistrés"
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "Community"
@@ -431,7 +434,7 @@ msgstr "Cours publiés"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "Course cards appear here when published courses are available."
-msgstr "Les cartes de cours apparaissent ici lorsque des cours publiés sont disponibles."
+msgstr "Les cartes de cours apparaissent ici lorsque des cours sont publiés."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
@@ -446,18 +449,19 @@ msgstr "Prochaine étude"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "Explore the available courses"
-msgstr "Explorez les cours disponibles"
+msgstr "Explorer les cours disponibles"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "Open the catalogue and choose the next topic in your learning journey."
-msgstr "Ouvrez le catalogue et choisissez le prochain thème de votre parcours d’apprentissage."
+msgstr "Ouvre le catalogue et choisis le prochain sujet de ton parcours d’apprentissage."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "View catalogue"
 msgstr "Voir le catalogue"
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "lessons"
@@ -608,7 +612,7 @@ msgstr "Explorer les parcours"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Explore curricular units"
-msgstr "Explorer les unites d'enseignement"
+msgstr "Explorer les unités d’enseignement"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
@@ -623,7 +627,7 @@ msgstr "Parcourez des parcours vérifiés, des unités d’enseignement et des c
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Where do you want to begin?"
-msgstr "Par où voulez-vous commencer ?"
+msgstr "Par où veux-tu commencer ?"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
@@ -665,6 +669,7 @@ msgstr "Les vidéos, cours et ressources prennent plus de sens ensemble. Explore
 msgid "Find what to study"
 msgstr "Trouver quoi étudier"
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Meet FACODI"
@@ -680,6 +685,7 @@ msgstr "Commencez là où vous êtes"
 msgid "Choose a topic, watch, read and find an accessible way in."
 msgstr "Choisissez un sujet, regardez, lisez et trouvez une manière accessible de commencer."
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Follow a Roadmap"
@@ -690,16 +696,18 @@ msgstr "Suivre un parcours"
 msgid "See how topics, modules and courses can support the same direction."
 msgstr "Voyez comment sujets, modules et cours peuvent soutenir une même direction."
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Find a curricular unit"
-msgstr "Trouver une unité d'enseignement"
+msgstr "Trouver une unité d’enseignement"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Understand the official reference, related modules and reviewed course coverage."
 msgstr "Comprenez la référence officielle, les modules associés et la couverture de cours révisée."
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 msgid "From curiosity to the next click."
@@ -764,6 +772,7 @@ msgstr "Contribuer à façonner FACODI"
 msgid "Use Roadmaps for direction, curricular units for verified context, and courses to start learning."
 msgstr "Utilisez les Roadmaps pour vous orienter, les unites d'enseignement pour un contexte verifie et les cours pour commencer a apprendre."
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "Roadmaps"
@@ -823,5 +832,210 @@ msgstr "Apprenez à votre rythme"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "See the verified academic reference, modules and reviewed coverage."
 msgstr "Consultez la référence académique vérifiée, les modules et la couverture examinée."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "FACODI · An open digital campus"
+msgstr "FACODI · Un campus numérique ouvert"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Learn in public."
+msgstr "Apprendre en public."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Open higher education, one useful next step at a time."
+msgstr "Un enseignement supérieur ouvert, une prochaine étape utile à la fois."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Courses, Roadmaps and curricular units connect public learning resources so you can start with a question and keep following the thread."
+msgstr "Les cours, les parcours et les unités d’enseignement relient des ressources d’apprentissage publiques afin que tu puisses partir d’une question et suivre le fil."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Explore free courses"
+msgstr "Explorer les cours gratuits"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "How FACODI works"
+msgstr "Comment fonctionne FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "FACODI learning map"
+msgstr "Carte d’apprentissage FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Question 01"
+msgstr "Question 01"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Start with what you want to understand."
+msgstr "Commence par ce que tu veux comprendre."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Find verified academic context."
+msgstr "Trouve un contexte académique vérifié."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Course"
+msgstr "Cours"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Keep following the useful thread."
+msgstr "Continue à suivre le fil utile."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "First step"
+msgstr "Première étape"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Quick start"
+msgstr "Démarrage rapide"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Pick a topic and start with public learning resources."
+msgstr "Choisis un sujet et commence avec des ressources d’apprentissage publiques."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "See the route"
+msgstr "Voir le parcours"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Connect topics, courses and study resources around a direction."
+msgstr "Relie des sujets, des cours et des ressources d’étude autour d’une direction."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Academic context"
+msgstr "Contexte académique"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Curricular units"
+msgstr "Unités d’enseignement"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Start from a reviewed academic reference and see related learning."
+msgstr "Pars d’une référence académique vérifiée et consulte les apprentissages associés."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "Step by step"
+msgstr "Pas à pas"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "01 · Starting point"
+msgstr "01 · Point de départ"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "Choose a question"
+msgstr "Choisis une question"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "Begin with something you genuinely want to understand."
+msgstr "Commence par quelque chose que tu veux vraiment comprendre."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "02 · No rush"
+msgstr "02 · Sans précipitation"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "Study at your pace"
+msgstr "Étudie à ton rythme"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "Follow courses, notes and references without pretending every learner moves the same way."
+msgstr "Suis des cours, des notes et des références sans supposer que tout le monde apprend de la même façon."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "03 · Continuity"
+msgstr "03 · Continuité"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "Follow the next useful thread"
+msgstr "Suis le prochain fil utile"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+msgid "Keep the connection that helped something click and share it when it can help someone else."
+msgstr "Garde le lien qui t’a aidé à comprendre et partage-le lorsqu’il peut aider quelqu’un d’autre."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+msgid "Found a resource that made something click? Leave a useful trail for the next learner."
+msgstr "Tu as trouvé une ressource qui a déclenché un déclic ? Laisse une piste utile à la prochaine personne."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+msgid "Suggest a resource"
+msgstr "Suggérer une ressource"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+msgid "Open editing"
+msgstr "Édition ouverte"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+msgid "Help make the learning trail clearer."
+msgstr "Aide à rendre le parcours d’apprentissage plus clair."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+msgid "Translations, context and better links can make a public resource useful to someone new."
+msgstr "Des traductions, du contexte et de meilleurs liens peuvent rendre une ressource publique utile à une nouvelle personne."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "FACODI project"
+msgstr "Projet FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "FACODI connects open learning resources, reviewed academic context and community contribution in a digital campus designed to stay accessible."
+msgstr "FACODI relie des ressources d’apprentissage ouvertes, un contexte académique vérifié et la contribution de la communauté dans un campus numérique conçu pour rester accessible."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "Explore SEA-EU"
+msgstr "Explorer SEA-EU"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "Next step"
+msgstr "Prochaine étape"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "Keep the useful thread going."
+msgstr "Continue à suivre le fil qui t’aide."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "Choose a course, follow a Roadmap or return to a curricular unit when you need more context."
+msgstr "Choisis un cours, suis un parcours ou reviens à une unité d’enseignement lorsque tu as besoin de plus de contexte."
 
 
