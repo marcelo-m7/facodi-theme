@@ -84,6 +84,14 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_cta_sheet",
             "theme_facodi.s_facodi_metadata_row",
             "theme_facodi.s_facodi_highlighter_callout",
+            "theme_facodi.s_facodi_project_story",
+            "theme_facodi.s_facodi_principles_ledger",
+            "theme_facodi.s_facodi_process_timeline",
+            "theme_facodi.s_facodi_contribution_board",
+            "theme_facodi.s_facodi_bulletin_hero",
+            "theme_facodi.s_facodi_editorial_quote",
+            "theme_facodi.s_facodi_contact_sheet",
+            "theme_facodi.s_facodi_policy_document",
         }
         theme_views = self.env["theme.ir.ui.view"].search([("key", "in", list(keys))])
         self.assertEqual(set(theme_views.mapped("key")), keys)
@@ -104,6 +112,14 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_cta_sheet": "facodi-cta-sheet",
             "theme_facodi.s_facodi_metadata_row": "facodi-metadata-row",
             "theme_facodi.s_facodi_highlighter_callout": "facodi-highlighter-callout",
+            "theme_facodi.s_facodi_project_story": "facodi-project-story",
+            "theme_facodi.s_facodi_principles_ledger": "facodi-principles-ledger",
+            "theme_facodi.s_facodi_process_timeline": "facodi-process-timeline",
+            "theme_facodi.s_facodi_contribution_board": "facodi-contribution-board",
+            "theme_facodi.s_facodi_bulletin_hero": "facodi-bulletin-hero",
+            "theme_facodi.s_facodi_editorial_quote": "facodi-editorial-quote",
+            "theme_facodi.s_facodi_contact_sheet": "facodi-contact-sheet",
+            "theme_facodi.s_facodi_policy_document": "facodi-policy-document",
         }
         for view in website_views:
             self.assertIn(expected_classes[view.key], view.arch_db)
