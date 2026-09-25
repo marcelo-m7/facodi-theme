@@ -41,7 +41,7 @@
     <template id="facodi_course_card"
               inherit_id="website_slides.course_card"
               name="FACODI Course Card Visual">
-        <xpath expr="//a[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_course_card ')]"
+        <xpath expr="//a[contains(@t-attf-class, 'o_wslides_course_card')]"
                position="attributes">
             <attribute name="class" add="facodi-record-card facodi-course-record-card" separator=" "/>
         </xpath>
