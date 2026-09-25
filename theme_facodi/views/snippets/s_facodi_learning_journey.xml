@@ -16,25 +16,25 @@
                 </div>
                 <div class="facodi-learning-entry-grid">
                     <a href="/slides" class="facodi-learning-card facodi-learning-card-mint">
-                        <span class="facodi-label">Quick start</span>
+                        <p class="facodi-label">Quick start</p>
                         <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                         <h3>Courses</h3>
                         <p>Pick a topic and start with public learning resources.</p>
-                        <span class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></span>
+                        <div class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                     <a href="/roadmaps" class="facodi-learning-card facodi-learning-card-sky">
-                        <span class="facodi-label">See the route</span>
+                        <p class="facodi-label">See the route</p>
                         <i class="fa fa-map" aria-hidden="true" t-translation="off"/>
                         <h3>Roadmaps</h3>
                         <p>Connect topics, courses and study resources around a direction.</p>
-                        <span class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></span>
+                        <div class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                     <a href="/unidades-curriculares" class="facodi-learning-card facodi-learning-card-sun">
-                        <span class="facodi-label">Academic context</span>
+                        <p class="facodi-label">Academic context</p>
                         <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
                         <h3>Curricular units</h3>
                         <p>Start from a reviewed academic reference and see related learning.</p>
-                        <span class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></span>
+                        <div class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                 </div>
             </div>
