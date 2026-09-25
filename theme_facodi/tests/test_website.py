@@ -43,12 +43,12 @@ class TestFacodiTheme(HttpCase):
 
         expected_classes = {
             "theme_facodi.s_facodi_hero": "facodi-hero-study-board",
-            "theme_facodi.s_facodi_learning_journey": "facodi-stat-card",
+            "theme_facodi.s_facodi_learning_journey": "facodi-learning-entry-grid",
             "theme_facodi.s_facodi_course_showcase": "facodi-course-grid",
             "theme_facodi.s_facodi_academic_areas": "facodi-area-grid",
             "theme_facodi.s_facodi_institutional": "facodi-open-section",
             "theme_facodi.s_facodi_intro": "s_facodi_intro",
-            "theme_facodi.s_facodi_features": "facodi-grid",
+            "theme_facodi.s_facodi_features": "facodi-learning-steps",
             "theme_facodi.s_facodi_community": "s_facodi_community",
             "theme_facodi.s_facodi_ecosystem": "facodi-ecosystem-grid",
             "theme_facodi.s_facodi_roadmap": "s_facodi_roadmap",
@@ -158,6 +158,19 @@ class TestFacodiTheme(HttpCase):
         self.assertTrue(hero[0].xpath(".//*[contains(@class, 'facodi-hero-study-board')]"))
         self.assertIn("Learn in public.", hero[0].text_content())
         self.assertNotIn("real-time", hero[0].text_content().lower())
+
+    def test_homepage_learning_entries_keep_canonical_routes(self):
+        from lxml import html
+
+        tree = html.fromstring(self.url_open("/").text)
+        for route, label in (
+            ("/slides", "Courses"),
+            ("/roadmaps", "Roadmaps"),
+            ("/unidades-curriculares", "Curricular units"),
+        ):
+            links = tree.xpath(f"//a[@href='{route}' and contains(@class, 'facodi-learning-card')]")
+            self.assertEqual(len(links), 1, (route, label))
+            self.assertIn(label, links[0].text_content())
 
     def test_homepage_metadata_uses_public_canonical_and_localized_descriptions(self):
         from lxml import html
