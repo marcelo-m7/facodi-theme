@@ -66,4 +66,7 @@ if "width: 100%" not in anchor_block:
     raise SystemExit("FAIL: training slide link must make its row width tappable on mobile")
 PY
 
-echo "PASS: mobile menu and eLearning touch interaction contract"
+grep -Fq '@media (max-width: 767.98px)' theme_facodi/static/src/scss/snippets.scss || fail "homepage needs a dedicated phone breakpoint"
+grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/snippets.scss || fail "long translated homepage copy must wrap"
+
+echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"
