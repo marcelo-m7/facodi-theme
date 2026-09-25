@@ -607,10 +607,34 @@
             }
         }
 
-        .facodi-hero-study-board { min-height: 24rem; }
-        .facodi-study-sheet { margin: 0; transform: none; }
-        .facodi-study-note { bottom: .5rem; left: .5rem; }
-        .facodi-study-note-secondary { bottom: auto; left: auto; right: .5rem; top: .5rem; }
+        .facodi-hero-study-board {
+            display: grid;
+            gap: 1rem;
+            min-height: 0;
+        }
+
+        .facodi-study-sheet {
+            margin: 0;
+            max-width: none;
+            transform: none;
+        }
+
+        .facodi-study-note {
+            bottom: auto;
+            left: auto;
+            max-width: none;
+            position: static;
+            right: auto;
+            top: auto;
+            transform: none;
+        }
+
+        .facodi-study-note-secondary {
+            bottom: auto;
+            left: auto;
+            right: auto;
+            top: auto;
+        }
 
         .facodi-section-heading {
             align-items: flex-start;
