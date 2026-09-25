@@ -43,6 +43,7 @@
             "theme_facodi/static/src/scss/foundation_v2.scss",
             "theme_facodi/static/src/scss/website_slides.scss",
             "theme_facodi/static/src/scss/curriculum.scss",
+            "theme_facodi/static/src/scss/persisted_components.scss",
         ],
         "html_builder.assets": [
             "theme_facodi/static/src/builder/**/*",

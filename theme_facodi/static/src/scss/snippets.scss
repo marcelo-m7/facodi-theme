@@ -320,15 +320,15 @@
     }
 
     .facodi-course-description {
-        color: var(--facodi-blue);
+        color: var(--facodi-ink);
         display: -webkit-box;
-        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-        font-size: .64rem;
-        font-weight: 700;
+        font-family: inherit;
+        font-size: .875rem;
+        font-weight: 400;
         line-height: 1.45;
-        max-height: 4.2rem;
+        max-height: 5.1rem;
         overflow: hidden;
-        text-transform: uppercase;
+        text-transform: none;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
 
