@@ -9,7 +9,7 @@
             </div>
         </xpath>
         <xpath expr="//section[@id='o_wblog_index_content']" position="attributes">
-            <attribute name="class" add="facodi-blog-index" separator=" "/>
+            <attribute name="t-att-class">(opt_blog_cards_design and 'o_wblog_page_cards_bg ' or '') + 'facodi-blog-index'</attribute>
         </xpath>
     </template>
 
@@ -25,7 +25,7 @@
               inherit_id="website_blog.blog_post_complete"
               name="FACODI Campus Bulletin Article">
         <xpath expr="//section[@id='o_wblog_post_main']" position="attributes">
-            <attribute name="class" add="facodi-blog-article" separator=" "/>
+            <attribute name="t-attf-class" add="facodi-blog-article" separator=" "/>
         </xpath>
     </template>
 
