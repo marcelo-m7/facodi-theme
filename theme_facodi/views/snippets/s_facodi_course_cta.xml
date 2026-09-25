@@ -18,6 +18,10 @@
                         Explore courses
                         <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
                     </a>
+                    <a href="/contribuir/recurso" class="btn facodi-button facodi-button-secondary">
+                        I want to contribute
+                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
+                    </a>
                 </div>
             </div>
         </section>

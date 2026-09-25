@@ -20,7 +20,7 @@
                             <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                             Courses
                         </a>
-                        <a href="/contactus">
+                        <a href="/contribuir/recurso">
                             <i class="fa fa-users" aria-hidden="true" t-translation="off"/>
                             Contribute
                         </a>

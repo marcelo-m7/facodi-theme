@@ -95,4 +95,23 @@ for msgid in "${FOUNDATION_MSGIDS[@]}"; do
     || fail "theme_facodi.pot is missing Foundation v2 string: ${msgid}"
 done
 
+for catalogue in theme_facodi.pot pt.po es.po fr.po; do
+  for ref in \
+    'theme_facodi.s_facodi_community' \
+    'theme_facodi.s_facodi_course_cta' \
+    'theme_facodi.s_facodi_faq'; do
+    grep -B8 -F 'msgid "I want to contribute"' "$I18N_DIR/$catalogue" \
+      | grep -Fq "model_terms:theme.ir.ui.view,arch:$ref" \
+      || fail "$catalogue must bind 'I want to contribute' to $ref"
+  done
+  for ref in \
+    'theme_facodi.s_facodi_institutional' \
+    'theme_facodi.s_facodi_ecosystem' \
+    'theme_facodi.s_facodi_community'; do
+    grep -B8 -F 'msgid "Contact FACODI"' "$I18N_DIR/$catalogue" \
+      | grep -Fq "model_terms:theme.ir.ui.view,arch:$ref" \
+      || fail "$catalogue must bind 'Contact FACODI' to $ref"
+  done
+done
+
 echo "PASS: native Odoo i18n contract"

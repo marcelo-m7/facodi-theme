@@ -6,7 +6,8 @@
                 <h2>Knowledge grows through your participation.</h2>
                 <p class="facodi-lead">Share an idea, propose a resource or talk to us about ways to collaborate.</p>
                 <div class="facodi-actions">
-                    <a href="/contactus" class="btn facodi-button facodi-button-primary">I want to contribute</a>
+                    <a href="/contribuir/recurso" class="btn facodi-button facodi-button-primary">I want to contribute</a>
+                    <a href="/contactus" class="btn facodi-button facodi-button-secondary">Contact FACODI</a>
                 </div>
             </div>
         </section>
