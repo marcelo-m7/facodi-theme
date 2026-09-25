@@ -8,3 +8,5 @@ Ruling: this harness cannot create a local network-backed git worktree, so isola
 Task 1: Ruling: the CI release grep moved from Task 6 into Task 1 because the manifest version is bumped when the new asset is loaded; leaving the old grep would make the task's integration gate fail for a bookkeeping mismatch. Cost if wrong: release guard changes earlier than planned, with no runtime behavior change.
 
 Task 1: complete (CI run 36185027249 on exact branch head after implementation → success; D1 primitive, mobile, module, install/upgrade and builder-preservation gates all passed).
+
+Task 2: Ruling: Odoo 19 course_card root is an <a class="o_wslides_course_card">, not a div; target the stable native class on the anchor. Root cause confirmed from Odoo 19 upstream and CI traceback. Cost if wrong: course catalogue rendering would return HTTP 500, covered by exact-head Odoo tests.
