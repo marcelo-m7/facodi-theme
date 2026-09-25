@@ -4,6 +4,38 @@
         <xpath expr="//t[@id='installed_snippets_hook']" position="after">
             <t snippet-group="facodi" t-snippet="website.s_snippet_group" string="FACODI" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
         </xpath>
+        <xpath expr="//snippets[@id='snippet_content']" position="inside">
+            <t t-snippet="theme_facodi.s_facodi_highlighter_heading" string="Highlighter heading" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6">
+                <keywords>facodi highlighter marker heading title academic highlight</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_paper_card" string="Paper card" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="5">
+                <keywords>facodi paper card module flashcard academic note content</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_sticky_note" string="Sticky note" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="4">
+                <keywords>facodi sticky note post-it reminder annotation study</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_folder_tabs" string="Folder tabs" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6">
+                <keywords>facodi folder tabs index navigation divider categories</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_filter_pills" string="Filter pills" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6">
+                <keywords>facodi filters chips labels topics tags highlighter</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_course_card" string="Static course card" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="5">
+                <keywords>facodi course card curricular unit module learning editorial</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_study_steps" string="Study steps" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6">
+                <keywords>facodi study steps process how learning sequence notebook</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_cta_sheet" string="CTA sheet" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6">
+                <keywords>facodi call to action contribution sheet banner community</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_metadata_row" string="Metadata row" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="5">
+                <keywords>facodi metadata badges chips tags course code status</keywords>
+            </t>
+            <t t-snippet="theme_facodi.s_facodi_highlighter_callout" string="Highlighter callout" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="5">
+                <keywords>facodi callout study note warning hint highlighter paperclip</keywords>
+            </t>
+        </xpath>
         <xpath expr="//snippets[@id='snippet_structure']" position="inside">
             <t t-snippet="theme_facodi.s_facodi_hero" string="FACODI Hero" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
             <t t-snippet="theme_facodi.s_facodi_learning_journey" string="Learning Journey" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>

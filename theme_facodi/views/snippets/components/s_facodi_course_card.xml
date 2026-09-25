@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_course_card" name="FACODI Static Course Card">
+        <article class="facodi-static-course-card"
+                 data-snippet="s_facodi_course_card"
+                 data-name="FACODI Static Course Card">
+            <span class="facodi-static-course-card-flag">Open course</span>
+            <span class="facodi-paper-card-stripe facodi-paper-card-stripe-yellow" aria-hidden="true"/>
+            <div class="facodi-metadata-row facodi-static-course-card-meta">
+                <span>UC-000</span>
+                <span>4 modules</span>
+                <span>Open access</span>
+            </div>
+            <h3>Course title with a <span class="facodi-highlighter-stroke facodi-highlighter-stroke-yellow">highlighted idea</span></h3>
+            <p>Use this editable card when the content is editorial rather than connected to a live eLearning record.</p>
+            <div class="facodi-static-course-card-footer">
+                <span class="facodi-label">Community learning</span>
+                <a class="facodi-button facodi-button-secondary" href="/slides">View course</a>
+            </div>
+        </article>
+    </template>
+</odoo>

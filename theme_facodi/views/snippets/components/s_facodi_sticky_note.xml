@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_sticky_note" name="FACODI Sticky Note">
+        <aside class="facodi-sticky-note"
+               data-snippet="s_facodi_sticky_note"
+               data-name="FACODI Sticky Note">
+            <p class="facodi-label">Study note</p>
+            <h3>Write down the question you want to answer next.</h3>
+            <p>Short reminders work best when they stay specific, useful, and easy to revisit.</p>
+        </aside>
+    </template>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_study_steps" name="FACODI Study Steps">
+        <div class="facodi-study-steps"
+             data-snippet="s_facodi_study_steps"
+             data-name="FACODI Study Steps">
+            <article>
+                <span class="facodi-study-step-number facodi-study-step-number-yellow">1</span>
+                <h3>Choose a question</h3>
+                <p>Start from something concrete you want to understand or build.</p>
+            </article>
+            <article>
+                <span class="facodi-study-step-number facodi-study-step-number-mint">2</span>
+                <h3>Follow the thread</h3>
+                <p>Connect courses, curricular units, and public resources around that question.</p>
+            </article>
+            <article>
+                <span class="facodi-study-step-number facodi-study-step-number-cyan">3</span>
+                <h3>Share what helped</h3>
+                <p>Contribute useful resources so the next learner starts with better context.</p>
+            </article>
+        </div>
+    </template>
+</odoo>

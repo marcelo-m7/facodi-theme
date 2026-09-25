@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_filter_pills" name="FACODI Filter Pills">
+        <div class="facodi-filter-pills"
+             data-snippet="s_facodi_filter_pills"
+             data-name="FACODI Filter Pills"
+             aria-label="Topic labels">
+            <span class="is-active">All topics</span>
+            <span>Open learning</span>
+            <span>Technology</span>
+            <span>Community</span>
+            <span>Study notes</span>
+        </div>
+    </template>
+</odoo>

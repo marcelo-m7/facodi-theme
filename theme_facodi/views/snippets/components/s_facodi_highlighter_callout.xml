@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_highlighter_callout" name="FACODI Highlighter Callout">
+        <aside class="facodi-highlighter-callout"
+               data-snippet="s_facodi_highlighter_callout"
+               data-name="FACODI Highlighter Callout">
+            <i class="fa fa-paperclip" aria-hidden="true" t-translation="off"/>
+            <div>
+                <p class="facodi-label">Margin note</p>
+                <h3>Keep the important part visible.</h3>
+                <p>Use this callout for a prerequisite, study hint, deadline, review warning, or short editorial note.</p>
+            </div>
+        </aside>
+    </template>
+</odoo>
