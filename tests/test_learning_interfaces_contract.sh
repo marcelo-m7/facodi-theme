@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+fail() {
+  echo "FAIL: $*" >&2
+  exit 1
+}
+
+SCSS="theme_facodi/static/src/scss/learning_interfaces.scss"
+[[ -f "$SCSS" ]] || fail "D1 learning interface stylesheet missing"
+
+for selector in \
+  '.facodi-learning-hero' \
+  '.facodi-index-tabs' \
+  '.facodi-filter-sheet' \
+  '.facodi-record-card' \
+  '.facodi-study-progress' \
+  '.facodi-module-stack' \
+  '.facodi-reference-rail' \
+  '.facodi-open-callout'; do
+  grep -Fq "$selector" "$SCSS" || fail "missing D1 selector: $selector"
+done
+
+for marker in \
+  'min-width: 0' \
+  'overflow-wrap: anywhere' \
+  '@media (max-width: 767.98px)' \
+  'grid-template-columns: minmax(0, 1fr)' \
+  ':focus-visible' \
+  'prefers-reduced-motion'; do
+  grep -Fq "$marker" "$SCSS" || fail "missing D1 responsive/accessibility marker: $marker"
+done
+
+if grep -R -nE 'My Notebook|Class Questions|Open Bibliography|verified answer|[0-9]{2,}[[:space:]]+students' \
+    theme_facodi --include='*.xml' --include='*.scss'; then
+  fail "unsupported Stitch-only learning feature or fictional student count found"
+fi
+
+CURRICULUM="theme_facodi/static/src/scss/curriculum.scss"
+SLIDES="theme_facodi/static/src/scss/website_slides.scss"
+
+for selector in \
+  '.facodi-record-card--roadmap' \
+  '.facodi-record-card--unit' \
+  '.facodi-roadmap-study-path' \
+  '.facodi-unit-layout' \
+  '.facodi-unit-main' \
+  '.facodi-reference-rail' \
+  '.facodi-module-detail'; do
+  grep -Fq "$selector" "$CURRICULUM" || fail "D1 curriculum integration selector missing: $selector"
+done
+
+grep -Fq '.facodi-course-alignment-sheet' "$SLIDES" \
+  || fail "D1 course alignment sheet styling missing"
+grep -Fq 'grid-template-columns: minmax(0, 8fr) minmax(18rem, 4fr)' "$CURRICULUM" \
+  || fail "UC detail must expose the approved desktop 8/4 layout"
+grep -Fq '@media (max-width: 1023.98px)' "$CURRICULUM" \
+  || fail "UC reference rail needs a tablet collapse gate"
+
+echo "PASS: D1 learning interface primitives contract"

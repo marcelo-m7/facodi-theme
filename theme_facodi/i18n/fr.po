@@ -407,6 +407,7 @@ msgstr "Vue d’ensemble"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 msgid "Courses"
 msgstr "Cours"
 
@@ -423,6 +424,7 @@ msgstr "Communauté"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 msgid "Learning catalogue"
 msgstr "Catalogue d’apprentissage"
 
@@ -775,11 +777,13 @@ msgstr "Utilisez les Roadmaps pour vous orienter, les unites d'enseignement pour
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 msgid "Roadmaps"
 msgstr "Parcours"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 msgid "Curricular Units"
 msgstr "Unités d’enseignement"
 

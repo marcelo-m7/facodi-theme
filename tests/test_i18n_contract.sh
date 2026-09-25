@@ -151,3 +151,34 @@ for view in \
 done
 
 echo "PASS: native Odoo i18n contract"
+
+
+python3 - <<'PY'
+from pathlib import Path
+
+files = [
+    Path("theme_facodi/i18n/theme_facodi.pot"),
+    Path("theme_facodi/i18n/pt.po"),
+    Path("theme_facodi/i18n/es.po"),
+    Path("theme_facodi/i18n/fr.po"),
+]
+messages = ["Learning catalogue", "Courses", "Roadmaps", "Curricular Units"]
+occurrence = "#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home"
+
+for path in files:
+    content = path.read_text(encoding="utf-8")
+    for message in messages:
+        marker = f'msgid "{message}"'
+        pos = content.find(marker)
+        if pos < 0:
+            raise SystemExit(f"FAIL: {path} missing D1 msgid {message}")
+        start = content.rfind("\n\n", 0, pos) + 2
+        end = content.find("\n\n", pos)
+        if end < 0:
+            end = len(content)
+        block = content[start:end]
+        if occurrence not in block:
+            raise SystemExit(
+                f"FAIL: {path} does not register {message!r} for facodi_courses_home"
+            )
+PY

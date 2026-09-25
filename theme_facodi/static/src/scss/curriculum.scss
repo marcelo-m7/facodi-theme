@@ -208,3 +208,162 @@
     .facodi-site .facodi-curriculum *,
     .facodi-site .facodi-explore * { transition-duration: .01ms !important; }
 }
+
+.facodi-site {
+    .facodi-record-card--roadmap,
+    .facodi-record-card--unit {
+        min-width: 0;
+
+        .facodi-record-card__body,
+        .facodi-record-card__meta,
+        .facodi-record-card__title,
+        .d-flex {
+            min-width: 0;
+        }
+
+        .facodi-record-card__title,
+        .facodi-record-card__meta,
+        p,
+        a {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-record-card--roadmap {
+        border-top: .45rem solid var(--facodi-cyan);
+    }
+
+    .facodi-record-card--unit {
+        border-top: .45rem solid var(--facodi-mint);
+    }
+
+    .facodi-filter-sheet {
+        position: relative;
+
+        &::before {
+            background: var(--facodi-sun);
+            border: 1px solid var(--facodi-ink);
+            content: "";
+            height: .55rem;
+            left: 1rem;
+            position: absolute;
+            top: -.4rem;
+            transform: rotate(-1.5deg);
+            width: clamp(4rem, 12vw, 8rem);
+        }
+    }
+
+    .facodi-roadmap-study-path {
+        display: grid;
+        gap: 1.5rem;
+        min-width: 0;
+
+        > section,
+        > article,
+        > div {
+            min-width: 0;
+        }
+
+        h2,
+        h3,
+        a,
+        p {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-unit-layout {
+        align-items: start;
+        display: grid;
+        gap: clamp(1.5rem, 3vw, 2.5rem);
+        grid-template-columns: minmax(0, 8fr) minmax(18rem, 4fr);
+        min-width: 0;
+    }
+
+    .facodi-unit-main {
+        min-width: 0;
+
+        > section,
+        > div,
+        article {
+            min-width: 0;
+        }
+
+        h2,
+        h3,
+        a,
+        p {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-reference-rail {
+        position: sticky;
+        top: 6rem;
+
+        .facodi-sheet,
+        .facodi-open-callout {
+            min-width: 0;
+        }
+
+        .facodi-sheet {
+            background: var(--facodi-paper-warm);
+            border: var(--facodi-border);
+            border-radius: var(--facodi-radius);
+            box-shadow: var(--facodi-shadow-hover);
+            padding: 1rem;
+        }
+    }
+
+    .facodi-module-detail {
+        min-width: 0;
+
+        .facodi-learning-hero,
+        .facodi-module-stack,
+        .facodi-module-stack__item {
+            min-width: 0;
+        }
+
+        h1,
+        a,
+        p,
+        span {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-module-stack__item {
+        transition: transform .12s ease, box-shadow .12s ease;
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: var(--facodi-shadow-hover);
+            color: var(--facodi-ink);
+            transform: translate(2px, 2px);
+        }
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .facodi-site {
+        .facodi-unit-layout {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .facodi-reference-rail {
+            position: static;
+        }
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .facodi-module-stack__item,
+        .facodi-module-stack__item:hover,
+        .facodi-module-stack__item:focus-visible {
+            transition: none;
+            transform: none;
+        }
+    }
+}

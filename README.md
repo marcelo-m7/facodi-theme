@@ -222,6 +222,28 @@ keeping Odoo as the functional owner of the public experience.
 - Course/profile tags, navigation tabs and badges now use the same study-object
   visual vocabulary.
 
+## D1 learning interfaces
+
+Release `19.0.8.0.0` extends Campus Paper into the complete FACODI learning
+journey without changing learning-domain ownership.
+
+- `/slides` keeps native Odoo search, course cards, enrolment, progress and
+  lesson behavior, while the catalogue and course shell use the D1 fichário
+  vocabulary.
+- Roadmap, Curricular Unit and module pages consume semantic hooks from
+  `facodi-learning` and render as study paths, record cards, reference sheets
+  and an 8/4 desktop unit-detail composition.
+- Curriculum alignment on course pages is styled as a reference sheet and
+  preserves the explicit academic-equivalence boundary.
+- Editor-selected course covers remain authoritative; only Odoo's exact default
+  cover gradient is replaced.
+- The D1 system deliberately does not invent notebooks, class forums,
+  bibliographies, instructors, learner counts, workload hours or progress
+  states that are not present in the owning Odoo/FACODI models.
+- All nested learning layouts are shrinkable and are designed to collapse to
+  one column without page-level overflow at 320 px; the final geometry gate is
+  repeated in the integrated `facodi-deploy` browser run before promotion.
+
 ## Runtime dependencies
 
 The module depends only on:
@@ -269,6 +291,7 @@ bash tests/test_global_shell_contract.sh
 bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
 bash tests/test_curriculum_style_contract.sh
+bash tests/test_learning_interfaces_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
 bash tests/test_mobile_interaction_contract.sh

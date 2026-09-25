@@ -1,0 +1,256 @@
+.facodi-site {
+    .facodi-learning-hero {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        display: grid;
+        gap: clamp(1rem, 2.5vw, 2rem);
+        min-width: 0;
+        padding: clamp(1.5rem, 4vw, 3rem);
+
+        > * {
+            min-width: 0;
+        }
+
+        h1,
+        h2,
+        p {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-index-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .65rem;
+        min-width: 0;
+
+        a,
+        .nav-link {
+            align-items: center;
+            background: var(--facodi-paper-warm);
+            border: var(--facodi-border);
+            border-radius: var(--facodi-radius-sm) var(--facodi-radius-sm) 0 0;
+            color: var(--facodi-ink);
+            display: inline-flex;
+            font-weight: 800;
+            min-height: 2.75rem;
+            padding: .65rem 1rem;
+            text-decoration: none;
+
+            &:hover,
+            &:focus-visible,
+            &.active,
+            &[aria-current="page"] {
+                background: var(--facodi-sun);
+                color: var(--facodi-ink);
+            }
+
+            &:focus-visible {
+                outline: 0;
+                box-shadow: var(--facodi-focus-ring);
+            }
+        }
+
+        &--courses a[href="/slides"],
+        &--roadmaps a[href="/roadmaps"],
+        &--units a[href="/unidades-curriculares"] {
+            background: var(--facodi-sun);
+        }
+    }
+
+    .facodi-filter-sheet {
+        background: var(--facodi-paper-warm);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow-hover);
+        min-width: 0;
+        padding: clamp(1rem, 2.5vw, 1.5rem);
+
+        > * {
+            min-width: 0;
+        }
+    }
+
+    .facodi-record-card {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        color: var(--facodi-ink);
+        min-width: 0;
+        overflow: hidden;
+
+        &__tab {
+            align-items: center;
+            background: var(--facodi-cyan);
+            border-bottom: 1px solid var(--facodi-ink);
+            display: flex;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: .72rem;
+            font-weight: 800;
+            gap: .5rem;
+            letter-spacing: .08em;
+            min-height: 2.25rem;
+            padding: .45rem .75rem;
+            text-transform: uppercase;
+        }
+
+        &__body {
+            min-width: 0;
+            padding: clamp(1rem, 2vw, 1.4rem);
+        }
+
+        &__meta,
+        &__tags,
+        &__footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            min-width: 0;
+        }
+
+        &__title,
+        &__summary,
+        &__meta,
+        &__tags {
+            overflow-wrap: anywhere;
+        }
+
+        &--unit .facodi-record-card__tab {
+            background: var(--facodi-mint);
+        }
+
+        &--roadmap .facodi-record-card__tab {
+            background: var(--facodi-cyan);
+        }
+
+        &:focus-within {
+            box-shadow: var(--facodi-focus-ring), var(--facodi-shadow);
+        }
+    }
+
+    .facodi-study-progress {
+        background: var(--facodi-paper-warm);
+        border: 1px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius);
+        min-width: 0;
+        padding: 1rem;
+
+        &__bar {
+            background: var(--facodi-paper);
+            border: 1px solid var(--facodi-ink);
+            border-radius: 999px;
+            min-height: .8rem;
+            overflow: hidden;
+        }
+
+        &__value {
+            background: var(--facodi-mint);
+            min-height: inherit;
+        }
+    }
+
+    .facodi-module-stack {
+        display: grid;
+        gap: .9rem;
+        min-width: 0;
+
+        &__item {
+            background: var(--facodi-surface-sheet);
+            border: var(--facodi-border);
+            border-radius: var(--facodi-radius);
+            min-width: 0;
+            padding: 1rem;
+
+            > * {
+                min-width: 0;
+                overflow-wrap: anywhere;
+            }
+
+            &--complete {
+                background: color-mix(in srgb, var(--facodi-mint) 55%, white);
+            }
+
+            &--current,
+            &--next {
+                background: color-mix(in srgb, var(--facodi-sun) 58%, white);
+            }
+
+            &--info {
+                border-left: .4rem solid var(--facodi-cyan);
+            }
+        }
+    }
+
+    .facodi-reference-rail {
+        align-content: start;
+        display: grid;
+        gap: 1rem;
+        min-width: 0;
+
+        > * {
+            min-width: 0;
+        }
+    }
+
+    .facodi-open-callout {
+        background: color-mix(in srgb, var(--facodi-mint) 45%, white);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow-hover);
+        min-width: 0;
+        padding: clamp(1rem, 2.5vw, 1.5rem);
+
+        > * {
+            overflow-wrap: anywhere;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 0;
+            box-shadow: var(--facodi-focus-ring);
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site {
+        .facodi-learning-hero,
+        .facodi-filter-sheet,
+        .facodi-record-card,
+        .facodi-study-progress,
+        .facodi-module-stack,
+        .facodi-reference-rail,
+        .facodi-open-callout {
+            min-width: 0;
+            width: 100%;
+        }
+
+        .facodi-index-tabs {
+            flex-wrap: nowrap;
+            max-width: 100%;
+            overflow-x: auto;
+            overscroll-behavior-inline: contain;
+            padding-bottom: .25rem;
+        }
+
+        .facodi-learning-hero,
+        .facodi-module-stack,
+        .facodi-reference-rail {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .facodi-record-card,
+        .facodi-index-tabs a,
+        .facodi-open-callout {
+            scroll-behavior: auto;
+            transition: none;
+        }
+    }
+}

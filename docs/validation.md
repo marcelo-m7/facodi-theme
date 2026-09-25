@@ -86,6 +86,36 @@ does not claim pixel-perfect browser inspection. The integrated Roadmap/UC and
 viewport screenshot gate is therefore repeated in Phase C on the disposable
 deployment runtime before any production promotion.
 
+## D1 learning interfaces regression matrix
+
+Release `19.0.8.0.0` adds the Stitch-informed academic filing-cabinet layer
+across the learning surfaces while preserving native Odoo and
+`facodi-learning` behavior.
+
+Theme-side automated evidence covers:
+
+- reusable learning hero, index tabs, filter sheet, record card, progress,
+  module-stack, reference-rail and contribution-callout primitives;
+- native `/slides` catalogue and course-detail hooks with no fabricated
+  course metadata;
+- exact-default-cover replacement plus Odoo-rendered proof that a custom
+  editor-selected course cover keeps its own inline style;
+- Roadmap/UC catalogue selectors, Roadmap study-path styling, the approved 8/4
+  desktop UC detail layout, module detail and curriculum-alignment sheet;
+- `min-width: 0`, long-text wrapping, tablet/mobile rail collapse, internal
+  table scrolling, focus visibility and reduced-motion declarations;
+- clean legacy install, upgrade to `19.0.8.0.0`, frontend asset compilation
+  and Website Builder persistence.
+
+Cross-repository acceptance remains mandatory because Roadmap, UC and module
+markup belongs to `facodi-learning`. The disposable integrated runtime must
+check one real route of each family at 1440/1024/390/320 widths and fail when
+`document.documentElement.scrollWidth > window.innerWidth + 1`.
+
+Unsupported Stitch-only features remain intentionally absent: private notebook,
+class forum/questions, bibliography database, fictional instructors/student
+counts, invented workload and fabricated study progress.
+
 ## eLearning regression matrix
 
 The Odoo `HttpCase` and `TransactionCase` suite verifies the presentation added in
@@ -135,6 +165,7 @@ bash tests/test_global_shell_contract.sh
 bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
 bash tests/test_curriculum_style_contract.sh
+bash tests/test_learning_interfaces_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
 bash tests/test_mobile_interaction_contract.sh
