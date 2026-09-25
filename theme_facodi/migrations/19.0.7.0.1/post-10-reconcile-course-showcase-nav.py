@@ -88,7 +88,10 @@ def _canonical_catalogue_nav(lang):
         },
     )
     for href, label_key in _NAV_LINKS:
-        link = etree.SubElement(nav, "a", {"href": href})
+        attributes = {"href": href}
+        if href == "/slides":
+            attributes["class"] = "is-active"
+        link = etree.SubElement(nav, "a", attributes)
         link.text = copy_values[label_key]
     return nav
 
