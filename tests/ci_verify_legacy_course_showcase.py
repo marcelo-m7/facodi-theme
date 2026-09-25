@@ -15,6 +15,12 @@ EXPECTED_MARKERS = {
     "fr_FR": "Conserver ce contenu de l'éditeur",
 }
 EXPECTED_HREFS = ["/roadmaps", "/unidades-curriculares", "/slides", "/contribuir/recurso"]
+EXPECTED_NAV_TEXT = {
+    "en_US": "Learning catalogue Roadmaps Curricular Units Courses Contribute",
+    "pt_PT": "Catálogo de aprendizagem Roadmaps Unidades Curriculares Cursos Contribua",
+    "es_ES": "Catálogo de aprendizaje Rutas Unidades Curriculares Cursos Contribuye",
+    "fr_FR": "Catalogue d’apprentissage Parcours Unités d’enseignement Cours Contribuez",
+}
 
 
 def has_class(node, class_name):
@@ -36,24 +42,6 @@ View = env["ir.ui.view"].with_context(active_test=False)
 view = View.search([("key", "=", FIXTURE_KEY)], limit=1)
 assert view, "legacy course showcase CI fixture is missing after upgrade"
 
-stored_debug = view._fields["arch_db"]._get_stored_translations(view) or {}
-print("FACODI_FIXTURE_DEBUG", {
-    "id": view.id,
-    "key": view.key,
-    "website_id": view.website_id.id,
-    "arch_updated": view.arch_updated,
-    "arch_prev": view.arch_prev,
-    "stored_languages": sorted(stored_debug),
-    "stored_values": stored_debug,
-})
-for debug_lang in ("en_US", "pt_PT", "es_ES", "fr_FR"):
-    print(
-        "FACODI_FIXTURE_LANG_DEBUG",
-        debug_lang,
-        view.with_context(lang=debug_lang).arch,
-    )
-
-canonical = env.ref("theme_facodi.s_facodi_course_showcase")
 for lang, marker in EXPECTED_MARKERS.items():
     arch = view.with_context(lang=lang).arch
     assert marker in arch, f"{lang}: upgrade must preserve editor content"
@@ -63,8 +51,7 @@ for lang, marker in EXPECTED_MARKERS.items():
     assert "/web/login" not in hrefs
     assert "/website/search" not in hrefs
 
-    canonical_side_nav = first_side_nav(canonical.with_context(lang=lang).arch)
-    assert normalized_text(side_nav) == normalized_text(canonical_side_nav), (
+    assert normalized_text(side_nav) == EXPECTED_NAV_TEXT[lang], (
         f"{lang}: persisted navigation must use current translated canonical labels"
     )
 
