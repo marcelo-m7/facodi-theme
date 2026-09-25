@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_learning_journey" name="FACODI Learning Journey">
-        <section class="s_facodi_learning_journey o_cc o_cc1 py-4" data-snippet="s_facodi_learning_journey" data-name="Learning Journey">
+        <section class="s_facodi_learning_journey facodi-section o_cc o_cc1"
+                 data-snippet="s_facodi_learning_journey"
+                 data-name="Learning Journey">
             <div class="container">
                 <div class="facodi-section-heading">
                     <div>
                         <p class="facodi-kicker">
                             <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
-                            Start where you are
+                            First step
                         </p>
                         <h2>Where do you want to begin?</h2>
                     </div>
                 </div>
-                <div class="facodi-stat-row">
-                    <article class="facodi-stat-card facodi-mint">
-                        <div class="facodi-stat-eyebrow">For a first question</div>
-                        <div class="facodi-stat-title">Explore courses</div>
-                        <div class="facodi-stat-copy">Choose a topic, watch, read and find an accessible way in.</div>
-                        <a href="/slides" class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
-                        <i class="fa fa-search" aria-hidden="true" t-translation="off"/>
-                    </article>
-                    <article class="facodi-stat-card facodi-sky">
-                        <div class="facodi-stat-eyebrow">For a wider view</div>
-                        <div class="facodi-stat-title">Follow a Roadmap</div>
-                        <div class="facodi-stat-copy">See how topics, modules and courses can support the same direction.</div>
-                        <a href="/roadmaps" class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
-                        <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
-                    </article>
-                    <article class="facodi-stat-card facodi-sun">
-                        <div class="facodi-stat-eyebrow">For verified context</div>
-                        <div class="facodi-stat-title">Find a curricular unit</div>
-                        <div class="facodi-stat-copy">Understand the official reference, related modules and reviewed course coverage.</div>
-                        <a href="/unidades-curriculares" class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                <div class="facodi-learning-entry-grid">
+                    <a href="/slides" class="facodi-learning-card facodi-learning-card-mint">
+                        <span class="facodi-label">Quick start</span>
                         <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
-                    </article>
+                        <h3>Courses</h3>
+                        <p>Pick a topic and start with public learning resources.</p>
+                        <span class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></span>
+                    </a>
+                    <a href="/roadmaps" class="facodi-learning-card facodi-learning-card-sky">
+                        <span class="facodi-label">See the route</span>
+                        <i class="fa fa-map" aria-hidden="true" t-translation="off"/>
+                        <h3>Roadmaps</h3>
+                        <p>Connect topics, courses and study resources around a direction.</p>
+                        <span class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></span>
+                    </a>
+                    <a href="/unidades-curriculares" class="facodi-learning-card facodi-learning-card-sun">
+                        <span class="facodi-label">Academic context</span>
+                        <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
+                        <h3>Curricular units</h3>
+                        <p>Start from a reviewed academic reference and see related learning.</p>
+                        <span class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></span>
+                    </a>
                 </div>
             </div>
         </section>
