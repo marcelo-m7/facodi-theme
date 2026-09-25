@@ -107,7 +107,7 @@ jobs:
             --workers=0 -d theme_facodi_ci \
             < tests/ci_seed_legacy_course_showcase.py
 
-      - name: Upgrade theme and rerun regression tests
+      - name: Upgrade theme before persisted-state verification
         run: |
           docker run --rm \
             --network facodi-theme-ci \
@@ -119,7 +119,7 @@ jobs:
             --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
             --workers=0 --without-demo=True \
             -d theme_facodi_ci -u theme_facodi \
-            --test-tags /theme_facodi --stop-after-init
+            --stop-after-init
 
       - name: Verify legacy course showcase builder repair
         run: |
@@ -176,6 +176,20 @@ jobs:
             --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
             --workers=0 -d theme_facodi_ci \
             < tests/ci_verify_legacy_course_showcase.py
+
+      - name: Run Odoo regression tests after migration evidence
+        run: |
+          docker run --rm \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 --without-demo=True \
+            -d theme_facodi_ci -u theme_facodi \
+            --test-tags /theme_facodi --stop-after-init
 
       - name: PostgreSQL logs on failure
         if: failure()
