@@ -32,7 +32,7 @@ grep -Fq 'dynamic_snippet_template' "$SNIPPET" \
   || fail "course showcase must provide Odoo dynamic snippet render target"
 grep -Fq 'Learning catalogue' "$SNIPPET" \
   || fail "course showcase learning-navigation label is missing"
-for route in '/roadmaps' '/unidades-curriculares' '/slides' '/contactus'; do
+for route in '/roadmaps' '/unidades-curriculares' '/slides' '/contribuir/recurso'; do
   grep -Fq "href=\"$route\"" "$SNIPPET" \
     || fail "course showcase learning navigation is missing $route"
 done
