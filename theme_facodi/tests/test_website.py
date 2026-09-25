@@ -72,6 +72,49 @@ class TestFacodiTheme(HttpCase):
             2,
         )
 
+    def test_reusable_campus_paper_blocks_are_native_builder_snippets(self):
+        keys = {
+            "theme_facodi.s_facodi_highlighter_heading",
+            "theme_facodi.s_facodi_paper_card",
+            "theme_facodi.s_facodi_sticky_note",
+            "theme_facodi.s_facodi_folder_tabs",
+            "theme_facodi.s_facodi_filter_pills",
+            "theme_facodi.s_facodi_course_card",
+            "theme_facodi.s_facodi_study_steps",
+            "theme_facodi.s_facodi_cta_sheet",
+            "theme_facodi.s_facodi_metadata_row",
+            "theme_facodi.s_facodi_highlighter_callout",
+        }
+        theme_views = self.env["theme.ir.ui.view"].search([("key", "in", list(keys))])
+        self.assertEqual(set(theme_views.mapped("key")), keys)
+
+        website_views = self.env["ir.ui.view"].search(
+            [("key", "in", list(keys)), ("website_id", "!=", False)]
+        )
+        self.assertEqual(set(website_views.mapped("key")), keys)
+
+        expected_classes = {
+            "theme_facodi.s_facodi_highlighter_heading": "facodi-highlighter-heading",
+            "theme_facodi.s_facodi_paper_card": "facodi-paper-card",
+            "theme_facodi.s_facodi_sticky_note": "facodi-sticky-note",
+            "theme_facodi.s_facodi_folder_tabs": "facodi-folder-tabs",
+            "theme_facodi.s_facodi_filter_pills": "facodi-filter-pills",
+            "theme_facodi.s_facodi_course_card": "facodi-static-course-card",
+            "theme_facodi.s_facodi_study_steps": "facodi-study-steps",
+            "theme_facodi.s_facodi_cta_sheet": "facodi-cta-sheet",
+            "theme_facodi.s_facodi_metadata_row": "facodi-metadata-row",
+            "theme_facodi.s_facodi_highlighter_callout": "facodi-highlighter-callout",
+        }
+        for view in website_views:
+            self.assertIn(expected_classes[view.key], view.arch_db)
+            self.assertNotIn("/web/login", view.arch_db)
+            self.assertNotIn("request.env", view.arch_db)
+            self.assertNotIn("sudo(", view.arch_db)
+
+        registry = self.env.ref("website.snippets")
+        for key in keys:
+            self.assertIn(f't-snippet="{key}"', registry.arch_db)
+
     def test_course_showcase_uses_standard_dynamic_filter(self):
         dynamic_filter = self.env.ref("theme_facodi.dynamic_filter_published_courses")
         self.assertEqual(dynamic_filter.model_name, "slide.channel")
