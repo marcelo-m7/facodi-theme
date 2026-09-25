@@ -4,6 +4,21 @@
               inherit_id="website_slides.courses_home"
               name="FACODI Courses Catalogue">
         <xpath expr="//div[@id='wrap']/div[contains(concat(' ', normalize-space(@class), ' '), ' container ')][1]"
+               position="before">
+            <section class="container facodi-learning-hero facodi-learning-catalogue-hero my-4">
+                <div>
+                    <span class="facodi-label">Learning catalogue</span>
+                    <h1 class="display-5 mb-0">Courses</h1>
+                </div>
+                <nav class="facodi-index-tabs facodi-index-tabs--courses"
+                     aria-label="Learning catalogue">
+                    <a href="/slides" aria-current="page">Courses</a>
+                    <a href="/roadmaps">Roadmaps</a>
+                    <a href="/unidades-curriculares">Curricular Units</a>
+                </nav>
+            </section>
+        </xpath>
+        <xpath expr="//div[@id='wrap']/div[contains(concat(' ', normalize-space(@class), ' '), ' container ')][1]"
                position="attributes">
             <attribute name="class" add="facodi-slides-catalog" separator=" "/>
         </xpath>
@@ -26,6 +41,10 @@
     <template id="facodi_course_card"
               inherit_id="website_slides.course_card"
               name="FACODI Course Card Visual">
+        <xpath expr="//a[contains(@t-attf-class, 'o_wslides_course_card')]"
+               position="attributes">
+            <attribute name="t-attf-class" add="facodi-record-card facodi-course-record-card" separator=" "/>
+        </xpath>
         <xpath expr="//div[@t-field='channel.image_1920']" position="replace">
             <t t-set="facodi_visual" t-value="facodi_catalog_visuals.get(channel.id)"/>
             <div class="facodi-course-media ratio ratio-16x9">
@@ -53,6 +72,15 @@
                     <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                 </div>
             </div>
+        </xpath>
+    </template>
+
+    <template id="facodi_course_main"
+              inherit_id="website_slides.course_main"
+              name="FACODI Course Study Shell">
+        <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_course_main ')]"
+               position="attributes">
+            <attribute name="class" add="facodi-course-study-shell" separator=" "/>
         </xpath>
     </template>
 

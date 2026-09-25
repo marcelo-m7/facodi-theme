@@ -259,6 +259,35 @@ class TestFacodiTheme(HttpCase):
         description = tree.xpath('//meta[@name="description"]/@content')
         self.assertEqual(len(description), 1)
         self.assertIn("Browse FACODI open courses", description[0])
+        self.assertIn("facodi-learning-catalogue-hero", response.text)
+        self.assertIn("facodi-index-tabs--courses", response.text)
+
+    def test_rendered_catalogue_course_card_has_d1_hook(self):
+        from lxml import html
+
+        website = self.env["website"].get_current_website()
+        channel = self.env["slide.channel"].create(
+            {
+                "name": "FACODI D1 Card Hook Regression",
+                "website_id": website.id,
+                "website_published": True,
+                "is_published": True,
+                "visibility": "public",
+                "enroll": "public",
+            }
+        )
+        response = self.url_open("/slides")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+        cards = tree.xpath(
+            f"//a[contains(concat(' ', normalize-space(@class), ' '), "
+            f"' facodi-course-record-card ') and @href='{channel.website_url}']"
+        )
+        self.assertEqual(
+            len(cards),
+            1,
+            "D1 course card hook must survive Odoo's dynamic t-attf-class rendering",
+        )
 
     def test_rendered_course_cover_preserves_custom_style_and_default_signature(self):
         from lxml import html
@@ -460,6 +489,10 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-postit", compiled)
         self.assertIn(".facodi-learning-card", compiled)
         self.assertIn(".facodi-course-catalogue-paper", compiled)
+        self.assertIn(".facodi-learning-catalogue-hero", compiled)
+        self.assertIn(".facodi-index-tabs--courses", compiled)
+        self.assertIn(".facodi-course-record-card", compiled)
+        self.assertIn(".facodi-course-study-shell", compiled)
         self.assertIn(".o_wslides_course_card", compiled)
         self.assertIn(".o_wslides_slide_list_category_header", compiled)
         self.assertIn(".o_wslides_js_course_join_link.btn-primary", compiled)
@@ -467,6 +500,14 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-curriculum-pathway", compiled)
         self.assertIn(".facodi-curriculum-map__unit", compiled)
         self.assertIn(".facodi-coverage-badge", compiled)
+        self.assertIn(".facodi-record-card--roadmap", compiled)
+        self.assertIn(".facodi-record-card--unit", compiled)
+        self.assertIn(".facodi-roadmap-study-path", compiled)
+        self.assertIn(".facodi-unit-layout", compiled)
+        self.assertIn(".facodi-reference-rail", compiled)
+        self.assertIn(".facodi-module-detail", compiled)
+        self.assertIn(".facodi-course-alignment-sheet", compiled)
+        self.assertIn(".facodi-open-callout", compiled)
         self.assertIn(".o_cookies_discrete.show", compiled)
         self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(

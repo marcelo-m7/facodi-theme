@@ -1,4 +1,60 @@
 body.o_wslides_body .facodi-site {
+
+    .facodi-learning-catalogue-hero {
+        grid-template-columns: minmax(0, 1fr) auto;
+        margin-bottom: clamp(1rem, 3vw, 2.25rem);
+        margin-top: clamp(1rem, 3vw, 2.25rem);
+
+        .facodi-label {
+            width: max-content;
+        }
+    }
+
+    .facodi-index-tabs--courses {
+        align-self: end;
+        justify-content: flex-end;
+    }
+
+    .facodi-course-record-card {
+        min-width: 0;
+
+        .card-body,
+        .card-footer {
+            min-width: 0;
+        }
+
+        .card-title,
+        .card-text {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-course-study-shell {
+        background:
+            linear-gradient(color-mix(in srgb, var(--facodi-ink) 5%, transparent) 1px, transparent 1px),
+            var(--facodi-surface-page);
+        background-size: 24px 24px;
+
+        .container,
+        .row,
+        [class*="col-"] {
+            min-width: 0;
+        }
+
+        .o_wslides_course_sidebar,
+        .o_wslides_tabs_content {
+            background: var(--facodi-surface-sheet);
+            border: var(--facodi-border);
+            border-radius: var(--facodi-radius);
+        }
+
+        h1,
+        h2,
+        h3,
+        .o_wslides_slides_list_slide {
+            overflow-wrap: anywhere;
+        }
+    }
     .facodi-slides-catalog {
         width: calc(100% - 2rem);
         max-width: 1680px;
@@ -275,6 +331,19 @@ body.o_wslides_body .facodi-site {
 
 }
 
+
+@media (max-width: 767.98px) {
+    body.o_wslides_body .facodi-site {
+        .facodi-learning-catalogue-hero {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .facodi-index-tabs--courses {
+            justify-content: flex-start;
+        }
+    }
+}
+
 @media (min-width: 576px) {
     body.o_wslides_body .facodi-site .facodi-slides-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -358,5 +427,42 @@ body .facodi-site {
 
     .karma_required:not(.disabled):hover {
         background: var(--facodi-sun);
+    }
+}
+
+
+body.o_wslides_body .facodi-site {
+    .facodi-course-alignment-sheet {
+        background: var(--facodi-paper-warm);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        margin-top: clamp(1.5rem, 4vw, 3rem);
+        min-width: 0;
+        padding: clamp(1rem, 2.5vw, 1.5rem);
+
+        h2,
+        p,
+        li,
+        a {
+            overflow-wrap: anywhere;
+        }
+
+        ul {
+            display: grid;
+            gap: .75rem;
+        }
+
+        li {
+            background: var(--facodi-surface-sheet);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 35%, transparent);
+            border-radius: var(--facodi-radius-sm);
+            min-width: 0;
+            padding: .75rem;
+        }
+    }
+
+    .facodi-course-study-shell .facodi-open-callout {
+        margin-top: clamp(1.5rem, 4vw, 3rem);
     }
 }
