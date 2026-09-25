@@ -46,7 +46,7 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_learning_journey": "facodi-learning-entry-grid",
             "theme_facodi.s_facodi_course_showcase": "facodi-course-grid",
             "theme_facodi.s_facodi_academic_areas": "facodi-area-grid",
-            "theme_facodi.s_facodi_institutional": "facodi-open-section",
+            "theme_facodi.s_facodi_institutional": "facodi-institutional-sheet",
             "theme_facodi.s_facodi_intro": "s_facodi_intro",
             "theme_facodi.s_facodi_features": "facodi-learning-steps",
             "theme_facodi.s_facodi_community": "s_facodi_community",
@@ -304,19 +304,20 @@ class TestFacodiTheme(HttpCase):
             tree = html.fromstring(template["template"])
             sections = tree.xpath("//section[@data-snippet]")
             section_counts.append(len(sections))
-            self.assertIn(len(sections), (3, 4, 5, 7), template)
+            self.assertIn(len(sections), (3, 4, 5, 8), template)
             self.assertTrue(
                 all(
                     section.get("data-snippet").startswith("s_facodi_")
                     for section in sections
                 )
             )
-            if "facodi-hero-proof" in template["template"]:
+            if "facodi-hero-study-board" in template["template"]:
                 self.assertIsNone(home_sections, "FACODI Home template must be unique")
                 home_sections = sections
-                self.assertIn("Built for learners and contributors", template["template"])
-                self.assertIn("Find a clear starting point", template["template"])
-        self.assertEqual(section_counts.count(7), 1)
+                self.assertIn("Learn in public.", template["template"])
+                self.assertIn("A good discovery deserves company.", template["template"])
+                self.assertIn("Keep the useful thread going.", template["template"])
+        self.assertEqual(section_counts.count(8), 1)
         self.assertEqual(section_counts.count(5), 1)
         self.assertEqual(section_counts.count(4), 5)
         self.assertEqual(section_counts.count(3), 3)
