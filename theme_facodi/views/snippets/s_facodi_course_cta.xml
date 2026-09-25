@@ -7,7 +7,7 @@
             <div class="container">
                 <article class="facodi-sheet facodi-closing-sheet">
                     <div>
-                        <span class="facodi-label">Next step</span>
+                        <p class="facodi-label">Next step</p>
                         <h2>Keep the useful thread going.</h2>
                         <p class="facodi-lead">Choose a course, follow a Roadmap or return to a curricular unit when you need more context.</p>
                     </div>
