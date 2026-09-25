@@ -23,7 +23,46 @@ _LEGACY_HREFS = [
     "/contactus",
 ]
 _SUPPORTED_LANGS = ("pt_PT", "es_ES", "fr_FR")
-_CANONICAL_VIEW_XMLID = "theme_facodi.s_facodi_course_showcase"
+_NAV_COPY = {
+    "en_US": {
+        "aria": "Learning navigation",
+        "title": "Learning catalogue",
+        "roadmaps": "Roadmaps",
+        "units": "Curricular Units",
+        "courses": "Courses",
+        "contribute": "Contribute",
+    },
+    "pt_PT": {
+        "aria": "Navegação de aprendizagem",
+        "title": "Catálogo de aprendizagem",
+        "roadmaps": "Roadmaps",
+        "units": "Unidades Curriculares",
+        "courses": "Cursos",
+        "contribute": "Contribua",
+    },
+    "es_ES": {
+        "aria": "Navegación de aprendizaje",
+        "title": "Catálogo de aprendizaje",
+        "roadmaps": "Rutas",
+        "units": "Unidades Curriculares",
+        "courses": "Cursos",
+        "contribute": "Contribuye",
+    },
+    "fr_FR": {
+        "aria": "Navigation d’apprentissage",
+        "title": "Catalogue d’apprentissage",
+        "roadmaps": "Parcours",
+        "units": "Unités d’enseignement",
+        "courses": "Cours",
+        "contribute": "Contribuez",
+    },
+}
+_NAV_LINKS = (
+    ("/roadmaps", "fa fa-map", "roadmaps"),
+    ("/unidades-curriculares", "fa fa-university", "units"),
+    ("/slides", "fa fa-book", "courses"),
+    ("/contribuir/recurso", "fa fa-users", "contribute"),
+)
 
 
 def _has_class(node, class_name):
@@ -43,14 +82,30 @@ def _side_navs(root):
     ]
 
 
-def _canonical_side_nav(arch):
-    root = _parse_arch(arch)
-    nodes = _side_navs(root)
-    if len(nodes) != 1:
-        raise RuntimeError(
-            "FACODI canonical course-showcase template must contain exactly one side navigation"
+def _canonical_side_nav(lang):
+    copy_values = _NAV_COPY[lang]
+    aside = etree.Element(
+        "aside",
+        {
+            "class": "facodi-side-nav",
+            "aria-label": copy_values["aria"],
+        },
+    )
+    title = etree.SubElement(aside, "p")
+    title.text = copy_values["title"]
+    for href, icon_class, label_key in _NAV_LINKS:
+        link = etree.SubElement(aside, "a", {"href": href})
+        icon = etree.SubElement(
+            link,
+            "i",
+            {
+                "class": icon_class,
+                "aria-hidden": "true",
+                "t-translation": "off",
+            },
         )
-    return nodes[0]
+        icon.tail = copy_values[label_key]
+    return aside
 
 
 def _is_exact_legacy_nav(node):
@@ -78,13 +133,13 @@ def _replacement_side_nav(legacy, canonical):
     return replacement
 
 
-def _repair_arch(arch, canonical_arch):
+def _repair_arch(arch, lang):
     try:
         root = _parse_arch(arch)
     except (etree.XMLSyntaxError, ValueError, AttributeError):
         return arch, False
 
-    canonical_nav = _canonical_side_nav(canonical_arch)
+    canonical_nav = _canonical_side_nav(lang)
     snippets = []
     if root.get("data-snippet") in _SNIPPET_NAMES:
         snippets.append(root)
@@ -144,18 +199,6 @@ def migrate(cr, version):
     env = api.Environment(cr, SUPERUSER_ID, {})
     View = env["ir.ui.view"].with_context(active_test=False)
     field = View._fields["arch_db"]
-    canonical = env.ref(_CANONICAL_VIEW_XMLID)
-    canonical_field = canonical._fields["arch"]
-    canonical_stored = canonical_field._get_stored_translations(canonical) or {}
-
-    canonical_by_lang = {
-        "en_US": _stored_value(canonical_stored, "en_US")
-        or canonical.with_context(lang="en_US").arch,
-    }
-    for lang in _SUPPORTED_LANGS:
-        value = _stored_value(canonical_stored, lang)
-        if value:
-            canonical_by_lang[lang] = value
 
     views = View.with_context(lang="en_US").search(
         [
@@ -172,18 +215,14 @@ def migrate(cr, version):
         if not source_arch:
             continue
 
-        repaired_source, source_changed = _repair_arch(
-            source_arch,
-            canonical_by_lang["en_US"],
-        )
+        repaired_source, source_changed = _repair_arch(source_arch, "en_US")
         translated_targets = {}
         translation_changed = False
         for lang in _SUPPORTED_LANGS:
             old_arch = _stored_value(stored, lang)
-            canonical_arch = canonical_by_lang.get(lang)
-            if not old_arch or not canonical_arch:
+            if not old_arch:
                 continue
-            repaired_arch, changed = _repair_arch(old_arch, canonical_arch)
+            repaired_arch, changed = _repair_arch(old_arch, lang)
             translated_targets[lang] = repaired_arch
             translation_changed |= changed
 
