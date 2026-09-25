@@ -436,6 +436,97 @@
         }
     }
 
+
+    .s_facodi_course_showcase,
+    .facodi-course-catalogue-paper {
+        background: color-mix(in srgb, var(--facodi-paper-warm) 88%, var(--facodi-sun));
+        color: var(--facodi-ink);
+    }
+
+    .facodi-course-catalogue-paper {
+        border-block: var(--facodi-border);
+        padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+
+    .facodi-catalogue-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+
+        a {
+            background: var(--facodi-paper-warm);
+            border: 1px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-sm);
+            color: var(--facodi-ink);
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .68rem;
+            font-weight: 700;
+            padding: .5rem .7rem;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            &.is-active,
+            &:hover,
+            &:focus-visible {
+                background: var(--facodi-sun);
+                color: var(--facodi-ink);
+            }
+        }
+    }
+
+    .facodi-course-card {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        color: var(--facodi-ink);
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: var(--facodi-shadow-hover);
+            color: var(--facodi-ink);
+        }
+    }
+
+    .facodi-course-content h3 {
+        color: var(--facodi-ink);
+    }
+
+    .facodi-course-art {
+        background: color-mix(in srgb, var(--facodi-mint) 58%, var(--facodi-paper-warm));
+
+        > span {
+            border-color: var(--facodi-ink);
+            background: var(--facodi-sun);
+            color: var(--facodi-ink);
+        }
+
+        > .fa {
+            color: var(--facodi-ink);
+        }
+    }
+
+    .facodi-course-description {
+        color: var(--facodi-blue);
+    }
+
+    .facodi-catalogue-next {
+        align-items: center;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+
+        h3 {
+            margin: .75rem 0 .35rem;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
 }
 
 @media (max-width: 1100px) {
@@ -518,6 +609,11 @@
         .facodi-insights,
         .facodi-side-nav {
             padding: 1.5rem;
+        }
+
+        .facodi-catalogue-next {
+            align-items: stretch;
+            flex-direction: column;
         }
     }
 }
