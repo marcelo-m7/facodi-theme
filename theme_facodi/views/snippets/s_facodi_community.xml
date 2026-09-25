@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="facodi-community-grid">
                     <article class="facodi-note facodi-community-card">
-                        <span class="facodi-label">Community</span>
+                        <p class="facodi-label">Community</p>
                         <h2>A good discovery deserves company.</h2>
                         <p>Found a resource that made something click? Leave a useful trail for the next learner.</p>
                         <div class="facodi-actions">
@@ -16,7 +16,7 @@
                         </div>
                     </article>
                     <article class="facodi-sheet facodi-community-card">
-                        <span class="facodi-label">Open editing</span>
+                        <p class="facodi-label">Open editing</p>
                         <h2>Help make the learning trail clearer.</h2>
                         <p>Translations, context and better links can make a public resource useful to someone new.</p>
                         <a href="/contactus" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
