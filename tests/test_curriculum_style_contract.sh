@@ -19,3 +19,18 @@ grep -Fq 'overflow-wrap: anywhere' "$SCSS" \
   || fail "long D1 curriculum titles must wrap"
 
 echo "PASS: Campus Paper curriculum presentation contract"
+
+
+python3 - <<'PY'
+from pathlib import Path
+
+source = Path("theme_facodi/static/src/scss/curriculum.scss").read_text(encoding="utf-8")
+media = "@media (prefers-reduced-motion: reduce)"
+if media not in source:
+    raise SystemExit("FAIL: D1 curriculum needs a reduced-motion override")
+block = source[source.rfind(media):]
+if ".facodi-module-stack__item" not in block:
+    raise SystemExit("FAIL: D1 module cards must be covered by reduced-motion")
+if "transition: none" not in block or "transform: none" not in block:
+    raise SystemExit("FAIL: D1 module cards must disable motion under reduced-motion")
+PY
