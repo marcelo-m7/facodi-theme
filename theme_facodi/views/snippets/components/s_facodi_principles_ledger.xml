@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_principles_ledger" name="FACODI Principles Ledger">
+        <section class="facodi-principles-ledger" data-snippet="s_facodi_principles_ledger" data-name="FACODI Principles Ledger">
+            <article class="facodi-principles-ledger__item">
+                <span class="facodi-principles-ledger__index">01</span>
+                <h3>Open first</h3>
+                <p>Prefer public learning resources that people can access without a paywall.</p>
+            </article>
+            <article class="facodi-principles-ledger__item">
+                <span class="facodi-principles-ledger__index">02</span>
+                <h3>Context matters</h3>
+                <p>Connect useful resources to clear academic or learning context instead of presenting isolated links.</p>
+            </article>
+            <article class="facodi-principles-ledger__item">
+                <span class="facodi-principles-ledger__index">03</span>
+                <h3>Review before publishing</h3>
+                <p>Keep contribution separate from publication and make editorial boundaries visible.</p>
+            </article>
+        </section>
+    </template>
+</odoo>
