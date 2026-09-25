@@ -112,3 +112,10 @@ grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/learning_interfa
   || fail "D1 learning titles and metadata must wrap on narrow screens"
 
 echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"
+
+grep -Fq '@media (max-width: 767.98px)' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "D2 editorial interfaces need a phone breakpoint"
+grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "D2 editorial layouts must collapse to a shrinkable phone column"
+grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "D2 editorial copy and URLs must wrap at narrow widths"
