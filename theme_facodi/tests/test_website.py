@@ -309,6 +309,16 @@ class TestFacodiTheme(HttpCase):
             self.assertEqual(len(cover), 1)
             self.assertEqual(cover[0].get("style"), expected_style)
 
+        rendered_default_signature = "linear-gradient(120deg, #875A7B, #78516F)"
+        default_response = self.url_open(default_channel.website_url)
+        custom_response = self.url_open(custom_channel.website_url)
+        self.assertIn(rendered_default_signature, default_response.text)
+        self.assertNotIn(
+            rendered_default_signature,
+            custom_response.text,
+            "custom cover must not match the exact default-cover CSS selector",
+        )
+
         self.assertNotEqual(
             custom_channel.cover_properties,
             default_channel.cover_properties,
