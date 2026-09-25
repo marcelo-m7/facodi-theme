@@ -47,7 +47,7 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_course_showcase": "facodi-course-grid",
             "theme_facodi.s_facodi_academic_areas": "facodi-area-grid",
             "theme_facodi.s_facodi_institutional": "facodi-institutional-sheet",
-            "theme_facodi.s_facodi_intro": "s_facodi_intro",
+            "theme_facodi.s_facodi_intro": "facodi-editorial-intro-sheet",
             "theme_facodi.s_facodi_features": "facodi-learning-steps",
             "theme_facodi.s_facodi_community": "s_facodi_community",
             "theme_facodi.s_facodi_ecosystem": "facodi-ecosystem-grid",
