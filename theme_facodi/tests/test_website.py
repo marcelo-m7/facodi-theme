@@ -366,6 +366,12 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-course-grid", compiled)
         self.assertIn(".facodi-area-grid", compiled)
         self.assertIn(".facodi-ecosystem-grid", compiled)
+        self.assertIn("--facodi-ink-deep", compiled)
+        self.assertIn("--facodi-paper-warm", compiled)
+        self.assertIn(".facodi-grid-paper", compiled)
+        self.assertIn(".facodi-postit", compiled)
+        self.assertIn(".facodi-learning-card", compiled)
+        self.assertIn(".facodi-course-catalogue-paper", compiled)
         self.assertIn(".o_cookies_discrete.show", compiled)
         self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(
