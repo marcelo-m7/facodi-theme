@@ -262,6 +262,33 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("facodi-learning-catalogue-hero", response.text)
         self.assertIn("facodi-index-tabs--courses", response.text)
 
+    def test_rendered_catalogue_course_card_has_d1_hook(self):
+        from lxml import html
+
+        website = self.env["website"].get_current_website()
+        channel = self.env["slide.channel"].create(
+            {
+                "name": "FACODI D1 Card Hook Regression",
+                "website_id": website.id,
+                "website_published": True,
+                "is_published": True,
+                "visibility": "public",
+                "enroll": "public",
+            }
+        )
+        response = self.url_open("/slides")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+        cards = tree.xpath(
+            f"//a[contains(concat(' ', normalize-space(@class), ' '), "
+            f"' facodi-course-record-card ') and @href='{channel.website_url}']"
+        )
+        self.assertEqual(
+            len(cards),
+            1,
+            "D1 course card hook must survive Odoo's dynamic t-attf-class rendering",
+        )
+
     def test_rendered_course_cover_preserves_custom_style_and_default_signature(self):
         from lxml import html
 
