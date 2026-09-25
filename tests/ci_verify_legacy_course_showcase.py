@@ -21,6 +21,12 @@ EXPECTED_NAV_TEXT = {
     "es_ES": "Catálogo de aprendizaje Rutas Unidades Curriculares Cursos Contribuye",
     "fr_FR": "Catalogue d’apprentissage Parcours Unités d’enseignement Cours Contribuez",
 }
+EXPECTED_ARIA = {
+    "en_US": "Learning catalogue",
+    "pt_PT": "Catálogo de aprendizagem",
+    "es_ES": "Catálogo de aprendizaje",
+    "fr_FR": "Catalogue d’apprentissage",
+}
 
 
 def has_class(node, class_name):
@@ -94,7 +100,7 @@ assert contents[0].xpath(".//*[contains(concat(' ', normalize-space(@class), ' '
 custom_view = View.search([("key", "=", CUSTOM_NAV_KEY)], limit=1)
 assert custom_view, "custom navigation CI fixture is missing after upgrade"
 custom_arch = custom_view.with_context(lang="en_US").arch
-custom_side_nav = first_side_nav(custom_arch)
+custom_side_nav = first_legacy_side_nav(custom_arch)
 assert custom_side_nav.xpath("./a/@href") == ["/", "/slides", "/website/search", "/my/saved", "/contactus"], (
     "near-match custom navigation must remain untouched"
 )
