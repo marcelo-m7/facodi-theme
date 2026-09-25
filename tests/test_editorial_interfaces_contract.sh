@@ -54,3 +54,65 @@ if grep -R -n '<record[^>]*model="website.page"' theme_facodi --include='*.xml';
 fi
 
 echo "PASS: D2 editorial component contract"
+
+python3 - <<'PY'
+from pathlib import Path
+from xml.etree import ElementTree as ET
+
+root = ET.parse("theme_facodi/views/page_templates.xml").getroot()
+
+expected = {
+    "new_page_template_sections_facodi_about": [
+        "s_facodi_intro",
+        "s_facodi_project_story",
+        "s_facodi_principles_ledger",
+        "s_facodi_process_timeline",
+        "s_facodi_institutional",
+        "s_facodi_editorial_routes",
+        "s_facodi_cta_sheet",
+    ],
+    "new_page_template_sections_facodi_how": [
+        "s_facodi_intro",
+        "s_facodi_process_timeline",
+        "s_facodi_faq",
+        "s_facodi_editorial_routes",
+    ],
+    "new_page_template_sections_facodi_contribution": [
+        "s_facodi_intro",
+        "s_facodi_contribution_board",
+        "s_facodi_process_timeline",
+        "s_facodi_community",
+        "s_facodi_cta_sheet",
+        "s_facodi_editorial_routes",
+    ],
+    "new_page_template_sections_facodi_manifesto": [
+        "s_facodi_intro",
+        "s_facodi_principles_ledger",
+        "s_facodi_editorial_quote",
+        "s_facodi_institutional",
+        "s_facodi_editorial_routes",
+    ],
+    "new_page_template_sections_facodi_partners": [
+        "s_facodi_intro",
+        "s_facodi_ecosystem",
+        "s_facodi_paper_card",
+        "s_facodi_community",
+        "s_facodi_editorial_routes",
+    ],
+}
+
+templates = {node.get("id"): node for node in root.findall("template")}
+for template_id, sequence in expected.items():
+    template = templates.get(template_id)
+    if template is None:
+        raise SystemExit(f"FAIL: missing D2 page composition {template_id}")
+    actual = [
+        node.get("t-snippet-call", "").split(".", 1)[1]
+        for node in template.iter("t")
+        if node.get("t-snippet-call", "").startswith("theme_facodi.")
+    ]
+    if actual != sequence:
+        raise SystemExit(
+            f"FAIL: {template_id} D2 sequence mismatch: {actual!r} != {sequence!r}"
+        )
+PY
