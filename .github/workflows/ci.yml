@@ -43,6 +43,9 @@ jobs:
       - name: FACODI D2 editorial interfaces contract
         run: bash tests/test_editorial_interfaces_contract.sh
 
+      - name: D2 native Blog contract
+        run: bash tests/test_blog_contract.sh
+
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
 
