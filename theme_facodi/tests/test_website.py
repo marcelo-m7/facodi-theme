@@ -1,3 +1,5 @@
+import json
+
 from odoo.tests import HttpCase, tagged
 
 
@@ -257,6 +259,71 @@ class TestFacodiTheme(HttpCase):
         description = tree.xpath('//meta[@name="description"]/@content')
         self.assertEqual(len(description), 1)
         self.assertIn("Browse FACODI open courses", description[0])
+
+    def test_rendered_course_cover_preserves_custom_style_and_default_signature(self):
+        from lxml import html
+
+        website = self.env["website"].get_current_website()
+        Channel = self.env["slide.channel"]
+
+        default_channel = Channel.create(
+            {
+                "name": "FACODI Default Cover Regression",
+                "website_id": website.id,
+                "website_published": True,
+            }
+        )
+        default_props = json.loads(default_channel.cover_properties)
+        default_style = default_props["background_color_style"]
+        self.assertIn(
+            "linear-gradient(120deg, #875A7B, #78516F)",
+            default_style,
+        )
+
+        custom_style = (
+            "background-color: #123456; "
+            "background-image: linear-gradient(45deg, #111111, #222222);"
+        )
+        custom_props = dict(default_props, background_color_style=custom_style)
+        custom_channel = Channel.create(
+            {
+                "name": "FACODI Custom Cover Regression",
+                "website_id": website.id,
+                "website_published": True,
+                "cover_properties": json.dumps(custom_props),
+            }
+        )
+
+        for channel, expected_style in (
+            (default_channel, default_style),
+            (custom_channel, custom_style),
+        ):
+            response = self.url_open(channel.website_url)
+            self.assertEqual(response.status_code, 200)
+            tree = html.fromstring(response.text)
+            cover = tree.xpath(
+                "//div[contains(concat(' ', normalize-space(@class), ' '), "
+                "' o_record_cover_container ') "
+                f"and @data-res-model='slide.channel' and @data-res-id='{channel.id}']"
+            )
+            self.assertEqual(len(cover), 1)
+            self.assertEqual(cover[0].get("style"), expected_style)
+
+        rendered_default_signature = "linear-gradient(120deg, #875A7B, #78516F)"
+        default_response = self.url_open(default_channel.website_url)
+        custom_response = self.url_open(custom_channel.website_url)
+        self.assertIn(rendered_default_signature, default_response.text)
+        self.assertNotIn(
+            rendered_default_signature,
+            custom_response.text,
+            "custom cover must not match the exact default-cover CSS selector",
+        )
+
+        self.assertNotEqual(
+            custom_channel.cover_properties,
+            default_channel.cover_properties,
+            "editor-selected cover properties must remain distinct from Odoo defaults",
+        )
 
     def test_native_menu_preserves_nested_and_external_links(self):
         from lxml import html
