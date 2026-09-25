@@ -56,42 +56,47 @@
         }
     }
 }
-    background: var(--facodi-paper);
+    background: var(--facodi-surface-page);
     color: var(--facodi-ink);
 
     .facodi-header {
-        background: var(--facodi-paper);
-        border-bottom: 2px solid var(--facodi-ink);
+        background: color-mix(in srgb, var(--facodi-paper-warm) 94%, white);
+        border-bottom: var(--facodi-border);
         position: relative;
         z-index: 10;
 
         .facodi-nav-shell {
             max-width: 90rem;
-            min-height: 4.5rem;
-            padding: 0 2rem;
+            min-height: 4.25rem;
+            padding: 0 clamp(1rem, 3vw, 2rem);
         }
 
         .nav-link {
+            border-radius: var(--facodi-radius-sm);
             color: var(--facodi-ink);
             font-size: .9rem;
             font-weight: 600;
             padding: .5rem .8rem !important;
 
-            &:hover {
-                color: var(--facodi-blue);
+            &:hover,
+            &:focus-visible,
+            &.active {
+                background: var(--facodi-sun);
+                color: var(--facodi-ink);
             }
         }
     }
 
     .facodi-dropdown-menu {
-        border: 2px solid var(--facodi-ink);
-        border-radius: .5rem;
-        box-shadow: 3px 3px 0 var(--facodi-ink);
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
     }
 
     .o_header_mobile {
-        background: var(--facodi-paper);
-        border-bottom: 2px solid var(--facodi-ink);
+        background: var(--facodi-paper-warm);
+        border-bottom: var(--facodi-border);
 
         > .o_main_nav > button[data-bs-target="#top_menu_collapse_mobile"] {
             align-items: center;
@@ -122,9 +127,9 @@
     }
 
     .facodi-footer {
-        background: var(--facodi-ink);
-        border-top: 2px solid var(--facodi-ink);
-        color: #fff;
+        background: var(--facodi-ink-deep);
+        border-top: .35rem solid var(--facodi-sun);
+        color: var(--facodi-white);
 
         .facodi-footer-inner {
             display: grid;
@@ -138,7 +143,12 @@
         .facodi-wordmark,
         .facodi-footer-links a,
         .facodi-footer-meta a {
-            color: #fff;
+            color: var(--facodi-white);
+        }
+
+        .facodi-footer-note {
+            border-left: 3px solid var(--facodi-sun);
+            padding-left: 1rem;
         }
 
         p {
@@ -231,9 +241,8 @@
     .navbar .nav-link:focus-visible,
     .btn:focus-visible,
     a:focus-visible {
-        outline: 3px solid var(--facodi-ink);
-        box-shadow: 0 0 0 6px #fff;
-        outline-offset: 3px;
+        outline: 0;
+        box-shadow: var(--facodi-focus-ring);
     }
 }
 
@@ -254,4 +263,24 @@
             text-align: left;
         }
     }
+}
+
+
+.facodi-site .form-control,
+.facodi-site .form-select {
+    background-color: var(--facodi-surface-sheet);
+    border: 1px solid color-mix(in srgb, var(--facodi-ink) 72%, transparent);
+    border-radius: var(--facodi-radius);
+    color: var(--facodi-ink);
+    min-height: 2.75rem;
+
+    &:focus {
+        border-color: var(--facodi-ink);
+        box-shadow: var(--facodi-focus-ring);
+    }
+}
+
+.facodi-site :is(a, button, input, select, textarea):focus-visible {
+    outline: 0;
+    box-shadow: var(--facodi-focus-ring);
 }
