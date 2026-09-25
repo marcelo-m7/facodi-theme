@@ -244,6 +244,8 @@ msgstr "Estudia con recorridos claros, aporta recursos revisados y convierte tu 
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 msgid "Contact FACODI"
 msgstr "Contactar con FACODI"
 
@@ -295,11 +297,14 @@ msgstr "El conocimiento crece con tu participación."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_faq
 msgid "Share an idea, propose a resource or talk to us about ways to collaborate."
 msgstr "Comparte una idea, propón un recurso o habla con nosotros sobre formas de colaborar."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_faq
 msgid "I want to contribute"
 msgstr "Quiero contribuir"
 
