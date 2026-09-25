@@ -404,7 +404,7 @@
             margin: 0 0 .75rem;
         }
 
-        p {
+        > p:not(.facodi-label) {
             flex: 1 1 auto;
             overflow-wrap: anywhere;
         }
