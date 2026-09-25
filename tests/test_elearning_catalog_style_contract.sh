@@ -40,4 +40,21 @@ for breakpoint in 576 992 1280 1600; do
     || fail "missing responsive catalogue breakpoint: ${breakpoint}px"
 done
 
+
+
+python3 - <<'PY'
+from pathlib import Path
+
+source = Path("theme_facodi/static/src/scss/website_slides.scss").read_text(encoding="utf-8")
+selector = '.o_record_cover_container[data-res-model="slide.channel"][style*="linear-gradient(120deg, #875A7B, #78516F)"]'
+start = source.find(selector)
+if start < 0:
+    raise SystemExit("FAIL: exact default-cover override missing")
+block = source[start:]
+if ".o_wslides_course_header" not in block or ".o_wslides_lesson_header" not in block:
+    raise SystemExit("FAIL: light default cover must explicitly restyle course and lesson headings")
+if "color: var(--facodi-ink)" not in block:
+    raise SystemExit("FAIL: light default cover headings must use dark ink text")
+PY
+
 echo "PASS: responsive eLearning catalogue style contract"
