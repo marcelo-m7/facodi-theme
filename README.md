@@ -244,10 +244,12 @@ Run the fast repository contracts:
 
 ```bash
 bash tests/test_module_contract.sh
+bash tests/test_campus_paper_contract.sh
 bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
+bash tests/test_mobile_interaction_contract.sh
 ```
 
 GitHub Actions then uses PostgreSQL 16 and the official `odoo:19.0` image to:
