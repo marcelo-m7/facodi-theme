@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_contact_sheet" name="FACODI Contact Sheet">
+        <section class="facodi-contact-sheet" data-snippet="s_facodi_contact_sheet" data-name="FACODI Contact Sheet">
+            <div class="facodi-contact-sheet__context">
+                <p class="facodi-label">Write to the campus</p>
+                <h2>Choose the shortest path to the right conversation.</h2>
+                <p>Use Contact for collaboration, project questions, or general enquiries. If you are suggesting a learning resource, the guided contribution route keeps the review context together.</p>
+                <a class="facodi-text-link" href="/contribuir/recurso">Suggest a resource</a>
+            </div>
+            <div class="facodi-contact-sheet__form-slot">
+                <p class="facodi-label">Contact form area</p>
+                <h3>Keep the native Odoo form here.</h3>
+                <p>This editable column is designed to frame the Website contact form without replacing its submission behavior.</p>
+            </div>
+        </section>
+    </template>
+</odoo>
