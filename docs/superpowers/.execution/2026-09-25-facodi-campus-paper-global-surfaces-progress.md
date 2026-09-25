@@ -9,3 +9,5 @@ Ruling: CI invocation for new static contracts is moved forward to the task that
 Task 1: complete (RED run 36174129901: global shell contract failed on missing facodi-footer-campus; GREEN run 36174295989: full Odoo 19 Theme CI success, including install/upgrade and all fast contracts).
 
 Task 2: Ruling: the Phase A compiled-asset assertion pinned the old ink/blue default Odoo course-cover replacement, but Phase B explicitly changes only that exact default selector to paper/mint while preserving editor-selected covers. Updated the assertion to paper/mint. Cost if wrong: a regression could alter the intended default visual, while custom-cover safety remains separately constrained by the exact inline-gradient selector.
+
+Task 2: complete (RED run 36174650646: eLearning contract failed because shared Campus Paper shadow was absent; first GREEN attempt run 36174770032 surfaced the intentional old default-cover assertion; ruling applied; final GREEN run 36175122692: full Odoo 19 Theme CI success).
