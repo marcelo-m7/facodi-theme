@@ -166,30 +166,35 @@ class TestFacodiTheme(HttpCase):
         )
         self.assertIn("facodi-footer", response.text)
 
-    def test_homepage_renders_campus_paper_hero(self):
-        from lxml import html
+    def test_campus_paper_hero_snippet_is_available_without_overwriting_homepage(self):
+        hero = self.env["ir.ui.view"].search(
+            [
+                ("key", "=", "theme_facodi.s_facodi_hero"),
+                ("website_id", "!=", False),
+            ],
+            limit=1,
+        )
+        self.assertTrue(hero)
+        self.assertIn("facodi-hero-study-board", hero.arch_db)
+        self.assertIn("Learn in public.", hero.arch_db)
+        self.assertNotIn("real-time", hero.arch_db.lower())
 
-        response = self.url_open("/")
-        self.assertEqual(response.status_code, 200)
-        tree = html.fromstring(response.text)
-        hero = tree.xpath("//section[contains(concat(' ', normalize-space(@class), ' '), ' facodi-hero ')]")
-        self.assertEqual(len(hero), 1)
-        self.assertTrue(hero[0].xpath(".//*[contains(@class, 'facodi-hero-study-board')]"))
-        self.assertIn("Learn in public.", hero[0].text_content())
-        self.assertNotIn("real-time", hero[0].text_content().lower())
-
-    def test_homepage_learning_entries_keep_canonical_routes(self):
-        from lxml import html
-
-        tree = html.fromstring(self.url_open("/").text)
+    def test_learning_entry_snippet_keeps_canonical_routes(self):
+        journey = self.env["ir.ui.view"].search(
+            [
+                ("key", "=", "theme_facodi.s_facodi_learning_journey"),
+                ("website_id", "!=", False),
+            ],
+            limit=1,
+        )
+        self.assertTrue(journey)
         for route, label in (
             ("/slides", "Courses"),
             ("/roadmaps", "Roadmaps"),
             ("/unidades-curriculares", "Curricular units"),
         ):
-            links = tree.xpath(f"//a[@href='{route}' and contains(@class, 'facodi-learning-card')]")
-            self.assertEqual(len(links), 1, (route, label))
-            self.assertIn(label, links[0].text_content())
+            self.assertIn(f'href="{route}"', journey.arch_db)
+            self.assertIn(label, journey.arch_db)
 
     def test_homepage_metadata_uses_public_canonical_and_localized_descriptions(self):
         from lxml import html
