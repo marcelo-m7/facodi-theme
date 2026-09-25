@@ -10,7 +10,9 @@
         overflow: hidden;
         padding: clamp(3.5rem, 7vw, 7rem) 8vw;
 
-        > * { min-width: 0; }
+        > * {
+            min-width: 0;
+        }
 
         h1 {
             color: var(--facodi-ink-deep);
@@ -119,18 +121,116 @@
         }
     }
 
-        .facodi-button {
-            margin-top: 1.125rem;
-        }
-    }
+    .facodi-learning-entry-grid,
+    .facodi-learning-steps {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-        .facodi-text-link {
+    .facodi-learning-card {
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        color: var(--facodi-ink);
+        display: flex;
+        flex-direction: column;
+        min-height: 17rem;
+        min-width: 0;
+        padding: 1.5rem;
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+
+        > .fa {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 .75rem;
+        }
+
+        h3 {
+            font-size: clamp(1.8rem, 3vw, 2.7rem);
+            line-height: 1;
+            margin: 0 0 .75rem;
+        }
+
+        > p:not(.facodi-label) {
+            flex: 1 1 auto;
+            overflow-wrap: anywhere;
+        }
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: var(--facodi-shadow-hover);
+            color: var(--facodi-ink);
+            transform: translate(2px, 2px);
+        }
+    }
+
+    .facodi-learning-card-mint {
+        background: var(--facodi-mint);
+    }
+
+    .facodi-learning-card-sky {
+        background: color-mix(in srgb, var(--facodi-sky) 42%, white);
+    }
+
+    .facodi-learning-card-sun {
+        background: var(--facodi-sun);
+    }
+
+    .facodi-learning-step {
+        min-height: 14rem;
+        min-width: 0;
+        padding: 1.5rem;
+
+        h3 {
+            font-size: 1.6rem;
+            margin: 1.25rem 0 .75rem;
+        }
+
+        p {
+            margin: 0;
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .s_facodi_course_showcase,
+    .facodi-course-catalogue-paper {
+        background: color-mix(in srgb, var(--facodi-paper-warm) 88%, var(--facodi-sun));
+        color: var(--facodi-ink);
+    }
+
+    .s_facodi_course_showcase {
+        border-block: var(--facodi-border);
+        padding: 0;
+    }
+
+    .facodi-course-catalogue-paper {
+        padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+
+    .facodi-catalogue-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+
+        a {
+            background: var(--facodi-paper-warm);
+            border: 1px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-sm);
+            color: var(--facodi-ink);
             font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
             font-size: .68rem;
             font-weight: 700;
+            padding: .5rem .7rem;
             text-decoration: none;
             text-transform: uppercase;
+
+            &.is-active,
+            &:hover,
+            &:focus-visible {
+                background: var(--facodi-sun);
+                color: var(--facodi-ink);
+            }
         }
     }
 
@@ -144,11 +244,33 @@
             padding: .55rem;
         }
     }
+
+    .facodi-course-card {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        color: var(--facodi-ink);
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        overflow: hidden;
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+        width: 100%;
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: var(--facodi-shadow-hover);
+            color: var(--facodi-ink);
+            transform: translate(2px, 2px);
+        }
     }
 
     .facodi-course-art {
         align-items: center;
         aspect-ratio: 16 / 7;
+        background: color-mix(in srgb, var(--facodi-mint) 58%, var(--facodi-paper-warm));
         display: flex;
         justify-content: space-between;
         overflow: hidden;
@@ -162,8 +284,10 @@
 
         > span {
             align-items: center;
-            border: 2px solid #fff;
+            background: var(--facodi-sun);
+            border: 2px solid var(--facodi-ink);
             border-radius: 50%;
+            color: var(--facodi-ink);
             display: inline-flex;
             font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
             font-size: .72rem;
@@ -174,6 +298,7 @@
         }
 
         > .fa {
+            color: var(--facodi-ink);
             font-size: 2rem;
         }
     }
@@ -185,7 +310,7 @@
         padding: 1rem 1.1rem 1.15rem;
 
         h3 {
-            color: #fff;
+            color: var(--facodi-ink);
             font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
             font-size: 1.05rem;
             font-weight: 700;
@@ -231,152 +356,6 @@
         text-transform: uppercase;
     }
 
-    .facodi-learning-entry-grid,
-    .facodi-learning-steps {
-        display: grid;
-        gap: 1.25rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .facodi-learning-card {
-        border: var(--facodi-border);
-        border-radius: var(--facodi-radius);
-        box-shadow: var(--facodi-shadow);
-        color: var(--facodi-ink);
-        display: flex;
-        flex-direction: column;
-        min-height: 17rem;
-        min-width: 0;
-        padding: 1.5rem;
-        text-decoration: none;
-        transition: transform 160ms ease, box-shadow 160ms ease;
-
-        > .fa {
-            font-size: 1.5rem;
-            margin: 1.5rem 0 .75rem;
-        }
-
-        h3 {
-            font-size: clamp(1.8rem, 3vw, 2.7rem);
-            line-height: 1;
-            margin: 0 0 .75rem;
-        }
-
-        > p:not(.facodi-label) {
-            flex: 1 1 auto;
-            overflow-wrap: anywhere;
-        }
-
-        &:hover,
-        &:focus-visible {
-            box-shadow: var(--facodi-shadow-hover);
-            color: var(--facodi-ink);
-            transform: translate(2px, 2px);
-        }
-    }
-
-    .facodi-learning-card-mint { background: var(--facodi-mint); }
-    .facodi-learning-card-sky { background: color-mix(in srgb, var(--facodi-sky) 42%, white); }
-    .facodi-learning-card-sun { background: var(--facodi-sun); }
-
-    .facodi-learning-step {
-        min-height: 14rem;
-        min-width: 0;
-        padding: 1.5rem;
-
-        h3 {
-            font-size: 1.6rem;
-            margin: 1.25rem 0 .75rem;
-        }
-
-        p {
-            margin: 0;
-            overflow-wrap: anywhere;
-        }
-    }
-
-
-    .s_facodi_course_showcase,
-    .facodi-course-catalogue-paper {
-        background: color-mix(in srgb, var(--facodi-paper-warm) 88%, var(--facodi-sun));
-        color: var(--facodi-ink);
-    }
-
-    .facodi-course-catalogue-paper {
-        border-block: var(--facodi-border);
-        padding: clamp(3rem, 6vw, 5rem) 0;
-    }
-
-    .facodi-catalogue-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: .5rem;
-
-        a {
-            background: var(--facodi-paper-warm);
-            border: 1px solid var(--facodi-ink);
-            border-radius: var(--facodi-radius-sm);
-            color: var(--facodi-ink);
-            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-            font-size: .68rem;
-            font-weight: 700;
-            padding: .5rem .7rem;
-            text-decoration: none;
-            text-transform: uppercase;
-
-            &.is-active,
-            &:hover,
-            &:focus-visible {
-                background: var(--facodi-sun);
-                color: var(--facodi-ink);
-            }
-        }
-    }
-
-    .facodi-course-card {
-        background: var(--facodi-surface-sheet);
-        border: var(--facodi-border);
-        border-radius: var(--facodi-radius);
-        box-shadow: var(--facodi-shadow);
-        color: var(--facodi-ink);
-        display: flex;
-        flex: 1 1 auto;
-        flex-direction: column;
-        overflow: hidden;
-        text-decoration: none;
-        transition: transform 160ms ease, box-shadow 160ms ease;
-        width: 100%;
-
-        &:hover,
-        &:focus-visible {
-            box-shadow: var(--facodi-shadow-hover);
-            color: var(--facodi-ink);
-            transform: translate(2px, 2px);
-        }
-    }
-
-    .facodi-course-content h3 {
-        color: var(--facodi-ink);
-    }
-
-    .facodi-course-art {
-        background: color-mix(in srgb, var(--facodi-mint) 58%, var(--facodi-paper-warm));
-
-        > span {
-            border-color: var(--facodi-ink);
-            background: var(--facodi-sun);
-            color: var(--facodi-ink);
-        }
-
-        > .fa {
-            color: var(--facodi-ink);
-        }
-    }
-
-    .facodi-course-description {
-        color: var(--facodi-blue);
-    }
-
     .facodi-catalogue-next {
         align-items: center;
         display: flex;
@@ -393,7 +372,6 @@
             margin: 0;
         }
     }
-
 
     .facodi-community-grid {
         display: grid;
@@ -434,7 +412,6 @@
             overflow-wrap: anywhere;
         }
     }
-
 }
 
 @media (max-width: 1100px) {
@@ -521,10 +498,6 @@
             &:hover {
                 transform: none;
             }
-        }
-
-        .facodi-learning-card:hover {
-            transform: none;
         }
     }
 }
