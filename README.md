@@ -4,7 +4,7 @@
 FACODI Website and eLearning presentation.
 
 The public Website at [edu-open2.odoo.com](https://edu-open2.odoo.com) is the
-visual source of truth. Release `19.0.5.0.3` preserves that identity while
+visual source of truth. Release `19.0.6.0.0` preserves that identity while
 keeping navigation, Website Builder and eLearning behavior on standard Odoo 19
 mechanisms. It adds responsive course presentation and content-derived catalogue
 visuals without introducing a parallel course system.
@@ -28,6 +28,21 @@ The visual language uses strong ink borders, offset shadows, geometric cards,
 bright calls to action and responsive layouts. Font stacks prefer Space
 Grotesk, Inter and JetBrains Mono when already available and fall back to
 system fonts without making remote font requests.
+
+## Campus Paper visual system
+
+Release `19.0.6.0.0` introduces the FACODI Campus Paper presentation
+foundation. It translates the project’s study-notebook identity into reusable
+Odoo-native primitives: warm paper surfaces, graph-paper backgrounds, dark ink
+outlines, lime highlighter accents, mint/cyan study notes, compact mono labels,
+and small offset shadows.
+
+The homepage is composed from editable FACODI Website Builder snippets rather
+than copied static landing-page HTML. Published course cards remain backed by
+the existing Odoo `website.snippet.filter` + `slide.channel` flow, so the
+visual refactor does not create a parallel catalogue or hard-code fake course
+data. The theme makes no remote font requests; its typography continues to use
+Odoo-compatible local/system font stacks.
 
 ## What the addon provides
 
