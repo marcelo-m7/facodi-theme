@@ -13,6 +13,19 @@ for anchor in 'Learn in public.' 'Open higher education, one useful next step at
 done
 if grep -Fq 'facodi-live-dot' "$HERO"; then fail "hero must not imply live status without real data"; fi
 
+JOURNEY="theme_facodi/views/snippets/s_facodi_learning_journey.xml"
+FEATURES="theme_facodi/views/snippets/s_facodi_features.xml"
+
+for anchor in 'Where do you want to begin?' 'Courses' 'Roadmaps' 'Curricular units' 'facodi-learning-entry-grid'; do
+  grep -Fq "$anchor" "$JOURNEY" || fail "learning entry section missing: $anchor"
+done
+for route in '/slides' '/roadmaps' '/unidades-curriculares'; do
+  grep -Fq "href=\"$route\"" "$JOURNEY" || fail "learning entry route missing: $route"
+done
+for anchor in 'From curiosity to the next click.' 'Choose a question' 'Study at your pace' 'Follow the next useful thread' 'facodi-learning-steps'; do
+  grep -Fq "$anchor" "$FEATURES" || fail "learning steps missing: $anchor"
+done
+
 AREAS="theme_facodi/views/snippets/s_facodi_academic_areas.xml"
 ECOSYSTEM="theme_facodi/views/snippets/s_facodi_ecosystem.xml"
 REGISTRY="theme_facodi/views/snippets/snippets.xml"
