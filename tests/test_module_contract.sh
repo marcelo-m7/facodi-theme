@@ -253,7 +253,7 @@ PY
 grep -Fq '.o_header_mobile' theme_facodi/static/src/scss/website.scss \
   || fail "theme must style the standard Odoo mobile header instead of replacing it"
 
-for class_name in facodi-hero facodi-hero-board facodi-stat-card facodi-open-section; do
+for class_name in facodi-hero facodi-hero-study-board facodi-learning-entry-grid facodi-institutional-sheet; do
   grep -R -Fq "$class_name" theme_facodi/views/snippets --include='*.xml' \
     || fail "live FACODI snippet class missing: $class_name"
 done
