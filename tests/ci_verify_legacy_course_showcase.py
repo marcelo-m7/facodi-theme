@@ -39,7 +39,11 @@ assert view, "legacy course showcase CI fixture is missing after upgrade"
 canonical = env.ref("theme_facodi.s_facodi_course_showcase")
 for lang, marker in EXPECTED_MARKERS.items():
     arch = view.with_context(lang=lang).arch
-    assert marker in arch, (\n        f"{lang}: upgrade must preserve editor content; rendered arch={arch!r}; " +\n        f"stored={view._fields[\'arch_db\']._get_stored_translations(view)!r}"\n    )\n    side_nav = first_side_nav(arch)
+    assert marker in arch, (
+        f"{lang}: upgrade must preserve editor content; rendered arch={arch!r}; "
+        f"stored={view._fields['arch_db']._get_stored_translations(view)!r}"
+    )
+    side_nav = first_side_nav(arch)
     hrefs = side_nav.xpath("./a/@href")
     assert hrefs == EXPECTED_HREFS, f"{lang}: expected canonical FACODI navigation, got {hrefs}"
     assert "/web/login" not in hrefs
