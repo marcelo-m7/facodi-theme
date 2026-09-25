@@ -1,3 +1,5 @@
+import json
+
 from odoo.tests import HttpCase, tagged
 
 
