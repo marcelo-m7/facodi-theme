@@ -119,110 +119,11 @@
         }
     }
 
-    .facodi-stat-row {
-        display: grid;
-        gap: .875rem;
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .facodi-open-section {
-        align-items: end;
-        background: var(--facodi-cyan);
-        border-bottom: 2px solid var(--facodi-ink);
-        border-top: 2px solid var(--facodi-ink);
-        display: grid;
-        gap: 3.125rem;
-        grid-template-columns: 1.2fr .8fr;
-        margin: 0 auto;
-        max-width: 90rem;
-        padding: 5rem 8vw;
-
-        h2 {
-            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
-            font-size: clamp(2.1rem, 3.8vw, 4rem);
-            font-weight: 700;
-            letter-spacing: 0;
-            line-height: .98;
-            margin: 0;
-            text-wrap: balance;
-        }
-    }
-
-    .facodi-open-actions {
-        p {
-            font-size: 1.02rem;
-            line-height: 1.55;
-            max-width: 30rem;
-        }
-
         .facodi-button {
             margin-top: 1.125rem;
         }
     }
-
-    .s_facodi_course_showcase {
-        background: var(--facodi-ink);
-        border-bottom: 2px solid var(--facodi-ink);
-        border-top: 2px solid var(--facodi-ink);
-        color: #fff;
-        padding: 0;
     }
-
-    .facodi-dashboard {
-        display: grid;
-        grid-template-columns: 12.5rem minmax(0, 1fr) 18.75rem;
-        margin: 0 auto;
-        max-width: 90rem;
-        min-height: 43rem;
-    }
-
-    .facodi-side-nav,
-    .facodi-dashboard-main,
-    .facodi-insights {
-        min-width: 0;
-        padding: 2rem 1.5rem;
-    }
-
-    .facodi-side-nav {
-        border-right: 1px solid rgba(255, 255, 255, .45);
-
-        > p {
-            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-            font-size: .62rem;
-            font-weight: 700;
-            letter-spacing: .04em;
-            margin: 0 0 1rem;
-            text-transform: uppercase;
-        }
-
-        > a {
-            align-items: center;
-            border-radius: .5rem;
-            color: #fff;
-            display: flex;
-            font-size: .84rem;
-            font-weight: 700;
-            gap: .75rem;
-            margin-bottom: .35rem;
-            padding: .7rem .75rem;
-            text-decoration: none;
-
-            &:hover,
-            &.is-active {
-                background: var(--facodi-mint);
-                color: var(--facodi-ink);
-            }
-        }
-    }
-
-    .facodi-dashboard-main {
-        background: rgba(57, 121, 200, .07);
-        padding: 2.75rem 2rem;
-
-        .facodi-kicker,
-        .facodi-text-link {
-            color: var(--facodi-cyan);
-        }
 
         .facodi-text-link {
             font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
@@ -243,26 +144,6 @@
             padding: .55rem;
         }
     }
-
-    .facodi-course-card {
-        background: #2A415F;
-        border: 1px solid #314D70;
-        border-radius: .7rem;
-        box-shadow: 3px 3px 0 #DCE5F0;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-        overflow: hidden;
-        text-decoration: none;
-        transition: transform 160ms ease, box-shadow 160ms ease;
-        width: 100%;
-
-        &:hover {
-            box-shadow: 1px 1px 0 #DCE5F0;
-            color: #fff;
-            transform: translate(2px, 2px);
-        }
     }
 
     .facodi-course-art {
@@ -340,29 +221,6 @@
         justify-content: space-between;
         margin-top: auto;
         text-transform: uppercase;
-    }
-
-    .facodi-insights {
-        border-left: 1px solid rgba(255, 255, 255, .16);
-    }
-
-    .facodi-roadmap-card {
-        background: #2A415F;
-        border: 1px solid #314D70;
-        border-radius: .7rem;
-        box-shadow: 3px 3px 0 #DCE5F0;
-        padding: 1.35rem;
-
-        h3 {
-            color: #fff;
-            font-size: 1.15rem;
-            margin: 1.1rem 0 .7rem;
-        }
-
-        p {
-            color: #E2E8F0;
-            line-height: 1.55;
-        }
     }
 
     .facodi-panel-label {
@@ -481,11 +339,19 @@
         border-radius: var(--facodi-radius);
         box-shadow: var(--facodi-shadow);
         color: var(--facodi-ink);
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        overflow: hidden;
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+        width: 100%;
 
         &:hover,
         &:focus-visible {
             box-shadow: var(--facodi-shadow-hover);
             color: var(--facodi-ink);
+            transform: translate(2px, 2px);
         }
     }
 
@@ -573,26 +439,7 @@
 
 @media (max-width: 1100px) {
     .facodi-site {
-        .facodi-hero,
-        .facodi-open-section {
-            grid-template-columns: 1fr;
-        }
-
-        .facodi-hero-board {
-            max-width: 37.5rem;
-            width: 100%;
-        }
-
-        .facodi-dashboard {
-            grid-template-columns: 11rem minmax(0, 1fr);
-        }
-
-        .facodi-insights {
-            border-left: 0;
-            border-top: 1px solid rgba(255, 255, 255, .16);
-            grid-column: 1 / -1;
-        }
-    }
+        .facodi-hero,    }
 }
 
 @media (max-width: 767.98px) {
@@ -641,17 +488,8 @@
             flex-direction: column;
         }
 
-        .facodi-stat-row,
         .facodi-learning-entry-grid,
         .facodi-learning-steps {
-            grid-template-columns: minmax(0, 1fr);
-        }
-
-        .facodi-open-section {
-            padding: 3.5rem 1.5rem;
-        }
-
-        .facodi-community-grid {
             grid-template-columns: minmax(0, 1fr);
         }
 
@@ -661,37 +499,8 @@
             flex-direction: column;
         }
 
-        .facodi-dashboard {
-            grid-template-columns: 1fr;
-        }
-
-        .facodi-side-nav {
-            border-bottom: 1px solid rgba(255, 255, 255, .35);
-            border-right: 0;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: .3rem;
-
-            > p {
-                grid-column: 1 / -1;
-            }
-
-            > a {
-                margin: 0;
-            }
-        }
-
         .facodi-dashboard-main,
-        .facodi-insights,
-        .facodi-side-nav {
-            padding: 1.5rem;
-        }
-
-        .facodi-catalogue-next {
-            align-items: stretch;
-            flex-direction: column;
-        }
-    }
+        .facodi-insights,    }
 }
 
 @media (prefers-reduced-motion: reduce) {
