@@ -22,13 +22,17 @@ done
 
 for hook in \
   'facodi-blog-index' \
-  'facodi-bulletin-hero' \
   'facodi-bulletin-card' \
   'facodi-blog-article' \
   'facodi-blog-prose'; do
   grep -Fq "$hook" "$XML" || fail "missing D2 Blog QWeb hook: $hook"
   grep -Fq ".$hook" "$SCSS" || fail "missing D2 Blog style: .$hook"
 done
+
+grep -Fq 't-call="theme_facodi.s_facodi_bulletin_hero"' "$XML" \
+  || fail "Blog index must reuse the FACODI bulletin hero snippet"
+grep -Fq '.facodi-bulletin-hero' "$SCSS" \
+  || fail "missing D2 Blog bulletin hero style"
 
 if grep -Eiq 'request\.env|\.search\(|\.browse\(|\.sudo\(' "$XML"; then
   fail "Blog presentation QWeb must not query ORM directly"
