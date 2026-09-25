@@ -355,3 +355,15 @@
         }
     }
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .facodi-module-stack__item,
+        .facodi-module-stack__item:hover,
+        .facodi-module-stack__item:focus-visible {
+            transition: none;
+            transform: none;
+        }
+    }
+}
