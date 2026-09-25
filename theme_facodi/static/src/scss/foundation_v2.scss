@@ -12,9 +12,9 @@
     }
 
     .facodi-area-card {
-        border: 2px solid var(--facodi-ink);
-        border-radius: .7rem;
-        box-shadow: 4px 4px 0 var(--facodi-ink);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
         color: var(--facodi-ink);
         display: flex;
         flex-direction: column;
@@ -77,8 +77,8 @@
     }
 
     .facodi-ecosystem-card {
-        border: 1px solid rgba(255, 255, 255, .45);
-        border-radius: .7rem;
+        border: 1px solid color-mix(in srgb, var(--facodi-white) 54%, transparent);
+        border-radius: var(--facodi-radius);
         display: flex;
         flex-direction: column;
         overflow-wrap: anywhere;
