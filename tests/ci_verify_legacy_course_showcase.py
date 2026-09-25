@@ -36,6 +36,23 @@ View = env["ir.ui.view"].with_context(active_test=False)
 view = View.search([("key", "=", FIXTURE_KEY)], limit=1)
 assert view, "legacy course showcase CI fixture is missing after upgrade"
 
+stored_debug = view._fields["arch_db"]._get_stored_translations(view) or {}
+print("FACODI_FIXTURE_DEBUG", {
+    "id": view.id,
+    "key": view.key,
+    "website_id": view.website_id.id,
+    "arch_updated": view.arch_updated,
+    "arch_prev": view.arch_prev,
+    "stored_languages": sorted(stored_debug),
+    "stored_values": stored_debug,
+})
+for debug_lang in ("en_US", "pt_PT", "es_ES", "fr_FR"):
+    print(
+        "FACODI_FIXTURE_LANG_DEBUG",
+        debug_lang,
+        view.with_context(lang=debug_lang).arch,
+    )
+
 canonical = env.ref("theme_facodi.s_facodi_course_showcase")
 for lang, marker in EXPECTED_MARKERS.items():
     arch = view.with_context(lang=lang).arch
