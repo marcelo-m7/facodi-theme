@@ -324,6 +324,26 @@ expected = {
     's_facodi_editorial_pathway',
     's_facodi_editorial_routes',
 }
+component_ids = {
+    's_facodi_highlighter_heading',
+    's_facodi_paper_card',
+    's_facodi_sticky_note',
+    's_facodi_folder_tabs',
+    's_facodi_filter_pills',
+    's_facodi_course_card',
+    's_facodi_study_steps',
+    's_facodi_cta_sheet',
+    's_facodi_metadata_row',
+    's_facodi_highlighter_callout',
+    's_facodi_project_story',
+    's_facodi_principles_ledger',
+    's_facodi_process_timeline',
+    's_facodi_contribution_board',
+    's_facodi_bulletin_hero',
+    's_facodi_editorial_quote',
+    's_facodi_contact_sheet',
+    's_facodi_policy_document',
+}
 assert blocks == expected, (blocks, expected)
 
 pages = ET.parse('theme_facodi/views/page_templates.xml').getroot()
@@ -337,7 +357,7 @@ for page in compositions:
         key = node.get('t-snippet-call')
         if key:
             assert key.startswith('theme_facodi.')
-            assert key.split('.', 1)[1] in expected
+            assert key.split('.', 1)[1] in expected | component_ids
 CHECK
 
 echo "PASS: theme module contract"
