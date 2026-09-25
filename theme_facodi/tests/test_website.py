@@ -225,6 +225,22 @@ class TestFacodiTheme(HttpCase):
             homepage.with_context(lang="en_US").website_meta_description,
         )
 
+    def test_campus_paper_shell_keeps_native_header_footer_and_forms(self):
+        from lxml import html
+
+        tree = html.fromstring(self.url_open("/").text)
+        self.assertTrue(tree.xpath("//header//*[contains(@class, 'facodi-nav-shell')]"))
+        self.assertTrue(
+            tree.xpath("//*[@id='footer' and contains(@class, 'facodi-footer-campus')]")
+        )
+        self.assertTrue(
+            tree.xpath("//*[@id='footer']//*[contains(@class, 'facodi-footer-note')]")
+        )
+
+        login = self.url_open("/web/login")
+        self.assertEqual(login.status_code, 200)
+        self.assertIn("form-control", login.text)
+
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
