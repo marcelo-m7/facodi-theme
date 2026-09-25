@@ -203,6 +203,92 @@ body.o_wslides_body .facodi-site {
     .progress-bar {
         background-color: var(--facodi-blue);
     }
+
+    .o_wslides_course_sidebar,
+    .o_wslides_slide_list_category_header {
+        border: 2px solid var(--facodi-ink);
+        box-shadow: 3px 3px 0 var(--facodi-ink);
+    }
+
+    .o_wslides_nav_tabs {
+        border-bottom-color: var(--facodi-ink);
+
+        .nav-link {
+            color: var(--facodi-ink);
+            font-weight: 700;
+
+            &.active {
+                background: var(--facodi-sun);
+                border-color: var(--facodi-ink) var(--facodi-ink) var(--facodi-sun);
+                color: var(--facodi-ink);
+            }
+
+            &:focus-visible {
+                outline: 3px solid var(--facodi-cyan);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .o_wslides_channel_tag {
+        background: var(--facodi-paper-warm) !important;
+        border: 1px solid var(--facodi-ink);
+        color: var(--facodi-ink) !important;
+        font-weight: 700;
+    }
+
+    .o_wslides_channel_tag.o_color_1,
+    .o_wslides_channel_tag.o_color_6 {
+        background: var(--facodi-mint) !important;
+    }
+
+    .o_wslides_channel_tag.o_color_2,
+    .o_wslides_channel_tag.o_color_8 {
+        background: var(--facodi-sun) !important;
+    }
+
+    .o_wslides_channel_tag.o_color_4,
+    .o_wslides_channel_tag.o_color_5,
+    .o_wslides_channel_tag.o_color_9 {
+        background: var(--facodi-cyan) !important;
+    }
+}
+
+body .facodi-site {
+    #website_profile_badges,
+    .o_wprofile_user_profile,
+    .o_wprofile_users {
+        .card,
+        .border {
+            border-color: var(--facodi-ink);
+        }
+
+        .badge.text-bg-success {
+            background: var(--facodi-mint) !important;
+            color: var(--facodi-ink) !important;
+        }
+
+        .badge.text-bg-warning {
+            background: var(--facodi-sun) !important;
+            color: var(--facodi-ink) !important;
+        }
+    }
+
+    .wprofile_badge_img {
+        background: var(--facodi-paper-warm);
+        border: 2px solid var(--facodi-ink);
+        border-radius: 50%;
+        box-shadow: 3px 3px 0 var(--facodi-ink);
+    }
+
+    .karma_required {
+        border-color: var(--facodi-ink) !important;
+        color: var(--facodi-ink) !important;
+    }
+
+    .karma_required:not(.disabled):hover {
+        background: var(--facodi-sun);
+    }
 }
 
 @media (min-width: 576px) {

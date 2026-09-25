@@ -3,7 +3,12 @@
     <template id="s_facodi_course_showcase" name="FACODI Course Showcase">
         <section class="s_facodi_course_showcase s_dynamic_snippet s_dynamic o_cc o_cc1"
                  data-snippet="s_facodi_course_showcase"
-                 data-name="FACODI Course Showcase">
+                 data-name="FACODI Course Showcase"
+                 t-att-data-filter-id="env.ref('theme_facodi.dynamic_filter_published_courses').id"
+                 data-template-key="theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card"
+                 data-number-of-records="6"
+                 data-extra-classes="g-3"
+                 data-column-classes="col-12 col-sm-6 col-lg-4">
             <div class="s_dynamic_snippet_container facodi-dynamic-shell facodi-course-catalogue-paper">
                 <div class="container">
                     <div class="facodi-section-heading">
