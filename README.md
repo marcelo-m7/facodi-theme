@@ -202,6 +202,26 @@ The New Page composition names are kept in English. Odoo 19 stores the
 addon does not introduce a custom translation layer for those names. Visible
 snippet copy and translatable Website Builder strings use native Odoo i18n.
 
+## Campus Paper global surfaces
+
+Release `19.0.7.0.0` carries the Campus Paper system beyond the homepage while
+keeping Odoo as the functional owner of the public experience.
+
+- The FACODI desktop header still uses the native Website menu tree, Portal
+  sign-in/account actions and the standard Odoo mobile header.
+- The footer and standard public form controls reuse the Campus Paper ink,
+  paper, highlighter and focus tokens.
+- Native `website_slides` catalogue, course, lesson, progress and action
+  surfaces are styled without replacing Odoo routes, enrollment logic,
+  completion semantics or editor-selected course covers.
+- Roadmaps and Curricular Units consume the stable public CSS hooks emitted by
+  `facodi-learning`; no curriculum model, controller or academic claim moves
+  into the theme.
+- Reusable editorial intro, route and pathway snippets use the same paper-sheet
+  primitives as the homepage.
+- Course/profile tags, navigation tabs and badges now use the same study-object
+  visual vocabulary.
+
 ## Runtime dependencies
 
 The module depends only on:
@@ -245,8 +265,10 @@ Run the fast repository contracts:
 ```bash
 bash tests/test_module_contract.sh
 bash tests/test_campus_paper_contract.sh
+bash tests/test_global_shell_contract.sh
 bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
+bash tests/test_curriculum_style_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
 bash tests/test_mobile_interaction_contract.sh
