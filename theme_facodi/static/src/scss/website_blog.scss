@@ -1,0 +1,155 @@
+.facodi-site {
+    .facodi-blog-index {
+        background: var(--facodi-surface-page);
+
+        #o_wblog_posts_loop,
+        #o_wblog_posts_loop_container,
+        .row,
+        [class*="col-"] {
+            min-width: 0;
+        }
+    }
+
+    .facodi-bulletin-hero {
+        margin-block: 1rem 2rem;
+    }
+
+    .facodi-bulletin-card {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        height: 100%;
+        min-width: 0;
+        overflow: hidden;
+        padding: .8rem;
+
+        .o_blog_post_title,
+        .o_wblog_post_short_tag_section,
+        .o_wblog_normalize_font,
+        p,
+        a {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .o_record_cover_container,
+        .o_wblog_post_cover_nocard {
+            border-radius: var(--facodi-radius-sm);
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        img {
+            height: auto;
+            max-width: 100%;
+        }
+
+        .o_tag {
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 45%, transparent);
+            color: var(--facodi-ink);
+        }
+
+        a:focus-visible {
+            box-shadow: var(--facodi-focus-ring);
+            outline: 0;
+        }
+    }
+
+    .facodi-blog-article {
+        min-width: 0;
+
+        #o_wblog_post_content,
+        #o_wblog_post_sidebar_col,
+        .o_wblog_post_content_field {
+            min-width: 0;
+        }
+
+        .facodi-blog-prose {
+            margin-inline: auto;
+            max-width: 50rem;
+
+            h1,
+            h2,
+            h3,
+            h4,
+            p,
+            li,
+            a,
+            code,
+            blockquote {
+                overflow-wrap: anywhere;
+            }
+
+            h2,
+            h3 {
+                margin-top: 1.8em;
+            }
+
+            blockquote {
+                background: color-mix(in srgb, var(--facodi-marker-mint) 25%, white);
+                border-left: .4rem solid var(--facodi-ink);
+                margin-inline: 0;
+                padding: 1rem 1.25rem;
+            }
+
+            pre {
+                max-width: 100%;
+                overflow-x: auto;
+            }
+
+            table {
+                display: block;
+                max-width: 100%;
+                overflow-x: auto;
+                width: 100%;
+            }
+
+            img,
+            iframe,
+            video {
+                height: auto;
+                max-width: 100%;
+            }
+
+            a:focus-visible {
+                box-shadow: var(--facodi-focus-ring);
+                outline: 0;
+            }
+        }
+    }
+
+    #o_wblog_post_top {
+        .o_record_cover_container {
+            border-bottom: var(--facodi-border);
+        }
+
+        .o_wblog_post_name,
+        .o_wblog_post_subtitle {
+            overflow-wrap: anywhere;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site {
+        .facodi-blog-index,
+        .facodi-bulletin-card,
+        .facodi-blog-article,
+        .facodi-blog-prose {
+            min-width: 0;
+            width: 100%;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .facodi-bulletin-card,
+        .facodi-blog-article {
+            scroll-behavior: auto;
+            transform: none;
+            transition: none;
+        }
+    }
+}
