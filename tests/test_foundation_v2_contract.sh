@@ -137,4 +137,23 @@ for selector in '.o_wslides_slide_list_category_header' '.o_wslides_slides_list_
     || fail "standard eLearning presentation selector missing: $selector"
 done
 
+python3 - <<'PY'
+from xml.etree import ElementTree as ET
+root = ET.parse("theme_facodi/views/page_templates.xml").getroot()
+home = root.find(".//template[@id='new_page_template_sections_facodi_home']")
+calls = [n.get("t-snippet-call") for n in home.iter("t") if n.get("t-snippet-call")]
+expected = [
+    "theme_facodi.s_facodi_hero",
+    "theme_facodi.s_facodi_learning_journey",
+    "theme_facodi.s_facodi_features",
+    "theme_facodi.s_facodi_course_showcase",
+    "theme_facodi.s_facodi_academic_areas",
+    "theme_facodi.s_facodi_community",
+    "theme_facodi.s_facodi_institutional",
+    "theme_facodi.s_facodi_course_cta",
+]
+if calls != expected:
+    raise SystemExit(f"FAIL: homepage order {calls!r} != {expected!r}")
+PY
+
 echo "PASS: FACODI Website Foundation v2 contract"
