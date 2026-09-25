@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="facodi_blog_index"
+              inherit_id="website_blog.blog_post_short"
+              name="FACODI Campus Bulletin Index">
+        <xpath expr="//div[@id='o_wblog_blog_top']" position="inside">
+            <div class="container my-4">
+                <t t-call="theme_facodi.s_facodi_bulletin_hero"/>
+            </div>
+        </xpath>
+        <xpath expr="//section[@id='o_wblog_index_content']" position="attributes">
+            <attribute name="class" add="facodi-blog-index" separator=" "/>
+        </xpath>
+    </template>
+
+    <template id="facodi_blog_posts_loop"
+              inherit_id="website_blog.posts_loop"
+              name="FACODI Campus Bulletin Cards">
+        <xpath expr="//article[@name='blog_post']" position="attributes">
+            <attribute name="t-attf-class" add="facodi-bulletin-card" separator=" "/>
+        </xpath>
+    </template>
+
+    <template id="facodi_blog_article"
+              inherit_id="website_blog.blog_post_complete"
+              name="FACODI Campus Bulletin Article">
+        <xpath expr="//section[@id='o_wblog_post_main']" position="attributes">
+            <attribute name="class" add="facodi-blog-article" separator=" "/>
+        </xpath>
+    </template>
+
+    <template id="facodi_blog_prose"
+              inherit_id="website_blog.blog_post_content"
+              name="FACODI Campus Bulletin Prose">
+        <xpath expr="//div[@t-field='blog_post.content']" position="attributes">
+            <attribute name="t-attf-class" add="facodi-blog-prose" separator=" "/>
+        </xpath>
+    </template>
+</odoo>
