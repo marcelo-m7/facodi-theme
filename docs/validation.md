@@ -92,10 +92,12 @@ With Odoo core, the pinned design-themes checkout and this repository available 
 
 ```sh
 bash tests/test_module_contract.sh
+bash tests/test_campus_paper_contract.sh
 bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
+bash tests/test_mobile_interaction_contract.sh
 ```
 
 The CI workflow then runs the clean-install and upgrade commands against the same
