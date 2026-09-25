@@ -150,9 +150,11 @@ Each block has one source file under `views/snippets/` and one registry entry in
 compositions and Odoo translation identity while removing the former monolithic
 `views/snippets.xml` file.
 
-Default links use standard routes available from declared dependencies, notably
-`/slides` and `/contactus`. The theme intentionally creates no editorial
-`website.page` records.
+Default links keep Odoo-native destinations for catalogue and general contact,
+notably `/slides` and `/contactus`. In the complete FACODI deployment, resource
+contribution CTAs intentionally point to the Odoo-owned guided workflow at
+`/contribuir/recurso`, provided by `facodi_learning`. The theme does not implement
+that workflow, add parallel controllers, or create editorial `website.page` records.
 
 Configured Website logos and favicons remain authoritative. Bundled SVG files are
 preview assets and are never forced over Website settings.
