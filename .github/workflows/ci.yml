@@ -34,6 +34,9 @@ jobs:
       - name: FACODI curriculum presentation contract
         run: bash tests/test_curriculum_style_contract.sh
 
+      - name: FACODI D1 learning interfaces contract
+        run: bash tests/test_learning_interfaces_contract.sh
+
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
 
