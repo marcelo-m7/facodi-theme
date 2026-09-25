@@ -31,6 +31,9 @@ jobs:
       - name: FACODI Website Foundation v2 contract
         run: bash tests/test_foundation_v2_contract.sh
 
+      - name: FACODI curriculum presentation contract
+        run: bash tests/test_curriculum_style_contract.sh
+
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
 
