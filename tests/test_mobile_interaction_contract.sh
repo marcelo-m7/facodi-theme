@@ -94,4 +94,9 @@ if "position: static" not in note:
     raise SystemExit("FAIL: phone study notes must leave absolute positioning")
 PY
 
+grep -Fq 'min-width: 0' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "eLearning cards and rows must remain shrinkable"
+grep -Fq 'overflow-wrap' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "long course and lesson text must wrap"
+
 echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"
