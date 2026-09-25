@@ -67,10 +67,10 @@
                     <div class="facodi-course-description" t-field="channel.description_short"/>
                     <h3 t-out="data.get('name')"/>
                     <div class="facodi-card-bottom">
-                        <span>
+                        <p class="m-0">
                             <t t-out="data.get('total_slides') or 0"/>
                             lessons
-                        </span>
+                        </p>
                         <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
                     </div>
                 </div>
