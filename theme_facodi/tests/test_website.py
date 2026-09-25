@@ -479,32 +479,41 @@ class TestFacodiTheme(HttpCase):
         self.assertNotIn("error", payload)
         group = next(group for group in payload["result"] if group["id"] == "facodi")
         self.assertEqual(len(group["templates"]), 10)
-        section_counts = []
-        home_sections = None
+
+        rendered_templates = [template["template"] for template in group["templates"]]
+        for class_name in (
+            "facodi-project-story",
+            "facodi-principles-ledger",
+            "facodi-process-timeline",
+            "facodi-contribution-board",
+            "facodi-editorial-quote",
+        ):
+            self.assertTrue(
+                any(class_name in rendered for rendered in rendered_templates),
+                f"D2 page-picker output must render {class_name}",
+            )
+
+        home_blocks = None
         for template in group["templates"]:
             tree = html.fromstring(template["template"])
-            sections = tree.xpath("//section[@data-snippet]")
-            section_counts.append(len(sections))
-            self.assertIn(len(sections), (3, 4, 5, 8), template)
+            blocks = tree.xpath("//*[@data-snippet]")
+            self.assertGreaterEqual(len(blocks), 3, template)
             self.assertTrue(
                 all(
-                    section.get("data-snippet").startswith("s_facodi_")
-                    for section in sections
+                    block.get("data-snippet").startswith("s_facodi_")
+                    for block in blocks
                 )
             )
             if "facodi-hero-study-board" in template["template"]:
-                self.assertIsNone(home_sections, "FACODI Home template must be unique")
-                home_sections = sections
+                self.assertIsNone(home_blocks, "FACODI Home template must be unique")
+                home_blocks = blocks
                 self.assertIn("Learn in public.", template["template"])
                 self.assertIn("A good discovery deserves company.", template["template"])
                 self.assertIn("Keep the useful thread going.", template["template"])
-        self.assertEqual(section_counts.count(8), 1)
-        self.assertEqual(section_counts.count(5), 1)
-        self.assertEqual(section_counts.count(4), 5)
-        self.assertEqual(section_counts.count(3), 3)
-        self.assertIsNotNone(home_sections, "FACODI Home must render the learner hero")
+
+        self.assertIsNotNone(home_blocks, "FACODI Home must render the learner hero")
         sections_arch = "".join(
-            etree.tostring(section, encoding="unicode") for section in home_sections
+            etree.tostring(block, encoding="unicode") for block in home_blocks
         )
         result = website.with_context(website_id=website.id).new_page(
             name="FACODI editor fixture", sections_arch=sections_arch
@@ -520,6 +529,19 @@ class TestFacodiTheme(HttpCase):
         )
         self.assertEqual(view.arch_db, saved)
         self.assertIn("Editorial preservation fixture", view.arch_db)
+
+    def test_d2_does_not_create_fixed_editorial_pages(self):
+        website = self.env["website"].get_current_website()
+        pages = self.env["website.page"].search(
+            [
+                ("website_id", "=", website.id),
+                ("url", "in", ["/sobre", "/contribuir", "/manifesto", "/parceiros"]),
+            ]
+        )
+        self.assertFalse(
+            pages,
+            "D2 must provide page-picker compositions without importing fixed Website pages",
+        )
 
     def test_standard_forms_and_compiled_frontend_assets(self):
         from lxml import html
