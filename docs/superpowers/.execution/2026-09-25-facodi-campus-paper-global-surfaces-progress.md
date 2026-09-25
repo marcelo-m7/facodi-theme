@@ -13,3 +13,5 @@ Task 2: Ruling: the Phase A compiled-asset assertion pinned the old ink/blue def
 Task 2: complete (RED run 36174650646: eLearning contract failed because shared Campus Paper shadow was absent; first GREEN attempt run 36174770032 surfaced the intentional old default-cover assertion; ruling applied; final GREEN run 36175122692: full Odoo 19 Theme CI success).
 
 Task 3: complete (RED run 36175501354: curriculum contract failed on missing .facodi-curriculum form; GREEN run 36175598716: full Odoo 19 Theme CI success with curriculum/mobile contracts and install/upgrade).
+
+Task 4: complete (RED run 36175921375: editorial contract failed on missing facodi-editorial-intro-sheet; GREEN run 36176045100: full Odoo 19 Theme CI success with unchanged source copy/i18n).
