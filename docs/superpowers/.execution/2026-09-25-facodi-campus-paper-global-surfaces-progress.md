@@ -7,3 +7,5 @@ Ruling: this harness cannot create a network-backed local git worktree because t
 Ruling: CI invocation for new static contracts is moved forward to the task that introduces each contract, rather than waiting for Task 6, so TDD RED can be observed on the real branch. Cost if wrong: workflow diff appears earlier than planned, but behavior and final scope remain identical.
 
 Task 1: complete (RED run 36174129901: global shell contract failed on missing facodi-footer-campus; GREEN run 36174295989: full Odoo 19 Theme CI success, including install/upgrade and all fast contracts).
+
+Task 2: Ruling: the Phase A compiled-asset assertion pinned the old ink/blue default Odoo course-cover replacement, but Phase B explicitly changes only that exact default selector to paper/mint while preserving editor-selected covers. Updated the assertion to paper/mint. Cost if wrong: a regression could alter the intended default visual, while custom-cover safety remains separately constrained by the exact inline-gradient selector.
