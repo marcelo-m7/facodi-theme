@@ -69,4 +69,12 @@ PY
 grep -Fq '@media (max-width: 767.98px)' theme_facodi/static/src/scss/snippets.scss || fail "homepage needs a dedicated phone breakpoint"
 grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/snippets.scss || fail "long translated homepage copy must wrap"
 
+for selector in '.facodi-hero' '.facodi-learning-entry-grid' '.facodi-learning-steps' '.facodi-community-grid'; do
+  grep -Fq "$selector" theme_facodi/static/src/scss/snippets.scss \
+    || fail "missing mobile-critical selector: $selector"
+done
+
+grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/snippets.scss \
+  || fail "phone layouts must collapse to a shrinkable single column"
+
 echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"
