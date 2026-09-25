@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_institutional" name="FACODI Institutional">
-        <section class="s_facodi_institutional facodi-open-section o_cc o_cc2" data-snippet="s_facodi_institutional" data-name="FACODI Institutional">
-            <div>
-                <p class="facodi-kicker">
-                    <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
-                    Building in the open
-                </p>
-                <h2>We are still building. You can be part of it.</h2>
-            </div>
-            <div class="facodi-open-actions">
-                <p>
-                    We are making course discovery clearer, connecting verified academic context and welcoming more useful contributions. Tell us what would make the next step easier.
-                </p>
-                <a class="btn facodi-button facodi-button-secondary" href="/contactus">
-                    Help shape FACODI
-                    <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
-                </a>
+        <section class="s_facodi_institutional facodi-section o_cc o_cc2"
+                 data-snippet="s_facodi_institutional"
+                 data-name="FACODI Institutional">
+            <div class="container">
+                <article class="facodi-sheet facodi-institutional-sheet">
+                    <div>
+                        <span class="facodi-label">FACODI project</span>
+                        <h2>We are still building. You can be part of it.</h2>
+                        <p>FACODI connects open learning resources, reviewed academic context and community contribution in a digital campus designed to stay accessible.</p>
+                    </div>
+                    <div class="facodi-actions">
+                        <a href="/contactus" class="btn facodi-button facodi-button-primary">Meet FACODI</a>
+                        <a href="https://sea-eu.org/" class="btn facodi-button facodi-button-secondary" target="_blank" rel="noopener noreferrer">
+                            Explore SEA-EU
+                            <i class="fa fa-external-link ms-1" aria-hidden="true" t-translation="off"/>
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
     </template>
