@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_course_cta" name="FACODI Course catalogue CTA">
-        <section class="s_facodi_course_cta facodi-section o_cc o_cc1" data-snippet="s_facodi_course_cta" data-name="FACODI Course catalogue CTA">
+        <section class="s_facodi_course_cta facodi-section facodi-grid-paper o_cc o_cc1"
+                 data-snippet="s_facodi_course_cta"
+                 data-name="FACODI Course catalogue CTA">
             <div class="container">
-                <h2>From curiosity to the next click.</h2>
-                <p class="facodi-lead">Pick a question. Follow a course or a Roadmap. When a resource changes how you see a subject, keep that thread close.</p>
-                <div class="facodi-actions">
-                    <a href="/slides" class="btn facodi-button facodi-button-primary">
-                        Choose a course
-                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
-                    </a>
-                    <a href="/roadmaps" class="btn facodi-button facodi-button-secondary">
-                        Follow a Roadmap
-                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
-                    </a>
-                    <a href="/unidades-curriculares" class="btn facodi-button facodi-button-secondary">
-                        Check a curricular unit
-                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
-                    </a>
-                    <a href="/contribuir/recurso" class="btn facodi-button facodi-button-secondary">
-                        Share a discovery
-                        <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
-                    </a>
-                </div>
+                <article class="facodi-sheet facodi-closing-sheet">
+                    <div>
+                        <span class="facodi-label">Next step</span>
+                        <h2>Keep the useful thread going.</h2>
+                        <p class="facodi-lead">Choose a course, follow a Roadmap or return to a curricular unit when you need more context.</p>
+                    </div>
+                    <div class="facodi-actions">
+                        <a href="/slides" class="btn facodi-button facodi-button-primary">Choose a course</a>
+                        <a href="/roadmaps" class="btn facodi-button facodi-button-secondary">Follow a Roadmap</a>
+                        <a href="/unidades-curriculares" class="btn facodi-button facodi-button-secondary">Find a curricular unit</a>
+                    </div>
+                </article>
             </div>
         </section>
     </template>
