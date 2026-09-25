@@ -104,4 +104,11 @@ grep -Fq 'overscroll-behavior-inline: contain' theme_facodi/static/src/scss/curr
 grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/curriculum.scss \
   || fail "curriculum mobile layouts must collapse to one shrinkable column"
 
+grep -Fq '@media (max-width: 767.98px)' theme_facodi/static/src/scss/learning_interfaces.scss \
+  || fail "D1 learning interfaces need an explicit phone breakpoint"
+grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/learning_interfaces.scss \
+  || fail "D1 learning interfaces must collapse to a shrinkable phone column"
+grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/learning_interfaces.scss \
+  || fail "D1 learning titles and metadata must wrap on narrow screens"
+
 echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"
