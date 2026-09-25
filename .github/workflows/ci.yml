@@ -22,6 +22,9 @@ jobs:
       - name: FACODI Campus Paper design-system contract
         run: bash tests/test_campus_paper_contract.sh
 
+      - name: FACODI global shell contract
+        run: bash tests/test_global_shell_contract.sh
+
       - name: FACODI homepage dashboard contract
         run: bash tests/test_homepage_dashboard_contract.sh
 
