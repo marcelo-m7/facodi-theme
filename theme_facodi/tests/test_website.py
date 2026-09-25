@@ -400,7 +400,7 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".o_cookies_discrete.show", compiled)
         self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(
-            "linear-gradient(120deg, var(--facodi-ink), var(--facodi-blue))", compiled
+            "linear-gradient(120deg, var(--facodi-paper-warm), var(--facodi-mint))", compiled
         )
 
     def test_backend_and_print_assets_compile(self):
