@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_features" name="FACODI Learning principles">
-        <section class="s_facodi_features facodi-section o_cc o_cc1" data-snippet="s_facodi_features" data-name="FACODI Learning principles">
+        <section class="s_facodi_features facodi-section facodi-grid-paper o_cc o_cc1"
+                 data-snippet="s_facodi_features"
+                 data-name="FACODI Learning principles">
             <div class="container">
-                <h2 class="mb-4">Knowledge grows when it is shared.</h2>
-                <div class="facodi-grid">
-                    <article class="facodi-panel">
-                        <h3>Open resources</h3>
-                        <p>Explore materials you can study, discuss and share.</p>
+                <div class="facodi-section-heading">
+                    <div>
+                        <p class="facodi-kicker">Step by step</p>
+                        <h2>From curiosity to the next click.</h2>
+                    </div>
+                </div>
+                <div class="facodi-learning-steps">
+                    <article class="facodi-sheet facodi-learning-step">
+                        <span class="facodi-label">01 · Starting point</span>
+                        <h3>Choose a question</h3>
+                        <p>Begin with something you genuinely want to understand.</p>
                     </article>
-                    <article class="facodi-panel">
-                        <h3>At your own pace</h3>
-                        <p>Organise your learning journey around your goals.</p>
+                    <article class="facodi-postit facodi-learning-step">
+                        <span class="facodi-label">02 · No rush</span>
+                        <h3>Study at your pace</h3>
+                        <p>Follow courses, notes and references without pretending every learner moves the same way.</p>
                     </article>
-                    <article class="facodi-panel">
-                        <h3>In community</h3>
-                        <p>Exchange perspectives and take part in building knowledge.</p>
+                    <article class="facodi-note facodi-learning-step">
+                        <span class="facodi-label">03 · Continuity</span>
+                        <h3>Follow the next useful thread</h3>
+                        <p>Keep the connection that helped something click and share it when it can help someone else.</p>
                     </article>
                 </div>
             </div>
