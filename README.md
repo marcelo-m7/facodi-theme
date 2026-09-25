@@ -3,11 +3,11 @@
 `facodi-theme` provides the Odoo 19 Community addon **`theme_facodi`** for
 FACODI Website and eLearning presentation.
 
-The public Website at [edu-open2.odoo.com](https://edu-open2.odoo.com) is the
-visual source of truth. Release `19.0.6.0.0` preserves that identity while
-keeping navigation, Website Builder and eLearning behavior on standard Odoo 19
-mechanisms. It adds responsive course presentation and content-derived catalogue
-visuals without introducing a parallel course system.
+The public Website at [edu-open2.odoo.com](https://edu-open2.odoo.com) remains
+the historical implementation baseline. Release `19.0.6.0.0` introduces the
+approved FACODI Campus Paper direction while keeping navigation, Website Builder
+and eLearning behavior on standard Odoo 19 mechanisms. The theme still avoids a
+parallel course system and preserves editor-owned Website pages.
 
 ## Verified visual identity
 
@@ -124,17 +124,22 @@ navigation JavaScript.
 
 ## Builder library and page compositions
 
-The nine public snippet XML IDs remain stable:
+The fourteen public snippet XML IDs remain stable:
 
 - `s_facodi_hero`;
 - `s_facodi_learning_journey`;
+- `s_facodi_course_showcase`;
+- `s_facodi_academic_areas`;
 - `s_facodi_institutional`;
 - `s_facodi_intro`;
 - `s_facodi_features`;
 - `s_facodi_community`;
+- `s_facodi_ecosystem`;
 - `s_facodi_roadmap`;
 - `s_facodi_faq`;
-- `s_facodi_course_cta`.
+- `s_facodi_course_cta`;
+- `s_facodi_editorial_pathway`;
+- `s_facodi_editorial_routes`.
 
 Each block lives in its own file under `theme_facodi/views/snippets/`; the small
 `views/snippets/snippets.xml` file only registers the FACODI Builder group and
@@ -149,15 +154,15 @@ routes.
 
 | Composition | Snippets |
 |---|---|
-| Home | Hero, Learning Journey, Course CTA |
-| About | Editorial Intro, Institutional, Features |
-| Manifesto | Editorial Intro, Institutional, Community |
+| Home | Hero, Learning Journey, Features, Course Showcase, Academic Areas, Community, Institutional, Course CTA |
+| About | Editorial Intro, Institutional, Features, Editorial Routes |
+| Manifesto | Editorial Intro, Institutional, Community, Editorial Routes |
 | How | Editorial Intro, Learning Journey, FAQ |
-| Community | Editorial Intro, Community, FAQ |
-| Pathways | Editorial Intro, Learning Journey, Course CTA |
-| Contribution | Editorial Intro, Features, Community |
-| Roadmap | Editorial Intro, Roadmap, Community |
-| Partners | Editorial Intro, Features, Community |
+| Community | Editorial Intro, Community, Ecosystem, FAQ, Editorial Routes |
+| Pathways | Editorial Intro, Editorial Pathway, Editorial Routes |
+| Contribution | Editorial Intro, Features, Community, Editorial Routes |
+| Roadmap | Editorial Intro, Roadmap, Community, Editorial Routes |
+| Partners | Editorial Intro, Ecosystem, Community, Editorial Routes |
 | Editorial | Editorial Intro, Features, Course CTA |
 
 Compositions provide editable starting copy, without invented partners,
