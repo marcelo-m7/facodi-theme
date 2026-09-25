@@ -31,7 +31,7 @@ for component_id in "${COMPONENT_IDS[@]}"; do
   [[ -f "$path" ]] || fail "missing reusable component source: $path"
   grep -Fq "id=\"${component_id}\"" "$path"     || fail "$component_id source must expose a stable template id"
   grep -Fq "data-snippet=\"${component_id}\"" "$path"     || fail "$component_id must expose a Website Builder data-snippet hook"
-  grep -Fq "theme_facodi/views/snippets/components/${component_id}.xml" "$manifest"     || fail "$component_id source must be loaded by the theme manifest"
+  grep -Fq "views/snippets/components/${component_id}.xml" "$manifest"     || fail "$component_id source must be loaded by the theme manifest"
   grep -Fq "t-snippet=\"theme_facodi.${component_id}\"" "$registry"     || fail "$component_id must be registered in the Website Builder"
 done
 
