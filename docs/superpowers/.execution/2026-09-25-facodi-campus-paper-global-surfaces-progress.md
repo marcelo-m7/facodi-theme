@@ -15,3 +15,6 @@ Task 2: complete (RED run 36174650646: eLearning contract failed because shared 
 Task 3: complete (RED run 36175501354: curriculum contract failed on missing .facodi-curriculum form; GREEN run 36175598716: full Odoo 19 Theme CI success with curriculum/mobile contracts and install/upgrade).
 
 Task 4: complete (RED run 36175921375: editorial contract failed on missing facodi-editorial-intro-sheet; GREEN run 36176045100: full Odoo 19 Theme CI success with unchanged source copy/i18n).
+
+Task 5: Ruling: bumping the manifest to 19.0.7.0.0 intentionally makes the existing CI release guard fail until Task 6 updates the workflow, exactly as the plan sequences it. Run 36176478418 passed every fast contract through Mobile interaction and then failed only at "Prepare legacy theme release" on the old 19.0.6.0.0 guard. Cost if wrong: integration defects could remain hidden until Task 6; Task 6 therefore requires the full clean install/upgrade gate before completion.
+Task 5: complete for its named fast contracts (RED run 36176402679: version requirement missing; run 36176478418: module, Campus Paper and Foundation contracts all GREEN before the expected stale CI release-guard stop).
