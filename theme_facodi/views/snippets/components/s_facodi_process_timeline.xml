@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_process_timeline" name="FACODI Process Timeline">
+        <ol class="facodi-process-timeline" data-snippet="s_facodi_process_timeline" data-name="FACODI Process Timeline">
+            <li class="facodi-process-timeline__step">
+                <span class="facodi-process-timeline__index">1</span>
+                <div><h3>Discover</h3><p>Start from a course, Roadmap, curricular unit, or concrete question.</p></div>
+            </li>
+            <li class="facodi-process-timeline__step">
+                <span class="facodi-process-timeline__index">2</span>
+                <div><h3>Study</h3><p>Use public resources and follow the context that helps you move forward.</p></div>
+            </li>
+            <li class="facodi-process-timeline__step">
+                <span class="facodi-process-timeline__index">3</span>
+                <div><h3>Connect</h3><p>Relate useful material to the learning path instead of treating it as an isolated link.</p></div>
+            </li>
+            <li class="facodi-process-timeline__step">
+                <span class="facodi-process-timeline__index">4</span>
+                <div><h3>Contribute</h3><p>Suggest a useful public resource or improvement for review.</p></div>
+            </li>
+        </ol>
+    </template>
+</odoo>
