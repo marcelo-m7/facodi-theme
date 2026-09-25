@@ -30,7 +30,7 @@
 
                     <aside class="facodi-sheet facodi-catalogue-next">
                         <div>
-                            <span class="facodi-label">Next study</span>
+                            <p class="facodi-label">Next study</p>
                             <h3>Explore the available courses</h3>
                             <p>Open the catalogue and choose the next topic in your learning journey.</p>
                         </div>
