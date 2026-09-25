@@ -25,6 +25,27 @@
         }
     }
 
+    .facodi-text-link {
+        align-items: center;
+        color: inherit;
+        display: inline-flex;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .68rem;
+        font-weight: 700;
+        gap: .35rem;
+        letter-spacing: .02em;
+        margin-top: .75rem;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus-visible {
+            color: inherit;
+            text-decoration: underline;
+            text-underline-offset: .2em;
+        }
+    }
+
     .facodi-kicker {
         color: inherit;
         font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
