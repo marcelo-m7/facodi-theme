@@ -111,9 +111,14 @@ class TestFacodiTheme(HttpCase):
             self.assertNotIn("request.env", view.arch_db)
             self.assertNotIn("sudo(", view.arch_db)
 
-        registry = self.env.ref("website.snippets")
+        website = self.env["website"].get_current_website()
+        registry = self.env.ref("website.snippets").with_context(
+            website_id=website.id,
+            load_all_views=True,
+        )
+        combined_registry = registry.get_combined_arch()
         for key in keys:
-            self.assertIn(f't-snippet="{key}"', registry.arch_db)
+            self.assertIn(f't-snippet="{key}"', combined_registry)
 
     def test_course_showcase_uses_standard_dynamic_filter(self):
         dynamic_filter = self.env.ref("theme_facodi.dynamic_filter_published_courses")
