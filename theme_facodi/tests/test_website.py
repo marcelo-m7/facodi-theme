@@ -103,6 +103,25 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("s_dynamic_snippet_content", showcase.arch_db)
         self.assertIn("dynamic_snippet_template", showcase.arch_db)
 
+    def test_course_showcase_does_not_invent_courses_when_none_are_published(self):
+        channels = self.env["slide.channel"].search([("website_published", "=", True)])
+        channels.write({"website_published": False})
+
+        showcase = self.env["ir.ui.view"].search(
+            [
+                ("key", "=", "theme_facodi.s_facodi_course_showcase"),
+                ("website_id", "!=", False),
+            ],
+            limit=1,
+        )
+        self.assertTrue(showcase)
+        self.assertIn("s_dynamic_snippet_content", showcase.arch_db)
+        self.assertIn(
+            "Course cards appear here when published courses are available.",
+            showcase.arch_db,
+        )
+        self.assertNotIn("Introduction to Algorithms", showcase.arch_db)
+
     def test_facodi_header_is_registered_as_native_theme_template(self):
         theme_view = self.env["theme.ir.ui.view"].search(
             [("key", "=", "theme_facodi.template_header_facodi")], limit=1
