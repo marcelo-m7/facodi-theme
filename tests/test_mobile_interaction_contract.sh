@@ -99,4 +99,9 @@ grep -Fq 'min-width: 0' theme_facodi/static/src/scss/website_slides.scss \
 grep -Fq 'overflow-wrap' theme_facodi/static/src/scss/website_slides.scss \
   || fail "long course and lesson text must wrap"
 
+grep -Fq 'overscroll-behavior-inline: contain' theme_facodi/static/src/scss/curriculum.scss \
+  || fail "wide curriculum tables must stay inside their scroll container"
+grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/curriculum.scss \
+  || fail "curriculum mobile layouts must collapse to one shrinkable column"
+
 echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"
