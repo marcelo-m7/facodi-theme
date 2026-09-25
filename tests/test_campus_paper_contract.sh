@@ -28,6 +28,11 @@ for obsolete in   '.facodi-hero-board'   '.facodi-dashboard'   '.facodi-side-nav
     fail "obsolete pre-Campus-Paper selector remains: $obsolete"
   fi
 done
+FOUNDATION="theme_facodi/static/src/scss/foundation_v2.scss"
+for token in 'var(--facodi-border)' 'var(--facodi-radius)' 'var(--facodi-shadow)'; do
+  grep -Fq "$token" "$FOUNDATION" || fail "shared academic cards must use Campus Paper token: $token"
+done
+
 grep -Fq ':focus-visible' "$PRIMITIVES" || fail "focus treatment missing"
 grep -Fq 'prefers-reduced-motion: reduce' "$PRIMITIVES" || fail "reduced-motion treatment missing"
 
