@@ -3,11 +3,11 @@
 `facodi-theme` provides the Odoo 19 Community addon **`theme_facodi`** for
 FACODI Website and eLearning presentation.
 
-The public Website at [edu-open2.odoo.com](https://edu-open2.odoo.com) is the
-visual source of truth. Release `19.0.5.0.3` preserves that identity while
-keeping navigation, Website Builder and eLearning behavior on standard Odoo 19
-mechanisms. It adds responsive course presentation and content-derived catalogue
-visuals without introducing a parallel course system.
+The public Website at [edu-open2.odoo.com](https://edu-open2.odoo.com) remains
+the historical implementation baseline. Release `19.0.6.0.0` introduces the
+approved FACODI Campus Paper direction while keeping navigation, Website Builder
+and eLearning behavior on standard Odoo 19 mechanisms. The theme still avoids a
+parallel course system and preserves editor-owned Website pages.
 
 ## Verified visual identity
 
@@ -28,6 +28,21 @@ The visual language uses strong ink borders, offset shadows, geometric cards,
 bright calls to action and responsive layouts. Font stacks prefer Space
 Grotesk, Inter and JetBrains Mono when already available and fall back to
 system fonts without making remote font requests.
+
+## Campus Paper visual system
+
+Release `19.0.6.0.0` introduces the FACODI Campus Paper presentation
+foundation. It translates the project’s study-notebook identity into reusable
+Odoo-native primitives: warm paper surfaces, graph-paper backgrounds, dark ink
+outlines, lime highlighter accents, mint/cyan study notes, compact mono labels,
+and small offset shadows.
+
+The homepage is composed from editable FACODI Website Builder snippets rather
+than copied static landing-page HTML. Published course cards remain backed by
+the existing Odoo `website.snippet.filter` + `slide.channel` flow, so the
+visual refactor does not create a parallel catalogue or hard-code fake course
+data. The theme makes no remote font requests; its typography continues to use
+Odoo-compatible local/system font stacks.
 
 ## What the addon provides
 
@@ -109,17 +124,22 @@ navigation JavaScript.
 
 ## Builder library and page compositions
 
-The nine public snippet XML IDs remain stable:
+The fourteen public snippet XML IDs remain stable:
 
 - `s_facodi_hero`;
 - `s_facodi_learning_journey`;
+- `s_facodi_course_showcase`;
+- `s_facodi_academic_areas`;
 - `s_facodi_institutional`;
 - `s_facodi_intro`;
 - `s_facodi_features`;
 - `s_facodi_community`;
+- `s_facodi_ecosystem`;
 - `s_facodi_roadmap`;
 - `s_facodi_faq`;
-- `s_facodi_course_cta`.
+- `s_facodi_course_cta`;
+- `s_facodi_editorial_pathway`;
+- `s_facodi_editorial_routes`.
 
 Each block lives in its own file under `theme_facodi/views/snippets/`; the small
 `views/snippets/snippets.xml` file only registers the FACODI Builder group and
@@ -134,15 +154,15 @@ routes.
 
 | Composition | Snippets |
 |---|---|
-| Home | Hero, Learning Journey, Course CTA |
-| About | Editorial Intro, Institutional, Features |
-| Manifesto | Editorial Intro, Institutional, Community |
+| Home | Hero, Learning Journey, Features, Course Showcase, Academic Areas, Community, Institutional, Course CTA |
+| About | Editorial Intro, Institutional, Features, Editorial Routes |
+| Manifesto | Editorial Intro, Institutional, Community, Editorial Routes |
 | How | Editorial Intro, Learning Journey, FAQ |
-| Community | Editorial Intro, Community, FAQ |
-| Pathways | Editorial Intro, Learning Journey, Course CTA |
-| Contribution | Editorial Intro, Features, Community |
-| Roadmap | Editorial Intro, Roadmap, Community |
-| Partners | Editorial Intro, Features, Community |
+| Community | Editorial Intro, Community, Ecosystem, FAQ, Editorial Routes |
+| Pathways | Editorial Intro, Editorial Pathway, Editorial Routes |
+| Contribution | Editorial Intro, Features, Community, Editorial Routes |
+| Roadmap | Editorial Intro, Roadmap, Community, Editorial Routes |
+| Partners | Editorial Intro, Ecosystem, Community, Editorial Routes |
 | Editorial | Editorial Intro, Features, Course CTA |
 
 Compositions provide editable starting copy, without invented partners,
@@ -224,10 +244,12 @@ Run the fast repository contracts:
 
 ```bash
 bash tests/test_module_contract.sh
+bash tests/test_campus_paper_contract.sh
 bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
+bash tests/test_mobile_interaction_contract.sh
 ```
 
 GitHub Actions then uses PostgreSQL 16 and the official `odoo:19.0` image to:

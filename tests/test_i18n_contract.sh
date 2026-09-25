@@ -114,4 +114,30 @@ for catalogue in theme_facodi.pot pt.po es.po fr.po; do
   done
 done
 
+
+CAMPUS_PAPER_MSGIDS=(
+  'Learn in public.'
+  'Open higher education, one useful next step at a time.'
+  'Explore free courses'
+  'Where do you want to begin?'
+  'From curiosity to the next click.'
+  'Choose a question'
+  'Study at your pace'
+  'Follow the next useful thread'
+  'A good discovery deserves company.'
+  'We are still building. You can be part of it.'
+  'Keep the useful thread going.'
+)
+
+for catalogue in pt es fr; do
+  for msgid in "${CAMPUS_PAPER_MSGIDS[@]}"; do
+    grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/${catalogue}.po" \
+      || fail "${catalogue}.po is missing Campus Paper string: ${msgid}"
+  done
+done
+for msgid in "${CAMPUS_PAPER_MSGIDS[@]}"; do
+  grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/theme_facodi.pot" \
+    || fail "theme_facodi.pot is missing Campus Paper string: ${msgid}"
+done
+
 echo "PASS: native Odoo i18n contract"

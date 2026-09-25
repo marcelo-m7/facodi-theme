@@ -42,13 +42,13 @@ class TestFacodiTheme(HttpCase):
         self.assertEqual(set(website_views.mapped("key")), keys)
 
         expected_classes = {
-            "theme_facodi.s_facodi_hero": "facodi-hero-board",
-            "theme_facodi.s_facodi_learning_journey": "facodi-stat-card",
+            "theme_facodi.s_facodi_hero": "facodi-hero-study-board",
+            "theme_facodi.s_facodi_learning_journey": "facodi-learning-entry-grid",
             "theme_facodi.s_facodi_course_showcase": "facodi-course-grid",
             "theme_facodi.s_facodi_academic_areas": "facodi-area-grid",
-            "theme_facodi.s_facodi_institutional": "facodi-open-section",
+            "theme_facodi.s_facodi_institutional": "facodi-institutional-sheet",
             "theme_facodi.s_facodi_intro": "s_facodi_intro",
-            "theme_facodi.s_facodi_features": "facodi-grid",
+            "theme_facodi.s_facodi_features": "facodi-learning-steps",
             "theme_facodi.s_facodi_community": "s_facodi_community",
             "theme_facodi.s_facodi_ecosystem": "facodi-ecosystem-grid",
             "theme_facodi.s_facodi_roadmap": "s_facodi_roadmap",
@@ -103,6 +103,25 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("s_dynamic_snippet_content", showcase.arch_db)
         self.assertIn("dynamic_snippet_template", showcase.arch_db)
 
+    def test_course_showcase_does_not_invent_courses_when_none_are_published(self):
+        channels = self.env["slide.channel"].search([("website_published", "=", True)])
+        channels.write({"website_published": False})
+
+        showcase = self.env["ir.ui.view"].search(
+            [
+                ("key", "=", "theme_facodi.s_facodi_course_showcase"),
+                ("website_id", "!=", False),
+            ],
+            limit=1,
+        )
+        self.assertTrue(showcase)
+        self.assertIn("s_dynamic_snippet_content", showcase.arch_db)
+        self.assertIn(
+            "Course cards appear here when published courses are available.",
+            showcase.arch_db,
+        )
+        self.assertNotIn("Introduction to Algorithms", showcase.arch_db)
+
     def test_facodi_header_is_registered_as_native_theme_template(self):
         theme_view = self.env["theme.ir.ui.view"].search(
             [("key", "=", "theme_facodi.template_header_facodi")], limit=1
@@ -146,6 +165,36 @@ class TestFacodiTheme(HttpCase):
             "standard Odoo mobile header must remain rendered",
         )
         self.assertIn("facodi-footer", response.text)
+
+    def test_campus_paper_hero_snippet_is_available_without_overwriting_homepage(self):
+        hero = self.env["ir.ui.view"].search(
+            [
+                ("key", "=", "theme_facodi.s_facodi_hero"),
+                ("website_id", "!=", False),
+            ],
+            limit=1,
+        )
+        self.assertTrue(hero)
+        self.assertIn("facodi-hero-study-board", hero.arch_db)
+        self.assertIn("Learn in public.", hero.arch_db)
+        self.assertNotIn("real-time", hero.arch_db.lower())
+
+    def test_learning_entry_snippet_keeps_canonical_routes(self):
+        journey = self.env["ir.ui.view"].search(
+            [
+                ("key", "=", "theme_facodi.s_facodi_learning_journey"),
+                ("website_id", "!=", False),
+            ],
+            limit=1,
+        )
+        self.assertTrue(journey)
+        for route, label in (
+            ("/slides", "Courses"),
+            ("/roadmaps", "Roadmaps"),
+            ("/unidades-curriculares", "Curricular units"),
+        ):
+            self.assertIn(f'href="{route}"', journey.arch_db)
+            self.assertIn(label, journey.arch_db)
 
     def test_homepage_metadata_uses_public_canonical_and_localized_descriptions(self):
         from lxml import html
@@ -260,19 +309,20 @@ class TestFacodiTheme(HttpCase):
             tree = html.fromstring(template["template"])
             sections = tree.xpath("//section[@data-snippet]")
             section_counts.append(len(sections))
-            self.assertIn(len(sections), (3, 4, 5, 7), template)
+            self.assertIn(len(sections), (3, 4, 5, 8), template)
             self.assertTrue(
                 all(
                     section.get("data-snippet").startswith("s_facodi_")
                     for section in sections
                 )
             )
-            if "facodi-hero-proof" in template["template"]:
+            if "facodi-hero-study-board" in template["template"]:
                 self.assertIsNone(home_sections, "FACODI Home template must be unique")
                 home_sections = sections
-                self.assertIn("Built for learners and contributors", template["template"])
-                self.assertIn("Find a clear starting point", template["template"])
-        self.assertEqual(section_counts.count(7), 1)
+                self.assertIn("Learn in public.", template["template"])
+                self.assertIn("A good discovery deserves company.", template["template"])
+                self.assertIn("Keep the useful thread going.", template["template"])
+        self.assertEqual(section_counts.count(8), 1)
         self.assertEqual(section_counts.count(5), 1)
         self.assertEqual(section_counts.count(4), 5)
         self.assertEqual(section_counts.count(3), 3)
@@ -321,6 +371,12 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-course-grid", compiled)
         self.assertIn(".facodi-area-grid", compiled)
         self.assertIn(".facodi-ecosystem-grid", compiled)
+        self.assertIn("--facodi-ink-deep", compiled)
+        self.assertIn("--facodi-paper-warm", compiled)
+        self.assertIn(".facodi-grid-paper", compiled)
+        self.assertIn(".facodi-postit", compiled)
+        self.assertIn(".facodi-learning-card", compiled)
+        self.assertIn(".facodi-course-catalogue-paper", compiled)
         self.assertIn(".o_cookies_discrete.show", compiled)
         self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(

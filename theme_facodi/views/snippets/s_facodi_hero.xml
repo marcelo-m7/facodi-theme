@@ -1,69 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_hero" name="FACODI Hero">
-        <section class="s_facodi_hero facodi-hero o_cc o_cc1" data-snippet="s_facodi_hero" data-name="FACODI Hero">
+        <section class="s_facodi_hero facodi-hero facodi-grid-paper o_cc o_cc1"
+                 data-snippet="s_facodi_hero"
+                 data-name="FACODI Hero">
             <div class="facodi-hero-copy">
                 <p class="facodi-kicker">
                     <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
-                    An open digital campus
+                    FACODI · An open digital campus
                 </p>
-                <h1>Knowledge is everywhere. Find your next step.</h1>
+                <h1 class="facodi-highlight">Learn in public.</h1>
+                <p class="facodi-hero-subtitle">Open higher education, one useful next step at a time.</p>
                 <p class="facodi-lead">
-                    Videos, courses and resources make more sense together. Explore a subject, follow a path or share the discovery that helped something click.
+                    Courses, Roadmaps and curricular units connect public learning resources so you can start with a question and keep following the thread.
                 </p>
                 <div class="facodi-actions">
                     <a class="btn facodi-button facodi-button-primary" href="/slides">
-                        Find what to study
+                        Explore free courses
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
-                    <a class="btn facodi-button facodi-button-secondary" href="/contactus">Meet FACODI</a>
-                </div>
-                <div class="facodi-hero-proof">
-                    <p>Learn in public, together</p>
-                    <ul>
-                        <li>
-                            <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
-                            Start with a question
-                        </li>
-                        <li>
-                            <i class="fa fa-list-ol" aria-hidden="true" t-translation="off"/>
-                            Follow the thread at your pace
-                        </li>
-                        <li>
-                            <i class="fa fa-share-alt" aria-hidden="true" t-translation="off"/>
-                            Leave a useful trail for someone else
-                        </li>
-                    </ul>
+                    <a class="btn facodi-button facodi-button-secondary" href="/contactus">How FACODI works</a>
                 </div>
             </div>
-            <div class="facodi-hero-board" aria-label="FACODI learning paths">
-                <div class="facodi-board-top">
-                    <div>From curiosity to context</div>
-                    <div class="facodi-live-dot">Open</div>
-                </div>
-                <div class="facodi-board-path">
-                    <div class="facodi-path-node is-complete">
-                        <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
+            <div class="facodi-hero-study-board" aria-label="FACODI learning map">
+                <article class="facodi-sheet facodi-study-sheet">
+                    <p class="facodi-tab">Roadmap</p>
+                    <p class="facodi-label">Question 01</p>
+                    <h2>Start with what you want to understand.</h2>
+                    <div class="facodi-study-route" aria-hidden="true">
+                        <span>01</span><i/><span>02</span><i/><span>03</span>
                     </div>
-                    <div class="facodi-path-line is-complete"/>
-                    <div class="facodi-path-node is-current">02</div>
-                    <div class="facodi-path-line"/>
-                    <div class="facodi-path-node">03</div>
-                </div>
-                <div class="facodi-board-cards">
-                    <div>
-                        <div class="facodi-board-card-label">Roadmap</div>
-                        <div class="facodi-board-card-title">Follow a question</div>
-                    </div>
-                    <div class="is-selected">
-                        <div class="facodi-board-card-label">Curricular unit</div>
-                        <div class="facodi-board-card-title">Find the context</div>
-                    </div>
-                    <div>
-                        <div class="facodi-board-card-label">Course and content</div>
-                        <div class="facodi-board-card-title">Keep building</div>
-                    </div>
-                </div>
+                </article>
+                <article class="facodi-note facodi-study-note">
+                    <p class="facodi-label">Curricular unit</p>
+                    <p class="facodi-study-note-copy">Find verified academic context.</p>
+                </article>
+                <article class="facodi-postit facodi-study-note facodi-study-note-secondary">
+                    <p class="facodi-label">Course</p>
+                    <p class="facodi-study-note-copy">Keep following the useful thread.</p>
+                </article>
             </div>
         </section>
     </template>

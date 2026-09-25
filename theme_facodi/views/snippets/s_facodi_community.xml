@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_community" name="FACODI Community and contribution">
-        <section class="s_facodi_community facodi-section o_cc o_cc1" data-snippet="s_facodi_community" data-name="FACODI Community and contribution">
+        <section class="s_facodi_community facodi-section o_cc o_cc1"
+                 data-snippet="s_facodi_community"
+                 data-name="Community and contribution">
             <div class="container">
-                <h2>A good discovery deserves company.</h2>
-                <p class="facodi-lead">The useful link, the clearer translation and the careful question can help someone else find their way in.</p>
-                <div class="facodi-actions">
-                    <a href="/contribuir/recurso" class="btn facodi-button facodi-button-primary">Suggest content</a>
-                    <a href="/contactus" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
-                    <a href="/contactus" class="btn facodi-button facodi-button-secondary">Collaborate with FACODI</a>
+                <div class="facodi-community-grid">
+                    <article class="facodi-note facodi-community-card">
+                        <p class="facodi-label">Community</p>
+                        <h2>A good discovery deserves company.</h2>
+                        <p>Found a resource that made something click? Leave a useful trail for the next learner.</p>
+                        <div class="facodi-actions">
+                            <a href="/contribuir/recurso" class="btn facodi-button facodi-button-primary">Suggest a resource</a>
+                            <a href="/contactus" class="btn facodi-button facodi-button-secondary">Collaborate with FACODI</a>
+                        </div>
+                    </article>
+                    <article class="facodi-sheet facodi-community-card">
+                        <p class="facodi-label">Open editing</p>
+                        <h2>Help make the learning trail clearer.</h2>
+                        <p>Translations, context and better links can make a public resource useful to someone new.</p>
+                        <a href="/contactus" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
+                    </article>
                 </div>
             </div>
         </section>

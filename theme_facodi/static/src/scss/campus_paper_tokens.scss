@@ -1,0 +1,25 @@
+.facodi-site {
+    --facodi-ink: #142846;
+    --facodi-ink-deep: #0B1325;
+    --facodi-sun: #EFFF00;
+    --facodi-sun-bright: #FAFF00;
+    --facodi-mint: #A7E8BE;
+    --facodi-mint-strong: #86EFAC;
+    --facodi-cyan: #37BED2;
+    --facodi-blue: #3979C8;
+    --facodi-sky: #38BDF8;
+    --facodi-coral: #FF8A7A;
+    --facodi-pink: #F9A8D4;
+    --facodi-paper: #F9FAFB;
+    --facodi-paper-warm: #FDFCF7;
+    --facodi-white: #FFFFFF;
+    --facodi-surface-page: var(--facodi-paper-warm);
+    --facodi-surface-sheet: var(--facodi-white);
+    --facodi-border: 2px solid var(--facodi-ink);
+    --facodi-shadow: 4px 4px 0 var(--facodi-ink);
+    --facodi-shadow-hover: 2px 2px 0 var(--facodi-ink);
+    --facodi-focus-ring: 0 0 0 3px var(--facodi-paper-warm), 0 0 0 6px var(--facodi-ink);
+    --facodi-radius-sm: .25rem;
+    --facodi-radius: .5rem;
+    --facodi-radius-lg: .75rem;
+}

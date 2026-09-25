@@ -4,59 +4,40 @@
         <section class="s_facodi_course_showcase s_dynamic_snippet s_dynamic o_cc o_cc1"
                  data-snippet="s_facodi_course_showcase"
                  data-name="FACODI Course Showcase">
-            <div class="s_dynamic_snippet_container facodi-dynamic-shell">
-                <div class="facodi-dashboard">
-                    <aside class="facodi-side-nav" aria-label="Learning navigation">
-                        <p>Learning catalogue</p>
-                        <a href="/roadmaps">
-                            <i class="fa fa-map" aria-hidden="true" t-translation="off"/>
-                            Roadmaps
-                        </a>
-                        <a href="/unidades-curriculares">
-                            <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
-                            Curricular Units
-                        </a>
-                        <a href="/slides">
-                            <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
-                            Courses
-                        </a>
-                        <a href="/contribuir/recurso">
-                            <i class="fa fa-users" aria-hidden="true" t-translation="off"/>
-                            Contribute
-                        </a>
-                    </aside>
-
-                    <div class="facodi-dashboard-main">
-                        <div class="facodi-section-heading">
-                            <div>
-                                <p class="facodi-kicker">Learning catalogue</p>
-                                <h2>Published courses</h2>
-                            </div>
-                            <a href="/slides" class="facodi-text-link">
-                                Explore courses
-                                <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
-                            </a>
+            <div class="s_dynamic_snippet_container facodi-dynamic-shell facodi-course-catalogue-paper">
+                <div class="container">
+                    <div class="facodi-section-heading">
+                        <div>
+                            <p class="facodi-kicker">Learning catalogue</p>
+                            <h2>Published courses</h2>
                         </div>
-                        <section class="s_dynamic_snippet_content facodi-dynamic-content oe_unremovable oe_unmovable o_not_editable">
-                            <div class="css_non_editable_mode_hidden">
-                                <div class="missing_option_warning alert alert-info d-none mt-3">
-                                    Course cards appear here when published courses are available.
-                                </div>
-                            </div>
-                            <div class="dynamic_snippet_template facodi-course-grid"/>
-                        </section>
+                        <nav class="facodi-catalogue-tabs" aria-label="Learning catalogue">
+                            <a href="/roadmaps">Roadmaps</a>
+                            <a href="/unidades-curriculares">Curricular Units</a>
+                            <a href="/slides" class="is-active">Courses</a>
+                            <a href="/contribuir/recurso">Contribute</a>
+                        </nav>
                     </div>
 
-                    <aside class="facodi-insights" aria-label="Learning insights">
-                        <article class="facodi-roadmap-card">
-                            <div class="facodi-panel-label">Next study</div>
+                    <section class="s_dynamic_snippet_content facodi-dynamic-content oe_unremovable oe_unmovable o_not_editable">
+                        <div class="css_non_editable_mode_hidden">
+                            <div class="missing_option_warning alert alert-info d-none mt-3">
+                                Course cards appear here when published courses are available.
+                            </div>
+                        </div>
+                        <div class="dynamic_snippet_template facodi-course-grid"/>
+                    </section>
+
+                    <aside class="facodi-sheet facodi-catalogue-next">
+                        <div>
+                            <p class="facodi-label">Next study</p>
                             <h3>Explore the available courses</h3>
                             <p>Open the catalogue and choose the next topic in your learning journey.</p>
-                            <a class="btn facodi-button facodi-button-secondary" href="/slides">
-                                View catalogue
-                                <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
-                            </a>
-                        </article>
+                        </div>
+                        <a class="btn facodi-button facodi-button-primary" href="/slides">
+                            View catalogue
+                            <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
+                        </a>
                     </aside>
                 </div>
             </div>
@@ -76,7 +57,7 @@
                     <img t-if="data.get('image_1920')"
                          t-att-src="data.get('image_1920')"
                          t-att-alt="data.get('name')"
-                        loading="eager"/>
+                         loading="eager"/>
                     <t t-else="">
                         <span t-out="(data.get('name') or '')[:2].upper()"/>
                         <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
@@ -86,10 +67,10 @@
                     <div class="facodi-course-description" t-field="channel.description_short"/>
                     <h3 t-out="data.get('name')"/>
                     <div class="facodi-card-bottom">
-                        <span>
+                        <p class="m-0">
                             <t t-out="data.get('total_slides') or 0"/>
                             lessons
-                        </span>
+                        </p>
                         <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
                     </div>
                 </div>

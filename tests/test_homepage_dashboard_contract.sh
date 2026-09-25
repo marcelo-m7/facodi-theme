@@ -48,6 +48,13 @@ if grep -Fq 'href="/website/search"' "$SNIPPET"; then
 fi
 grep -Fq 'Published courses' "$SNIPPET" \
   || fail "course showcase heading is missing"
+grep -Fq 'facodi-course-catalogue-paper' "$SNIPPET" \
+  || fail "Campus Paper catalogue shell missing"
+grep -Fq 'Course cards appear here when published courses are available.' "$SNIPPET" \
+  || fail "standard empty-state message missing"
+if grep -Eq 'UC-[0-9]+|Introduction to Algorithms|Web Open' "$SNIPPET"; then
+  fail "dynamic course showcase must not ship invented static courses"
+fi
 grep -Fq 'Next study' "$SNIPPET" \
   || fail "course showcase next-study panel is missing"
 

@@ -6,6 +6,26 @@ fail() {
   exit 1
 }
 
+HERO="theme_facodi/views/snippets/s_facodi_hero.xml"
+
+for anchor in 'Learn in public.' 'Open higher education, one useful next step at a time.' 'Explore free courses' 'How FACODI works' 'facodi-hero-study-board' 'facodi-study-sheet' 'facodi-study-note' 'facodi-study-route'; do
+  grep -Fq "$anchor" "$HERO" || fail "Campus Paper hero missing: $anchor"
+done
+if grep -Fq 'facodi-live-dot' "$HERO"; then fail "hero must not imply live status without real data"; fi
+
+JOURNEY="theme_facodi/views/snippets/s_facodi_learning_journey.xml"
+FEATURES="theme_facodi/views/snippets/s_facodi_features.xml"
+
+for anchor in 'Where do you want to begin?' 'Courses' 'Roadmaps' 'Curricular units' 'facodi-learning-entry-grid'; do
+  grep -Fq "$anchor" "$JOURNEY" || fail "learning entry section missing: $anchor"
+done
+for route in '/slides' '/roadmaps' '/unidades-curriculares'; do
+  grep -Fq "href=\"$route\"" "$JOURNEY" || fail "learning entry route missing: $route"
+done
+for anchor in 'From curiosity to the next click.' 'Choose a question' 'Study at your pace' 'Follow the next useful thread' 'facodi-learning-steps'; do
+  grep -Fq "$anchor" "$FEATURES" || fail "learning steps missing: $anchor"
+done
+
 AREAS="theme_facodi/views/snippets/s_facodi_academic_areas.xml"
 ECOSYSTEM="theme_facodi/views/snippets/s_facodi_ecosystem.xml"
 REGISTRY="theme_facodi/views/snippets/snippets.xml"
@@ -75,7 +95,6 @@ compositions = {
 required = {
     'new_page_template_sections_facodi_home': {
         'theme_facodi.s_facodi_academic_areas',
-        'theme_facodi.s_facodi_ecosystem',
     },
     'new_page_template_sections_facodi_pathways': {
       'theme_facodi.s_facodi_editorial_pathway',
@@ -116,5 +135,24 @@ for selector in '.o_wslides_slide_list_category_header' '.o_wslides_slides_list_
   grep -Fq "$selector" "$SLIDES" \
     || fail "standard eLearning presentation selector missing: $selector"
 done
+
+python3 - <<'PY'
+from xml.etree import ElementTree as ET
+root = ET.parse("theme_facodi/views/page_templates.xml").getroot()
+home = root.find(".//template[@id='new_page_template_sections_facodi_home']")
+calls = [n.get("t-snippet-call") for n in home.iter("t") if n.get("t-snippet-call")]
+expected = [
+    "theme_facodi.s_facodi_hero",
+    "theme_facodi.s_facodi_learning_journey",
+    "theme_facodi.s_facodi_features",
+    "theme_facodi.s_facodi_course_showcase",
+    "theme_facodi.s_facodi_academic_areas",
+    "theme_facodi.s_facodi_community",
+    "theme_facodi.s_facodi_institutional",
+    "theme_facodi.s_facodi_course_cta",
+]
+if calls != expected:
+    raise SystemExit(f"FAIL: homepage order {calls!r} != {expected!r}")
+PY
 
 echo "PASS: FACODI Website Foundation v2 contract"

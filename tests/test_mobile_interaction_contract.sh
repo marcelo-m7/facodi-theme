@@ -66,4 +66,30 @@ if "width: 100%" not in anchor_block:
     raise SystemExit("FAIL: training slide link must make its row width tappable on mobile")
 PY
 
-echo "PASS: mobile menu and eLearning touch interaction contract"
+grep -Fq '@media (max-width: 767.98px)' theme_facodi/static/src/scss/snippets.scss || fail "homepage needs a dedicated phone breakpoint"
+grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/snippets.scss || fail "long translated homepage copy must wrap"
+
+for selector in '.facodi-hero' '.facodi-learning-entry-grid' '.facodi-learning-steps' '.facodi-community-grid'; do
+  grep -Fq "$selector" theme_facodi/static/src/scss/snippets.scss \
+    || fail "missing mobile-critical selector: $selector"
+done
+
+grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/snippets.scss \
+  || fail "phone layouts must collapse to a shrinkable single column"
+
+python3 - <<'PY'
+from pathlib import Path
+
+source = Path("theme_facodi/static/src/scss/snippets.scss").read_text(encoding="utf-8")
+mobile = source.split("@media (max-width: 767.98px)", 1)[1].split("@media (prefers-reduced-motion", 1)[0]
+if ".facodi-hero-study-board {" not in mobile:
+    raise SystemExit("FAIL: phone hero study-board rule missing")
+board = mobile.split(".facodi-hero-study-board {", 1)[1].split("}", 1)[0]
+if "display: grid" not in board:
+    raise SystemExit("FAIL: phone hero study board must use normal grid flow")
+note = mobile.split(".facodi-study-note {", 1)[1].split("}", 1)[0]
+if "position: static" not in note:
+    raise SystemExit("FAIL: phone study notes must leave absolute positioning")
+PY
+
+echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"

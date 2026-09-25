@@ -155,7 +155,7 @@ grep -Fq '/mnt/design-themes' .github/workflows/ci.yml || fail "CI must mount de
 grep -Fq -- '-i theme_facodi' .github/workflows/ci.yml || fail "CI must install theme_facodi"
 grep -Fq -- '--test-tags /theme_facodi' .github/workflows/ci.yml || fail "CI must run theme_facodi tests"
 
-for file in primary_variables bootstrap_overridden components website snippets website_slides; do
+for file in primary_variables bootstrap_overridden campus_paper_tokens paper_primitives components website snippets website_slides; do
   [[ -f "theme_facodi/static/src/scss/${file}.scss" ]] || fail "missing ${file}.scss"
 done
 
@@ -253,7 +253,7 @@ PY
 grep -Fq '.o_header_mobile' theme_facodi/static/src/scss/website.scss \
   || fail "theme must style the standard Odoo mobile header instead of replacing it"
 
-for class_name in facodi-hero facodi-hero-board facodi-stat-card facodi-open-section; do
+for class_name in facodi-hero facodi-hero-study-board facodi-learning-entry-grid facodi-institutional-sheet; do
   grep -R -Fq "$class_name" theme_facodi/views/snippets --include='*.xml' \
     || fail "live FACODI snippet class missing: $class_name"
 done
@@ -286,7 +286,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.5.0.4"' theme_facodi/__manifest__.py || fail "eLearning catalogue release version missing"
+grep -Fq '"version": "19.0.6.0.0"' theme_facodi/__manifest__.py || fail "Campus Paper release version missing"
 
 if grep -Rq 'prefers-color-scheme: dark\|background-image: none !important' theme_facodi/static/src/scss; then
   fail "partial dark mode or hidden editorial cover regression"
