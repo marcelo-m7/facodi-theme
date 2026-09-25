@@ -12,3 +12,6 @@ Task 1: complete (CI run 36185027249 on exact branch head after implementation �
 Task 2: Ruling: Odoo 19 course_card root is an <a class="o_wslides_course_card">, not a div; target the stable native class on the anchor. Root cause confirmed from Odoo 19 upstream and CI traceback. Cost if wrong: course catalogue rendering would return HTTP 500, covered by exact-head Odoo tests.
 
 Task 2: complete (CI run 36186275344 → success; native catalogue/course shell, install/upgrade, custom-cover contract and Website Builder gates passed).
+
+Task 6: Ruling: facodi-theme/main advanced with PR #25 while D1 was in progress. Carried the stronger rendered/default custom-cover regression into the D1 branch before final styling verification. Cost if wrong: duplicated test drift; exact-head theme CI now exercises the combined suite.
+Task 6: complete (CI run 36190206579 → success; D1 compiled assets, Roadmap/UC/module selectors, 8/4 unit layout, rendered cover preservation, install/upgrade and builder-preservation gates passed).
