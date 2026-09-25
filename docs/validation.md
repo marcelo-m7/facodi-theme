@@ -7,7 +7,7 @@ container with `odoo/design-themes` pinned at
 `a1818df4ade65406c0cacae8b1ea676e6f70095f`. The public FACODI sites are evidence
 and deployment targets only; this repository's CI does not modify production.
 
-Release under validation: `theme_facodi` `19.0.5.0.3`.
+Release under validation: `theme_facodi` `19.0.6.0.0`.
 
 ## Automated evidence required for release
 
@@ -26,10 +26,32 @@ The workflow performs:
 - upgrade to the current release with `-u theme_facodi`;
 - verification that the legacy dynamic-snippet builder contract is repaired without losing editor content.
 
+## Campus Paper homepage regression matrix
+
+The `19.0.6.0.0` gate additionally verifies:
+
+- semantic Campus Paper runtime tokens and reusable paper primitives;
+- no remote font requests;
+- editable hero, learning-entry, learning-step, community, institutional and
+  closing-CTA snippets;
+- standard dynamic-course empty state with no invented static course records;
+- canonical public routes for Courses, Roadmaps and Curricular Units;
+- PT/ES/FR Campus Paper source-copy translations;
+- responsive single-column collapse for the hero, learning cards and community
+  cards;
+- visible focus and reduced-motion declarations;
+- persisted legacy Website Builder content across module upgrade.
+
+Visual geometry is still supporting evidence rather than a formal pixel-perfect
+or WCAG certification. Required manual/disposable-browser viewports for this
+release are 1440×1200, 1024×1366, 390×844 and 320×700 on the homepage, plus
+1440×1200 and 390×844 on `/slides`. No screenshot evidence is claimed unless
+those captures are actually produced and inspected.
+
 ## eLearning regression matrix
 
 The Odoo `HttpCase` and `TransactionCase` suite verifies the presentation added in
-`19.0.5.0.3` against real `website_slides` records and routes:
+`19.0.6.0.0` against real `website_slides` records and routes:
 
 - `/slides` keeps the standard `.o_wslides_course_card` hook;
 - course cards render an explicit `slide.channel` cover first;
