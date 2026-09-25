@@ -9,7 +9,7 @@
                     <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
                     FACODI · An open digital campus
                 </p>
-                <h1><span class="facodi-highlight">Learn in public.</span></h1>
+                <h1 class="facodi-highlight">Learn in public.</h1>
                 <p class="facodi-hero-subtitle">Open higher education, one useful next step at a time.</p>
                 <p class="facodi-lead">
                     Courses, Roadmaps and curricular units connect public learning resources so you can start with a question and keep following the thread.
@@ -24,7 +24,7 @@
             </div>
             <div class="facodi-hero-study-board" aria-label="FACODI learning map">
                 <article class="facodi-sheet facodi-study-sheet">
-                    <span class="facodi-tab">Roadmap</span>
+                    <p class="facodi-tab">Roadmap</p>
                     <p class="facodi-label">Question 01</p>
                     <h2>Start with what you want to understand.</h2>
                     <div class="facodi-study-route" aria-hidden="true">
@@ -32,12 +32,12 @@
                     </div>
                 </article>
                 <article class="facodi-note facodi-study-note">
-                    <span class="facodi-label">Curricular unit</span>
-                    <strong>Find verified academic context.</strong>
+                    <p class="facodi-label">Curricular unit</p>
+                    <p class="facodi-study-note-copy">Find verified academic context.</p>
                 </article>
                 <article class="facodi-postit facodi-study-note facodi-study-note-secondary">
-                    <span class="facodi-label">Course</span>
-                    <strong>Keep following the useful thread.</strong>
+                    <p class="facodi-label">Course</p>
+                    <p class="facodi-study-note-copy">Keep following the useful thread.</p>
                 </article>
             </div>
         </section>
