@@ -22,6 +22,12 @@ grep -Fq 'campus_paper_tokens.scss' "$MANIFEST" || fail "tokens not loaded"
 grep -Fq 'paper_primitives.scss' "$MANIFEST" || fail "primitives not loaded"
 grep -Fq '.facodi-text-link' theme_facodi/static/src/scss/components.scss \
   || fail "reusable FACODI text-link primitive missing"
+
+for obsolete in   '.facodi-hero-board'   '.facodi-dashboard'   '.facodi-side-nav'   '.facodi-dashboard-main'   '.facodi-insights'   '.facodi-roadmap-card'   '.facodi-open-section'   '.facodi-open-actions'; do
+  if grep -Fq "$obsolete" theme_facodi/static/src/scss/snippets.scss; then
+    fail "obsolete pre-Campus-Paper selector remains: $obsolete"
+  fi
+done
 grep -Fq ':focus-visible' "$PRIMITIVES" || fail "focus treatment missing"
 grep -Fq 'prefers-reduced-motion: reduce' "$PRIMITIVES" || fail "reduced-motion treatment missing"
 
