@@ -397,6 +397,9 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".o_wslides_slide_list_category_header", compiled)
         self.assertIn(".o_wslides_js_course_join_link.btn-primary", compiled)
         self.assertIn("var(--facodi-mint-strong)", compiled)
+        self.assertIn(".facodi-curriculum-pathway", compiled)
+        self.assertIn(".facodi-curriculum-map__unit", compiled)
+        self.assertIn(".facodi-coverage-badge", compiled)
         self.assertIn(".o_cookies_discrete.show", compiled)
         self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(
