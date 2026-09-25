@@ -25,32 +25,28 @@ _LEGACY_HREFS = [
 _SUPPORTED_LANGS = ("pt_PT", "es_ES", "fr_FR")
 _NAV_COPY = {
     "en_US": {
-        "aria": "Learning navigation",
-        "title": "Learning catalogue",
+        "aria": "Learning catalogue",
         "roadmaps": "Roadmaps",
         "units": "Curricular Units",
         "courses": "Courses",
         "contribute": "Contribute",
     },
     "pt_PT": {
-        "aria": "Navegação de aprendizagem",
-        "title": "Catálogo de aprendizagem",
+        "aria": "Catálogo de aprendizagem",
         "roadmaps": "Roadmaps",
         "units": "Unidades Curriculares",
         "courses": "Cursos",
         "contribute": "Contribua",
     },
     "es_ES": {
-        "aria": "Navegación de aprendizaje",
-        "title": "Catálogo de aprendizaje",
+        "aria": "Catálogo de aprendizaje",
         "roadmaps": "Rutas",
         "units": "Unidades Curriculares",
         "courses": "Cursos",
         "contribute": "Contribuye",
     },
     "fr_FR": {
-        "aria": "Navigation d’apprentissage",
-        "title": "Catalogue d’apprentissage",
+        "aria": "Catalogue d’apprentissage",
         "roadmaps": "Parcours",
         "units": "Unités d’enseignement",
         "courses": "Cours",
@@ -58,10 +54,10 @@ _NAV_COPY = {
     },
 }
 _NAV_LINKS = (
-    ("/roadmaps", "fa fa-map", "roadmaps"),
-    ("/unidades-curriculares", "fa fa-university", "units"),
-    ("/slides", "fa fa-book", "courses"),
-    ("/contribuir/recurso", "fa fa-users", "contribute"),
+    ("/roadmaps", "roadmaps"),
+    ("/unidades-curriculares", "units"),
+    ("/slides", "courses"),
+    ("/contribuir/recurso", "contribute"),
 )
 
 
@@ -82,30 +78,19 @@ def _side_navs(root):
     ]
 
 
-def _canonical_side_nav(lang):
+def _canonical_catalogue_nav(lang):
     copy_values = _NAV_COPY[lang]
-    aside = etree.Element(
-        "aside",
+    nav = etree.Element(
+        "nav",
         {
-            "class": "facodi-side-nav",
+            "class": "facodi-catalogue-tabs",
             "aria-label": copy_values["aria"],
         },
     )
-    title = etree.SubElement(aside, "p")
-    title.text = copy_values["title"]
-    for href, icon_class, label_key in _NAV_LINKS:
-        link = etree.SubElement(aside, "a", {"href": href})
-        icon = etree.SubElement(
-            link,
-            "i",
-            {
-                "class": icon_class,
-                "aria-hidden": "true",
-                "t-translation": "off",
-            },
-        )
-        icon.tail = copy_values[label_key]
-    return aside
+    for href, label_key in _NAV_LINKS:
+        link = etree.SubElement(nav, "a", {"href": href})
+        link.text = copy_values[label_key]
+    return nav
 
 
 def _is_exact_legacy_nav(node):
@@ -120,6 +105,8 @@ def _replacement_side_nav(legacy, canonical):
 
     canonical_classes = replacement.get("class", "").split()
     for class_name in legacy.get("class", "").split():
+        if class_name == "facodi-side-nav":
+            continue
         if class_name not in canonical_classes:
             canonical_classes.append(class_name)
     if canonical_classes:
@@ -139,7 +126,7 @@ def _repair_arch(arch, lang):
     except (etree.XMLSyntaxError, ValueError, AttributeError):
         return arch, False
 
-    canonical_nav = _canonical_side_nav(lang)
+    canonical_nav = _canonical_catalogue_nav(lang)
     snippets = []
     if root.get("data-snippet") in _SNIPPET_NAMES:
         snippets.append(root)
