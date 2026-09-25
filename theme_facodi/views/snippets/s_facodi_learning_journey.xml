@@ -7,32 +7,32 @@
                     <div>
                         <p class="facodi-kicker">
                             <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
-                            How it works
+                            Start where you are
                         </p>
-                        <h2>Three ways to begin learning.</h2>
+                        <h2>Where do you want to begin?</h2>
                     </div>
                 </div>
                 <div class="facodi-stat-row">
                     <article class="facodi-stat-card facodi-mint">
-                        <div class="facodi-stat-eyebrow">Step 01</div>
-                        <div class="facodi-stat-title">Choose a Roadmap</div>
-                        <div class="facodi-stat-copy">Start with a structured, publicly reviewed learning direction.</div>
-                        <a href="/roadmaps" class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                        <div class="facodi-stat-eyebrow">For a first question</div>
+                        <div class="facodi-stat-title">Explore courses</div>
+                        <div class="facodi-stat-copy">Choose a topic, watch, read and find an accessible way in.</div>
+                        <a href="/slides" class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
                         <i class="fa fa-search" aria-hidden="true" t-translation="off"/>
                     </article>
                     <article class="facodi-stat-card facodi-sky">
-                        <div class="facodi-stat-eyebrow">Step 02</div>
-                        <div class="facodi-stat-title">Explore curricular units</div>
-                        <div class="facodi-stat-copy">See the verified academic reference, modules and reviewed coverage.</div>
-                        <a href="/unidades-curriculares" class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
-                        <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
+                        <div class="facodi-stat-eyebrow">For a wider view</div>
+                        <div class="facodi-stat-title">Follow a Roadmap</div>
+                        <div class="facodi-stat-copy">See how topics, modules and courses can support the same direction.</div>
+                        <a href="/roadmaps" class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                        <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
                     </article>
                     <article class="facodi-stat-card facodi-sun">
-                        <div class="facodi-stat-eyebrow">Step 03</div>
-                        <div class="facodi-stat-title">Start a course</div>
-                        <div class="facodi-stat-copy">Learn with published courses and content at your own pace.</div>
-                        <a href="/slides" class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
-                        <i class="fa fa-users" aria-hidden="true" t-translation="off"/>
+                        <div class="facodi-stat-eyebrow">For verified context</div>
+                        <div class="facodi-stat-title">Find a curricular unit</div>
+                        <div class="facodi-stat-copy">Understand the official reference, related modules and reviewed course coverage.</div>
+                        <a href="/unidades-curriculares" class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                        <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                     </article>
                 </div>
             </div>

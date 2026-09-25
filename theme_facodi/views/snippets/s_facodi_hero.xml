@@ -5,41 +5,40 @@
             <div class="facodi-hero-copy">
                 <p class="facodi-kicker">
                     <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
-                    Learn together with the community
+                    An open digital campus
                 </p>
-                <h1>Your next chapter starts in a network.</h1>
+                <h1>Knowledge is everywhere. Find your next step.</h1>
                 <p class="facodi-lead">
-                    Navigate verified Roadmaps, curricular units and open courses with a community that turns knowledge into possibility.
+                    Videos, courses and resources make more sense together. Explore a subject, follow a path or share the discovery that helped something click.
                 </p>
                 <div class="facodi-actions">
-                    <a class="btn facodi-button facodi-button-primary" href="/roadmaps">
-                        Explore Roadmaps
+                    <a class="btn facodi-button facodi-button-primary" href="/slides">
+                        Find what to study
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
-                    <a class="btn facodi-button facodi-button-secondary" href="/unidades-curriculares">Explore curricular units</a>
-                    <a class="btn facodi-button facodi-button-secondary" href="/slides">Explore courses</a>
+                    <a class="btn facodi-button facodi-button-secondary" href="/contactus">Meet FACODI</a>
                 </div>
                 <div class="facodi-hero-proof">
-                    <p>Built for learners and contributors</p>
+                    <p>Learn in public, together</p>
                     <ul>
                         <li>
                             <i class="fa fa-compass" aria-hidden="true" t-translation="off"/>
-                            Find a clear starting point
+                            Start with a question
                         </li>
                         <li>
                             <i class="fa fa-list-ol" aria-hidden="true" t-translation="off"/>
-                            Learn with structure at your pace
+                            Follow the thread at your pace
                         </li>
                         <li>
                             <i class="fa fa-share-alt" aria-hidden="true" t-translation="off"/>
-                            Share resources that help others learn
+                            Leave a useful trail for someone else
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="facodi-hero-board" aria-label="FACODI learning structure">
+            <div class="facodi-hero-board" aria-label="FACODI learning paths">
                 <div class="facodi-board-top">
-                    <div>FACODI structure</div>
+                    <div>From curiosity to context</div>
                     <div class="facodi-live-dot">Open</div>
                 </div>
                 <div class="facodi-board-path">
@@ -54,15 +53,15 @@
                 <div class="facodi-board-cards">
                     <div>
                         <div class="facodi-board-card-label">Roadmap</div>
-                        <div class="facodi-board-card-title">Choose direction</div>
+                        <div class="facodi-board-card-title">Follow a question</div>
                     </div>
                     <div class="is-selected">
                         <div class="facodi-board-card-label">Curricular unit</div>
-                        <div class="facodi-board-card-title">Understand coverage</div>
+                        <div class="facodi-board-card-title">Find the context</div>
                     </div>
                     <div>
                         <div class="facodi-board-card-label">Course and content</div>
-                        <div class="facodi-board-card-title">Learn at your pace</div>
+                        <div class="facodi-board-card-title">Keep building</div>
                     </div>
                 </div>
             </div>

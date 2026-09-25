@@ -41,7 +41,7 @@ done
 
 # English is the canonical source language in QWeb. These phrases are also
 # smoke anchors used by the runtime translation tests.
-grep -Fq 'Learn together with the community' "$VIEWS_DIR/snippets/s_facodi_hero.xml" \
+grep -Fq 'An open digital campus' "$VIEWS_DIR/snippets/s_facodi_hero.xml" \
   || fail "hero source language must remain English"
 grep -Fq 'Digital Community College. Open, collaborative and accessible higher education.' "$VIEWS_DIR/customizations.xml" \
   || fail "website shell source language must be English"
@@ -80,7 +80,7 @@ FOUNDATION_MSGIDS=(
 )
 
 for catalogue in pt es fr; do
-  grep -Fq 'msgid "Learn together with the community"' "$I18N_DIR/${catalogue}.po" \
+  grep -Fq 'msgid "Knowledge is everywhere. Find your next step."' "$I18N_DIR/${catalogue}.po" \
     || fail "${catalogue}.po does not translate the hero language anchor"
   grep -Fq 'msgid "Digital Community College. Open, collaborative and accessible higher education."' "$I18N_DIR/${catalogue}.po" \
     || fail "${catalogue}.po does not translate the website shell language anchor"

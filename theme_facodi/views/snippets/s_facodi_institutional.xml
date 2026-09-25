@@ -5,16 +5,16 @@
             <div>
                 <p class="facodi-kicker">
                     <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
-                    Knowledge in motion
+                    Building in the open
                 </p>
-                <h2>An open college for anyone who wants to build the future.</h2>
+                <h2>We are still building. You can be part of it.</h2>
             </div>
             <div class="facodi-open-actions">
                 <p>
-                    Study with clear learning paths, contribute reviewed resources and turn your journey into something other people can follow too.
+                    We are making course discovery clearer, connecting verified academic context and welcoming more useful contributions. Tell us what would make the next step easier.
                 </p>
                 <a class="btn facodi-button facodi-button-secondary" href="/contactus">
-                    Contact FACODI
+                    Help shape FACODI
                     <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                 </a>
             </div>
