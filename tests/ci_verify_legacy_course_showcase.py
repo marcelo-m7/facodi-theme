@@ -16,10 +16,16 @@ EXPECTED_MARKERS = {
 }
 EXPECTED_HREFS = ["/roadmaps", "/unidades-curriculares", "/slides", "/contribuir/recurso"]
 EXPECTED_NAV_TEXT = {
-    "en_US": "Learning catalogue Roadmaps Curricular Units Courses Contribute",
-    "pt_PT": "Catálogo de aprendizagem Roadmaps Unidades Curriculares Cursos Contribua",
-    "es_ES": "Catálogo de aprendizaje Rutas Unidades Curriculares Cursos Contribuye",
-    "fr_FR": "Catalogue d’apprentissage Parcours Unités d’enseignement Cours Contribuez",
+    "en_US": "Roadmaps Curricular Units Courses Contribute",
+    "pt_PT": "Roadmaps Unidades Curriculares Cursos Contribua",
+    "es_ES": "Rutas Unidades Curriculares Cursos Contribuye",
+    "fr_FR": "Parcours Unités d’enseignement Cours Contribuez",
+}
+EXPECTED_ARIA = {
+    "en_US": "Learning catalogue",
+    "pt_PT": "Catálogo de aprendizagem",
+    "es_ES": "Catálogo de aprendizaje",
+    "fr_FR": "Catalogue d’apprentissage",
 }
 EXPECTED_ARIA = {
     "en_US": "Learning catalogue",
@@ -81,6 +87,9 @@ for lang, marker in EXPECTED_MARKERS.items():
         f"{lang}: Courses must be the only active catalogue destination, got {active_hrefs}"
     )
 
+    assert catalogue_nav.get("aria-label") == EXPECTED_ARIA[lang], (
+        f"{lang}: canonical catalogue navigation must keep its translated accessible name"
+    )
     assert normalized_text(catalogue_nav) == EXPECTED_NAV_TEXT[lang], (
         f"{lang}: persisted navigation must use current translated canonical labels"
     )
