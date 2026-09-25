@@ -43,7 +43,7 @@
     .facodi-button {
         align-items: center;
         border: 2px solid var(--facodi-ink);
-        border-radius: .5rem;
+        border-radius: var(--facodi-radius);
         box-shadow: 3px 3px 0 var(--facodi-ink);
         display: inline-flex;
         font-size: .875rem;
@@ -83,10 +83,10 @@
 
     .facodi-card,
     .facodi-stat-card {
-        background: #fff;
-        border: 2px solid var(--facodi-ink);
-        border-radius: .625rem;
-        box-shadow: 4px 4px 0 var(--facodi-ink);
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
     }
 
     .facodi-stat-card {
