@@ -23,6 +23,7 @@
             max-width: 13ch;
             overflow-wrap: anywhere;
             text-wrap: balance;
+            width: fit-content;
         }
     }
 
@@ -88,9 +89,9 @@
         position: absolute;
         transform: rotate(-2deg);
 
-        strong {
-            display: block;
-            margin-top: .75rem;
+        .facodi-study-note-copy {
+            font-weight: 700;
+            margin: .75rem 0 0;
         }
     }
 
