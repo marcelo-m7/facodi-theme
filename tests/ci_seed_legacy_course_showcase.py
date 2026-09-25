@@ -11,7 +11,9 @@ for code in ("pt_PT", "es_ES", "fr_FR"):
     env["res.lang"]._activate_lang(code)
 
 
-def legacy_arch(*, nav_title, overview, courses, discover, saved, community, marker, saved_href="/web/login"):
+def legacy_arch(*, marker, saved_href="/web/login", custom=False):
+    nav_title = "My custom learning journey" if custom else "My learning journey"
+    saved = "My saved space" if custom else "Saved"
     return f"""
 <t t-name="{FIXTURE_KEY}">
     <div id="wrap">
@@ -22,11 +24,11 @@ def legacy_arch(*, nav_title, overview, courses, discover, saved, community, mar
             <div class="facodi-dashboard">
                 <aside class="facodi-side-nav" aria-label="Learning navigation">
                     <p>{nav_title}</p>
-                    <a class="is-active" href="/">{overview}</a>
-                    <a href="/slides">{courses}</a>
-                    <a href="/website/search">{discover}</a>
+                    <a class="is-active" href="/">Overview</a>
+                    <a href="/slides">Courses</a>
+                    <a href="/website/search">Discover</a>
                     <a href="{saved_href}">{saved}</a>
-                    <a href="/contactus">{community}</a>
+                    <a href="/contactus">Community</a>
                 </aside>
                 <div class="facodi-dashboard-main">
                     <p class="facodi-ci-editorial-marker">{marker}</p>
@@ -40,38 +42,67 @@ def legacy_arch(*, nav_title, overview, courses, discover, saved, community, mar
 """.strip()
 
 
-translations = {
-    "en_US": legacy_arch(nav_title="My learning journey", overview="Overview", courses="Courses", discover="Discover", saved="Saved", community="Community", marker="Preserve this editor content"),
-    "pt_PT": legacy_arch(nav_title="O meu percurso de aprendizagem", overview="Visão geral", courses="Cursos", discover="Descobrir", saved="Guardados", community="Comunidade", marker="Preservar este conteúdo do editor"),
-    "es_ES": legacy_arch(nav_title="Mi recorrido de aprendizaje", overview="Resumen", courses="Cursos", discover="Descubrir", saved="Guardados", community="Comunidad", marker="Conservar este contenido del editor"),
-    "fr_FR": legacy_arch(nav_title="Mon parcours d'apprentissage", overview="Vue d'ensemble", courses="Cours", discover="Découvrir", saved="Enregistrés", community="Communauté", marker="Conserver ce contenu de l'éditeur"),
-}
-
 view = View.create({
     "name": "FACODI legacy dynamic snippet CI fixture",
     "key": FIXTURE_KEY,
     "type": "qweb",
     "website_id": website.id,
-    "arch_db": translations["en_US"],
+    "arch_db": legacy_arch(marker="Preserve this editor content"),
 })
-for lang in ("pt_PT", "es_ES", "fr_FR"):
-    view.with_context(lang=lang).arch = translations[lang]
+view.update_field_translations(
+    "arch_db",
+    {
+        "pt_PT": {
+            "My learning journey": "O meu percurso de aprendizagem",
+            "Overview": "Visão geral",
+            "Courses": "Cursos",
+            "Discover": "Descobrir",
+            "Saved": "Guardados",
+            "Community": "Comunidade",
+            "Preserve this editor content": "Preservar este conteúdo do editor",
+            "Legacy warning": "Aviso legado",
+        },
+        "es_ES": {
+            "My learning journey": "Mi recorrido de aprendizaje",
+            "Overview": "Resumen",
+            "Courses": "Cursos",
+            "Discover": "Descubrir",
+            "Saved": "Guardados",
+            "Community": "Comunidad",
+            "Preserve this editor content": "Conservar este contenido del editor",
+            "Legacy warning": "Aviso heredado",
+        },
+        "fr_FR": {
+            "My learning journey": "Mon parcours d'apprentissage",
+            "Overview": "Vue d'ensemble",
+            "Courses": "Cours",
+            "Discover": "Découvrir",
+            "Saved": "Enregistrés",
+            "Community": "Communauté",
+            "Preserve this editor content": "Conserver ce contenu de l'éditeur",
+            "Legacy warning": "Avertissement hérité",
+        },
+    },
+)
+
+expected_markers = {
+    "en_US": "Preserve this editor content",
+    "pt_PT": "Preservar este conteúdo do editor",
+    "es_ES": "Conservar este contenido del editor",
+    "fr_FR": "Conserver ce contenu de l'éditeur",
+}
+for lang, marker in expected_markers.items():
+    assert marker in view.with_context(lang=lang).arch
 
 assert "s_dynamic_snippet_container" not in view.with_context(lang="en_US").arch_db
 assert "s_dynamic_snippet_content" not in view.with_context(lang="en_US").arch_db
 assert 'href="/web/login"' in view.with_context(lang="en_US").arch_db
 
 custom_arch = legacy_arch(
-    nav_title="My custom learning journey",
-    overview="Overview",
-    courses="Courses",
-    discover="Discover",
-    saved="My saved space",
-    community="Community",
     marker="Keep this custom navigation untouched",
     saved_href="/my/saved",
+    custom=True,
 ).replace(FIXTURE_KEY, CUSTOM_NAV_KEY)
-
 custom_view = View.create({
     "name": "FACODI custom navigation CI fixture",
     "key": CUSTOM_NAV_KEY,
