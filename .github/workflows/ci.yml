@@ -130,6 +130,20 @@ jobs:
             -d theme_facodi_ci -u theme_facodi \
             --stop-after-init
 
+      - name: Seed D2 editor-owned page persistence fixture
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_seed_d2_editorial_page.py
+
       - name: Verify legacy course showcase builder repair
         run: |
           docker run --rm -i \
@@ -171,6 +185,20 @@ jobs:
             --workers=0 --without-demo=True \
             -d theme_facodi_ci -u theme_facodi \
             --stop-after-init
+
+      - name: Verify D2 editor-owned page persistence
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_verify_d2_editorial_page.py
 
       - name: Verify idempotent course showcase repair
         run: |
