@@ -5,3 +5,5 @@ Pre-flight: Task 1 produces global shell hooks consumed only by rendered/visual 
 Ruling: this harness cannot create a network-backed local git worktree because the container cannot resolve github.com. Execution therefore uses an isolated GitHub feature branch and exact-head GitHub Actions as the integration workspace. Cost if wrong: slower RED/GREEN feedback; mitigated by explicit failing branch CI before implementation and exact-head green CI after each gate.
 
 Ruling: CI invocation for new static contracts is moved forward to the task that introduces each contract, rather than waiting for Task 6, so TDD RED can be observed on the real branch. Cost if wrong: workflow diff appears earlier than planned, but behavior and final scope remain identical.
+
+Task 1: complete (RED run 36174129901: global shell contract failed on missing facodi-footer-campus; GREEN run 36174295989: full Odoo 19 Theme CI success, including install/upgrade and all fast contracts).
