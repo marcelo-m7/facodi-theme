@@ -4,3 +4,5 @@ Pre-flight: Task 1 produces reusable D1 classes consumed by Tasks 2 and 6; names
 Pre-flight: Tasks 3-5 in facodi-learning produce semantic QWeb hooks consumed by theme Task 6; exact class names match.
 Pre-flight: Task 8 consumes exact green SHAs from both owner repositories; no production merge is part of D1.
 Ruling: this harness cannot create a local network-backed git worktree, so isolated GitHub feature branches plus exact-head GitHub Actions are the execution workspace. Cost if wrong: slower feedback; mitigated by observing RED/GREEN on branch CI.
+
+Task 1: Ruling: the CI release grep moved from Task 6 into Task 1 because the manifest version is bumped when the new asset is loaded; leaving the old grep would make the task's integration gate fail for a bookkeeping mismatch. Cost if wrong: release guard changes earlier than planned, with no runtime behavior change.
