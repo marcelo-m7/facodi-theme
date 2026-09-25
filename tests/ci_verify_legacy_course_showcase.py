@@ -27,9 +27,29 @@ def has_class(node, class_name):
     return class_name in node.get("class", "").split()
 
 
+def first_catalogue_nav(arch):
+    root = etree.fromstring(arch.encode())
+    nodes = [
+        node
+        for node in root.iter()
+        if node.tag == "nav" and has_class(node, "facodi-catalogue-tabs")
+    ]
+    assert len(nodes) == 1, "expected exactly one canonical FACODI catalogue navigation"
+    assert not [
+        node
+        for node in root.iter()
+        if node.tag == "aside" and has_class(node, "facodi-side-nav")
+    ], "stale FACODI side navigation must be removed"
+    return nodes[0]
+
+
 def first_side_nav(arch):
     root = etree.fromstring(arch.encode())
-    nodes = [node for node in root.iter() if node.tag == "aside" and has_class(node, "facodi-side-nav")]
+    nodes = [
+        node
+        for node in root.iter()
+        if node.tag == "aside" and has_class(node, "facodi-side-nav")
+    ]
     assert len(nodes) == 1, "expected exactly one FACODI side navigation"
     return nodes[0]
 
@@ -45,13 +65,17 @@ assert view, "legacy course showcase CI fixture is missing after upgrade"
 for lang, marker in EXPECTED_MARKERS.items():
     arch = view.with_context(lang=lang).arch
     assert marker in arch, f"{lang}: upgrade must preserve editor content"
-    side_nav = first_side_nav(arch)
-    hrefs = side_nav.xpath("./a/@href")
+    catalogue_nav = first_catalogue_nav(arch)
+    hrefs = catalogue_nav.xpath("./a/@href")
     assert hrefs == EXPECTED_HREFS, f"{lang}: expected canonical FACODI navigation, got {hrefs}"
     assert "/web/login" not in hrefs
     assert "/website/search" not in hrefs
+    active_hrefs = catalogue_nav.xpath("./a[contains(concat(' ', normalize-space(@class), ' '), ' is-active ')]/@href")
+    assert active_hrefs == ["/slides"], (
+        f"{lang}: Courses must be the only active catalogue destination, got {active_hrefs}"
+    )
 
-    assert normalized_text(side_nav) == EXPECTED_NAV_TEXT[lang], (
+    assert normalized_text(catalogue_nav) == EXPECTED_NAV_TEXT[lang], (
         f"{lang}: persisted navigation must use current translated canonical labels"
     )
 
