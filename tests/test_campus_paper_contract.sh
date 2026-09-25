@@ -10,7 +10,7 @@ MANIFEST="theme_facodi/__manifest__.py"
 [[ -f "$TOKENS" ]] || fail "Campus Paper token file missing"
 [[ -f "$PRIMITIVES" ]] || fail "Campus Paper primitive file missing"
 
-for token in --facodi-ink-deep --facodi-sun-bright --facodi-mint-strong   --facodi-sky --facodi-coral --facodi-pink --facodi-paper-warm   --facodi-surface-page --facodi-surface-sheet --facodi-border   --facodi-shadow --facodi-shadow-hover --facodi-focus-ring; do
+for token in --facodi-ink-deep --facodi-sun-bright --facodi-mint-strong   --facodi-sky --facodi-coral --facodi-pink --facodi-paper-warm --facodi-line   --facodi-surface-page --facodi-surface-sheet --facodi-border   --facodi-shadow --facodi-shadow-hover --facodi-focus-ring; do
   grep -Fq -- "$token" "$TOKENS" || fail "missing token: $token"
 done
 
@@ -32,6 +32,16 @@ FOUNDATION="theme_facodi/static/src/scss/foundation_v2.scss"
 for token in 'var(--facodi-border)' 'var(--facodi-radius)' 'var(--facodi-shadow)'; do
   grep -Fq "$token" "$FOUNDATION" || fail "shared academic cards must use Campus Paper token: $token"
 done
+
+
+WEBSITE="theme_facodi/static/src/scss/website.scss"
+if grep -Eq '^[[:space:]]*--facodi-(ink|cyan|blue|mint|sun|paper|line|shadow):' "$WEBSITE"; then
+  fail "runtime Campus Paper tokens must be declared only in campus_paper_tokens.scss"
+fi
+
+if grep -Fq '.facodi-paper {' "$FOUNDATION"; then
+  fail "Foundation must not override the reusable facodi-paper primitive"
+fi
 
 grep -Fq ':focus-visible' "$PRIMITIVES" || fail "focus treatment missing"
 grep -Fq 'prefers-reduced-motion: reduce' "$PRIMITIVES" || fail "reduced-motion treatment missing"
