@@ -43,7 +43,7 @@
               name="FACODI Course Card Visual">
         <xpath expr="//a[contains(@t-attf-class, 'o_wslides_course_card')]"
                position="attributes">
-            <attribute name="class" add="facodi-record-card facodi-course-record-card" separator=" "/>
+            <attribute name="t-attf-class" add="facodi-record-card facodi-course-record-card" separator=" "/>
         </xpath>
         <xpath expr="//div[@t-field='channel.image_1920']" position="replace">
             <t t-set="facodi_visual" t-value="facodi_catalog_visuals.get(channel.id)"/>
