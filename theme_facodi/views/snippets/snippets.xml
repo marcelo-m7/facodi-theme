@@ -35,7 +35,6 @@
             <t t-snippet="theme_facodi.s_facodi_highlighter_callout" string="Highlighter callout" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="5">
                 <keywords>facodi callout study note warning hint highlighter paperclip</keywords>
             </t>
-        </xpath>
             <t t-snippet="theme_facodi.s_facodi_project_story" string="Project story" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi project story about dossier origin mission</keywords></t>
             <t t-snippet="theme_facodi.s_facodi_principles_ledger" string="Principles ledger" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi principles manifesto ledger values</keywords></t>
             <t t-snippet="theme_facodi.s_facodi_process_timeline" string="Process timeline" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi process timeline how works contribution</keywords></t>
@@ -44,6 +43,7 @@
             <t t-snippet="theme_facodi.s_facodi_editorial_quote" string="Editorial quote" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="5"><keywords>facodi quote manifesto editorial callout</keywords></t>
             <t t-snippet="theme_facodi.s_facodi_contact_sheet" string="Contact sheet" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi contact form sheet correspondence</keywords></t>
             <t t-snippet="theme_facodi.s_facodi_policy_document" string="Policy document" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi policy legal privacy terms document</keywords></t>
+        </xpath>
         <xpath expr="//snippets[@id='snippet_structure']" position="inside">
             <t t-snippet="theme_facodi.s_facodi_hero" string="FACODI Hero" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
             <t t-snippet="theme_facodi.s_facodi_learning_journey" string="Learning Journey" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg"/>
