@@ -253,6 +253,37 @@ class TestFacodiTheme(HttpCase):
         self.assertNotIn("o_brand_promotion", response.text)
         self.assertNotIn("odoo_logo_tiny.png", response.text)
 
+    def test_footer_uses_native_multilingual_selector(self):
+        from lxml import html
+
+        website = self.env["website"].get_current_website()
+        languages = self.env["res.lang"]
+        active = self.env.ref("base.lang_en")
+        for code in ("pt_PT", "es_ES", "fr_FR"):
+            active |= languages._activate_lang(code)
+        website.language_ids = active
+        website.default_lang_id = self.env.ref("base.lang_en")
+
+        response = self.url_open("/")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+        footer = tree.xpath(
+            "//*[@id='footer' and contains(concat(' ', normalize-space(@class), ' '), "
+            "' facodi-footer-campus ')]"
+        )
+        self.assertEqual(len(footer), 1)
+        selectors = footer[0].xpath(
+            ".//*[contains(concat(' ', normalize-space(@class), ' '), "
+            "' facodi-footer-language-selector ')]"
+        )
+        self.assertEqual(len(selectors), 1)
+        language_links = selectors[0].xpath(
+            ".//a[contains(concat(' ', normalize-space(@class), ' '), "
+            "' js_change_lang ')]"
+        )
+        codes = {link.get("data-url_code") for link in language_links}
+        self.assertTrue({"en", "pt", "es", "fr"}.issubset(codes))
+
     def test_campus_paper_hero_snippet_is_available_without_overwriting_homepage(self):
         hero = self.env["ir.ui.view"].search(
             [
