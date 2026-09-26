@@ -119,12 +119,14 @@
 
     footer#bottom {
         background-color: #0B1325 !important;
+        background-image: none !important;
         color: var(--facodi-white);
     }
 
     .facodi-footer,
     .facodi-footer-campus {
-        background: #0B1325;
+        background-color: #0B1325 !important;
+        background-image: none !important;
         border-top: .35rem solid var(--facodi-sun);
         color: var(--facodi-white);
 
