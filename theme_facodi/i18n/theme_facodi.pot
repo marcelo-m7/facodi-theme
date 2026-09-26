@@ -126,6 +126,7 @@ msgstr ""
 msgid "Open learning resources and a community that turns knowledge into possibility."
 msgstr ""
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
@@ -1580,3 +1581,39 @@ msgstr ""
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Account"
 msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "FACODI // OPEN CAMPUS"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "← Back"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "This page hit a"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "rough patch."
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment."
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "Back to FACODI"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "If this keeps happening, use the contact page and tell us what you were trying to open."
+msgstr ""
+
