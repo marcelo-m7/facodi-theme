@@ -14,3 +14,5 @@ Task 2: complete (CI run 36200983706 → success; D2 page-picker compositions re
 Task 3: complete (CI run 36223790333 → success; native Blog index/article hooks, sparse/rich metadata, custom covers, assets, upgrade and Odoo regression gates passed).
 
 Task 4: complete (CI run 36224266192 → success; native website.contactus inheritance, single native form, required fields/action, assets, upgrade and Odoo regression gates passed).
+
+Task 5: complete (CI run 36224494526 → success; policy long-form containment, 320px source gates, Contact/Blog/editorial regressions, upgrades and Odoo tests passed).
