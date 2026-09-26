@@ -117,9 +117,14 @@
         }
     }
 
+    footer#bottom {
+        background-color: #0B1325 !important;
+        color: var(--facodi-white);
+    }
+
     .facodi-footer,
     .facodi-footer-campus {
-        background: var(--facodi-ink-deep);
+        background: #0B1325;
         border-top: .35rem solid var(--facodi-sun);
         color: var(--facodi-white);
 
