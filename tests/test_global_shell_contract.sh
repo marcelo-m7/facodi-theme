@@ -21,6 +21,11 @@ done
 
 grep -Fq ':focus-visible' "$SCSS" || fail "global shell needs keyboard focus styles"
 grep -Fq 'min-height: 2.75rem' "$SCSS" || fail "public actions must keep a 44px target"
+grep -Fq 'min-width: 0' "$SCSS" || fail "responsive nav shell must allow flex children to shrink"
+grep -Fq 'flex-wrap: wrap' "$SCSS" || fail "desktop navigation must wrap safely before mobile takeover"
+grep -Fq 'overflow-wrap: anywhere' "$SCSS" || fail "footer labels must wrap instead of widening the page"
+grep -Fq 'grid-template-columns: minmax(0, 1fr);' "$SCSS" || fail "mobile footer must collapse to one shrinkable column"
+grep -Fq 'min(10rem, 100%)' "$SCSS" || fail "footer columns must keep mixed-unit min() browser-safe"
 
 grep -Fq '<t t-set="no_copyright" t-value="True"/>' "$FOOTER" || fail "FACODI footer must disable Odoo's default copyright/brand strip"
 grep -Fq 'footer#bottom' "$SCSS" || fail "outer Odoo footer shell must have an explicit FACODI background"
