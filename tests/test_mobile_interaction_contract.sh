@@ -119,3 +119,10 @@ grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/ed
   || fail "D2 editorial layouts must collapse to a shrinkable phone column"
 grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/editorial_interfaces.scss \
   || fail "D2 editorial copy and URLs must wrap at narrow widths"
+
+grep -Fq '.facodi-site .facodi-policy-document {' theme_facodi/static/src/scss/website_public.scss \
+  || fail "D2 policy shell styling missing"
+grep -Fq 'max-width: 100%' theme_facodi/static/src/scss/website_public.scss \
+  || fail "D2 policy shell must stay within the phone viewport"
+grep -Fq 'overflow-x: auto' theme_facodi/static/src/scss/website_public.scss \
+  || fail "D2 long-form tables/code must scroll internally"
