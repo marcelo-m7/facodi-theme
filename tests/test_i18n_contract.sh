@@ -182,3 +182,95 @@ for path in files:
                 f"FAIL: {path} does not register {message!r} for facodi_courses_home"
             )
 PY
+
+
+python3 - <<'PY'
+from pathlib import Path
+
+D2_EDITORIAL_OCCURRENCES = {
+    "Project dossier": ["theme_facodi.s_facodi_project_story"],
+    "Learning in public can be easier to navigate.": ["theme_facodi.s_facodi_project_story"],
+    "FACODI organizes open courses, curricular references, and public learning resources so people can find a useful next step.": ["theme_facodi.s_facodi_project_story"],
+    "The project grows through review, context, and contributions from people who care about open learning.": ["theme_facodi.s_facodi_project_story"],
+    "Explore learning": ["theme_facodi.s_facodi_project_story"],
+    "Open notebook": ["theme_facodi.s_facodi_project_story"],
+    "Use this space for a real project milestone, source, or short contextual note.": ["theme_facodi.s_facodi_project_story"],
+    "Open first": ["theme_facodi.s_facodi_principles_ledger"],
+    "Prefer public learning resources that people can access without a paywall.": ["theme_facodi.s_facodi_principles_ledger"],
+    "Context matters": ["theme_facodi.s_facodi_principles_ledger"],
+    "Connect useful resources to clear academic or learning context instead of presenting isolated links.": ["theme_facodi.s_facodi_principles_ledger"],
+    "Review before publishing": ["theme_facodi.s_facodi_principles_ledger"],
+    "Keep contribution separate from publication and make editorial boundaries visible.": ["theme_facodi.s_facodi_principles_ledger"],
+    "Discover": ["theme_facodi.s_facodi_process_timeline"],
+    "Start from a course, Roadmap, curricular unit, or concrete question.": ["theme_facodi.s_facodi_process_timeline"],
+    "Study": ["theme_facodi.s_facodi_process_timeline"],
+    "Use public resources and follow the context that helps you move forward.": ["theme_facodi.s_facodi_process_timeline"],
+    "Connect": ["theme_facodi.s_facodi_process_timeline"],
+    "Relate useful material to the learning path instead of treating it as an isolated link.": ["theme_facodi.s_facodi_process_timeline"],
+    "Contribute": ["theme_facodi.s_facodi_process_timeline"],
+    "Suggest a useful public resource or improvement for review.": ["theme_facodi.s_facodi_process_timeline"],
+    "Resource": ["theme_facodi.s_facodi_contribution_board"],
+    "Suggest a public learning resource": ["theme_facodi.s_facodi_contribution_board"],
+    "Share a useful course, video, playlist, article, or other public resource for review.": ["theme_facodi.s_facodi_contribution_board"],
+    "Suggest a resource": ["theme_facodi.s_facodi_contribution_board", "theme_facodi.s_facodi_contact_sheet"],
+    "Context": ["theme_facodi.s_facodi_contribution_board"],
+    "Improve context or translation": ["theme_facodi.s_facodi_contribution_board"],
+    "Help make descriptions, routes, and learning references clearer for more people.": ["theme_facodi.s_facodi_contribution_board"],
+    "Contact FACODI": ["theme_facodi.s_facodi_contribution_board"],
+    "Collaboration": ["theme_facodi.s_facodi_contribution_board"],
+    "Build something together": ["theme_facodi.s_facodi_contribution_board"],
+    "Propose a collaboration around open education, public resources, or community learning.": ["theme_facodi.s_facodi_contribution_board"],
+    "Start a conversation": ["theme_facodi.s_facodi_contribution_board"],
+    "Campus bulletin": ["theme_facodi.s_facodi_bulletin_hero"],
+    "News, project notes, and community stories.": ["theme_facodi.s_facodi_bulletin_hero"],
+    "Follow what FACODI is building, learning, testing, and sharing in public.": ["theme_facodi.s_facodi_bulletin_hero"],
+    "Open learning becomes more useful when people can see the path, the source, and the next step.": ["theme_facodi.s_facodi_editorial_quote"],
+    "FACODI editorial note": ["theme_facodi.s_facodi_editorial_quote"],
+    "Write to the campus": ["theme_facodi.s_facodi_contact_sheet"],
+    "Choose the shortest path to the right conversation.": ["theme_facodi.s_facodi_contact_sheet"],
+    "Use Contact for collaboration, project questions, or general enquiries. If you are suggesting a learning resource, the guided contribution route keeps the review context together.": ["theme_facodi.s_facodi_contact_sheet"],
+    "Contact form area": ["theme_facodi.s_facodi_contact_sheet"],
+    "Keep the native Odoo form here.": ["theme_facodi.s_facodi_contact_sheet"],
+    "This editable column is designed to frame the Website contact form without replacing its submission behavior.": ["theme_facodi.s_facodi_contact_sheet"],
+    "Policy document": ["theme_facodi.s_facodi_policy_document", "theme_facodi.snippets"],
+    "Document title": ["theme_facodi.s_facodi_policy_document"],
+    "Use this component as a readable shell around policy text maintained by the Website editor.": ["theme_facodi.s_facodi_policy_document"],
+    "Document sections": ["theme_facodi.s_facodi_policy_document"],
+    "Section": ["theme_facodi.s_facodi_policy_document"],
+    "Section heading": ["theme_facodi.s_facodi_policy_document"],
+    "Keep the approved policy wording here. The theme provides presentation and reading structure only.": ["theme_facodi.s_facodi_policy_document"],
+    "Project story": ["theme_facodi.snippets"],
+    "Principles ledger": ["theme_facodi.snippets"],
+    "Process timeline": ["theme_facodi.snippets"],
+    "Contribution board": ["theme_facodi.snippets"],
+    "Bulletin hero": ["theme_facodi.snippets"],
+    "Editorial quote": ["theme_facodi.snippets"],
+    "Contact sheet": ["theme_facodi.snippets"],
+}
+
+files = [
+    Path("theme_facodi/i18n/theme_facodi.pot"),
+    Path("theme_facodi/i18n/pt.po"),
+    Path("theme_facodi/i18n/es.po"),
+    Path("theme_facodi/i18n/fr.po"),
+]
+
+for path in files:
+    content = path.read_text(encoding="utf-8")
+    for message, refs in D2_EDITORIAL_OCCURRENCES.items():
+        marker = f'msgid "{message}"'
+        pos = content.find(marker)
+        if pos < 0:
+            raise SystemExit(f"FAIL: {path} missing D2 msgid {message!r}")
+        start = content.rfind("\n\n", 0, pos) + 2
+        end = content.find("\n\n", pos)
+        if end < 0:
+            end = len(content)
+        block = content[start:end]
+        for ref in refs:
+            occurrence = f"model_terms:theme.ir.ui.view,arch:{ref}"
+            if occurrence not in block:
+                raise SystemExit(
+                    f"FAIL: {path} does not bind D2 msgid {message!r} to {ref}"
+                )
+PY
