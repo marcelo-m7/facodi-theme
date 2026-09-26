@@ -46,6 +46,9 @@ jobs:
       - name: D2 native Blog contract
         run: bash tests/test_blog_contract.sh
 
+      - name: D2 public pages contract
+        run: bash tests/test_public_pages_contract.sh
+
       - name: Native Odoo i18n contract
         run: bash tests/test_i18n_contract.sh
 
