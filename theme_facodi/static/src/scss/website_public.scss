@@ -119,3 +119,82 @@
         }
     }
 }
+
+
+.facodi-site .facodi-policy-document {
+    background: var(--facodi-surface-sheet);
+    border: var(--facodi-border);
+    border-radius: var(--facodi-radius);
+    box-shadow: var(--facodi-shadow-hover);
+    margin-inline: auto;
+    max-width: 50rem;
+    min-width: 0;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.facodi-site .facodi-policy-document h1,
+.facodi-site .facodi-policy-document h2,
+.facodi-site .facodi-policy-document h3,
+.facodi-site .facodi-policy-document p,
+.facodi-site .facodi-policy-document li,
+.facodi-site .facodi-policy-document a,
+.facodi-site .facodi-policy-document code {
+    overflow-wrap: anywhere;
+}
+
+.facodi-site .facodi-policy-document h2,
+.facodi-site .facodi-policy-document h3 {
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.facodi-site .facodi-policy-document a {
+    text-decoration-thickness: .12em;
+    text-underline-offset: .2em;
+}
+
+.facodi-site .facodi-policy-document a:focus-visible {
+    box-shadow: var(--facodi-focus-ring);
+    outline: 0;
+}
+
+.facodi-site .facodi-policy-document pre {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+}
+
+.facodi-site .facodi-policy-document code {
+    white-space: pre-wrap;
+}
+
+.facodi-site .facodi-policy-document table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.facodi-site .facodi-policy-document img,
+.facodi-site .facodi-policy-document iframe,
+.facodi-site .facodi-policy-document video {
+    height: auto;
+    max-width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site .facodi-policy-document {
+        margin-inline: 0;
+        max-width: 100%;
+        min-width: 0;
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .facodi-policy-document,
+    .facodi-site .facodi-policy-document * {
+        scroll-behavior: auto;
+        transition: none;
+    }
+}
