@@ -28,6 +28,9 @@ jobs:
       - name: FACODI enriched component contract
         run: bash tests/test_enriched_surfaces_contract.sh
 
+      - name: FACODI portal home contract
+        run: bash tests/test_portal_home_contract.sh
+
       - name: FACODI global shell contract
         run: bash tests/test_global_shell_contract.sh
 

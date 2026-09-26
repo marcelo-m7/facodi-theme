@@ -1,0 +1,362 @@
+// FACODI Portal / Minha FACODI
+// Enriches Odoo's standard portal home without replacing portal mechanics.
+.facodi-site {
+    .o_portal_wrap:has([data-facodi-portal-home="1"]) {
+        background:
+            linear-gradient(color-mix(in srgb, var(--facodi-highlight-cyan) 10%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--facodi-highlight-cyan) 10%, transparent) 1px, transparent 1px),
+            var(--facodi-campus-paper);
+        background-size: 24px 24px;
+
+        > .container {
+            max-width: 1440px;
+        }
+
+        .wrapper > h3 {
+            color: var(--facodi-ink-deep);
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+
+            &::before {
+                background: var(--facodi-highlight-cyan);
+                border: 1px solid var(--facodi-ink-deep);
+                content: "ALUNO // ÁREA REGISTADA";
+                display: inline-block;
+                margin-right: .65rem;
+                padding: .28rem .45rem;
+            }
+        }
+
+        .o_portal_content {
+            min-width: 0;
+        }
+
+        .o_portal_my_home {
+            background: transparent;
+            border-radius: 0;
+            padding-block: 0;
+        }
+
+        // Standard Odoo side-content becomes the learner's campus ID card.
+        .d-lg-flex.justify-content-end.col-lg-4 > div,
+        .offcanvas-body {
+            background: var(--facodi-white);
+            border: 2px solid var(--facodi-ink-deep);
+            border-radius: var(--facodi-radius);
+            box-shadow: 5px 5px 0 var(--facodi-ink-deep);
+            max-width: 24rem;
+            padding: 1.25rem;
+            position: relative;
+
+            &::before {
+                background: var(--facodi-highlight-lime);
+                border: 1px solid var(--facodi-ink-deep);
+                content: "FACODI // CAMPUS ID";
+                font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+                font-size: .65rem;
+                font-weight: 800;
+                left: 50%;
+                padding: .32rem .6rem;
+                position: absolute;
+                top: -.8rem;
+                transform: translateX(-50%) rotate(-1deg);
+                white-space: nowrap;
+            }
+
+            .o_avatar,
+            img.rounded {
+                border: 2px solid var(--facodi-ink-deep);
+                border-radius: 50% !important;
+                box-shadow: 3px 3px 0 var(--facodi-highlight-cyan);
+            }
+
+            h5 {
+                color: var(--facodi-ink-deep);
+                font-family: "Space Grotesk", Inter, sans-serif;
+                font-weight: 800;
+            }
+
+            .o_portal_my_details {
+                border-block: 1px dashed color-mix(in srgb, var(--facodi-ink-deep) 30%, transparent);
+                margin-block: 1rem;
+                padding-block: 1rem;
+            }
+        }
+    }
+
+    [data-facodi-portal-home="1"] {
+        .facodi-portal-campus {
+            background: var(--facodi-white);
+            border: 2px solid var(--facodi-ink-deep);
+            border-radius: var(--facodi-radius-lg);
+            box-shadow: 6px 6px 0 var(--facodi-ink-deep);
+            overflow: visible;
+            padding: clamp(1rem, 2.5vw, 1.5rem);
+            position: relative;
+
+            &::before {
+                background: var(--facodi-highlight-lime);
+                border: 2px solid var(--facodi-ink-deep);
+                border-radius: var(--facodi-radius-sm);
+                content: "CADERNETA FACODI // OPEN CAMPUS";
+                font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+                font-size: .62rem;
+                font-weight: 900;
+                left: 50%;
+                letter-spacing: .04em;
+                padding: .42rem .75rem;
+                position: absolute;
+                top: -.95rem;
+                transform: translateX(-50%) rotate(-1deg);
+                white-space: nowrap;
+            }
+        }
+
+        .facodi-portal-campus__eyebrow {
+            align-items: center;
+            border-bottom: 1px solid color-mix(in srgb, var(--facodi-ink-deep) 40%, transparent);
+            display: flex;
+            flex-wrap: wrap;
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .64rem;
+            font-weight: 800;
+            gap: .45rem;
+            letter-spacing: .06em;
+            padding: .35rem 0 .75rem;
+            text-transform: uppercase;
+        }
+
+        .facodi-portal-campus__hero {
+            align-items: start;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: minmax(0, 1fr) auto;
+            padding-top: 1.15rem;
+        }
+
+        .facodi-portal-campus__title {
+            color: var(--facodi-ink-deep);
+            font-family: "Space Grotesk", Inter, sans-serif;
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 800;
+            letter-spacing: -.045em;
+            line-height: .98;
+            text-wrap: balance;
+        }
+
+        .facodi-portal-campus__status {
+            align-items: center;
+            border: 2px solid var(--facodi-ink-deep);
+            border-radius: 999px;
+            color: var(--facodi-ink-deep);
+            display: inline-flex;
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .62rem;
+            font-weight: 900;
+            gap: .4rem;
+            padding: .42rem .65rem;
+            white-space: nowrap;
+
+            .fa {
+                color: var(--facodi-ink-deep);
+                font-size: .5rem;
+            }
+        }
+
+        .facodi-portal-board {
+            display: grid;
+            gap: .8rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .facodi-dashboard-action {
+            align-items: center;
+            background: var(--facodi-white);
+            border: 2px solid var(--facodi-ink-deep);
+            border-radius: var(--facodi-radius-sm);
+            box-shadow: 3px 3px 0 var(--facodi-campus-grid-line);
+            color: var(--facodi-ink-deep);
+            display: flex;
+            gap: .8rem;
+            min-height: 5.75rem;
+            padding: .85rem;
+            transition: transform 150ms ease, box-shadow 150ms ease;
+
+            &:hover,
+            &:focus-visible {
+                box-shadow: 1px 1px 0 var(--facodi-ink-deep);
+                color: var(--facodi-ink-deep);
+                transform: translate(2px, 2px);
+            }
+
+            strong,
+            small { display: block; }
+
+            strong {
+                font-family: "Space Grotesk", Inter, sans-serif;
+                font-size: 1rem;
+                line-height: 1.1;
+            }
+
+            small {
+                color: color-mix(in srgb, var(--facodi-ink-deep) 70%, var(--facodi-white));
+                font-size: .72rem;
+                line-height: 1.25;
+                margin-top: .25rem;
+            }
+        }
+
+        .facodi-dashboard-action__icon {
+            align-items: center;
+            background: var(--facodi-highlight-lime);
+            border: 2px solid var(--facodi-ink-deep);
+            border-radius: 50%;
+            display: inline-flex;
+            flex: 0 0 auto;
+            height: 2.65rem;
+            justify-content: center;
+            width: 2.65rem;
+        }
+
+        .facodi-dashboard-action:nth-child(2) .facodi-dashboard-action__icon { background: var(--facodi-highlight-orange); }
+        .facodi-dashboard-action:nth-child(3) .facodi-dashboard-action__icon { background: var(--facodi-highlight-mint); }
+        .facodi-dashboard-action:nth-child(4) .facodi-dashboard-action__icon { background: var(--facodi-highlight-pink); }
+
+        .facodi-portal-course-card {
+            border: 2px solid var(--facodi-ink-deep);
+            box-shadow: 4px 4px 0 var(--facodi-campus-grid-line);
+            overflow: visible;
+
+            .facodi-resource-card__tape {
+                background: var(--facodi-highlight-orange);
+            }
+        }
+
+        .facodi-dashboard-submission {
+            background: var(--facodi-white);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink-deep) 35%, transparent);
+            border-left: .4rem solid var(--facodi-highlight-cyan);
+            border-radius: var(--facodi-radius-sm);
+            color: var(--facodi-ink-deep);
+            display: grid;
+            gap: .22rem;
+            padding: .8rem .9rem;
+            transition: transform 150ms ease, border-color 150ms ease;
+
+            &:hover,
+            &:focus-visible {
+                border-color: var(--facodi-ink-deep);
+                color: var(--facodi-ink-deep);
+                transform: translateX(2px);
+            }
+
+            small { color: color-mix(in srgb, var(--facodi-ink-deep) 64%, var(--facodi-white)); }
+        }
+
+        .facodi-dashboard-submission__state {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .61rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .facodi-portal-toolbox-heading {
+            border-top: 2px solid var(--facodi-ink-deep);
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+
+        // Native portal entries remain native but become index cards.
+        .o_portal_docs {
+            gap: .75rem !important;
+        }
+
+        .o_portal_category {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            margin-top: .5rem !important;
+            padding: 0;
+
+            &::before { display: none; }
+        }
+
+        .o_portal_index_card > a {
+            background: var(--facodi-white) !important;
+            border: 2px solid var(--facodi-ink-deep);
+            border-radius: var(--facodi-radius-sm) !important;
+            box-shadow: 3px 3px 0 var(--facodi-campus-grid-line);
+            color: var(--facodi-ink-deep);
+            min-height: 5rem;
+            position: relative;
+
+            &::before {
+                background: var(--facodi-highlight-cyan);
+                border: 1px solid var(--facodi-ink-deep);
+                content: "";
+                height: .4rem;
+                left: .75rem;
+                position: absolute;
+                top: -.25rem;
+                transform: rotate(-2deg);
+                width: 2.75rem;
+            }
+
+            &:hover,
+            &:focus-visible {
+                box-shadow: 1px 1px 0 var(--facodi-ink-deep);
+                transform: translate(2px, 2px);
+            }
+        }
+
+        .o_portal_index_card:nth-child(4n + 2) > a::before { background: var(--facodi-highlight-lime); }
+        .o_portal_index_card:nth-child(4n + 3) > a::before { background: var(--facodi-highlight-pink); }
+        .o_portal_index_card:nth-child(4n) > a::before { background: var(--facodi-highlight-orange); }
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .facodi-site [data-facodi-portal-home="1"] .facodi-portal-board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site [data-facodi-portal-home="1"] {
+        .facodi-portal-campus::before {
+            left: 1rem;
+            transform: rotate(-1deg);
+        }
+
+        .facodi-portal-campus__hero {
+            grid-template-columns: 1fr;
+        }
+
+        .facodi-portal-campus__status {
+            justify-self: start;
+        }
+
+        .facodi-portal-board {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site [data-facodi-portal-home="1"] {
+        .facodi-dashboard-action,
+        .facodi-dashboard-submission,
+        .o_portal_index_card > a {
+            transition: none;
+        }
+
+        .facodi-dashboard-action:hover,
+        .facodi-dashboard-submission:hover,
+        .o_portal_index_card > a:hover {
+            transform: none;
+        }
+    }
+}
