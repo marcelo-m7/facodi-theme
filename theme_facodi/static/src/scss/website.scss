@@ -122,6 +122,14 @@
         color: var(--facodi-white);
     }
 
+    // Website Builder customizations can preserve an older native Odoo
+    // copyright / brand strip even after the FACODI footer view is active.
+    // Keep the standard shell dark and suppress only those branding remnants.
+    .o_footer_copyright,
+    .o_brand_promotion {
+        display: none !important;
+    }
+
     .facodi-footer,
     .facodi-footer-campus {
         background: #0B1325;
