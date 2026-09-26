@@ -79,4 +79,28 @@
             </div>
         </xpath>
     </template>
+    <template id="facodi_500_error_page" inherit_id="website.500" name="FACODI 500 Error Page">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <main id="wrap" class="oe_structure facodi-error-page">
+                <section class="container facodi-error-page__shell">
+                    <div class="facodi-error-page__code" aria-hidden="true">500</div>
+                    <div class="facodi-error-page__sheet">
+                        <p class="facodi-error-page__kicker">FACODI // CAMPUS NOTE</p>
+                        <h1>Esta página tropeçou num erro.</h1>
+                        <p class="facodi-error-page__lead">
+                            O conteúdo não conseguiu abrir desta vez. O resto do campus continua disponível.
+                        </p>
+                        <div class="facodi-error-page__actions">
+                            <a href="/" class="btn btn-primary">Voltar ao início</a>
+                            <a href="/slides" class="btn btn-outline-primary">Explorar cursos</a>
+                        </div>
+                        <p class="facodi-error-page__hint">
+                            Se o problema continuar, tente novamente dentro de alguns instantes.
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </xpath>
+    </template>
+
 </odoo>
