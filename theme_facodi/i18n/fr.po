@@ -128,6 +128,7 @@ msgstr "Le savoir est partout. Trouvez votre prochaine étape."
 msgid "Open learning resources and a community that turns knowledge into possibility."
 msgstr "Ressources d’apprentissage ouvertes et une communauté qui transforme les connaissances en possibilités."
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
@@ -1590,3 +1591,39 @@ msgstr "Conditions générales"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Account"
 msgstr "Compte"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "FACODI // OPEN CAMPUS"
+msgstr "FACODI // CAMPUS OUVERT"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "← Back"
+msgstr "← Retour"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "This page hit a"
+msgstr "Cette page a rencontré un"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "rough patch."
+msgstr "contretemps."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment."
+msgstr "FACODI n’a pas pu terminer cette requête pour le moment. Revenez au campus ouvert, parcourez le catalogue d’apprentissage ou réessayez d’ouvrir la page dans quelques instants."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "Back to FACODI"
+msgstr "Retour à FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "If this keeps happening, use the contact page and tell us what you were trying to open."
+msgstr "Si le problème persiste, utilisez la page de contact et indiquez-nous ce que vous essayiez d’ouvrir."
+
