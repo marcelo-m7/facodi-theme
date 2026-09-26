@@ -63,6 +63,11 @@
                                 <li><a href="/my">My account</a></li>
                             </ul>
                         </div>
+                        <t t-call="portal.language_selector">
+                            <t t-set="_div_classes" t-valuef="facodi-footer-group facodi-footer-language facodi-footer-language-selector"/>
+                            <t t-set="_btn_class" t-valuef="btn btn-sm facodi-footer-language-button"/>
+                            <t t-set="_dropdown_menu_class" t-valuef="facodi-footer-language-menu"/>
+                        </t>
                     </nav>
 
                     <div class="facodi-footer-meta">
