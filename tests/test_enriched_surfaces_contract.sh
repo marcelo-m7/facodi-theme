@@ -5,7 +5,7 @@ SCSS="theme_facodi/static/src/scss/enriched_surfaces.scss"
 MANIFEST="theme_facodi/__manifest__.py"
 [[ -f "$SCSS" ]] || fail "enriched surface stylesheet missing"
 grep -Fq 'enriched_surfaces.scss' "$MANIFEST" || fail "enriched surfaces not loaded"
-grep -Fq '"version": "19.0.10.11.0"' "$MANIFEST" || fail "enriched release version missing"
+grep -Fq '"version": "19.0.10.12.0"' "$MANIFEST" || fail "enriched release version missing"
 for selector in '.o_portal_my_home' '.facodi-contribution-dashboard' '[data-facodi-community-videos="1"]' '.facodi-empty-state' '.o_wforum_post_reply' '.o_wslides_course_card' '.facodi-learning-meta' '[data-facodi-user-dashboard="1"]' '.facodi-dashboard-action'; do
  grep -Fq "$selector" "$SCSS" || fail "missing enriched component: $selector"
 done
