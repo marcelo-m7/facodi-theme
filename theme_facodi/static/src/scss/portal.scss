@@ -612,3 +612,100 @@
         }
     }
 }
+
+.facodi-site [data-facodi-portal-home="1"] {
+    .facodi-latest-wins {
+        border-top: 2px dashed color-mix(in srgb, var(--facodi-ink-deep) 35%, transparent);
+        padding-top: 1.25rem;
+    }
+
+    .facodi-latest-wins__grid {
+        display: grid;
+        gap: .75rem;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    }
+
+    .facodi-latest-win {
+        align-items: center;
+        background: var(--facodi-white);
+        border: 2px solid var(--facodi-ink-deep);
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: 3px 3px 0 var(--facodi-highlight-mint);
+        color: var(--facodi-ink-deep);
+        display: grid;
+        gap: .75rem;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        padding: .85rem;
+        transition: transform 150ms ease, box-shadow 150ms ease;
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: 1px 1px 0 var(--facodi-ink-deep);
+            color: var(--facodi-ink-deep);
+            transform: translate(2px, 2px);
+        }
+
+        &:nth-child(4n + 2) { box-shadow: 3px 3px 0 var(--facodi-highlight-cyan); }
+        &:nth-child(4n + 3) { box-shadow: 3px 3px 0 var(--facodi-highlight-lime); }
+        &:nth-child(4n) { box-shadow: 3px 3px 0 var(--facodi-highlight-orange); }
+    }
+
+    .facodi-latest-win__check {
+        align-items: center;
+        background: var(--facodi-highlight-mint);
+        border: 2px solid var(--facodi-ink-deep);
+        border-radius: 50%;
+        display: inline-flex;
+        height: 2.2rem;
+        justify-content: center;
+        width: 2.2rem;
+    }
+
+    .facodi-latest-win__course,
+    .facodi-latest-win__title,
+    .facodi-latest-win__date {
+        display: block;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .facodi-latest-win__course {
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .62rem;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+    .facodi-latest-win__title {
+        font-family: "Space Grotesk", Inter, sans-serif;
+        line-height: 1.15;
+        margin-top: .15rem;
+    }
+
+    .facodi-latest-win__date {
+        color: color-mix(in srgb, var(--facodi-ink-deep) 62%, var(--facodi-white));
+        font-size: .68rem;
+        margin-top: .3rem;
+    }
+
+    .facodi-latest-win__arrow {
+        font-size: 1.15rem;
+        font-weight: 900;
+    }
+
+    .facodi-empty-state--compact {
+        min-height: 0;
+        padding-block: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site [data-facodi-portal-home="1"] .facodi-latest-win {
+        transition: none;
+
+        &:hover,
+        &:focus-visible {
+            transform: none;
+        }
+    }
+}
