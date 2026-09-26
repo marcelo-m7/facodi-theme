@@ -1,0 +1,121 @@
+.facodi-site {
+    .facodi-contact-page {
+        .s_title {
+            border-bottom: var(--facodi-border);
+
+            h1 {
+                overflow-wrap: anywhere;
+            }
+        }
+
+        .s_text_block > .container > .row {
+            align-items: start;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .facodi-contact-form-column,
+        .facodi-contact-context,
+        .facodi-contact-form-sheet {
+            min-width: 0;
+        }
+
+        .facodi-contact-form-column {
+            flex: 1 1 58%;
+        }
+
+        .facodi-contact-context {
+            background: color-mix(in srgb, var(--facodi-marker-cyan) 18%, white);
+            border: var(--facodi-border);
+            border-radius: var(--facodi-radius);
+            box-shadow: var(--facodi-shadow-hover);
+            flex: 1 1 34%;
+            margin-left: 0 !important;
+            padding: clamp(1rem, 2.5vw, 1.5rem);
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            p,
+            li,
+            a,
+            span {
+                overflow-wrap: anywhere;
+            }
+
+            a:focus-visible {
+                box-shadow: var(--facodi-focus-ring);
+                outline: 0;
+            }
+        }
+
+        .facodi-contact-form-sheet {
+            background: var(--facodi-surface-sheet);
+            border: var(--facodi-border);
+            border-radius: var(--facodi-radius);
+            box-shadow: var(--facodi-shadow);
+            padding: clamp(1rem, 2.5vw, 1.5rem);
+
+            #contactus_form {
+                min-width: 0;
+            }
+
+            .form-control {
+                min-height: 2.75rem;
+            }
+
+            textarea.form-control {
+                min-height: 8rem;
+            }
+
+            .s_website_form_send {
+                min-height: 2.75rem;
+
+                &:focus-visible {
+                    box-shadow: var(--facodi-focus-ring);
+                    outline: 0;
+                }
+            }
+
+            .invalid-feedback,
+            #s_website_form_result {
+                overflow-wrap: anywhere;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site {
+        .facodi-contact-page {
+            .s_text_block > .container > .row {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .facodi-contact-form-column,
+            .facodi-contact-context {
+                margin-left: 0 !important;
+                min-width: 0;
+                width: 100%;
+            }
+
+            .facodi-contact-form-sheet {
+                padding: 1rem;
+            }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .facodi-contact-page {
+        .facodi-contact-context,
+        .facodi-contact-form-sheet,
+        #contactus_form .form-control,
+        .s_website_form_send {
+            transition: none;
+            transform: none;
+        }
+    }
+}
