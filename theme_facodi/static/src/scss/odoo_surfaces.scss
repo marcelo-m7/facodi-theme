@@ -1,0 +1,406 @@
+// System-wide FACODI skin for standard Odoo/Bootstrap frontend surfaces.
+// Keep native markup, JS behaviour and Website Builder ownership intact.
+.facodi-site {
+    // Generic cards and sheets used by portal, profile, forum and website apps.
+    .card:not(.facodi-card):not(.o_wslides_course_card) {
+        background: var(--facodi-surface-sheet);
+        border: 1px solid color-mix(in srgb, var(--facodi-ink) 42%, transparent);
+        border-radius: var(--facodi-radius);
+        box-shadow: 2px 2px 0 color-mix(in srgb, var(--facodi-ink) 24%, transparent);
+        color: var(--facodi-ink);
+        overflow: hidden;
+
+        > .card-header {
+            background: color-mix(in srgb, var(--facodi-marker-cyan) 18%, var(--facodi-white));
+            border-bottom: 1px solid color-mix(in srgb, var(--facodi-ink) 30%, transparent);
+            color: var(--facodi-ink);
+            font-weight: 700;
+        }
+
+        > .card-footer {
+            background: color-mix(in srgb, var(--facodi-campus-paper) 78%, var(--facodi-white));
+            border-top: 1px solid color-mix(in srgb, var(--facodi-ink) 22%, transparent);
+        }
+    }
+
+    .btn-secondary,
+    .btn-outline-secondary {
+        border-color: var(--facodi-ink);
+        color: var(--facodi-ink);
+
+        &:hover,
+        &:focus-visible {
+            background: var(--facodi-mint);
+            border-color: var(--facodi-ink);
+            color: var(--facodi-ink);
+        }
+    }
+
+    .btn-success {
+        background: var(--facodi-mint-strong);
+        border-color: var(--facodi-ink);
+        color: var(--facodi-ink);
+
+        &:hover,
+        &:focus-visible {
+            background: var(--facodi-mint);
+            border-color: var(--facodi-ink);
+            color: var(--facodi-ink);
+        }
+    }
+
+    .btn-warning {
+        background: var(--facodi-sun);
+        border-color: var(--facodi-ink);
+        color: var(--facodi-ink);
+    }
+
+    .btn-danger,
+    .btn-outline-danger:hover,
+    .btn-outline-danger:focus-visible {
+        border-color: #8d2732;
+    }
+
+    .btn-link {
+        color: var(--facodi-blue);
+        font-weight: 700;
+        text-decoration-thickness: .1em;
+        text-underline-offset: .2em;
+
+        &:hover { color: var(--facodi-ink); }
+    }
+
+    // Pills, status chips and utility backgrounds otherwise retain stock colors.
+    .text-bg-primary,
+    .badge.bg-primary {
+        background-color: var(--facodi-blue) !important;
+        color: var(--facodi-white) !important;
+    }
+
+    .text-bg-secondary,
+    .badge.bg-secondary {
+        background-color: var(--facodi-paper) !important;
+        border: 1px solid var(--facodi-ink);
+        color: var(--facodi-ink) !important;
+    }
+
+    .text-bg-info,
+    .badge.bg-info {
+        background-color: var(--facodi-cyan) !important;
+        color: var(--facodi-ink) !important;
+    }
+
+    .text-bg-success,
+    .badge.bg-success {
+        background-color: var(--facodi-mint) !important;
+        color: var(--facodi-ink) !important;
+    }
+
+    .text-bg-warning,
+    .badge.bg-warning {
+        background-color: var(--facodi-sun) !important;
+        color: var(--facodi-ink) !important;
+    }
+
+    .bg-light {
+        background-color: color-mix(in srgb, var(--facodi-campus-paper) 82%, var(--facodi-white)) !important;
+    }
+
+    // Search, filters and dropdowns.
+    .input-group {
+        .btn { min-height: 2.75rem; }
+        .form-control + .btn,
+        .form-select + .btn { border-left-width: 0; }
+    }
+
+    .dropdown-divider {
+        border-top-color: color-mix(in srgb, var(--facodi-ink) 20%, transparent);
+    }
+
+    .dropdown-item.active,
+    .dropdown-item:active {
+        background: var(--facodi-sun);
+        color: var(--facodi-ink);
+    }
+
+    .list-group {
+        border-radius: var(--facodi-radius);
+        overflow: hidden;
+    }
+
+    .list-group-item {
+        background: var(--facodi-surface-sheet);
+        color: var(--facodi-ink);
+
+        &.active {
+            background: var(--facodi-ink);
+            border-color: var(--facodi-ink);
+            color: var(--facodi-white);
+        }
+
+        &.list-group-item-action:hover,
+        &.list-group-item-action:focus {
+            background: color-mix(in srgb, var(--facodi-mint) 32%, var(--facodi-white));
+            color: var(--facodi-ink);
+        }
+    }
+
+    // Native navigation surfaces.
+    .nav-pills .nav-link {
+        border: 1px solid transparent;
+        border-radius: var(--facodi-radius-sm);
+        color: var(--facodi-ink);
+        font-weight: 700;
+
+        &:hover,
+        &:focus-visible {
+            background: color-mix(in srgb, var(--facodi-cyan) 18%, transparent);
+            border-color: color-mix(in srgb, var(--facodi-ink) 30%, transparent);
+        }
+
+        &.active {
+            background: var(--facodi-sun);
+            border-color: var(--facodi-ink);
+            color: var(--facodi-ink);
+        }
+    }
+
+    .breadcrumb-item.active { color: color-mix(in srgb, var(--facodi-ink) 70%, var(--facodi-white)); }
+
+    .page-link {
+        background: var(--facodi-white);
+        border-color: var(--facodi-ink);
+        color: var(--facodi-ink);
+
+        &:hover,
+        &:focus {
+            background: var(--facodi-mint);
+            border-color: var(--facodi-ink);
+            color: var(--facodi-ink);
+        }
+    }
+
+    .page-item.active .page-link {
+        background: var(--facodi-sun);
+        border-color: var(--facodi-ink);
+        color: var(--facodi-ink);
+    }
+
+    // Standard Odoo portal/account pages.
+    .o_portal_wrap,
+    .o_portal {
+        color: var(--facodi-ink);
+
+        .o_portal_my_home,
+        .o_portal_docs {
+            h1, h2, h3 { color: var(--facodi-ink); }
+        }
+
+        .o_portal_category,
+        .o_portal_doc {
+            background: var(--facodi-surface-sheet);
+            border-color: color-mix(in srgb, var(--facodi-ink) 28%, transparent);
+        }
+
+        .o_portal_category:hover,
+        .o_portal_doc:hover {
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 15%, var(--facodi-white));
+        }
+
+        .o_portal_sidebar {
+            .list-group-item.active {
+                background: var(--facodi-ink);
+                color: var(--facodi-white);
+            }
+        }
+    }
+
+    // Login, signup and account recovery should feel like part of FACODI.
+    :is(.oe_login_form, .oe_signup_form, .oe_reset_password_form) {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius-lg);
+        box-shadow: var(--facodi-shadow);
+        margin-block: clamp(2rem, 6vw, 5rem);
+        padding: clamp(1.25rem, 4vw, 2rem);
+
+        .o_auth_oauth_providers .btn,
+        .o_login_auth .btn {
+            border-color: var(--facodi-ink);
+        }
+    }
+
+    // Modal/offcanvas details that often remain visibly stock Bootstrap.
+    .modal-content,
+    .offcanvas {
+        background: var(--facodi-surface-sheet);
+    }
+
+    .modal-title,
+    .offcanvas-title { color: var(--facodi-ink); font-weight: 800; }
+
+    .btn-close {
+        border: 1px solid color-mix(in srgb, var(--facodi-ink) 35%, transparent);
+        border-radius: 50%;
+        opacity: .78;
+
+        &:hover,
+        &:focus { background-color: color-mix(in srgb, var(--facodi-sun) 55%, transparent); opacity: 1; }
+    }
+
+    .toast {
+        background: var(--facodi-surface-sheet);
+        border: 1px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow-hover);
+        color: var(--facodi-ink);
+    }
+
+    .tooltip .tooltip-inner {
+        background: var(--facodi-ink-deep);
+        color: var(--facodi-white);
+        font-weight: 600;
+    }
+
+    // Accordion and collapsible FAQ surfaces.
+    .accordion {
+        --bs-accordion-bg: var(--facodi-surface-sheet);
+        --bs-accordion-color: var(--facodi-ink);
+        --bs-accordion-border-color: color-mix(in srgb, var(--facodi-ink) 35%, transparent);
+        --bs-accordion-active-bg: color-mix(in srgb, var(--facodi-marker-yellow) 24%, var(--facodi-white));
+        --bs-accordion-active-color: var(--facodi-ink);
+        --bs-accordion-btn-focus-box-shadow: var(--facodi-focus-ring);
+    }
+
+    // Native website search results.
+    .o_search_page {
+        .o_search_result_item {
+            border-bottom: 1px dashed color-mix(in srgb, var(--facodi-ink) 28%, transparent);
+            padding-block: 1rem;
+
+            a { color: var(--facodi-ink); }
+        }
+
+        .o_search_result_item:hover {
+            background: color-mix(in srgb, var(--facodi-marker-cyan) 10%, transparent);
+        }
+    }
+
+    // Forum/community: preserve Odoo forum mechanics while removing stock purple/gray feel.
+    .o_wforum_forum,
+    .o_wforum_post,
+    .o_wforum {
+        color: var(--facodi-ink);
+
+        .o_wforum_forum_card,
+        .o_wforum_post_content,
+        .o_wforum_post_reply,
+        .o_wforum_sidebar {
+            background: var(--facodi-surface-sheet);
+            border-color: color-mix(in srgb, var(--facodi-ink) 30%, transparent);
+            border-radius: var(--facodi-radius);
+        }
+
+        .o_wforum_post_content,
+        .o_wforum_post_reply {
+            box-shadow: 2px 2px 0 color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+        }
+
+        .o_wforum_tag {
+            background: color-mix(in srgb, var(--facodi-marker-cyan) 22%, var(--facodi-white));
+            border: 1px solid var(--facodi-ink);
+            border-radius: 999px;
+            color: var(--facodi-ink);
+        }
+
+        a:not(.btn) {
+            color: var(--facodi-blue);
+            text-underline-offset: .2em;
+        }
+    }
+
+    // User/profile/karma surfaces shared by website_slides and forum.
+    .o_wprofile_user_profile,
+    .o_wprofile_users,
+    #website_profile_badges {
+        .nav-link.active {
+            background: var(--facodi-sun);
+            color: var(--facodi-ink);
+        }
+
+        .o_wprofile_karma,
+        .o_wprofile_badge {
+            background: var(--facodi-surface-sheet);
+            border-color: var(--facodi-ink);
+        }
+    }
+
+    // Native eLearning states not covered by catalogue-specific styles.
+    .o_wslides_body &,
+    body.o_wslides_body & {
+        .o_wslides_course_nav,
+        .o_wslides_course_sidebar,
+        .o_wslides_lesson_card,
+        .o_wslides_quiz_question,
+        .o_wslides_quiz_answer {
+            border-color: color-mix(in srgb, var(--facodi-ink) 34%, transparent);
+        }
+
+        .o_wslides_quiz_question,
+        .o_wslides_quiz_answer {
+            border-radius: var(--facodi-radius);
+        }
+
+        .o_wslides_quiz_answer:hover,
+        .o_wslides_quiz_answer:focus-within {
+            background: color-mix(in srgb, var(--facodi-marker-cyan) 15%, var(--facodi-white));
+        }
+    }
+
+    // Tables should remain usable on narrow screens even when emitted by Odoo.
+    .table-responsive {
+        border: 1px solid color-mix(in srgb, var(--facodi-ink) 24%, transparent);
+        border-radius: var(--facodi-radius);
+    }
+
+    hr { border-color: color-mix(in srgb, var(--facodi-ink) 24%, transparent); opacity: 1; }
+
+    code {
+        background: color-mix(in srgb, var(--facodi-marker-cyan) 14%, var(--facodi-white));
+        border-radius: .25rem;
+        color: var(--facodi-ink-deep);
+        padding: .08em .3em;
+    }
+
+    pre {
+        background: var(--facodi-ink-deep);
+        border-radius: var(--facodi-radius);
+        color: var(--facodi-white);
+
+        code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site {
+        .card { box-shadow: 1px 1px 0 color-mix(in srgb, var(--facodi-ink) 22%, transparent); }
+        :is(.oe_login_form, .oe_signup_form, .oe_reset_password_form) {
+            border-inline-width: 1px;
+            box-shadow: 2px 2px 0 var(--facodi-ink);
+            margin-inline: .75rem;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .btn,
+        .card,
+        .list-group-item,
+        .o_search_result_item { transition: none !important; }
+    }
+}
