@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="facodi_contactus_presentation"
+              inherit_id="website.contactus"
+              name="FACODI Contact Presentation">
+        <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="class" add="facodi-contact-page" separator=" "/>
+        </xpath>
+        <xpath expr="//section[contains(concat(' ', normalize-space(@class), ' '), ' s_website_form ')]"
+               position="attributes">
+            <attribute name="class" add="facodi-contact-form-sheet" separator=" "/>
+        </xpath>
+        <xpath expr="//section[contains(concat(' ', normalize-space(@class), ' '), ' s_website_form ')]/ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' col-lg-7 ')][1]"
+               position="attributes">
+            <attribute name="class" add="facodi-contact-form-column" separator=" "/>
+        </xpath>
+        <xpath expr="//section[contains(concat(' ', normalize-space(@class), ' '), ' s_website_form ')]/ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' col-lg-7 ')][1]/following-sibling::div[1]"
+               position="attributes">
+            <attribute name="class" add="facodi-contact-context" separator=" "/>
+        </xpath>
+    </template>
+</odoo>
