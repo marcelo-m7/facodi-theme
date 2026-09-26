@@ -94,6 +94,82 @@
         padding: .35rem .55rem;
     }
 
+
+    .facodi-tape {
+        background: color-mix(in srgb, var(--facodi-paper-warm) 48%, transparent);
+        border: 1px solid color-mix(in srgb, var(--facodi-ink) 22%, transparent);
+        box-shadow: 0 1px 0 color-mix(in srgb, var(--facodi-ink) 10%, transparent);
+        display: block;
+        height: 1.25rem;
+        opacity: .82;
+        position: absolute;
+        transform: rotate(-2deg);
+        width: 5.5rem;
+        z-index: 3;
+    }
+
+    .facodi-tape-yellow {
+        background: color-mix(in srgb, var(--facodi-marker-yellow) 58%, transparent);
+    }
+
+    .facodi-tape-cyan {
+        background: color-mix(in srgb, var(--facodi-marker-cyan) 42%, transparent);
+    }
+
+    .facodi-pin {
+        background: var(--facodi-marker-pink);
+        border: 2px solid var(--facodi-ink);
+        border-radius: 50%;
+        box-shadow: 1px 2px 0 color-mix(in srgb, var(--facodi-ink) 28%, transparent);
+        display: block;
+        height: 1rem;
+        position: absolute;
+        width: 1rem;
+        z-index: 4;
+    }
+
+    .facodi-ruled-paper {
+        background-color: var(--facodi-surface-sheet);
+        background-image:
+            linear-gradient(90deg, transparent 0 3rem, color-mix(in srgb, var(--facodi-marker-pink) 44%, transparent) 3rem 3.08rem, transparent 3.08rem),
+            repeating-linear-gradient(
+                to bottom,
+                transparent 0,
+                transparent 1.7rem,
+                color-mix(in srgb, var(--facodi-line) 20%, transparent) 1.7rem,
+                color-mix(in srgb, var(--facodi-line) 20%, transparent) 1.76rem
+            );
+        background-position: 0 .35rem;
+    }
+
+    .facodi-paper-stack {
+        isolation: isolate;
+        position: relative;
+
+        &::before,
+        &::after {
+            background: var(--facodi-paper-warm);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 32%, transparent);
+            content: "";
+            inset: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        &::before { transform: rotate(-.8deg) translate(-4px, 4px); }
+        &::after { transform: rotate(.7deg) translate(4px, 6px); }
+    }
+
+    .facodi-board {
+        background:
+            radial-gradient(circle at 1rem 1rem, color-mix(in srgb, var(--facodi-ink) 16%, transparent) 0 1px, transparent 1.5px),
+            color-mix(in srgb, var(--facodi-paper-warm) 82%, var(--facodi-coral));
+        background-size: 1.25rem 1.25rem;
+        border: 3px solid var(--facodi-ink);
+        box-shadow: 6px 6px 0 var(--facodi-ink);
+        position: relative;
+    }
+
     .facodi-button-ghost {
         background: transparent;
         color: var(--facodi-ink);
@@ -114,10 +190,15 @@
     .facodi-site {
         .facodi-sheet,
         .facodi-note,
-        .facodi-postit {
+        .facodi-postit,
+        .facodi-paper-stack,
+        .facodi-board {
             transition: none;
         }
 
-        .facodi-postit { transform: none; }
+        .facodi-postit,
+        .facodi-tape,
+        .facodi-paper-stack::before,
+        .facodi-paper-stack::after { transform: none; }
     }
 }
