@@ -56,7 +56,7 @@
         .facodi-contribution-dashboard {
             display: grid;
             gap: .85rem;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
             margin-bottom: 1.5rem;
         }
 
@@ -282,6 +282,12 @@
 }
 
 @media (max-width: 767.98px) {
+    .facodi-site {
+        [data-facodi-my-submissions="1"] .facodi-contribution-dashboard {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
     .facodi-site {
         :is(.o_wforum_forum, .o_wforum_post, .o_wforum) .o_wforum_sidebar {
             position: static;

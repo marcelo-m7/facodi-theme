@@ -10,4 +10,9 @@ for selector in '.o_portal_my_home' '.facodi-contribution-dashboard' '[data-faco
  grep -Fq "$selector" "$SCSS" || fail "missing enriched component: $selector"
 done
 grep -Fq 'prefers-reduced-motion: reduce' "$SCSS" || fail "reduced motion missing"
+if grep -Fq 'minmax(min(100%, 10rem), 1fr)' "$SCSS"; then
+  fail "mixed-unit Sass min() must not be used in contribution dashboard grid"
+fi
+grep -Fq 'grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr))' "$SCSS" \
+  || fail "contribution dashboard needs compiler-safe responsive columns"
 echo "PASS: enriched FACODI component contract"

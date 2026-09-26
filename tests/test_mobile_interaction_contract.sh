@@ -137,3 +137,27 @@ grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/website_blog.scs
   || fail "D2 Blog long-form content must wrap"
 grep -Fq 'max-width: 100%' theme_facodi/static/src/scss/website_blog.scss \
   || fail "D2 Blog media must stay within the viewport"
+
+
+python3 - <<'PY'
+from pathlib import Path
+
+source = Path("theme_facodi/static/src/scss/website_slides.scss").read_text(encoding="utf-8")
+mobile = source.split("@media (max-width: 767.98px)", 1)[1].split("@media (min-width: 576px)", 1)[0]
+if ".o_wslides_nav_tabs {" not in mobile:
+    raise SystemExit("FAIL: mobile course/forum tab containment rule missing")
+block = mobile.split(".o_wslides_nav_tabs {", 1)[1].split("}", 1)[0]
+for marker in (
+    "max-width: 100%",
+    "min-width: 0",
+    "overflow-x: auto",
+    "overflow-y: hidden",
+    "overscroll-behavior-inline: contain",
+    "width: 100%",
+):
+    if marker not in block:
+        raise SystemExit(f"FAIL: course/forum tab strip missing mobile containment marker: {marker}")
+PY
+
+grep -Fq 'website_slides_forum adds a third native tab' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "course/forum tab strip must contain horizontal overflow"
