@@ -298,4 +298,104 @@
 @media (prefers-reduced-motion: reduce) {
     .facodi-site .o_portal_category { transition: none; }
     .facodi-site .o_portal_category:hover { transform: none; }
+    // Minha FACODI: a compact learner dashboard built from native routes.
+    [data-facodi-user-dashboard="1"] {
+        .facodi-dashboard-grid {
+            display: grid;
+            gap: .9rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .facodi-dashboard-action {
+            align-items: center;
+            background: var(--facodi-white);
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius);
+            box-shadow: 3px 3px 0 var(--facodi-campus-grid-line);
+            color: var(--facodi-ink);
+            display: flex;
+            gap: .85rem;
+            min-height: 6rem;
+            padding: 1rem;
+            transition: transform 160ms ease, box-shadow 160ms ease;
+
+            &:hover,
+            &:focus-visible {
+                box-shadow: 1px 1px 0 var(--facodi-ink);
+                color: var(--facodi-ink-deep);
+                transform: translate(2px, 2px);
+            }
+
+            strong,
+            small { display: block; }
+
+            small {
+                color: color-mix(in srgb, var(--facodi-ink) 70%, var(--facodi-white));
+                font-size: .75rem;
+                margin-top: .2rem;
+            }
+        }
+
+        .facodi-dashboard-action__icon {
+            align-items: center;
+            background: var(--facodi-marker-yellow);
+            border: 2px solid var(--facodi-ink);
+            border-radius: 50%;
+            display: inline-flex;
+            flex: 0 0 auto;
+            height: 2.75rem;
+            justify-content: center;
+            width: 2.75rem;
+        }
+
+        .facodi-dashboard-action:nth-child(2) .facodi-dashboard-action__icon { background: var(--facodi-marker-cyan); }
+        .facodi-dashboard-action:nth-child(3) .facodi-dashboard-action__icon { background: var(--facodi-marker-mint); }
+        .facodi-dashboard-action:nth-child(4) .facodi-dashboard-action__icon { background: var(--facodi-paper-warm); }
+
+        .facodi-kicker {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .facodi-dashboard-submission {
+            background: var(--facodi-white);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 38%, transparent);
+            border-left: .35rem solid var(--facodi-marker-cyan);
+            border-radius: var(--facodi-radius-sm);
+            color: var(--facodi-ink);
+            display: grid;
+            gap: .25rem;
+            padding: .8rem .9rem;
+
+            &:hover,
+            &:focus-visible {
+                border-color: var(--facodi-ink);
+                color: var(--facodi-ink-deep);
+            }
+
+            small { color: color-mix(in srgb, var(--facodi-ink) 62%, var(--facodi-white)); }
+        }
+
+        .facodi-dashboard-submission__state {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .62rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+    }
+
+}
+
+@media (max-width: 991.98px) {
+    .facodi-site [data-facodi-user-dashboard="1"] .facodi-dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 575.98px) {
+    .facodi-site [data-facodi-user-dashboard="1"] .facodi-dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }

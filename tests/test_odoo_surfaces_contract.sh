@@ -8,7 +8,7 @@ MANIFEST="theme_facodi/__manifest__.py"
 
 [[ -f "$SCSS" ]] || fail "systemic Odoo surface stylesheet missing"
 grep -Fq 'odoo_surfaces.scss' "$MANIFEST" || fail "systemic Odoo surfaces are not loaded"
-grep -Fq '"version": "19.0.10.3.0"' "$MANIFEST" || fail "theme version was not advanced"
+grep -Fq '"version": "19.0.10.4.0"' "$MANIFEST" || fail "theme version was not advanced"
 
 for selector in   '.card:not('   '.btn-secondary'   '.text-bg-primary'   '.list-group-item'   '.nav-pills .nav-link'   '.page-link'   '.o_portal_wrap'   '.oe_login_form'   '.modal-content'   '.toast'   '.accordion'   '.o_search_page'   '.o_wforum_forum'   '.o_wprofile_user_profile'   '.o_wslides_quiz_question'   '.table-responsive'; do
   grep -Fq "$selector" "$SCSS" || fail "standard Odoo surface not personalized: $selector"
