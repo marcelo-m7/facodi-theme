@@ -28,6 +28,10 @@ grep -Fq 'grid-template-columns: minmax(0, 1fr);' "$SCSS" || fail "mobile footer
 grep -Fq 'min(10rem, 100%)' "$SCSS" || fail "footer columns must keep mixed-unit min() browser-safe"
 
 grep -Fq '<t t-set="no_copyright" t-value="True"/>' "$FOOTER" || fail "FACODI footer must disable Odoo's default copyright/brand strip"
+grep -Fq '<record id="website.footer_no_copyright" model="ir.ui.view">' "$FOOTER" \
+  || fail "FACODI must persist Odoo's native Footer No Copyright option"
+grep -Fq '<field name="active" eval="True"/>' "$FOOTER" \
+  || fail "native Footer No Copyright option must stay active after module upgrade"
 grep -Fq 'footer#bottom' "$SCSS" || fail "outer Odoo footer shell must have an explicit FACODI background"
 grep -Fq 'background-color: #0B1325 !important' "$SCSS" || fail "outer Odoo footer must override conflicting Bootstrap/Odoo background utilities"
 grep -Fq 'background: #0B1325' "$SCSS" || fail "FACODI/Odoo footer background must be #0B1325"
