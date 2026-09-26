@@ -28,3 +28,18 @@ grep -Fq 'background-color: #0B1325 !important' "$SCSS" || fail "outer Odoo foot
 grep -Fq 'background: #0B1325' "$SCSS" || fail "FACODI/Odoo footer background must be #0B1325"
 
 echo "PASS: Campus Paper global shell contract"
+
+
+# FACODI owns the complete footer surface. The standard Odoo copyright /
+# brand-promotion strip must stay suppressed even when a persisted Website
+# customization reintroduces the native footer shell.
+grep -Fq 'footer#bottom' theme_facodi/static/src/scss/website.scss \
+  || fail "FACODI must own the native Odoo footer shell"
+grep -Fq 'background-color: #0B1325 !important' theme_facodi/static/src/scss/website.scss \
+  || fail "native Odoo footer shell must use FACODI ink-deep background"
+grep -Fq '.o_footer_copyright' theme_facodi/static/src/scss/website.scss \
+  || fail "theme must suppress stale native Odoo copyright strips"
+grep -Fq '.o_brand_promotion' theme_facodi/static/src/scss/website.scss \
+  || fail "theme must suppress stale native Odoo brand promotion"
+grep -Fq 'display: none !important' theme_facodi/static/src/scss/website.scss \
+  || fail "native Odoo footer branding fallback must be hidden explicitly"
