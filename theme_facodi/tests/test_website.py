@@ -216,6 +216,9 @@ class TestFacodiTheme(HttpCase):
         )
         self.assertIn("facodi-footer", response.text)
 
+        self.assertNotIn("o_brand_promotion", response.text)
+        self.assertNotIn("odoo_logo_tiny.png", response.text)
+
     def test_campus_paper_hero_snippet_is_available_without_overwriting_homepage(self):
         hero = self.env["ir.ui.view"].search(
             [
