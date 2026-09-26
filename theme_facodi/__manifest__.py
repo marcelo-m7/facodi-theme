@@ -14,6 +14,7 @@
         "data/facodi_course_snippet.xml",
         "views/header.xml",
         "views/customizations.xml",
+        "views/http_error.xml",
         "views/website_slides.xml",
         "views/website_blog.xml",
         "views/website_public.xml",
