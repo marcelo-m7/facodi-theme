@@ -62,8 +62,11 @@
                 padding: .32rem .6rem;
                 position: absolute;
                 top: -.8rem;
+                max-width: calc(100% - 2rem);
+                overflow-wrap: anywhere;
+                text-align: center;
                 transform: translateX(-50%) rotate(-1deg);
-                white-space: nowrap;
+                white-space: normal;
             }
 
             .o_avatar,
@@ -110,8 +113,11 @@
                 padding: .42rem .75rem;
                 position: absolute;
                 top: -.95rem;
+                max-width: calc(100% - 2rem);
+                overflow-wrap: anywhere;
+                text-align: center;
                 transform: translateX(-50%) rotate(-1deg);
-                white-space: nowrap;
+                white-space: normal;
             }
         }
 
@@ -328,6 +334,7 @@
     .facodi-site [data-facodi-portal-home="1"] {
         .facodi-portal-campus::before {
             left: 1rem;
+            max-width: calc(100% - 2rem);
             transform: rotate(-1deg);
         }
 
@@ -337,6 +344,8 @@
 
         .facodi-portal-campus__status {
             justify-self: start;
+            max-width: 100%;
+            white-space: normal;
         }
 
         .facodi-portal-board {
