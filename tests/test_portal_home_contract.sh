@@ -3,9 +3,11 @@ set -euo pipefail
 fail(){ echo "FAIL: $*" >&2; exit 1; }
 
 SCSS="theme_facodi/static/src/scss/portal.scss"
+ENRICHED="theme_facodi/static/src/scss/enriched_surfaces.scss"
 MANIFEST="theme_facodi/__manifest__.py"
 
 [[ -f "$SCSS" ]] || fail "portal stylesheet missing"
+[[ -f "$ENRICHED" ]] || fail "enriched portal stylesheet missing"
 grep -Fq 'portal.scss' "$MANIFEST" || fail "portal stylesheet is not loaded"
 grep -Fq '"version": "19.0.10.14.0"' "$MANIFEST" || fail "portal release version missing"
 
@@ -14,7 +16,7 @@ for selector in   '[data-facodi-portal-home="1"]'   '.facodi-portal-campus'   '.
   '[data-facodi-campus-pulse="1"]' \
   '.facodi-academic-map__unit' \
   '.facodi-campus-pulse__post'; do
-  grep -Fq "$selector" "$SCSS" || fail "portal identity selector missing: $selector"
+  grep -Fq "$selector" "$SCSS" "$ENRICHED" || fail "portal identity selector missing: $selector"
 done
 
 for color in '#E8FD36' '#72F6B8' '#34B6CE' '#FF70A6' '#FFAE33'; do
