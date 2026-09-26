@@ -15,7 +15,8 @@ for selector in   '[data-facodi-portal-home="1"]'   '.facodi-portal-campus'   '.
   '[data-facodi-campus-pulse="1"]' \
   '.facodi-academic-map__unit' \
   '.facodi-campus-pulse__post'; do
-  grep -Fq "$selector" "$SCSS" || fail "portal identity selector missing: $selector"
+  grep -R -Fq --include='*.scss' "$selector" theme_facodi/static/src/scss \
+    || fail "portal identity selector missing from frontend SCSS: $selector"
 done
 
 for color in '#E8FD36' '#72F6B8' '#34B6CE' '#FF70A6' '#FFAE33'; do
