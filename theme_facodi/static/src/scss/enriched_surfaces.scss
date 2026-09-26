@@ -399,3 +399,98 @@
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+
+.facodi-site {
+    // Digital Highlighter Campus — semantic accents, not decorative noise.
+    --facodi-highlight-lime: #E8FD36;
+    --facodi-highlight-mint: #72F6B8;
+    --facodi-highlight-cyan: #34B6CE;
+    --facodi-highlight-pink: #FF70A6;
+    --facodi-highlight-orange: #FFAE33;
+
+    .facodi-momentum-strip {
+        display: grid;
+        gap: .75rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .facodi-momentum-card {
+        border: 2px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: 3px 3px 0 var(--facodi-ink);
+        min-height: 7rem;
+        overflow: hidden;
+        padding: .9rem 1rem;
+        position: relative;
+
+        &::after {
+            background: rgba(255, 255, 255, .35);
+            content: "";
+            height: .55rem;
+            left: -.25rem;
+            position: absolute;
+            right: -.25rem;
+            top: 58%;
+            transform: rotate(-1deg);
+        }
+    }
+
+    .facodi-momentum-card__value {
+        display: block;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        font-weight: 900;
+        letter-spacing: -.08em;
+        line-height: .95;
+        position: relative;
+        z-index: 1;
+    }
+
+    .facodi-momentum-card__label {
+        display: block;
+        font-size: .76rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-top: .7rem;
+        max-width: 12rem;
+        position: relative;
+        text-transform: uppercase;
+        z-index: 1;
+    }
+
+    .facodi-highlight-lime { background: var(--facodi-highlight-lime); }
+    .facodi-highlight-mint { background: var(--facodi-highlight-mint); }
+    .facodi-highlight-cyan { background: var(--facodi-highlight-cyan); }
+    .facodi-highlight-pink { background: var(--facodi-highlight-pink); }
+    .facodi-highlight-orange { background: var(--facodi-highlight-orange); }
+
+    [data-facodi-user-dashboard="1"] {
+        .facodi-dashboard-action:nth-child(1) .facodi-dashboard-action__icon { background: var(--facodi-highlight-lime); }
+        .facodi-dashboard-action:nth-child(2) .facodi-dashboard-action__icon { background: var(--facodi-highlight-cyan); }
+        .facodi-dashboard-action:nth-child(3) .facodi-dashboard-action__icon { background: var(--facodi-highlight-mint); }
+        .facodi-dashboard-action:nth-child(4) .facodi-dashboard-action__icon { background: var(--facodi-highlight-pink); }
+
+        .o_wslides_course_card {
+            position: relative;
+
+            &::before {
+                background: var(--facodi-highlight-orange);
+                content: "";
+                height: .4rem;
+                left: 1rem;
+                position: absolute;
+                top: -.2rem;
+                transform: rotate(-1deg);
+                width: 3.75rem;
+                z-index: 2;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site .facodi-momentum-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
