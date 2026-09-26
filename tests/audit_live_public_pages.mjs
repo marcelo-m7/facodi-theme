@@ -1,3 +1,4 @@
+// rerun-after-deploy: 2026-09-26T14:40Z
 import fs from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright-core";
