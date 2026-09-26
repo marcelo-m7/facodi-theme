@@ -155,6 +155,7 @@ msgstr "Ouvert"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
 msgid "Discover"
 msgstr "Découvrir"
 
@@ -179,6 +180,7 @@ msgstr "À votre rythme"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
 msgid "Contribute"
 msgstr "Contribuez"
 
@@ -247,6 +249,7 @@ msgstr "Étudiez avec des parcours clairs, contribuez avec des ressources révis
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
 msgid "Contact FACODI"
 msgstr "Contacter FACODI"
 
@@ -994,6 +997,8 @@ msgstr "Tu as trouvé une ressource qui a déclenché un déclic ? Laisse une pi
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
 msgid "Suggest a resource"
 msgstr "Suggérer une ressource"
 
@@ -1042,4 +1047,274 @@ msgstr "Continue à suivre le fil qui t’aide."
 msgid "Choose a course, follow a Roadmap or return to a curricular unit when you need more context."
 msgstr "Choisis un cours, suis un parcours ou reviens à une unité d’enseignement lorsque tu as besoin de plus de contexte."
 
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Project dossier"
+msgstr "Dossier du projet"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Learning in public can be easier to navigate."
+msgstr "Apprendre en public peut être plus facile à parcourir."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "FACODI organizes open courses, curricular references, and public learning resources so people can find a useful next step."
+msgstr "FACODI organise des cours ouverts, des références curriculaires et des ressources publiques d’apprentissage afin que chacun puisse trouver une prochaine étape utile."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "The project grows through review, context, and contributions from people who care about open learning."
+msgstr "Le projet évolue grâce à la révision, au contexte et aux contributions de personnes attachées à l’apprentissage ouvert."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Explore learning"
+msgstr "Explorer l’apprentissage"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Open notebook"
+msgstr "Carnet ouvert"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Use this space for a real project milestone, source, or short contextual note."
+msgstr "Utilisez cet espace pour une étape réelle du projet, une source ou une courte note de contexte."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Open first"
+msgstr "Ouvert d’abord"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Prefer public learning resources that people can access without a paywall."
+msgstr "Privilégiez les ressources publiques d’apprentissage accessibles sans péage numérique."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Context matters"
+msgstr "Le contexte compte"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Connect useful resources to clear academic or learning context instead of presenting isolated links."
+msgstr "Reliez les ressources utiles à un contexte académique ou d’apprentissage clair plutôt que de présenter des liens isolés."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Review before publishing"
+msgstr "Réviser avant de publier"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Keep contribution separate from publication and make editorial boundaries visible."
+msgstr "Séparez la contribution de la publication et rendez visibles les limites éditoriales."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Start from a course, Roadmap, curricular unit, or concrete question."
+msgstr "Commencez par un cours, une Roadmap, une unité d’enseignement ou une question concrète."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Study"
+msgstr "Étudier"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Use public resources and follow the context that helps you move forward."
+msgstr "Utilisez des ressources publiques et suivez le contexte qui vous aide à avancer."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Connect"
+msgstr "Relier"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Relate useful material to the learning path instead of treating it as an isolated link."
+msgstr "Reliez le contenu utile au parcours d’apprentissage au lieu de le traiter comme un lien isolé."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Suggest a useful public resource or improvement for review."
+msgstr "Proposez une ressource publique utile ou une amélioration à examiner."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Resource"
+msgstr "Ressource"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Suggest a public learning resource"
+msgstr "Proposer une ressource publique d’apprentissage"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Share a useful course, video, playlist, article, or other public resource for review."
+msgstr "Partagez un cours, une vidéo, une playlist, un article ou une autre ressource publique utile à examiner."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Context"
+msgstr "Contexte"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Improve context or translation"
+msgstr "Améliorer le contexte ou la traduction"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Help make descriptions, routes, and learning references clearer for more people."
+msgstr "Aidez à rendre les descriptions, les parcours et les références d’apprentissage plus clairs pour davantage de personnes."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Collaboration"
+msgstr "Collaboration"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Build something together"
+msgstr "Construire quelque chose ensemble"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Propose a collaboration around open education, public resources, or community learning."
+msgstr "Proposez une collaboration autour de l’éducation ouverte, des ressources publiques ou de l’apprentissage communautaire."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "Start a conversation"
+msgstr "Démarrer une conversation"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_bulletin_hero
+msgid "Campus bulletin"
+msgstr "Bulletin du campus"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_bulletin_hero
+msgid "News, project notes, and community stories."
+msgstr "Actualités, notes de projet et récits de la communauté."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_bulletin_hero
+msgid "Follow what FACODI is building, learning, testing, and sharing in public."
+msgstr "Suivez ce que FACODI construit, apprend, teste et partage en public."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_quote
+msgid "Open learning becomes more useful when people can see the path, the source, and the next step."
+msgstr "L’apprentissage ouvert devient plus utile lorsque chacun peut voir le parcours, la source et l’étape suivante."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_quote
+msgid "FACODI editorial note"
+msgstr "Note éditoriale FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "Write to the campus"
+msgstr "Écrire au campus"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "Choose the shortest path to the right conversation."
+msgstr "Choisissez le chemin le plus court vers la bonne conversation."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "Use Contact for collaboration, project questions, or general enquiries. If you are suggesting a learning resource, the guided contribution route keeps the review context together."
+msgstr "Utilisez Contact pour les collaborations, les questions sur le projet ou les demandes générales. Si vous proposez une ressource d’apprentissage, le parcours guidé de contribution conserve le contexte de révision."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "Contact form area"
+msgstr "Zone du formulaire de contact"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "Keep the native Odoo form here."
+msgstr "Conservez ici le formulaire Odoo natif."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "This editable column is designed to frame the Website contact form without replacing its submission behavior."
+msgstr "Cette colonne modifiable est conçue pour encadrer le formulaire de contact du site sans remplacer son comportement d’envoi."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_policy_document
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Policy document"
+msgstr "Document de politique"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_policy_document
+msgid "Document title"
+msgstr "Titre du document"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_policy_document
+msgid "Use this component as a readable shell around policy text maintained by the Website editor."
+msgstr "Utilisez ce composant comme cadre lisible autour du texte de politique maintenu par l’éditeur du site."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_policy_document
+msgid "Document sections"
+msgstr "Sections du document"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_policy_document
+msgid "Section"
+msgstr "Section"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_policy_document
+msgid "Section heading"
+msgstr "Titre de section"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_policy_document
+msgid "Keep the approved policy wording here. The theme provides presentation and reading structure only."
+msgstr "Conservez ici le texte approuvé de la politique. Le thème fournit uniquement la présentation et la structure de lecture."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Project story"
+msgstr "Histoire du projet"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Principles ledger"
+msgstr "Registre des principes"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Process timeline"
+msgstr "Chronologie du processus"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Contribution board"
+msgstr "Tableau des contributions"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Bulletin hero"
+msgstr "En-tête du bulletin"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Editorial quote"
+msgstr "Citation éditoriale"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Contact sheet"
+msgstr "Fiche de contact"
 
