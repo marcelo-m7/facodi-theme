@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_code_exercise" name="FACODI Code Exercise">
+        <article class="facodi-code-exercise"
+                 data-snippet="s_facodi_code_exercise"
+                 data-name="FACODI Code Exercise">
+            <header>
+                <div>
+                    <p class="facodi-label">Practice sheet</p>
+                    <h3>Recursive search with an explicit invariant</h3>
+                </div>
+                <span class="facodi-code-exercise-status">Exercise 01</span>
+            </header>
+            <p>Replace the prompt and code with your own practical exercise. This block is intentionally static and editor-owned.</p>
+            <div class="facodi-code-window">
+                <div class="facodi-code-window-tabs"><span>solution.py</span><span>terminal</span></div>
+                <pre><code>def search(items, target):
+    if not items:
+        return -1
+    # continue the exercise here</code></pre>
+            </div>
+            <aside class="facodi-code-feedback">
+                <i class="fa fa-check-circle" aria-hidden="true" t-translation="off"/>
+                <span>Expected outcome: explain the stopping condition before optimizing the implementation.</span>
+            </aside>
+        </article>
+    </template>
+</odoo>

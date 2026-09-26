@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_student_id_card" name="FACODI Student ID Card">
+        <article class="facodi-student-id-card"
+                 data-snippet="s_facodi_student_id_card"
+                 data-name="FACODI Student ID Card">
+            <span class="facodi-student-id-tape" aria-hidden="true"/>
+            <header class="facodi-student-id-header">
+                <div>
+                    <p class="facodi-kicker">Open learner profile</p>
+                    <h3>Student learning card</h3>
+                </div>
+                <span class="facodi-label">FACODI // ID</span>
+            </header>
+            <div class="facodi-student-id-grid">
+                <div class="facodi-student-id-avatar" aria-hidden="true">
+                    <i class="fa fa-user"/>
+                </div>
+                <div>
+                    <p class="facodi-label">Learner name</p>
+                    <h4>Community learner</h4>
+                    <p>Use this editable card for a portfolio, mentor profile, study group, or public learning identity.</p>
+                    <div class="facodi-metadata-row">
+                        <span>Open learning</span>
+                        <span>Self-directed</span>
+                        <span>Community</span>
+                    </div>
+                </div>
+            </div>
+            <footer class="facodi-student-id-footer">
+                <span>Public learning record</span>
+                <span>Updated this semester</span>
+            </footer>
+        </article>
+    </template>
+</odoo>

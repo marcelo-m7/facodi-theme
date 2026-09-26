@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_roadmap_metro" name="FACODI Roadmap Metro">
+        <article class="facodi-roadmap-metro"
+                 data-snippet="s_facodi_roadmap_metro"
+                 data-name="FACODI Roadmap Metro">
+            <header>
+                <p class="facodi-kicker">Learning roadmap</p>
+                <h3>From foundations to a public final project</h3>
+                <p>Edit the phases to describe a degree pathway, thematic roadmap, onboarding path, or project sequence.</p>
+            </header>
+            <ol class="facodi-roadmap-line">
+                <li class="is-complete"><span>01</span><div><strong>Foundations</strong><p>Build vocabulary and core concepts.</p></div></li>
+                <li class="is-active"><span>02</span><div><strong>Practice</strong><p>Work through guided exercises and examples.</p></div></li>
+                <li><span>03</span><div><strong>Integration</strong><p>Connect the topic with adjacent curricular units.</p></div></li>
+                <li><span>04</span><div><strong>Share in public</strong><p>Document a project, resource, or learning reflection.</p></div></li>
+            </ol>
+        </article>
+    </template>
+</odoo>

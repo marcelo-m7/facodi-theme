@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_forum_postit" name="FACODI Community Post-it">
+        <article class="facodi-forum-postit"
+                 data-snippet="s_facodi_forum_postit"
+                 data-name="FACODI Community Post-it">
+            <span class="facodi-forum-pin" aria-hidden="true"/>
+            <div class="facodi-forum-postit-meta">
+                <span class="facodi-label">UC-101</span>
+                <span>Question</span>
+            </div>
+            <h3>How would you explain this idea without relying on trial and error?</h3>
+            <p>Turn a question, peer note, study-group invitation, or shared summary into a reusable community board card.</p>
+            <pre><code># Optional example or short excerpt</code></pre>
+            <footer>
+                <span>Community notebook</span>
+                <a href="/contactus" class="facodi-text-link">Continue the conversation</a>
+            </footer>
+        </article>
+    </template>
+</odoo>

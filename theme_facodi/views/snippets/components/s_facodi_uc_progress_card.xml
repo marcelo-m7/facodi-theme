@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_uc_progress_card" name="FACODI Curricular Unit Progress Card">
+        <article class="facodi-uc-progress-card"
+                 data-snippet="s_facodi_uc_progress_card"
+                 data-name="FACODI Curricular Unit Progress Card">
+            <span class="facodi-paper-card-stripe facodi-paper-card-stripe-cyan" aria-hidden="true"/>
+            <header>
+                <span class="facodi-label">UC-101</span>
+                <span class="facodi-uc-status">In progress</span>
+            </header>
+            <h3>Algorithms and Critical Thinking</h3>
+            <p>Keep an editable summary of the curricular unit, current topic, or next learning milestone.</p>
+            <div class="facodi-progress-track" role="progressbar" aria-label="Curricular unit progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72">
+                <span style="width: 72%"/>
+            </div>
+            <footer>
+                <span>72% complete</span>
+                <a href="/slides" class="facodi-text-link">Continue studying <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+            </footer>
+        </article>
+    </template>
+</odoo>

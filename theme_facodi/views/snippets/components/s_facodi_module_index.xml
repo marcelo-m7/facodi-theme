@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_module_index" name="FACODI Module Index">
+        <nav class="facodi-module-index"
+             data-snippet="s_facodi_module_index"
+             data-name="FACODI Module Index"
+             aria-label="Module index">
+            <p class="facodi-kicker">Module index</p>
+            <h3>Study cards</h3>
+            <a href="#study-card-1" class="is-complete"><span>5.1</span><strong>Concept review</strong><i class="fa fa-check" aria-hidden="true" t-translation="off"/></a>
+            <a href="#study-card-2" class="is-complete"><span>5.2</span><strong>Worked example</strong><i class="fa fa-check" aria-hidden="true" t-translation="off"/></a>
+            <a href="#study-card-3" class="is-active"><span>5.3</span><strong>Practical exercise</strong><i class="fa fa-pencil" aria-hidden="true" t-translation="off"/></a>
+            <a href="#study-card-4"><span>5.4</span><strong>Open challenge</strong><i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+        </nav>
+    </template>
+</odoo>

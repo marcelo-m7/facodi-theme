@@ -807,3 +807,478 @@
         }
     }
 }
+
+
+/* Reusable learning-surface blocks derived from the FACODI Digital Highlighter
+   Campus references. They remain static/editor-owned so Website Builder can
+   duplicate, move, rewrite and recolor their content without ORM coupling. */
+.facodi-site {
+    .facodi-student-id-card,
+    .facodi-progress-meter,
+    .facodi-uc-progress-card,
+    .facodi-notebook-sheet,
+    .facodi-code-exercise,
+    .facodi-roadmap-metro {
+        background: var(--facodi-white);
+        border: 2px solid var(--facodi-ink-deep);
+        border-radius: var(--facodi-radius);
+        box-shadow: 4px 4px 0 var(--facodi-campus-grid-line);
+        color: var(--facodi-ink-deep);
+        min-width: 0;
+        position: relative;
+    }
+
+    .facodi-student-id-card {
+        overflow: visible;
+        padding: 1.5rem;
+
+        h3, h4 { margin: 0; }
+        h3 { font-size: 1.45rem; }
+        h4 { font-size: 1.3rem; margin: .55rem 0; }
+    }
+
+    .facodi-student-id-tape {
+        background: var(--facodi-marker-yellow);
+        border: 1px solid var(--facodi-ink-deep);
+        height: .7rem;
+        left: 50%;
+        position: absolute;
+        top: -.45rem;
+        transform: translateX(-50%) rotate(-1deg);
+        width: 8rem;
+    }
+
+    .facodi-student-id-header,
+    .facodi-student-id-footer,
+    .facodi-uc-progress-card > header,
+    .facodi-uc-progress-card > footer,
+    .facodi-code-exercise > header {
+        align-items: center;
+        display: flex;
+        gap: .75rem;
+        justify-content: space-between;
+    }
+
+    .facodi-student-id-grid {
+        align-items: center;
+        border-block: 1px dashed color-mix(in srgb, var(--facodi-ink-deep) 35%, transparent);
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: auto minmax(0, 1fr);
+        margin: 1.25rem 0;
+        padding: 1.25rem 0;
+    }
+
+    .facodi-student-id-avatar {
+        align-items: center;
+        background: color-mix(in srgb, var(--facodi-marker-cyan) 36%, var(--facodi-white));
+        border: 2px solid var(--facodi-ink-deep);
+        border-radius: 50%;
+        box-shadow: 3px 3px 0 var(--facodi-ink-deep);
+        display: flex;
+        font-size: 2rem;
+        height: 5rem;
+        justify-content: center;
+        width: 5rem;
+    }
+
+    .facodi-student-id-footer {
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .facodi-progress-meter {
+        padding: 1.5rem;
+    }
+
+    .facodi-progress-meter-heading {
+        align-items: end;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+
+        h3 { margin: .75rem 0 0; }
+        > strong {
+            background: var(--facodi-marker-yellow);
+            border: 2px solid var(--facodi-ink-deep);
+            box-shadow: 2px 2px 0 var(--facodi-ink-deep);
+            font-family: "Space Grotesk", Inter, sans-serif;
+            font-size: 1.75rem;
+            padding: .35rem .55rem;
+        }
+    }
+
+    .facodi-progress-track {
+        background: var(--facodi-campus-grid-line);
+        border: 1px solid var(--facodi-ink-deep);
+        border-radius: 999px;
+        height: .9rem;
+        margin: 1.25rem 0;
+        overflow: hidden;
+
+        > span {
+            background: linear-gradient(90deg, var(--facodi-marker-cyan), var(--facodi-marker-mint));
+            display: block;
+            height: 100%;
+        }
+    }
+
+    .facodi-progress-metrics {
+        display: grid;
+        gap: .75rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        > div {
+            border-top: 3px solid var(--facodi-marker-yellow);
+            padding-top: .75rem;
+        }
+
+        strong, span { display: block; }
+        strong { font-size: 1.35rem; }
+        span {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .65rem;
+            margin-top: .2rem;
+            text-transform: uppercase;
+        }
+    }
+
+    .facodi-uc-progress-card {
+        overflow: visible;
+        padding: 1.4rem;
+
+        h3 {
+            font-size: 1.45rem;
+            line-height: 1.15;
+            margin: 1rem 0 .65rem;
+        }
+
+        > footer {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .68rem;
+            font-weight: 700;
+        }
+    }
+
+    .facodi-uc-status {
+        background: var(--facodi-marker-mint);
+        border: 1px solid var(--facodi-ink-deep);
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .65rem;
+        font-weight: 700;
+        padding: .35rem .5rem;
+        text-transform: uppercase;
+    }
+
+    .facodi-notebook-sheet {
+        background-color: var(--facodi-campus-paper);
+        background-image: repeating-linear-gradient(
+            transparent,
+            transparent 31px,
+            color-mix(in srgb, var(--facodi-campus-grid-line) 82%, transparent) 31px,
+            color-mix(in srgb, var(--facodi-campus-grid-line) 82%, transparent) 32px
+        );
+        padding: 1.75rem 1.5rem 1.5rem 3.25rem;
+
+        h3 { margin: .7rem 0 1rem; }
+    }
+
+    .facodi-notebook-holes {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        left: .7rem;
+        position: absolute;
+        top: 2rem;
+
+        span {
+            background: var(--facodi-paper);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink-deep) 40%, transparent);
+            border-radius: 50%;
+            height: .65rem;
+            width: .65rem;
+        }
+    }
+
+    .facodi-notebook-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            align-items: baseline;
+            display: flex;
+            gap: .65rem;
+            min-height: 2rem;
+        }
+
+        .fa { color: var(--facodi-ink-deep); }
+    }
+
+    .facodi-notebook-caption {
+        color: var(--facodi-line);
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .64rem;
+        margin: 1rem 0 0;
+    }
+
+    .facodi-module-index {
+        background: var(--facodi-white);
+        border: 2px solid var(--facodi-ink-deep);
+        border-radius: var(--facodi-radius);
+        box-shadow: 4px 4px 0 var(--facodi-ink-deep);
+        padding: 1.25rem;
+
+        h3 { margin: .65rem 0 1rem; }
+
+        > a {
+            align-items: center;
+            border-top: 1px dashed color-mix(in srgb, var(--facodi-ink-deep) 28%, transparent);
+            color: var(--facodi-ink-deep);
+            display: grid;
+            gap: .65rem;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            padding: .8rem .25rem;
+            text-decoration: none;
+
+            > span {
+                font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+                font-size: .68rem;
+                font-weight: 700;
+            }
+
+            &.is-complete .fa { color: #24734b; }
+            &.is-active {
+                background: color-mix(in srgb, var(--facodi-marker-yellow) 38%, transparent);
+                padding-inline: .55rem;
+            }
+        }
+    }
+
+    .facodi-code-exercise {
+        padding: 1.5rem;
+
+        h3 {
+            font-size: 1.45rem;
+            margin: .7rem 0 0;
+        }
+    }
+
+    .facodi-code-exercise-status {
+        background: var(--facodi-marker-orange);
+        border: 1px solid var(--facodi-ink-deep);
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .65rem;
+        font-weight: 700;
+        padding: .35rem .5rem;
+        text-transform: uppercase;
+    }
+
+    .facodi-code-window {
+        background: var(--facodi-ink-deep);
+        border: 2px solid var(--facodi-ink-deep);
+        border-radius: var(--facodi-radius-sm);
+        color: #fff;
+        margin-top: 1rem;
+        overflow: hidden;
+
+        pre {
+            color: #fff;
+            margin: 0;
+            overflow: auto;
+            padding: 1.25rem;
+            white-space: pre-wrap;
+        }
+    }
+
+    .facodi-code-window-tabs {
+        background: #fff;
+        border-bottom: 2px solid var(--facodi-ink-deep);
+        color: var(--facodi-ink-deep);
+        display: flex;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .65rem;
+        font-weight: 700;
+        gap: .5rem;
+        padding: .45rem .6rem;
+
+        span:first-child { background: var(--facodi-marker-cyan); padding: .2rem .4rem; }
+    }
+
+    .facodi-code-feedback {
+        align-items: flex-start;
+        background: color-mix(in srgb, var(--facodi-marker-mint) 34%, var(--facodi-white));
+        border-left: 4px solid var(--facodi-marker-mint);
+        display: flex;
+        gap: .65rem;
+        margin-top: 1rem;
+        padding: .85rem 1rem;
+    }
+
+    .facodi-forum-postit {
+        background: color-mix(in srgb, var(--facodi-marker-yellow) 38%, var(--facodi-white));
+        border: 2px solid var(--facodi-ink-deep);
+        box-shadow: 5px 5px 0 var(--facodi-ink-deep);
+        color: var(--facodi-ink-deep);
+        padding: 1.35rem;
+        position: relative;
+        transform: rotate(-.35deg);
+
+        h3 {
+            font-size: 1.35rem;
+            line-height: 1.18;
+            margin: .9rem 0 .7rem;
+        }
+
+        pre {
+            background: color-mix(in srgb, var(--facodi-white) 75%, transparent);
+            border: 1px solid var(--facodi-ink-deep);
+            margin: 1rem 0;
+            overflow: auto;
+            padding: .75rem;
+        }
+
+        footer {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            justify-content: space-between;
+        }
+    }
+
+    .facodi-forum-pin {
+        background: var(--facodi-marker-pink);
+        border: 2px solid var(--facodi-ink-deep);
+        border-radius: 50%;
+        height: 1rem;
+        left: 50%;
+        position: absolute;
+        top: -.55rem;
+        transform: translateX(-50%);
+        width: 1rem;
+    }
+
+    .facodi-forum-postit-meta {
+        align-items: center;
+        display: flex;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .65rem;
+        gap: .5rem;
+        justify-content: space-between;
+        text-transform: uppercase;
+    }
+
+    .facodi-roadmap-metro {
+        padding: 1.5rem;
+
+        > header {
+            max-width: 48rem;
+
+            h3 {
+                font-size: clamp(1.6rem, 3vw, 2.3rem);
+                margin: .7rem 0 .6rem;
+            }
+        }
+    }
+
+    .facodi-roadmap-line {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        list-style: none;
+        margin: 2rem 0 0;
+        padding: 0;
+
+        li {
+            min-width: 0;
+            padding: 0 1rem;
+            position: relative;
+
+            &::before {
+                border-top: 3px solid var(--facodi-campus-grid-line);
+                content: "";
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 1.2rem;
+                z-index: 0;
+            }
+
+            > span {
+                align-items: center;
+                background: var(--facodi-white);
+                border: 2px solid var(--facodi-ink-deep);
+                border-radius: 50%;
+                display: flex;
+                font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+                font-size: .65rem;
+                font-weight: 700;
+                height: 2.4rem;
+                justify-content: center;
+                position: relative;
+                width: 2.4rem;
+                z-index: 1;
+            }
+
+            &.is-complete > span { background: var(--facodi-marker-mint); }
+            &.is-active > span { background: var(--facodi-marker-yellow); box-shadow: 2px 2px 0 var(--facodi-ink-deep); }
+
+            > div {
+                margin-top: .8rem;
+                strong { display: block; margin-bottom: .35rem; }
+                p { font-size: .9rem; margin: 0; }
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site {
+        .facodi-student-id-grid {
+            align-items: start;
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .facodi-student-id-header,
+        .facodi-student-id-footer,
+        .facodi-progress-meter-heading,
+        .facodi-uc-progress-card > header,
+        .facodi-uc-progress-card > footer,
+        .facodi-code-exercise > header {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .facodi-progress-metrics {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .facodi-roadmap-line {
+            gap: 1rem;
+            grid-template-columns: minmax(0, 1fr);
+
+            li {
+                display: grid;
+                gap: .85rem;
+                grid-template-columns: auto minmax(0, 1fr);
+                padding: 0;
+
+                &::before {
+                    border-left: 3px solid var(--facodi-campus-grid-line);
+                    border-top: 0;
+                    bottom: -1rem;
+                    left: 1.15rem;
+                    right: auto;
+                    top: 0;
+                }
+
+                > div { margin-top: 0; }
+            }
+        }
+
+        .facodi-forum-postit { transform: none; }
+    }
+}

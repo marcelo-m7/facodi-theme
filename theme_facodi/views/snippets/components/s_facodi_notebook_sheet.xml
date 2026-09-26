@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_notebook_sheet" name="FACODI Notebook Sheet">
+        <article class="facodi-notebook-sheet"
+                 data-snippet="s_facodi_notebook_sheet"
+                 data-name="FACODI Notebook Sheet">
+            <div class="facodi-notebook-holes" aria-hidden="true"><span/><span/><span/><span/></div>
+            <header>
+                <p class="facodi-kicker">Study notebook</p>
+                <h3>Learning log and practical activities</h3>
+            </header>
+            <ul class="facodi-notebook-list">
+                <li><i class="fa fa-check-square-o" aria-hidden="true" t-translation="off"/><span>Review the main concepts from the latest module.</span></li>
+                <li><i class="fa fa-check-square-o" aria-hidden="true" t-translation="off"/><span>Write one example in your own words.</span></li>
+                <li><i class="fa fa-square-o" aria-hidden="true" t-translation="off"/><span>Share a useful reference with the community.</span></li>
+            </ul>
+            <p class="facodi-notebook-caption">Everything in this sheet is regular Website Builder content and can be rewritten directly.</p>
+        </article>
+    </template>
+</odoo>
