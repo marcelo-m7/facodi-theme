@@ -622,7 +622,8 @@
     .facodi-latest-wins__grid {
         display: grid;
         gap: .75rem;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+        // Keep CSS min() for the browser; Sass otherwise tries to compare % and rem.
+        grid-template-columns: repeat(auto-fit, minmax(#{"min(100%, 17rem)"}, 1fr));
     }
 
     .facodi-latest-win {

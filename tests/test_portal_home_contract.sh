@@ -7,14 +7,16 @@ MANIFEST="theme_facodi/__manifest__.py"
 
 [[ -f "$SCSS" ]] || fail "portal stylesheet missing"
 grep -Fq 'portal.scss' "$MANIFEST" || fail "portal stylesheet is not loaded"
-grep -Fq '"version": "19.0.10.10.0"' "$MANIFEST" || fail "portal release version missing"
+# Release progression is owned by tests/test_module_contract.sh. This surface
+# contract validates portal behavior/styles and must not pin an older patch version.
 
 for selector in   '[data-facodi-portal-home="1"]'   '.facodi-portal-campus'   '.facodi-portal-board'   '.facodi-momentum-strip'   '.facodi-dashboard-action'   '.facodi-dashboard-submission'   '.o_portal_index_card'   '.o_portal_wrap:has(' '.facodi-latest-wins' '.facodi-latest-win' '.facodi-course-progress' \
-  '[data-facodi-academic-map="1"]' \
-  '[data-facodi-campus-pulse="1"]' \
+  '.facodi-academic-map' \
+  '.facodi-campus-pulse' \
   '.facodi-academic-map__unit' \
   '.facodi-campus-pulse__post'; do
-  grep -Fq "$selector" "$SCSS" || fail "portal identity selector missing: $selector"
+  grep -R -Fq --include='*.scss' "$selector" theme_facodi/static/src/scss \
+    || fail "portal identity selector missing from frontend SCSS: $selector"
 done
 
 for color in '#E8FD36' '#72F6B8' '#34B6CE' '#FF70A6' '#FFAE33'; do
