@@ -3,12 +3,16 @@
 .facodi-site {
     // Generic cards and sheets used by portal, profile, forum and website apps.
     .card:not(.facodi-card):not(.o_wslides_course_card) {
-        background: var(--facodi-surface-sheet);
         border: 1px solid color-mix(in srgb, var(--facodi-ink) 42%, transparent);
         border-radius: var(--facodi-radius);
         box-shadow: 2px 2px 0 color-mix(in srgb, var(--facodi-ink) 24%, transparent);
-        color: var(--facodi-ink);
-        overflow: hidden;
+
+        // Respect editor-owned Odoo color combinations. Only uncombined cards
+        // receive the default FACODI sheet background/text treatment.
+        &:not([class*="o_cc"]) {
+            background: var(--facodi-surface-sheet);
+            color: var(--facodi-ink);
+        }
 
         > .card-header {
             background: color-mix(in srgb, var(--facodi-marker-cyan) 18%, var(--facodi-white));
@@ -73,8 +77,10 @@
     // Pills, status chips and utility backgrounds otherwise retain stock colors.
     .text-bg-primary,
     .badge.bg-primary {
+        // Ink on FACODI blue comfortably clears normal-text contrast while
+        // keeping the semantic primary brand color.
         background-color: var(--facodi-blue) !important;
-        color: var(--facodi-white) !important;
+        color: var(--facodi-ink-deep) !important;
     }
 
     .text-bg-secondary,
