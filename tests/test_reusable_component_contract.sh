@@ -154,3 +154,56 @@ for class_name in \
 done
 
 echo "PASS: reusable FACODI Campus Paper component contract"
+
+
+python3 - <<'PY'
+from pathlib import Path
+import re
+
+component_dir = Path("theme_facodi/views/snippets/components")
+targets = {
+    "s_facodi_student_id_card.xml",
+    "s_facodi_progress_meter.xml",
+    "s_facodi_uc_progress_card.xml",
+    "s_facodi_notebook_sheet.xml",
+    "s_facodi_module_index.xml",
+    "s_facodi_code_exercise.xml",
+    "s_facodi_forum_postit.xml",
+    "s_facodi_roadmap_metro.xml",
+}
+source = "\n".join((component_dir / name).read_text(encoding="utf-8") for name in sorted(targets))
+
+for forbidden in (
+    "68% of this study plan completed",
+    'aria-valuenow="68"',
+    'style="width: 68%"',
+    "<strong>12</strong><span>study notes</span>",
+    "<strong>4</strong><span>completed modules</span>",
+    "<strong>3</strong><span>community contributions</span>",
+    "UC-101",
+    "72% complete",
+    'aria-valuenow="72"',
+    'style="width: 72%"',
+    "Community learner",
+    "Public learning record",
+    "Updated this semester",
+    'class="is-complete"',
+    'class="is-active"',
+    ">terminal<",
+):
+    if forbidden in source:
+        raise SystemExit(f"FAIL: learning-surface snippets must not ship fabricated progress/profile state: {forbidden}")
+
+forum = (component_dir / "s_facodi_forum_postit.xml").read_text(encoding="utf-8")
+for forbidden in ("Question", "Community notebook"):
+    if forbidden in forum:
+        raise SystemExit(f"FAIL: community-note snippet must not imply a native forum feature: {forbidden}")
+
+code = (component_dir / "s_facodi_code_exercise.xml").read_text(encoding="utf-8")
+if "Static example" not in code:
+    raise SystemExit("FAIL: code exercise must state that it is a static editor-owned example")
+
+notebook = (component_dir / "s_facodi_notebook_sheet.xml").read_text(encoding="utf-8")
+if "Website Builder" not in notebook:
+    raise SystemExit("FAIL: worksheet snippet must make editor-owned/static behavior explicit")
+PY
