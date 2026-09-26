@@ -360,3 +360,38 @@
         }
     }
 }
+
+.facodi-site [data-facodi-portal-home="1"] {
+    .facodi-momentum-card__sub {
+        display: block;
+        font-size: .64rem;
+        font-weight: 800;
+        margin-top: .35rem;
+        opacity: .75;
+        text-transform: uppercase;
+    }
+
+    .facodi-course-progress {
+        background: color-mix(in srgb, var(--facodi-ink-deep) 10%, var(--facodi-white));
+        border: 1px solid var(--facodi-ink-deep);
+        border-radius: 999px;
+        height: .65rem;
+        overflow: hidden;
+
+        > span {
+            background: var(--facodi-highlight-orange);
+            display: block;
+            height: 100%;
+            min-width: .2rem;
+        }
+    }
+
+    .facodi-portal-course-card--done {
+        box-shadow: 4px 4px 0 var(--facodi-highlight-mint);
+
+        .facodi-resource-card__tape,
+        .facodi-course-progress > span {
+            background: var(--facodi-highlight-mint);
+        }
+    }
+}
