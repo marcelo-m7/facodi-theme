@@ -1627,3 +1627,12 @@ msgstr "Retour à FACODI"
 msgid "If this keeps happening, use the contact page and tell us what you were trying to open."
 msgstr "Si le problème persiste, utilisez la page de contact et indiquez-nous ce que vous essayiez d’ouvrir."
 
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "Error navigation"
+msgstr "Navigation d’erreur"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "server detour"
+msgstr "détour du serveur"
