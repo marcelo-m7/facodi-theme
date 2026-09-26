@@ -617,6 +617,52 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("linear-gradient(45deg, #112233, #445566)", rich_response.text)
         self.assertEqual(rich.cover_properties, custom_cover)
 
+    def test_d2_contact_preserves_native_form(self):
+        from lxml import html
+
+        response = self.url_open("/contactus")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+
+        self.assertTrue(
+            tree.xpath(
+                "//*[@id='wrap' and contains(concat(' ', normalize-space(@class), ' '), "
+                "' facodi-contact-page ')]"
+            )
+        )
+        self.assertTrue(
+            tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), "
+                "' facodi-contact-form-sheet ')]"
+            )
+        )
+        self.assertTrue(
+            tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), "
+                "' facodi-contact-context ')]"
+            )
+        )
+
+        forms = tree.xpath("//form[@id='contactus_form']")
+        self.assertEqual(len(forms), 1)
+        form = forms[0]
+        self.assertEqual(form.get("action"), "/website/form/")
+        names = set(form.xpath(".//*[@name]/@name"))
+        self.assertTrue(
+            {"name", "phone", "email_from", "company", "subject", "description"}.issubset(
+                names
+            )
+        )
+        self.assertEqual(
+            len(
+                form.xpath(
+                    ".//*[contains(concat(' ', normalize-space(@class), ' '), "
+                    "' s_website_form_send ')]"
+                )
+            ),
+            1,
+        )
+
     def test_standard_forms_and_compiled_frontend_assets(self):
         from lxml import html
 
