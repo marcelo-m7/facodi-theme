@@ -1033,13 +1033,15 @@
 
         h3 { margin: .65rem 0 1rem; }
 
-        > a {
+        > a,
+        > .facodi-module-index-row {
             align-items: center;
             border-top: 1px dashed color-mix(in srgb, var(--facodi-ink-deep) 28%, transparent);
             color: var(--facodi-ink-deep);
             display: grid;
             gap: .65rem;
-            grid-template-columns: auto minmax(0, 1fr) auto;
+            grid-template-columns: auto minmax(0, 1fr);
+            min-width: 0;
             padding: .8rem .25rem;
             text-decoration: none;
 
@@ -1048,6 +1050,14 @@
                 font-size: .68rem;
                 font-weight: 700;
             }
+
+            > strong {
+                overflow-wrap: anywhere;
+            }
+        }
+
+        > a {
+            grid-template-columns: auto minmax(0, 1fr) auto;
 
             &.is-complete .fa { color: #24734b; }
             &.is-active {
