@@ -7,21 +7,20 @@
             <header>
                 <div>
                     <p class="facodi-label">Practice sheet</p>
-                    <h3>Recursive search with an explicit invariant</h3>
+                    <h3>Static code example</h3>
                 </div>
-                <span class="facodi-code-exercise-status">Exercise 01</span>
+                <span class="facodi-code-exercise-status">Example block</span>
             </header>
-            <p>Replace the prompt and code with your own practical exercise. This block is intentionally static and editor-owned.</p>
+            <p>Static example — no execution environment. Replace the prompt and code with editor-owned learning material.</p>
             <div class="facodi-code-window">
-                <div class="facodi-code-window-tabs"><span>solution.py</span><span>terminal</span></div>
-                <pre><code>def search(items, target):
-    if not items:
-        return -1
-    # continue the exercise here</code></pre>
+                <div class="facodi-code-window-tabs"><span>example.py</span><span>example output</span></div>
+                <pre><code>def example(items):
+    # replace this static code sample
+    return items</code></pre>
             </div>
             <aside class="facodi-code-feedback">
-                <i class="fa fa-check-circle" aria-hidden="true" t-translation="off"/>
-                <span>Expected outcome: explain the stopping condition before optimizing the implementation.</span>
+                <i class="fa fa-info-circle" aria-hidden="true" t-translation="off"/>
+                <span>Use this area for an explanation, expected reasoning, or a reviewed reference.</span>
             </aside>
         </article>
     </template>
