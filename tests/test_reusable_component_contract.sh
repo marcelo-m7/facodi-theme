@@ -132,23 +132,23 @@ if grep -R -nE 'request\.env|sudo\(\)|href="/web/login"|/web/content/[0-9]+|o_no
 fi
 
 for class_name in \
-  facodi-highlighter-heading \\
-  facodi-paper-card \\
-  facodi-sticky-note \\
-  facodi-folder-tabs \\
-  facodi-filter-pills \\
-  facodi-static-course-card \\
-  facodi-study-steps \\
-  facodi-cta-sheet \\
-  facodi-metadata-row \\
-  facodi-highlighter-callout \\
-  facodi-student-id-card \\
-  facodi-progress-meter \\
-  facodi-uc-progress-card \\
-  facodi-notebook-sheet \\
-  facodi-module-index \\
-  facodi-code-exercise \\
-  facodi-forum-postit \\
+  facodi-highlighter-heading \
+  facodi-paper-card \
+  facodi-sticky-note \
+  facodi-folder-tabs \
+  facodi-filter-pills \
+  facodi-static-course-card \
+  facodi-study-steps \
+  facodi-cta-sheet \
+  facodi-metadata-row \
+  facodi-highlighter-callout \
+  facodi-student-id-card \
+  facodi-progress-meter \
+  facodi-uc-progress-card \
+  facodi-notebook-sheet \
+  facodi-module-index \
+  facodi-code-exercise \
+  facodi-forum-postit \
   facodi-roadmap-metro; do
   grep -Fq ".$class_name" "$styles"     || fail "missing reusable component style: $class_name"
 done
