@@ -129,3 +129,52 @@
 @media (max-width: 767.98px) {
     .facodi-site .facodi-stat-row { grid-template-columns: minmax(0, 1fr); }
 }
+
+
+/* Persisted board enrichment keeps older Website Builder snapshots tactile. */
+.facodi-site {
+    .facodi-hero-board {
+        background:
+            radial-gradient(circle at 1rem 1rem, color-mix(in srgb, var(--facodi-ink) 13%, transparent) 0 1px, transparent 1.5px),
+            var(--facodi-paper-warm);
+        background-size: 1.25rem 1.25rem;
+        border-width: 3px;
+        box-shadow: 6px 6px 0 var(--facodi-ink);
+        overflow: visible;
+        position: relative;
+
+        &::before {
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 54%, transparent);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+            content: "";
+            height: 1.1rem;
+            left: 50%;
+            opacity: .8;
+            position: absolute;
+            top: -.7rem;
+            transform: translateX(-50%) rotate(-1.5deg);
+            width: 6rem;
+        }
+    }
+
+    .facodi-board-cards > div {
+        box-shadow: 3px 4px 0 color-mix(in srgb, var(--facodi-ink) 60%, transparent);
+        position: relative;
+
+        &::before {
+            background: var(--facodi-marker-pink);
+            border: 2px solid var(--facodi-ink);
+            border-radius: 50%;
+            content: "";
+            height: .8rem;
+            position: absolute;
+            right: .7rem;
+            top: -.45rem;
+            width: .8rem;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .facodi-hero-board::before { transform: none; }
+}
