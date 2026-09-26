@@ -1565,3 +1565,28 @@ msgstr "Ligne de métadonnées"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
 msgid "Highlighter callout"
 msgstr "Encadré surligné"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Legal"
+msgstr "Mentions légales"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Cookie Policy"
+msgstr "Politique relative aux cookies"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Terms and Conditions"
+msgstr "Conditions générales"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Account"
+msgstr "Compte"
