@@ -7,29 +7,29 @@
             <span class="facodi-student-id-tape" aria-hidden="true"/>
             <header class="facodi-student-id-header">
                 <div>
-                    <p class="facodi-kicker">Open learner profile</p>
-                    <h3>Student learning card</h3>
+                    <p class="facodi-kicker">Editable learning profile</p>
+                    <h3>Learning profile card</h3>
                 </div>
-                <span class="facodi-label">FACODI // ID</span>
+                <span class="facodi-label">FACODI // profile</span>
             </header>
             <div class="facodi-student-id-grid">
                 <div class="facodi-student-id-avatar" aria-hidden="true">
                     <i class="fa fa-user"/>
                 </div>
                 <div>
-                    <p class="facodi-label">Learner name</p>
-                    <h4>Community learner</h4>
-                    <p>Use this editable card for a portfolio, mentor profile, study group, or public learning identity.</p>
+                    <p class="facodi-label">Display name</p>
+                    <h4>Add a learner or contributor name</h4>
+                    <p>Use this static Website Builder card for an editorial profile, portfolio introduction, mentor note, or study-group description.</p>
                     <div class="facodi-metadata-row">
-                        <span>Open learning</span>
-                        <span>Self-directed</span>
-                        <span>Community</span>
+                        <span>Focus area</span>
+                        <span>Learning mode</span>
+                        <span>Community role</span>
                     </div>
                 </div>
             </div>
             <footer class="facodi-student-id-footer">
-                <span>Public learning record</span>
-                <span>Updated this semester</span>
+                <span>Editable Website content</span>
+                <span>No persistent profile data</span>
             </footer>
         </article>
     </template>
