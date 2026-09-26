@@ -593,12 +593,26 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("facodi-blog-article", sparse_response.text)
         self.assertIn("facodi-blog-prose", sparse_response.text)
         self.assertIn("Sparse D2 content.", sparse_response.text)
-        self.assertNotIn("A real subtitle", sparse_response.text)
+        sparse_tree = html.fromstring(sparse_response.text)
+        self.assertFalse(
+            sparse_tree.xpath(
+                "//*[@id='o_wblog_post_top']"
+                "//*[contains(concat(' ', normalize-space(@class), ' '), "
+                "' o_wblog_post_subtitle ')]"
+            ),
+            "sparse current-post header must not fabricate a subtitle",
+        )
 
         rich_response = self.url_open(rich.website_url)
         self.assertEqual(rich_response.status_code, 200)
         self.assertIn("Rich D2 content.", rich_response.text)
-        self.assertIn("A real subtitle", rich_response.text)
+        rich_tree = html.fromstring(rich_response.text)
+        rich_subtitles = rich_tree.xpath(
+            "//*[@id='o_wblog_post_top']"
+            "//*[contains(concat(' ', normalize-space(@class), ' '), "
+            "' o_wblog_post_subtitle ')]/text()"
+        )
+        self.assertIn("A real subtitle", rich_subtitles)
         self.assertIn("D2 editorial", rich_response.text)
         self.assertIn("linear-gradient(45deg, #112233, #445566)", rich_response.text)
         self.assertEqual(rich.cover_properties, custom_cover)
