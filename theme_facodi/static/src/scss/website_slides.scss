@@ -341,6 +341,23 @@ body.o_wslides_body .facodi-site {
         .facodi-index-tabs--courses {
             justify-content: flex-start;
         }
+
+        // website_slides_forum adds a third native tab (Forum). Odoo keeps
+        // this list flex-nowrap, so contain overflow inside the tab strip
+        // instead of allowing it to widen the whole course page.
+        .o_wslides_nav_tabs {
+            flex-wrap: nowrap;
+            max-width: 100%;
+            min-width: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            overscroll-behavior-inline: contain;
+            width: 100%;
+
+            > .nav-item {
+                flex: 0 0 auto;
+            }
+        }
     }
 }
 
