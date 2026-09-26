@@ -27,4 +27,12 @@ grep -Fq 'footer#bottom' "$SCSS" || fail "outer Odoo footer shell must have an e
 grep -Fq 'background-color: #0B1325 !important' "$SCSS" || fail "outer Odoo footer must override conflicting Bootstrap/Odoo background utilities"
 grep -Fq 'background: #0B1325' "$SCSS" || fail "FACODI/Odoo footer background must be #0B1325"
 
+grep -Fq 'portal.language_selector' "$FOOTER" || fail "FACODI footer must use Odoo native language selector"
+grep -Fq 'facodi-footer-language' "$FOOTER" || fail "footer language semantic hook missing"
+grep -Fq '.facodi-footer-language-selector' "$SCSS" || fail "footer language selector styles missing"
+grep -Fq '.facodi-footer-language-button' "$SCSS" || fail "footer language button styles missing"
+if grep -Fq 'frontend_languages' "$FOOTER"; then
+  fail "FACODI footer must delegate language visibility to Odoo's native selector"
+fi
+
 echo "PASS: Campus Paper global shell contract"
