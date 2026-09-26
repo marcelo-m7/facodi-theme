@@ -18,3 +18,5 @@ Task 4: complete (CI run 36224266192 → success; native website.contactus inher
 Task 5: complete (CI run 36224494526 → success; policy long-form containment, 320px source gates, Contact/Blog/editorial regressions, upgrades and Odoo tests passed).
 
 Task 6: complete (CI run 36225253871 → success; D2 POT/PT/ES/FR, compiled assets, docs, mobile/reduced-motion contracts, legacy install, repeated upgrades, editor-owned persistence and Odoo regressions passed).
+
+Task 6: complete (CI run 36225244977 → success; complete D2 POT/PT/ES/FR occurrences, compiled public/editorial assets, documentation, legacy install/upgrade and Odoo regressions passed).
