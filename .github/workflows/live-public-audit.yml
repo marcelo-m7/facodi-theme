@@ -1,0 +1,51 @@
+name: FACODI live public pages audit
+
+on:
+  push:
+    branches:
+      - fix/live-public-pages-audit-2026-09-26
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Playwright core
+        run: npm install --no-save --ignore-scripts --package-lock=false playwright-core@1.55.0
+
+      - name: Locate Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          for candidate in google-chrome google-chrome-stable chromium chromium-browser; do
+            if command -v "$candidate" >/dev/null 2>&1; then
+              echo "FACODI_BROWSER_CHROME_BIN=$(command -v "$candidate")" >> "$GITHUB_ENV"
+              exit 0
+            fi
+          done
+          echo "Chrome/Chromium unavailable" >&2
+          exit 1
+
+      - name: Audit live public pages
+        env:
+          FACODI_LIVE_AUDIT_DIR: ${{ runner.temp }}/facodi-live-audit
+        run: node tests/audit_live_public_pages.mjs
+
+      - name: Upload live audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: facodi-live-public-audit
+          path: ${{ runner.temp }}/facodi-live-audit
+          if-no-files-found: error
+          retention-days: 7
