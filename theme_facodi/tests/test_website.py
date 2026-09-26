@@ -368,6 +368,36 @@ class TestFacodiTheme(HttpCase):
         self.assertEqual(login.status_code, 200)
         self.assertIn("form-control", login.text)
 
+    def test_footer_uses_native_no_copyright_option_without_odoo_branding(self):
+        from lxml import html
+
+        no_copyright = self.env.ref("website.footer_no_copyright")
+        self.assertTrue(
+            no_copyright.active,
+            "FACODI must activate Odoo's native Footer No Copyright option",
+        )
+
+        response = self.url_open("/")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+        footer = tree.xpath("//footer[@id='bottom']")
+        self.assertEqual(len(footer), 1)
+        self.assertTrue(
+            footer[0].xpath(".//*[@id='footer' and contains(@class, 'facodi-footer-campus')]")
+        )
+        self.assertFalse(
+            footer[0].xpath(".//*[contains(concat(' ', normalize-space(@class), ' '), ' o_footer_copyright ')]"),
+            "native Odoo copyright strip must not render",
+        )
+        self.assertFalse(
+            footer[0].xpath(".//*[contains(concat(' ', normalize-space(@class), ' '), ' o_brand_promotion ')]"),
+            "native Odoo brand promotion must not render",
+        )
+        self.assertFalse(
+            footer[0].xpath(".//a[contains(translate(@href, 'ODOO', 'odoo'), 'odoo.com')]"),
+            "footer must not render Odoo promotional links",
+        )
+
     def test_standard_favicon_is_not_replaced(self):
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
