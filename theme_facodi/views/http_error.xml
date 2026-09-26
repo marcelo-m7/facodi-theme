@@ -36,7 +36,7 @@
             <main>
                 <section class="facodi-error-main">
                     <div class="facodi-error-sheet">
-                        <p class="facodi-error-code"><t t-esc="status_code"/> · server detour</p>
+                        <p class="facodi-error-code"><t t-esc="status_code"/><span aria-hidden="true" t-translation="off"> · </span><span>server detour</span></p>
                         <h1 class="facodi-error-title">This page hit a <mark>rough patch.</mark></h1>
                         <p class="facodi-error-copy">FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment.</p>
                         <div class="facodi-error-actions">
