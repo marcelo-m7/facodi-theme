@@ -7,7 +7,8 @@ MANIFEST="theme_facodi/__manifest__.py"
 
 [[ -f "$SCSS" ]] || fail "portal stylesheet missing"
 grep -Fq 'portal.scss' "$MANIFEST" || fail "portal stylesheet is not loaded"
-grep -Fq '"version": "19.0.10.10.0"' "$MANIFEST" || fail "portal release version missing"
+# Release progression is owned by tests/test_module_contract.sh. This surface
+# contract validates portal behavior/styles and must not pin an older patch version.
 
 for selector in   '[data-facodi-portal-home="1"]'   '.facodi-portal-campus'   '.facodi-portal-board'   '.facodi-momentum-strip'   '.facodi-dashboard-action'   '.facodi-dashboard-submission'   '.o_portal_index_card'   '.o_portal_wrap:has(' '.facodi-latest-wins' '.facodi-latest-win' '.facodi-course-progress' \
   '[data-facodi-academic-map="1"]' \
