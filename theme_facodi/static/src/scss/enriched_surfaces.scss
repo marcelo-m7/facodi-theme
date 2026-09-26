@@ -689,3 +689,95 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+.facodi-site [data-facodi-roadmap-campus="1"] {
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--facodi-highlight-cyan) 13%, transparent) 1px, transparent 1px),
+        linear-gradient(color-mix(in srgb, var(--facodi-highlight-cyan) 13%, transparent) 1px, transparent 1px),
+        var(--facodi-white);
+    background-size: 24px 24px;
+    border: 2px solid var(--facodi-ink);
+    border-radius: var(--facodi-radius);
+    box-shadow: 5px 5px 0 var(--facodi-ink);
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 1fr);
+    padding: 1.25rem;
+}
+
+.facodi-site {
+    .facodi-roadmap-campus-summary__stats {
+        display: grid;
+        gap: .55rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .facodi-campus-stat {
+        border: 2px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius-sm);
+        padding: .7rem .8rem;
+        transform: rotate(-.4deg);
+
+        &:nth-child(even) { transform: rotate(.5deg); }
+
+        strong {
+            display: block;
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: 1.65rem;
+            line-height: 1;
+        }
+
+        span {
+            display: block;
+            font-size: .68rem;
+            font-weight: 800;
+            margin-top: .25rem;
+            text-transform: uppercase;
+        }
+    }
+
+    .facodi-roadmap-study-path__year {
+        border-left: 3px solid var(--facodi-ink);
+        padding-left: 1.25rem;
+        position: relative;
+
+        > h2::before {
+            background: var(--facodi-highlight-cyan);
+            border: 2px solid var(--facodi-ink);
+            border-radius: 50%;
+            content: "";
+            height: 1rem;
+            left: -.6rem;
+            position: absolute;
+            top: .45rem;
+            width: 1rem;
+        }
+    }
+
+    .facodi-roadmap-stop {
+        --facodi-stop-accent: var(--facodi-highlight-pink);
+        position: relative;
+
+        &[data-facodi-coverage="covered"] { --facodi-stop-accent: var(--facodi-highlight-mint); }
+        &[data-facodi-coverage="partial"] { --facodi-stop-accent: var(--facodi-highlight-orange); }
+
+        > td:first-child {
+            border-left: .45rem solid var(--facodi-stop-accent);
+            padding-left: 1rem;
+        }
+
+        &:hover > td { background: color-mix(in srgb, var(--facodi-stop-accent) 12%, var(--facodi-white)); }
+    }
+
+    .facodi-roadmap-stop--gap {
+        > td:last-child {
+            background: color-mix(in srgb, var(--facodi-highlight-pink) 10%, var(--facodi-white));
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .facodi-site [data-facodi-roadmap-campus="1"] {
+        grid-template-columns: 1fr;
+    }
+}
