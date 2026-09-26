@@ -17,8 +17,32 @@ def migrate(cr, version):
     Menu = env["website.menu"].with_context(active_test=False)
     Rewrite = env["website.rewrite"].with_context(active_test=False)
 
+    # Redirects are global on purpose: the legacy FACODI paths must collapse to
+    # the same canonical IA on every Website carrying this theme.
+    for sequence, (url_from, url_to) in enumerate(REDIRECTS, start=1):
+        rewrite = Rewrite.search([
+            ("website_id", "=", False),
+            ("url_from", "=", url_from),
+        ], limit=1)
+        values = {
+            "name": f"FACODI permanent redirect {url_from}",
+            "website_id": False,
+            "url_from": url_from,
+            "url_to": url_to,
+            "redirect_type": "301",
+            "active": True,
+            "sequence": sequence * 10,
+        }
+        if rewrite:
+            rewrite.write(values)
+        else:
+            Rewrite.create(values)
+
+    # Odoo resolves a published website.page before 301/302 fallback rewrites.
+    # Unpublish only the exact legacy URLs and move internal menus directly to
+    # their canonical destination so visitors do not pay an internal redirect.
     for website in env["website"].search([]):
-        for sequence, (url_from, url_to) in enumerate(REDIRECTS, start=1):
+        for url_from, url_to in REDIRECTS:
             pages = Page.search([
                 ("website_id", "in", [False, website.id]),
                 ("url", "=", url_from),
@@ -33,21 +57,3 @@ def migrate(cr, version):
             ])
             if menus:
                 menus.write({"url": url_to})
-
-            rewrite = Rewrite.search([
-                ("website_id", "=", website.id),
-                ("url_from", "=", url_from),
-            ], limit=1)
-            values = {
-                "name": f"FACODI permanent redirect {url_from}",
-                "website_id": website.id,
-                "url_from": url_from,
-                "url_to": url_to,
-                "redirect_type": "301",
-                "active": True,
-                "sequence": sequence * 10,
-            }
-            if rewrite:
-                rewrite.write(values)
-            else:
-                Rewrite.create(values)
