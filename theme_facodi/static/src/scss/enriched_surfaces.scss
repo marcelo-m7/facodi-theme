@@ -571,3 +571,121 @@
         grid-template-columns: 1fr;
     }
 }
+
+.facodi-site [data-facodi-explore-workbench="1"] {
+    .facodi-discovery-stats {
+        display: grid;
+        gap: .7rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .facodi-discovery-stat {
+        border: 2px solid var(--facodi-ink);
+        border-radius: 999px;
+        display: flex;
+        gap: .55rem;
+        align-items: baseline;
+        padding: .55rem .85rem;
+
+        strong {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+
+        span {
+            font-size: .72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+    }
+
+    .facodi-filter-chips {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .facodi-filter-chips__label {
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .facodi-filter-chip {
+        background: var(--facodi-highlight-lime);
+        border: 1px solid var(--facodi-ink);
+        border-radius: 999px;
+        color: var(--facodi-ink);
+        font-size: .72rem;
+        font-weight: 800;
+        padding: .35rem .65rem;
+        text-decoration: none;
+
+        &:nth-of-type(3n) { background: var(--facodi-highlight-cyan); }
+        &:nth-of-type(4n) { background: var(--facodi-highlight-pink); }
+    }
+
+    .facodi-filter-chip--clear {
+        background: var(--facodi-white);
+        border-style: dashed;
+
+        &:hover,
+        &:focus-visible { background: var(--facodi-highlight-orange); }
+    }
+
+    .facodi-resource-card {
+        border: 2px solid var(--facodi-ink);
+        box-shadow: 4px 4px 0 color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+        overflow: visible;
+        position: relative;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+
+        &:hover,
+        &:focus-within {
+            box-shadow: 2px 2px 0 var(--facodi-ink);
+            transform: translate(2px, 2px);
+        }
+
+        &:nth-child(5n + 1) .facodi-resource-card__tape { background: var(--facodi-highlight-lime); }
+        &:nth-child(5n + 2) .facodi-resource-card__tape { background: var(--facodi-highlight-mint); }
+        &:nth-child(5n + 3) .facodi-resource-card__tape { background: var(--facodi-highlight-cyan); }
+        &:nth-child(5n + 4) .facodi-resource-card__tape { background: var(--facodi-highlight-pink); }
+        &:nth-child(5n) .facodi-resource-card__tape { background: var(--facodi-highlight-orange); }
+    }
+
+    .facodi-resource-card__tape {
+        border: 1px solid var(--facodi-ink);
+        height: .7rem;
+        left: 1rem;
+        position: absolute;
+        top: -.4rem;
+        transform: rotate(-2deg);
+        width: 4rem;
+        z-index: 2;
+    }
+
+    .facodi-resource-pill {
+        background: var(--facodi-paper-warm);
+        border: 1px solid var(--facodi-ink);
+        border-radius: 999px;
+        font-size: .65rem;
+        font-weight: 800;
+        max-width: 100%;
+        overflow: hidden;
+        padding: .25rem .5rem;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    .facodi-resource-pill--course { background: color-mix(in srgb, var(--facodi-highlight-mint) 45%, var(--facodi-white)); }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site [data-facodi-explore-workbench="1"] .facodi-discovery-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
