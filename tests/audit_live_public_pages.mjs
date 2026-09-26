@@ -18,6 +18,7 @@ const browser = await chromium.launch({
 const seedPaths = [
   "/pt/",
   "/pt/sobre",
+  "/pt/facodi",
   "/pt/contribuir",
   "/pt/blog",
   "/pt/contactus",
@@ -202,6 +203,7 @@ for (const route of routes) {
     console.log("AUDIT", JSON.stringify({
       route,
       sizeName,
+      finalUrl: page.url(),
       status,
       overflow: item.overflow,
       footerBackground: item.footerBackground,
@@ -209,6 +211,7 @@ for (const route of routes) {
       consoleErrors: item.consoleErrors.length,
       failedRequests: item.failedRequests.length,
       title: item.title,
+      finalUrl: item.finalUrl,
       contributionClasses: route === "/pt/contribuir"
         ? item.visibleFacodi.map(x => x.cls).filter(Boolean).slice(0, 40)
         : undefined,
