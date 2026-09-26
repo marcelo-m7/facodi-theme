@@ -26,6 +26,13 @@ COMPONENT_IDS=(
   s_facodi_contact_sheet
   s_facodi_policy_document
   s_facodi_student_id_card
+  s_facodi_progress_meter
+  s_facodi_uc_progress_card
+  s_facodi_notebook_sheet
+  s_facodi_module_index
+  s_facodi_code_exercise
+  s_facodi_forum_postit
+  s_facodi_roadmap_metro
 )
 
 registry="theme_facodi/views/snippets/snippets.xml"
@@ -70,6 +77,13 @@ component_ids = {
     "s_facodi_contact_sheet",
     "s_facodi_policy_document",
     "s_facodi_student_id_card",
+    "s_facodi_progress_meter",
+    "s_facodi_uc_progress_card",
+    "s_facodi_notebook_sheet",
+    "s_facodi_module_index",
+    "s_facodi_code_exercise",
+    "s_facodi_forum_postit",
+    "s_facodi_roadmap_metro",
 }
 
 sources = list(component_dir.glob("s_facodi_*.xml"))
@@ -117,7 +131,25 @@ if grep -R -nE 'request\.env|sudo\(\)|href="/web/login"|/web/content/[0-9]+|o_no
   fail "reusable components must stay editor-friendly and avoid business-data access, private login CTAs, or database asset ids"
 fi
 
-for class_name in   facodi-highlighter-heading   facodi-paper-card   facodi-sticky-note   facodi-folder-tabs   facodi-filter-pills   facodi-static-course-card   facodi-study-steps   facodi-cta-sheet   facodi-metadata-row   facodi-highlighter-callout   facodi-student-id-card; do
+for class_name in \
+  facodi-highlighter-heading \\
+  facodi-paper-card \\
+  facodi-sticky-note \\
+  facodi-folder-tabs \\
+  facodi-filter-pills \\
+  facodi-static-course-card \\
+  facodi-study-steps \\
+  facodi-cta-sheet \\
+  facodi-metadata-row \\
+  facodi-highlighter-callout \\
+  facodi-student-id-card \\
+  facodi-progress-meter \\
+  facodi-uc-progress-card \\
+  facodi-notebook-sheet \\
+  facodi-module-index \\
+  facodi-code-exercise \\
+  facodi-forum-postit \\
+  facodi-roadmap-metro; do
   grep -Fq ".$class_name" "$styles"     || fail "missing reusable component style: $class_name"
 done
 
