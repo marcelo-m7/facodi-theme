@@ -1,7 +1,7 @@
 {
     "name": "FACODI Theme",
     "summary": "FACODI visual identity for Odoo Website and eLearning",
-    "version": "19.0.10.5.0",
+    "version": "19.0.10.6.0",
     "category": "Theme/Education",
     "sequence": 120,
     "author": "FACODI",
