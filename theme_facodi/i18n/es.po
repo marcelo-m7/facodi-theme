@@ -1565,3 +1565,28 @@ msgstr "Fila de metadatos"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
 msgid "Highlighter callout"
 msgstr "Destacado con marcador"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Legal"
+msgstr "Legal"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Privacy Policy"
+msgstr "Política de privacidad"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Cookie Policy"
+msgstr "Política de cookies"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Terms and Conditions"
+msgstr "Términos y condiciones"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Account"
+msgstr "Cuenta"
