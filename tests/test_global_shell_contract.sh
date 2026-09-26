@@ -24,6 +24,7 @@ grep -Fq 'min-height: 2.75rem' "$SCSS" || fail "public actions must keep a 44px 
 
 grep -Fq '<t t-set="no_copyright" t-value="True"/>' "$FOOTER" || fail "FACODI footer must disable Odoo's default copyright/brand strip"
 grep -Fq 'footer#bottom' "$SCSS" || fail "outer Odoo footer shell must have an explicit FACODI background"
+grep -Fq 'background-color: #0B1325 !important' "$SCSS" || fail "outer Odoo footer must override conflicting Bootstrap/Odoo background utilities"
 grep -Fq 'background: #0B1325' "$SCSS" || fail "FACODI/Odoo footer background must be #0B1325"
 
 echo "PASS: Campus Paper global shell contract"
