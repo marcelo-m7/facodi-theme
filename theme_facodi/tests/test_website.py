@@ -92,6 +92,14 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_editorial_quote",
             "theme_facodi.s_facodi_contact_sheet",
             "theme_facodi.s_facodi_policy_document",
+            "theme_facodi.s_facodi_student_id_card",
+            "theme_facodi.s_facodi_progress_meter",
+            "theme_facodi.s_facodi_uc_progress_card",
+            "theme_facodi.s_facodi_notebook_sheet",
+            "theme_facodi.s_facodi_module_index",
+            "theme_facodi.s_facodi_code_exercise",
+            "theme_facodi.s_facodi_forum_postit",
+            "theme_facodi.s_facodi_roadmap_metro",
         }
         theme_views = self.env["theme.ir.ui.view"].search([("key", "in", list(keys))])
         self.assertEqual(set(theme_views.mapped("key")), keys)
@@ -120,12 +128,23 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_editorial_quote": "facodi-editorial-quote",
             "theme_facodi.s_facodi_contact_sheet": "facodi-contact-sheet",
             "theme_facodi.s_facodi_policy_document": "facodi-policy-document",
+            "theme_facodi.s_facodi_student_id_card": "facodi-student-id-card",
+            "theme_facodi.s_facodi_progress_meter": "facodi-progress-meter",
+            "theme_facodi.s_facodi_uc_progress_card": "facodi-uc-progress-card",
+            "theme_facodi.s_facodi_notebook_sheet": "facodi-notebook-sheet",
+            "theme_facodi.s_facodi_module_index": "facodi-module-index",
+            "theme_facodi.s_facodi_code_exercise": "facodi-code-exercise",
+            "theme_facodi.s_facodi_forum_postit": "facodi-forum-postit",
+            "theme_facodi.s_facodi_roadmap_metro": "facodi-roadmap-metro",
         }
         for view in website_views:
             self.assertIn(expected_classes[view.key], view.arch_db)
             self.assertNotIn("/web/login", view.arch_db)
             self.assertNotIn("request.env", view.arch_db)
             self.assertNotIn("sudo(", view.arch_db)
+            self.assertNotIn("o_not_editable", view.arch_db)
+            self.assertNotIn("oe_unremovable", view.arch_db)
+            self.assertNotIn("oe_unmovable", view.arch_db)
 
         website = self.env["website"].get_current_website()
         registry = self.env.ref("website.snippets").with_context(

@@ -25,6 +25,7 @@ COMPONENT_IDS=(
   s_facodi_editorial_quote
   s_facodi_contact_sheet
   s_facodi_policy_document
+  s_facodi_student_id_card
 )
 
 registry="theme_facodi/views/snippets/snippets.xml"
@@ -68,6 +69,7 @@ component_ids = {
     "s_facodi_editorial_quote",
     "s_facodi_contact_sheet",
     "s_facodi_policy_document",
+    "s_facodi_student_id_card",
 }
 
 sources = list(component_dir.glob("s_facodi_*.xml"))
@@ -111,11 +113,11 @@ for component_id in component_ids:
         raise SystemExit(f"FAIL: {component_id} must expose Website Builder search keywords")
 PY
 
-if grep -R -nE 'request\.env|sudo\(\)|href="/web/login"|/web/content/[0-9]+'     theme_facodi/views/snippets/components --include='*.xml'; then
-  fail "reusable components must not contain business-data access, private login CTAs, or database asset ids"
+if grep -R -nE 'request\.env|sudo\(\)|href="/web/login"|/web/content/[0-9]+|o_not_editable|oe_unremovable|oe_unmovable'     theme_facodi/views/snippets/components --include='*.xml'; then
+  fail "reusable components must stay editor-friendly and avoid business-data access, private login CTAs, or database asset ids"
 fi
 
-for class_name in   facodi-highlighter-heading   facodi-paper-card   facodi-sticky-note   facodi-folder-tabs   facodi-filter-pills   facodi-static-course-card   facodi-study-steps   facodi-cta-sheet   facodi-metadata-row   facodi-highlighter-callout; do
+for class_name in   facodi-highlighter-heading   facodi-paper-card   facodi-sticky-note   facodi-folder-tabs   facodi-filter-pills   facodi-static-course-card   facodi-study-steps   facodi-cta-sheet   facodi-metadata-row   facodi-highlighter-callout   facodi-student-id-card; do
   grep -Fq ".$class_name" "$styles"     || fail "missing reusable component style: $class_name"
 done
 
