@@ -34,7 +34,7 @@ class TestFacodiTheme(HttpCase):
         for url_from, url_to in expected.items():
             rewrites = Rewrite.search(
                 [
-                    ("website_id", "=", website.id),
+                    ("website_id", "=", False),
                     ("url_from", "=", url_from),
                 ]
             )
@@ -51,7 +51,7 @@ class TestFacodiTheme(HttpCase):
         self.assertFalse(
             Rewrite.search(
                 [
-                    ("website_id", "=", website.id),
+                    ("website_id", "=", False),
                     ("url_from", "=", "/roadmaps"),
                 ]
             ),
