@@ -288,3 +288,333 @@
         }
     }
 }
+
+
+/* Tactile editorial enrichment.
+   Existing Website Builder pages persist the semantic classes below, so these
+   rules enrich live editor-owned content without rewriting page arch. */
+.facodi-site {
+    .facodi-project-story {
+        isolation: isolate;
+        overflow: visible;
+        position: relative;
+
+        &::before,
+        &::after {
+            background: var(--facodi-paper-warm);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 26%, transparent);
+            content: "";
+            inset: .5rem;
+            position: absolute;
+            z-index: -1;
+        }
+
+        &::before { transform: rotate(-.6deg) translate(-6px, 7px); }
+        &::after { transform: rotate(.45deg) translate(7px, 9px); }
+
+        &__main {
+            background:
+                linear-gradient(90deg, transparent 0 2.6rem, color-mix(in srgb, var(--facodi-marker-pink) 38%, transparent) 2.6rem 2.68rem, transparent 2.68rem),
+                repeating-linear-gradient(to bottom, transparent 0 1.75rem, color-mix(in srgb, var(--facodi-line) 17%, transparent) 1.75rem 1.81rem),
+                var(--facodi-surface-sheet);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 36%, transparent);
+            border-radius: var(--facodi-radius-sm);
+            padding: clamp(1.25rem, 3vw, 2rem);
+            position: relative;
+
+            &::before {
+                background: color-mix(in srgb, var(--facodi-marker-yellow) 58%, transparent);
+                border: 1px solid color-mix(in srgb, var(--facodi-ink) 20%, transparent);
+                content: "facodi-tape";
+                color: transparent;
+                height: 1.2rem;
+                left: 50%;
+                opacity: .78;
+                position: absolute;
+                top: -.72rem;
+                transform: translateX(-50%) rotate(-2deg);
+                width: 6rem;
+            }
+        }
+
+        &__note {
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 46%, var(--facodi-white));
+            box-shadow: 5px 5px 0 var(--facodi-ink);
+            transform: rotate(1.1deg);
+            position: relative;
+
+            &::before {
+                background: var(--facodi-marker-pink);
+                border: 2px solid var(--facodi-ink);
+                border-radius: 50%;
+                box-shadow: 1px 2px 0 color-mix(in srgb, var(--facodi-ink) 28%, transparent);
+                content: "facodi-pin";
+                color: transparent;
+                height: 1rem;
+                left: 50%;
+                position: absolute;
+                top: -.65rem;
+                transform: translateX(-50%);
+                width: 1rem;
+            }
+        }
+    }
+
+    .facodi-principles-ledger {
+        align-items: stretch;
+
+        &__item {
+            isolation: isolate;
+            overflow: visible;
+            position: relative;
+
+            &::before {
+                background: color-mix(in srgb, var(--facodi-marker-cyan) 38%, transparent);
+                border: 1px solid color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+                content: "facodi-tape";
+                color: transparent;
+                height: 1rem;
+                left: 1.15rem;
+                opacity: .82;
+                position: absolute;
+                top: -.6rem;
+                transform: rotate(-3deg);
+                width: 4.8rem;
+            }
+
+            &::after {
+                background: var(--facodi-paper-warm);
+                border: 1px solid color-mix(in srgb, var(--facodi-ink) 24%, transparent);
+                content: "facodi-paper-stack";
+                color: transparent;
+                inset: .35rem;
+                position: absolute;
+                transform: rotate(.55deg) translate(5px, 6px);
+                z-index: -1;
+            }
+
+            &:nth-child(2) { transform: rotate(.35deg); }
+            &:nth-child(3) { transform: rotate(-.35deg); }
+        }
+    }
+
+    .facodi-process-timeline {
+        background:
+            linear-gradient(90deg, transparent 0 3rem, color-mix(in srgb, var(--facodi-marker-pink) 38%, transparent) 3rem 3.08rem, transparent 3.08rem),
+            repeating-linear-gradient(to bottom, transparent 0 1.8rem, color-mix(in srgb, var(--facodi-line) 16%, transparent) 1.8rem 1.86rem),
+            var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        box-shadow: var(--facodi-shadow);
+        padding: clamp(1.25rem, 3vw, 2rem);
+        position: relative;
+
+        &::before {
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 52%, transparent);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+            content: "facodi-tape";
+            color: transparent;
+            height: 1.15rem;
+            position: absolute;
+            right: 10%;
+            top: -.7rem;
+            transform: rotate(2deg);
+            width: 5.2rem;
+        }
+    }
+
+    .facodi-contribution-board {
+        background:
+            radial-gradient(circle at 1rem 1rem, color-mix(in srgb, var(--facodi-ink) 14%, transparent) 0 1px, transparent 1.5px),
+            color-mix(in srgb, var(--facodi-paper-warm) 84%, var(--facodi-coral));
+        background-size: 1.25rem 1.25rem;
+        border: 3px solid var(--facodi-ink);
+        box-shadow: 6px 6px 0 var(--facodi-ink);
+        gap: clamp(1rem, 2.2vw, 1.5rem);
+        padding: clamp(1.25rem, 3vw, 2rem);
+
+        &__item {
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 32%, var(--facodi-white));
+            box-shadow: 4px 5px 0 color-mix(in srgb, var(--facodi-ink) 88%, transparent);
+            min-height: 15rem;
+            padding-top: 1.75rem;
+            position: relative;
+            transform: rotate(-.45deg);
+
+            &::before {
+                background: var(--facodi-marker-pink);
+                border: 2px solid var(--facodi-ink);
+                border-radius: 50%;
+                box-shadow: 1px 2px 0 color-mix(in srgb, var(--facodi-ink) 28%, transparent);
+                content: "facodi-pin";
+                color: transparent;
+                height: 1rem;
+                left: 50%;
+                position: absolute;
+                top: -.65rem;
+                transform: translateX(-50%);
+                width: 1rem;
+            }
+
+            &:nth-child(2) {
+                background: color-mix(in srgb, var(--facodi-marker-mint) 35%, var(--facodi-white));
+                transform: rotate(.65deg);
+            }
+
+            &:nth-child(3) {
+                background: color-mix(in srgb, var(--facodi-marker-cyan) 25%, var(--facodi-white));
+                transform: rotate(-.15deg);
+            }
+
+            .facodi-label {
+                background: var(--facodi-paper-warm);
+                box-shadow: 2px 2px 0 color-mix(in srgb, var(--facodi-ink) 22%, transparent);
+            }
+        }
+    }
+
+    .facodi-bulletin-hero {
+        isolation: isolate;
+        overflow: visible;
+        position: relative;
+
+        &::before {
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 52%, transparent);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+            content: "facodi-tape";
+            color: transparent;
+            height: 1.2rem;
+            left: 50%;
+            opacity: .82;
+            position: absolute;
+            top: -.72rem;
+            transform: translateX(-50%) rotate(-1deg);
+            width: 6.5rem;
+        }
+
+        &::after {
+            background: var(--facodi-paper-warm);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 26%, transparent);
+            content: "facodi-paper-stack";
+            color: transparent;
+            inset: .4rem;
+            position: absolute;
+            transform: rotate(.45deg) translate(6px, 8px);
+            z-index: -1;
+        }
+    }
+
+    .facodi-editorial-quote {
+        border: 2px solid var(--facodi-ink);
+        box-shadow: 5px 5px 0 var(--facodi-ink);
+        margin-left: clamp(0rem, 4vw, 2rem);
+        position: relative;
+        transform: rotate(-.35deg);
+
+        &::before {
+            background: var(--facodi-marker-pink);
+            border: 2px solid var(--facodi-ink);
+            border-radius: 50%;
+            content: "facodi-pin";
+            color: transparent;
+            height: 1rem;
+            left: 1.25rem;
+            position: absolute;
+            top: -.65rem;
+            width: 1rem;
+        }
+    }
+
+    .facodi-contact-sheet {
+        isolation: isolate;
+        overflow: visible;
+        position: relative;
+
+        &::before {
+            background: var(--facodi-ink);
+            border-radius: 0 0 .55rem .55rem;
+            content: "";
+            height: 1.1rem;
+            left: 50%;
+            position: absolute;
+            top: -.2rem;
+            transform: translateX(-50%);
+            width: 5.5rem;
+            z-index: 2;
+        }
+
+        &::after {
+            background: var(--facodi-paper-warm);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 24%, transparent);
+            content: "facodi-paper-stack";
+            color: transparent;
+            inset: .4rem;
+            position: absolute;
+            transform: rotate(-.35deg) translate(-5px, 7px);
+            z-index: -1;
+        }
+    }
+
+    .facodi-policy-document {
+        background:
+            linear-gradient(90deg, transparent 0 3rem, color-mix(in srgb, var(--facodi-marker-pink) 32%, transparent) 3rem 3.08rem, transparent 3.08rem),
+            repeating-linear-gradient(to bottom, transparent 0 1.85rem, color-mix(in srgb, var(--facodi-line) 15%, transparent) 1.85rem 1.91rem),
+            var(--facodi-surface-sheet);
+        box-shadow: 5px 6px 0 color-mix(in srgb, var(--facodi-ink) 86%, transparent);
+        padding-left: clamp(3.6rem, 7vw, 5rem);
+        position: relative;
+
+        &::before {
+            background: color-mix(in srgb, var(--facodi-marker-cyan) 34%, transparent);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+            content: "facodi-tape";
+            color: transparent;
+            height: 1.05rem;
+            right: 2rem;
+            position: absolute;
+            top: -.65rem;
+            transform: rotate(2deg);
+            width: 4.8rem;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site {
+        .facodi-project-story__note,
+        .facodi-principles-ledger__item,
+        .facodi-contribution-board__item,
+        .facodi-editorial-quote {
+            transform: none;
+        }
+
+        .facodi-contribution-board {
+            box-shadow: 4px 4px 0 var(--facodi-ink);
+            padding: 1rem;
+        }
+
+        .facodi-policy-document {
+            padding-left: 2rem;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .facodi-project-story::before,
+        .facodi-project-story::after,
+        .facodi-project-story__main::before,
+        .facodi-project-story__note,
+        .facodi-principles-ledger__item,
+        .facodi-principles-ledger__item::before,
+        .facodi-principles-ledger__item::after,
+        .facodi-process-timeline::before,
+        .facodi-contribution-board__item,
+        .facodi-bulletin-hero::before,
+        .facodi-bulletin-hero::after,
+        .facodi-editorial-quote,
+        .facodi-policy-document::before {
+            transform: none;
+            transition: none;
+        }
+    }
+}
