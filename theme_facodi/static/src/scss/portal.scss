@@ -395,3 +395,220 @@
         }
     }
 }
+
+.facodi-site [data-facodi-portal-home="1"] {
+    .facodi-academic-map,
+    .facodi-campus-pulse {
+        background: var(--facodi-white);
+        border: 2px solid var(--facodi-ink-deep);
+        border-radius: var(--facodi-radius);
+        box-shadow: 4px 4px 0 var(--facodi-campus-grid-line);
+        height: 100%;
+        padding: clamp(1rem, 2vw, 1.25rem);
+        position: relative;
+    }
+
+    .facodi-academic-map::before {
+        background: var(--facodi-highlight-orange);
+        border: 1px solid var(--facodi-ink-deep);
+        content: "ACADEMIC MAP";
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .6rem;
+        font-weight: 900;
+        left: 1rem;
+        letter-spacing: .06em;
+        padding: .26rem .45rem;
+        position: absolute;
+        top: -.72rem;
+        transform: rotate(-1.5deg);
+    }
+
+    .facodi-campus-pulse::before {
+        background: var(--facodi-highlight-pink);
+        border: 1px solid var(--facodi-ink-deep);
+        content: "CAMPUS PULSE";
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .6rem;
+        font-weight: 900;
+        left: 1rem;
+        letter-spacing: .06em;
+        padding: .26rem .45rem;
+        position: absolute;
+        top: -.72rem;
+        transform: rotate(1deg);
+    }
+
+    .facodi-academic-map__stats {
+        display: grid;
+        gap: .65rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        > div {
+            border: 2px solid var(--facodi-ink-deep);
+            border-radius: var(--facodi-radius-sm);
+            min-width: 0;
+            padding: .7rem .75rem;
+
+            strong,
+            span { display: block; }
+
+            strong {
+                font-family: "Space Grotesk", Inter, sans-serif;
+                font-size: 1.65rem;
+                line-height: 1;
+            }
+
+            span {
+                font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+                font-size: .6rem;
+                font-weight: 900;
+                margin-top: .3rem;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .facodi-academic-map__grid {
+        display: grid;
+        gap: .55rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .facodi-academic-map__unit {
+        background: var(--facodi-paper-warm);
+        border: 1px solid color-mix(in srgb, var(--facodi-ink-deep) 44%, transparent);
+        border-left: .42rem solid var(--facodi-highlight-pink);
+        border-radius: var(--facodi-radius-sm);
+        color: var(--facodi-ink-deep);
+        display: grid;
+        gap: .28rem;
+        min-width: 0;
+        padding: .7rem .75rem;
+        transition: transform 150ms ease, box-shadow 150ms ease;
+
+        &[data-facodi-coverage="covered"] {
+            border-left-color: var(--facodi-highlight-mint);
+        }
+
+        &[data-facodi-coverage="partial"] {
+            border-left-color: var(--facodi-highlight-orange);
+        }
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: 2px 2px 0 var(--facodi-ink-deep);
+            color: var(--facodi-ink-deep);
+            transform: translate(-1px, -1px);
+        }
+
+        > strong {
+            font-family: "Space Grotesk", Inter, sans-serif;
+            line-height: 1.15;
+        }
+
+        > small {
+            color: color-mix(in srgb, var(--facodi-ink-deep) 68%, var(--facodi-white));
+            font-size: .7rem;
+            text-transform: capitalize;
+        }
+    }
+
+    .facodi-academic-map__code,
+    .facodi-academic-map__desk {
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .58rem;
+        font-weight: 900;
+    }
+
+    .facodi-academic-map__desk {
+        background: var(--facodi-highlight-lime);
+        border: 1px solid var(--facodi-ink-deep);
+        padding: .16rem .28rem;
+        transform: rotate(-1deg);
+        white-space: nowrap;
+    }
+
+    .facodi-campus-pulse__post {
+        background: var(--facodi-white);
+        border: 1px solid color-mix(in srgb, var(--facodi-ink-deep) 35%, transparent);
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: 2px 2px 0 var(--facodi-campus-grid-line);
+        color: var(--facodi-ink-deep);
+        display: grid;
+        gap: .3rem;
+        padding: .8rem .85rem;
+        position: relative;
+        transition: transform 150ms ease, box-shadow 150ms ease;
+
+        &::after {
+            background: var(--facodi-highlight-cyan);
+            content: "";
+            height: .35rem;
+            position: absolute;
+            right: .75rem;
+            top: -.18rem;
+            transform: rotate(2deg);
+            width: 2.75rem;
+        }
+
+        &:nth-child(2n)::after { background: var(--facodi-highlight-pink); }
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: 1px 1px 0 var(--facodi-ink-deep);
+            color: var(--facodi-ink-deep);
+            transform: translate(1px, 1px);
+        }
+
+        > strong {
+            font-family: "Space Grotesk", Inter, sans-serif;
+            line-height: 1.15;
+        }
+
+        small {
+            color: color-mix(in srgb, var(--facodi-ink-deep) 64%, var(--facodi-white));
+            font-size: .7rem;
+        }
+    }
+
+    .facodi-campus-pulse__tag {
+        background: var(--facodi-highlight-pink);
+        border: 1px solid var(--facodi-ink-deep);
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .57rem;
+        font-weight: 900;
+        padding: .15rem .28rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site [data-facodi-portal-home="1"] {
+        .facodi-academic-map__grid {
+            grid-template-columns: 1fr;
+        }
+
+        .facodi-academic-map__stats {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+}
+
+@media (max-width: 430px) {
+    .facodi-site [data-facodi-portal-home="1"] .facodi-academic-map__stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site [data-facodi-portal-home="1"] {
+        .facodi-academic-map__unit,
+        .facodi-campus-pulse__post {
+            transition: none;
+        }
+
+        .facodi-academic-map__unit:hover,
+        .facodi-campus-pulse__post:hover {
+            transform: none;
+        }
+    }
+}
