@@ -57,3 +57,16 @@ grep -Fq '"views/website_public.xml"' theme_facodi/__manifest__.py   || fail "D2
 grep -Fq '"theme_facodi/static/src/scss/website_public.scss"' theme_facodi/__manifest__.py   || fail "D2 public Website stylesheet must be loaded by frontend assets"
 
 echo "PASS: D2 public Contact contract"
+
+for selector in   '.facodi-policy-document'   '.facodi-policy-document h1'   '.facodi-policy-document h2'   '.facodi-policy-document h3'   '.facodi-policy-document a'   '.facodi-policy-document pre'   '.facodi-policy-document code'   '.facodi-policy-document table'   '.facodi-policy-document img'   '.facodi-policy-document iframe'   '.facodi-policy-document video'; do
+  grep -Fq "$selector" "$SCSS" || fail "missing D2 policy readability selector: $selector"
+done
+
+for marker in   'overflow-x: auto'   'max-width: 100%'   'overflow-wrap: anywhere'   'max-width: 50rem'; do
+  grep -Fq "$marker" "$SCSS" || fail "missing D2 policy containment marker: $marker"
+done
+
+POLICY_XML="theme_facodi/views/snippets/components/s_facodi_policy_document.xml"
+if grep -Eiq 'privacy policy|cookie policy|terms and conditions|data controller|retention period' "$POLICY_XML"; then
+  fail "policy snippet must remain a presentation shell, not legal authorship"
+fi
