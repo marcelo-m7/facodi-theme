@@ -183,6 +183,12 @@ for (const route of routes) {
       suspect: [],
     }));
 
+    const routeInspection = await page.evaluate(() => ({
+      canonical: document.querySelector('link[rel="canonical"]')?.href || null,
+      h1: document.querySelector("h1")?.innerText?.trim() || null,
+      mainText: (document.querySelector("main, #wrap")?.innerText || "").trim().slice(0, 700),
+    })).catch(() => ({ canonical: null, h1: null, mainText: "" }));
+
     const item = {
       route,
       sizeName,
@@ -192,6 +198,7 @@ for (const route of routes) {
       consoleErrors: consoleErrors.slice(0, 20),
       failedRequests: failedRequests.slice(0, 20),
       ...audit,
+      routeInspection,
     };
     report.push(item);
 
@@ -216,6 +223,9 @@ for (const route of routes) {
         ? item.visibleFacodi.map(x => x.cls).filter(Boolean).slice(0, 40)
         : undefined,
       sections: route === "/pt/contribuir" ? item.sections : undefined,
+      inspection: ["/pt", "/pt/facodi", "/pt/privacy", "/pt/privacy-policy", "/pt/terms", "/pt/terms-and-conditions"].includes(route)
+        ? item.routeInspection
+        : undefined,
     }));
 
     await context.close();
