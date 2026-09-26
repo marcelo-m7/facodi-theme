@@ -150,6 +150,27 @@ for view in \
   [[ -f "$view" ]] || fail "missing translated global/editorial view: $view"
 done
 
+
+FOOTER_MSGIDS=(
+  'Legal'
+  'Privacy Policy'
+  'Cookie Policy'
+  'Terms and Conditions'
+  'Account'
+  'My account'
+)
+
+for catalogue in pt es fr; do
+  for msgid in "${FOOTER_MSGIDS[@]}"; do
+    grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/${catalogue}.po" \
+      || fail "${catalogue}.po is missing translated footer string: ${msgid}"
+  done
+done
+for msgid in "${FOOTER_MSGIDS[@]}"; do
+  grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/theme_facodi.pot" \
+    || fail "theme_facodi.pot is missing footer string: ${msgid}"
+done
+
 echo "PASS: native Odoo i18n contract"
 
 
