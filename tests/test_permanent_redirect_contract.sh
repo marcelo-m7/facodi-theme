@@ -35,7 +35,7 @@ fi
 grep -Fq "is_published" "$MIGRATION"   || fail "legacy editor-owned pages must be unpublished before 301 fallback"
 grep -Fq "website.menu" "$MIGRATION"   || fail "internal Website menus must be moved to canonical URLs"
 grep -Fq "website.rewrite" "$MIGRATION"   || fail "migration must reconcile native Odoo rewrite records"
-grep -Fq "'301'" "$MIGRATION"   || fail "migration must reconcile redirects as permanent 301"
+grep -Fq '"redirect_type": "301"' "$MIGRATION"   || fail "migration must reconcile redirects as permanent 301"
 grep -Fq "/roadmaps" "$MIGRATION" && fail "migration must not touch curriculum /roadmaps"
 
 grep -Fq 'background-color: #0B1325 !important' theme_facodi/static/src/scss/website.scss   || fail "footer shell must remain #0B1325"
