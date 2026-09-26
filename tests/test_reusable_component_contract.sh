@@ -17,6 +17,14 @@ COMPONENT_IDS=(
   s_facodi_cta_sheet
   s_facodi_metadata_row
   s_facodi_highlighter_callout
+  s_facodi_project_story
+  s_facodi_principles_ledger
+  s_facodi_process_timeline
+  s_facodi_contribution_board
+  s_facodi_bulletin_hero
+  s_facodi_editorial_quote
+  s_facodi_contact_sheet
+  s_facodi_policy_document
 )
 
 registry="theme_facodi/views/snippets/snippets.xml"
@@ -52,11 +60,19 @@ component_ids = {
     "s_facodi_cta_sheet",
     "s_facodi_metadata_row",
     "s_facodi_highlighter_callout",
+    "s_facodi_project_story",
+    "s_facodi_principles_ledger",
+    "s_facodi_process_timeline",
+    "s_facodi_contribution_board",
+    "s_facodi_bulletin_hero",
+    "s_facodi_editorial_quote",
+    "s_facodi_contact_sheet",
+    "s_facodi_policy_document",
 }
 
 sources = list(component_dir.glob("s_facodi_*.xml"))
 if {path.stem for path in sources} != component_ids:
-    raise SystemExit("FAIL: reusable component sources must match the approved ten-block collection")
+    raise SystemExit("FAIL: reusable component sources must match the approved Campus Paper component collection")
 
 for path in sources:
     root = ET.parse(path).getroot()

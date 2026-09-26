@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_editorial_quote" name="FACODI Editorial Quote">
+        <figure class="facodi-editorial-quote" data-snippet="s_facodi_editorial_quote" data-name="FACODI Editorial Quote">
+            <blockquote>Open learning becomes more useful when people can see the path, the source, and the next step.</blockquote>
+            <figcaption>FACODI editorial note</figcaption>
+        </figure>
+    </template>
+</odoo>

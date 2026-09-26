@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_policy_document" name="FACODI Policy Document">
+        <article class="facodi-policy-document" data-snippet="s_facodi_policy_document" data-name="FACODI Policy Document">
+            <header class="facodi-policy-document__header">
+                <p class="facodi-label">Policy document</p>
+                <h1>Document title</h1>
+                <p>Use this component as a readable shell around policy text maintained by the Website editor.</p>
+            </header>
+            <nav class="facodi-policy-document__toc" aria-label="Document sections">
+                <a href="#policy-section">Section</a>
+            </nav>
+            <section id="policy-section">
+                <h2>Section heading</h2>
+                <p>Keep the approved policy wording here. The theme provides presentation and reading structure only.</p>
+            </section>
+        </article>
+    </template>
+</odoo>

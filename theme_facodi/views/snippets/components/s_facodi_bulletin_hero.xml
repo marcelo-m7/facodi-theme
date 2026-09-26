@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_bulletin_hero" name="FACODI Bulletin Hero">
+        <header class="facodi-bulletin-hero" data-snippet="s_facodi_bulletin_hero" data-name="FACODI Bulletin Hero">
+            <p class="facodi-label">Campus bulletin</p>
+            <h1>News, project notes, and community stories.</h1>
+            <p>Follow what FACODI is building, learning, testing, and sharing in public.</p>
+        </header>
+    </template>
+</odoo>

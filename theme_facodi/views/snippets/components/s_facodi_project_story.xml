@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_project_story" name="FACODI Project Story">
+        <section class="facodi-project-story" data-snippet="s_facodi_project_story" data-name="FACODI Project Story">
+            <div class="facodi-project-story__main">
+                <p class="facodi-label">Project dossier</p>
+                <h2>Learning in public can be easier to navigate.</h2>
+                <p>FACODI organizes open courses, curricular references, and public learning resources so people can find a useful next step.</p>
+                <p>The project grows through review, context, and contributions from people who care about open learning.</p>
+                <a class="facodi-text-link" href="/slides">Explore learning <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+            </div>
+            <aside class="facodi-project-story__note">
+                <span class="facodi-label">Open notebook</span>
+                <p>Use this space for a real project milestone, source, or short contextual note.</p>
+            </aside>
+        </section>
+    </template>
+</odoo>

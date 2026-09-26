@@ -68,7 +68,7 @@ Automated source/runtime checks cover:
   primitives without changing their user-facing source copy;
 - native PT/ES/FR catalogues and the absence of language-specific QWeb
   branches;
-- clean legacy install, upgrade to `19.0.7.0.0`, asset compilation and
+- clean legacy install, upgrade to `19.0.9.0.0`, asset compilation and
   persisted Website Builder/dynamic-snippet markup.
 
 Required browser acceptance before deployment promotion remains:
@@ -85,6 +85,67 @@ The theme repository CI proves real Odoo rendering and asset compilation but
 does not claim pixel-perfect browser inspection. The integrated Roadmap/UC and
 viewport screenshot gate is therefore repeated in Phase C on the disposable
 deployment runtime before any production promotion.
+
+## D2 editorial/public regression matrix
+
+Release `19.0.9.0.0` adds the Stitch-informed editorial layer without moving
+editorial truth out of Odoo Website.
+
+Theme-side evidence covers:
+
+- eight reusable D2 Website Builder components and their native registry;
+- About/How/Contribution/Manifesto/Partners page-picker compositions without
+  fixed `website.page` imports;
+- a persisted editor-owned D2 page surviving a second theme upgrade unchanged;
+- native Blog index/article/card/prose hooks with sparse/rich post fixtures and
+  custom cover preservation;
+- native Contact rendering with exactly one `#contactus_form`, unchanged
+  `/website/form/` action, native fields and submit control;
+- policy long-form containment for URLs, code, tables and responsive media;
+- complete POT/PT/ES/FR D2 view occurrences;
+- phone single-column layouts, focus visibility and reduced-motion handling;
+- clean legacy install, upgrade to `19.0.9.0.0`, frontend asset compilation
+  and Odoo HttpCase regressions.
+
+Disposable deployment acceptance must additionally exercise About,
+Contribution, Blog index, rich/sparse articles, Contact and a policy fixture at
+desktop/mobile widths, with the hard condition
+`document.documentElement.scrollWidth <= window.innerWidth + 1` at 320 px.
+
+Production Website recomposition is deliberately separate from module upgrade:
+the current live page arch is read/backed up first, then meaningful existing
+content is mapped into D2 components only after the new theme code is healthy.
+Legal paragraphs, dates and obligations are never rewritten by the theme.
+
+## D2 editorial and public pages regression matrix
+
+Release `19.0.9.0.0` adds the editorial/public layer while keeping Website,
+Blog and Contact data in their native owners.
+
+Automated theme evidence covers:
+
+- all eight D2 Website Builder components and their registration;
+- About/How/Contribution/Manifesto/Partners page-picker compositions without
+  importing fixed `website.page` records;
+- editor-owned D2 page markup preserved across a second theme upgrade;
+- native Odoo Blog index/article rendering with sparse/rich post fixtures,
+  native metadata, native read-next behavior and custom-cover preservation;
+- native `website.contactus` rendering with exactly one `#contactus_form`,
+  unchanged `/website/form/` action, required field names and native submit
+  control;
+- policy/long-form containment for links, code, tables, images, iframes and
+  video without legal-content authorship;
+- native POT/PT/ES/FR bindings for every D2 source string;
+- compiled D2 frontend selectors, 320-oriented source contracts, visible
+  focus handling and reduced-motion rules;
+- clean legacy install, repeated upgrade, asset compilation and Odoo rendering
+  on the exact branch head.
+
+Disposable deployment acceptance must still prove About, Contribution, Blog
+index/article, Contact and a policy fixture in real Chrome at desktop/mobile
+widths and fail on page-level horizontal overflow at 320 px. Production Website
+page recomposition is a separate post-deployment content operation and must back
+up/read the live editor-owned page before mutation.
 
 ## D1 learning interfaces regression matrix
 
@@ -166,6 +227,9 @@ bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
 bash tests/test_curriculum_style_contract.sh
 bash tests/test_learning_interfaces_contract.sh
+bash tests/test_editorial_interfaces_contract.sh
+bash tests/test_blog_contract.sh
+bash tests/test_public_pages_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
 bash tests/test_mobile_interaction_contract.sh

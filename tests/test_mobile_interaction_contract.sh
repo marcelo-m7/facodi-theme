@@ -112,3 +112,28 @@ grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/learning_interfa
   || fail "D1 learning titles and metadata must wrap on narrow screens"
 
 echo "PASS: mobile menu, eLearning touch and Campus Paper interaction contract"
+
+grep -Fq '@media (max-width: 767.98px)' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "D2 editorial interfaces need a phone breakpoint"
+grep -Fq 'grid-template-columns: minmax(0, 1fr)' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "D2 editorial layouts must collapse to a shrinkable phone column"
+grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "D2 editorial copy and URLs must wrap at narrow widths"
+
+grep -Fq '.facodi-site .facodi-policy-document {' theme_facodi/static/src/scss/website_public.scss \
+  || fail "D2 policy shell styling missing"
+grep -Fq 'max-width: 100%' theme_facodi/static/src/scss/website_public.scss \
+  || fail "D2 policy shell must stay within the phone viewport"
+grep -Fq 'overflow-x: auto' theme_facodi/static/src/scss/website_public.scss \
+  || fail "D2 long-form tables/code must scroll internally"
+
+grep -Fq '@media (prefers-reduced-motion: reduce)' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "D2 editorial components need reduced-motion handling"
+grep -Fq '@media (prefers-reduced-motion: reduce)' theme_facodi/static/src/scss/website_blog.scss \
+  || fail "D2 Blog needs reduced-motion handling"
+grep -Fq '@media (prefers-reduced-motion: reduce)' theme_facodi/static/src/scss/website_public.scss \
+  || fail "D2 public pages need reduced-motion handling"
+grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/website_blog.scss \
+  || fail "D2 Blog long-form content must wrap"
+grep -Fq 'max-width: 100%' theme_facodi/static/src/scss/website_blog.scss \
+  || fail "D2 Blog media must stay within the viewport"

@@ -84,6 +84,14 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_cta_sheet",
             "theme_facodi.s_facodi_metadata_row",
             "theme_facodi.s_facodi_highlighter_callout",
+            "theme_facodi.s_facodi_project_story",
+            "theme_facodi.s_facodi_principles_ledger",
+            "theme_facodi.s_facodi_process_timeline",
+            "theme_facodi.s_facodi_contribution_board",
+            "theme_facodi.s_facodi_bulletin_hero",
+            "theme_facodi.s_facodi_editorial_quote",
+            "theme_facodi.s_facodi_contact_sheet",
+            "theme_facodi.s_facodi_policy_document",
         }
         theme_views = self.env["theme.ir.ui.view"].search([("key", "in", list(keys))])
         self.assertEqual(set(theme_views.mapped("key")), keys)
@@ -104,6 +112,14 @@ class TestFacodiTheme(HttpCase):
             "theme_facodi.s_facodi_cta_sheet": "facodi-cta-sheet",
             "theme_facodi.s_facodi_metadata_row": "facodi-metadata-row",
             "theme_facodi.s_facodi_highlighter_callout": "facodi-highlighter-callout",
+            "theme_facodi.s_facodi_project_story": "facodi-project-story",
+            "theme_facodi.s_facodi_principles_ledger": "facodi-principles-ledger",
+            "theme_facodi.s_facodi_process_timeline": "facodi-process-timeline",
+            "theme_facodi.s_facodi_contribution_board": "facodi-contribution-board",
+            "theme_facodi.s_facodi_bulletin_hero": "facodi-bulletin-hero",
+            "theme_facodi.s_facodi_editorial_quote": "facodi-editorial-quote",
+            "theme_facodi.s_facodi_contact_sheet": "facodi-contact-sheet",
+            "theme_facodi.s_facodi_policy_document": "facodi-policy-document",
         }
         for view in website_views:
             self.assertIn(expected_classes[view.key], view.arch_db)
@@ -463,32 +479,41 @@ class TestFacodiTheme(HttpCase):
         self.assertNotIn("error", payload)
         group = next(group for group in payload["result"] if group["id"] == "facodi")
         self.assertEqual(len(group["templates"]), 10)
-        section_counts = []
-        home_sections = None
+
+        rendered_templates = [template["template"] for template in group["templates"]]
+        for class_name in (
+            "facodi-project-story",
+            "facodi-principles-ledger",
+            "facodi-process-timeline",
+            "facodi-contribution-board",
+            "facodi-editorial-quote",
+        ):
+            self.assertTrue(
+                any(class_name in rendered for rendered in rendered_templates),
+                f"D2 page-picker output must render {class_name}",
+            )
+
+        home_blocks = None
         for template in group["templates"]:
             tree = html.fromstring(template["template"])
-            sections = tree.xpath("//section[@data-snippet]")
-            section_counts.append(len(sections))
-            self.assertIn(len(sections), (3, 4, 5, 8), template)
+            blocks = tree.xpath("//*[@data-snippet]")
+            self.assertGreaterEqual(len(blocks), 3, template)
             self.assertTrue(
                 all(
-                    section.get("data-snippet").startswith("s_facodi_")
-                    for section in sections
+                    block.get("data-snippet").startswith("s_facodi_")
+                    for block in blocks
                 )
             )
             if "facodi-hero-study-board" in template["template"]:
-                self.assertIsNone(home_sections, "FACODI Home template must be unique")
-                home_sections = sections
+                self.assertIsNone(home_blocks, "FACODI Home template must be unique")
+                home_blocks = blocks
                 self.assertIn("Learn in public.", template["template"])
                 self.assertIn("A good discovery deserves company.", template["template"])
                 self.assertIn("Keep the useful thread going.", template["template"])
-        self.assertEqual(section_counts.count(8), 1)
-        self.assertEqual(section_counts.count(5), 1)
-        self.assertEqual(section_counts.count(4), 5)
-        self.assertEqual(section_counts.count(3), 3)
-        self.assertIsNotNone(home_sections, "FACODI Home must render the learner hero")
+
+        self.assertIsNotNone(home_blocks, "FACODI Home must render the learner hero")
         sections_arch = "".join(
-            etree.tostring(section, encoding="unicode") for section in home_sections
+            etree.tostring(block, encoding="unicode") for block in home_blocks
         )
         result = website.with_context(website_id=website.id).new_page(
             name="FACODI editor fixture", sections_arch=sections_arch
@@ -504,6 +529,139 @@ class TestFacodiTheme(HttpCase):
         )
         self.assertEqual(view.arch_db, saved)
         self.assertIn("Editorial preservation fixture", view.arch_db)
+
+    def test_d2_does_not_create_fixed_editorial_pages(self):
+        website = self.env["website"].get_current_website()
+        pages = self.env["website.page"].search(
+            [
+                ("website_id", "=", website.id),
+                ("url", "in", ["/sobre", "/contribuir", "/manifesto", "/parceiros"]),
+            ]
+        )
+        self.assertFalse(
+            pages,
+            "D2 must provide page-picker compositions without importing fixed Website pages",
+        )
+
+    def test_d2_blog_index_and_articles_preserve_native_data(self):
+        from lxml import html
+
+        website = self.env["website"].get_current_website()
+        blog = self.env["blog.blog"].create(
+            {"name": "FACODI D2 Bulletin Fixture", "website_id": website.id}
+        )
+        tag = self.env["blog.tag"].create({"name": "D2 editorial"})
+        sparse = self.env["blog.post"].create(
+            {
+                "name": "Sparse D2 bulletin post",
+                "blog_id": blog.id,
+                "content": "<p>Sparse D2 content.</p>",
+                "is_published": True,
+            }
+        )
+        custom_cover = (
+            '{"background-image": "linear-gradient(45deg, #112233, #445566)", '
+            '"resize_class": "o_record_has_cover o_half_screen_height", "opacity": "0"}'
+        )
+        rich = self.env["blog.post"].create(
+            {
+                "name": "Rich D2 bulletin post",
+                "subtitle": "A real subtitle",
+                "blog_id": blog.id,
+                "author_id": self.env.user.id,
+                "tag_ids": [(4, tag.id)],
+                "content": "<h2>Rich section</h2><p>Rich D2 content.</p>",
+                "is_published": True,
+                "cover_properties": custom_cover,
+            }
+        )
+
+        index = self.url_open("/blog")
+        self.assertEqual(index.status_code, 200)
+        tree = html.fromstring(index.text)
+        self.assertTrue(tree.xpath("//*[contains(@class, 'facodi-blog-index')]"))
+        self.assertTrue(tree.xpath("//*[contains(@class, 'facodi-bulletin-hero')]"))
+        self.assertGreaterEqual(
+            len(tree.xpath("//article[contains(@class, 'facodi-bulletin-card')]")),
+            2,
+        )
+        self.assertIn(sparse.name, index.text)
+        self.assertIn(rich.name, index.text)
+
+        sparse_response = self.url_open(sparse.website_url)
+        self.assertEqual(sparse_response.status_code, 200)
+        self.assertIn("facodi-blog-article", sparse_response.text)
+        self.assertIn("facodi-blog-prose", sparse_response.text)
+        self.assertIn("Sparse D2 content.", sparse_response.text)
+        sparse_tree = html.fromstring(sparse_response.text)
+        self.assertFalse(
+            sparse_tree.xpath(
+                "//*[@id='o_wblog_post_top']"
+                "//*[contains(concat(' ', normalize-space(@class), ' '), "
+                "' o_wblog_post_subtitle ')]"
+            ),
+            "sparse current-post header must not fabricate a subtitle",
+        )
+
+        rich_response = self.url_open(rich.website_url)
+        self.assertEqual(rich_response.status_code, 200)
+        self.assertIn("Rich D2 content.", rich_response.text)
+        rich_tree = html.fromstring(rich_response.text)
+        rich_subtitles = rich_tree.xpath(
+            "//*[@id='o_wblog_post_top']"
+            "//*[contains(concat(' ', normalize-space(@class), ' '), "
+            "' o_wblog_post_subtitle ')]/text()"
+        )
+        self.assertIn("A real subtitle", rich_subtitles)
+        self.assertIn("D2 editorial", rich_response.text)
+        self.assertIn("linear-gradient(45deg, #112233, #445566)", rich_response.text)
+        self.assertEqual(rich.cover_properties, custom_cover)
+
+    def test_d2_contact_preserves_native_form(self):
+        from lxml import html
+
+        response = self.url_open("/contactus")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+
+        self.assertTrue(
+            tree.xpath(
+                "//*[@id='wrap' and contains(concat(' ', normalize-space(@class), ' '), "
+                "' facodi-contact-page ')]"
+            )
+        )
+        self.assertTrue(
+            tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), "
+                "' facodi-contact-form-sheet ')]"
+            )
+        )
+        self.assertTrue(
+            tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), "
+                "' facodi-contact-context ')]"
+            )
+        )
+
+        forms = tree.xpath("//form[@id='contactus_form']")
+        self.assertEqual(len(forms), 1)
+        form = forms[0]
+        self.assertEqual(form.get("action"), "/website/form/")
+        names = set(form.xpath(".//*[@name]/@name"))
+        self.assertTrue(
+            {"name", "phone", "email_from", "company", "subject", "description"}.issubset(
+                names
+            )
+        )
+        self.assertEqual(
+            len(
+                form.xpath(
+                    ".//*[contains(concat(' ', normalize-space(@class), ' '), "
+                    "' s_website_form_send ')]"
+                )
+            ),
+            1,
+        )
 
     def test_standard_forms_and_compiled_frontend_assets(self):
         from lxml import html
@@ -556,6 +714,19 @@ class TestFacodiTheme(HttpCase):
         self.assertIn(".facodi-module-detail", compiled)
         self.assertIn(".facodi-course-alignment-sheet", compiled)
         self.assertIn(".facodi-open-callout", compiled)
+        self.assertIn(".facodi-blog-index", compiled)
+        self.assertIn(".facodi-bulletin-card", compiled)
+        self.assertIn(".facodi-blog-article", compiled)
+        self.assertIn(".facodi-blog-prose", compiled)
+        self.assertIn(".facodi-project-story", compiled)
+        self.assertIn(".facodi-principles-ledger", compiled)
+        self.assertIn(".facodi-process-timeline", compiled)
+        self.assertIn(".facodi-contribution-board", compiled)
+        self.assertIn(".facodi-editorial-quote", compiled)
+        self.assertIn(".facodi-contact-sheet", compiled)
+        self.assertIn(".facodi-contact-page", compiled)
+        self.assertIn(".facodi-contact-form-sheet", compiled)
+        self.assertIn(".facodi-policy-document", compiled)
         self.assertIn(".o_cookies_discrete.show", compiled)
         self.assertIn("safe-area-inset-bottom", compiled)
         self.assertIn(

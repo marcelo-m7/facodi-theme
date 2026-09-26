@@ -13,6 +13,7 @@ fail() {
 
 grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
+grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
 grep -Fq 'Theme/Education' theme_facodi/__manifest__.py || fail "theme category must be Theme/Education"
 grep -Fq 'theme_facodi.primary_variables_scss' theme_facodi/data/ir_asset.xml || fail "primary variables asset key missing"
 grep -Fq 'web._assets_primary_variables' theme_facodi/data/ir_asset.xml || fail "primary variables bundle missing"
@@ -155,7 +156,7 @@ grep -Fq '/mnt/design-themes' .github/workflows/ci.yml || fail "CI must mount de
 grep -Fq -- '-i theme_facodi' .github/workflows/ci.yml || fail "CI must install theme_facodi"
 grep -Fq -- '--test-tags /theme_facodi' .github/workflows/ci.yml || fail "CI must run theme_facodi tests"
 
-for file in primary_variables bootstrap_overridden campus_paper_tokens paper_primitives learning_interfaces components website snippets website_slides; do
+for file in primary_variables bootstrap_overridden campus_paper_tokens paper_primitives editorial_interfaces learning_interfaces components website snippets website_slides; do
   [[ -f "theme_facodi/static/src/scss/${file}.scss" ]] || fail "missing ${file}.scss"
 done
 
@@ -286,7 +287,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.8.0.0"' theme_facodi/__manifest__.py || fail "Campus Paper global-surfaces release version missing"
+grep -Fq '"version": "19.0.9.0.0"' theme_facodi/__manifest__.py || fail "Campus Paper global-surfaces release version missing"
 
 if grep -Rq 'prefers-color-scheme: dark\|background-image: none !important' theme_facodi/static/src/scss; then
   fail "partial dark mode or hidden editorial cover regression"
@@ -323,6 +324,26 @@ expected = {
     's_facodi_editorial_pathway',
     's_facodi_editorial_routes',
 }
+component_ids = {
+    's_facodi_highlighter_heading',
+    's_facodi_paper_card',
+    's_facodi_sticky_note',
+    's_facodi_folder_tabs',
+    's_facodi_filter_pills',
+    's_facodi_course_card',
+    's_facodi_study_steps',
+    's_facodi_cta_sheet',
+    's_facodi_metadata_row',
+    's_facodi_highlighter_callout',
+    's_facodi_project_story',
+    's_facodi_principles_ledger',
+    's_facodi_process_timeline',
+    's_facodi_contribution_board',
+    's_facodi_bulletin_hero',
+    's_facodi_editorial_quote',
+    's_facodi_contact_sheet',
+    's_facodi_policy_document',
+}
 assert blocks == expected, (blocks, expected)
 
 pages = ET.parse('theme_facodi/views/page_templates.xml').getroot()
@@ -336,7 +357,7 @@ for page in compositions:
         key = node.get('t-snippet-call')
         if key:
             assert key.startswith('theme_facodi.')
-            assert key.split('.', 1)[1] in expected
+            assert key.split('.', 1)[1] in expected | component_ids
 CHECK
 
 echo "PASS: theme module contract"

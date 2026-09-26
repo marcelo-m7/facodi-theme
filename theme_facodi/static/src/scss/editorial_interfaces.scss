@@ -1,0 +1,290 @@
+.facodi-site {
+    .facodi-project-story,
+    .facodi-contact-sheet {
+        display: grid;
+        gap: clamp(1.25rem, 3vw, 2.5rem);
+        grid-template-columns: minmax(0, 7fr) minmax(16rem, 5fr);
+        min-width: 0;
+
+        > * {
+            min-width: 0;
+        }
+    }
+
+    .facodi-project-story {
+        background: var(--facodi-paper-warm);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        padding: clamp(1.5rem, 4vw, 3rem);
+
+        &__main,
+        &__note {
+            min-width: 0;
+        }
+
+        &__note {
+            align-self: start;
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 45%, white);
+            border: 1px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-sm);
+            padding: 1rem;
+        }
+    }
+
+    .facodi-principles-ledger,
+    .facodi-contribution-board {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        min-width: 0;
+
+        > * {
+            min-width: 0;
+        }
+    }
+
+    .facodi-principles-ledger__item,
+    .facodi-contribution-board__item {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        min-width: 0;
+        padding: clamp(1rem, 2.5vw, 1.5rem);
+
+        h3,
+        p,
+        a {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-principles-ledger__index,
+    .facodi-process-timeline__index {
+        align-items: center;
+        background: var(--facodi-marker-yellow);
+        border: 1px solid var(--facodi-ink);
+        display: inline-flex;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-weight: 900;
+        justify-content: center;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+    }
+
+    .facodi-process-timeline {
+        display: grid;
+        gap: 0;
+        list-style: none;
+        margin: 0;
+        min-width: 0;
+        padding: 0;
+
+        &__step {
+            align-items: start;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: auto minmax(0, 1fr);
+            min-width: 0;
+            padding: 0 0 1.5rem;
+            position: relative;
+
+            &:not(:last-child)::after {
+                background: var(--facodi-ink);
+                content: "";
+                height: calc(100% - 2.5rem);
+                left: 1.2rem;
+                position: absolute;
+                top: 2.5rem;
+                width: 2px;
+            }
+
+            h3,
+            p {
+                overflow-wrap: anywhere;
+            }
+        }
+    }
+
+    .facodi-contribution-board__item:nth-child(1) {
+        border-top: .45rem solid var(--facodi-marker-yellow);
+    }
+
+    .facodi-contribution-board__item:nth-child(2) {
+        border-top: .45rem solid var(--facodi-marker-mint);
+    }
+
+    .facodi-contribution-board__item:nth-child(3) {
+        border-top: .45rem solid var(--facodi-marker-cyan);
+    }
+
+    .facodi-bulletin-hero {
+        background:
+            linear-gradient(var(--facodi-campus-grid-line) 1px, transparent 1px),
+            linear-gradient(90deg, var(--facodi-campus-grid-line) 1px, transparent 1px),
+            var(--facodi-paper-warm);
+        background-size: 24px 24px;
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        min-width: 0;
+        padding: clamp(1.5rem, 4vw, 3rem);
+
+        h1,
+        p {
+            max-width: 50rem;
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-editorial-quote {
+        background: color-mix(in srgb, var(--facodi-marker-mint) 35%, white);
+        border-left: .45rem solid var(--facodi-ink);
+        margin-inline: 0;
+        max-width: 50rem;
+        min-width: 0;
+        padding: clamp(1rem, 3vw, 1.75rem);
+
+        blockquote {
+            font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+            font-weight: 800;
+            margin: 0 0 .75rem;
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .facodi-contact-sheet {
+        background: var(--facodi-paper-warm);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow);
+        grid-template-columns: minmax(16rem, 5fr) minmax(0, 7fr);
+        padding: clamp(1.25rem, 3vw, 2rem);
+
+        &__context,
+        &__form-slot {
+            min-width: 0;
+        }
+
+        &__context {
+            background: color-mix(in srgb, var(--facodi-marker-cyan) 20%, white);
+            border: 1px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-sm);
+            padding: 1rem;
+        }
+
+        &__form-slot {
+            background: var(--facodi-surface-sheet);
+            border: 1px dashed var(--facodi-line);
+            border-radius: var(--facodi-radius-sm);
+            padding: 1rem;
+        }
+    }
+
+    .facodi-policy-document {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius);
+        box-shadow: var(--facodi-shadow-hover);
+        margin-inline: auto;
+        max-width: 50rem;
+        min-width: 0;
+        padding: clamp(1.25rem, 4vw, 2.5rem);
+
+        h1,
+        h2,
+        h3,
+        p,
+        li,
+        a,
+        code {
+            overflow-wrap: anywhere;
+        }
+
+        pre {
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        img,
+        iframe,
+        video {
+            height: auto;
+            max-width: 100%;
+        }
+
+        table {
+            display: block;
+            max-width: 100%;
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        &__toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            margin-block: 1rem 2rem;
+
+            a:focus-visible {
+                box-shadow: var(--facodi-focus-ring);
+                outline: 0;
+            }
+        }
+    }
+
+    .facodi-project-story a:focus-visible,
+    .facodi-principles-ledger a:focus-visible,
+    .facodi-contribution-board a:focus-visible,
+    .facodi-contact-sheet a:focus-visible,
+    .facodi-bulletin-hero a:focus-visible {
+        box-shadow: var(--facodi-focus-ring);
+        outline: 0;
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .facodi-site {
+        .facodi-principles-ledger,
+        .facodi-contribution-board {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site {
+        .facodi-project-story,
+        .facodi-contact-sheet,
+        .facodi-principles-ledger,
+        .facodi-contribution-board {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .facodi-project-story,
+        .facodi-contact-sheet,
+        .facodi-bulletin-hero,
+        .facodi-policy-document {
+            min-width: 0;
+            width: 100%;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .facodi-project-story,
+        .facodi-principles-ledger__item,
+        .facodi-process-timeline__step,
+        .facodi-contribution-board__item,
+        .facodi-bulletin-hero,
+        .facodi-editorial-quote,
+        .facodi-contact-sheet,
+        .facodi-policy-document {
+            scroll-behavior: auto;
+            transform: none;
+            transition: none;
+        }
+    }
+}
