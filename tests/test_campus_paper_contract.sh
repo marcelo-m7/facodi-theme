@@ -14,7 +14,10 @@ for token in --facodi-ink-deep --facodi-sun-bright --facodi-mint-strong   --faco
   grep -Fq -- "$token" "$TOKENS" || fail "missing token: $token"
 done
 
-for selector in .facodi-paper .facodi-grid-paper .facodi-sheet .facodi-note   .facodi-postit .facodi-highlight .facodi-marker-line .facodi-label   .facodi-tab .facodi-button-ghost; do
+for selector in .facodi-paper .facodi-grid-paper .facodi-sheet .facodi-note \
+  .facodi-postit .facodi-highlight .facodi-marker-line .facodi-label \
+  .facodi-tab .facodi-button-ghost .facodi-tape .facodi-pin \
+  .facodi-ruled-paper .facodi-paper-stack .facodi-board; do
   grep -Fq "$selector" "$PRIMITIVES" || fail "missing primitive: $selector"
 done
 
@@ -51,3 +54,17 @@ if grep -RniE '@import[[:space:]]+url|fonts\.googleapis\.com|fonts\.gstatic\.com
 fi
 
 echo "PASS: Campus Paper design-system contract"
+
+grep -Fq 'footer#bottom' theme_facodi/static/src/scss/website.scss \
+  || fail "footer background guard missing"
+grep -Fq '#0B1325 !important' theme_facodi/static/src/scss/website.scss \
+  || fail "footer must stay locked to #0B1325"
+
+grep -Fq '.facodi-contribution-board' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "contribution board styling missing"
+grep -Fq 'facodi-tape' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "editorial components must use masking-tape vocabulary"
+grep -Fq 'facodi-pin' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "editorial components must use pin vocabulary"
+grep -Fq 'facodi-paper-stack' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "editorial components must use layered-paper vocabulary"
