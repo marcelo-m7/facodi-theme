@@ -367,12 +367,14 @@ done
 
 
 ERROR_PAGE_MSGIDS=(
-  'FACODI // CAMPUS NOTE'
-  'This page hit a technical snag.'
-  'The content could not open this time. The rest of the campus is still available.'
-  'Back to home'
+  'FACODI // OPEN CAMPUS'
+  '← Back'
+  'This page hit a'
+  'rough patch.'
+  'FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment.'
+  'Back to FACODI'
   'Explore courses'
-  'If the problem continues, try again in a few moments.'
+  'If this keeps happening, use the contact page and tell us what you were trying to open.'
 )
 
 for catalogue in pt es fr; do
