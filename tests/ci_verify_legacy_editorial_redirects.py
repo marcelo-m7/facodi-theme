@@ -31,7 +31,7 @@ for index, (url_from, url_to) in enumerate(REDIRECTS, start=1):
     assert menu.url == url_to, f"{url_from} menu must use canonical target {url_to}"
 
     rewrites = Rewrite.search([
-        ("website_id", "=", website.id),
+        ("website_id", "=", False),
         ("url_from", "=", url_from),
     ])
     assert len(rewrites) == 1, f"{url_from} must have exactly one website.rewrite"
