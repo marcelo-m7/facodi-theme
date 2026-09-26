@@ -368,7 +368,9 @@ done
 
 ERROR_PAGE_MSGIDS=(
   'FACODI // OPEN CAMPUS'
+  'Error navigation'
   '← Back'
+  'server detour'
   'This page hit a'
   'rough patch.'
   'FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment.'
