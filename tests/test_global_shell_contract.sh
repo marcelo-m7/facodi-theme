@@ -25,6 +25,7 @@ grep -Fq 'min-width: 0' "$SCSS" || fail "responsive nav shell must allow flex ch
 grep -Fq 'flex-wrap: wrap' "$SCSS" || fail "desktop navigation must wrap safely before mobile takeover"
 grep -Fq 'overflow-wrap: anywhere' "$SCSS" || fail "footer labels must wrap instead of widening the page"
 grep -Fq 'grid-template-columns: minmax(0, 1fr);' "$SCSS" || fail "mobile footer must collapse to one shrinkable column"
+grep -Fq 'min(10rem, 100%)' "$SCSS" || fail "footer columns must keep mixed-unit min() browser-safe"
 
 grep -Fq '<t t-set="no_copyright" t-value="True"/>' "$FOOTER" || fail "FACODI footer must disable Odoo's default copyright/brand strip"
 grep -Fq 'footer#bottom' "$SCSS" || fail "outer Odoo footer shell must have an explicit FACODI background"
