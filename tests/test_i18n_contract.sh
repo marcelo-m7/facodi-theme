@@ -364,3 +364,28 @@ for catalogue in theme_facodi.pot pt.po es.po fr.po; do
       || fail "$catalogue must register translations for $ref"
   done
 done
+
+
+ERROR_PAGE_MSGIDS=(
+  'FACODI // OPEN CAMPUS'
+  'Error navigation'
+  '← Back'
+  'server detour'
+  'This page hit a'
+  'rough patch.'
+  'FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment.'
+  'Back to FACODI'
+  'Explore courses'
+  'If this keeps happening, use the contact page and tell us what you were trying to open.'
+)
+
+for catalogue in pt es fr; do
+  for msgid in "${ERROR_PAGE_MSGIDS[@]}"; do
+    grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/${catalogue}.po" \
+      || fail "${catalogue}.po is missing 500-page string: ${msgid}"
+  done
+done
+for msgid in "${ERROR_PAGE_MSGIDS[@]}"; do
+  grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/theme_facodi.pot" \
+    || fail "theme_facodi.pot is missing 500-page string: ${msgid}"
+done

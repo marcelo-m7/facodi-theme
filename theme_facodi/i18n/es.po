@@ -128,6 +128,7 @@ msgstr "El conocimiento está en todas partes. Encuentra tu próximo paso."
 msgid "Open learning resources and a community that turns knowledge into possibility."
 msgstr "Recursos de aprendizaje abiertos y una comunidad que transforma el conocimiento en posibilidades."
 
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
@@ -1590,3 +1591,48 @@ msgstr "Términos y condiciones"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Account"
 msgstr "Cuenta"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "FACODI // OPEN CAMPUS"
+msgstr "FACODI // CAMPUS ABIERTO"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "← Back"
+msgstr "← Volver"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "This page hit a"
+msgstr "Esta página encontró un"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "rough patch."
+msgstr "contratiempo."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment."
+msgstr "FACODI no pudo completar esta solicitud ahora. Vuelve al campus abierto, explora el catálogo de aprendizaje o intenta abrir la página de nuevo en unos instantes."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "Back to FACODI"
+msgstr "Volver a FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "If this keeps happening, use the contact page and tell us what you were trying to open."
+msgstr "Si esto sigue ocurriendo, usa la página de contacto y cuéntanos qué estabas intentando abrir."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "Error navigation"
+msgstr "Navegación de error"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "server detour"
+msgstr "desvío del servidor"
