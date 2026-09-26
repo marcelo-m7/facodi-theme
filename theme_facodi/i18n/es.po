@@ -133,6 +133,7 @@ msgstr "Recursos de aprendizaje abiertos y una comunidad que transforma el conoc
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_paper_card
 msgid "Explore courses"
 msgstr "Explorar cursos"
 
@@ -181,6 +182,7 @@ msgstr "A tu ritmo"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
 msgid "Contribute"
 msgstr "Contribuye"
 
@@ -411,6 +413,7 @@ msgstr "Vista general"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
 msgid "Courses"
 msgstr "Cursos"
 
@@ -422,6 +425,8 @@ msgstr "Guardados"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_metadata_row
 msgid "Community"
 msgstr "Comunidad"
 
@@ -579,6 +584,7 @@ msgstr "Utiliza materiales públicos como piezas para un aprendizaje accesible y
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
 msgid "Community learning"
 msgstr "Aprendizaje en comunidad"
 
@@ -781,12 +787,14 @@ msgstr "Usa Roadmaps para orientarte, unidades curriculares para obtener context
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
 msgid "Roadmaps"
 msgstr "Rutas"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
 msgid "Curricular Units"
 msgstr "Unidades Curriculares"
 
@@ -952,6 +960,7 @@ msgstr "01 · Punto de partida"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
 msgid "Choose a question"
 msgstr "Elige una pregunta"
 
@@ -999,6 +1008,7 @@ msgstr "¿Encontraste un recurso que te ayudó a comprender algo? Deja un rastro
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
 msgid "Suggest a resource"
 msgstr "Sugerir un recurso"
 
@@ -1318,3 +1328,240 @@ msgstr "Cita editorial"
 msgid "Contact sheet"
 msgstr "Hoja de contacto"
 
+
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_heading
+msgid "Open learning note"
+msgstr "Nota de aprendizaje abierto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_heading
+msgid "Turn a useful idea into a"
+msgstr "Convierte una idea útil en un"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_heading
+msgid "visible next step"
+msgstr "siguiente paso visible"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_heading
+msgid "Use this heading to introduce a section, learning milestone, or community contribution."
+msgstr "Usa este título para introducir una sección, un hito de aprendizaje o una contribución de la comunidad."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_paper_card
+msgid "Open module"
+msgstr "Módulo abierto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_paper_card
+msgid "Build a compact learning card"
+msgstr "Crea una tarjeta de aprendizaje compacta"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_paper_card
+msgid "Summarize a topic, assignment, resource collection, or community activity in a tactile paper surface."
+msgstr "Resume un tema, tarea, colección de recursos o actividad comunitaria en una superficie editorial inspirada en papel."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_sticky_note
+msgid "Study note"
+msgstr "Nota de estudio"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_sticky_note
+msgid "Write down the question you want to answer next."
+msgstr "Anota la pregunta que quieres responder a continuación."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_sticky_note
+msgid "Short reminders work best when they stay specific, useful, and easy to revisit."
+msgstr "Los recordatorios breves funcionan mejor cuando son específicos, útiles y fáciles de revisar."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+msgid "Learning sections"
+msgstr "Secciones de aprendizaje"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
+msgid "Topic labels"
+msgstr "Etiquetas de temas"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
+msgid "All topics"
+msgstr "Todos los temas"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
+msgid "Open learning"
+msgstr "Aprendizaje abierto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
+msgid "Technology"
+msgstr "Tecnología"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
+msgid "Study notes"
+msgstr "Notas de estudio"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid "Open course"
+msgstr "Curso abierto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid "4 modules"
+msgstr "4 módulos"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_metadata_row
+msgid "Open access"
+msgstr "Acceso abierto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid "Course title with a"
+msgstr "Título del curso con una"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid "highlighted idea"
+msgstr "idea destacada"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid "Use this editable card when the content is editorial rather than connected to a live eLearning record."
+msgstr "Usa esta tarjeta editable cuando el contenido sea editorial en lugar de estar conectado a un registro eLearning activo."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid "View course"
+msgstr "Ver curso"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
+msgid "Start from something concrete you want to understand or build."
+msgstr "Empieza por algo concreto que quieras comprender o construir."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
+msgid "Follow the thread"
+msgstr "Sigue el hilo"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
+msgid "Connect courses, curricular units, and public resources around that question."
+msgstr "Conecta cursos, unidades curriculares y recursos públicos en torno a esa pregunta."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
+msgid "Share what helped"
+msgstr "Comparte lo que te ayudó"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
+msgid "Contribute useful resources so the next learner starts with better context."
+msgstr "Aporta recursos útiles para que la siguiente persona empiece con un contexto mejor."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Community notebook"
+msgstr "Cuaderno de la comunidad"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Have a useful resource?"
+msgstr "¿Tienes un recurso útil?"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Add another page to the shared learning notebook."
+msgstr "Añade otra página al cuaderno de aprendizaje compartido."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Send a public resource for review. FACODI keeps contribution separate from publication."
+msgstr "Envía un recurso público para revisión. FACODI mantiene la contribución separada de la publicación."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_metadata_row
+msgid "Learning metadata"
+msgstr "Metadatos de aprendizaje"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_metadata_row
+msgid "Core topic"
+msgstr "Tema central"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_callout
+msgid "Margin note"
+msgstr "Nota al margen"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_callout
+msgid "Keep the important part visible."
+msgstr "Mantén visible la parte importante."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_callout
+msgid "Use this callout for a prerequisite, study hint, deadline, review warning, or short editorial note."
+msgstr "Usa este destacado para un requisito previo, consejo de estudio, fecha límite, aviso de revisión o nota editorial breve."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Highlighter heading"
+msgstr "Título con marcador"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Paper card"
+msgstr "Tarjeta de papel"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Sticky note"
+msgstr "Nota adhesiva"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Folder tabs"
+msgstr "Pestañas de carpeta"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Filter pills"
+msgstr "Filtros en cápsula"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Static course card"
+msgstr "Tarjeta de curso estática"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Study steps"
+msgstr "Pasos de estudio"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "CTA sheet"
+msgstr "Hoja de llamada a la acción"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Metadata row"
+msgstr "Fila de metadatos"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Highlighter callout"
+msgstr "Destacado con marcador"

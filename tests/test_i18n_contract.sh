@@ -274,3 +274,93 @@ for path in files:
                     f"FAIL: {path} does not bind D2 msgid {message!r} to {ref}"
                 )
 PY
+
+REUSABLE_BLOCK_MSGIDS=(
+  'Open learning note'
+  'Turn a useful idea into a'
+  'visible next step'
+  'Use this heading to introduce a section, learning milestone, or community contribution.'
+  'Open module'
+  'Build a compact learning card'
+  'Summarize a topic, assignment, resource collection, or community activity in a tactile paper surface.'
+  'Explore courses'
+  'Study note'
+  'Write down the question you want to answer next.'
+  'Short reminders work best when they stay specific, useful, and easy to revisit.'
+  'Learning sections'
+  'Courses'
+  'Roadmaps'
+  'Curricular Units'
+  'Contribute'
+  'Topic labels'
+  'All topics'
+  'Open learning'
+  'Technology'
+  'Community'
+  'Study notes'
+  'Open course'
+  '4 modules'
+  'Open access'
+  'Course title with a'
+  'highlighted idea'
+  'Use this editable card when the content is editorial rather than connected to a live eLearning record.'
+  'Community learning'
+  'View course'
+  'Choose a question'
+  'Start from something concrete you want to understand or build.'
+  'Follow the thread'
+  'Connect courses, curricular units, and public resources around that question.'
+  'Share what helped'
+  'Contribute useful resources so the next learner starts with better context.'
+  'Community notebook'
+  'Have a useful resource?'
+  'Add another page to the shared learning notebook.'
+  'Send a public resource for review. FACODI keeps contribution separate from publication.'
+  'Suggest a resource'
+  'Learning metadata'
+  'Core topic'
+  'Margin note'
+  'Keep the important part visible.'
+  'Use this callout for a prerequisite, study hint, deadline, review warning, or short editorial note.'
+)
+
+REUSABLE_BUILDER_MSGIDS=(
+  'Highlighter heading'
+  'Paper card'
+  'Sticky note'
+  'Folder tabs'
+  'Filter pills'
+  'Static course card'
+  'Study steps'
+  'CTA sheet'
+  'Metadata row'
+  'Highlighter callout'
+)
+
+for catalogue in pt es fr; do
+  for msgid in "${REUSABLE_BLOCK_MSGIDS[@]}"; do
+    grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/${catalogue}.po" \
+      || fail "${catalogue}.po is missing reusable-block string: ${msgid}"
+  done
+done
+for msgid in "${REUSABLE_BLOCK_MSGIDS[@]}"; do
+  grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/theme_facodi.pot" \
+    || fail "theme_facodi.pot is missing reusable-block string: ${msgid}"
+done
+
+for catalogue in theme_facodi.pot pt.po es.po fr.po; do
+  for ref in \
+    'theme_facodi.s_facodi_highlighter_heading' \
+    'theme_facodi.s_facodi_paper_card' \
+    'theme_facodi.s_facodi_sticky_note' \
+    'theme_facodi.s_facodi_folder_tabs' \
+    'theme_facodi.s_facodi_filter_pills' \
+    'theme_facodi.s_facodi_course_card' \
+    'theme_facodi.s_facodi_study_steps' \
+    'theme_facodi.s_facodi_cta_sheet' \
+    'theme_facodi.s_facodi_metadata_row' \
+    'theme_facodi.s_facodi_highlighter_callout'; do
+    grep -Fq "model_terms:theme.ir.ui.view,arch:${ref}" "$I18N_DIR/$catalogue" \
+      || fail "$catalogue must register translations for $ref"
+  done
+done
