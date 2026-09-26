@@ -7,12 +7,9 @@
                 <h1>Document title</h1>
                 <p>Use this component as a readable shell around policy text maintained by the Website editor.</p>
             </header>
-            <nav class="facodi-policy-document__toc" aria-label="Document sections">
-                <a href="#policy-section">Section</a>
-            </nav>
-            <section id="policy-section">
+            <section>
                 <h2>Section heading</h2>
-                <p>Keep the approved policy wording here. The theme provides presentation and reading structure only.</p>
+                <p>Keep the approved policy wording here. Add real in-page anchors only when the edited document has corresponding unique section IDs.</p>
             </section>
         </article>
     </template>
