@@ -126,3 +126,14 @@ grep -Fq 'max-width: 100%' theme_facodi/static/src/scss/website_public.scss \
   || fail "D2 policy shell must stay within the phone viewport"
 grep -Fq 'overflow-x: auto' theme_facodi/static/src/scss/website_public.scss \
   || fail "D2 long-form tables/code must scroll internally"
+
+grep -Fq '@media (prefers-reduced-motion: reduce)' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "D2 editorial components need reduced-motion handling"
+grep -Fq '@media (prefers-reduced-motion: reduce)' theme_facodi/static/src/scss/website_blog.scss \
+  || fail "D2 Blog needs reduced-motion handling"
+grep -Fq '@media (prefers-reduced-motion: reduce)' theme_facodi/static/src/scss/website_public.scss \
+  || fail "D2 public pages need reduced-motion handling"
+grep -Fq 'overflow-wrap: anywhere' theme_facodi/static/src/scss/website_blog.scss \
+  || fail "D2 Blog long-form content must wrap"
+grep -Fq 'max-width: 100%' theme_facodi/static/src/scss/website_blog.scss \
+  || fail "D2 Blog media must stay within the viewport"
