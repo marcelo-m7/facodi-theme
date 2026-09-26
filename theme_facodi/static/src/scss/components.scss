@@ -1282,3 +1282,65 @@
         .facodi-forum-postit { transform: none; }
     }
 }
+
+
+/* Reusable tactile accents for existing persisted snippets. */
+.facodi-site {
+    .facodi-paper-card {
+        isolation: isolate;
+
+        &::before {
+            background: color-mix(in srgb, var(--facodi-marker-cyan) 36%, transparent);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+            content: "";
+            height: 1rem;
+            left: 1.1rem;
+            opacity: .8;
+            position: absolute;
+            top: -.6rem;
+            transform: rotate(-3deg);
+            width: 4.5rem;
+        }
+
+        &::after {
+            background: var(--facodi-paper-warm);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 22%, transparent);
+            content: "";
+            inset: .35rem;
+            position: absolute;
+            transform: rotate(.5deg) translate(4px, 5px);
+            z-index: -1;
+        }
+    }
+
+    .facodi-sticky-note {
+        background: color-mix(in srgb, var(--facodi-marker-yellow) 48%, var(--facodi-white));
+        border-left-width: 2px;
+        box-shadow: 5px 5px 0 var(--facodi-ink);
+        isolation: isolate;
+        position: relative;
+
+        &::before {
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 55%, transparent);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 18%, transparent);
+            content: "";
+            height: 1rem;
+            left: 50%;
+            opacity: .82;
+            position: absolute;
+            top: -.65rem;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 5rem;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site {
+        .facodi-paper-card::before,
+        .facodi-paper-card::after,
+        .facodi-sticky-note::before {
+            transform: none;
+        }
+    }
+}
