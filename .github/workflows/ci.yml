@@ -125,6 +125,20 @@ jobs:
             --workers=0 -d theme_facodi_ci \
             < tests/ci_seed_legacy_course_showcase.py
 
+      - name: Seed legacy editorial redirect fixtures
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$RUNNER_TEMP/facodi-theme-baseline:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_seed_legacy_editorial_redirects.py
+
       - name: Upgrade theme before persisted-state verification
         run: |
           docker run --rm \
@@ -138,6 +152,20 @@ jobs:
             --workers=0 --without-demo=True \
             -d theme_facodi_ci -u theme_facodi \
             --stop-after-init
+
+      - name: Verify permanent editorial redirects after upgrade
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_verify_legacy_editorial_redirects.py
 
       - name: Seed D2 editor-owned page persistence fixture
         run: |
@@ -194,6 +222,20 @@ jobs:
             --workers=0 --without-demo=True \
             -d theme_facodi_ci -u theme_facodi \
             --stop-after-init
+
+      - name: Verify idempotent permanent editorial redirects
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_verify_legacy_editorial_redirects.py
 
       - name: Verify D2 editor-owned page persistence
         run: |
