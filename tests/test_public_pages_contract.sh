@@ -70,3 +70,7 @@ POLICY_XML="theme_facodi/views/snippets/components/s_facodi_policy_document.xml"
 if grep -Eiq 'privacy policy|cookie policy|terms and conditions|data controller|retention period' "$POLICY_XML"; then
   fail "policy snippet must remain a presentation shell, not legal authorship"
 fi
+
+if grep -Fq 'id="policy-section"' theme_facodi/views/snippets/components/s_facodi_policy_document.xml; then
+  fail "policy component must not ship reusable static section IDs"
+fi
