@@ -338,7 +338,7 @@ GitHub Actions then uses PostgreSQL 16 and the official `odoo:19.0` image to:
 - verify `/slides`, localized `/pt/slides`, authenticated catalogue rendering, `/contactus` and `/web/login`;
 - validate batch course-cover resolution, deterministic YouTube URLs and no-image fallbacks;
 - validate training/documentation content-type cues while preserving standard Odoo hooks;
-- render all ten New Page compositions and preserve editor-owned page HTML across theme reload;
+- render all registered New Page compositions and preserve editor-owned page HTML across theme reload;
 - compile and fetch frontend CSS without Sass errors;
 - rerun the regression suite on `-u theme_facodi` upgrade;
 - repair and verify persisted legacy dynamic-snippet builder markup;
