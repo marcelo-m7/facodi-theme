@@ -781,3 +781,99 @@
         grid-template-columns: 1fr;
     }
 }
+
+.facodi-site [data-facodi-learning-journey="1"] {
+    position: relative;
+
+    .facodi-learning-stop {
+        --facodi-journey-accent: var(--facodi-highlight-lime);
+        border: 2px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius);
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 3rem 1fr;
+        margin-bottom: 1rem;
+        overflow: visible;
+        padding: 1rem;
+        position: relative;
+
+        &::before {
+            background: var(--facodi-journey-accent);
+            border: 1px solid var(--facodi-ink);
+            content: "";
+            height: .55rem;
+            position: absolute;
+            right: 1.25rem;
+            top: -.3rem;
+            transform: rotate(1.5deg);
+            width: 4rem;
+        }
+    }
+
+    .facodi-learning-stop--continue { --facodi-journey-accent: var(--facodi-highlight-orange); }
+    .facodi-learning-stop--done { --facodi-journey-accent: var(--facodi-highlight-mint); }
+
+    .facodi-learning-stop__rail {
+        align-items: flex-start;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        &::after {
+            background: var(--facodi-ink);
+            bottom: -2rem;
+            content: "";
+            left: 50%;
+            position: absolute;
+            top: 2.75rem;
+            transform: translateX(-50%);
+            width: 2px;
+        }
+    }
+
+    .facodi-learning-stop:last-child .facodi-learning-stop__rail::after { display: none; }
+
+    .facodi-learning-stop__number {
+        align-items: center;
+        background: var(--facodi-journey-accent);
+        border: 2px solid var(--facodi-ink);
+        border-radius: 50%;
+        display: inline-flex;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-weight: 900;
+        height: 2.4rem;
+        justify-content: center;
+        width: 2.4rem;
+    }
+
+    .facodi-journey-label {
+        border: 1px solid var(--facodi-ink);
+        border-radius: 999px;
+        color: var(--facodi-ink);
+        display: inline-block;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .68rem;
+        font-weight: 900;
+        padding: .35rem .65rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .facodi-journey-label--start { background: var(--facodi-highlight-lime); }
+    .facodi-journey-label--continue { background: var(--facodi-highlight-orange); }
+    .facodi-journey-label--done { background: var(--facodi-highlight-mint); }
+
+    a.facodi-journey-label:hover,
+    a.facodi-journey-label:focus-visible {
+        box-shadow: 2px 2px 0 var(--facodi-ink);
+        color: var(--facodi-ink);
+        transform: translate(-1px, -1px);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .facodi-site [data-facodi-learning-journey="1"] .facodi-learning-stop {
+        grid-template-columns: 2.4rem 1fr;
+        padding: .85rem;
+    }
+}
