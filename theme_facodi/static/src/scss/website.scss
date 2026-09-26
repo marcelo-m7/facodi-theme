@@ -57,17 +57,46 @@
         z-index: 10;
 
         .facodi-nav-shell {
+            align-items: center;
+            display: flex;
+            gap: clamp(.75rem, 2vw, 1.5rem);
             max-width: 90rem;
             min-height: 4.25rem;
+            min-width: 0;
             padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+
+        .facodi-wordmark {
+            flex: 0 0 auto;
+            max-width: clamp(7.5rem, 16vw, 12rem);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .navbar-nav {
+            align-items: center;
+            flex: 1 1 auto;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            min-width: 0;
+            row-gap: .35rem;
+        }
+
+        .nav-item {
+            min-width: 0;
         }
 
         .nav-link {
             border-radius: var(--facodi-radius-sm);
             color: var(--facodi-ink);
-            font-size: .9rem;
+            font-size: clamp(.78rem, .82vw, .9rem);
             font-weight: 600;
-            padding: .5rem .8rem !important;
+            max-width: 12rem;
+            overflow: hidden;
+            padding: .45rem clamp(.45rem, .8vw, .8rem) !important;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             &:hover,
             &:focus-visible,
@@ -75,6 +104,10 @@
                 background: var(--facodi-sun);
                 color: var(--facodi-ink);
             }
+        }
+
+        .facodi-button {
+            white-space: nowrap;
         }
     }
 
@@ -138,17 +171,25 @@
 
         .facodi-footer-inner {
             display: grid;
-            gap: 1.875rem;
-            grid-template-columns: minmax(13rem, 1fr) minmax(27rem, 2fr) minmax(10rem, .8fr);
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            grid-template-columns: minmax(14rem, .9fr) minmax(0, 2.15fr) minmax(11rem, .75fr);
             margin: 0 auto;
             max-width: 90rem;
-            padding: 3rem 8vw;
+            min-width: 0;
+            padding: clamp(2.25rem, 4vw, 3rem) clamp(1.25rem, 6vw, 5rem);
         }
 
         .facodi-wordmark,
         .facodi-footer-links a,
         .facodi-footer-meta a {
             color: var(--facodi-white);
+        }
+
+        .facodi-footer-note,
+        .facodi-footer-links,
+        .facodi-footer-meta,
+        .facodi-footer-group {
+            min-width: 0;
         }
 
         .facodi-footer-note {
@@ -168,7 +209,7 @@
             display: grid;
             align-content: start;
             column-gap: clamp(1.25rem, 3vw, 2.5rem);
-            grid-template-columns: repeat(auto-fit, minmax(8.25rem, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
             row-gap: 1.5rem;
 
             ul {
@@ -180,7 +221,6 @@
             .facodi-footer-group {
                 display: grid;
                 gap: .35rem;
-                min-width: 0;
             }
 
             .facodi-footer-heading {
@@ -196,6 +236,8 @@
                 font-size: .84rem;
                 font-weight: 600;
                 line-height: 1.45;
+                max-width: 100%;
+                overflow-wrap: anywhere;
                 text-decoration: none;
 
                 &:hover {
@@ -207,6 +249,7 @@
         .facodi-footer-meta {
             font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
             font-size: .65rem;
+            overflow-wrap: anywhere;
             text-align: right;
 
             a:hover {
@@ -216,7 +259,7 @@
 
         @media (max-width: 61.99rem) {
             .facodi-footer-inner {
-                grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
             }
 
             .facodi-footer-meta {
@@ -234,7 +277,7 @@
 
             .facodi-footer-links {
                 column-gap: 1.5rem;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: minmax(0, 1fr);
             }
 
             .facodi-footer-meta {
