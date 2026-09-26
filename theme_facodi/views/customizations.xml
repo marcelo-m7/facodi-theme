@@ -79,28 +79,5 @@
             </div>
         </xpath>
     </template>
-    <template id="facodi_500_error_page" inherit_id="website.500" name="FACODI 500 Error Page">
-        <xpath expr="//div[@id='wrap']" position="replace">
-            <main id="wrap" class="oe_structure facodi-error-page">
-                <section class="container facodi-error-page__shell">
-                    <div class="facodi-error-page__code" aria-hidden="true">500</div>
-                    <div class="facodi-error-page__sheet">
-                        <p class="facodi-error-page__kicker">FACODI // CAMPUS NOTE</p>
-                        <h1>This page hit a technical snag.</h1>
-                        <p class="facodi-error-page__lead">
-                            The content could not open this time. The rest of the campus is still available.
-                        </p>
-                        <div class="facodi-error-page__actions">
-                            <a href="/" class="btn btn-primary">Back to home</a>
-                            <a href="/slides" class="btn btn-outline-primary">Explore courses</a>
-                        </div>
-                        <p class="facodi-error-page__hint">
-                            If the problem continues, try again in a few moments.
-                        </p>
-                    </div>
-                </section>
-            </main>
-        </xpath>
-    </template>
 
 </odoo>
