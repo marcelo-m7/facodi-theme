@@ -6,11 +6,11 @@
              data-name="FACODI Module Index"
              aria-label="Module index">
             <p class="facodi-kicker">Module index</p>
-            <h3>Study cards</h3>
-            <a href="#study-card-1" class="is-complete"><span>5.1</span><strong>Concept review</strong><i class="fa fa-check" aria-hidden="true" t-translation="off"/></a>
-            <a href="#study-card-2" class="is-complete"><span>5.2</span><strong>Worked example</strong><i class="fa fa-check" aria-hidden="true" t-translation="off"/></a>
-            <a href="#study-card-3" class="is-active"><span>5.3</span><strong>Practical exercise</strong><i class="fa fa-pencil" aria-hidden="true" t-translation="off"/></a>
-            <a href="#study-card-4"><span>5.4</span><strong>Open challenge</strong><i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+            <h3>Editable study cards</h3>
+            <div class="facodi-module-index-row"><span>1</span><strong>Module or section title</strong></div>
+            <div class="facodi-module-index-row"><span>2</span><strong>Module or section title</strong></div>
+            <div class="facodi-module-index-row"><span>3</span><strong>Module or section title</strong></div>
+            <div class="facodi-module-index-row"><span>4</span><strong>Module or section title</strong></div>
         </nav>
     </template>
 </odoo>
