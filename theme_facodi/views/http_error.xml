@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="facodi_http_500" inherit_id="http_routing.500" name="FACODI 500 Error Page">
+        <xpath expr="//style" position="inside">
+            :root { --ink:#112340; --paper:#f8fafc; --sun:#e8fd36; --cyan:#34b6ce; --pink:#ff70a6; }
+            * { box-sizing:border-box; } html,body { margin:0; min-height:100%; background:var(--paper); color:var(--ink); }
+            body { font-family:Arial,Helvetica,sans-serif; background-image:linear-gradient(rgba(17,35,64,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(17,35,64,.06) 1px,transparent 1px); background-size:24px 24px; }
+            #wrapwrap { min-height:100vh; display:flex; flex-direction:column; }
+            .facodi-error-header { border-bottom:2px solid var(--ink); background:#fff; }
+            .facodi-error-nav { max-width:1120px; margin:auto; min-height:72px; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+            .facodi-error-brand,.facodi-error-back { color:var(--ink); font-weight:900; text-decoration:none; }
+            .facodi-error-back { border-bottom:2px solid var(--cyan); }
+            .facodi-error-main { flex:1; display:grid; place-items:center; padding:clamp(32px,7vw,88px) 20px; }
+            .facodi-error-sheet { width:min(760px,100%); position:relative; background:#fff; border:2px solid var(--ink); border-radius:12px; box-shadow:10px 10px 0 var(--ink); padding:clamp(28px,6vw,64px); overflow:hidden; }
+            .facodi-error-sheet:before { content:""; position:absolute; width:130px; height:18px; background:var(--sun); top:26px; right:-24px; transform:rotate(4deg); }
+            .facodi-error-code { display:inline-block; margin:0 0 20px; padding:7px 11px; border:2px solid var(--ink); background:var(--pink); font:800 .8rem/1 monospace; letter-spacing:.08em; text-transform:uppercase; transform:rotate(-1deg); }
+            .facodi-error-title { margin:0; max-width:650px; font-size:clamp(2.2rem,8vw,5.4rem); line-height:.95; letter-spacing:-.065em; font-weight:900; }
+            .facodi-error-title mark { background:var(--sun); color:var(--ink); padding:0 .08em; }
+            .facodi-error-copy { max-width:590px; margin:24px 0 0; font-size:clamp(1rem,2vw,1.2rem); line-height:1.65; }
+            .facodi-error-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+            .facodi-error-button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:11px 18px; border:2px solid var(--ink); border-radius:7px; color:var(--ink); background:var(--sun); box-shadow:4px 4px 0 var(--ink); font-weight:900; text-decoration:none; }
+            .facodi-error-button--secondary { background:#fff; }
+            .facodi-error-note { margin:30px 0 0; padding:14px 16px; border-left:6px solid var(--cyan); background:rgba(52,182,206,.12); font-size:.92rem; }
+            .facodi-error-debug { width:min(1120px,calc(100% - 40px)); margin:0 auto 40px; }
+            @media (max-width:480px) { .facodi-error-nav { min-height:62px; } .facodi-error-sheet { box-shadow:6px 6px 0 var(--ink); } .facodi-error-actions > * { width:100%; } }
+        </xpath>
+        <xpath expr="//header" position="replace">
+            <header class="facodi-error-header">
+                <nav class="facodi-error-nav" aria-label="Error navigation">
+                    <a href="/" class="facodi-error-brand">FACODI // OPEN CAMPUS</a>
+                    <a href="javascript: window.history.back()" class="facodi-error-back">← Back</a>
+                </nav>
+            </header>
+        </xpath>
+        <xpath expr="//main" position="replace">
+            <main>
+                <section class="facodi-error-main">
+                    <div class="facodi-error-sheet">
+                        <p class="facodi-error-code"><t t-esc="status_code"/> · server detour</p>
+                        <h1 class="facodi-error-title">This page hit a <mark>rough patch.</mark></h1>
+                        <p class="facodi-error-copy">FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment.</p>
+                        <div class="facodi-error-actions">
+                            <a href="/" class="facodi-error-button">Back to FACODI</a>
+                            <a href="/slides" class="facodi-error-button facodi-error-button--secondary">Explore courses</a>
+                        </div>
+                        <p class="facodi-error-note">If this keeps happening, use the contact page and tell us what you were trying to open.</p>
+                    </div>
+                </section>
+                <div t-if="editable or debug" class="facodi-error-debug"><t t-call="http_routing.http_error_debug"/></div>
+            </main>
+        </xpath>
+    </template>
+</odoo>
