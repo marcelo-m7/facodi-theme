@@ -368,13 +368,24 @@ class TestFacodiTheme(HttpCase):
         self.assertEqual(login.status_code, 200)
         self.assertIn("form-control", login.text)
 
-    def test_footer_uses_native_no_copyright_option_without_odoo_branding(self):
+    def test_footer_scopes_no_copyright_to_current_theme_website(self):
         from lxml import html
 
-        no_copyright = self.env.ref("website.footer_no_copyright")
-        self.assertTrue(
-            no_copyright.active,
-            "FACODI must activate Odoo's native Footer No Copyright option",
+        website = self.env["website"].get_current_website()
+        native_no_copyright = self.env.ref("website.footer_no_copyright")
+        self.assertFalse(
+            native_no_copyright.active,
+            "FACODI must not mutate Odoo's global Footer No Copyright option",
+        )
+
+        theme_view = self.env.ref("theme_facodi.facodi_footer_no_copyright")
+        scoped_views = theme_view.copy_ids.filtered(
+            lambda view: view.website_id == website and view.active
+        )
+        self.assertEqual(
+            len(scoped_views),
+            1,
+            "FACODI no-copyright behavior must be an active theme-owned Website copy",
         )
 
         response = self.url_open("/")
