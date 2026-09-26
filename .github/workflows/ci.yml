@@ -58,6 +58,9 @@ jobs:
       - name: Mobile interaction regression contract
         run: bash tests/test_mobile_interaction_contract.sh
 
+      - name: Permanent editorial redirect contract
+        run: bash tests/test_permanent_redirect_contract.sh
+
       - name: Checkout pinned Odoo design themes
         run: |
           git clone --filter=blob:none https://github.com/odoo/design-themes.git "$RUNNER_TEMP/design-themes"
@@ -69,7 +72,7 @@ jobs:
           LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
           git worktree add --detach "$RUNNER_TEMP/facodi-theme-baseline" "$LEGACY_SHA"
           grep -Fq '"version": "19.0.5.0.1"' "$RUNNER_TEMP/facodi-theme-baseline/theme_facodi/__manifest__.py"
-          grep -Fq '"version": "19.0.10.0.1"' theme_facodi/__manifest__.py
+          grep -Fq '"version": "19.0.10.1.0"' theme_facodi/__manifest__.py
 
       - name: Start PostgreSQL 16
         run: |
@@ -122,6 +125,20 @@ jobs:
             --workers=0 -d theme_facodi_ci \
             < tests/ci_seed_legacy_course_showcase.py
 
+      - name: Seed legacy editorial redirect fixtures
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$RUNNER_TEMP/facodi-theme-baseline:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_seed_legacy_editorial_redirects.py
+
       - name: Upgrade theme before persisted-state verification
         run: |
           docker run --rm \
@@ -135,6 +152,20 @@ jobs:
             --workers=0 --without-demo=True \
             -d theme_facodi_ci -u theme_facodi \
             --stop-after-init
+
+      - name: Verify permanent editorial redirects after upgrade
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_verify_legacy_editorial_redirects.py
 
       - name: Seed D2 editor-owned page persistence fixture
         run: |
@@ -191,6 +222,20 @@ jobs:
             --workers=0 --without-demo=True \
             -d theme_facodi_ci -u theme_facodi \
             --stop-after-init
+
+      - name: Verify idempotent permanent editorial redirects
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 \
+            odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_verify_legacy_editorial_redirects.py
 
       - name: Verify D2 editor-owned page persistence
         run: |
