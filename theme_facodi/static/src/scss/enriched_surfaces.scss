@@ -494,3 +494,80 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+.facodi-site {
+    .facodi-community-note {
+        background:
+            linear-gradient(90deg, color-mix(in srgb, var(--facodi-highlight-pink) 14%, transparent) 0 2px, transparent 2px),
+            var(--facodi-white);
+        border: 2px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius);
+        box-shadow: 4px 4px 0 var(--facodi-highlight-cyan);
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: auto 1fr;
+        padding: 1rem;
+        position: relative;
+    }
+
+    .facodi-community-note__marker {
+        align-items: center;
+        border: 2px solid var(--facodi-ink);
+        border-radius: 50%;
+        box-shadow: 2px 2px 0 var(--facodi-ink);
+        display: inline-flex;
+        flex: 0 0 auto;
+        font-size: 1.1rem;
+        height: 3rem;
+        justify-content: center;
+        transform: rotate(-4deg);
+        width: 3rem;
+    }
+
+    [data-facodi-uc-community="1"] {
+        margin-bottom: 1rem;
+
+        &::after {
+            background: var(--facodi-highlight-lime);
+            bottom: -.35rem;
+            content: "";
+            height: .45rem;
+            position: absolute;
+            right: 1.25rem;
+            transform: rotate(-1.5deg);
+            width: 4.5rem;
+            z-index: -1;
+        }
+    }
+
+    .o_wforum_post,
+    .o_wforum_post_reply {
+        position: relative;
+
+        &::before {
+            background: var(--facodi-highlight-orange);
+            border: 1px solid var(--facodi-ink);
+            content: "";
+            height: .55rem;
+            left: 1rem;
+            position: absolute;
+            top: -.3rem;
+            transform: rotate(-2deg);
+            width: 3.25rem;
+        }
+    }
+
+    .o_wforum_sidebar .list-group-item.active,
+    .o_wforum_sidebar a[aria-current="page"] {
+        background: var(--facodi-highlight-lime);
+        border-color: var(--facodi-ink);
+        color: var(--facodi-ink);
+        font-weight: 800;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .facodi-site .facodi-community-note {
+        grid-template-columns: 1fr;
+    }
+}
