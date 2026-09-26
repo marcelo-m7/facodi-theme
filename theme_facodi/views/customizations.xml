@@ -86,16 +86,16 @@
                     <div class="facodi-error-page__code" aria-hidden="true">500</div>
                     <div class="facodi-error-page__sheet">
                         <p class="facodi-error-page__kicker">FACODI // CAMPUS NOTE</p>
-                        <h1>Esta página tropeçou num erro.</h1>
+                        <h1>This page hit a technical snag.</h1>
                         <p class="facodi-error-page__lead">
-                            O conteúdo não conseguiu abrir desta vez. O resto do campus continua disponível.
+                            The content could not open this time. The rest of the campus is still available.
                         </p>
                         <div class="facodi-error-page__actions">
-                            <a href="/" class="btn btn-primary">Voltar ao início</a>
-                            <a href="/slides" class="btn btn-outline-primary">Explorar cursos</a>
+                            <a href="/" class="btn btn-primary">Back to home</a>
+                            <a href="/slides" class="btn btn-outline-primary">Explore courses</a>
                         </div>
                         <p class="facodi-error-page__hint">
-                            Se o problema continuar, tente novamente dentro de alguns instantes.
+                            If the problem continues, try again in a few moments.
                         </p>
                     </div>
                 </section>
