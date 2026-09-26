@@ -18,6 +18,46 @@ class TestFacodiTheme(HttpCase):
             load_all_views=True, apply_new_theme=True
         )._theme_load(website)
 
+    def test_permanent_editorial_redirects_are_native_301(self):
+        website = self.env["website"].get_current_website()
+        expected = {
+            "/facodi": "/",
+            "/manifesto": "/sobre",
+            "/comunidade": "/sobre",
+            "/parceiros": "/sobre",
+            "/roadmap": "/sobre#how-it-works",
+            "/como-contribuir": "/contribuir/recurso",
+            "/contribuir": "/contribuir/recurso",
+        }
+
+        Rewrite = self.env["website.rewrite"]
+        for url_from, url_to in expected.items():
+            rewrites = Rewrite.search(
+                [
+                    ("website_id", "=", website.id),
+                    ("url_from", "=", url_from),
+                ]
+            )
+            self.assertEqual(len(rewrites), 1, url_from)
+            rewrite = rewrites[0]
+            self.assertTrue(rewrite.active)
+            self.assertEqual(rewrite.redirect_type, "301")
+            self.assertEqual(rewrite.url_to, url_to)
+
+            response = self.url_open(url_from, allow_redirects=False)
+            self.assertEqual(response.status_code, 301, url_from)
+            self.assertURLEqual(response.headers.get("Location"), url_to)
+
+        self.assertFalse(
+            Rewrite.search(
+                [
+                    ("website_id", "=", website.id),
+                    ("url_from", "=", "/roadmaps"),
+                ]
+            ),
+            "curriculum /roadmaps route must remain canonical",
+        )
+
     def test_facodi_snippets_are_registered(self):
         keys = {
             "theme_facodi.s_facodi_hero",
