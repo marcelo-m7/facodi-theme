@@ -25,6 +25,9 @@ jobs:
       - name: FACODI systemic Odoo surface contract
         run: bash tests/test_odoo_surfaces_contract.sh
 
+      - name: FACODI enriched component contract
+        run: bash tests/test_enriched_surfaces_contract.sh
+
       - name: FACODI global shell contract
         run: bash tests/test_global_shell_contract.sh
 
@@ -75,7 +78,7 @@ jobs:
           LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
           git worktree add --detach "$RUNNER_TEMP/facodi-theme-baseline" "$LEGACY_SHA"
           grep -Fq '"version": "19.0.5.0.1"' "$RUNNER_TEMP/facodi-theme-baseline/theme_facodi/__manifest__.py"
-          grep -Fq '"version": "19.0.10.2.0"' theme_facodi/__manifest__.py
+          grep -Fq '"version": "19.0.10.3.0"' theme_facodi/__manifest__.py
 
       - name: Start PostgreSQL 16
         run: |

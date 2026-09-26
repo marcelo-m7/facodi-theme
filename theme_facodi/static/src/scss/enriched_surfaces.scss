@@ -1,0 +1,301 @@
+// Component-level enrichment for FACODI community and learning journeys.
+// This layer adds hierarchy, affordances and empty/filter states on top of
+// standard Odoo mechanics instead of replacing them.
+.facodi-site {
+    // Minha FACODI / Portal: turn native document lists into a student desk.
+    .o_portal_wrap,
+    .o_portal {
+        .o_portal_my_home {
+            background:
+                linear-gradient(color-mix(in srgb, var(--facodi-ink) 6%, transparent) 1px, transparent 1px),
+                linear-gradient(90deg, color-mix(in srgb, var(--facodi-ink) 6%, transparent) 1px, transparent 1px);
+            background-size: 24px 24px;
+            border-radius: var(--facodi-radius-lg);
+            padding-block: clamp(1rem, 3vw, 2rem);
+        }
+
+        .o_portal_docs {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .o_portal_category {
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius);
+            box-shadow: 3px 3px 0 var(--facodi-campus-grid-line);
+            min-height: 5rem;
+            padding: .9rem 1rem;
+            position: relative;
+            transition: transform 160ms ease, box-shadow 160ms ease;
+
+            &::before {
+                background: var(--facodi-marker-yellow);
+                border: 1px solid var(--facodi-ink);
+                border-radius: 999px;
+                content: "";
+                height: .65rem;
+                position: absolute;
+                right: .8rem;
+                top: .8rem;
+                width: .65rem;
+            }
+
+            &:nth-child(3n + 2)::before { background: var(--facodi-marker-cyan); }
+            &:nth-child(3n + 3)::before { background: var(--facodi-marker-mint); }
+
+            &:hover,
+            &:focus-within {
+                box-shadow: 1px 1px 0 var(--facodi-ink);
+                transform: translate(2px, 2px);
+            }
+        }
+    }
+
+    // Authenticated contribution workspace: dashboard summary + workflow cards.
+    [data-facodi-my-submissions="1"] {
+        .facodi-contribution-dashboard {
+            display: grid;
+            gap: .85rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+            margin-bottom: 1.5rem;
+        }
+
+        .facodi-contribution-stat {
+            background: var(--facodi-white);
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius);
+            box-shadow: 3px 3px 0 var(--facodi-campus-grid-line);
+            min-height: 7rem;
+            padding: 1rem;
+
+            strong {
+                display: block;
+                font-size: clamp(1.6rem, 4vw, 2.4rem);
+                line-height: 1;
+                margin-top: .75rem;
+            }
+
+            span {
+                font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+                font-size: .68rem;
+                font-weight: 800;
+                text-transform: uppercase;
+            }
+        }
+
+        [data-facodi-submission-card="1"] {
+            border-left: .45rem solid var(--facodi-marker-cyan);
+            position: relative;
+
+            &[data-facodi-state="accepted"],
+            &[data-facodi-state="resolved"] { border-left-color: var(--facodi-marker-mint); }
+
+            &[data-facodi-state="withdrawn"],
+            &[data-facodi-state="rejected"] { border-left-color: color-mix(in srgb, var(--facodi-ink) 42%, var(--facodi-white)); }
+
+            .facodi-submission-index {
+                color: color-mix(in srgb, var(--facodi-ink) 55%, var(--facodi-white));
+                font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+                font-size: .66rem;
+                font-weight: 800;
+            }
+        }
+    }
+
+    // Community queue: distinguish "shared" from "curated" without hiding it.
+    [data-facodi-community-videos="1"] {
+        .facodi-community-intro {
+            background: color-mix(in srgb, var(--facodi-marker-yellow) 22%, var(--facodi-white));
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius);
+            box-shadow: 3px 3px 0 var(--facodi-ink);
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: auto minmax(0, 1fr);
+            padding: 1rem 1.1rem;
+
+            .fa {
+                align-items: center;
+                background: var(--facodi-marker-yellow);
+                border: 2px solid var(--facodi-ink);
+                border-radius: 50%;
+                display: inline-flex;
+                height: 2.5rem;
+                justify-content: center;
+                width: 2.5rem;
+            }
+        }
+
+        [data-facodi-community-video="1"] {
+            border-top: .35rem solid var(--facodi-marker-yellow);
+            min-height: 15rem;
+
+            &:has(.text-bg-success) { border-top-color: var(--facodi-marker-mint); }
+
+            .card-title {
+                font-size: 1.2rem;
+                line-height: 1.2;
+                text-wrap: balance;
+            }
+        }
+    }
+
+    // Search/filter bars should read as working tools rather than generic cards.
+    :is([data-facodi-community-videos="1"], [data-facodi-my-submissions="1"], .facodi-learning-index) {
+        form[role="search"],
+        .facodi-filter-panel {
+            background:
+                linear-gradient(135deg, color-mix(in srgb, var(--facodi-marker-cyan) 10%, var(--facodi-white)), var(--facodi-white));
+            border: 2px solid var(--facodi-ink);
+            box-shadow: 3px 3px 0 var(--facodi-campus-grid-line);
+            position: relative;
+
+            &::before {
+                background: var(--facodi-marker-cyan);
+                border: 1px solid var(--facodi-ink);
+                content: "";
+                height: .45rem;
+                left: 1rem;
+                position: absolute;
+                top: -.25rem;
+                width: 3rem;
+            }
+        }
+    }
+
+    // Reusable empty state, used by FACODI pages and compatible with Odoo alerts.
+    .facodi-empty-state,
+    [data-facodi-empty-state="1"] {
+        background:
+            radial-gradient(circle at 1.2rem 1.2rem, color-mix(in srgb, var(--facodi-marker-cyan) 30%, transparent) .16rem, transparent .18rem),
+            var(--facodi-white);
+        background-size: 2rem 2rem;
+        border: 2px dashed var(--facodi-ink);
+        border-radius: var(--facodi-radius-lg);
+        color: var(--facodi-ink);
+        padding: clamp(1.5rem, 5vw, 3rem);
+        text-align: center;
+
+        .facodi-empty-icon {
+            align-items: center;
+            background: var(--facodi-marker-yellow);
+            border: 2px solid var(--facodi-ink);
+            border-radius: 50%;
+            display: inline-flex;
+            font-size: 1.25rem;
+            height: 3rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            width: 3rem;
+        }
+
+        h2, h3 { color: var(--facodi-ink-deep); }
+    }
+
+    // Forum: notebook-like discussion rows, clearer voting/reply affordances.
+    :is(.o_wforum_forum, .o_wforum_post, .o_wforum) {
+        .o_wforum_post_content,
+        .o_wforum_post_reply {
+            border-left: .35rem solid var(--facodi-marker-cyan);
+            padding: clamp(1rem, 2.5vw, 1.5rem);
+        }
+
+        .o_wforum_post_reply {
+            border-left-color: var(--facodi-marker-mint);
+            margin-block: .75rem;
+        }
+
+        .o_wforum_sidebar {
+            background:
+                linear-gradient(color-mix(in srgb, var(--facodi-ink) 6%, transparent) 1px, transparent 1px),
+                var(--facodi-paper-warm);
+            background-size: 100% 1.75rem;
+            position: sticky;
+            top: 6rem;
+        }
+
+        :is(.o_wforum_vote_up, .o_wforum_vote_down, .o_wforum_post_reply_link) {
+            border-radius: var(--facodi-radius-sm);
+            min-height: 2.25rem;
+            min-width: 2.25rem;
+        }
+
+        .o_wforum_post_title {
+            color: var(--facodi-ink-deep);
+            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+            text-wrap: balance;
+        }
+    }
+
+    // Courses / curricular-unit cards: stronger learning metadata hierarchy.
+    :is(.o_wslides_course_card, .facodi-static-course-card, [data-facodi-uc-card="1"]) {
+        position: relative;
+
+        &::after {
+            background: var(--facodi-marker-cyan);
+            border: 1px solid var(--facodi-ink);
+            content: "";
+            height: .35rem;
+            left: 1rem;
+            position: absolute;
+            top: -.2rem;
+            width: 3.25rem;
+            z-index: 2;
+        }
+
+        &:nth-child(3n + 2)::after { background: var(--facodi-marker-mint); }
+        &:nth-child(3n + 3)::after { background: var(--facodi-marker-yellow); }
+
+        .card-title,
+        h2, h3 {
+            color: var(--facodi-ink-deep);
+            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+            text-wrap: balance;
+        }
+
+        .progress {
+            height: .75rem;
+            margin-top: .75rem;
+        }
+    }
+
+    .facodi-learning-meta {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .4rem;
+        margin-top: auto;
+
+        > span,
+        > a {
+            background: var(--facodi-paper-warm);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 50%, transparent);
+            border-radius: 999px;
+            color: var(--facodi-ink);
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .65rem;
+            font-weight: 800;
+            padding: .35rem .55rem;
+            text-decoration: none;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site {
+        :is(.o_wforum_forum, .o_wforum_post, .o_wforum) .o_wforum_sidebar {
+            position: static;
+        }
+
+        [data-facodi-community-videos="1"] .facodi-community-intro {
+            grid-template-columns: minmax(0, 1fr);
+
+            .fa { margin-bottom: .25rem; }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .o_portal_category { transition: none; }
+    .facodi-site .o_portal_category:hover { transform: none; }
+}
