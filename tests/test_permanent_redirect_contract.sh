@@ -13,7 +13,7 @@ MIGRATION="theme_facodi/migrations/19.0.10.1.0/post-10-permanent-editorial-redir
 [[ -f "$MIGRATION" ]] || fail "permanent redirect migration missing"
 
 grep -Fq '"data/website_rewrites.xml"' theme_facodi/__manifest__.py   || fail "redirect data must be loaded by manifest"
-grep -Fq '"version": "19.0.10.10.0"' theme_facodi/__manifest__.py   || fail "permanent redirect release version missing"
+grep -Fq '"version": "19.0.10.11.0"' theme_facodi/__manifest__.py   || fail "permanent redirect release version missing"
 
 for mapping in   '/facodi|/'   '/manifesto|/sobre'   '/comunidade|/sobre'   '/parceiros|/sobre'   '/roadmap|/sobre#how-it-works'   '/como-contribuir|/contribuir/recurso'   '/contribuir|/contribuir/recurso'; do
   from="${mapping%%|*}"
