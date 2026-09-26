@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="redirect_legacy_facodi_home" model="website.rewrite">
+        <field name="name">FACODI legacy homepage</field>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="url_from">/facodi</field>
+        <field name="url_to">/</field>
+        <field name="redirect_type">301</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="redirect_legacy_manifesto" model="website.rewrite">
+        <field name="name">FACODI legacy manifesto</field>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="url_from">/manifesto</field>
+        <field name="url_to">/sobre</field>
+        <field name="redirect_type">301</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="redirect_legacy_community" model="website.rewrite">
+        <field name="name">FACODI legacy community</field>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="url_from">/comunidade</field>
+        <field name="url_to">/sobre</field>
+        <field name="redirect_type">301</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="redirect_legacy_partners" model="website.rewrite">
+        <field name="name">FACODI legacy partners</field>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="url_from">/parceiros</field>
+        <field name="url_to">/sobre</field>
+        <field name="redirect_type">301</field>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="redirect_legacy_project_roadmap" model="website.rewrite">
+        <field name="name">FACODI legacy project roadmap</field>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="url_from">/roadmap</field>
+        <field name="url_to">/sobre#how-it-works</field>
+        <field name="redirect_type">301</field>
+        <field name="sequence">50</field>
+    </record>
+
+    <record id="redirect_legacy_how_to_contribute" model="website.rewrite">
+        <field name="name">FACODI legacy how to contribute</field>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="url_from">/como-contribuir</field>
+        <field name="url_to">/contribuir/recurso</field>
+        <field name="redirect_type">301</field>
+        <field name="sequence">60</field>
+    </record>
+
+    <record id="redirect_legacy_contribution" model="website.rewrite">
+        <field name="name">FACODI legacy contribution</field>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="url_from">/contribuir</field>
+        <field name="url_to">/contribuir/recurso</field>
+        <field name="redirect_type">301</field>
+        <field name="sequence">70</field>
+    </record>
+</odoo>
