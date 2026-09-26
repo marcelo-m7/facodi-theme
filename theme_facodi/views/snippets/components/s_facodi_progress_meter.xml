@@ -6,19 +6,20 @@
                  data-name="FACODI Progress Meter">
             <div class="facodi-progress-meter-heading">
                 <div>
-                    <p class="facodi-label">Learning progress</p>
-                    <h3>68% of this study plan completed</h3>
+                    <p class="facodi-label">Study tracker layout</p>
+                    <h3>Editable progress presentation</h3>
                 </div>
-                <strong>68%</strong>
+                <strong>Set value</strong>
             </div>
-            <div class="facodi-progress-track" role="progressbar" aria-label="Learning progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68">
-                <span style="width: 68%"/>
+            <div class="facodi-progress-track" aria-hidden="true">
+                <span/>
             </div>
             <div class="facodi-progress-metrics">
-                <div><strong>12</strong><span>study notes</span></div>
-                <div><strong>4</strong><span>completed modules</span></div>
-                <div><strong>3</strong><span>community contributions</span></div>
+                <div><strong>—</strong><span>Milestone label</span></div>
+                <div><strong>—</strong><span>Activity label</span></div>
+                <div><strong>—</strong><span>Contribution label</span></div>
             </div>
+            <p class="facodi-notebook-caption">This is static Website Builder content. Add percentages or counts only when they come from a real published source.</p>
         </article>
     </template>
 </odoo>
