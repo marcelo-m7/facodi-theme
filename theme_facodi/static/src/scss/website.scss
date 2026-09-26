@@ -196,6 +196,55 @@
             }
         }
 
+
+        .facodi-footer-language {
+            align-content: start;
+        }
+
+        .facodi-footer-language-selector {
+            min-width: 0;
+
+            .facodi-footer-language-button {
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, .5);
+                color: var(--facodi-white);
+                justify-content: space-between;
+                min-height: 2.75rem;
+                min-width: 8rem;
+                padding: .55rem .75rem;
+                width: 100%;
+
+                &:hover,
+                &:focus-visible,
+                &[aria-expanded="true"] {
+                    background: rgba(255, 255, 255, .08);
+                    border-color: var(--facodi-sun);
+                    box-shadow: var(--facodi-focus-ring);
+                    color: var(--facodi-white);
+                    outline: 0;
+                }
+            }
+
+            .facodi-footer-language-menu {
+                background: #0B1325;
+                border: 1px solid rgba(255, 255, 255, .35);
+                box-shadow: .35rem .35rem 0 rgba(0, 0, 0, .35);
+                min-width: 100%;
+
+                .dropdown-item {
+                    color: var(--facodi-white);
+                    overflow-wrap: anywhere;
+
+                    &:hover,
+                    &:focus-visible,
+                    &.active {
+                        background: var(--facodi-sun);
+                        color: var(--facodi-ink);
+                    }
+                }
+            }
+        }
+
         .facodi-footer-meta {
             font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
             font-size: .65rem;
