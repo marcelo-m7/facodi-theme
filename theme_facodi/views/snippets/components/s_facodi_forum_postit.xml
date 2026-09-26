@@ -6,15 +6,15 @@
                  data-name="FACODI Community Post-it">
             <span class="facodi-forum-pin" aria-hidden="true"/>
             <div class="facodi-forum-postit-meta">
-                <span class="facodi-label">UC-101</span>
-                <span>Question</span>
+                <span class="facodi-label">Community note</span>
+                <span>Editorial prompt</span>
             </div>
-            <h3>How would you explain this idea without relying on trial and error?</h3>
-            <p>Turn a question, peer note, study-group invitation, or shared summary into a reusable community board card.</p>
-            <pre><code># Optional example or short excerpt</code></pre>
+            <h3>Add a discussion prompt, study-group invitation, or shared summary.</h3>
+            <p>This is an editable Website Builder card. It does not create a forum, private thread, or persistent discussion record.</p>
+            <pre><code># Optional static example or short excerpt</code></pre>
             <footer>
-                <span>Community notebook</span>
-                <a href="/contactus" class="facodi-text-link">Continue the conversation</a>
+                <span>Website Builder card</span>
+                <a href="/contactus" class="facodi-text-link">Contact FACODI</a>
             </footer>
         </article>
     </template>
