@@ -244,13 +244,39 @@ journey without changing learning-domain ownership.
   one column without page-level overflow at 320 px; the final geometry gate is
   repeated in the integrated `facodi-deploy` browser run before promotion.
 
+## D2 editorial and public pages
+
+Release `19.0.9.0.0` extends Campus Paper into FACODI's public editorial
+surfaces while preserving Odoo Website as the content owner.
+
+- Eight reusable Website Builder components cover project stories, principles,
+  process timelines, contribution boards, bulletin headers, editorial quotes,
+  contact framing and policy documents.
+- About, How, Contribution, Manifesto and Partners page-picker compositions
+  reuse those components without importing fixed `website.page` records.
+- Native `website_blog` remains authoritative for blog posts, routes, tags,
+  authors, dates, pagination and editor-selected covers; the theme provides the
+  Campus Bulletin presentation only.
+- Native `website.contactus` remains authoritative for the Contact form. D2
+  preserves the single `#contactus_form`, `/website/form/` action and native
+  Website validation/submission behavior.
+- Legal/policy copy remains editor-owned. The theme supplies only a restrained
+  readable shell with long-URL, code, table and responsive-media containment.
+- D2 intentionally does not invent contact details, project metrics, partner
+  claims, testimonials, subscriber counts or legal wording.
+- All new source copy uses native Odoo POT/PT/ES/FR catalogues. Website Builder
+  page content and translations remain database-owned across theme upgrades.
+- Final production promotion is preceded by a disposable browser gate that
+  fails on page-level horizontal overflow at 320 px.
+
 ## Runtime dependencies
 
 The module depends only on:
 
 - `theme_common`, from the pinned Odoo 19-compatible
   `odoo/design-themes@a1818df4ade65406c0cacae8b1ea676e6f70095f` checkout;
-- `website_slides`, supplied by Odoo Community.
+- `website_slides`, supplied by Odoo Community;
+- `website_blog`, supplied by Odoo Community.
 
 There is no dependency on Odoo Enterprise or on a FACODI business addon.
 
@@ -292,6 +318,9 @@ bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
 bash tests/test_curriculum_style_contract.sh
 bash tests/test_learning_interfaces_contract.sh
+bash tests/test_editorial_interfaces_contract.sh
+bash tests/test_blog_contract.sh
+bash tests/test_public_pages_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
 bash tests/test_mobile_interaction_contract.sh
