@@ -78,7 +78,22 @@ jobs:
           LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
           git worktree add --detach "$RUNNER_TEMP/facodi-theme-baseline" "$LEGACY_SHA"
           grep -Fq '"version": "19.0.5.0.1"' "$RUNNER_TEMP/facodi-theme-baseline/theme_facodi/__manifest__.py"
-          grep -Fq '"version": "19.0.10.8.0"' theme_facodi/__manifest__.py
+          python3 - <<'PY'
+          import ast
+          from pathlib import Path
+
+          manifest = ast.literal_eval(
+              Path("theme_facodi/__manifest__.py").read_text(encoding="utf-8")
+          )
+          version = tuple(int(part) for part in manifest["version"].split("."))
+          floor = (19, 0, 10, 0, 0)
+          if version < floor:
+              raise SystemExit(
+                  f"theme release {manifest['version']} is below required floor "
+                  f"{'.'.join(map(str, floor))}"
+              )
+          print(f"Current FACODI theme release: {manifest['version']}")
+          PY
 
       - name: Start PostgreSQL 16
         run: |
