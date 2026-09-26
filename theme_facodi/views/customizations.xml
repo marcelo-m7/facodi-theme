@@ -12,6 +12,13 @@
         </xpath>
     </template>
 
+    <!-- Persist the native Odoo Website option as the source of truth.
+         The custom footer keeps the same no_copyright variable as a defensive
+         fallback for legacy Website-specific copies. -->
+    <record id="website.footer_no_copyright" model="ir.ui.view">
+        <field name="active" eval="True"/>
+    </record>
+
     <template id="facodi_footer" inherit_id="website.layout" name="FACODI Footer">
         <!-- Odoo renders its copyright/brand-promotion strip outside #footer.
              FACODI already owns copyright/attribution in the custom footer, so
