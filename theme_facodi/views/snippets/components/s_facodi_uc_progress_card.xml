@@ -6,17 +6,17 @@
                  data-name="FACODI Curricular Unit Progress Card">
             <span class="facodi-paper-card-stripe facodi-paper-card-stripe-cyan" aria-hidden="true"/>
             <header>
-                <span class="facodi-label">UC-101</span>
-                <span class="facodi-uc-status">In progress</span>
+                <span class="facodi-label">Unit code</span>
+                <span class="facodi-uc-status">Study status</span>
             </header>
-            <h3>Algorithms and Critical Thinking</h3>
-            <p>Keep an editable summary of the curricular unit, current topic, or next learning milestone.</p>
-            <div class="facodi-progress-track" role="progressbar" aria-label="Curricular unit progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72">
-                <span style="width: 72%"/>
+            <h3>Curricular unit title</h3>
+            <p>Use this static Website Builder card to introduce a curricular unit or learning milestone without implying tracked progress.</p>
+            <div class="facodi-progress-track" aria-hidden="true">
+                <span/>
             </div>
             <footer>
-                <span>72% complete</span>
-                <a href="/slides" class="facodi-text-link">Continue studying <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                <span>Add real progress only when a trusted source provides it</span>
+                <a href="/unidades-curriculares" class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
             </footer>
         </article>
     </template>
