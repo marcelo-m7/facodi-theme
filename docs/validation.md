@@ -86,6 +86,37 @@ does not claim pixel-perfect browser inspection. The integrated Roadmap/UC and
 viewport screenshot gate is therefore repeated in Phase C on the disposable
 deployment runtime before any production promotion.
 
+## D2 editorial/public regression matrix
+
+Release `19.0.9.0.0` adds the Stitch-informed editorial layer without moving
+editorial truth out of Odoo Website.
+
+Theme-side evidence covers:
+
+- eight reusable D2 Website Builder components and their native registry;
+- About/How/Contribution/Manifesto/Partners page-picker compositions without
+  fixed `website.page` imports;
+- a persisted editor-owned D2 page surviving a second theme upgrade unchanged;
+- native Blog index/article/card/prose hooks with sparse/rich post fixtures and
+  custom cover preservation;
+- native Contact rendering with exactly one `#contactus_form`, unchanged
+  `/website/form/` action, native fields and submit control;
+- policy long-form containment for URLs, code, tables and responsive media;
+- complete POT/PT/ES/FR D2 view occurrences;
+- phone single-column layouts, focus visibility and reduced-motion handling;
+- clean legacy install, upgrade to `19.0.9.0.0`, frontend asset compilation
+  and Odoo HttpCase regressions.
+
+Disposable deployment acceptance must additionally exercise About,
+Contribution, Blog index, rich/sparse articles, Contact and a policy fixture at
+desktop/mobile widths, with the hard condition
+`document.documentElement.scrollWidth <= window.innerWidth + 1` at 320 px.
+
+Production Website recomposition is deliberately separate from module upgrade:
+the current live page arch is read/backed up first, then meaningful existing
+content is mapped into D2 components only after the new theme code is healthy.
+Legal paragraphs, dates and obligations are never rewritten by the theme.
+
 ## D1 learning interfaces regression matrix
 
 Release `19.0.8.0.0` adds the Stitch-informed academic filing-cabinet layer
@@ -166,6 +197,9 @@ bash tests/test_homepage_dashboard_contract.sh
 bash tests/test_foundation_v2_contract.sh
 bash tests/test_curriculum_style_contract.sh
 bash tests/test_learning_interfaces_contract.sh
+bash tests/test_editorial_interfaces_contract.sh
+bash tests/test_blog_contract.sh
+bash tests/test_public_pages_contract.sh
 bash tests/test_i18n_contract.sh
 bash tests/test_elearning_catalog_style_contract.sh
 bash tests/test_mobile_interaction_contract.sh
