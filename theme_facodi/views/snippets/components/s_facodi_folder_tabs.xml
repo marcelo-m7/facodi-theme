@@ -5,9 +5,9 @@
              data-snippet="s_facodi_folder_tabs"
              data-name="FACODI Folder Tabs"
              aria-label="Learning sections">
-            <a class="is-active" href="/slides"><span class="facodi-tab-dot facodi-tab-dot-yellow" aria-hidden="true"/>Courses</a>
+            <a class="is-active" href="/courses"><span class="facodi-tab-dot facodi-tab-dot-yellow" aria-hidden="true"/>Courses</a>
             <a href="/roadmaps"><span class="facodi-tab-dot facodi-tab-dot-cyan" aria-hidden="true"/>Roadmaps</a>
-            <a href="/unidades-curriculares"><span class="facodi-tab-dot facodi-tab-dot-mint" aria-hidden="true"/>Curricular Units</a>
+            <a href="/curricular-units"><span class="facodi-tab-dot facodi-tab-dot-mint" aria-hidden="true"/>Curricular Units</a>
             <a href="/contribuir/recurso"><span class="facodi-tab-dot facodi-tab-dot-pink" aria-hidden="true"/>Contribute</a>
         </nav>
     </template>
