@@ -6,7 +6,7 @@
             <div class="container facodi-editorial-routes">
                 <h2>Keep exploring.</h2>
                 <nav class="facodi-editorial-routes-list" aria-label="FACODI editorial destinations">
-                    <a href="/slides" class="facodi-sheet facodi-editorial-route-card">
+                    <a href="/courses" class="facodi-sheet facodi-editorial-route-card">
                         <strong>Course catalogue</strong>
                         <span>Browse published courses and learning resources.</span>
                     </a>
