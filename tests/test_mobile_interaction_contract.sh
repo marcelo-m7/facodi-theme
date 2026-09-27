@@ -160,3 +160,10 @@ PY
 
 grep -Fq 'website_slides_forum adds a third native tab' theme_facodi/static/src/scss/website_slides.scss \
   || fail "course/forum tab strip must contain horizontal overflow"
+
+grep -Fq 'website.placeholder_header_language_selector' theme_facodi/views/header.xml \
+  || fail "desktop FACODI header must render Odoo's native language selector"
+grep -Fq 'facodi-language-selector' theme_facodi/views/header.xml \
+  || fail "FACODI language selector hook missing"
+grep -Fq '.facodi-language-selector' theme_facodi/static/src/scss/website.scss \
+  || fail "FACODI language selector styling missing"
