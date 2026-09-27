@@ -11,15 +11,15 @@
                         <h2>A good discovery deserves company.</h2>
                         <p>Found a resource that made something click? Leave a useful trail for the next learner.</p>
                         <div class="facodi-actions">
-                            <a href="/contribuir/recurso" class="btn facodi-button facodi-button-primary">Suggest a resource</a>
-                            <a href="/contactus" class="btn facodi-button facodi-button-secondary">Collaborate with FACODI</a>
+                            <a href="/submissions/new?type=resource&amp;source=community_resource_cta&amp;section=community" class="btn facodi-button facodi-button-primary">Suggest a resource</a>
+                            <a href="/submissions/new?type=contact&amp;source=community_collaboration_cta&amp;section=community" class="btn facodi-button facodi-button-secondary">Collaborate with FACODI</a>
                         </div>
                     </article>
                     <article class="facodi-sheet facodi-community-card">
                         <p class="facodi-label">Open editing</p>
                         <h2>Help make the learning trail clearer.</h2>
                         <p>Translations, context and better links can make a public resource useful to someone new.</p>
-                        <a href="/contactus" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
+                        <a href="/submissions/new?type=correction&amp;source=translation_correction_cta&amp;section=translation" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
                     </article>
                 </div>
             </div>
