@@ -1007,7 +1007,7 @@
         }
     }
 
-    > .d-flex:last-child .btn-primary {
+    form > .d-flex:last-child .btn-primary {
         box-shadow: 3px 3px 0 var(--facodi-highlight-lime);
         font-weight: 800;
     }
@@ -1032,7 +1032,7 @@
             width: 100%;
         }
 
-        > .d-flex:last-child {
+        form > .d-flex:last-child {
             align-items: stretch;
             flex-direction: column;
 
