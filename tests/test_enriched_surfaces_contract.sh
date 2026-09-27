@@ -24,3 +24,10 @@ grep -Fq '.facodi-form-section' theme_facodi/static/src/scss/enriched_surfaces.s
   || fail "contextual submission section styling missing"
 grep -Fq '.facodi-submit-sidebar' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "contextual submission sidebar styling missing"
+
+grep -Fq '.facodi-metadata-preview' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual submission metadata preview styling missing"
+grep -Fq 'var(--facodi-highlight-pink)' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual submission error highlighter missing"
+grep -Fq 'var(--facodi-highlight-orange)' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual submission consent highlighter missing"
