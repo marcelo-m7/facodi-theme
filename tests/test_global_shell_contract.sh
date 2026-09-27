@@ -15,7 +15,7 @@ for anchor in 'facodi-footer-campus' 'facodi-footer-note' 'facodi-footer-links';
   grep -Fq "$anchor" "$FOOTER" || fail "footer Campus Paper hook missing: $anchor"
 done
 
-for selector in   '.facodi-header'   '.facodi-dropdown-menu'   '.o_header_mobile'   '.facodi-footer-campus'   '.facodi-footer-note'   '.facodi-site .form-control'   '.facodi-site .form-select'; do
+for selector in   '.facodi-header'   '.facodi-dropdown-menu'   '.o_header_mobile'   '.o_header_mobile .offcanvas'   '.o_header_mobile .offcanvas .nav-link'   '.facodi-footer-campus'   '.facodi-footer-note'   '.facodi-site .form-control'   '.facodi-site .form-select'; do
   grep -Fq "$selector" "$SCSS" || fail "global Campus Paper selector missing: $selector"
 done
 
