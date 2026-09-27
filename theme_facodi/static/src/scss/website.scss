@@ -146,6 +146,75 @@
         background: var(--facodi-paper-warm);
         border-bottom: var(--facodi-border);
 
+        // The standard Odoo mobile navigation/search drawers used to expose
+        // the default Bootstrap surface. Keep their mechanics native while
+        // making the whole mobile shell unmistakably FACODI.
+        .offcanvas {
+            background:
+                linear-gradient(color-mix(in srgb, var(--facodi-cyan) 8%, transparent) 1px, transparent 1px),
+                linear-gradient(90deg, color-mix(in srgb, var(--facodi-cyan) 8%, transparent) 1px, transparent 1px),
+                var(--facodi-paper-warm);
+            background-size: 24px 24px;
+            border-color: var(--facodi-ink);
+            color: var(--facodi-ink);
+        }
+
+        .offcanvas-header {
+            background: var(--facodi-surface-sheet);
+            border-bottom: 2px solid var(--facodi-ink);
+            min-height: 4rem;
+        }
+
+        .offcanvas-body {
+            padding: 1rem;
+        }
+
+        .offcanvas .navbar-nav,
+        .offcanvas .o_header_mobile_buttons_wrap {
+            gap: .45rem;
+        }
+
+        .offcanvas .nav-link,
+        .offcanvas .dropdown-toggle {
+            background: var(--facodi-surface-sheet);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 38%, transparent);
+            border-radius: var(--facodi-radius-sm);
+            color: var(--facodi-ink);
+            font-weight: 700;
+            min-height: 2.75rem;
+            padding: .65rem .75rem;
+        }
+
+        .offcanvas .nav-link:hover,
+        .offcanvas .nav-link:focus-visible,
+        .offcanvas .nav-link.active,
+        .offcanvas .dropdown-toggle:hover,
+        .offcanvas .dropdown-toggle:focus-visible {
+            background: var(--facodi-sun);
+            border-color: var(--facodi-ink);
+            color: var(--facodi-ink);
+        }
+
+        .offcanvas .dropdown-menu {
+            background: var(--facodi-surface-sheet);
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius);
+            box-shadow: var(--facodi-shadow-hover);
+            margin-top: .35rem;
+        }
+
+        .offcanvas .btn-close {
+            border: 1px solid var(--facodi-ink);
+            border-radius: 50%;
+            opacity: 1;
+        }
+
+        .offcanvas .form-control,
+        .offcanvas .form-select {
+            background: var(--facodi-surface-sheet);
+            border-color: var(--facodi-ink);
+        }
+
         > .o_main_nav > button[data-bs-target="#top_menu_collapse_mobile"] {
             align-items: center;
             border: 1px solid var(--facodi-ink);
