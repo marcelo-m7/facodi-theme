@@ -293,7 +293,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.24.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.25.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
@@ -376,3 +376,14 @@ for page in compositions:
 CHECK
 
 echo "PASS: theme module contract"
+
+# Contextual contribution/contact CTAs must preserve intent for facodi_learning
+# while the native /contactus page remains available independently.
+grep -Fq 'source=ecosystem_contact_cta&amp;section=ecosystem&amp;topic=partnership' theme_facodi/views/snippets/s_facodi_ecosystem.xml \
+  || fail "ecosystem contact CTA must prefill partnership context"
+grep -Fq 'source=institutional_contact_cta&amp;section=institutional&amp;topic=partnership' theme_facodi/views/snippets/s_facodi_institutional.xml \
+  || fail "institutional contact CTA must prefill partnership context"
+grep -Fq 'source=community_collaboration_cta&amp;section=community&amp;topic=collaboration' theme_facodi/views/snippets/s_facodi_community.xml \
+  || fail "community contact CTA must prefill collaboration context"
+grep -Fq 'source=faq_contribution_cta&amp;section=faq&amp;topic=collaboration' theme_facodi/views/snippets/s_facodi_faq.xml \
+  || fail "FAQ contribution CTA must prefill collaboration context"

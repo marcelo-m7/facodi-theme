@@ -12,7 +12,7 @@
                         <p>FACODI connects open learning resources, reviewed academic context and community contribution in a digital campus designed to stay accessible.</p>
                     </div>
                     <div class="facodi-actions">
-                        <a href="/contactus" class="btn facodi-button facodi-button-primary">Meet FACODI</a>
+                        <a href="/submissions/new?type=contact&amp;source=institutional_contact_cta&amp;section=institutional&amp;topic=partnership" class="btn facodi-button facodi-button-primary">Meet FACODI</a>
                         <a href="https://sea-eu.org/" class="btn facodi-button facodi-button-secondary" target="_blank" rel="noopener noreferrer">
                             Explore SEA-EU
                             <i class="fa fa-external-link ms-1" aria-hidden="true" t-translation="off"/>

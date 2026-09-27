@@ -49,12 +49,12 @@
                     </div>
                 </section>
                 <div class="facodi-ecosystem-actions">
-                    <a href="/contribuir/recurso" class="btn facodi-button facodi-button-primary">
+                    <a href="/submissions/new?type=resource&amp;source=ecosystem_resource_cta&amp;section=ecosystem" class="btn facodi-button facodi-button-primary">
                         Contribute to FACODI
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
                     <a href="/courses" class="btn facodi-button facodi-button-secondary">Explore the catalogue</a>
-                    <a href="/contactus" class="btn facodi-button facodi-button-secondary">Contact FACODI</a>
+                    <a href="/submissions/new?type=contact&amp;source=ecosystem_contact_cta&amp;section=ecosystem&amp;topic=partnership" class="btn facodi-button facodi-button-secondary">Contact FACODI</a>
                 </div>
             </div>
         </section>
