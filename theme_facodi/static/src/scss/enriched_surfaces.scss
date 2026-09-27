@@ -894,6 +894,34 @@
 }
 
 .facodi-site [data-facodi-submission-form="1"] {
+    .facodi-submission-type-switcher {
+        padding: 1rem;
+        border: 2px solid var(--facodi-ink);
+        background: var(--facodi-paper-warm);
+        box-shadow: 5px 5px 0 var(--facodi-cyan);
+
+        .btn {
+            border-width: 2px;
+            border-color: var(--facodi-ink);
+            border-radius: var(--facodi-radius-sm);
+            font-weight: 700;
+            box-shadow: 2px 2px 0 var(--facodi-ink);
+        }
+
+        .btn-primary,
+        .btn[aria-current="page"] {
+            background: var(--facodi-lime);
+            color: var(--facodi-ink);
+            border-color: var(--facodi-ink);
+        }
+
+        .btn:hover,
+        .btn:focus-visible {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0 var(--facodi-ink);
+        }
+    }
+
     .facodi-context-card {
         background:
             linear-gradient(90deg, color-mix(in srgb, var(--facodi-highlight-cyan) 14%, transparent) 1px, transparent 1px),
