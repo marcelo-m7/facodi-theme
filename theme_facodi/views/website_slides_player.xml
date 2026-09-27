@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="facodi_slide_fullscreen"
+              inherit_id="website_slides.slide_fullscreen"
+              name="FACODI Study Player Shell">
+        <xpath expr="//div[hasclass('o_wslides_fs_main')]" position="attributes">
+            <attribute name="class" add="facodi-study-player" separator=" "/>
+        </xpath>
+
+        <xpath expr="//div[hasclass('o_wslides_fs_content')]" position="attributes">
+            <attribute name="class" add="facodi-study-player__content" separator=" "/>
+        </xpath>
+
+        <xpath expr="//div[hasclass('o_wslides_fs_sidebar')]" position="attributes">
+            <attribute name="class" add="facodi-study-player__index" separator=" "/>
+            <attribute name="id">facodi-study-index</attribute>
+        </xpath>
+
+        <xpath expr="//a[hasclass('o_wslides_fs_toggle_sidebar')][1]" position="attributes">
+            <attribute name="data-facodi-index-toggle">true</attribute>
+            <attribute name="aria-controls">facodi-study-index</attribute>
+        </xpath>
+
+        <xpath expr="//div[hasclass('o_wslides_fs_sidebar_content')]/ul" position="after">
+            <section class="facodi-study-tools mt-auto pt-3 pb-3"
+                     aria-label="Study tools">
+                <div class="facodi-study-tools__tabs"
+                     role="tablist"
+                     aria-label="Lesson study tools">
+                    <button type="button"
+                            class="facodi-study-tools__tab is-active"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="facodi-study-panel-about"
+                            data-facodi-study-tab="about">
+                        About
+                    </button>
+                    <button type="button"
+                            class="facodi-study-tools__tab"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="facodi-study-panel-resources"
+                            data-facodi-study-tab="resources">
+                        Resources
+                    </button>
+                    <button type="button"
+                            class="facodi-study-tools__tab"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="facodi-study-panel-notes"
+                            data-facodi-study-tab="notes">
+                        Notes
+                    </button>
+                    <button type="button"
+                            class="facodi-study-tools__tab"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="facodi-study-panel-ai"
+                            data-facodi-study-tab="ai">
+                        AI
+                    </button>
+                </div>
+
+                <div class="facodi-study-tools__panels">
+                    <section id="facodi-study-panel-about"
+                             class="facodi-study-tools__panel"
+                             role="tabpanel"
+                             data-facodi-study-panel="about">
+                        <span class="facodi-study-tools__eyebrow">Current lesson</span>
+                        <strong class="d-block" t-out="slide.name"/>
+                        <span class="small" t-out="slide.channel_id.name"/>
+                    </section>
+
+                    <section id="facodi-study-panel-resources"
+                             class="facodi-study-tools__panel"
+                             role="tabpanel"
+                             data-facodi-study-panel="resources">
+                        <span class="facodi-study-tools__eyebrow">Resources</span>
+                        <p class="facodi-study-tools__empty mb-0">
+                            Lesson resources, when available, remain in the native course index above.
+                        </p>
+                    </section>
+
+                    <section id="facodi-study-panel-notes"
+                             class="facodi-study-tools__panel"
+                             role="tabpanel"
+                             data-facodi-study-panel="notes">
+                        <span class="facodi-study-tools__eyebrow">Notebook</span>
+                        <p class="mb-0">Personal notes are not saved in this release.</p>
+                    </section>
+
+                    <section id="facodi-study-panel-ai"
+                             class="facodi-study-tools__panel"
+                             role="tabpanel"
+                             data-facodi-study-panel="ai">
+                        <span class="facodi-study-tools__eyebrow">Study assistant</span>
+                        <div class="facodi-study-tools__ai-actions"
+                             aria-label="AI tools coming soon">
+                            <button type="button"
+                                    disabled="disabled"
+                                    aria-disabled="true"
+                                    data-facodi-ai-action="summarize">
+                                Summarize lesson
+                            </button>
+                            <button type="button"
+                                    disabled="disabled"
+                                    aria-disabled="true"
+                                    data-facodi-ai-action="flashcards">
+                                Generate flashcards
+                            </button>
+                            <button type="button"
+                                    disabled="disabled"
+                                    aria-disabled="true"
+                                    data-facodi-ai-action="explain">
+                                Explain concept
+                            </button>
+                            <button type="button"
+                                    disabled="disabled"
+                                    aria-disabled="true"
+                                    data-facodi-ai-action="quiz">
+                                Generate quiz
+                            </button>
+                        </div>
+                        <p class="small mb-0">AI study tools are coming soon.</p>
+                    </section>
+                </div>
+            </section>
+        </xpath>
+    </template>
+</odoo>
