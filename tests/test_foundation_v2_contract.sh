@@ -63,8 +63,10 @@ grep -Fq 'data-snippet="s_facodi_ecosystem"' "$ECOSYSTEM" \
 for label in 'Open resources' 'Community learning' 'University network'; do
   grep -Fq "$label" "$ECOSYSTEM" || fail "ecosystem source is missing: $label"
 done
-grep -Fq 'href="/contactus"' "$ECOSYSTEM" \
-  || fail "ecosystem contribution action must use standard contact page"
+grep -Fq 'source=ecosystem_contact_cta&amp;section=ecosystem&amp;topic=partnership' "$ECOSYSTEM" \
+  || fail "ecosystem contact action must preserve contextual partnership intent"
+grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml' \
+  || fail "theme must still expose the native standard contact page"
 
 if grep -Eq 'request\.env|sudo\(\)' "$AREAS" "$ECOSYSTEM"; then
   fail "Foundation v2 editorial snippets must not query business data directly"
