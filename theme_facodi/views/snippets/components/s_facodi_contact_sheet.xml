@@ -6,7 +6,7 @@
                 <p class="facodi-label">Write to the campus</p>
                 <h2>Choose the shortest path to the right conversation.</h2>
                 <p>Use Contact for collaboration, project questions, or general enquiries. If you are suggesting a learning resource, the guided contribution route keeps the review context together.</p>
-                <a class="facodi-text-link" href="/contribuir/recurso">Suggest a resource</a>
+                <a class="facodi-text-link" href="/submissions/new?type=resource&amp;source=contact_sheet_resource_cta&amp;section=contact">Suggest a resource</a>
             </div>
             <div class="facodi-contact-sheet__form-slot">
                 <p class="facodi-label">Contact form area</p>
