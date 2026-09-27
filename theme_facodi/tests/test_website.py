@@ -352,6 +352,22 @@ class TestFacodiTheme(HttpCase):
             homepage.with_context(lang="en_US").website_meta_description,
         )
 
+    def test_header_exposes_native_language_selector(self):
+        from lxml import html
+
+        website = self.env["website"].get_current_website()
+        lang_pt = self.env["res.lang"]._activate_lang("pt_PT")
+        website.language_ids = self.env.ref("base.lang_en") + lang_pt
+
+        tree = html.fromstring(self.url_open("/").text)
+        selector = tree.xpath(
+            "//*[@data-name='Language Selector' and contains(@class, 'o_header_language_selector')]"
+        )
+        self.assertTrue(selector)
+        self.assertTrue(
+            tree.xpath("//*[contains(@class, 'js_language_selector')]")
+        )
+
     def test_campus_paper_shell_keeps_native_header_footer_and_forms(self):
         from lxml import html
 
