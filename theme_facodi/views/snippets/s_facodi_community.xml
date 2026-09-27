@@ -12,7 +12,7 @@
                         <p>Found a resource that made something click? Leave a useful trail for the next learner.</p>
                         <div class="facodi-actions">
                             <a href="/submissions/new?type=resource&amp;source=community_resource_cta&amp;section=community" class="btn facodi-button facodi-button-primary">Suggest a resource</a>
-                            <a href="/submissions/new?type=contact&amp;source=community_collaboration_cta&amp;section=community" class="btn facodi-button facodi-button-secondary">Collaborate with FACODI</a>
+                            <a href="/submissions/new?type=contact&amp;source=community_collaboration_cta&amp;section=community&amp;topic=collaboration" class="btn facodi-button facodi-button-secondary">Collaborate with FACODI</a>
                         </div>
                     </article>
                     <article class="facodi-sheet facodi-community-card">
