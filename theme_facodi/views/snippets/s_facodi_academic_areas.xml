@@ -32,21 +32,21 @@
                         <p class="facodi-kicker">Area 02</p>
                         <h3>Mathematics &amp; Data</h3>
                         <p>Mathematical reasoning, statistics, data analysis and quantitative problem solving.</p>
-                        <a href="/unidades-curriculares">Explore curricular units <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
+                        <a href="/curricular-units">Explore curricular units <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
                     </article>
                     <article class="facodi-area-card facodi-sun">
                         <div class="facodi-area-icon"><i class="fa fa-briefcase" aria-hidden="true" t-translation="off"/></div>
                         <p class="facodi-kicker">Area 03</p>
                         <h3>Business &amp; Society</h3>
                         <p>Organisations, entrepreneurship, economics and the social contexts that shape decisions.</p>
-                        <a href="/slides">Explore courses <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
+                        <a href="/courses">Explore courses <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
                     </article>
                     <article class="facodi-area-card facodi-paper">
                         <div class="facodi-area-icon"><i class="fa fa-comments" aria-hidden="true" t-translation="off"/></div>
                         <p class="facodi-kicker">Area 04</p>
                         <h3>Languages &amp; Culture</h3>
                         <p>Communication, languages and cultural perspectives for learning across communities.</p>
-                        <a href="/slides">Explore courses <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
+                        <a href="/courses">Explore courses <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
                     </article>
                 </div>
             </div>
