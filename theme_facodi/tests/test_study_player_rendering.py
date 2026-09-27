@@ -110,3 +110,34 @@ class TestFacodiStudyPlayerRendering(HttpCase):
                 action.get("disabled") is not None
                 or action.get("aria-disabled") == "true"
             )
+
+
+    def test_study_player_contribution_actions_preserve_course_and_lesson_context(self):
+        channel, slide = self._course_and_slide(
+            "FACODI Contextual Contributions",
+            "Contextual lesson",
+        )
+        tree = self._fullscreen_tree(slide)
+
+        resource = tree.xpath(
+            "//a[@data-facodi-study-contribution='resource']/@href"
+        )
+        correction = tree.xpath(
+            "//a[@data-facodi-study-contribution='correction']/@href"
+        )
+        self.assertEqual(len(resource), 1)
+        self.assertEqual(len(correction), 1)
+
+        resource_href = resource[0]
+        self.assertIn("/submissions/new?type=resource", resource_href)
+        self.assertIn(f"course_id={channel.id}", resource_href)
+        self.assertIn(f"slide_id={slide.id}", resource_href)
+        self.assertIn("source=study_player_resource_cta", resource_href)
+        self.assertIn("section=lesson", resource_href)
+
+        correction_href = correction[0]
+        self.assertIn("/submissions/new?type=correction", correction_href)
+        self.assertIn(f"course_id={channel.id}", correction_href)
+        self.assertIn(f"slide_id={slide.id}", correction_href)
+        self.assertIn("source=study_player_correction_cta", correction_href)
+        self.assertIn("section=lesson", correction_href)
