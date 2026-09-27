@@ -199,6 +199,8 @@ fi
 
 grep -Fq "'facodi'" theme_facodi/static/src/scss/primary_variables.scss || fail "FACODI palette missing"
 grep -Fq 'web.assets_frontend' theme_facodi/__manifest__.py || fail "frontend asset bundle missing"
+grep -Fq 'form > .d-flex:last-child' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual submission action row must be styled through its form parent"
 grep -Fq 'web._assets_frontend_helpers' theme_facodi/data/ir_asset.xml || fail "bootstrap overrides must use frontend helpers"
 
 grep -Fq 'facodi-footer' theme_facodi/views/customizations.xml || fail "live FACODI footer missing"
