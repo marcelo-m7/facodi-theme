@@ -185,3 +185,30 @@ class TestFacodiStudyPlayerRendering(HttpCase):
                 f"//a[contains(@href, '/slides/{channel.id}') or contains(@href, '-{channel.id}')]"
             )
         )
+
+
+    def test_study_player_controls_have_complete_aria_relationships(self):
+        _, slide = self._course_and_slide(
+            "FACODI Accessible Study Player",
+            "Accessible lesson",
+        )
+        tree = self._fullscreen_tree(slide)
+
+        toggles = tree.xpath(
+            "//a[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_fs_toggle_sidebar ')]"
+        )
+        self.assertGreaterEqual(len(toggles), 2)
+        for toggle in toggles:
+            self.assertEqual(toggle.get("aria-controls"), "facodi-study-index")
+            self.assertIn(toggle.get("aria-expanded"), {"true", "false"})
+
+        tabs = tree.xpath("//*[@data-facodi-study-tab]")
+        self.assertEqual(len(tabs), 4)
+        for tab in tabs:
+            tab_id = tab.get("id")
+            panel_id = tab.get("aria-controls")
+            self.assertTrue(tab_id)
+            self.assertTrue(panel_id)
+            panels = tree.xpath(f"//*[@id='{panel_id}']")
+            self.assertEqual(len(panels), 1)
+            self.assertEqual(panels[0].get("aria-labelledby"), tab_id)
