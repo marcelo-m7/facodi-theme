@@ -10,3 +10,8 @@ for selector in '.o_portal_my_home' '.facodi-contribution-dashboard' '[data-faco
 done
 grep -Fq 'prefers-reduced-motion: reduce' "$SCSS" || fail "reduced motion missing"
 echo "PASS: enriched FACODI component contract"
+
+grep -Fq '.facodi-filter-chip__remove' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "removable Explore chip affordance missing"
+grep -Fq '.facodi-filter-chip:hover' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "removable Explore chip hover/focus treatment missing"
