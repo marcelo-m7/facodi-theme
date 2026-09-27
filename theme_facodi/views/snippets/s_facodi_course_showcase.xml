@@ -18,8 +18,8 @@
                         </div>
                         <nav class="facodi-catalogue-tabs" aria-label="Learning catalogue">
                             <a href="/roadmaps">Roadmaps</a>
-                            <a href="/unidades-curriculares">Curricular Units</a>
-                            <a href="/slides" class="is-active">Courses</a>
+                            <a href="/curricular-units">Curricular Units</a>
+                            <a href="/courses" class="is-active">Courses</a>
                             <a href="/contribuir/recurso">Contribute</a>
                         </nav>
                     </div>
@@ -39,7 +39,7 @@
                             <h3>Explore the available courses</h3>
                             <p>Open the catalogue and choose the next topic in your learning journey.</p>
                         </div>
-                        <a class="btn facodi-button facodi-button-primary" href="/slides">
+                        <a class="btn facodi-button facodi-button-primary" href="/courses">
                             View catalogue
                             <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                         </a>
