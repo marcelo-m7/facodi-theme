@@ -12,14 +12,18 @@
         </xpath>
     </template>
 
-    <template id="facodi_footer" inherit_id="website.layout" name="FACODI Footer">
-        <!-- Odoo renders its copyright/brand-promotion strip outside #footer.
-             FACODI already owns copyright/attribution in the custom footer, so
-             suppress the duplicate Odoo strip using the same flag as Odoo's
-             native "Footer No Copyright" option. -->
+    <!-- Keep copyright suppression theme-owned so Odoo copies it only to the
+         Website that applies FACODI. The global website.footer_no_copyright
+         customization remains untouched for other Websites/themes. -->
+    <template id="facodi_footer_no_copyright"
+              inherit_id="website.layout"
+              name="FACODI Footer No Copyright">
         <xpath expr="//div[hasclass('o_footer_copyright')]" position="before">
             <t t-set="no_copyright" t-value="True"/>
         </xpath>
+    </template>
+
+    <template id="facodi_footer" inherit_id="website.layout" name="FACODI Footer">
         <xpath expr="//div[@id='footer']" position="replace">
             <div id="footer" class="facodi-footer facodi-footer-campus" data-name="FACODI Footer" t-if="not no_footer">
                 <div class="container-fluid facodi-footer-inner">
