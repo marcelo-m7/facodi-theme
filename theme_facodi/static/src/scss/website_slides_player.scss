@@ -307,7 +307,8 @@ body.o_wslides_body .facodi-site {
         }
 
         .facodi-study-player__index {
-            max-width: min(90vw, 23rem);
+            width: 90vw;
+            max-width: 23rem;
             border-radius: 0 var(--facodi-radius) var(--facodi-radius) 0;
             box-shadow: 4px 0 0 var(--facodi-ink);
         }
