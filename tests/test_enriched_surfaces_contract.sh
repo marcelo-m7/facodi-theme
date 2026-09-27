@@ -15,3 +15,12 @@ grep -Fq '.facodi-filter-chip__remove' theme_facodi/static/src/scss/enriched_sur
   || fail "removable Explore chip affordance missing"
 grep -Fq '.facodi-filter-chip:hover' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "removable Explore chip hover/focus treatment missing"
+
+grep -Fq '[data-facodi-submission-form="1"]' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual submission surface styling missing"
+grep -Fq '.facodi-context-card' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual submission context card styling missing"
+grep -Fq '.facodi-form-section' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual submission section styling missing"
+grep -Fq '.facodi-submit-sidebar' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual submission sidebar styling missing"
