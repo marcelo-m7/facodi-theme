@@ -151,6 +151,11 @@
                        data-facodi-study-contribution="correction">
                         Report a problem
                     </a>
+                    <a t-att-href="'/submissions/new?type=question&amp;course_id=%s&amp;slide_id=%s&amp;source=study_player_question_cta&amp;section=lesson' % (slide.channel_id.id, slide.id)"
+                       class="facodi-button facodi-button-secondary"
+                       data-facodi-study-contribution="question">
+                        Ask FACODI
+                    </a>
                 </div>
             </section>
         </xpath>
