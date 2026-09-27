@@ -130,7 +130,7 @@ body.o_wslides_body .facodi-site {
                 }
             }
 
-            .o_wslides_fs_sidebar_section_slides li {
+            .o_wslides_fs_sidebar_list_item {
                 margin: .3rem .45rem;
                 padding: .55rem .65rem !important;
                 background: var(--facodi-surface-sheet);
@@ -145,19 +145,6 @@ body.o_wslides_body .facodi-site {
                     border-color: var(--facodi-ink);
                 }
 
-                &.active {
-                    background: var(--facodi-sun);
-                    border-color: var(--facodi-ink);
-                    box-shadow: 2px 2px 0 var(--facodi-ink);
-                    color: var(--facodi-ink);
-                    transform: translate(-1px, -1px);
-
-                    &,
-                    a {
-                        color: var(--facodi-ink);
-                    }
-                }
-
                 &[data-completed="true"] {
                     border-left: .35rem solid var(--facodi-mint);
                 }
@@ -169,6 +156,19 @@ body.o_wslides_body .facodi-site {
                 .text-600,
                 .o_wslides_fs_slide_name {
                     color: inherit !important;
+                }
+            }
+
+            .o_wslides_fs_sidebar_list_item.active {
+                background: var(--facodi-sun);
+                border-color: var(--facodi-ink);
+                box-shadow: 2px 2px 0 var(--facodi-ink);
+                color: var(--facodi-ink);
+                transform: translate(-1px, -1px);
+
+                &,
+                a {
+                    color: var(--facodi-ink);
                 }
             }
 
@@ -321,12 +321,12 @@ body.o_wslides_body .facodi-site {
 @media (prefers-reduced-motion: reduce) {
     body.o_wslides_body .facodi-site .facodi-study-player {
         .o_wslides_slide_fs_header > div > a,
-        .facodi-study-player__index .o_wslides_fs_sidebar_section_slides li,
+        .facodi-study-player__index .o_wslides_fs_sidebar_list_item,
         .facodi-study-tools__tab {
             transition: none;
         }
 
-        .facodi-study-player__index .o_wslides_fs_sidebar_section_slides li.active {
+        .facodi-study-player__index .o_wslides_fs_sidebar_list_item.active {
             transform: none;
         }
     }
