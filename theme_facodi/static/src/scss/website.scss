@@ -109,6 +109,30 @@
         .facodi-button {
             white-space: nowrap;
         }
+
+        .facodi-language-selector {
+            flex: 0 0 auto;
+
+            > .dropdown,
+            .js_language_selector {
+                min-width: 0;
+            }
+
+            .dropdown-toggle {
+                border: 1px solid color-mix(in srgb, var(--facodi-ink) 28%, transparent);
+                border-radius: var(--facodi-radius-sm);
+                color: var(--facodi-ink);
+                max-width: 10rem;
+                min-height: 2.25rem;
+                padding: .35rem .6rem !important;
+            }
+
+            .dropdown-menu {
+                max-height: min(70vh, 22rem);
+                min-width: 12rem;
+                overflow-y: auto;
+            }
+        }
     }
 
     .facodi-dropdown-menu {
