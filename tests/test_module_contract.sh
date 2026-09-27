@@ -376,3 +376,14 @@ for page in compositions:
 CHECK
 
 echo "PASS: theme module contract"
+
+# Contextual contribution/contact CTAs must preserve intent for facodi_learning
+# while the native /contactus page remains available independently.
+grep -Fq 'source=ecosystem_contact_cta&amp;section=ecosystem&amp;topic=partnership' theme_facodi/views/snippets/s_facodi_ecosystem.xml \
+  || fail "ecosystem contact CTA must prefill partnership context"
+grep -Fq 'source=institutional_contact_cta&amp;section=institutional&amp;topic=partnership' theme_facodi/views/snippets/s_facodi_institutional.xml \
+  || fail "institutional contact CTA must prefill partnership context"
+grep -Fq 'source=community_collaboration_cta&amp;section=community&amp;topic=collaboration' theme_facodi/views/snippets/s_facodi_community.xml \
+  || fail "community contact CTA must prefill collaboration context"
+grep -Fq 'source=faq_contribution_cta&amp;section=faq&amp;topic=collaboration' theme_facodi/views/snippets/s_facodi_faq.xml \
+  || fail "FAQ contribution CTA must prefill collaboration context"
