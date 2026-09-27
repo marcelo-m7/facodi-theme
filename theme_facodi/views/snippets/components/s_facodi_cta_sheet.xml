@@ -10,7 +10,7 @@
                 <h3>Add another page to the shared learning notebook.</h3>
                 <p>Send a public resource for review. FACODI keeps contribution separate from publication.</p>
             </div>
-            <a class="facodi-button facodi-button-primary" href="/contribuir/recurso">Suggest a resource <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+            <a class="facodi-button facodi-button-primary" href="/submissions/new?type=resource&amp;source=cta_sheet_resource_cta&amp;section=cta-sheet">Suggest a resource <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
         </aside>
     </template>
 </odoo>
