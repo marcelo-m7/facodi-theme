@@ -17,6 +17,14 @@
     --facodi-marker-cyan: #34B6CE;
     --facodi-marker-pink: #FF70A6;
     --facodi-marker-orange: #FFAE33;
+    // Compatibility aliases used by portal/editorial surfaces. Keep these
+    // mapped to the canonical marker palette so every component shares
+    // the same FACODI visual language.
+    --facodi-highlight-lime: var(--facodi-marker-yellow);
+    --facodi-highlight-mint: var(--facodi-marker-mint);
+    --facodi-highlight-cyan: var(--facodi-marker-cyan);
+    --facodi-highlight-pink: var(--facodi-marker-pink);
+    --facodi-highlight-orange: var(--facodi-marker-orange);
     --facodi-campus-paper: #F8FAFC;
     --facodi-campus-grid-line: #E2E8F0;
     --facodi-paper: #F9FAFB;
