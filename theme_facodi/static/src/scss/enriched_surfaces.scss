@@ -628,6 +628,21 @@
         &:nth-of-type(4n) { background: var(--facodi-highlight-pink); }
     }
 
+    .facodi-filter-chip__remove {
+        border-left: 1px solid color-mix(in srgb, var(--facodi-ink) 35%, transparent);
+        display: inline-block;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        margin-left: .35rem;
+        padding-left: .35rem;
+    }
+
+    .facodi-filter-chip:hover,
+    .facodi-filter-chip:focus-visible {
+        box-shadow: 2px 2px 0 var(--facodi-ink);
+        color: var(--facodi-ink);
+        transform: translate(-1px, -1px);
+    }
+
     .facodi-filter-chip--clear {
         background: var(--facodi-white);
         border-style: dashed;
