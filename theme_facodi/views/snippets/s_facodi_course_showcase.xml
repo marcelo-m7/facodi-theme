@@ -20,7 +20,7 @@
                             <a href="/roadmaps">Roadmaps</a>
                             <a href="/curricular-units">Curricular Units</a>
                             <a href="/courses" class="is-active">Courses</a>
-                            <a href="/contribuir/recurso">Contribute</a>
+                            <a href="/submissions/new?type=resource&amp;source=course_showcase_contribute&amp;section=learning-catalogue">Contribute</a>
                         </nav>
                     </div>
 

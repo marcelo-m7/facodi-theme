@@ -969,11 +969,77 @@
         font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
         letter-spacing: .02em;
     }
+
+    .facodi-metadata-preview {
+        background: color-mix(in srgb, var(--facodi-highlight-cyan) 10%, var(--facodi-white));
+        border: 2px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: 3px 3px 0 var(--facodi-highlight-cyan);
+
+        img {
+            aspect-ratio: 16 / 9;
+            border: 1px solid var(--facodi-ink);
+            object-fit: cover;
+        }
+    }
+
+    .alert-danger {
+        background: color-mix(in srgb, var(--facodi-highlight-pink) 18%, var(--facodi-white));
+        border: 2px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: 3px 3px 0 var(--facodi-highlight-pink);
+        color: var(--facodi-ink);
+    }
+
+    .form-check {
+        background: color-mix(in srgb, var(--facodi-highlight-orange) 12%, var(--facodi-white));
+        border-left: .35rem solid var(--facodi-highlight-orange);
+        padding-bottom: .65rem;
+        padding-right: .75rem;
+        padding-top: .65rem;
+
+        .form-check-input {
+            border: 2px solid var(--facodi-ink);
+
+            &:focus {
+                box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--facodi-highlight-orange) 34%, transparent);
+            }
+        }
+    }
+
+    > .d-flex:last-child .btn-primary {
+        box-shadow: 3px 3px 0 var(--facodi-highlight-lime);
+        font-weight: 800;
+    }
 }
 
 @media (max-width: 1199.98px) {
     .facodi-site [data-facodi-submission-form="1"] .facodi-submit-sidebar {
         position: static;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .facodi-site [data-facodi-submission-form="1"] {
+        .facodi-metadata-preview .d-flex {
+            align-items: stretch !important;
+            flex-direction: column;
+        }
+
+        .facodi-metadata-preview img {
+            height: auto;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        > .d-flex:last-child {
+            align-items: stretch;
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
     }
 }
 
