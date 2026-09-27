@@ -203,6 +203,53 @@ The static style contract additionally requires:
 - visible `:focus-visible` rules;
 - `prefers-reduced-motion` handling.
 
+
+## FACODI Study Player Shell validation
+
+Branch `feat/facodi-study-player-shell` adds a presentation-only Study Player
+around Odoo 19's native `website_slides.slide_fullscreen` template.
+
+TDD evidence:
+
+- RED: GitHub Actions run `1235` failed only on
+  `TestFacodiStudyPlayerRendering.test_study_player_contribution_actions_preserve_course_and_lesson_context`
+  with `AssertionError: 0 != 1` before the contextual contribution links
+  existed.
+- GREEN: run `1236` completed successfully after the two real
+  `/submissions/new` contextual links were added.
+- Regression: run `1239` completed successfully after adding explicit
+  Portuguese fullscreen and authenticated completion-surface coverage.
+
+The Study Player automated contract now verifies:
+
+- the native `.o_wslides_fs_content` and lesson-index items remain present;
+- the FACODI root, content and course-index wrappers render around native Odoo
+  structures rather than replacing them;
+- About, Resources, Notes and AI panels render with honest empty/inactive
+  states and no fabricated learner data;
+- AI actions are explicitly inert in this release;
+- resource and correction CTAs preserve real `course_id` and `slide_id`
+  context for the existing `facodi-learning` contextual submission flow;
+- Portuguese fullscreen routing preserves the FACODI shell and native exit
+  control;
+- authenticated fullscreen rendering preserves Odoo's native completion
+  surface;
+- Study Player SCSS reuses Campus Paper tokens, provides mobile behavior,
+  visible keyboard focus and reduced-motion handling;
+- Study Player JavaScript is progressive enhancement only: no Odoo RPC,
+  completion mutation, network `fetch`, Supabase client or interception of
+  native Odoo navigation.
+
+The CI workflow executed all repository source contracts, clean legacy theme
+installation, persisted-state fixtures, two theme upgrades, asset compilation
+and the final Odoo `/theme_facodi` regression suite against PostgreSQL 16 and
+the official Odoo 19 container.
+
+No Supabase migration or Edge Function was changed for this release. No
+`facodi-deploy` feature code was changed; deployment integration remains a
+separate submodule-pointer update after the theme change is merged.
+
+
 ## Runtime boundaries
 
 The catalogue visual resolver is intentionally read-only. It does not write images,
