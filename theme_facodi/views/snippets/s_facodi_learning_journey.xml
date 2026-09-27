@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="facodi-learning-entry-grid">
-                    <a href="/slides" class="facodi-learning-card facodi-learning-card-mint">
+                    <a href="/courses" class="facodi-learning-card facodi-learning-card-mint">
                         <p class="facodi-label">Quick start</p>
                         <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                         <h3>Courses</h3>
@@ -29,7 +29,7 @@
                         <p>Connect topics, courses and study resources around a direction.</p>
                         <div class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
-                    <a href="/unidades-curriculares" class="facodi-learning-card facodi-learning-card-sun">
+                    <a href="/curricular-units" class="facodi-learning-card facodi-learning-card-sun">
                         <p class="facodi-label">Academic context</p>
                         <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
                         <h3>Curricular units</h3>
