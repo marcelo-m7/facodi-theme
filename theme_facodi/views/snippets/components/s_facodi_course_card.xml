@@ -15,7 +15,7 @@
             <p>Use this editable card when the content is editorial rather than connected to a live eLearning record.</p>
             <div class="facodi-static-course-card-footer">
                 <span class="facodi-label">Community learning</span>
-                <a class="facodi-button facodi-button-secondary" href="/slides">View course</a>
+                <a class="facodi-button facodi-button-secondary" href="/courses">View course</a>
             </div>
         </article>
     </template>
