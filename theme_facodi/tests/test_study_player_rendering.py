@@ -124,8 +124,12 @@ class TestFacodiStudyPlayerRendering(HttpCase):
         correction = tree.xpath(
             "//a[@data-facodi-study-contribution='correction']/@href"
         )
+        question = tree.xpath(
+            "//a[@data-facodi-study-contribution='question']/@href"
+        )
         self.assertEqual(len(resource), 1)
         self.assertEqual(len(correction), 1)
+        self.assertEqual(len(question), 1)
 
         resource_href = resource[0]
         self.assertIn("/submissions/new?type=resource", resource_href)
@@ -140,6 +144,13 @@ class TestFacodiStudyPlayerRendering(HttpCase):
         self.assertIn(f"slide_id={slide.id}", correction_href)
         self.assertIn("source=study_player_correction_cta", correction_href)
         self.assertIn("section=lesson", correction_href)
+
+        question_href = question[0]
+        self.assertIn("/submissions/new?type=question", question_href)
+        self.assertIn(f"course_id={channel.id}", question_href)
+        self.assertIn(f"slide_id={slide.id}", question_href)
+        self.assertIn("source=study_player_question_cta", question_href)
+        self.assertIn("section=lesson", question_href)
 
 
     def test_localized_fullscreen_keeps_facodi_and_native_exit_hooks(self):
