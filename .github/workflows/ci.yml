@@ -70,6 +70,9 @@ jobs:
       - name: FACODI study player style contract
         run: bash tests/test_study_player_style_contract.sh
 
+      - name: FACODI study player JavaScript contract
+        run: python3 tests/test_study_player_js_contract.py
+
       - name: Mobile interaction regression contract
         run: bash tests/test_mobile_interaction_contract.sh
 
