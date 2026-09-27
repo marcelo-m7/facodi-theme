@@ -16,9 +16,10 @@
             <attribute name="id">facodi-study-index</attribute>
         </xpath>
 
-        <xpath expr="//a[hasclass('o_wslides_fs_toggle_sidebar')][1]" position="attributes">
+        <xpath expr="//a[hasclass('o_wslides_fs_toggle_sidebar')]" position="attributes">
             <attribute name="data-facodi-index-toggle">true</attribute>
             <attribute name="aria-controls">facodi-study-index</attribute>
+            <attribute name="aria-expanded">false</attribute>
         </xpath>
 
         <xpath expr="//div[hasclass('o_wslides_fs_sidebar_content')]/ul" position="after">
@@ -30,6 +31,7 @@
                     <button type="button"
                             class="facodi-study-tools__tab is-active"
                             role="tab"
+                            id="facodi-study-tab-about"
                             aria-selected="true"
                             aria-controls="facodi-study-panel-about"
                             data-facodi-study-tab="about">
@@ -38,6 +40,7 @@
                     <button type="button"
                             class="facodi-study-tools__tab"
                             role="tab"
+                            id="facodi-study-tab-resources"
                             aria-selected="false"
                             aria-controls="facodi-study-panel-resources"
                             data-facodi-study-tab="resources">
@@ -46,6 +49,7 @@
                     <button type="button"
                             class="facodi-study-tools__tab"
                             role="tab"
+                            id="facodi-study-tab-notes"
                             aria-selected="false"
                             aria-controls="facodi-study-panel-notes"
                             data-facodi-study-tab="notes">
@@ -54,6 +58,7 @@
                     <button type="button"
                             class="facodi-study-tools__tab"
                             role="tab"
+                            id="facodi-study-tab-ai"
                             aria-selected="false"
                             aria-controls="facodi-study-panel-ai"
                             data-facodi-study-tab="ai">
@@ -65,6 +70,7 @@
                     <section id="facodi-study-panel-about"
                              class="facodi-study-tools__panel"
                              role="tabpanel"
+                             aria-labelledby="facodi-study-tab-about"
                              data-facodi-study-panel="about">
                         <span class="facodi-study-tools__eyebrow">Current lesson</span>
                         <strong class="d-block" t-out="slide.name"/>
@@ -74,6 +80,7 @@
                     <section id="facodi-study-panel-resources"
                              class="facodi-study-tools__panel"
                              role="tabpanel"
+                             aria-labelledby="facodi-study-tab-resources"
                              data-facodi-study-panel="resources">
                         <span class="facodi-study-tools__eyebrow">Resources</span>
                         <p class="facodi-study-tools__empty mb-0">
@@ -84,6 +91,7 @@
                     <section id="facodi-study-panel-notes"
                              class="facodi-study-tools__panel"
                              role="tabpanel"
+                             aria-labelledby="facodi-study-tab-notes"
                              data-facodi-study-panel="notes">
                         <span class="facodi-study-tools__eyebrow">Notebook</span>
                         <p class="mb-0">Personal notes are not saved in this release.</p>
@@ -92,6 +100,7 @@
                     <section id="facodi-study-panel-ai"
                              class="facodi-study-tools__panel"
                              role="tabpanel"
+                             aria-labelledby="facodi-study-tab-ai"
                              data-facodi-study-panel="ai">
                         <span class="facodi-study-tools__eyebrow">Study assistant</span>
                         <div class="facodi-study-tools__ai-actions"
