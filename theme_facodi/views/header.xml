@@ -38,6 +38,13 @@
                                     <t t-set="dropdown_menu_classes" t-valuef="facodi-dropdown-menu"/>
                                 </t>
                             </t>
+                            <t t-call="website.placeholder_header_language_selector">
+                                <t t-set="_item_class" t-valuef="nav-item dropdown ms-lg-1 facodi-language-selector"/>
+                                <t t-set="_btn_class" t-valuef="nav-link d-flex align-items-center gap-1"/>
+                                <t t-set="_txt_class" t-valuef="small"/>
+                                <t t-set="_flag_class" t-valuef="me-1"/>
+                                <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end facodi-dropdown-menu"/>
+                            </t>
                             <t t-call="portal.placeholder_user_sign_in">
                                 <t t-set="_item_class" t-valuef="nav-item ms-lg-2"/>
                                 <t t-set="_link_class" t-valuef="btn facodi-button facodi-button-primary"/>
