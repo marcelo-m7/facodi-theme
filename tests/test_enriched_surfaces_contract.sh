@@ -20,6 +20,10 @@ grep -Fq '[data-facodi-submission-form="1"]' theme_facodi/static/src/scss/enrich
   || fail "contextual submission surface styling missing"
 grep -Fq '.facodi-context-card' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "contextual submission context card styling missing"
+grep -Fq '[data-facodi-contribution-brief="1"]' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "contextual contribution brief styling missing"
+grep -Fq '.facodi-prefill-badge' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "context prefill badge styling missing"
 grep -Fq '.facodi-form-section' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "contextual submission section styling missing"
 grep -Fq '.facodi-submit-sidebar' theme_facodi/static/src/scss/enriched_surfaces.scss \

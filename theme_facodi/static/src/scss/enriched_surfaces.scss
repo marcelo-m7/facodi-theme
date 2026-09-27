@@ -922,6 +922,41 @@
         }
     }
 
+    [data-facodi-contribution-brief="1"] {
+        position: relative;
+        overflow: hidden;
+        background:
+            linear-gradient(115deg, color-mix(in srgb, var(--facodi-highlight-cyan) 18%, var(--facodi-white)) 0 42%, transparent 42%),
+            var(--facodi-white);
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 5.5rem;
+            height: 1.1rem;
+            top: .65rem;
+            right: -1.1rem;
+            background: color-mix(in srgb, var(--facodi-highlight-pink) 72%, transparent);
+            transform: rotate(7deg);
+            pointer-events: none;
+        }
+
+        h2 {
+            max-width: 42rem;
+            line-height: 1.25;
+        }
+    }
+
+    .facodi-prefill-badge {
+        color: var(--facodi-ink);
+        background: var(--facodi-highlight-lime);
+        border: 2px solid var(--facodi-ink);
+        border-radius: 999px;
+        box-shadow: 2px 2px 0 var(--facodi-ink);
+        font-weight: 800;
+        letter-spacing: .01em;
+    }
+
     .facodi-context-card {
         background:
             linear-gradient(90deg, color-mix(in srgb, var(--facodi-highlight-cyan) 14%, transparent) 1px, transparent 1px),
