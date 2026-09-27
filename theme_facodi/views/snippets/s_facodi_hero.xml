@@ -15,7 +15,7 @@
                     Courses, Roadmaps and curricular units connect public learning resources so you can start with a question and keep following the thread.
                 </p>
                 <div class="facodi-actions">
-                    <a class="btn facodi-button facodi-button-primary" href="/slides">
+                    <a class="btn facodi-button facodi-button-primary" href="/courses">
                         Explore free courses
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
