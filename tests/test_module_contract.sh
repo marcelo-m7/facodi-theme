@@ -161,6 +161,8 @@ grep -R -Fq '/submissions/new?type=contact' theme_facodi/views/snippets --includ
   || fail "FACODI contextual collaboration CTA missing"
 grep -R -Fq '/submissions/new?type=correction' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI contextual correction CTA missing"
+grep -Fq 'source=study_player_question_cta&amp;section=lesson' theme_facodi/views/website_slides_player.xml \
+  || fail "Study Player question CTA must preserve lesson context"
 
 grep -Fq 'a1818df4ade65406ac0184382c0fd46f1023a22612c' .github/workflows/ci.yml >/dev/null 2>&1 \
   && fail "CI contains an addon SHA where design-themes pin is expected"
@@ -302,7 +304,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.30.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.31.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
