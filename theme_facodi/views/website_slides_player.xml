@@ -22,6 +22,12 @@
             <attribute name="aria-expanded">false</attribute>
         </xpath>
 
+        <xpath expr="//div[hasclass('o_wslides_fs_sidebar')]/a[hasclass('o_wslides_fs_toggle_sidebar')]" position="attributes">
+            <attribute name="data-facodi-index-toggle">true</attribute>
+            <attribute name="aria-controls">facodi-study-index</attribute>
+            <attribute name="aria-expanded">false</attribute>
+        </xpath>
+
         <xpath expr="//div[hasclass('o_wslides_fs_sidebar_content')]/ul" position="after">
             <section class="facodi-study-tools mt-auto pt-3 pb-3"
                      aria-label="Study tools">
