@@ -316,9 +316,9 @@ class TestFacodiTheme(HttpCase):
         )
         self.assertTrue(journey)
         for route, label in (
-            ("/slides", "Courses"),
+            ("/courses", "Courses"),
             ("/roadmaps", "Roadmaps"),
-            ("/unidades-curriculares", "Curricular units"),
+            ("/curricular-units", "Curricular units"),
         ):
             self.assertIn(f'href="{route}"', journey.arch_db)
             self.assertIn(label, journey.arch_db)
