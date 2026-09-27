@@ -289,7 +289,7 @@ grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must doc
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
 grep -Fq '"version": "19.0.10.21.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
-CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.21.0/post-20-canonical-learning-routes.py"
+CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
 grep -Fq '"/slides": "/courses"' "$CANONICAL_ROUTE_MIGRATION" \
   || fail "canonical migration must rewrite /slides to /courses"
