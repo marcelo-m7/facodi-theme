@@ -124,6 +124,19 @@
                         <p class="small mb-0">AI study tools are coming soon.</p>
                     </section>
                 </div>
+
+                <div class="facodi-study-tools__contribution d-flex flex-wrap gap-2 mt-2">
+                    <a t-att-href="'/submissions/new?type=resource&amp;course_id=%s&amp;slide_id=%s&amp;source=study_player_resource_cta&amp;section=lesson' % (slide.channel_id.id, slide.id)"
+                       class="facodi-button facodi-button-primary"
+                       data-facodi-study-contribution="resource">
+                        Suggest a resource
+                    </a>
+                    <a t-att-href="'/submissions/new?type=correction&amp;course_id=%s&amp;slide_id=%s&amp;source=study_player_correction_cta&amp;section=lesson' % (slide.channel_id.id, slide.id)"
+                       class="facodi-button facodi-button-secondary"
+                       data-facodi-study-contribution="correction">
+                        Report a problem
+                    </a>
+                </div>
             </section>
         </xpath>
     </template>
