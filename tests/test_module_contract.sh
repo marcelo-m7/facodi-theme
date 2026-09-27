@@ -397,5 +397,5 @@ grep -Fq 'source=community_collaboration_cta&amp;section=community&amp;topic=col
 grep -Fq 'source=faq_contribution_cta&amp;section=faq&amp;topic=collaboration' theme_facodi/views/snippets/s_facodi_faq.xml \
   || fail "FAQ contribution CTA must prefill collaboration context"
 
-grep -Fq '.facodi-submission-type-switcher' theme_facodi/static/src/scss/enriched_surfaces.scss \\
+grep -Fq '.facodi-submission-type-switcher' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "contextual submission type switcher styling missing"
