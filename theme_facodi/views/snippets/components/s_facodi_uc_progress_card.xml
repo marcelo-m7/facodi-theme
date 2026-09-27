@@ -16,7 +16,7 @@
             </div>
             <footer>
                 <span>72% complete</span>
-                <a href="/slides" class="facodi-text-link">Continue studying <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                <a href="/courses" class="facodi-text-link">Continue studying <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
             </footer>
         </article>
     </template>
