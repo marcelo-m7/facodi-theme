@@ -111,7 +111,6 @@ class TestFacodiStudyPlayerRendering(HttpCase):
                 or action.get("aria-disabled") == "true"
             )
 
-
     def test_study_player_contribution_actions_preserve_course_and_lesson_context(self):
         channel, slide = self._course_and_slide(
             "FACODI Contextual Contributions",
@@ -141,3 +140,48 @@ class TestFacodiStudyPlayerRendering(HttpCase):
         self.assertIn(f"slide_id={slide.id}", correction_href)
         self.assertIn("source=study_player_correction_cta", correction_href)
         self.assertIn("section=lesson", correction_href)
+
+
+    def test_localized_fullscreen_keeps_facodi_and_native_exit_hooks(self):
+        _, slide = self._course_and_slide(
+            "FACODI Localized Study Player",
+            "Localized lesson",
+        )
+        lang_pt = self.env["res.lang"]._activate_lang("pt_PT")
+        self.website.language_ids = self.env.ref("base.lang_en") + lang_pt
+
+        response = self.url_open(f"/pt{slide.website_url}?fullscreen=1")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+
+        self.assertTrue(
+            tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-study-player ')]"
+            )
+        )
+        self.assertTrue(
+            tree.xpath(
+                "//a[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_fs_exit_fullscreen ')]"
+            )
+        )
+
+    def test_authenticated_fullscreen_preserves_native_completion_surface(self):
+        channel, slide = self._course_and_slide(
+            "FACODI Authenticated Study Player",
+            "Authenticated lesson",
+        )
+        self.authenticate("admin", "admin")
+
+        tree = self._fullscreen_tree(slide)
+
+        self.assertTrue(
+            tree.xpath(
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_channel_completion_progressbar ')"
+                " or contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_channel_completion_completed ')]"
+            )
+        )
+        self.assertTrue(
+            tree.xpath(
+                f"//a[contains(@href, '/slides/{channel.id}') or contains(@href, '-{channel.id}')]"
+            )
+        )
