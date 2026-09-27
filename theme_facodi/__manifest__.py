@@ -79,6 +79,7 @@
             "theme_facodi/static/src/scss/foundation_v2.scss",
             "theme_facodi/static/src/scss/website_slides.scss",
             "theme_facodi/static/src/scss/website_slides_player.scss",
+            "theme_facodi/static/src/js/facodi_study_player.js",
             "theme_facodi/static/src/scss/website_blog.scss",
             "theme_facodi/static/src/scss/website_public.scss",
             "theme_facodi/static/src/scss/curriculum.scss",
