@@ -161,6 +161,8 @@ grep -R -Fq '/submissions/new?type=contact' theme_facodi/views/snippets --includ
   || fail "FACODI contextual collaboration CTA missing"
 grep -R -Fq '/submissions/new?type=correction' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI contextual correction CTA missing"
+grep -Fq 'source=study_player_question_cta&amp;section=lesson' theme_facodi/views/website_slides_player.xml \
+  || fail "Study Player question CTA must preserve lesson context"
 
 grep -Fq 'a1818df4ade65406ac0184382c0fd46f1023a22612c' .github/workflows/ci.yml >/dev/null 2>&1 \
   && fail "CI contains an addon SHA where design-themes pin is expected"
