@@ -148,6 +148,8 @@ grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI general-contact CTA must preserve the standard contact page"
 grep -R -Fq '/submissions/new?type=resource' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI resource-contribution CTA must use the contextual intake"
+grep -Fq 'source=cta_sheet_resource_cta&amp;section=cta-sheet' theme_facodi/views/snippets/components/s_facodi_cta_sheet.xml \
+  || fail "CTA Sheet must preserve its contribution source context"
 grep -R -Fq '/submissions/new?type=contact' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI contextual collaboration CTA missing"
 grep -R -Fq '/submissions/new?type=correction' theme_facodi/views/snippets --include='*.xml' \
@@ -291,7 +293,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.23.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.24.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
