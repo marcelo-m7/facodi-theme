@@ -41,7 +41,7 @@
                         <p class="facodi-error-copy">FACODI could not finish this request right now. Return to the open campus, browse the learning catalogue, or try the page again in a moment.</p>
                         <div class="facodi-error-actions">
                             <a href="/" class="facodi-error-button">Back to FACODI</a>
-                            <a href="/slides" class="facodi-error-button facodi-error-button--secondary">Explore courses</a>
+                            <a href="/courses" class="facodi-error-button facodi-error-button--secondary">Explore courses</a>
                         </div>
                         <p class="facodi-error-note">If this keeps happening, use the contact page and tell us what you were trying to open.</p>
                     </div>

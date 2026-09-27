@@ -53,9 +53,9 @@
             }
         }
 
-        &--courses a[href="/slides"],
+        &--courses a[href="/courses"],
         &--roadmaps a[href="/roadmaps"],
-        &--units a[href="/unidades-curriculares"] {
+        &--units a[href="/curricular-units"] {
             background: var(--facodi-sun);
         }
     }

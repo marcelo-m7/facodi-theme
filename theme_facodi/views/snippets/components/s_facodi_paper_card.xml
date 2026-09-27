@@ -8,7 +8,7 @@
             <p class="facodi-label">Open module</p>
             <h3>Build a compact learning card</h3>
             <p>Summarize a topic, assignment, resource collection, or community activity in a tactile paper surface.</p>
-            <a class="facodi-text-link" href="/slides">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+            <a class="facodi-text-link" href="/courses">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
         </article>
     </template>
 </odoo>

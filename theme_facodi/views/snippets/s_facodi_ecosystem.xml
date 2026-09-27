@@ -53,7 +53,7 @@
                         Contribute to FACODI
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
-                    <a href="/slides" class="btn facodi-button facodi-button-secondary">Explore the catalogue</a>
+                    <a href="/courses" class="btn facodi-button facodi-button-secondary">Explore the catalogue</a>
                     <a href="/contactus" class="btn facodi-button facodi-button-secondary">Contact FACODI</a>
                 </div>
             </div>

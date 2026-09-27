@@ -12,9 +12,9 @@
                 </div>
                 <nav class="facodi-index-tabs facodi-index-tabs--courses"
                      aria-label="Learning catalogue">
-                    <a href="/slides" aria-current="page">Courses</a>
+                    <a href="/courses" aria-current="page">Courses</a>
                     <a href="/roadmaps">Roadmaps</a>
-                    <a href="/unidades-curriculares">Curricular Units</a>
+                    <a href="/curricular-units">Curricular Units</a>
                 </nav>
             </section>
         </xpath>

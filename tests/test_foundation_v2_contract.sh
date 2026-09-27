@@ -19,7 +19,7 @@ FEATURES="theme_facodi/views/snippets/s_facodi_features.xml"
 for anchor in 'Where do you want to begin?' 'Courses' 'Roadmaps' 'Curricular units' 'facodi-learning-entry-grid'; do
   grep -Fq "$anchor" "$JOURNEY" || fail "learning entry section missing: $anchor"
 done
-for route in '/slides' '/roadmaps' '/unidades-curriculares'; do
+for route in '/courses' '/roadmaps' '/curricular-units'; do
   grep -Fq "href=\"$route\"" "$JOURNEY" || fail "learning entry route missing: $route"
 done
 for anchor in 'From curiosity to the next click.' 'Choose a question' 'Study at your pace' 'Follow the next useful thread' 'facodi-learning-steps'; do
@@ -46,11 +46,11 @@ grep -Fq 'data-snippet="s_facodi_academic_areas"' "$AREAS" \
 for label in 'Computing &amp; Technology' 'Mathematics &amp; Data' 'Business &amp; Society' 'Languages &amp; Culture'; do
   grep -Fq "$label" "$AREAS" || fail "academic areas source is missing: $label"
 done
-grep -Fq 'href="/slides"' "$AREAS" \
+grep -Fq 'href="/courses"' "$AREAS" \
   || fail "academic areas must link to standard eLearning catalogue"
 grep -Fq 'href="/roadmaps"' "$AREAS" \
   || fail "academic areas must link to FACODI Roadmaps"
-grep -Fq 'href="/unidades-curriculares"' "$AREAS" \
+grep -Fq 'href="/curricular-units"' "$AREAS" \
   || fail "academic areas must link to FACODI curricular units"
 if grep -Fq 'href="/website/search"' "$AREAS"; then
   fail "academic areas must not fall back to generic Website search"

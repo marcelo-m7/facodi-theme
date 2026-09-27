@@ -16,7 +16,7 @@
                                 <h3>Start with a clear question</h3>
                                 <p>Select an existing course that introduces the subject.</p>
                             </div>
-                            <a href="/slides" class="facodi-text-link">Choose a published course</a>
+                            <a href="/courses" class="facodi-text-link">Choose a published course</a>
                         </li>
                         <li class="facodi-pathway-step">
                             <span class="facodi-pathway-index" t-translation="off">02</span>
@@ -24,7 +24,7 @@
                                 <h3>Build depth</h3>
                                 <p>Add a course that develops the ideas or skills.</p>
                             </div>
-                            <a href="/slides" class="facodi-text-link">Choose a published course</a>
+                            <a href="/courses" class="facodi-text-link">Choose a published course</a>
                         </li>
                     </ol>
                 </div>

@@ -14,7 +14,7 @@ EXPECTED_MARKERS = {
     "es_ES": "Conservar este contenido del editor",
     "fr_FR": "Conserver ce contenu de l'éditeur",
 }
-EXPECTED_HREFS = ["/roadmaps", "/unidades-curriculares", "/slides", "/contribuir/recurso"]
+EXPECTED_HREFS = ["/roadmaps", "/curricular-units", "/courses", "/contribuir/recurso"]
 EXPECTED_NAV_TEXT = {
     "en_US": "Roadmaps Curricular Units Courses Contribute",
     "pt_PT": "Roadmaps Unidades Curriculares Cursos Contribua",
@@ -77,7 +77,7 @@ for lang, marker in EXPECTED_MARKERS.items():
     assert "/web/login" not in hrefs
     assert "/website/search" not in hrefs
     active_hrefs = catalogue_nav.xpath("./a[contains(concat(' ', normalize-space(@class), ' '), ' is-active ')]/@href")
-    assert active_hrefs == ["/slides"], (
+    assert active_hrefs == ["/courses"], (
         f"{lang}: Courses must be the only active catalogue destination, got {active_hrefs}"
     )
 

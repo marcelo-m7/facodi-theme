@@ -12,9 +12,9 @@
                         <p class="facodi-lead">Choose a course, follow a Roadmap or return to a curricular unit when you need more context.</p>
                     </div>
                     <div class="facodi-actions">
-                        <a href="/slides" class="btn facodi-button facodi-button-primary">Choose a course</a>
+                        <a href="/courses" class="btn facodi-button facodi-button-primary">Choose a course</a>
                         <a href="/roadmaps" class="btn facodi-button facodi-button-secondary">Follow a Roadmap</a>
-                        <a href="/unidades-curriculares" class="btn facodi-button facodi-button-secondary">Find a curricular unit</a>
+                        <a href="/curricular-units" class="btn facodi-button facodi-button-secondary">Find a curricular unit</a>
                     </div>
                 </article>
             </div>
