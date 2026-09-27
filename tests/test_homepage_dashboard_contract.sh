@@ -38,10 +38,12 @@ grep -Fq 'data-number-of-records="6"' "$SNIPPET" \
   || fail "course showcase must persist its record count on the snippet root"
 grep -Fq 'Learning catalogue' "$SNIPPET" \
   || fail "course showcase learning-navigation label is missing"
-for route in '/roadmaps' '/curricular-units' '/courses' '/contribuir/recurso'; do
+for route in '/roadmaps' '/curricular-units' '/courses'; do
   grep -Fq "href=\"$route\"" "$SNIPPET" \
     || fail "course showcase learning navigation is missing $route"
 done
+grep -Fq 'source=course_showcase_contribute&amp;section=learning-catalogue' "$SNIPPET" \
+  || fail "course showcase contribution tab must preserve catalogue context"
 for label in 'Roadmaps' 'Curricular Units' 'Courses' 'Contribute'; do
   grep -Fq "$label" "$SNIPPET" \
     || fail "course showcase learning navigation is missing label: $label"
