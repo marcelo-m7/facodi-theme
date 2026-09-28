@@ -9,9 +9,10 @@
                     <div>
                         <p class="facodi-kicker">
                             <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
-                            First step
+                            Choose your route
                         </p>
-                        <h2>Where do you want to begin?</h2>
+                        <h2>Explore learning in the way that makes sense to you.</h2>
+                        <p class="facodi-section-copy">Start with a ready-made course, follow a direction or begin from an academic reference.</p>
                     </div>
                 </div>
                 <div class="facodi-learning-entry-grid">
@@ -19,21 +20,21 @@
                         <p class="facodi-label">Quick start</p>
                         <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                         <h3>Courses</h3>
-                        <p>Pick a topic and start with public learning resources.</p>
+                        <p>Curated collections of public resources that give a topic a useful structure.</p>
                         <div class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                     <a href="/roadmaps" class="facodi-learning-card facodi-learning-card-sky">
-                        <p class="facodi-label">See the route</p>
+                        <p class="facodi-label">Follow a direction</p>
                         <i class="fa fa-map" aria-hidden="true" t-translation="off"/>
                         <h3>Roadmaps</h3>
-                        <p>Connect topics, courses and study resources around a direction.</p>
+                        <p>See how topics, courses and study resources connect across a learning direction.</p>
                         <div class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                     <a href="/curricular-units" class="facodi-learning-card facodi-learning-card-sun">
                         <p class="facodi-label">Academic context</p>
                         <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
                         <h3>Curricular units</h3>
-                        <p>Start from a reviewed academic reference and see related learning.</p>
+                        <p>Start from a reviewed academic reference and discover related open learning.</p>
                         <div class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                 </div>
