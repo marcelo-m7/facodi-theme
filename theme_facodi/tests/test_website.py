@@ -305,6 +305,14 @@ class TestFacodiTheme(HttpCase):
         self.assertIn("facodi-hero-study-board", hero.arch_db)
         self.assertIn("Knowledge is everywhere.", hero.arch_db)
         self.assertNotIn("real-time", hero.arch_db.lower())
+        self.assertIn('data-facodi-dither-veil="1"', hero.arch_db)
+        self.assertIn('data-src="/theme_facodi/static/src/img/banner.png"', hero.arch_db)
+        self.assertIn("facodi-dither-veil__canvas", hero.arch_db)
+
+        response = self.url_open("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('data-facodi-dither-veil="1"', response.text)
+        self.assertIn("facodi-dither-veil__canvas", response.text)
 
     def test_learning_entry_snippet_keeps_canonical_routes(self):
         journey = self.env["ir.ui.view"].search(
