@@ -14,7 +14,7 @@ class TestFacodiThemeTranslations(HttpCase):
             raise AssertionError("theme_facodi module record must exist")
 
         Lang = cls.env["res.lang"]
-        cls.lang_en = cls.env.ref("base.lang_en")
+        cls.lang_en = Lang._activate_lang("en_GB")
         cls.lang_pt = Lang._activate_lang("pt_PT")
         cls.lang_es = Lang._activate_lang("es_ES")
         cls.lang_fr = Lang._activate_lang("fr_FR")
@@ -90,7 +90,7 @@ class TestFacodiThemeTranslations(HttpCase):
     def test_builder_snippet_copy_uses_native_translations(self):
         hero = self._website_view("theme_facodi.s_facodi_hero")
         expected_by_lang = {
-            "en_US": (
+            "en_GB": (
                 "Knowledge is everywhere.",
                 "Find your next step.",
                 "Explore courses",
