@@ -587,6 +587,8 @@
         .facodi-highlight-cyan {
             isolation: isolate;
             position: relative;
+            background: transparent !important;
+            box-shadow: none !important;
 
             &::after {
                 background: color-mix(in srgb, var(--facodi-sky) 58%, transparent);
@@ -599,6 +601,13 @@
                 transform: rotate(.4deg);
                 z-index: -1;
             }
+        }
+
+        // The homepage hero uses the pseudo-element above as its single
+        // highlighter stroke. Odoo/editor utility styles can otherwise paint a
+        // second solid cyan block on the h1 itself.
+        .facodi-hero h1.facodi-highlight-cyan {
+            background-color: transparent !important;
         }
 
         .facodi-hero-open-note {
