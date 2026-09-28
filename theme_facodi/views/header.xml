@@ -44,7 +44,7 @@
                                                 data-bs-toggle="dropdown"
                                                 data-bs-auto-close="outside"
                                                 aria-expanded="false"
-                                                t-att-aria-label="'Open %s submenu' % submenu.name">
+                                                aria-label="Open submenu">
                                             <span class="visually-hidden">Open submenu</span>
                                         </button>
                                         <ul class="dropdown-menu facodi-dropdown-menu" role="menu">
