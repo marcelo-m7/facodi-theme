@@ -9,20 +9,20 @@ CUSTOM_NAV_KEY = "theme_facodi.ci_legacy_course_showcase_custom_nav"
 SNAPSHOT_KEY = "theme_facodi.ci_legacy_course_showcase_digest"
 
 EXPECTED_MARKERS = {
-    "en_US": "Preserve this editor content",
+    "en_GB": "Preserve this editor content",
     "pt_PT": "Preservar este conteúdo do editor",
     "es_ES": "Conservar este contenido del editor",
     "fr_FR": "Conserver ce contenu de l'éditeur",
 }
 EXPECTED_HREFS = ["/roadmaps", "/curricular-units", "/courses", "/contribuir/recurso"]
 EXPECTED_NAV_TEXT = {
-    "en_US": "Roadmaps Curricular Units Courses Contribute",
+    "en_GB": "Roadmaps Curricular Units Courses Contribute",
     "pt_PT": "Roadmaps Unidades Curriculares Cursos Contribua",
     "es_ES": "Rutas Unidades Curriculares Cursos Contribuye",
     "fr_FR": "Parcours Unités d’enseignement Cours Contribuez",
 }
 EXPECTED_ARIA = {
-    "en_US": "Learning catalogue",
+    "en_GB": "Learning catalogue",
     "pt_PT": "Catálogo de aprendizagem",
     "es_ES": "Catálogo de aprendizaje",
     "fr_FR": "Catalogue d’apprentissage",
@@ -88,7 +88,7 @@ for lang, marker in EXPECTED_MARKERS.items():
         f"{lang}: persisted navigation must use current translated canonical labels"
     )
 
-root = etree.fromstring(view.with_context(lang="en_US").arch.encode())
+root = etree.fromstring(view.with_context(lang="en_GB").arch.encode())
 snippets = root.xpath(".//*[@data-snippet='s_facodi_course_showcase']")
 assert len(snippets) == 1, "expected one persisted FACODI course showcase"
 snippet = snippets[0]
@@ -102,7 +102,7 @@ assert contents[0].xpath(".//*[contains(concat(' ', normalize-space(@class), ' '
 
 custom_view = View.search([("key", "=", CUSTOM_NAV_KEY)], limit=1)
 assert custom_view, "custom navigation CI fixture is missing after upgrade"
-custom_arch = custom_view.with_context(lang="en_US").arch
+custom_arch = custom_view.with_context(lang="en_GB").arch
 custom_side_nav = first_side_nav(custom_arch)
 assert custom_side_nav.xpath("./a/@href") == ["/", "/slides", "/website/search", "/my/saved", "/contactus"], (
     "near-match custom navigation must remain untouched"
