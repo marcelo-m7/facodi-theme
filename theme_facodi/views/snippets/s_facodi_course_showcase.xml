@@ -11,7 +11,7 @@
                  data-column-classes="col-12 col-sm-6 col-lg-4">
             <div class="s_dynamic_snippet_container facodi-dynamic-shell facodi-course-catalogue-paper">
                 <div class="container">
-                    <div class="facodi-section-heading">
+                    <div class="facodi-section-heading" data-facodi-motion="rise">
                         <div>
                             <p class="facodi-kicker">Learning catalogue</p>
                             <h2>Start somewhere useful.</h2>
@@ -25,7 +25,7 @@
                         </nav>
                     </div>
 
-                    <section class="s_dynamic_snippet_content facodi-dynamic-content oe_unremovable oe_unmovable o_not_editable">
+                    <section class="s_dynamic_snippet_content facodi-dynamic-content oe_unremovable oe_unmovable o_not_editable" data-facodi-motion="fade" data-facodi-motion-delay="80">
                         <div class="css_non_editable_mode_hidden">
                             <div class="missing_option_warning alert alert-info d-none mt-3">
                                 Course cards appear here when published courses are available.
@@ -34,7 +34,7 @@
                         <div class="dynamic_snippet_template facodi-course-grid"/>
                     </section>
 
-                    <aside class="facodi-sheet facodi-catalogue-next">
+                    <aside class="facodi-sheet facodi-catalogue-next" data-facodi-motion="rise" data-facodi-motion-delay="140">
                         <div>
                             <p class="facodi-label">Keep exploring</p>
                             <h3>There is more in the catalogue.</h3>
