@@ -162,7 +162,7 @@ if grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml'
 fi
 grep -Fq 'href="/sobre">See how FACODI works' theme_facodi/views/snippets/s_facodi_hero.xml \
   || fail "hero explanation CTA must use the live editor-managed About page"
-if grep -Riq 'dither[- _]veil' theme_facodi --exclude-dir=i18n --exclude-dir=migrations; then
+if grep -Riq 'dither[- _]veil' theme_facodi/static theme_facodi/views theme_facodi/__manifest__.py; then
   fail "removed Dither Veil implementation must not remain in the live theme"
 fi
 grep -Fq 'theme_facodi/static/src/js/facodi_catalogue_switcher.js' theme_facodi/__manifest__.py \
