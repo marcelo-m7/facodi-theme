@@ -1256,3 +1256,41 @@
     transition: none;
   }
 }
+
+
+/* Contributor-safe review note: a pink margin note from the editorial desk. */
+.facodi-site .facodi-editorial-reply {
+    position: relative;
+    padding: 1.1rem 1.2rem;
+    border: 2px solid var(--facodi-ink);
+    background:
+        linear-gradient(0deg, color-mix(in srgb, var(--facodi-pink) 13%, var(--facodi-white)), color-mix(in srgb, var(--facodi-pink) 13%, var(--facodi-white)));
+    box-shadow: 6px 6px 0 var(--facodi-ink);
+}
+
+.facodi-site .facodi-editorial-reply::before {
+    content: "";
+    position: absolute;
+    width: 4.5rem;
+    height: .75rem;
+    top: -.45rem;
+    right: 1.1rem;
+    background: var(--facodi-pink);
+    border: 1px solid var(--facodi-ink);
+    transform: rotate(2deg);
+}
+
+.facodi-site .facodi-editorial-reply h2 {
+    text-decoration: underline;
+    text-decoration-color: var(--facodi-lime);
+    text-decoration-thickness: .32em;
+    text-underline-offset: -.14em;
+    text-decoration-skip-ink: none;
+}
+
+@media (max-width: 575.98px) {
+    .facodi-site .facodi-editorial-reply {
+        padding: 1rem;
+        box-shadow: 4px 4px 0 var(--facodi-ink);
+    }
+}
