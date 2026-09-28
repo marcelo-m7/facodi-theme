@@ -19,7 +19,7 @@
                         <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
                     </a>
                 </div>
-                <nav class="facodi-area-shelf" aria-label="Learning areas">
+                <nav class="facodi-area-grid facodi-area-shelf" aria-label="Learning areas">
                     <a href="/courses" class="facodi-area-tab facodi-area-tab-mint">
                         <span class="facodi-label">01</span>
                         <strong>Computing &amp; Technology</strong>
