@@ -52,6 +52,10 @@
 
     <template id="dynamic_filter_template_slide_channel_facodi_course_card"
               name="FACODI Course Card">
+        <t t-set="facodi_showcase_channels"
+           t-value="env['slide.channel'].browse([row['_record'].id for row in records])"/>
+        <t t-set="facodi_showcase_visuals"
+           t-value="facodi_showcase_channels._facodi_catalog_visuals()"/>
         <t t-foreach="records" t-as="data"
            data-container-classes="facodi-dynamic-shell"
            data-content-classes="facodi-dynamic-content">
@@ -59,15 +63,24 @@
             <a t-att-href="data.get('call_to_action_url') or '/slides'"
                class="facodi-course-card"
                t-att-aria-label="data.get('name')">
+                <t t-set="facodi_visual" t-value="facodi_showcase_visuals.get(channel.id)"/>
                 <div class="facodi-course-art">
-                    <img t-if="data.get('image_1920')"
-                         t-att-src="data.get('image_1920')"
-                         t-att-alt="data.get('name')"
-                         loading="eager"/>
-                    <t t-else="">
-                        <span t-out="(data.get('name') or '')[:2].upper()"/>
-                        <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
-                    </t>
+                    <img t-if="facodi_visual and facodi_visual.get('kind') == 'slide'"
+                         t-att-src="'/web/image/slide.slide/%s/image_512' % facodi_visual['slide'].id"
+                         t-att-alt="facodi_visual.get('alt') or data.get('name') or 'FACODI course'"
+                         loading="eager"
+                         decoding="async"/>
+                    <img t-elif="facodi_visual and facodi_visual.get('kind') == 'youtube'"
+                         t-att-src="facodi_visual.get('url')"
+                         t-att-alt="facodi_visual.get('alt') or data.get('name') or 'FACODI course'"
+                         loading="eager"
+                         decoding="async"
+                         referrerpolicy="strict-origin-when-cross-origin"/>
+                    <div t-else="" class="facodi-course-fallback" aria-hidden="true">
+                        <span class="facodi-course-fallback-brand" t-translation="off">FACODI.</span>
+                        <strong t-out="(data.get('name') or '')[:2].upper()"/>
+                        <i class="fa fa-play-circle" aria-hidden="true" t-translation="off"/>
+                    </div>
                 </div>
                 <div class="facodi-course-content">
                     <div class="facodi-course-description" t-field="channel.description_short"/>
