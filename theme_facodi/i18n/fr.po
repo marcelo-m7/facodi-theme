@@ -909,7 +909,7 @@ msgstr "Cours"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Keep following the useful thread."
-msgstr "Continue à suivre le fil utile."
+msgstr "Continuez à suivre le fil utile."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
