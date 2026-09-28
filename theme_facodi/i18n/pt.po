@@ -1912,3 +1912,9 @@ msgstr "Contribuir com um recurso"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
 msgid "Ask questions and share useful resources with the FACODI community."
 msgstr "Faz perguntas e partilha recursos úteis com a comunidade FACODI."
+
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.submenu_split_navigation
+msgid "Open submenu"
+msgstr "Abrir submenu"
