@@ -5,16 +5,15 @@
                  data-snippet="s_facodi_course_cta"
                  data-name="FACODI Course catalogue CTA">
             <div class="container">
-                <article class="facodi-sheet facodi-closing-sheet">
+                <article class="facodi-sheet facodi-closing-sheet facodi-closing-sheet-v4">
                     <div>
-                        <p class="facodi-label">Next step</p>
-                        <h2>Keep the useful thread going.</h2>
-                        <p class="facodi-lead">Choose a course, follow a Roadmap or return to a curricular unit when you need more context.</p>
+                        <p class="facodi-label">Open campus</p>
+                        <h2>Still building. You can help shape what comes next.</h2>
+                        <p class="facodi-lead">Explore what is already public, or contribute a useful resource that deserves a place in the learning trail.</p>
                     </div>
                     <div class="facodi-actions">
-                        <a href="/courses" class="btn facodi-button facodi-button-primary">Choose a course</a>
-                        <a href="/roadmaps" class="btn facodi-button facodi-button-secondary">Follow a Roadmap</a>
-                        <a href="/curricular-units" class="btn facodi-button facodi-button-secondary">Find a curricular unit</a>
+                        <a href="/courses" class="btn facodi-button facodi-button-primary">Explore the catalogue</a>
+                        <a href="/submissions/new?type=resource&amp;source=closing_cta&amp;section=homepage" class="btn facodi-button facodi-button-secondary">Contribute a resource</a>
                     </div>
                 </article>
             </div>
