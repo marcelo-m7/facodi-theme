@@ -13,7 +13,7 @@
                     <details>
                         <summary>How can I contribute?</summary>
                         <p class="mt-3">Share an idea, propose a resource or talk to us about ways to collaborate.</p>
-                        <a href="/submissions/new?type=contact&amp;source=faq_contribution_cta&amp;section=faq&amp;topic=collaboration">I want to contribute</a>
+                        <a href="/contact?source=faq_contribution_cta&amp;section=faq&amp;topic=collaboration">I want to contribute</a>
                         <span class="text-muted mx-2">·</span>
                         <a href="/contact?source=faq_contact_cta&amp;section=faq&amp;topic=collaboration">Open full contact form</a>
                     </details>
