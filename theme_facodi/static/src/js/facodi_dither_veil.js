@@ -51,9 +51,11 @@ class FacodiDitherVeil {
         this.pixelSize = Math.max(3, Number(root.dataset.pixelSize || 5));
         this.radius = Math.max(80, Number(root.dataset.revealRadius || 170));
         this.linger = Math.max(250, Number(root.dataset.linger || 1050));
-        this.ink = hexToRgb(root.dataset.inkColor || "#142846");
-        this.paper = hexToRgb(root.dataset.paperColor || "#F9FAFB");
-        this.rim = root.dataset.rimColor || "#37BED2";
+        const styles = window.getComputedStyle(root);
+        const token = (name, fallback) => styles.getPropertyValue(name).trim() || fallback;
+        this.ink = hexToRgb(root.dataset.inkColor || token("--facodi-ink", "#142846"));
+        this.paper = hexToRgb(root.dataset.paperColor || token("--facodi-paper-warm", "#FDFCF7"));
+        this.rim = root.dataset.rimColor || token("--facodi-cyan", "#37BED2");
         this.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         this.coarsePointer = window.matchMedia("(pointer: coarse)").matches;
 
