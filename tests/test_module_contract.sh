@@ -216,6 +216,7 @@ grep -Fq 'form > .d-flex:last-child' theme_facodi/static/src/scss/enriched_surfa
 grep -Fq 'web._assets_frontend_helpers' theme_facodi/data/ir_asset.xml || fail "bootstrap overrides must use frontend helpers"
 
 grep -Fq 'facodi-footer' theme_facodi/views/customizations.xml || fail "live FACODI footer missing"
+grep -Fq 'facodi-footer-heading-link' theme_facodi/views/customizations.xml || fail "footer parent destinations must remain clickable"
 grep -Fq 'content="#142846"' theme_facodi/views/customizations.xml || fail "live browser theme color missing"
 
 python3 - <<'PY'
