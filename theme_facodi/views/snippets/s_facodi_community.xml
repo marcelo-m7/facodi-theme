@@ -6,7 +6,7 @@
                  data-name="Community and contribution">
             <div class="container">
                 <div class="facodi-community-grid">
-                    <article class="facodi-note facodi-community-card">
+                    <article class="facodi-note facodi-community-card" data-facodi-motion="tilt">
                         <p class="facodi-label">Community notebook</p>
                         <h2>A useful discovery deserves company.</h2>
                         <p>Found a video, course or public resource that made something click? Leave a useful trail for the next learner.</p>
@@ -16,7 +16,7 @@
                             <a href="/contact?source=community_collaboration_cta&amp;section=community&amp;topic=collaboration" class="facodi-text-link">Collaborate with FACODI</a>
                         </div>
                     </article>
-                    <article class="facodi-sheet facodi-community-card facodi-community-card-build">
+                    <article class="facodi-sheet facodi-community-card facodi-community-card-build" data-facodi-motion="tilt" data-facodi-motion-delay="100">
                         <p class="facodi-label">Open campus</p>
                         <h2>Still building. You can improve the trail.</h2>
                         <p>Translations, corrections, context and better links can turn a public resource into something much easier to learn from.</p>
