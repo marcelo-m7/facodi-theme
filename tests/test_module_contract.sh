@@ -91,6 +91,14 @@ grep -Fq 'portal.user_dropdown' theme_facodi/views/header.xml \
   || fail "header must retain standard Portal user dropdown"
 grep -Fq 'website.template_header_mobile' theme_facodi/views/header.xml \
   || fail "header must retain the standard Odoo mobile header"
+grep -Fq 'id="submenu_split_navigation"' theme_facodi/views/header.xml \
+  || fail "FACODI split submenu navigation missing"
+grep -Fq 'inherit_id="website.submenu"' theme_facodi/views/header.xml \
+  || fail "split navigation must minimally extend the standard Odoo submenu"
+grep -Fq 'facodi-split-menu__link' theme_facodi/views/header.xml \
+  || fail "submenu parent text must remain a real destination"
+grep -Fq 'facodi-split-menu__toggle' theme_facodi/views/header.xml \
+  || fail "submenu disclosure must remain a separate control"
 grep -Fq 'header_bg_color_class' theme_facodi/views/header.xml \
   || fail "header must preserve Website Builder header color state"
 grep -Fq 'header_visible' theme_facodi/views/header.xml \
