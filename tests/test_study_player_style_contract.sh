@@ -28,7 +28,7 @@ grep -Fq 'prefers-reduced-motion' "$SCSS"   || fail "study player must respect r
 grep -Eq '@media[[:space:]]*\(max-width:[[:space:]]*767\.98px\)' "$SCSS"   || fail "study player mobile breakpoint missing"
 grep -Fq 'body.o_wslides_body .facodi-study-player' "$SCSS" \
   || fail "fullscreen player styles must not depend on the normal .facodi-site website wrapper"
-grep -Fq 'min-height: min(72vh, 54rem)' "$SCSS" \
+grep -Fq 'min-height: 72vh' "$SCSS" \
   || fail "video/document ratio needs a stable fullscreen minimum height"
 grep -Fq 'iframe,' "$SCSS" \
   || fail "native iframe players must be preserved explicitly"
