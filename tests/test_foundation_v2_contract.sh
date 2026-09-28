@@ -67,6 +67,8 @@ grep -Fq 'href="/sobre">See how FACODI works' "$HERO" \
   || fail "hero explanation CTA must route to the live FACODI About page"
 grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml' \
   && fail "theme snippets must not bypass the contextual contact intake"
+grep -R -Fq '/submissions/new?type=contact' theme_facodi/views/snippets --include='*.xml' \
+  && fail "theme snippets must use canonical /contact for public contact intent"
 
 if grep -Eq 'request\.env|sudo\(\)' "$AREAS" "$ECOSYSTEM"; then
   fail "Foundation v2 editorial snippets must not query business data directly"

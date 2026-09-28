@@ -18,7 +18,7 @@
                 <span class="facodi-label">Collaboration</span>
                 <h3>Build something together</h3>
                 <p>Propose a collaboration around open education, public resources, or community learning.</p>
-                <a class="facodi-text-link" href="/submissions/new?type=contact&amp;source=contribution_board_collaboration_cta&amp;section=contribution-board">Start a conversation</a>
+                <a class="facodi-text-link" href="/contact?source=contribution_board_collaboration_cta&amp;section=contribution-board">Start a conversation</a>
             </article>
         </section>
     </template>
