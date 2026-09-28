@@ -99,6 +99,8 @@ grep -Fq 'facodi-split-menu__link' theme_facodi/views/header.xml \
   || fail "submenu parent text must remain a real destination"
 grep -Fq 'facodi-split-menu__toggle' theme_facodi/views/header.xml \
   || fail "submenu disclosure must remain a separate control"
+grep -Fq "submenu.url and submenu.url != '#'" theme_facodi/views/header.xml \
+  || fail "hash-only submenu parents must remain disclosure-only containers"
 grep -Fq 'header_bg_color_class' theme_facodi/views/header.xml \
   || fail "header must preserve Website Builder header color state"
 grep -Fq 'header_visible' theme_facodi/views/header.xml \
@@ -315,7 +317,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.49.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.50.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
