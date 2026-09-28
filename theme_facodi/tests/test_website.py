@@ -311,8 +311,7 @@ class TestFacodiTheme(HttpCase):
 
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
-        self.assertIn('data-facodi-dither-veil="1"', response.text)
-        self.assertIn("facodi-dither-veil__canvas", response.text)
+        self.assertNotIn("facodi-dither-veil", response.text)
 
     def test_learning_entry_snippet_keeps_canonical_routes(self):
         journey = self.env["ir.ui.view"].search(
