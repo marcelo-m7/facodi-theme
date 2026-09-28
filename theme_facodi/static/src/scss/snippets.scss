@@ -1282,3 +1282,118 @@
         }
     }
 }
+
+/* Homepage catalogue selector — in-place content switching. */
+.facodi-site .facodi-home-v4 {
+    .facodi-catalogue-tabs {
+        button.facodi-catalogue-tab {
+            appearance: none;
+            background: var(--facodi-paper-warm);
+            border: 1px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-sm);
+            color: var(--facodi-ink);
+            cursor: pointer;
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .68rem;
+            font-weight: 700;
+            padding: .5rem .7rem;
+            text-transform: uppercase;
+            transition:
+                background-color 150ms ease,
+                box-shadow 150ms ease,
+                transform 150ms ease;
+
+            &.is-active,
+            &:hover,
+            &:focus-visible {
+                background: var(--facodi-sun);
+                color: var(--facodi-ink);
+            }
+
+            &:focus-visible {
+                outline: 3px solid color-mix(in srgb, var(--facodi-cyan) 65%, white);
+                outline-offset: 2px;
+            }
+        }
+
+        &.is-loading {
+            button.facodi-catalogue-tab {
+                cursor: progress;
+            }
+        }
+    }
+
+    .facodi-catalogue-stage {
+        min-height: 20rem;
+        position: relative;
+    }
+
+    .facodi-catalogue-panel[hidden] {
+        display: none !important;
+    }
+
+    .facodi-catalogue-panel--enter {
+        animation: facodi-catalogue-in 220ms ease both;
+    }
+
+    .facodi-home-fragment-card {
+        color: var(--facodi-ink);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 17rem;
+        padding: 1.25rem;
+        text-decoration: none;
+
+        h3 {
+            color: inherit;
+            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin: .75rem 0;
+        }
+
+        &:hover,
+        &:focus-visible {
+            color: var(--facodi-ink);
+            transform: translateY(-2px);
+        }
+    }
+
+    .facodi-home-fragment-art {
+        margin: -1.25rem -1.25rem 1rem;
+    }
+
+    .facodi-home-roadmap-card {
+        background: color-mix(in srgb, var(--facodi-sky) 18%, var(--facodi-paper-warm));
+    }
+
+    .facodi-home-unit-card {
+        background: color-mix(in srgb, var(--facodi-mint) 22%, var(--facodi-paper-warm));
+    }
+}
+
+@keyframes facodi-catalogue-in {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .facodi-home-v4 {
+        .facodi-catalogue-panel--enter {
+            animation: none;
+        }
+
+        .facodi-catalogue-tabs button.facodi-catalogue-tab {
+            transition: none;
+        }
+    }
+}
+
