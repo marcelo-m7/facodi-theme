@@ -303,7 +303,7 @@ class TestFacodiTheme(HttpCase):
         )
         self.assertTrue(hero)
         self.assertIn("facodi-hero-study-board", hero.arch_db)
-        self.assertIn("Learn in public.", hero.arch_db)
+        self.assertIn("Knowledge is everywhere.", hero.arch_db)
         self.assertNotIn("real-time", hero.arch_db.lower())
 
     def test_learning_entry_snippet_keeps_canonical_routes(self):
@@ -625,9 +625,9 @@ class TestFacodiTheme(HttpCase):
             if "facodi-hero-study-board" in template["template"]:
                 self.assertIsNone(home_blocks, "FACODI Home template must be unique")
                 home_blocks = blocks
-                self.assertIn("Learn in public.", template["template"])
+                self.assertIn("Knowledge is everywhere.", template["template"])
                 self.assertIn("A good discovery deserves company.", template["template"])
-                self.assertIn("Keep the useful thread going.", template["template"])
+                self.assertIn("Still building. You can help shape what comes next.", template["template"])
 
         self.assertIsNotNone(home_blocks, "FACODI Home must render the learner hero")
         sections_arch = "".join(
