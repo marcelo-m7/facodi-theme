@@ -45,9 +45,9 @@ grep -Fq 'An open digital campus' "$VIEWS_DIR/snippets/s_facodi_hero.xml" \
   || fail "hero source language must remain English"
 grep -Fq 'Digital Community College. Open, collaborative and accessible higher education.' "$VIEWS_DIR/customizations.xml" \
   || fail "website shell source language must be English"
-grep -Fq 'Published courses' "$VIEWS_DIR/snippets/s_facodi_course_showcase.xml" \
+grep -Fq 'Start somewhere useful.' "$VIEWS_DIR/snippets/s_facodi_course_showcase.xml" \
   || fail "course showcase source language must remain English"
-grep -Fq 'Find your next field of study.' "$VIEWS_DIR/snippets/s_facodi_academic_areas.xml" \
+grep -Fq 'Move across fields without losing the thread.' "$VIEWS_DIR/snippets/s_facodi_academic_areas.xml" \
   || fail "academic areas source language must remain English"
 grep -Fq 'A learning ecosystem designed to stay open.' "$VIEWS_DIR/snippets/s_facodi_ecosystem.xml" \
   || fail "ecosystem source language must remain English"
@@ -116,17 +116,21 @@ done
 
 
 CAMPUS_PAPER_MSGIDS=(
-  'Learn in public.'
-  'Open higher education, one useful next step at a time.'
-  'Explore free courses'
-  'Where do you want to begin?'
-  'From curiosity to the next click.'
+  'Knowledge is everywhere.'
+  'Find your next step.'
+  'Open learning becomes easier to navigate when useful resources connect.'
+  'Explore courses'
+  'See how FACODI works'
+  'Explore learning in the way that makes sense to you.'
+  'From a question to the next useful link.'
   'Choose a question'
   'Study at your pace'
-  'Follow the next useful thread'
-  'A good discovery deserves company.'
-  'We are still building. You can be part of it.'
-  'Keep the useful thread going.'
+  'Follow the useful thread'
+  'Leave the trail clearer'
+  'A useful discovery deserves company.'
+  'Still building. You can improve the trail.'
+  'Open learning with an academic reference point.'
+  'Still building. You can help shape what comes next.'
 )
 
 for catalogue in pt es fr; do
