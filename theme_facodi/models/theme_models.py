@@ -35,3 +35,29 @@ class ThemeUtils(models.AbstractModel):
             homepage.with_context(
                 lang=language.code
             ).website_meta_description = description
+
+
+
+class WebsiteMenu(models.Model):
+    _inherit = "website.menu"
+
+    def _facodi_landing_url(self):
+        """Return a canonical destination for a parent menu without mutating it.
+
+        Odoo intentionally computes parent-menu URLs as '#'. FACODI keeps that
+        standard data contract and resolves the text-link destination from the
+        canonical child routes already present in the menu tree.
+        """
+        self.ensure_one()
+        if not self.child_id:
+            clean_url = self._clean_url()
+            return clean_url if clean_url and clean_url != "#" else False
+
+        child_urls = set(self.child_id.filtered("is_visible").mapped("url"))
+        if "/courses" in child_urls and "/roadmaps" in child_urls:
+            return "/explore"
+        if "/academic-model" in child_urls or "/about-ualg" in child_urls:
+            return "/sobre"
+        if "/forum" in child_urls:
+            return "/forum"
+        return False
