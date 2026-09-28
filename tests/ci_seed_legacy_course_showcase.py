@@ -86,7 +86,7 @@ view.update_field_translations(
 )
 
 expected_markers = {
-    "en_US": "Preserve this editor content",
+    "en_GB": "Preserve this editor content",
     "pt_PT": "Preservar este conteúdo do editor",
     "es_ES": "Conservar este contenido del editor",
     "fr_FR": "Conserver ce contenu de l'éditeur",
@@ -94,9 +94,9 @@ expected_markers = {
 for lang, marker in expected_markers.items():
     assert marker in view.with_context(lang=lang).arch
 
-assert "s_dynamic_snippet_container" not in view.with_context(lang="en_US").arch_db
-assert "s_dynamic_snippet_content" not in view.with_context(lang="en_US").arch_db
-assert 'href="/web/login"' in view.with_context(lang="en_US").arch_db
+assert "s_dynamic_snippet_container" not in view.with_context(lang="en_GB").arch_db
+assert "s_dynamic_snippet_content" not in view.with_context(lang="en_GB").arch_db
+assert 'href="/web/login"' in view.with_context(lang="en_GB").arch_db
 
 custom_arch = legacy_arch(
     marker="Keep this custom navigation untouched",
