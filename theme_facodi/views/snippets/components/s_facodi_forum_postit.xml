@@ -14,7 +14,7 @@
             <pre><code># Optional example or short excerpt</code></pre>
             <footer>
                 <span>Community notebook</span>
-                <a href="/contactus" class="facodi-text-link">Continue the conversation</a>
+                <a href="/contact" class="facodi-text-link">Continue the conversation</a>
             </footer>
         </article>
     </template>
