@@ -7,19 +7,22 @@
             <div class="container">
                 <div class="facodi-community-grid">
                     <article class="facodi-note facodi-community-card">
-                        <p class="facodi-label">Community</p>
-                        <h2>A good discovery deserves company.</h2>
-                        <p>Found a resource that made something click? Leave a useful trail for the next learner.</p>
+                        <p class="facodi-label">Community notebook</p>
+                        <h2>A useful discovery deserves company.</h2>
+                        <p>Found a video, course or public resource that made something click? Leave a useful trail for the next learner.</p>
                         <div class="facodi-actions">
                             <a href="/submissions/new?type=resource&amp;source=community_resource_cta&amp;section=community" class="btn facodi-button facodi-button-primary">Suggest a resource</a>
-                            <a href="/submissions/new?type=contact&amp;source=community_collaboration_cta&amp;section=community&amp;topic=collaboration" class="btn facodi-button facodi-button-secondary">Collaborate with FACODI</a>
+                            <a href="/forum" class="btn facodi-button facodi-button-secondary">Join the forum</a>
                         </div>
                     </article>
-                    <article class="facodi-sheet facodi-community-card">
-                        <p class="facodi-label">Open editing</p>
-                        <h2>Help make the learning trail clearer.</h2>
-                        <p>Translations, context and better links can make a public resource useful to someone new.</p>
-                        <a href="/submissions/new?type=correction&amp;source=translation_correction_cta&amp;section=translation" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
+                    <article class="facodi-sheet facodi-community-card facodi-community-card-build">
+                        <p class="facodi-label">Open campus</p>
+                        <h2>Still building. You can improve the trail.</h2>
+                        <p>Translations, corrections, context and better links can turn a public resource into something much easier to learn from.</p>
+                        <div class="facodi-actions">
+                            <a href="/submissions/new?type=correction&amp;source=translation_correction_cta&amp;section=translation" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
+                            <a href="/blog" class="facodi-text-link">Read project news <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                        </div>
                     </article>
                 </div>
             </div>
