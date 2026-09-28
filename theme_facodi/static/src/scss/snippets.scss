@@ -823,3 +823,161 @@
     }
 }
 
+
+
+/* Homepage motion language — derived from the interactive Dot Grid without
+   repeating the canvas. Motion is subtle, transform-only and disabled for
+   reduced-motion users. */
+.facodi-site .facodi-home-v4 {
+    > section {
+        isolation: isolate;
+        overflow: clip;
+        position: relative;
+    }
+
+    > section:not(.facodi-hero)::before {
+        background:
+            radial-gradient(circle, color-mix(in srgb, var(--facodi-blue) 22%, transparent) 0 1.5px, transparent 1.7px);
+        background-size: 22px 22px;
+        content: "";
+        height: 8rem;
+        opacity: .22;
+        pointer-events: none;
+        position: absolute;
+        right: clamp(-2rem, -2vw, -.5rem);
+        top: clamp(.75rem, 3vw, 2rem);
+        transform: rotate(4deg);
+        width: clamp(6rem, 15vw, 12rem);
+        z-index: -1;
+    }
+
+    .facodi-section-heading h2,
+    .facodi-institutional-sheet h2,
+    .facodi-closing-sheet h2,
+    .facodi-community-card h2 {
+        text-wrap: balance;
+    }
+
+    :is(.facodi-course-card,
+        .facodi-learning-card,
+        .facodi-learning-step,
+        .facodi-area-tab,
+        .facodi-community-card,
+        .facodi-institutional-sheet,
+        .facodi-closing-sheet) {
+        transition:
+            box-shadow 180ms ease,
+            transform 180ms ease,
+            border-color 180ms ease;
+    }
+
+    :is(.facodi-course-card,
+        .facodi-learning-card,
+        .facodi-area-tab):hover {
+        transform: translateY(-3px) rotate(-.15deg);
+    }
+
+    .facodi-community-card:hover,
+    .facodi-institutional-sheet:hover {
+        box-shadow: 5px 5px 0 color-mix(in srgb, var(--facodi-ink) 78%, transparent);
+        transform: translateY(-2px);
+    }
+
+    .facodi-button,
+    .facodi-text-link {
+        transition:
+            background-color 150ms ease,
+            box-shadow 150ms ease,
+            color 150ms ease,
+            transform 150ms ease;
+    }
+
+    .facodi-button:hover,
+    .facodi-button:focus-visible {
+        transform: translateY(-2px);
+    }
+
+    .facodi-text-link {
+        text-decoration-thickness: .12em;
+        text-underline-offset: .22em;
+    }
+
+    .facodi-text-link:hover {
+        text-underline-offset: .32em;
+    }
+
+    .facodi-study-sheet {
+        animation: facodi-paper-float 7s ease-in-out infinite;
+    }
+
+    .facodi-study-note {
+        animation: facodi-note-float 8s ease-in-out -1.5s infinite;
+    }
+
+    .facodi-study-note-secondary {
+        animation-delay: -3.25s;
+    }
+}
+
+@keyframes facodi-paper-float {
+    0%, 100% { transform: rotate(1deg) translateY(0); }
+    50% { transform: rotate(.35deg) translateY(-5px); }
+}
+
+@keyframes facodi-note-float {
+    0%, 100% { transform: rotate(-2deg) translateY(0); }
+    50% { transform: rotate(-1.2deg) translateY(-4px); }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site .facodi-home-v4 {
+        > section:not(.facodi-hero)::before {
+            height: 5rem;
+            opacity: .16;
+            width: 5rem;
+        }
+
+        .facodi-study-sheet,
+        .facodi-study-note,
+        .facodi-study-note-secondary {
+            animation: none;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .facodi-home-v4 {
+        *,
+        *::before,
+        *::after {
+            scroll-behavior: auto !important;
+        }
+
+        .facodi-study-sheet,
+        .facodi-study-note,
+        .facodi-study-note-secondary {
+            animation: none;
+        }
+
+        :is(.facodi-course-card,
+            .facodi-learning-card,
+            .facodi-learning-step,
+            .facodi-area-tab,
+            .facodi-community-card,
+            .facodi-institutional-sheet,
+            .facodi-closing-sheet,
+            .facodi-button,
+            .facodi-text-link) {
+            transition: none;
+        }
+
+        :is(.facodi-course-card,
+            .facodi-learning-card,
+            .facodi-area-tab,
+            .facodi-community-card,
+            .facodi-institutional-sheet,
+            .facodi-button):hover {
+            transform: none;
+        }
+    }
+}
