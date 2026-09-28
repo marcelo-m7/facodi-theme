@@ -326,7 +326,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.60.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.62.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
@@ -337,7 +337,7 @@ grep -Fq '"/unidades-curriculares": "/curricular-units"' "$CANONICAL_ROUTE_MIGRA
 grep -Fq '"s_facodi_course_showcase"' "$CANONICAL_ROUTE_MIGRATION" \
   || fail "canonical migration must stay scoped to persisted course-showcase navigation"
 
-RETIRED_HERO_MIGRATION="theme_facodi/migrations/19.0.10.60.0/post-10-remove-legacy-hero-visual.py"
+RETIRED_HERO_MIGRATION="theme_facodi/migrations/19.0.10.62.0/post-10-remove-legacy-hero-visual.py"
 [[ -f "$RETIRED_HERO_MIGRATION" ]] || fail "retired hero visual cleanup migration missing"
 grep -Fq '"facodi-dither-veil"' "$RETIRED_HERO_MIGRATION" \
   || fail "cleanup migration must remove persisted retired hero layers"
