@@ -422,3 +422,6 @@ grep -Fq '.facodi-captured-context' theme_facodi/static/src/scss/enriched_surfac
   || fail "captured contribution context surface missing"
 grep -Fq '.facodi-captured-context__grid' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "captured contribution context grid missing"
+
+grep -Fq 'minmax(#{"min(100%, 12rem)"}, 1fr)' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "LibSass-safe captured context grid missing"
