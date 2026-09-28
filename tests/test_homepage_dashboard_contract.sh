@@ -38,9 +38,9 @@ grep -Fq 'data-number-of-records="6"' "$SNIPPET" \
   || fail "course showcase must persist its record count on the snippet root"
 grep -Fq 'Learning catalogue' "$SNIPPET" \
   || fail "course showcase learning-navigation label is missing"
-for route in '/roadmaps' '/curricular-units' '/courses'; do
-  grep -Fq "href=\"$route\"" "$SNIPPET" \
-    || fail "course showcase learning navigation is missing $route"
+for selector in 'data-facodi-content-type="roadmaps"' 'data-facodi-content-type="curricular-units"' 'data-facodi-content-type="courses"'; do
+  grep -Fq "$selector" "$SNIPPET" \
+    || fail "course showcase learning selector is missing $selector"
 done
 grep -Fq 'source=course_showcase_contribute&amp;section=learning-catalogue' "$SNIPPET" \
   || fail "course showcase contribution tab must preserve catalogue context"
@@ -109,5 +109,9 @@ grep -Fq '.facodi-course-grid' "$SCSS" \
   || fail "course grid styles are missing"
 grep -Fq '.facodi-course-card' "$SCSS" \
   || fail "course card styles are missing"
+grep -Fq 'data-facodi-catalogue-switcher="1"' "$SNIPPET" \
+  || fail "dynamic homepage catalogue selector missing"
+grep -Fq 'theme_facodi/static/src/js/facodi_catalogue_switcher.js' "$MANIFEST" \
+  || fail "dynamic homepage catalogue JavaScript missing from frontend assets"
 
 echo "PASS: FACODI homepage dashboard contract"
