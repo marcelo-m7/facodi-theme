@@ -141,14 +141,13 @@ done
 
 # Default snippets use the canonical FACODI editorial and learning routes.
 # General contact/contribution actions go through the contextual intake.
-if grep -R -Fq 'href="/sobre"' theme_facodi/views/snippets --include='*.xml'; then
-  fail "default snippets must not link to undefined /sobre"
-fi
+# Production FACODI owns the editor-managed /sobre page. Homepage snippets may
+# link to it, but the theme must not create or overwrite that page.
 if grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml'; then
   fail "FACODI snippets must not bypass the contextual contact intake"
 fi
-grep -Fq 'href="/about">How FACODI works' theme_facodi/views/snippets/s_facodi_hero.xml \
-  || fail "hero explanation CTA must use the canonical About page"
+grep -Fq 'href="/sobre">See how FACODI works' theme_facodi/views/snippets/s_facodi_hero.xml \
+  || fail "hero explanation CTA must use the live editor-managed About page"
 grep -R -Fq '/submissions/new?type=resource' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI resource-contribution CTA must use the contextual intake"
 if grep -R -Fq 'href="/contribuir/recurso"' theme_facodi/views/snippets --include='*.xml'; then
@@ -307,7 +306,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.39.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.40.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
