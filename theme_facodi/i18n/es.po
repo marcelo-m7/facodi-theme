@@ -1906,3 +1906,9 @@ msgstr "Explora lo que ya es público o aporta un recurso útil que merezca un l
 msgid "Contribute a resource"
 msgstr "Aportar un recurso"
 
+
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Ask questions and share useful resources with the FACODI community."
+msgstr "Haz preguntas y comparte recursos útiles con la comunidad FACODI."
