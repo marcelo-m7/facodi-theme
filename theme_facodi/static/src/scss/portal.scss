@@ -719,3 +719,62 @@
         }
     }
 }
+
+.facodi-site [data-facodi-portal-home="1"] {
+    .facodi-portal-next-tab {
+        align-items: center;
+        background: color-mix(in srgb, var(--facodi-highlight-cyan) 24%, var(--facodi-white));
+        border: 1px solid var(--facodi-ink-deep);
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: 2px 2px 0 var(--facodi-highlight-cyan);
+        display: grid;
+        gap: .65rem;
+        grid-template-columns: auto minmax(0, 1fr);
+        padding: .65rem .7rem;
+        position: relative;
+
+        &::after {
+            background: var(--facodi-highlight-lime);
+            content: "";
+            height: .28rem;
+            position: absolute;
+            right: .65rem;
+            top: -.14rem;
+            transform: rotate(-2deg);
+            width: 2.4rem;
+        }
+
+        small,
+        strong {
+            display: block;
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        small {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: .58rem;
+            font-weight: 900;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        strong {
+            font-family: "Space Grotesk", Inter, sans-serif;
+            font-size: .9rem;
+            line-height: 1.15;
+            margin-top: .12rem;
+        }
+    }
+
+    .facodi-portal-next-tab__marker {
+        align-items: center;
+        background: var(--facodi-highlight-lime);
+        border: 1px solid var(--facodi-ink-deep);
+        border-radius: 50%;
+        display: inline-flex;
+        height: 1.85rem;
+        justify-content: center;
+        width: 1.85rem;
+    }
+}
