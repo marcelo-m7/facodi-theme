@@ -166,6 +166,8 @@ grep -Fq 'prefers-reduced-motion: reduce' theme_facodi/static/src/js/facodi_dith
   || fail "Dither Veil must respect reduced motion"
 grep -Fq 'IntersectionObserver' theme_facodi/static/src/js/facodi_dither_veil.js \
   || fail "Dither Veil must pause outside the viewport"
+grep -Fq 'navigator.connection?.saveData' theme_facodi/static/src/js/facodi_dither_veil.js \
+  || fail "Dither Veil must honour browser Save-Data"
 grep -R -Fq '/submissions/new?type=resource' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI resource-contribution CTA must use the contextual intake"
 if grep -R -Fq 'href="/contribuir/recurso"' theme_facodi/views/snippets --include='*.xml'; then
