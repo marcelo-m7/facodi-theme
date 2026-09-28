@@ -915,7 +915,7 @@
     }
 
     .facodi-study-note-secondary {
-        animation-delay: -3.25s;
+        animation: facodi-note-float-secondary 8s ease-in-out -3.25s infinite;
     }
 }
 
@@ -927,6 +927,11 @@
 @keyframes facodi-note-float {
     0%, 100% { transform: rotate(-2deg) translateY(0); }
     50% { transform: rotate(-1.2deg) translateY(-4px); }
+}
+
+@keyframes facodi-note-float-secondary {
+    0%, 100% { transform: rotate(2deg) translateY(0); }
+    50% { transform: rotate(1.2deg) translateY(-4px); }
 }
 
 @media (max-width: 767.98px) {
