@@ -533,7 +533,7 @@
                 radial-gradient(circle at 90% 12%, color-mix(in srgb, var(--facodi-sun) 18%, transparent) 0 12rem, transparent 12.1rem),
                 radial-gradient(circle at 8% 92%, color-mix(in srgb, var(--facodi-mint) 20%, transparent) 0 10rem, transparent 10.1rem),
                 var(--facodi-surface-page);
-            min-height: min(47rem, calc(100vh - 6rem));
+            min-height: calc(100vh - 6rem);
         }
 
         .facodi-campus-kicker {
@@ -551,10 +551,8 @@
         }
 
         .facodi-highlight-cyan {
-            display: inline;
             isolation: isolate;
             position: relative;
-            white-space: normal;
 
             &::after {
                 background: color-mix(in srgb, var(--facodi-sky) 58%, transparent);
