@@ -248,7 +248,7 @@ class TestFacodiElearningCatalogRendering(HttpCase):
     def test_catalogue_keeps_standard_hooks_in_portuguese_and_authenticated_sessions(self):
         course = self._channel("FACODI Language Route Course")
         lang_pt = self.env["res.lang"]._activate_lang("pt_PT")
-        self.website.language_ids = self.env.ref("base.lang_en") + lang_pt
+        lang_en = self.env["res.lang"]._activate_lang("en_GB")\n        self.website.language_ids = lang_en + lang_pt
 
         localized = self.url_open("/pt/slides")
         self.assertEqual(localized.status_code, 200)
