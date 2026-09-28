@@ -54,36 +54,44 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
         ):
             return self._slide(channel, name, **values)
 
-    def test_visual_priority_prefers_explicit_course_cover(self):
+    def test_visual_ignores_generic_course_cover_and_uses_first_video(self):
         channel = self._channel("Explicit cover", image_1920=_TINY_PNG)
-        self._slide(channel, "Content image", image_1920=_TINY_PNG)
-
-        visual = channel._facodi_catalog_visuals()[channel.id]
-
-        self.assertEqual(visual["kind"], "channel")
-        self.assertFalse(visual["slide"])
-        self.assertFalse(visual["url"])
-
-    def test_visual_priority_uses_stored_slide_image_before_youtube(self):
-        channel = self._channel("Stored slide image")
-        youtube = self._youtube_slide(
+        video = self._youtube_slide(
             channel,
-            "YouTube first in sequence",
+            "First video",
             url="https://youtu.be/dQw4w9WgXcQ",
             sequence=5,
         )
-        image = self._slide(
+
+        visual = channel._facodi_catalog_visuals()[channel.id]
+
+        self.assertEqual(visual["kind"], "youtube")
+        self.assertEqual(visual["slide"], video)
+        self.assertEqual(
+            visual["url"],
+            "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+        )
+
+    def test_visual_uses_stored_image_from_first_video_only(self):
+        channel = self._channel("Stored first-video image")
+        first = self._youtube_slide(
             channel,
-            "Representative image",
+            "First video",
+            url="https://youtu.be/dQw4w9WgXcQ",
             image_1920=_TINY_PNG,
-            sequence=20,
+            sequence=5,
+        )
+        self._slide(
+            channel,
+            "Non-video image must not become course cover",
+            image_1920=_TINY_PNG,
+            sequence=1,
         )
 
         visual = channel._facodi_catalog_visuals()[channel.id]
 
         self.assertEqual(visual["kind"], "slide")
-        self.assertEqual(visual["slide"], image)
-        self.assertNotEqual(visual["slide"], youtube)
+        self.assertEqual(visual["slide"], first)
         self.assertFalse(visual["url"])
 
     def test_visual_priority_uses_standard_youtube_id_without_http_fetch(self):
