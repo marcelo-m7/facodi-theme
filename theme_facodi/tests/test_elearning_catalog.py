@@ -94,6 +94,28 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
         self.assertEqual(visual["slide"], first)
         self.assertFalse(visual["url"])
 
+    def test_visual_accepts_legacy_article_with_native_video_metadata(self):
+        channel = self._channel("Legacy imported video")
+        with patch(
+            "odoo.addons.website_slides.models.slide_slide.SlideSlide._fetch_youtube_metadata",
+            return_value=({}, None),
+        ):
+            slide = self._slide(
+                channel,
+                "Legacy YouTube lesson",
+                slide_category="article",
+                source_type="external",
+                video_url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            )
+        self.assertEqual(slide.video_source_type, "youtube")
+        self.assertEqual(slide.youtube_id, "dQw4w9WgXcQ")
+
+        visual = channel._facodi_catalog_visuals()[channel.id]
+
+        self.assertEqual(visual["kind"], "youtube")
+        self.assertEqual(visual["slide"], slide)
+
     def test_visual_priority_uses_standard_youtube_id_without_http_fetch(self):
         channel = self._channel("YouTube fallback")
         slide = self._youtube_slide(
