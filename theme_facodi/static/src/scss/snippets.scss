@@ -534,6 +534,40 @@
                 radial-gradient(circle at 8% 92%, color-mix(in srgb, var(--facodi-mint) 20%, transparent) 0 10rem, transparent 10.1rem),
                 var(--facodi-surface-page);
             min-height: calc(100vh - 6rem);
+            position: relative;
+
+            > .facodi-hero-copy,
+            > .facodi-hero-study-board {
+                position: relative;
+                z-index: 2;
+            }
+        }
+
+        .facodi-dot-grid {
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            z-index: 0;
+
+            &::after {
+                background:
+                    linear-gradient(90deg,
+                        var(--facodi-surface-page) 0%,
+                        color-mix(in srgb, var(--facodi-surface-page) 58%, transparent) 34%,
+                        color-mix(in srgb, var(--facodi-surface-page) 18%, transparent) 68%,
+                        transparent 100%);
+                content: "";
+                inset: 0;
+                pointer-events: none;
+                position: absolute;
+            }
+        }
+
+        .facodi-dot-grid__canvas {
+            display: block;
+            height: 100%;
+            width: 100%;
         }
 
         .facodi-campus-kicker {
