@@ -8,7 +8,7 @@ fail() {
 
 HERO="theme_facodi/views/snippets/s_facodi_hero.xml"
 
-for anchor in 'Knowledge is everywhere.' 'Find your next step.' 'Explore courses' 'See how FACODI works' 'facodi-hero-study-board' 'facodi-study-sheet' 'facodi-study-note' 'facodi-study-route'; do
+for anchor in 'Knowledge is everywhere.' 'Find your next step.' 'Explore courses' 'See how FACODI works' 'facodi-hero-study-board' 'facodi-study-sheet' 'facodi-study-note' 'facodi-study-route' 'data-facodi-dot-grid' 'facodi-dot-grid__canvas'; do
   grep -Fq "$anchor" "$HERO" || fail "Campus Paper hero missing: $anchor"
 done
 if grep -Fq 'facodi-live-dot' "$HERO"; then fail "hero must not imply live status without real data"; fi
@@ -169,3 +169,14 @@ grep -Fq 'facodi-editorial-pathway-sheet' "$PATHWAY" \
   || fail "editorial pathway needs a paper-sheet hook"
 
 echo "PASS: FACODI Website Foundation v2 contract"
+
+DOT_GRID="theme_facodi/static/src/js/facodi_dot_grid.js"
+grep -Fq 'requestAnimationFrame' "$DOT_GRID" \
+  || fail "dot grid must render through requestAnimationFrame"
+grep -Fq 'ResizeObserver' "$DOT_GRID" \
+  || fail "dot grid must resize with its hero"
+grep -Fq 'prefers-reduced-motion: reduce' "$DOT_GRID" \
+  || fail "dot grid must respect reduced motion"
+if grep -Eq 'from .(react|gsap)|import .(react|gsap)' "$DOT_GRID"; then
+  fail "dot grid must remain dependency-free inside the Odoo frontend"
+fi
