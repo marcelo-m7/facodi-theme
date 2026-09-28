@@ -58,6 +58,7 @@ class FacodiDitherVeil {
         this.rim = root.dataset.rimColor || token("--facodi-cyan", "#37BED2");
         this.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         this.coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+        this.saveData = Boolean(navigator.connection?.saveData);
 
         this.image = null;
         this.width = 0;
@@ -85,6 +86,14 @@ class FacodiDitherVeil {
             return;
         }
         this.root.dataset.facodiDitherVeilReady = "true";
+
+        // The CSS layer is a complete visual fallback. Honour the browser's
+        // explicit data-saving preference by avoiding the large source image
+        // and all canvas sampling work.
+        if (this.saveData) {
+            this.root.dataset.facodiDitherVeilMode = "static";
+            return;
+        }
 
         if ("ResizeObserver" in window) {
             this.resizeObserver = new ResizeObserver(this.resize);
