@@ -32,10 +32,36 @@
                         <t t-call="website.navbar_nav">
                             <t t-set="_nav_class" t-valuef="ms-auto align-items-lg-center gap-lg-1"/>
                             <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                <t t-call="website.submenu">
-                                    <t t-set="item_class" t-valuef="nav-item"/>
-                                    <t t-set="link_class" t-valuef="nav-link"/>
-                                    <t t-set="dropdown_menu_classes" t-valuef="facodi-dropdown-menu"/>
+                                <t t-if="submenu.is_visible and submenu.child_id.filtered(lambda menu: menu.is_visible) and submenu.url and submenu.url != '#'">
+                                    <li class="nav-item dropdown facodi-nav-split">
+                                        <a t-att-href="submenu._clean_url()"
+                                           t-attf-class="nav-link facodi-nav-split-link #{submenu._is_active() and 'active'}"
+                                           role="menuitem">
+                                            <span t-field="submenu.name"/>
+                                        </a>
+                                        <button type="button"
+                                                class="nav-link dropdown-toggle dropdown-toggle-split facodi-nav-split-toggle"
+                                                data-bs-toggle="dropdown"
+                                                data-bs-auto-close="outside"
+                                                aria-expanded="false"
+                                                t-att-aria-label="'Open %s submenu' % submenu.name">
+                                            <span class="visually-hidden">Open submenu</span>
+                                        </button>
+                                        <ul class="dropdown-menu facodi-dropdown-menu" role="menu">
+                                            <t t-foreach="submenu.child_id" t-as="submenu">
+                                                <t t-call="website.submenu"
+                                                   item_class="None"
+                                                   link_class.f="dropdown-item"/>
+                                            </t>
+                                        </ul>
+                                    </li>
+                                </t>
+                                <t t-else="">
+                                    <t t-call="website.submenu">
+                                        <t t-set="item_class" t-valuef="nav-item"/>
+                                        <t t-set="link_class" t-valuef="nav-link"/>
+                                        <t t-set="dropdown_menu_classes" t-valuef="facodi-dropdown-menu"/>
+                                    </t>
                                 </t>
                             </t>
                             <t t-call="website.placeholder_header_language_selector">
