@@ -417,3 +417,11 @@ grep -Fq 'href="/contact">Open full contact form' theme_facodi/views/snippets/s_
   || fail "FAQ must expose the full contextual contact form"
 grep -Fq 'href="/contact" class="facodi-text-link">Continue the conversation' theme_facodi/views/snippets/components/s_facodi_forum_postit.xml \
   || fail "forum post-it must use contextual contact intake"
+
+grep -Fq '.facodi-captured-context' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "captured contribution context surface missing"
+grep -Fq '.facodi-captured-context__grid' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "captured contribution context grid missing"
+
+grep -Fq 'minmax(#{"min(100%, 12rem)"}, 1fr)' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "LibSass-safe captured context grid missing"
