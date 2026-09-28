@@ -9,10 +9,7 @@
                     <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
                     FACODI · An open digital campus
                 </p>
-                <h1>
-                    Knowledge is everywhere.
-                    <span class="facodi-highlight facodi-highlight-cyan">Find your next step.</span>
-                </h1>
+                <h1 class="facodi-highlight-cyan">Knowledge is everywhere. Find your next step.</h1>
                 <p class="facodi-hero-subtitle">Open learning becomes easier to navigate when useful resources connect.</p>
                 <p class="facodi-lead">
                     Explore courses, Roadmaps and curricular units built from public learning resources, reviewed context and community contribution.
