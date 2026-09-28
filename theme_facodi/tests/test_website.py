@@ -626,7 +626,7 @@ class TestFacodiTheme(HttpCase):
                 self.assertIsNone(home_blocks, "FACODI Home template must be unique")
                 home_blocks = blocks
                 self.assertIn("Knowledge is everywhere.", template["template"])
-                self.assertIn("A good discovery deserves company.", template["template"])
+                self.assertIn("A useful discovery deserves company.", template["template"])
                 self.assertIn("Still building. You can help shape what comes next.", template["template"])
 
         self.assertIsNotNone(home_blocks, "FACODI Home must render the learner hero")
