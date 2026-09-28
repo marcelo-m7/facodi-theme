@@ -54,7 +54,7 @@ fi
 if grep -Fq 'href="/website/search"' "$SNIPPET"; then
   fail "homepage learning navigation must not use generic website search as Discover"
 fi
-grep -Fq 'Published courses' "$SNIPPET" \
+grep -Fq 'Start somewhere useful.' "$SNIPPET" \
   || fail "course showcase heading is missing"
 grep -Fq 'facodi-course-catalogue-paper' "$SNIPPET" \
   || fail "Campus Paper catalogue shell missing"
@@ -63,8 +63,8 @@ grep -Fq 'Course cards appear here when published courses are available.' "$SNIP
 if grep -Eq 'UC-[0-9]+|Introduction to Algorithms|Web Open' "$SNIPPET"; then
   fail "dynamic course showcase must not ship invented static courses"
 fi
-grep -Fq 'Next study' "$SNIPPET" \
-  || fail "course showcase next-study panel is missing"
+grep -Fq 'Keep exploring' "$SNIPPET" \
+  || fail "course showcase continuation panel is missing"
 
 if grep -Eq 'request\.env|sudo\(\)' "$SNIPPET"; then
   fail "course showcase must not query business data directly from QWeb"
