@@ -9,46 +9,43 @@
                     <div>
                         <p class="facodi-kicker">
                             <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
-                            Explore by area
+                            Subject shelf
                         </p>
-                        <h2>Find your next field of study.</h2>
+                        <h2>Move across fields without losing the thread.</h2>
+                        <p class="facodi-section-copy">Use the catalogue as a shelf: open a field, find a starting point and keep moving when another topic becomes relevant.</p>
                     </div>
-                    <a href="/roadmaps" class="facodi-text-link">
-                        Explore Roadmaps
+                    <a href="/courses" class="facodi-text-link">
+                        Browse all courses
                         <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/>
                     </a>
                 </div>
-                <p class="facodi-lead">Start from an academic area, explore a Roadmap or curricular unit, then choose the courses and content that support your learning.</p>
-                <div class="facodi-area-grid">
-                    <article class="facodi-area-card facodi-mint">
-                        <div class="facodi-area-icon"><i class="fa fa-laptop" aria-hidden="true" t-translation="off"/></div>
-                        <p class="facodi-kicker">Area 01</p>
-                        <h3>Computing &amp; Technology</h3>
-                        <p>Programming, systems, web technologies and the foundations behind digital products.</p>
-                        <a href="/roadmaps">Explore Roadmaps <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
-                    </article>
-                    <article class="facodi-area-card facodi-sky">
-                        <div class="facodi-area-icon"><i class="fa fa-bar-chart" aria-hidden="true" t-translation="off"/></div>
-                        <p class="facodi-kicker">Area 02</p>
-                        <h3>Mathematics &amp; Data</h3>
-                        <p>Mathematical reasoning, statistics, data analysis and quantitative problem solving.</p>
-                        <a href="/curricular-units">Explore curricular units <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
-                    </article>
-                    <article class="facodi-area-card facodi-sun">
-                        <div class="facodi-area-icon"><i class="fa fa-briefcase" aria-hidden="true" t-translation="off"/></div>
-                        <p class="facodi-kicker">Area 03</p>
-                        <h3>Business &amp; Society</h3>
-                        <p>Organisations, entrepreneurship, economics and the social contexts that shape decisions.</p>
-                        <a href="/courses">Explore courses <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
-                    </article>
-                    <article class="facodi-area-card facodi-paper">
-                        <div class="facodi-area-icon"><i class="fa fa-comments" aria-hidden="true" t-translation="off"/></div>
-                        <p class="facodi-kicker">Area 04</p>
-                        <h3>Languages &amp; Culture</h3>
-                        <p>Communication, languages and cultural perspectives for learning across communities.</p>
-                        <a href="/courses">Explore courses <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/></a>
-                    </article>
-                </div>
+                <nav class="facodi-area-shelf" aria-label="Learning areas">
+                    <a href="/courses" class="facodi-area-tab facodi-area-tab-mint">
+                        <span class="facodi-label">01</span>
+                        <strong>Computing &amp; Technology</strong>
+                        <small>Programming · systems · software</small>
+                    </a>
+                    <a href="/curricular-units" class="facodi-area-tab facodi-area-tab-sky">
+                        <span class="facodi-label">02</span>
+                        <strong>Mathematics &amp; Data</strong>
+                        <small>Calculus · statistics · data</small>
+                    </a>
+                    <a href="/courses" class="facodi-area-tab facodi-area-tab-pink">
+                        <span class="facodi-label">03</span>
+                        <strong>Design &amp; Visual Culture</strong>
+                        <small>Typography · communication · art</small>
+                    </a>
+                    <a href="/courses" class="facodi-area-tab facodi-area-tab-sun">
+                        <span class="facodi-label">04</span>
+                        <strong>Business &amp; Organisations</strong>
+                        <small>ERP · workflows · management</small>
+                    </a>
+                    <a href="/explore/content" class="facodi-area-tab facodi-area-tab-paper">
+                        <span class="facodi-label">05</span>
+                        <strong>Community learning</strong>
+                        <small>Open resources beyond a single discipline</small>
+                    </a>
+                </nav>
             </div>
         </section>
     </template>
