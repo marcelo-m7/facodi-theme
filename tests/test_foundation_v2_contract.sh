@@ -65,8 +65,10 @@ for label in 'Open resources' 'Community learning' 'University network'; do
 done
 grep -Fq 'source=ecosystem_contact_cta&amp;section=ecosystem&amp;topic=partnership' "$ECOSYSTEM" \
   || fail "ecosystem contact action must preserve contextual partnership intent"
+grep -Fq 'href="/about">How FACODI works' "$HERO" \
+  || fail "hero explanation CTA must route to the FACODI About page"
 grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml' \
-  || fail "theme must still expose the native standard contact page"
+  && fail "theme snippets must not bypass the contextual contact intake"
 
 if grep -Eq 'request\.env|sudo\(\)' "$AREAS" "$ECOSYSTEM"; then
   fail "Foundation v2 editorial snippets must not query business data directly"
