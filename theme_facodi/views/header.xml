@@ -87,7 +87,7 @@
                             data-bs-toggle="dropdown"
                             t-att-data-bs-display="'static' if submenu.is_mega_menu else None"
                             data-bs-auto-close="outside"
-                            t-att-aria-label="'Open %s submenu' % submenu.name">
+                            aria-label="Open submenu">
                         <span class="visually-hidden">Open submenu</span>
                     </button>
                 </div>
@@ -118,7 +118,7 @@
                         t-attf-data-bs-target=".o_accordion_target_#{submenu.id}"
                         aria-expanded="false"
                         t-attf-aria-controls="o_accordion_target_#{submenu.id}"
-                        t-att-aria-label="'Open %s submenu' % submenu.name">
+                        aria-label="Open submenu">
                     <span class="visually-hidden">Open submenu</span>
                 </button>
             </div>
