@@ -1282,3 +1282,54 @@
         .facodi-forum-postit { transform: none; }
     }
 }
+
+
+/* React Bits-inspired interaction primitives, adapted to FACODI paper surfaces. */
+.facodi-site {
+    [data-facodi-spotlight="1"] {
+        --facodi-spotlight-x: 50%;
+        --facodi-spotlight-y: 50%;
+        isolation: isolate;
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+            background: radial-gradient(
+                circle at var(--facodi-spotlight-x) var(--facodi-spotlight-y),
+                color-mix(in srgb, var(--facodi-marker-cyan) 20%, transparent) 0,
+                color-mix(in srgb, var(--facodi-marker-yellow) 8%, transparent) 26%,
+                transparent 58%
+            );
+            content: "";
+            inset: 0;
+            opacity: .7;
+            pointer-events: none;
+            position: absolute;
+            transition: opacity 160ms ease;
+            z-index: 0;
+        }
+
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:hover::before,
+        &:focus-within::before {
+            opacity: 1;
+        }
+    }
+
+    [data-facodi-scramble="1"] {
+        display: inline-block;
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site [data-facodi-spotlight="1"]::before {
+        display: none;
+    }
+}
