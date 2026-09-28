@@ -13,6 +13,7 @@
                     </div>
                     <div class="facodi-actions">
                         <a href="/sobre" class="btn facodi-button facodi-button-secondary">About FACODI</a>
+                        <a href="/submissions/new?type=contact&amp;source=institutional_contact_cta&amp;section=institutional&amp;topic=partnership" class="facodi-text-link">Collaborate with FACODI</a>
                         <a href="https://sea-eu.org/" class="facodi-text-link" target="_blank" rel="noopener noreferrer">
                             SEA-EU
                             <i class="fa fa-external-link ms-1" aria-hidden="true" t-translation="off"/>
