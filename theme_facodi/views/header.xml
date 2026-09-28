@@ -73,7 +73,7 @@
               inherit_id="website.submenu"
               name="FACODI Split Submenu Navigation">
         <xpath expr="//a[@t-if='not is_accordion_nav']" position="replace">
-            <t t-if="submenu._clean_url() and submenu._clean_url() != '#'">
+            <t t-if="submenu.url and submenu.url != '#'">
                 <div class="facodi-split-menu">
                     <a t-att-href="submenu._clean_url()"
                        t-attf-class="#{link_class or ''} facodi-split-menu__link #{submenu._is_active() and 'active'}"
@@ -103,7 +103,7 @@
             </a>
         </xpath>
         <xpath expr="//div[@t-elif='is_accordion_nav']/a[@href='#']" position="replace">
-            <div t-if="submenu._clean_url() and submenu._clean_url() != '#'"
+            <div t-if="submenu.url and submenu.url != '#'"
                  class="facodi-split-menu facodi-split-menu--mobile">
                 <a t-att-href="submenu._clean_url()"
                    t-attf-class="#{link_class or ''} facodi-split-menu__link"
