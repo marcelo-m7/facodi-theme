@@ -304,7 +304,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.36.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.37.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
@@ -408,3 +408,10 @@ grep -Fq '.facodi-revision-resubmit' theme_facodi/static/src/scss/enriched_surfa
   || fail "revision resubmit card styling missing"
 grep -Fq '.facodi-contribution-journey__revision' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "revision journey styling missing"
+
+# User-facing FACODI contact CTAs use the richer contextual intake; the native
+# /contactus route remains available and is still covered independently.
+grep -Fq 'href="/contact">Open full contact form' theme_facodi/views/snippets/s_facodi_faq.xml \
+  || fail "FAQ must expose the full contextual contact form"
+grep -Fq 'href="/contact" class="facodi-text-link">Continue the conversation' theme_facodi/views/snippets/components/s_facodi_forum_postit.xml \
+  || fail "forum post-it must use contextual contact intake"
