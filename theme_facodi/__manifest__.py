@@ -82,6 +82,7 @@
             "theme_facodi/static/src/js/facodi_study_player.js",
             "theme_facodi/static/src/js/facodi_dot_grid.js",
             "theme_facodi/static/src/js/facodi_home_motion.js",
+            "theme_facodi/static/src/js/facodi_interactions.js",
             "theme_facodi/static/src/js/facodi_catalogue_switcher.js",
             "theme_facodi/static/src/scss/website_blog.scss",
             "theme_facodi/static/src/scss/website_public.scss",
