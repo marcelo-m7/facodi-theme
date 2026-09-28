@@ -83,6 +83,10 @@ grep -Fq 'website.navbar_nav' theme_facodi/views/header.xml \
   || fail "header must use standard navbar wrapper"
 grep -Fq 'website.menu_id.child_id' theme_facodi/views/header.xml \
   || fail "header must use standard dynamic Website menus"
+grep -Fq '_facodi_landing_url' theme_facodi/views/header.xml \
+  || fail "header must keep parent navigation separate from submenu disclosure"
+grep -Fq '_inherit = "website.menu"' theme_facodi/models/theme_models.py \
+  || fail "FACODI parent landing resolver must extend standard website.menu"
 grep -Fq 't-call="website.submenu"' theme_facodi/views/header.xml \
   || fail "header must use native submenu recursion"
 grep -Fq 'portal.placeholder_user_sign_in' theme_facodi/views/header.xml \
@@ -327,7 +331,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.55.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.56.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
