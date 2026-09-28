@@ -1348,3 +1348,64 @@
     box-shadow: 4px 4px 0 var(--facodi-ink);
   }
 }
+
+
+/* Captured contribution context ------------------------------------------- */
+.facodi-captured-context {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--facodi-highlight-cyan, #34b6ce) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(color-mix(in srgb, var(--facodi-highlight-cyan, #34b6ce) 12%, transparent) 1px, transparent 1px),
+    var(--facodi-white, #fff);
+  background-size: 18px 18px;
+  border: 2px solid var(--facodi-ink, #142846);
+  border-radius: var(--facodi-radius, 1rem);
+  box-shadow: 5px 5px 0 var(--facodi-highlight-cyan, #34b6ce);
+  padding: 1rem;
+}
+
+.facodi-captured-context__safe {
+  background: var(--facodi-highlight-mint, #72f6b8);
+  border: 1px solid var(--facodi-ink, #142846);
+  border-radius: 999px;
+  color: var(--facodi-ink, #142846);
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: .66rem;
+  font-weight: 900;
+  padding: .3rem .55rem;
+  text-transform: uppercase;
+}
+
+.facodi-captured-context__grid {
+  display: grid;
+  gap: .65rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+
+  > div {
+    background: color-mix(in srgb, var(--facodi-white, #fff) 92%, var(--facodi-highlight-lime, #e8fd36));
+    border: 1px solid var(--facodi-ink, #142846);
+    border-radius: var(--facodi-radius-sm, .7rem);
+    min-width: 0;
+    padding: .65rem .75rem;
+
+    &:nth-child(4n + 2) { box-shadow: 2px 2px 0 var(--facodi-highlight-mint, #72f6b8); }
+    &:nth-child(4n + 3) { box-shadow: 2px 2px 0 var(--facodi-highlight-orange, #ffae33); }
+    &:nth-child(4n) { box-shadow: 2px 2px 0 var(--facodi-highlight-pink, #ff70a6); }
+  }
+
+  dt {
+    color: color-mix(in srgb, var(--facodi-ink, #142846) 68%, white);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: .62rem;
+    font-weight: 900;
+    letter-spacing: .04em;
+    margin-bottom: .2rem;
+    text-transform: uppercase;
+  }
+
+  dd {
+    color: var(--facodi-ink, #142846);
+    font-weight: 800;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+}
