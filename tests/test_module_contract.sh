@@ -333,7 +333,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.58.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.59.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
@@ -343,6 +343,15 @@ grep -Fq '"/unidades-curriculares": "/curricular-units"' "$CANONICAL_ROUTE_MIGRA
   || fail "canonical migration must rewrite legacy curricular-unit route"
 grep -Fq '"s_facodi_course_showcase"' "$CANONICAL_ROUTE_MIGRATION" \
   || fail "canonical migration must stay scoped to persisted course-showcase navigation"
+
+DITHER_COW_MIGRATION="theme_facodi/migrations/19.0.10.59.0/post-10-repair-dither-veil-cow.py"
+[[ -f "$DITHER_COW_MIGRATION" ]] || fail "Dither Veil COW repair migration missing"
+grep -Fq '"facodi-dither-veil__canvas"' "$DITHER_COW_MIGRATION" \
+  || fail "Dither Veil migration must restore the canvas contract"
+grep -Fq '"data-src": "/theme_facodi/static/src/img/banner.png"' "$DITHER_COW_MIGRATION" \
+  || fail "Dither Veil migration must restore the source-image contract"
+grep -Fq '("key", "=", _HERO_KEY)' "$DITHER_COW_MIGRATION" \
+  || fail "Dither Veil migration must stay scoped to FACODI hero COW views"
 
 if grep -Rq 'prefers-color-scheme: dark\|background-image: none !important' theme_facodi/static/src/scss; then
   fail "partial dark mode or hidden editorial cover regression"
