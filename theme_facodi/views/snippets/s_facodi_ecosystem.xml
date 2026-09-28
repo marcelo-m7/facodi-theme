@@ -54,7 +54,7 @@
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
                     <a href="/courses" class="btn facodi-button facodi-button-secondary">Explore the catalogue</a>
-                    <a href="/submissions/new?type=contact&amp;source=ecosystem_contact_cta&amp;section=ecosystem&amp;topic=partnership" class="btn facodi-button facodi-button-secondary">Contact FACODI</a>
+                    <a href="/contact?source=ecosystem_contact_cta&amp;section=ecosystem&amp;topic=partnership" class="btn facodi-button facodi-button-secondary">Contact FACODI</a>
                 </div>
             </div>
         </section>
