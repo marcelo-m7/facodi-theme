@@ -166,6 +166,8 @@ grep -Fq 'data-facodi-dither-veil="1"' theme_facodi/views/snippets/s_facodi_hero
   || fail "hero Dither Veil stage missing"
 grep -Fq 'theme_facodi/static/src/js/facodi_dither_veil.js' theme_facodi/__manifest__.py \
   || fail "Dither Veil frontend asset missing"
+grep -Fq 'theme_facodi/static/src/js/facodi_catalogue_switcher.js' theme_facodi/__manifest__.py \
+  || fail "homepage catalogue switcher frontend asset missing"
 grep -Fq 'prefers-reduced-motion: reduce' theme_facodi/static/src/js/facodi_dither_veil.js \
   || fail "Dither Veil must respect reduced motion"
 grep -Fq 'IntersectionObserver' theme_facodi/static/src/js/facodi_dither_veil.js \
@@ -331,7 +333,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.57.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.58.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
