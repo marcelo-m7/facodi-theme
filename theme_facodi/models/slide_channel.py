@@ -51,12 +51,23 @@ class SlideChannel(models.Model):
                 ("channel_id", "in", self.ids),
                 ("is_category", "=", False),
                 ("website_published", "=", True),
+                "|",
                 ("slide_category", "=", "video"),
+                "&",
+                ("source_type", "=", "external"),
+                ("video_url", "!=", False),
             ],
             order="channel_id asc, sequence asc, id asc",
         )
         for slide in slides:
-            first_videos.setdefault(slide.channel_id.id, slide)
+            # Some imported FACODI records historically kept slide_category as
+            # article even though Odoo correctly recognizes their external URL
+            # as YouTube/Vimeo/Drive. Treat the native video metadata as the
+            # source of truth for presentation while those legacy records are
+            # being normalized.
+            is_video = slide.slide_category == "video" or bool(slide.video_source_type)
+            if is_video:
+                first_videos.setdefault(slide.channel_id.id, slide)
 
         for channel in self:
             slide = first_videos.get(channel.id)
