@@ -10,11 +10,9 @@
                         <strong>Course catalogue</strong>
                         <span>Browse published courses and learning resources.</span>
                     </a>
-                    <a t-if="request.env['blog.post'].sudo().search_count([('website_published', '=', True)])"
-                       href="/blog"
-                       class="facodi-sheet facodi-editorial-route-card">
-                        <strong>News and updates</strong>
-                        <span>Follow FACODI news and updates.</span>
+                    <a href="/forum" class="facodi-sheet facodi-editorial-route-card">
+                        <strong>Join the forum</strong>
+                        <span>Ask questions and share useful resources with the FACODI community.</span>
                     </a>
                     <a href="/contact?source=editorial_routes_contact_cta&amp;section=editorial-routes&amp;topic=collaboration" class="facodi-sheet facodi-editorial-route-card">
                         <strong>Contact and contribute</strong>
