@@ -425,3 +425,9 @@ grep -Fq '.facodi-captured-context__grid' theme_facodi/static/src/scss/enriched_
 
 grep -Fq 'minmax(#{"min(100%, 12rem)"}, 1fr)' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "LibSass-safe captured context grid missing"
+
+if grep -R -Fq '/submissions/new?type=contact' theme_facodi/views/snippets --include='*.xml'; then
+  fail "theme snippets must use canonical /contact for contact intent"
+fi
+grep -R -Fq '/contact?source=' theme_facodi/views/snippets --include='*.xml' \
+  || fail "theme snippets must preserve contextual contact source through canonical /contact"
