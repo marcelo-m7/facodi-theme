@@ -32,9 +32,9 @@
                         <t t-call="website.navbar_nav">
                             <t t-set="_nav_class" t-valuef="ms-auto align-items-lg-center gap-lg-1"/>
                             <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                <t t-if="submenu.is_visible and submenu.child_id.filtered(lambda menu: menu.is_visible) and submenu.url and submenu.url != '#'">
+                                <t t-if="submenu.is_visible and submenu.child_id.filtered(lambda menu: menu.is_visible) and submenu._facodi_landing_url()">
                                     <li class="nav-item dropdown facodi-nav-split">
-                                        <a t-att-href="submenu._clean_url()"
+                                        <a t-att-href="submenu._facodi_landing_url()"
                                            t-attf-class="nav-link facodi-nav-split-link #{submenu._is_active() and 'active'}"
                                            role="menuitem">
                                             <span t-field="submenu.name"/>
@@ -99,9 +99,9 @@
               inherit_id="website.submenu"
               name="FACODI Split Submenu Navigation">
         <xpath expr="//a[@t-if='not is_accordion_nav']" position="replace">
-            <t t-if="submenu.url and submenu.url != '#'">
+            <t t-if="submenu._facodi_landing_url()">
                 <div class="facodi-split-menu">
-                    <a t-att-href="submenu._clean_url()"
+                    <a t-att-href="submenu._facodi_landing_url()"
                        t-attf-class="#{link_class or ''} facodi-split-menu__link #{submenu._is_active() and 'active'}"
                        role="menuitem"
                        t-ignore="true"
@@ -129,9 +129,9 @@
             </a>
         </xpath>
         <xpath expr="//div[@t-elif='is_accordion_nav']/a[@href='#']" position="replace">
-            <div t-if="submenu.url and submenu.url != '#'"
+            <div t-if="submenu._facodi_landing_url()"
                  class="facodi-split-menu facodi-split-menu--mobile">
-                <a t-att-href="submenu._clean_url()"
+                <a t-att-href="submenu._facodi_landing_url()"
                    t-attf-class="#{link_class or ''} facodi-split-menu__link"
                    role="menuitem"
                    t-ignore="true"
