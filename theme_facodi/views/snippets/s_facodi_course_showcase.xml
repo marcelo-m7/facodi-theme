@@ -14,7 +14,8 @@
                     <div class="facodi-section-heading">
                         <div>
                             <p class="facodi-kicker">Learning catalogue</p>
-                            <h2>Published courses</h2>
+                            <h2>Start somewhere useful.</h2>
+                            <p class="facodi-section-copy">Published FACODI courses connect open resources into practical starting points.</p>
                         </div>
                         <nav class="facodi-catalogue-tabs" aria-label="Learning catalogue">
                             <a href="/roadmaps">Roadmaps</a>
@@ -35,9 +36,9 @@
 
                     <aside class="facodi-sheet facodi-catalogue-next">
                         <div>
-                            <p class="facodi-label">Next study</p>
-                            <h3>Explore the available courses</h3>
-                            <p>Open the catalogue and choose the next topic in your learning journey.</p>
+                            <p class="facodi-label">Keep exploring</p>
+                            <h3>There is more in the catalogue.</h3>
+                            <p>Browse every published course and choose the next topic that fits your learning journey.</p>
                         </div>
                         <a class="btn facodi-button facodi-button-primary" href="/courses">
                             View catalogue
