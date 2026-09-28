@@ -159,7 +159,7 @@ class TestFacodiStudyPlayerRendering(HttpCase):
             "Localized lesson",
         )
         lang_pt = self.env["res.lang"]._activate_lang("pt_PT")
-        self.website.language_ids = self.env.ref("base.lang_en") + lang_pt
+        lang_en = self.env["res.lang"]._activate_lang("en_GB")\n        self.website.language_ids = lang_en + lang_pt
 
         response = self.url_open(f"/pt{slide.website_url}?fullscreen=1")
         self.assertEqual(response.status_code, 200)
