@@ -174,4 +174,4 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
         visuals = channels._facodi_catalog_visuals()
 
         self.assertEqual(set(visuals), set(channels.ids))
-        self.assertEqual(visuals[third.id]["kind"], "channel")
+        self.assertEqual(visuals[third.id]["kind"], "fallback")
