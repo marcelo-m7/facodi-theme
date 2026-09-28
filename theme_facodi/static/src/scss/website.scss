@@ -426,3 +426,56 @@
     outline: 0;
     box-shadow: var(--facodi-focus-ring);
 }
+
+/* FACODI split navigation: parent text remains a destination; disclosure is
+   a separate Bootstrap/Odoo control. This is presentation-only and preserves
+   website.menu as the navigation source of truth. */
+.facodi-site {
+    .facodi-split-menu {
+        align-items: stretch;
+        display: inline-flex;
+        min-width: 0;
+
+        &__link {
+            border-bottom-right-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            min-width: 0;
+        }
+
+        &__toggle {
+            align-items: center;
+            border-bottom-left-radius: 0 !important;
+            border-left: 0 !important;
+            border-top-left-radius: 0 !important;
+            display: inline-flex;
+            flex: 0 0 auto;
+            justify-content: center;
+            min-width: 2.15rem;
+            padding-inline: .45rem !important;
+
+            &::after {
+                margin-left: 0;
+            }
+        }
+
+        &--mobile {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            width: 100%;
+
+            .facodi-split-menu__link {
+                align-items: center;
+                display: flex;
+            }
+
+            .facodi-split-menu__toggle {
+                min-width: 3rem;
+            }
+        }
+    }
+
+    .facodi-header .facodi-split-menu:has(.facodi-split-menu__link.active) {
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: inset 0 -2px 0 var(--facodi-ink);
+    }
+}
