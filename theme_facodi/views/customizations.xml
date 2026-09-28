@@ -39,6 +39,11 @@
                                    t-att-href="footer_menu._clean_url()">
                                     <span t-field="footer_menu.name"/>
                                 </a>
+                                <a t-elif="footer_menu._clean_url() and footer_menu._clean_url() != '#'"
+                                   t-att-href="footer_menu._clean_url()"
+                                   class="facodi-footer-heading facodi-footer-heading-link">
+                                    <span t-field="footer_menu.name"/>
+                                </a>
                                 <span t-else="" class="facodi-footer-heading">
                                     <span t-field="footer_menu.name"/>
                                 </span>
