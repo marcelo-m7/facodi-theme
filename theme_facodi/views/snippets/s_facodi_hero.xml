@@ -19,7 +19,7 @@
                         Explore free courses
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
-                    <a class="btn facodi-button facodi-button-secondary" href="/contactus">How FACODI works</a>
+                    <a class="btn facodi-button facodi-button-secondary" href="/about">How FACODI works</a>
                 </div>
             </div>
             <div class="facodi-hero-study-board" aria-label="FACODI learning map">
