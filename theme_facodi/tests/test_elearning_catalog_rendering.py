@@ -59,10 +59,11 @@ class TestFacodiElearningCatalogRendering(HttpCase):
     def test_catalogue_renders_dynamic_visual_sources_and_standard_hooks(self):
         explicit = self._channel("FACODI Explicit Cover", image_1920=_TINY_PNG)
 
-        from_slide = self._channel("FACODI Slide Cover")
+        from_slide = self._channel("FACODI First Video Stored Cover")
         slide_image = self._slide(
             from_slide,
             "Representative visual lesson",
+            slide_category="video",
             image_1920=_TINY_PNG,
         )
 
@@ -93,11 +94,11 @@ class TestFacodiElearningCatalogRendering(HttpCase):
             4,
         )
 
-        explicit_media = tree.xpath(
-            f"//a[contains(@href, '/slides/{explicit.id}') or contains(@href, '-{explicit.id}') ]//*[contains(@class, 'facodi-course-media')]//img"
+        explicit_fallback = tree.xpath(
+            f"//a[contains(@href, '/slides/{explicit.id}') or contains(@href, '-{explicit.id}') ]//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-course-fallback ')]"
         )
-        self.assertTrue(explicit_media)
-        self.assertIn(f"slide.channel/{explicit.id}/image_", explicit_media[0].get("src", ""))
+        self.assertTrue(explicit_fallback)
+        self.assertFalse(explicit_fallback[0].xpath(".//img"))
 
         slide_media = tree.xpath(
             f"//a[contains(@href, '/slides/{from_slide.id}') or contains(@href, '-{from_slide.id}') ]//*[contains(@class, 'facodi-course-media')]//img"
