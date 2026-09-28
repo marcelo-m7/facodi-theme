@@ -401,3 +401,10 @@ grep -Fq 'source=faq_contribution_cta&amp;section=faq&amp;topic=collaboration' t
 
 grep -Fq '.facodi-submission-type-switcher' theme_facodi/static/src/scss/enriched_surfaces.scss \
   || fail "contextual submission type switcher styling missing"
+
+grep -Fq '[data-facodi-revision-request="1"]' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "requested-revision highlighter surface missing"
+grep -Fq '.facodi-revision-resubmit' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "revision resubmit card styling missing"
+grep -Fq '.facodi-contribution-journey__revision' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "revision journey styling missing"
