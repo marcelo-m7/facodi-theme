@@ -39,6 +39,18 @@
                 </p>
             </div>
             <div class="facodi-hero-study-board" aria-label="FACODI learning map">
+                <div class="facodi-dither-veil"
+                     data-facodi-dither-veil="1"
+                     data-src="/theme_facodi/static/src/img/banner.png"
+                     data-pixel-size="5"
+                     data-reveal-radius="175"
+                     data-linger="1050"
+                     data-ink-color="#142846"
+                     data-paper-color="#F9FAFB"
+                     data-rim-color="#37BED2"
+                     aria-hidden="true">
+                    <canvas class="facodi-dither-veil__canvas"/>
+                </div>
                 <article class="facodi-sheet facodi-study-sheet">
                     <div class="facodi-study-sheet-topline">
                         <p class="facodi-tab">Field notebook</p>
