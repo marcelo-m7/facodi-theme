@@ -1378,7 +1378,7 @@
 .facodi-captured-context__grid {
   display: grid;
   gap: .65rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  // Keep CSS min() for the browser; LibSass cannot compare % and rem units.\n  grid-template-columns: repeat(auto-fit, minmax(#{"min(100%, 12rem)"}, 1fr));
 
   > div {
     background: color-mix(in srgb, var(--facodi-white, #fff) 92%, var(--facodi-highlight-lime, #e8fd36));
