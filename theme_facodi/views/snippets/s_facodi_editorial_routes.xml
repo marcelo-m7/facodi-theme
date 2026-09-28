@@ -14,7 +14,7 @@
                         <strong>News and updates</strong>
                         <span>Follow FACODI news and updates.</span>
                     </a>
-                    <a href="/submissions/new?type=contact&amp;source=editorial_routes_contact_cta&amp;section=editorial-routes&amp;topic=collaboration" class="facodi-sheet facodi-editorial-route-card">
+                    <a href="/contact?source=editorial_routes_contact_cta&amp;section=editorial-routes&amp;topic=collaboration" class="facodi-sheet facodi-editorial-route-card">
                         <strong>Contact and contribute</strong>
                         <span>Share a resource or a collaboration proposal.</span>
                     </a>
