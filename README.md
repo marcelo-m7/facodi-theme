@@ -88,16 +88,15 @@ The `/slides` catalogue stays on Odoo's native controller, search/filtering and
 course-card templates. FACODI resolves visuals in one read-only batch with this
 priority:
 
-1. explicit `slide.channel.image_1920`;
-2. a published, non-category lesson with stored `slide.slide.image_1920`;
-3. `https://i.ytimg.com/vi/<youtube_id>/hqdefault.jpg`, using Odoo's stored
+1. the first published video lesson, using its stored `slide.slide.image_1920` when available;
+2. otherwise the same first video's `https://i.ytimg.com/vi/<youtube_id>/hqdefault.jpg`, using Odoo's stored
    `slide.slide.youtube_id`;
 4. a FACODI HTML/CSS fallback without a broken image request.
 
 The resolver performs no HTTP fetch and writes no derived thumbnail back to Odoo.
 QWeb receives one visual map for the current channel recordset, avoiding an ORM
 search for each course card. Documentation lesson cards use the same stored-image,
-YouTube-ID and fallback policy.
+first-video and FACODI-placeholder policy.
 
 The catalogue uses a 1/2/3/4/5-column responsive CSS Grid across progressively
 wider breakpoints. Standard `website_slides` card/list links and JS hooks remain in
