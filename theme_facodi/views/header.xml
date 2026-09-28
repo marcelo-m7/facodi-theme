@@ -62,4 +62,75 @@
             </header>
         </xpath>
     </template>
+
+    <!--
+        Odoo's standard submenu turns a parent with children into a dropdown
+        trigger whose href is "#". FACODI keeps the standard recursion and
+        Bootstrap mechanics, but splits navigation from disclosure whenever
+        the parent itself has a real destination.
+    -->
+    <template id="submenu_split_navigation"
+              inherit_id="website.submenu"
+              name="FACODI Split Submenu Navigation">
+        <xpath expr="//a[@t-if='not is_accordion_nav']" position="replace">
+            <t t-if="submenu._clean_url() and submenu._clean_url() != '#'">
+                <div class="facodi-split-menu">
+                    <a t-att-href="submenu._clean_url()"
+                       t-attf-class="#{link_class or ''} facodi-split-menu__link #{submenu._is_active() and 'active'}"
+                       role="menuitem"
+                       t-ignore="true"
+                       t-att-target="'_blank' if submenu.new_window else None">
+                        <span t-field="submenu.name"/>
+                    </a>
+                    <button type="button"
+                            t-attf-class="dropdown-toggle #{link_class or ''} facodi-split-menu__toggle #{dropdown_toggler_classes}"
+                            data-bs-toggle="dropdown"
+                            t-att-data-bs-display="'static' if submenu.is_mega_menu else None"
+                            data-bs-auto-close="outside"
+                            t-att-aria-label="'Open %s submenu' % submenu.name">
+                        <span class="visually-hidden">Open submenu</span>
+                    </button>
+                </div>
+            </t>
+            <a t-else=""
+               href="#"
+               t-attf-class="dropdown-toggle #{link_class or ''} #{submenu.is_mega_menu and 'o_mega_menu_toggle'} #{submenu._is_active() and 'active'} #{dropdown_toggler_classes}"
+               data-bs-toggle="dropdown"
+               t-att-data-bs-display="'static' if submenu.is_mega_menu else None"
+               data-bs-auto-close="outside"
+               role="menuitem">
+                <span t-field="submenu.name"/>
+            </a>
+        </xpath>
+        <xpath expr="//div[@t-elif='is_accordion_nav']/a[@href='#']" position="replace">
+            <div t-if="submenu._clean_url() and submenu._clean_url() != '#'"
+                 class="facodi-split-menu facodi-split-menu--mobile">
+                <a t-att-href="submenu._clean_url()"
+                   t-attf-class="#{link_class or ''} facodi-split-menu__link"
+                   role="menuitem"
+                   t-ignore="true"
+                   t-att-target="'_blank' if submenu.new_window else None">
+                    <span t-field="submenu.name"/>
+                </a>
+                <button type="button"
+                        t-attf-class="#{link_class or ''} accordion-button collapsed facodi-split-menu__toggle"
+                        data-bs-toggle="collapse"
+                        t-attf-data-bs-target=".o_accordion_target_#{submenu.id}"
+                        aria-expanded="false"
+                        t-attf-aria-controls="o_accordion_target_#{submenu.id}"
+                        t-att-aria-label="'Open %s submenu' % submenu.name">
+                    <span class="visually-hidden">Open submenu</span>
+                </button>
+            </div>
+            <a t-else=""
+               href="#"
+               t-attf-class="#{link_class or ''} accordion-button collapsed"
+               data-bs-toggle="collapse"
+               t-attf-data-bs-target=".o_accordion_target_#{submenu.id}"
+               aria-expanded="false"
+               t-attf-aria-controls="o_accordion_target_#{submenu.id}">
+                <span t-field="submenu.name"/>
+            </a>
+        </xpath>
+    </template>
 </odoo>
