@@ -96,7 +96,7 @@ def migrate(cr, version):
     View = env["ir.ui.view"].with_context(active_test=False)
     field = View._fields["arch_db"]
 
-    views = View.with_context(lang="en_US").search(
+    views = View.with_context(lang="en_GB").search(
         [
             ("website_id", "!=", False),
             ("arch_db", "ilike", "s_facodi_course_showcase"),
@@ -107,7 +107,7 @@ def migrate(cr, version):
     repaired_translations = 0
     for view in views:
         stored = field._get_stored_translations(view) or {}
-        source_arch = _stored_value(stored, "en_US")
+        source_arch = _stored_value(stored, "en_GB")
         if not source_arch:
             continue
 
@@ -126,7 +126,7 @@ def migrate(cr, version):
             continue
 
         if source_changed:
-            view.with_context(lang="en_US").arch = repaired_source
+            view.with_context(lang="en_GB").arch = repaired_source
 
         if translated_targets:
             updates = _translation_updates(field, repaired_source, translated_targets)
