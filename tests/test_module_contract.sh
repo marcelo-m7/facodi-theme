@@ -162,18 +162,11 @@ if grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml'
 fi
 grep -Fq 'href="/sobre">See how FACODI works' theme_facodi/views/snippets/s_facodi_hero.xml \
   || fail "hero explanation CTA must use the live editor-managed About page"
-grep -Fq 'data-facodi-dither-veil="1"' theme_facodi/views/snippets/s_facodi_hero.xml \
-  || fail "hero Dither Veil stage missing"
-grep -Fq 'theme_facodi/static/src/js/facodi_dither_veil.js' theme_facodi/__manifest__.py \
-  || fail "Dither Veil frontend asset missing"
+if grep -Riq 'dither[- _]veil' theme_facodi/static theme_facodi/views theme_facodi/__manifest__.py; then
+  fail "removed Dither Veil implementation must not remain in the live theme"
+fi
 grep -Fq 'theme_facodi/static/src/js/facodi_catalogue_switcher.js' theme_facodi/__manifest__.py \
   || fail "homepage catalogue switcher frontend asset missing"
-grep -Fq 'prefers-reduced-motion: reduce' theme_facodi/static/src/js/facodi_dither_veil.js \
-  || fail "Dither Veil must respect reduced motion"
-grep -Fq 'IntersectionObserver' theme_facodi/static/src/js/facodi_dither_veil.js \
-  || fail "Dither Veil must pause outside the viewport"
-grep -Fq 'navigator.connection?.saveData' theme_facodi/static/src/js/facodi_dither_veil.js \
-  || fail "Dither Veil must honour browser Save-Data"
 grep -R -Fq '/submissions/new?type=resource' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI resource-contribution CTA must use the contextual intake"
 if grep -R -Fq 'href="/contribuir/recurso"' theme_facodi/views/snippets --include='*.xml'; then
@@ -333,7 +326,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.59.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.60.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
@@ -344,14 +337,14 @@ grep -Fq '"/unidades-curriculares": "/curricular-units"' "$CANONICAL_ROUTE_MIGRA
 grep -Fq '"s_facodi_course_showcase"' "$CANONICAL_ROUTE_MIGRATION" \
   || fail "canonical migration must stay scoped to persisted course-showcase navigation"
 
-DITHER_COW_MIGRATION="theme_facodi/migrations/19.0.10.59.0/post-10-repair-dither-veil-cow.py"
-[[ -f "$DITHER_COW_MIGRATION" ]] || fail "Dither Veil COW repair migration missing"
-grep -Fq '"facodi-dither-veil__canvas"' "$DITHER_COW_MIGRATION" \
-  || fail "Dither Veil migration must restore the canvas contract"
-grep -Fq '"data-src": "/theme_facodi/static/src/img/banner.png"' "$DITHER_COW_MIGRATION" \
-  || fail "Dither Veil migration must restore the source-image contract"
-grep -Fq '("key", "=", _HERO_KEY)' "$DITHER_COW_MIGRATION" \
-  || fail "Dither Veil migration must stay scoped to FACODI hero COW views"
+RETIRED_HERO_MIGRATION="theme_facodi/migrations/19.0.10.60.0/post-10-remove-legacy-hero-visual.py"
+[[ -f "$RETIRED_HERO_MIGRATION" ]] || fail "retired hero visual cleanup migration missing"
+grep -Fq '"facodi-dither-veil"' "$RETIRED_HERO_MIGRATION" \
+  || fail "cleanup migration must remove persisted retired hero layers"
+grep -Fq '("key", "=", _HERO_KEY)' "$RETIRED_HERO_MIGRATION" \
+  || fail "retired hero cleanup must stay scoped to FACODI hero COW views"
+[[ ! -f theme_facodi/migrations/19.0.10.59.0/post-10-repair-dither-veil-cow.py ]] \
+  || fail "retired hero visual repair migration must be removed"
 
 if grep -Rq 'prefers-color-scheme: dark\|background-image: none !important' theme_facodi/static/src/scss; then
   fail "partial dark mode or hidden editorial cover regression"
