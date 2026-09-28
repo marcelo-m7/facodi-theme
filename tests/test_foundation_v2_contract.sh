@@ -8,7 +8,7 @@ fail() {
 
 HERO="theme_facodi/views/snippets/s_facodi_hero.xml"
 
-for anchor in 'Learn in public.' 'Open higher education, one useful next step at a time.' 'Explore free courses' 'How FACODI works' 'facodi-hero-study-board' 'facodi-study-sheet' 'facodi-study-note' 'facodi-study-route'; do
+for anchor in 'Knowledge is everywhere.' 'Find your next step.' 'Explore courses' 'See how FACODI works' 'facodi-hero-study-board' 'facodi-study-sheet' 'facodi-study-note' 'facodi-study-route'; do
   grep -Fq "$anchor" "$HERO" || fail "Campus Paper hero missing: $anchor"
 done
 if grep -Fq 'facodi-live-dot' "$HERO"; then fail "hero must not imply live status without real data"; fi
@@ -16,13 +16,13 @@ if grep -Fq 'facodi-live-dot' "$HERO"; then fail "hero must not imply live statu
 JOURNEY="theme_facodi/views/snippets/s_facodi_learning_journey.xml"
 FEATURES="theme_facodi/views/snippets/s_facodi_features.xml"
 
-for anchor in 'Where do you want to begin?' 'Courses' 'Roadmaps' 'Curricular units' 'facodi-learning-entry-grid'; do
+for anchor in 'Explore learning in the way that makes sense to you.' 'Courses' 'Roadmaps' 'Curricular units' 'facodi-learning-entry-grid'; do
   grep -Fq "$anchor" "$JOURNEY" || fail "learning entry section missing: $anchor"
 done
 for route in '/courses' '/roadmaps' '/curricular-units'; do
   grep -Fq "href=\"$route\"" "$JOURNEY" || fail "learning entry route missing: $route"
 done
-for anchor in 'From curiosity to the next click.' 'Choose a question' 'Study at your pace' 'Follow the next useful thread' 'facodi-learning-steps'; do
+for anchor in 'From a question to the next useful link.' 'Choose a question' 'Study at your pace' 'Follow the useful thread' 'Leave the trail clearer' 'facodi-learning-steps'; do
   grep -Fq "$anchor" "$FEATURES" || fail "learning steps missing: $anchor"
 done
 
@@ -43,13 +43,11 @@ grep -Fq 'id="s_facodi_academic_areas"' "$AREAS" \
   || fail "academic areas snippet id is missing"
 grep -Fq 'data-snippet="s_facodi_academic_areas"' "$AREAS" \
   || fail "academic areas snippet must expose its Website Builder identity"
-for label in 'Computing &amp; Technology' 'Mathematics &amp; Data' 'Business &amp; Society' 'Languages &amp; Culture'; do
+for label in 'Computing &amp; Technology' 'Mathematics &amp; Data' 'Design &amp; Visual Culture' 'Business &amp; Organisations' 'Community learning'; do
   grep -Fq "$label" "$AREAS" || fail "academic areas source is missing: $label"
 done
 grep -Fq 'href="/courses"' "$AREAS" \
   || fail "academic areas must link to standard eLearning catalogue"
-grep -Fq 'href="/roadmaps"' "$AREAS" \
-  || fail "academic areas must link to FACODI Roadmaps"
 grep -Fq 'href="/curricular-units"' "$AREAS" \
   || fail "academic areas must link to FACODI curricular units"
 if grep -Fq 'href="/website/search"' "$AREAS"; then
@@ -65,8 +63,8 @@ for label in 'Open resources' 'Community learning' 'University network'; do
 done
 grep -Fq 'source=ecosystem_contact_cta&amp;section=ecosystem&amp;topic=partnership' "$ECOSYSTEM" \
   || fail "ecosystem contact action must preserve contextual partnership intent"
-grep -Fq 'href="/about">How FACODI works' "$HERO" \
-  || fail "hero explanation CTA must route to the FACODI About page"
+grep -Fq 'href="/sobre">See how FACODI works' "$HERO" \
+  || fail "hero explanation CTA must route to the live FACODI About page"
 grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml' \
   && fail "theme snippets must not bypass the contextual contact intake"
 
@@ -147,9 +145,9 @@ home = root.find(".//template[@id='new_page_template_sections_facodi_home']")
 calls = [n.get("t-snippet-call") for n in home.iter("t") if n.get("t-snippet-call")]
 expected = [
     "theme_facodi.s_facodi_hero",
+    "theme_facodi.s_facodi_course_showcase",
     "theme_facodi.s_facodi_learning_journey",
     "theme_facodi.s_facodi_features",
-    "theme_facodi.s_facodi_course_showcase",
     "theme_facodi.s_facodi_academic_areas",
     "theme_facodi.s_facodi_community",
     "theme_facodi.s_facodi_institutional",
