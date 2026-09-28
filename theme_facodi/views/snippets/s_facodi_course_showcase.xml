@@ -17,21 +17,48 @@
                             <h2>Start somewhere useful.</h2>
                             <p class="facodi-section-copy">Published FACODI courses connect open resources into practical starting points.</p>
                         </div>
-                        <nav class="facodi-catalogue-tabs" aria-label="Learning catalogue">
-                            <a href="/roadmaps">Roadmaps</a>
-                            <a href="/curricular-units">Curricular Units</a>
-                            <a href="/courses" class="is-active">Courses</a>
+                        <nav class="facodi-catalogue-tabs"
+                             aria-label="Learning catalogue"
+                             data-facodi-catalogue-switcher="1">
+                            <button type="button"
+                                    class="facodi-catalogue-tab"
+                                    data-facodi-content-type="roadmaps"
+                                    aria-pressed="false">Roadmaps</button>
+                            <button type="button"
+                                    class="facodi-catalogue-tab"
+                                    data-facodi-content-type="curricular-units"
+                                    aria-pressed="false">Curricular Units</button>
+                            <button type="button"
+                                    class="facodi-catalogue-tab is-active"
+                                    data-facodi-content-type="courses"
+                                    aria-pressed="true">Courses</button>
                             <a href="/submissions/new?type=resource&amp;source=course_showcase_contribute&amp;section=learning-catalogue">Contribute</a>
                         </nav>
                     </div>
 
-                    <section class="s_dynamic_snippet_content facodi-dynamic-content oe_unremovable oe_unmovable o_not_editable" data-facodi-motion="fade" data-facodi-motion-delay="80">
-                        <div class="css_non_editable_mode_hidden">
-                            <div class="missing_option_warning alert alert-info d-none mt-3">
-                                Course cards appear here when published courses are available.
+                    <section class="facodi-catalogue-stage"
+                             data-facodi-catalogue-stage="1"
+                             data-facodi-motion="fade"
+                             data-facodi-motion-delay="80"
+                             aria-live="polite"
+                             aria-busy="false">
+                        <div class="facodi-catalogue-panel is-active"
+                             data-facodi-catalogue-panel="courses">
+                            <div class="s_dynamic_snippet_content facodi-dynamic-content oe_unremovable oe_unmovable o_not_editable">
+                                <div class="css_non_editable_mode_hidden">
+                                    <div class="missing_option_warning alert alert-info d-none mt-3">
+                                        Course cards appear here when published courses are available.
+                                    </div>
+                                </div>
+                                <div class="dynamic_snippet_template facodi-course-grid"/>
                             </div>
                         </div>
-                        <div class="dynamic_snippet_template facodi-course-grid"/>
+                        <div class="facodi-catalogue-panel"
+                             data-facodi-catalogue-panel="roadmaps"
+                             hidden="hidden"/>
+                        <div class="facodi-catalogue-panel"
+                             data-facodi-catalogue-panel="curricular-units"
+                             hidden="hidden"/>
                     </section>
 
                     <aside class="facodi-sheet facodi-catalogue-next" data-facodi-motion="rise" data-facodi-motion-delay="140">
