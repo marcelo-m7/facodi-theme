@@ -48,12 +48,7 @@
         <xpath expr="//div[@t-field='channel.image_1920']" position="replace">
             <t t-set="facodi_visual" t-value="facodi_catalog_visuals.get(channel.id)"/>
             <div class="facodi-course-media ratio ratio-16x9">
-                <img t-if="facodi_visual and facodi_visual.get('kind') == 'channel'"
-                     t-att-src="'/web/image/slide.channel/%s/image_512' % channel.id"
-                     t-att-alt="channel.name or 'FACODI course'"
-                     loading="lazy"
-                     decoding="async"/>
-                <img t-elif="facodi_visual and facodi_visual.get('kind') == 'slide'"
+                <img t-if="facodi_visual and facodi_visual.get('kind') == 'slide'"
                      t-att-src="'/web/image/slide.slide/%s/image_512' % facodi_visual['slide'].id"
                      t-att-alt="facodi_visual.get('alt') or channel.name or 'FACODI course'"
                      loading="lazy"
