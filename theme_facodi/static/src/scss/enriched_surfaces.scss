@@ -1294,3 +1294,57 @@
         box-shadow: 4px 4px 0 var(--facodi-ink);
     }
 }
+
+
+// Contribution revision loop — a returned tab is actionable, not terminal.
+[data-facodi-revision-request="1"] {
+  position: relative;
+  border: 2px solid var(--facodi-ink);
+  border-radius: var(--facodi-radius-sm);
+  background: color-mix(in srgb, var(--facodi-highlighter-orange, #ffae33) 22%, var(--facodi-white));
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--facodi-highlighter-orange, #ffae33) 72%, var(--facodi-ink));
+}
+
+[data-facodi-revision-request="1"]::before {
+  content: "REVISE";
+  position: absolute;
+  top: -0.7rem;
+  right: 1rem;
+  padding: 0.12rem 0.55rem;
+  border: 2px solid var(--facodi-ink);
+  background: var(--facodi-highlighter-pink, #ff70a6);
+  color: var(--facodi-ink);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transform: rotate(2deg);
+}
+
+.facodi-revision-resubmit {
+  border: 2px solid var(--facodi-ink);
+  border-radius: var(--facodi-radius-sm);
+  background:
+    linear-gradient(transparent 70%, color-mix(in srgb, var(--facodi-highlighter-lime, #e8fd36) 55%, transparent) 70%),
+    var(--facodi-white);
+  box-shadow: 6px 6px 0 var(--facodi-ink);
+}
+
+.facodi-contribution-journey__revision {
+  margin-top: 0.8rem;
+  padding: 0.7rem 0.85rem;
+  border-left: 0.4rem solid var(--facodi-highlighter-orange, #ffae33);
+  background: color-mix(in srgb, var(--facodi-highlighter-orange, #ffae33) 15%, var(--facodi-white));
+  font-weight: 650;
+}
+
+@media (max-width: 575.98px) {
+  [data-facodi-revision-request="1"]::before {
+    position: static;
+    display: inline-block;
+    margin: -0.15rem 0 0.65rem;
+  }
+
+  .facodi-revision-resubmit {
+    box-shadow: 4px 4px 0 var(--facodi-ink);
+  }
+}
