@@ -26,6 +26,12 @@ done
 grep -Fq ':focus-visible' "$SCSS"   || fail "study player must expose visible keyboard focus"
 grep -Fq 'prefers-reduced-motion' "$SCSS"   || fail "study player must respect reduced-motion preferences"
 grep -Eq '@media[[:space:]]*\(max-width:[[:space:]]*767\.98px\)' "$SCSS"   || fail "study player mobile breakpoint missing"
+grep -Fq 'body.o_wslides_body .facodi-study-player' "$SCSS" \
+  || fail "fullscreen player styles must not depend on the normal .facodi-site website wrapper"
+grep -Fq 'min-height: min(72vh, 54rem)' "$SCSS" \
+  || fail "video/document ratio needs a stable fullscreen minimum height"
+grep -Fq 'iframe,' "$SCSS" \
+  || fail "native iframe players must be preserved explicitly"
 
 if grep -Eiq 'fonts\.googleapis|fonts\.gstatic|https?://.*\.(woff2?|ttf|otf)' "$SCSS"; then
   fail "study player must not load remote fonts"
