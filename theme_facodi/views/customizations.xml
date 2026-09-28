@@ -53,18 +53,10 @@
                                 </ul>
                             </div>
                         </t>
-                        <div class="facodi-footer-group facodi-footer-legal">
-                            <span class="facodi-footer-heading">Legal</span>
-                            <ul>
-                                <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                <li><a href="/cookie-policy">Cookie Policy</a></li>
-                                <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                            </ul>
-                        </div>
                         <div class="facodi-footer-group">
                             <span class="facodi-footer-heading">Account</span>
                             <ul>
-                                <li><a href="/my">My account</a></li>
+                                <li><a href="/my/home">My account</a></li>
                             </ul>
                         </div>
                     </nav>
