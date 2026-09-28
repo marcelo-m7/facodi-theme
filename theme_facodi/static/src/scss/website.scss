@@ -87,6 +87,31 @@
             min-width: 0;
         }
 
+        .facodi-nav-split {
+            align-items: center;
+            display: inline-flex;
+
+            .facodi-nav-split-link {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+                padding-right: .45rem !important;
+            }
+
+            .facodi-nav-split-toggle {
+                border-bottom-left-radius: 0;
+                border-left: 1px solid color-mix(in srgb, var(--facodi-ink) 24%, transparent);
+                border-top-left-radius: 0;
+                min-width: 2rem;
+                padding-inline: .45rem !important;
+            }
+
+            &:has(.facodi-nav-split-link.active) {
+                .facodi-nav-split-toggle {
+                    background: var(--facodi-sun);
+                }
+            }
+        }
+
         .nav-link {
             border-radius: var(--facodi-radius-sm);
             color: var(--facodi-ink);
