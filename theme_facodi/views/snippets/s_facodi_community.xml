@@ -22,9 +22,7 @@
                         <p>Translations, corrections, context and better links can turn a public resource into something much easier to learn from.</p>
                         <div class="facodi-actions">
                             <a href="/submissions/new?type=correction&amp;source=translation_correction_cta&amp;section=translation" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
-                            <a t-if="request.env['blog.post'].sudo().search_count([('website_published', '=', True)])"
-                               href="/blog"
-                               class="facodi-text-link">Read project news <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                            <a href="/courses" class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
                         </div>
                     </article>
                 </div>
