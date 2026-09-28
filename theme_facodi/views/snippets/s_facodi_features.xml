@@ -8,24 +8,30 @@
                 <div class="facodi-section-heading">
                     <div>
                         <p class="facodi-kicker">Step by step</p>
-                        <h2>From curiosity to the next click.</h2>
+                        <h2>From a question to the next useful link.</h2>
+                        <p class="facodi-section-copy">FACODI is designed for movement: ask, explore, connect and leave a better trail behind.</p>
                     </div>
                 </div>
-                <div class="facodi-learning-steps">
+                <div class="facodi-learning-steps facodi-learning-steps-four">
                     <article class="facodi-sheet facodi-learning-step">
-                        <p class="facodi-label">01 · Starting point</p>
+                        <p class="facodi-label">01 · Ask</p>
                         <h3>Choose a question</h3>
                         <p>Begin with something you genuinely want to understand.</p>
                     </article>
                     <article class="facodi-postit facodi-learning-step">
-                        <p class="facodi-label">02 · No rush</p>
+                        <p class="facodi-label">02 · Explore</p>
                         <h3>Study at your pace</h3>
-                        <p>Follow courses, notes and references without pretending every learner moves the same way.</p>
+                        <p>Use courses and resources without pretending every learner follows the same sequence.</p>
                     </article>
                     <article class="facodi-note facodi-learning-step">
-                        <p class="facodi-label">03 · Continuity</p>
-                        <h3>Follow the next useful thread</h3>
-                        <p>Keep the connection that helped something click and share it when it can help someone else.</p>
+                        <p class="facodi-label">03 · Connect</p>
+                        <h3>Follow the useful thread</h3>
+                        <p>Move between topics, courses, Roadmaps and academic context when a connection helps.</p>
+                    </article>
+                    <article class="facodi-sheet facodi-learning-step facodi-learning-step-contribute">
+                        <p class="facodi-label">04 · Contribute</p>
+                        <h3>Leave the trail clearer</h3>
+                        <p>Share a resource, correction or context that may help the next learner.</p>
                     </article>
                 </div>
             </div>
