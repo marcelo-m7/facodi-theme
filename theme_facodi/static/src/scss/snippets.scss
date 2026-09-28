@@ -1261,6 +1261,12 @@
         .facodi-study-sheet {
             backdrop-filter: none;
         }
+
+        // Preserve the existing stacked mobile study-board contract. The
+        // desktop Dither Veil layer must not re-absolute-position these notes.
+        .facodi-study-note {
+            position: static;
+        }
     }
 }
 
