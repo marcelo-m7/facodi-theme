@@ -111,7 +111,7 @@ class TestFacodiThemeTranslations(HttpCase):
                 "Continua a seguir o fio útil.",
             ),
             "es_ES": (
-                "Hay conocimiento por todas partes.",
+                "El conocimiento está en todas partes.",
                 "Encuentra tu próximo paso.",
                 "Explorar cursos",
                 "Cuaderno de campo",
