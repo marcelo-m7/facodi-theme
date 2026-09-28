@@ -162,18 +162,11 @@ if grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml'
 fi
 grep -Fq 'href="/sobre">See how FACODI works' theme_facodi/views/snippets/s_facodi_hero.xml \
   || fail "hero explanation CTA must use the live editor-managed About page"
-grep -Fq 'data-facodi-dither-veil="1"' theme_facodi/views/snippets/s_facodi_hero.xml \
-  || fail "hero Dither Veil stage missing"
-grep -Fq 'theme_facodi/static/src/js/facodi_dither_veil.js' theme_facodi/__manifest__.py \
-  || fail "Dither Veil frontend asset missing"
+if grep -Riq 'dither[- _]veil' theme_facodi --exclude-dir=i18n; then
+  fail "removed Dither Veil implementation must not remain in the live theme"
+fi
 grep -Fq 'theme_facodi/static/src/js/facodi_catalogue_switcher.js' theme_facodi/__manifest__.py \
   || fail "homepage catalogue switcher frontend asset missing"
-grep -Fq 'prefers-reduced-motion: reduce' theme_facodi/static/src/js/facodi_dither_veil.js \
-  || fail "Dither Veil must respect reduced motion"
-grep -Fq 'IntersectionObserver' theme_facodi/static/src/js/facodi_dither_veil.js \
-  || fail "Dither Veil must pause outside the viewport"
-grep -Fq 'navigator.connection?.saveData' theme_facodi/static/src/js/facodi_dither_veil.js \
-  || fail "Dither Veil must honour browser Save-Data"
 grep -R -Fq '/submissions/new?type=resource' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI resource-contribution CTA must use the contextual intake"
 if grep -R -Fq 'href="/contribuir/recurso"' theme_facodi/views/snippets --include='*.xml'; then
