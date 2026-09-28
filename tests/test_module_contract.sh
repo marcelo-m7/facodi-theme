@@ -103,8 +103,8 @@ grep -Fq 'facodi-split-menu__link' theme_facodi/views/header.xml \
   || fail "submenu parent text must remain a real destination"
 grep -Fq 'facodi-split-menu__toggle' theme_facodi/views/header.xml \
   || fail "submenu disclosure must remain a separate control"
-grep -Fq "submenu.url and submenu.url != '#'" theme_facodi/views/header.xml \
-  || fail "hash-only submenu parents must remain disclosure-only containers"
+grep -Fq 'submenu._facodi_landing_url()' theme_facodi/views/header.xml \
+  || fail "hash-only parent data must resolve navigation through the presentation helper"
 grep -Fq 'header_bg_color_class' theme_facodi/views/header.xml \
   || fail "header must preserve Website Builder header color state"
 grep -Fq 'header_visible' theme_facodi/views/header.xml \
