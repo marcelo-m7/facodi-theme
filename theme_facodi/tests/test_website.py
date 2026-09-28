@@ -357,7 +357,7 @@ class TestFacodiTheme(HttpCase):
         self.assertTrue(homepage)
         self.assertIn(
             "Explore FACODI open courses",
-            homepage.with_context(lang="en_US").website_meta_description,
+            homepage.with_context(lang="en_GB").website_meta_description,
         )
 
     def test_header_exposes_native_language_selector(self):
@@ -365,7 +365,7 @@ class TestFacodiTheme(HttpCase):
 
         website = self.env["website"].get_current_website()
         lang_pt = self.env["res.lang"]._activate_lang("pt_PT")
-        website.language_ids = self.env.ref("base.lang_en") + lang_pt
+        lang_en = self.env["res.lang"]._activate_lang("en_GB")\n        website.language_ids = lang_en + lang_pt
 
         tree = html.fromstring(self.url_open("/").text)
         selector = tree.xpath(
