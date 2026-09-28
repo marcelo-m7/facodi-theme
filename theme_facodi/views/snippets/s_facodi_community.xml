@@ -13,6 +13,7 @@
                         <div class="facodi-actions">
                             <a href="/submissions/new?type=resource&amp;source=community_resource_cta&amp;section=community" class="btn facodi-button facodi-button-primary">Suggest a resource</a>
                             <a href="/forum" class="btn facodi-button facodi-button-secondary">Join the forum</a>
+                            <a href="/submissions/new?type=contact&amp;source=community_collaboration_cta&amp;section=community&amp;topic=collaboration" class="facodi-text-link">Collaborate with FACODI</a>
                         </div>
                     </article>
                     <article class="facodi-sheet facodi-community-card facodi-community-card-build">
