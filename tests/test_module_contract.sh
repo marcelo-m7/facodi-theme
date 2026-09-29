@@ -194,14 +194,19 @@ grep -Fq 'source=folder_tabs_contribute&amp;section=learning-navigation' theme_f
   || fail "Folder Tabs contribution CTA must preserve navigation context"
 grep -Fq 'source=course_showcase_contribute&amp;section=learning-catalogue' theme_facodi/views/snippets/s_facodi_course_showcase.xml \
   || fail "Course Showcase contribution CTA must preserve catalogue context"
-grep -Fq "website_slides.dynamic_filter_latest_courses" theme_facodi/views/snippets/s_facodi_course_showcase.xml \
-  || fail "homepage course showcase must use the standard website_slides course filter"
-[[ ! -e theme_facodi/data/facodi_course_snippet.xml ]] \
-  || fail "duplicate FACODI course visibility filter must stay retired"
+grep -Fq "theme_facodi.dynamic_filter_published_courses" theme_facodi/views/snippets/s_facodi_course_showcase.xml \
+  || fail "homepage course showcase must use its FACODI presentation wrapper"
+grep -Fq 'ref="website_slides.dynamic_snippet_latest_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "FACODI wrapper must bind to Odoo's canonical eLearning filter"
+if grep -Fq 'model="ir.filters"' theme_facodi/data/facodi_course_snippet.xml; then
+  fail "theme must not ship a parallel course visibility domain"
+fi
 grep -Fq 'theme_facodi.dynamic_filter_published_courses' theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py \
-  || fail "legacy dynamic filter cleanup migration missing"
+  || fail "wrapper migration missing"
+grep -Fq 'website_slides.dynamic_snippet_latest_courses_filter' theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py \
+  || fail "canonical eLearning filter migration target missing"
 grep -Fq 'theme_facodi.published_courses_filter' theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py \
-  || fail "legacy ir.filters cleanup migration missing"
+  || fail "legacy FACODI visibility-domain cleanup missing"
 grep -Fq 'source=cta_sheet_resource_cta&amp;section=cta-sheet' theme_facodi/views/snippets/components/s_facodi_cta_sheet.xml \
   || fail "CTA Sheet must preserve its contribution source context"
 grep -R -Fq '/contact?source=' theme_facodi/views/snippets --include='*.xml' \
