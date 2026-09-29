@@ -24,6 +24,12 @@ for token in   'var(--facodi-ink)'   'var(--facodi-sun)'   'var(--facodi-mint)' 
 done
 
 grep -Fq ':focus-visible' "$SCSS"   || fail "study player must expose visible keyboard focus"
+grep -Fq 'background: var(--facodi-sun) !important' "$SCSS" \
+  || fail "active study controls must keep the high-contrast FACODI sun surface"
+grep -Fq 'color: var(--facodi-ink) !important' "$SCSS" \
+  || fail "study controls must force readable ink text against Odoo fullscreen styles"
+grep -Fq '.facodi-study-tools__contribution' "$SCSS" \
+  || fail "study contribution buttons need fullscreen-specific contrast styling"
 grep -Fq 'prefers-reduced-motion' "$SCSS"   || fail "study player must respect reduced-motion preferences"
 grep -Eq '@media[[:space:]]*\(max-width:[[:space:]]*767\.98px\)' "$SCSS"   || fail "study player mobile breakpoint missing"
 grep -Fq 'body.o_wslides_body .facodi-study-player' "$SCSS" \
