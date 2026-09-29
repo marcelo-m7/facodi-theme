@@ -117,3 +117,12 @@ for template_id, sequence in expected.items():
             f"FAIL: {template_id} D2 sequence mismatch: {actual!r} != {sequence!r}"
         )
 PY
+
+grep -Fq 'grid-auto-rows: 1fr' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "principles ledger must equalize desktop card rows"
+grep -Fq 'min-height: 13rem' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "principles cards need stable desktop rhythm"
+grep -Fq 'grid-template-columns: 3rem minmax(0, 1fr)' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "process timeline must use a fixed index rail"
+grep -Fq 'min-height: 5.25rem' theme_facodi/static/src/scss/editorial_interfaces.scss \
+  || fail "process timeline content blocks need consistent vertical rhythm"
