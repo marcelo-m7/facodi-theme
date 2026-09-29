@@ -2153,3 +2153,84 @@ msgstr "Compartir un recurso"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
 msgid "This editable column is designed to frame the Website contact form without replacing its submission behaviour."
 msgstr "Esta columna editable está diseñada para enmarcar el formulario de contacto del sitio web sin sustituir su comportamiento de envío."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "Where this sits"
+msgstr "Dónde encaja esto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "FACODI is a community-learning project connected to the University of Algarve and the SEA-EU ecosystem. Official curricular references provide context; the community layer helps people discover, discuss and improve public learning resources."
+msgstr "FACODI es un proyecto de aprendizaje comunitario vinculado a la Universidad del Algarve y al ecosistema SEA-EU. Las referencias curriculares oficiales aportan contexto; la capa comunitaria ayuda a las personas a descubrir, debatir y mejorar recursos públicos de aprendizaje."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "Read the project file"
+msgstr "Leer el dossier del proyecto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "Build something with FACODI"
+msgstr "Construir algo con FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Keep a few tabs open."
+msgstr "Mantén unas cuantas pestañas abiertas."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "FACODI editorial destinations"
+msgstr "Destinos editoriales de FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Find the next useful rabbit hole"
+msgstr "Encuentra el próximo hilo útil que explorar"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Browse published courses and follow the thread into learning resources."
+msgstr "Explora los cursos publicados y sigue el hilo hasta los recursos de aprendizaje."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Bring the messy question"
+msgstr "Trae esa pregunta todavía desordenada"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Ask, compare notes and leave a useful answer for the next learner."
+msgstr "Pregunta, compara apuntes y deja una respuesta útil para quien venga después."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Found a gap? Drop it here."
+msgstr "¿Has encontrado un vacío? Déjalo aquí."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Share a resource, a correction or a collaboration idea with enough context to be useful."
+msgstr "Comparte un recurso, una corrección o una idea de colaboración con suficiente contexto para que resulte útil."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Explore courses, Roadmaps and curricular units built from public learning resources, reviewed context and community contribution."
+msgstr "Explora cursos, Rutas y unidades curriculares creados a partir de recursos públicos de aprendizaje, contexto revisado y aportaciones de la comunidad."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Study question #042"
+msgstr "Pregunta de estudio #042"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Validated against public university references"
+msgstr "Validado con referencias universitarias públicas"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "<span>Knowledge is everywhere.</span> <span class=\"facodi-marker facodi-marker-cyan\">Find your next step.</span>"
+msgstr "<span>El conocimiento está en todas partes.</span> <span class=\"facodi-marker facodi-marker-cyan\">Encuentra tu próximo paso.</span>"
+

@@ -145,6 +145,28 @@ for msgid in "${CAMPUS_PAPER_MSGIDS[@]}"; do
 done
 
 
+ABOUT_PAGE_MSGIDS=(
+  'Where this sits'
+  'FACODI is a community-learning project connected to the University of Algarve and the SEA-EU ecosystem. Official curricular references provide context; the community layer helps people discover, discuss and improve public learning resources.'
+  'Read the project file'
+  'Build something with FACODI'
+  'Keep a few tabs open.'
+  'FACODI editorial destinations'
+  'Find the next useful rabbit hole'
+  'Browse published courses and follow the thread into learning resources.'
+  'Bring the messy question'
+  'Ask, compare notes and leave a useful answer for the next learner.'
+  'Found a gap? Drop it here.'
+  'Share a resource, a correction or a collaboration idea with enough context to be useful.'
+)
+
+for catalogue in theme_facodi.pot pt.po es.po fr.po; do
+  for msgid in "${ABOUT_PAGE_MSGIDS[@]}"; do
+    grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/$catalogue" \
+      || fail "$catalogue is missing About page string: $msgid"
+  done
+done
+
 for view in \
   theme_facodi/views/header.xml \
   theme_facodi/views/customizations.xml \
