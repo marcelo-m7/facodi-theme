@@ -1290,3 +1290,67 @@
     }
 }
 
+/* Homepage interactive Dot Grid continuity.
+   White editorial sections reuse the same canvas engine and FACODI palette as
+   the hero while keeping content above the decorative layer. */
+.facodi-site .facodi-home-v4 {
+    > .facodi-dot-grid-host {
+        isolation: isolate;
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+            display: none !important;
+        }
+
+        > .container {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    .facodi-dot-grid--section {
+        inset: 0;
+        opacity: .72;
+        pointer-events: none;
+        position: absolute;
+        z-index: 0;
+
+        &::after {
+            background:
+                linear-gradient(
+                    180deg,
+                    color-mix(in srgb, var(--facodi-surface-page) 72%, transparent) 0%,
+                    transparent 18%,
+                    transparent 82%,
+                    color-mix(in srgb, var(--facodi-surface-page) 68%, transparent) 100%
+                );
+            content: "";
+            inset: 0;
+            pointer-events: none;
+            position: absolute;
+        }
+    }
+
+    .facodi-dot-grid-host.s_facodi_features,
+    .facodi-dot-grid-host.s_facodi_course_cta {
+        background-color: var(--facodi-surface-page);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site .facodi-home-v4 {
+        .facodi-dot-grid--section {
+            opacity: .5;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .facodi-home-v4 {
+        .facodi-dot-grid--section {
+            opacity: .42;
+        }
+    }
+}
+
