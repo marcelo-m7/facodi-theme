@@ -4,18 +4,18 @@
         <section class="facodi-principles-ledger" data-snippet="s_facodi_principles_ledger" data-name="FACODI Principles Ledger">
             <article class="facodi-principles-ledger__item">
                 <span class="facodi-principles-ledger__index">01</span>
-                <h3>Open first</h3>
-                <p>Prefer public learning resources that people can access without a paywall.</p>
+                <h3>Open beats locked</h3>
+                <p>Start with public learning resources people can actually open, share and revisit without a paywall getting in the way.</p>
             </article>
             <article class="facodi-principles-ledger__item">
                 <span class="facodi-principles-ledger__index">02</span>
-                <h3>Context matters</h3>
-                <p>Connect useful resources to clear academic or learning context instead of presenting isolated links.</p>
+                <h3>Context beats link dumps</h3>
+                <p>Connect useful resources to a course, curricular unit or learning question instead of dropping isolated links into a pile.</p>
             </article>
             <article class="facodi-principles-ledger__item">
                 <span class="facodi-principles-ledger__index">03</span>
-                <h3>Review before publishing</h3>
-                <p>Keep contribution separate from publication and make editorial boundaries visible.</p>
+                <h3>Review beats guesswork</h3>
+                <p>Keep community contribution separate from publication, and make the editorial boundary visible when something is still under review.</p>
             </article>
         </section>
     </template>

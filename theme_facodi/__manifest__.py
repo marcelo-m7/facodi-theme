@@ -43,6 +43,7 @@
         "views/snippets/components/s_facodi_cta_sheet.xml",
         "views/snippets/components/s_facodi_metadata_row.xml",
         "views/snippets/components/s_facodi_highlighter_callout.xml",
+        "views/snippets/components/s_facodi_about_hero.xml",
         "views/snippets/components/s_facodi_project_story.xml",
         "views/snippets/components/s_facodi_principles_ledger.xml",
         "views/snippets/components/s_facodi_process_timeline.xml",

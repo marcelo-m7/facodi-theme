@@ -129,7 +129,7 @@ CAMPUS_PAPER_MSGIDS=(
   'Leave the trail clearer'
   'A useful discovery deserves company.'
   'Still building. You can improve the trail.'
-  'Open learning with an academic reference point.'
+  'Community-built. Academically aware. Still very much open.'
   'Still building. You can help shape what comes next.'
 )
 
@@ -192,27 +192,31 @@ python3 - <<'PY'
 from pathlib import Path
 
 D2_EDITORIAL_OCCURRENCES = {
-    "Project dossier": ["theme_facodi.s_facodi_project_story"],
-    "Learning in public can be easier to navigate.": ["theme_facodi.s_facodi_project_story"],
-    "FACODI organizes open courses, curricular references, and public learning resources so people can find a useful next step.": ["theme_facodi.s_facodi_project_story"],
-    "The project grows through review, context, and contributions from people who care about open learning.": ["theme_facodi.s_facodi_project_story"],
-    "Explore learning": ["theme_facodi.s_facodi_project_story"],
-    "Open notebook": ["theme_facodi.s_facodi_project_story"],
-    "Use this space for a real project milestone, source, or short contextual note.": ["theme_facodi.s_facodi_project_story"],
-    "Open first": ["theme_facodi.s_facodi_principles_ledger"],
-    "Prefer public learning resources that people can access without a paywall.": ["theme_facodi.s_facodi_principles_ledger"],
-    "Context matters": ["theme_facodi.s_facodi_principles_ledger"],
-    "Connect useful resources to clear academic or learning context instead of presenting isolated links.": ["theme_facodi.s_facodi_principles_ledger"],
-    "Review before publishing": ["theme_facodi.s_facodi_principles_ledger"],
-    "Keep contribution separate from publication and make editorial boundaries visible.": ["theme_facodi.s_facodi_principles_ledger"],
-    "Discover": ["theme_facodi.s_facodi_process_timeline"],
-    "Start from a course, Roadmap, curricular unit, or concrete question.": ["theme_facodi.s_facodi_process_timeline"],
-    "Study": ["theme_facodi.s_facodi_process_timeline"],
-    "Use public resources and follow the context that helps you move forward.": ["theme_facodi.s_facodi_process_timeline"],
-    "Connect": ["theme_facodi.s_facodi_process_timeline"],
-    "Relate useful material to the learning path instead of treating it as an isolated link.": ["theme_facodi.s_facodi_process_timeline"],
-    "Contribute": ["theme_facodi.s_facodi_process_timeline"],
-    "Suggest a useful public resource or improvement for review.": ["theme_facodi.s_facodi_process_timeline"],
+    "A digital campus built from the good stuff already out there.": ["theme_facodi.s_facodi_about_hero"],
+    "Open by default": ["theme_facodi.s_facodi_about_hero"],
+    "Context, not claims": ["theme_facodi.s_facodi_about_hero"],
+    "Built in public": ["theme_facodi.s_facodi_about_hero"],
+    "Project dossier // why this exists": ["theme_facodi.s_facodi_project_story"],
+    "Too many good tabs. Not enough map.": ["theme_facodi.s_facodi_project_story"],
+    "FACODI started from a very ordinary study habit: finding brilliant public lessons, videos and documents across the web, then losing the thread between them.": ["theme_facodi.s_facodi_project_story"],
+    "FACODI organises those finds around courses, curricular references and learning paths, so the useful stuff feels less like a tab graveyard and more like a campus.": ["theme_facodi.s_facodi_project_story"],
+    "Open the campus map": ["theme_facodi.s_facodi_project_story"],
+    "Working note": ["theme_facodi.s_facodi_project_story"],
+    "The point is not to replace universities or invent equivalence. It is to make open learning easier to navigate, discuss and improve.": ["theme_facodi.s_facodi_project_story"],
+    "Open beats locked": ["theme_facodi.s_facodi_principles_ledger"],
+    "Start with public learning resources people can actually open, share and revisit without a paywall getting in the way.": ["theme_facodi.s_facodi_principles_ledger"],
+    "Context beats link dumps": ["theme_facodi.s_facodi_principles_ledger"],
+    "Connect useful resources to a course, curricular unit or learning question instead of dropping isolated links into a pile.": ["theme_facodi.s_facodi_principles_ledger"],
+    "Review beats guesswork": ["theme_facodi.s_facodi_principles_ledger"],
+    "Keep community contribution separate from publication, and make the editorial boundary visible when something is still under review.": ["theme_facodi.s_facodi_principles_ledger"],
+    "Pick a route": ["theme_facodi.s_facodi_process_timeline"],
+    "Start with a course, Roadmap, curricular unit or one very concrete question.": ["theme_facodi.s_facodi_process_timeline"],
+    "Open the good tabs": ["theme_facodi.s_facodi_process_timeline"],
+    "Use public resources and follow only the context that helps you move forwards.": ["theme_facodi.s_facodi_process_timeline"],
+    "Connect the dots": ["theme_facodi.s_facodi_process_timeline"],
+    "Relate useful material to the learning path so it becomes more than one clever link in isolation.": ["theme_facodi.s_facodi_process_timeline"],
+    "Send something back": ["theme_facodi.s_facodi_process_timeline"],
+    "Found a useful public resource or a gap worth fixing? Put it on the review desk for the community.": ["theme_facodi.s_facodi_process_timeline"],
     "Resource": ["theme_facodi.s_facodi_contribution_board"],
     "Suggest a public learning resource": ["theme_facodi.s_facodi_contribution_board"],
     "Share a useful course, video, playlist, article, or other public resource for review.": ["theme_facodi.s_facodi_contribution_board"],
@@ -235,7 +239,7 @@ D2_EDITORIAL_OCCURRENCES = {
     "Use Contact for collaboration, project questions, or general enquiries. If you are suggesting a learning resource, the guided contribution route keeps the review context together.": ["theme_facodi.s_facodi_contact_sheet"],
     "Contact form area": ["theme_facodi.s_facodi_contact_sheet"],
     "Keep the native Odoo form here.": ["theme_facodi.s_facodi_contact_sheet"],
-    "This editable column is designed to frame the Website contact form without replacing its submission behavior.": ["theme_facodi.s_facodi_contact_sheet"],
+    "This editable column is designed to frame the Website contact form without replacing its submission behaviour.": ["theme_facodi.s_facodi_contact_sheet"],
     "Policy document": ["theme_facodi.s_facodi_policy_document", "theme_facodi.snippets"],
     "Document title": ["theme_facodi.s_facodi_policy_document"],
     "Use this component as a readable shell around policy text maintained by the Website editor.": ["theme_facodi.s_facodi_policy_document"],
@@ -316,11 +320,11 @@ REUSABLE_BLOCK_MSGIDS=(
   'Connect courses, curricular units, and public resources around that question.'
   'Share what helped'
   'Contribute useful resources so the next learner starts with better context.'
-  'Community notebook'
-  'Have a useful resource?'
-  'Add another page to the shared learning notebook.'
-  'Send a public resource for review. FACODI keeps contribution separate from publication.'
-  'Suggest a resource'
+  'Community notebook // open page'
+  'Found a gem?'
+  'Put the good tab on the shared desk.'
+  'Send a public resource with enough context to make it useful. FACODI keeps contribution separate from publication, so suggestions can be reviewed before they become part of the learning map.'
+  'Drop a resource'
   'Learning metadata'
   'Core topic'
   'Margin note'

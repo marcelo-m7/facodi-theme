@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_facodi_about_hero" name="FACODI About Hero">
+        <section class="s_facodi_about_hero facodi-about-hero facodi-section facodi-grid-paper o_cc o_cc1"
+                 data-snippet="s_facodi_about_hero"
+                 data-name="FACODI About Hero">
+            <div class="container">
+                <div class="facodi-about-hero__sheet facodi-sheet">
+                    <div class="facodi-about-hero__copy">
+                        <p class="facodi-kicker">FACODI // project file 001</p>
+                        <h1><span class="facodi-highlight">A digital campus built from the good stuff already out there.</span></h1>
+                        <p class="facodi-lead">
+                            FACODI organises open courses, videos and public learning resources into clearer paths,
+                            with academic context where it helps and community review where it matters.
+                        </p>
+                        <div class="facodi-actions">
+                            <a class="btn facodi-button facodi-button-primary" href="/explore">Browse the campus</a>
+                            <a class="btn facodi-button facodi-button-secondary" href="#how-it-works">See how the desk works</a>
+                        </div>
+                    </div>
+                    <aside class="facodi-about-hero__notes" aria-label="FACODI principles at a glance">
+                        <article class="facodi-about-note facodi-about-note--lime">
+                            <span class="facodi-label">Open by default</span>
+                            <strong>Public resources first.</strong>
+                            <p>Useful learning should be reachable without a paywall maze.</p>
+                        </article>
+                        <article class="facodi-about-note facodi-about-note--cyan">
+                            <span class="facodi-label">Context, not claims</span>
+                            <strong>Map the learning. Keep the boundary clear.</strong>
+                            <p>Curricular references guide navigation; they do not create equivalence or academic credit.</p>
+                        </article>
+                        <article class="facodi-about-note facodi-about-note--pink">
+                            <span class="facodi-label">Built in public</span>
+                            <strong>Good finds can travel.</strong>
+                            <p>Community suggestions can move through review and become useful shared learning context.</p>
+                        </article>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

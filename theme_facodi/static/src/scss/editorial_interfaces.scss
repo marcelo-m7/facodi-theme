@@ -288,3 +288,156 @@
         }
     }
 }
+
+
+/* About / project-file composition */
+.facodi-site .facodi-about-page {
+    .facodi-about-hero__sheet {
+        align-items: start;
+        display: grid;
+        gap: clamp(1.5rem, 4vw, 3rem);
+        grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr);
+        padding: clamp(1.5rem, 4vw, 3.5rem);
+    }
+
+    .facodi-about-hero__copy {
+        min-width: 0;
+
+        h1 {
+            font-size: clamp(2.4rem, 6vw, 5rem);
+            line-height: .96;
+            max-width: 12ch;
+            text-wrap: balance;
+        }
+
+        .facodi-lead {
+            max-width: 48rem;
+        }
+    }
+
+    .facodi-about-hero__notes {
+        display: grid;
+        gap: .85rem;
+        min-width: 0;
+    }
+
+    .facodi-about-note {
+        border: 2px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: 4px 4px 0 var(--facodi-ink);
+        min-width: 0;
+        padding: 1rem 1.1rem;
+        transform: rotate(.35deg);
+
+        &:nth-child(even) {
+            transform: rotate(-.45deg);
+        }
+
+        strong,
+        p {
+            display: block;
+            overflow-wrap: anywhere;
+        }
+
+        strong {
+            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+            font-size: 1.08rem;
+            margin: .3rem 0 .4rem;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        &--lime {
+            background: color-mix(in srgb, var(--facodi-highlight-lime) 55%, var(--facodi-white));
+        }
+
+        &--cyan {
+            background: color-mix(in srgb, var(--facodi-highlight-cyan) 28%, var(--facodi-white));
+        }
+
+        &--pink {
+            background: color-mix(in srgb, var(--facodi-highlight-pink) 30%, var(--facodi-white));
+        }
+    }
+
+    .facodi-about-band {
+        padding-block: clamp(2rem, 5vw, 4.5rem);
+
+        &__title {
+            font-size: clamp(1.8rem, 4vw, 3.25rem);
+            line-height: 1;
+            margin: 0 0 1.5rem;
+            max-width: 18ch;
+            text-wrap: balance;
+        }
+
+        &--story {
+            background: var(--facodi-paper);
+        }
+
+        &--principles {
+            background:
+                linear-gradient(var(--facodi-campus-grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--facodi-campus-grid-line) 1px, transparent 1px),
+                color-mix(in srgb, var(--facodi-highlight-mint) 10%, var(--facodi-paper));
+            background-size: 28px 28px;
+        }
+
+        &--process {
+            background: color-mix(in srgb, var(--facodi-highlight-cyan) 8%, var(--facodi-paper));
+        }
+
+        &--cta {
+            padding-top: 1rem;
+        }
+    }
+
+    .facodi-principles-ledger__item {
+        &:nth-child(1) { box-shadow: 4px 4px 0 var(--facodi-highlight-lime); }
+        &:nth-child(2) { box-shadow: 4px 4px 0 var(--facodi-highlight-cyan); }
+        &:nth-child(3) { box-shadow: 4px 4px 0 var(--facodi-highlight-pink); }
+    }
+
+    .facodi-process-timeline {
+        margin-top: 1.5rem;
+        max-width: 58rem;
+
+        &__step > div {
+            background: var(--facodi-white);
+            border: 1px solid color-mix(in srgb, var(--facodi-ink) 35%, transparent);
+            border-radius: var(--facodi-radius-sm);
+            padding: .85rem 1rem;
+        }
+    }
+
+    .facodi-editorial-route-card:nth-child(1) { box-shadow: 3px 3px 0 var(--facodi-highlight-lime); }
+    .facodi-editorial-route-card:nth-child(2) { box-shadow: 3px 3px 0 var(--facodi-highlight-cyan); }
+    .facodi-editorial-route-card:nth-child(3) { box-shadow: 3px 3px 0 var(--facodi-highlight-pink); }
+}
+
+@media (max-width: 991.98px) {
+    .facodi-site .facodi-about-page .facodi-about-hero__sheet {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .facodi-site .facodi-about-page {
+        .facodi-about-note,
+        .facodi-about-note:nth-child(even) {
+            transform: none;
+        }
+
+        .facodi-about-band {
+            padding-block: 2rem;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .facodi-about-page .facodi-about-note {
+        transform: none;
+    }
+}

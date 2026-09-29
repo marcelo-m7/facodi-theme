@@ -1918,3 +1918,238 @@ msgstr "Faz perguntas e partilha recursos úteis com a comunidade FACODI."
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.submenu_split_navigation
 msgid "Open submenu"
 msgstr "Abrir submenu"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "FACODI // project file 001"
+msgstr "FACODI // ficheiro de projeto 001"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "A digital campus built from the good stuff already out there."
+msgstr "Um campus digital construído a partir do que já existe de bom por aí."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "FACODI organises open courses, videos and public learning resources into clearer paths, with academic context where it helps and community review where it matters."
+msgstr "A FACODI organiza cursos abertos, vídeos e recursos públicos de aprendizagem em percursos mais claros, com contexto académico quando ajuda e revisão da comunidade quando importa."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Browse the campus"
+msgstr "Explorar o campus"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "See how the desk works"
+msgstr "Ver como funciona a mesa"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "FACODI principles at a glance"
+msgstr "Princípios FACODI num relance"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Open by default"
+msgstr "Aberto por defeito"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Public resources first."
+msgstr "Recursos públicos primeiro."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Useful learning should be reachable without a paywall maze."
+msgstr "A aprendizagem útil deve estar acessível sem um labirinto de paywalls."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Context, not claims"
+msgstr "Contexto, não promessas"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Map the learning. Keep the boundary clear."
+msgstr "Mapear a aprendizagem. Manter os limites claros."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Curricular references guide navigation; they do not create equivalence or academic credit."
+msgstr "As referências curriculares orientam a navegação; não criam equivalência nem crédito académico."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Built in public"
+msgstr "Construído em público"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Good finds can travel."
+msgstr "Boas descobertas podem circular."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid "Community suggestions can move through review and become useful shared learning context."
+msgstr "As sugestões da comunidade podem passar por revisão e tornar-se contexto de aprendizagem útil e partilhado."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "The house rules"
+msgstr "As regras da casa"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Open learning, with fewer mystery boxes."
+msgstr "Aprendizagem aberta, com menos caixas misteriosas."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "How the desk works"
+msgstr "Como funciona a mesa"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "From useful tab to useful learning context."
+msgstr "De separador útil a contexto de aprendizagem útil."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Project dossier // why this exists"
+msgstr "Dossiê do projeto // porque isto existe"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Too many good tabs. Not enough map."
+msgstr "Demasiados bons separadores. Pouco mapa."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "FACODI started from a very ordinary study habit: finding brilliant public lessons, videos and documents across the web, then losing the thread between them."
+msgstr "A FACODI nasceu de um hábito de estudo muito comum: encontrar ótimas aulas, vídeos e documentos públicos na web e depois perder o fio entre eles."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "FACODI organises those finds around courses, curricular references and learning paths, so the useful stuff feels less like a tab graveyard and more like a campus."
+msgstr "A FACODI organiza essas descobertas em torno de cursos, referências curriculares e percursos de aprendizagem, para que o útil pareça menos um cemitério de separadores e mais um campus."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Open the campus map"
+msgstr "Abrir o mapa do campus"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "Working note"
+msgstr "Nota de trabalho"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "The point is not to replace universities or invent equivalence. It is to make open learning easier to navigate, discuss and improve."
+msgstr "O objetivo não é substituir universidades nem inventar equivalências. É tornar a aprendizagem aberta mais fácil de navegar, discutir e melhorar."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Open beats locked"
+msgstr "Aberto vence fechado"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Start with public learning resources people can actually open, share and revisit without a paywall getting in the way."
+msgstr "Começa por recursos públicos de aprendizagem que as pessoas conseguem realmente abrir, partilhar e revisitar sem um paywall pelo caminho."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Context beats link dumps"
+msgstr "Contexto vence amontoados de links"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Connect useful resources to a course, curricular unit or learning question instead of dropping isolated links into a pile."
+msgstr "Liga recursos úteis a um curso, unidade curricular ou questão de aprendizagem, em vez de largar links isolados numa pilha."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Review beats guesswork"
+msgstr "Revisão vence adivinhação"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "Keep community contribution separate from publication, and make the editorial boundary visible when something is still under review."
+msgstr "Mantém a contribuição da comunidade separada da publicação e torna visível o limite editorial enquanto algo ainda está em revisão."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Pick a route"
+msgstr "Escolhe uma rota"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Start with a course, Roadmap, curricular unit or one very concrete question."
+msgstr "Começa por um curso, Roadmap, unidade curricular ou uma pergunta muito concreta."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Open the good tabs"
+msgstr "Abre os bons separadores"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Use public resources and follow only the context that helps you move forwards."
+msgstr "Usa recursos públicos e segue apenas o contexto que te ajuda a avançar."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Connect the dots"
+msgstr "Liga os pontos"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Relate useful material to the learning path so it becomes more than one clever link in isolation."
+msgstr "Relaciona material útil com o percurso de aprendizagem para que seja mais do que um link inteligente isolado."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Send something back"
+msgstr "Devolve algo à comunidade"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "Found a useful public resource or a gap worth fixing? Put it on the review desk for the community."
+msgstr "Encontraste um recurso público útil ou um gap que vale a pena corrigir? Coloca-o na mesa de revisão da comunidade."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "Community-built. Academically aware. Still very much open."
+msgstr "Construído em comunidade. Academicamente consciente. E muito aberto."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Community notebook // open page"
+msgstr "Caderno da comunidade // página aberta"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Found a gem?"
+msgstr "Encontraste uma pérola?"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Put the good tab on the shared desk."
+msgstr "Coloca o bom separador na mesa partilhada."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Send a public resource with enough context to make it useful. FACODI keeps contribution separate from publication, so suggestions can be reviewed before they become part of the learning map."
+msgstr "Envia um recurso público com contexto suficiente para ser útil. A FACODI mantém contribuição e publicação separadas, para que as sugestões sejam revistas antes de entrarem no mapa de aprendizagem."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid "Drop a resource"
+msgstr "Partilhar um recurso"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "This editable column is designed to frame the Website contact form without replacing its submission behaviour."
+msgstr "Esta coluna editável foi concebida para enquadrar o formulário de contacto do Website sem substituir o seu comportamento de submissão."

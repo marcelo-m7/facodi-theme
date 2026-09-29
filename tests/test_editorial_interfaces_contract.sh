@@ -10,6 +10,7 @@ SCSS="theme_facodi/static/src/scss/editorial_interfaces.scss"
 [[ -f "$SCSS" ]] || fail "D2 editorial interface stylesheet missing"
 
 declare -A COMPONENTS=(
+  [s_facodi_about_hero]='.facodi-about-hero'
   [s_facodi_project_story]='.facodi-project-story'
   [s_facodi_principles_ledger]='.facodi-principles-ledger'
   [s_facodi_process_timeline]='.facodi-process-timeline'
@@ -40,7 +41,7 @@ for marker in \
 done
 
 if grep -R -nE '\b[0-9]{3}[- .]?[0-9]{3}[- .]?[0-9]{3,4}\b|example@|@example\.|123 (Main|Example|Test) (Street|St)|testimonials?|subscribers?|[0-9]+[[:space:]]+partners' \
-    theme_facodi/views/snippets/components/s_facodi_{project_story,principles_ledger,process_timeline,contribution_board,bulletin_hero,editorial_quote,contact_sheet,policy_document}.xml; then
+    theme_facodi/views/snippets/components/s_facodi_{about_hero,project_story,principles_ledger,process_timeline,contribution_board,bulletin_hero,editorial_quote,contact_sheet,policy_document}.xml; then
   fail "D2 snippets contain fake contact data, testimonials or metrics"
 fi
 
@@ -63,7 +64,7 @@ root = ET.parse("theme_facodi/views/page_templates.xml").getroot()
 
 expected = {
     "new_page_template_sections_facodi_about": [
-        "s_facodi_intro",
+        "s_facodi_about_hero",
         "s_facodi_project_story",
         "s_facodi_principles_ledger",
         "s_facodi_process_timeline",

@@ -17,6 +17,7 @@ COMPONENT_IDS=(
   s_facodi_cta_sheet
   s_facodi_metadata_row
   s_facodi_highlighter_callout
+  s_facodi_about_hero
   s_facodi_project_story
   s_facodi_principles_ledger
   s_facodi_process_timeline
@@ -68,6 +69,7 @@ component_ids = {
     "s_facodi_cta_sheet",
     "s_facodi_metadata_row",
     "s_facodi_highlighter_callout",
+    "s_facodi_about_hero",
     "s_facodi_project_story",
     "s_facodi_principles_ledger",
     "s_facodi_process_timeline",

@@ -3,15 +3,15 @@
     <template id="s_facodi_project_story" name="FACODI Project Story">
         <section class="facodi-project-story" data-snippet="s_facodi_project_story" data-name="FACODI Project Story">
             <div class="facodi-project-story__main">
-                <p class="facodi-label">Project dossier</p>
-                <h2>Learning in public can be easier to navigate.</h2>
-                <p>FACODI organizes open courses, curricular references, and public learning resources so people can find a useful next step.</p>
-                <p>The project grows through review, context, and contributions from people who care about open learning.</p>
-                <a class="facodi-text-link" href="/courses">Explore learning <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
+                <p class="facodi-label">Project dossier // why this exists</p>
+                <h2>Too many good tabs. Not enough map.</h2>
+                <p>FACODI started from a very ordinary study habit: finding brilliant public lessons, videos and documents across the web, then losing the thread between them.</p>
+                <p>FACODI organises those finds around courses, curricular references and learning paths, so the useful stuff feels less like a tab graveyard and more like a campus.</p>
+                <a class="facodi-text-link" href="/explore">Open the campus map <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></a>
             </div>
             <aside class="facodi-project-story__note">
-                <span class="facodi-label">Open notebook</span>
-                <p>Use this space for a real project milestone, source, or short contextual note.</p>
+                <span class="facodi-label">Working note</span>
+                <p>The point is not to replace universities or invent equivalence. It is to make open learning easier to navigate, discuss and improve.</p>
             </aside>
         </section>
     </template>
