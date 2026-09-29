@@ -70,13 +70,19 @@ fi
 
 [[ -f theme_facodi/data/facodi_course_snippet.xml ]] \
   || fail "FACODI course presentation wrapper data is missing"
-if grep -Fq 'model="ir.filters"' theme_facodi/data/facodi_course_snippet.xml; then
-  fail "theme must not define a parallel eLearning visibility domain"
+grep -Fq 'id="published_courses_filter" model="ir.filters"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "version-tolerant course visibility compatibility filter is missing"
+grep -Fq "[('visibility', 'in', ['public', 'connected'])]" theme_facodi/data/facodi_course_snippet.xml \
+  || fail "compatibility filter must mirror Odoo's canonical eLearning visibility domain"
+grep -Fq '["published_date desc"]' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "compatibility filter must mirror Odoo's canonical eLearning ordering"
+if grep -Fq 'website_published' theme_facodi/data/facodi_course_snippet.xml; then
+  fail "homepage filter must not regress to publication-only visibility semantics"
 fi
 grep -Fq 'model="website.snippet.filter"' theme_facodi/data/facodi_course_snippet.xml \
   || fail "course showcase presentation wrapper must use website.snippet.filter"
-grep -Fq 'ref="website_slides.dynamic_snippet_latest_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
-  || fail "course showcase wrapper must bind to Odoo's canonical eLearning filter"
+grep -Fq 'ref="theme_facodi.published_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "course showcase wrapper must bind to the compatibility visibility filter"
 grep -Fq 'dynamic_filter_template_slide_channel_facodi_course_card' "$SNIPPET" \
   || fail "course showcase course-card template is missing"
 
@@ -93,8 +99,12 @@ grep -Fq 'from . import website' theme_facodi/models/__init__.py \
   || fail "theme models package must load Website snippet defaults"
 grep -Fq 'data/facodi_course_snippet.xml' "$MANIFEST" \
   || fail "course presentation wrapper data must remain in the manifest"
-[[ -f theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py ]] \
-  || fail "legacy visibility-domain cleanup migration is missing"
+[[ -f theme_facodi/migrations/19.0.10.70.0/post-10-align-course-filter.py ]] \
+  || fail "course visibility alignment migration is missing"
+grep -Fq "[('visibility', 'in', ['public', 'connected'])]" theme_facodi/migrations/19.0.10.70.0/post-10-align-course-filter.py \
+  || fail "upgrade migration must align persisted visibility semantics"
+[[ ! -f theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py ]] \
+  || fail "obsolete retire-course-filter migration must stay removed"
 grep -Fq 'views/snippets/s_facodi_course_showcase.xml' "$MANIFEST" \
   || fail "course showcase view is missing from the manifest"
 grep -Fq 't-snippet="theme_facodi.s_facodi_course_showcase"' "$REGISTRY" \
