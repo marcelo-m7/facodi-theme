@@ -224,6 +224,7 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
                 values = (
                     standard_filter
                     .with_user(public_user)
+                    .sudo()
                     .with_context(website_id=website.id, lang=lang)
                     ._prepare_values(
                         limit=16,
