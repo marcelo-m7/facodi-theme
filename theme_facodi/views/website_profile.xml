@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="facodi_user_profile_content"
+              inherit_id="website_profile.user_profile_content"
+              name="FACODI Community Profile">
+        <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')][1]"
+               position="attributes">
+            <attribute name="class" add="facodi-profile-shell" separator=" "/>
+        </xpath>
+        <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' row ')][1]"
+               position="before">
+            <section class="facodi-profile-hero">
+                <div class="facodi-profile-identity">
+                    <img class="facodi-profile-avatar"
+                         t-att-src="'/profile/avatar/%s?field=avatar_256' % user.id"
+                         t-att-alt="user.name or ''"/>
+                    <div class="facodi-profile-heading">
+                        <span class="facodi-profile-eyebrow">FACODI · Comunidade</span>
+                        <h1 t-out="user.name"/>
+                        <p class="facodi-profile-rank" t-if="user.rank_id">
+                            <i class="fa fa-star" aria-hidden="true"/>
+                            <span t-field="user.rank_id"/>
+                        </p>
+                        <p class="facodi-profile-intro">Perfil de aprendizagem e participação na comunidade FACODI.</p>
+                    </div>
+                </div>
+                <div class="facodi-profile-stats" aria-label="Resumo do perfil">
+                    <div class="facodi-profile-stat">
+                        <strong t-out="user.karma"/>
+                        <span>XP</span>
+                    </div>
+                    <div class="facodi-profile-stat">
+                        <strong t-out="len(user.badge_ids.filtered(lambda b: b.badge_id.website_published))"/>
+                        <span>Distintivos</span>
+                    </div>
+                    <div class="facodi-profile-stat">
+                        <strong><i class="fa fa-calendar-check-o" aria-hidden="true"/></strong>
+                        <span>Membro desde <t t-field="user.create_date" t-options="{'format': 'MMM Y'}"/></span>
+                    </div>
+                </div>
+            </section>
+        </xpath>
+        <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' o_wprofile_sidebar ')]"
+               position="attributes">
+            <attribute name="class" add="facodi-profile-card" separator=" "/>
+        </xpath>
+        <xpath expr="//ul[@id='profile_extra_info_tablist']"
+               position="attributes">
+            <attribute name="class" add="facodi-profile-tabs" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='profile_extra_info_tabcontent']"
+               position="attributes">
+            <attribute name="class" add="facodi-profile-content" separator=" "/>
+        </xpath>
+    </template>
+</odoo>
