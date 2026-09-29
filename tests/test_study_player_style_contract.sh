@@ -32,6 +32,12 @@ grep -Fq 'min-height: 72vh' "$SCSS" \
   || fail "video/document ratio needs a stable fullscreen minimum height"
 grep -Fq 'iframe,' "$SCSS" \
   || fail "native iframe players must be preserved explicitly"
+grep -Fq 'background: var(--facodi-sun) !important' "$SCSS" \
+  || fail "active player navigation must force the high-contrast sun background"
+grep -Fq 'color: var(--facodi-ink) !important' "$SCSS" \
+  || fail "player controls must force readable ink text over native dark utilities"
+grep -Fq '.facodi-study-tools__contribution' "$SCSS" \
+  || fail "study contribution buttons need an explicit contrast scope"
 
 if grep -Eiq 'fonts\.googleapis|fonts\.gstatic|https?://.*\.(woff2?|ttf|otf)' "$SCSS"; then
   fail "study player must not load remote fonts"
