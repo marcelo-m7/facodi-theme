@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-const MOTION_SELECTOR = ".facodi-home-v4 [data-facodi-motion]";
+const MOTION_SELECTOR = ".facodi-site [data-facodi-motion]";
 
 function initFacodiMotion() {
     const items = [...document.querySelectorAll(MOTION_SELECTOR)];

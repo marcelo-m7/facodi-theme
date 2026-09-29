@@ -167,6 +167,14 @@ if grep -Riq 'dither[- _]veil' theme_facodi/static theme_facodi/views theme_faco
 fi
 grep -Fq 'theme_facodi/static/src/js/facodi_catalogue_switcher.js' theme_facodi/__manifest__.py \
   || fail "homepage catalogue switcher frontend asset missing"
+grep -Fq 'theme_facodi/static/src/js/facodi_interactions.js' theme_facodi/__manifest__.py \
+  || fail "sitewide FACODI interaction asset missing"
+grep -Fq 'data-facodi-spotlight' theme_facodi/static/src/js/facodi_interactions.js \
+  || fail "FACODI spotlight interaction missing"
+grep -Fq 'prefers-reduced-motion' theme_facodi/static/src/scss/components.scss \
+  || fail "interaction primitives must respect reduced motion"
+grep -Fq 'data-facodi-explore-map' theme_facodi/static/src/scss/enriched_surfaces.scss \
+  || fail "Explore learning-map styling missing"
 grep -R -Fq '/submissions/new?type=resource' theme_facodi/views/snippets --include='*.xml' \
   || fail "FACODI resource-contribution CTA must use the contextual intake"
 if grep -R -Fq 'href="/contribuir/recurso"' theme_facodi/views/snippets --include='*.xml'; then
@@ -326,7 +334,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.62.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.63.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
