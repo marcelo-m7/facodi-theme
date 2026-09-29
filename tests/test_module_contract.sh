@@ -196,17 +196,25 @@ grep -Fq 'source=course_showcase_contribute&amp;section=learning-catalogue' them
   || fail "Course Showcase contribution CTA must preserve catalogue context"
 grep -Fq "theme_facodi.dynamic_filter_published_courses" theme_facodi/views/snippets/s_facodi_course_showcase.xml \
   || fail "homepage course showcase must use its FACODI presentation wrapper"
-grep -Fq 'ref="website_slides.dynamic_snippet_latest_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
-  || fail "FACODI wrapper must bind to Odoo's canonical eLearning filter"
-if grep -Fq 'model="ir.filters"' theme_facodi/data/facodi_course_snippet.xml; then
-  fail "theme must not ship a parallel course visibility domain"
+grep -Fq 'id="published_courses_filter" model="ir.filters"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "version-tolerant eLearning visibility compatibility filter missing"
+grep -Fq "[('visibility', 'in', ['public', 'connected'])]" theme_facodi/data/facodi_course_snippet.xml \
+  || fail "FACODI compatibility filter must mirror Odoo eLearning visibility semantics"
+grep -Fq '["published_date desc"]' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "FACODI compatibility filter must mirror Odoo eLearning ordering"
+if grep -Fq 'website_published' theme_facodi/data/facodi_course_snippet.xml; then
+  fail "theme must not ship its former publication-only course domain"
 fi
-grep -Fq 'theme_facodi.dynamic_filter_published_courses' theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py \
-  || fail "wrapper migration missing"
-grep -Fq 'website_slides.dynamic_snippet_latest_courses_filter' theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py \
-  || fail "canonical eLearning filter migration target missing"
-grep -Fq 'theme_facodi.published_courses_filter' theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py \
-  || fail "legacy FACODI visibility-domain cleanup missing"
+grep -Fq 'ref="theme_facodi.published_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "FACODI snippet wrapper must reference the compatibility filter"
+COURSE_FILTER_MIGRATION="theme_facodi/migrations/19.0.10.70.0/post-10-align-course-filter.py"
+[[ -f "$COURSE_FILTER_MIGRATION" ]] || fail "course-filter alignment migration missing"
+grep -Fq 'theme_facodi.dynamic_filter_published_courses' "$COURSE_FILTER_MIGRATION" \
+  || fail "course-filter wrapper migration missing"
+grep -Fq "[('visibility', 'in', ['public', 'connected'])]" "$COURSE_FILTER_MIGRATION" \
+  || fail "migration must align legacy filter to standard eLearning visibility semantics"
+[[ ! -f theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py ]] \
+  || fail "obsolete retire-course-filter migration must stay removed"
 grep -Fq 'source=cta_sheet_resource_cta&amp;section=cta-sheet' theme_facodi/views/snippets/components/s_facodi_cta_sheet.xml \
   || fail "CTA Sheet must preserve its contribution source context"
 grep -R -Fq '/contact?source=' theme_facodi/views/snippets --include='*.xml' \
