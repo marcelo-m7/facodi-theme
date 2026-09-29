@@ -17,7 +17,7 @@ fi
 grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.69.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
+grep -Fq '"version": "19.0.10.70.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
 grep -Fq 'id="visual_direction_page"' theme_facodi/views/website_public.xml || fail "visual direction page missing"
 if grep -R -nE '<template[^>]+page=' theme_facodi/views --include='*.xml'; then
   fail "Odoo 19 theme templates must not use the removed page attribute"
@@ -194,6 +194,27 @@ grep -Fq 'source=folder_tabs_contribute&amp;section=learning-navigation' theme_f
   || fail "Folder Tabs contribution CTA must preserve navigation context"
 grep -Fq 'source=course_showcase_contribute&amp;section=learning-catalogue' theme_facodi/views/snippets/s_facodi_course_showcase.xml \
   || fail "Course Showcase contribution CTA must preserve catalogue context"
+grep -Fq "theme_facodi.dynamic_filter_published_courses" theme_facodi/views/snippets/s_facodi_course_showcase.xml \
+  || fail "homepage course showcase must use its FACODI presentation wrapper"
+grep -Fq 'id="published_courses_filter" model="ir.filters"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "version-tolerant eLearning visibility compatibility filter missing"
+grep -Fq "[('visibility', 'in', ['public', 'connected'])]" theme_facodi/data/facodi_course_snippet.xml \
+  || fail "FACODI compatibility filter must mirror Odoo eLearning visibility semantics"
+grep -Fq '<field name="sort">[]</field>' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "FACODI compatibility filter must defer to native slide.channel ordering"
+if grep -Fq 'website_published' theme_facodi/data/facodi_course_snippet.xml; then
+  fail "theme must not ship its former publication-only course domain"
+fi
+grep -Fq 'ref="theme_facodi.published_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "FACODI snippet wrapper must reference the compatibility filter"
+COURSE_FILTER_MIGRATION="theme_facodi/migrations/19.0.10.70.0/post-10-align-course-filter.py"
+[[ -f "$COURSE_FILTER_MIGRATION" ]] || fail "course-filter alignment migration missing"
+grep -Fq 'theme_facodi.dynamic_filter_published_courses' "$COURSE_FILTER_MIGRATION" \
+  || fail "course-filter wrapper migration missing"
+grep -Fq "[('visibility', 'in', ['public', 'connected'])]" "$COURSE_FILTER_MIGRATION" \
+  || fail "migration must align legacy filter to standard eLearning visibility semantics"
+[[ ! -f theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py ]] \
+  || fail "obsolete retire-course-filter migration must stay removed"
 grep -Fq 'source=cta_sheet_resource_cta&amp;section=cta-sheet' theme_facodi/views/snippets/components/s_facodi_cta_sheet.xml \
   || fail "CTA Sheet must preserve its contribution source context"
 grep -R -Fq '/contact?source=' theme_facodi/views/snippets --include='*.xml' \
@@ -344,7 +365,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.69.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.70.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"

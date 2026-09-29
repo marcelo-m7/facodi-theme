@@ -175,3 +175,56 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
 
         self.assertEqual(set(visuals), set(channels.ids))
         self.assertEqual(visuals[third.id]["kind"], "fallback")
+
+    def test_homepage_standard_filter_matches_public_catalogue_in_multilingual_contexts(self):
+        website = self.env["website"].get_current_website()
+        public_user = self.env.ref("base.public_user")
+        en_gb = self.env["res.lang"]._activate_lang("en_GB")
+        pt = self.env["res.lang"]._activate_lang("pt_PT")
+        website.language_ids |= en_gb | pt
+
+        visible = self._channel(
+            "FACODI Homepage Public",
+            website_id=website.id,
+            visibility="public",
+        )
+        private = self._channel(
+            "FACODI Homepage Members",
+            website_id=website.id,
+            visibility="members",
+            enroll="invite",
+        )
+
+        standard_filter = self.env.ref("theme_facodi.dynamic_filter_published_courses")
+        self.assertEqual(
+            standard_filter.filter_id.domain,
+            "[('visibility', 'in', ['public', 'connected'])]",
+        )
+        self.assertEqual(standard_filter.filter_id.sort, "[]")
+
+        upstream_filter = self.env.ref(
+            "website_slides.dynamic_snippet_latest_courses_filter",
+            raise_if_not_found=False,
+        )
+        if upstream_filter:
+            self.assertEqual(
+                standard_filter.filter_id.domain,
+                upstream_filter.domain,
+            )
+
+        for lang in ("en_GB", "pt_PT"):
+            with self.subTest(lang=lang):
+                values = (
+                    standard_filter
+                    .with_user(public_user)
+                    .sudo()
+                    .with_context(website_id=website.id, lang=lang)
+                    ._prepare_values(
+                        limit=16,
+                        search_domain=[("id", "in", [visible.id, private.id])],
+                    )
+                )
+                record_ids = {row["_record"].id for row in values}
+                self.assertIn(visible.id, record_ids)
+                self.assertNotIn(private.id, record_ids)
+
