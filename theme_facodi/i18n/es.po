@@ -2229,3 +2229,8 @@ msgstr "Pregunta de estudio #042"
 msgid "Validated against public university references"
 msgstr "Validado con referencias universitarias públicas"
 
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "<span>Knowledge is everywhere.</span> <span class=\"facodi-marker facodi-marker-cyan\">Find your next step.</span>"
+msgstr "<span>El conocimiento está en todas partes.</span> <span class=\"facodi-marker facodi-marker-cyan\">Encuentra tu próximo paso.</span>"
+
