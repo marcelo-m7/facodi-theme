@@ -22,7 +22,7 @@ done
 for route in '/courses' '/roadmaps' '/curricular-units'; do
   grep -Fq "href=\"$route\"" "$JOURNEY" || fail "learning entry route missing: $route"
 done
-for anchor in 'From a question to the next useful link.' 'Choose a question' 'Study at your pace' 'Follow the useful thread' 'Leave the trail clearer' 'facodi-learning-steps'; do
+for anchor in 'From a question to the next useful link.' 'Choose a question' 'Study at your pace' 'Follow the next clue' 'facodi-learning-steps-three'; do
   grep -Fq "$anchor" "$FEATURES" || fail "learning steps missing: $anchor"
 done
 
