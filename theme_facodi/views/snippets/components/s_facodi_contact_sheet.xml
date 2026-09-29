@@ -11,7 +11,7 @@
             <div class="facodi-contact-sheet__form-slot">
                 <p class="facodi-label">Contact form area</p>
                 <h3>Keep the native Odoo form here.</h3>
-                <p>This editable column is designed to frame the Website contact form without replacing its submission behavior.</p>
+                <p>This editable column is designed to frame the Website contact form without replacing its submission behaviour.</p>
             </div>
         </section>
     </template>
