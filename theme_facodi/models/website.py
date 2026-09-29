@@ -8,7 +8,7 @@ class Website(models.Model):
         defaults = super()._get_snippet_defaults(snippet)
         if snippet == "theme_facodi.s_facodi_course_showcase":
             return defaults | {
-                "filter_xmlid": "theme_facodi.dynamic_filter_published_courses",
+                "filter_xmlid": "website_slides.dynamic_filter_latest_courses",
                 "template_key": "theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card",
                 "data_attributes": {
                     "snippet": "s_facodi_course_showcase",
