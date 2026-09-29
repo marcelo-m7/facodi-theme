@@ -11,6 +11,7 @@
     "data": [
         "data/ir_asset.xml",
         "data/website_rewrites.xml",
+        "data/facodi_course_snippet.xml",
         "views/header.xml",
         "views/customizations.xml",
         "views/http_error.xml",
