@@ -175,3 +175,38 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
 
         self.assertEqual(set(visuals), set(channels.ids))
         self.assertEqual(visuals[third.id]["kind"], "fallback")
+
+    def test_homepage_standard_filter_matches_public_catalogue_in_multilingual_contexts(self):
+        website = self.env["website"].get_current_website()
+        public_user = self.env.ref("base.public_user")
+        pt = self.env["res.lang"]._activate_lang("pt_PT")
+        website.language_ids |= pt
+
+        visible = self._channel(
+            "FACODI Homepage Public",
+            website_id=website.id,
+            visibility="public",
+        )
+        private = self._channel(
+            "FACODI Homepage Members",
+            website_id=website.id,
+            visibility="members",
+        )
+
+        standard_filter = self.env.ref("website_slides.dynamic_filter_latest_courses")
+        for lang in ("en_US", "pt_PT"):
+            with self.subTest(lang=lang):
+                values = (
+                    standard_filter
+                    .with_user(public_user)
+                    .sudo()
+                    .with_context(website_id=website.id, lang=lang)
+                    ._prepare_values(
+                        limit=16,
+                        search_domain=[("id", "in", [visible.id, private.id])],
+                    )
+                )
+                record_ids = {row["_record"].id for row in values}
+                self.assertIn(visible.id, record_ids)
+                self.assertNotIn(private.id, record_ids)
+
