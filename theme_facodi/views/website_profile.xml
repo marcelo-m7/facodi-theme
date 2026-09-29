@@ -12,7 +12,7 @@
             <section class="facodi-profile-hero">
                 <div class="facodi-profile-identity">
                     <img class="facodi-profile-avatar"
-                         t-att-src="'/profile/avatar/%s?field=avatar_256' % user.id"
+                         t-att-src="website.image_url(user, 'avatar_256')"
                          t-att-alt="user.name or ''"/>
                     <div class="facodi-profile-heading">
                         <span class="facodi-profile-eyebrow">FACODI · Comunidade</span>
