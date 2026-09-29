@@ -14,7 +14,7 @@ fail() {
 grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.66.0"' theme_facodi/__manifest__.py || fail "visual direction release version missing"
+grep -Fq '"version": "19.0.10.67.0"' theme_facodi/__manifest__.py || fail "visual direction release version missing"
 grep -Fq 'id="visual_direction_page"' theme_facodi/views/website_public.xml || fail "visual direction page missing"
 if grep -R -nE '<template[^>]+page=' theme_facodi/views --include='*.xml'; then
   fail "Odoo 19 theme templates must not use the removed page attribute"
@@ -341,7 +341,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.66.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.67.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
