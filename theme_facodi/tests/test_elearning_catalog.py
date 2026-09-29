@@ -191,15 +191,19 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
             "FACODI Homepage Members",
             website_id=website.id,
             visibility="members",
+            enroll="invite",
         )
 
-        standard_filter = self.env.ref("website_slides.dynamic_filter_latest_courses")
+        standard_filter = self.env.ref("theme_facodi.dynamic_filter_published_courses")
+        self.assertEqual(
+            standard_filter.filter_id,
+            self.env.ref("website_slides.dynamic_snippet_latest_courses_filter"),
+        )
         for lang in ("en_US", "pt_PT"):
             with self.subTest(lang=lang):
                 values = (
                     standard_filter
                     .with_user(public_user)
-                    .sudo()
                     .with_context(website_id=website.id, lang=lang)
                     ._prepare_values(
                         limit=16,
