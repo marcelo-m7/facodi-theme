@@ -9,6 +9,7 @@ class TestFacodiTheme(HttpCase):
     def setUpClass(cls):
         super().setUpClass()
         website = cls.env["website"].get_current_website()
+        cls.env["res.lang"]._activate_lang("en_GB")
         theme = cls.env["ir.module.module"].search(
             [("name", "=", "theme_facodi")], limit=1
         )
