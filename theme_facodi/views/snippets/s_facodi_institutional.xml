@@ -7,13 +7,13 @@
             <div class="container">
                 <article class="facodi-sheet facodi-institutional-sheet facodi-institutional-note" data-facodi-motion="rise">
                     <div>
-                        <p class="facodi-label">Project context</p>
-                        <h2>Open learning with an academic reference point.</h2>
-                        <p>FACODI is a community-learning project connected to the University of Algarve and the SEA-EU ecosystem, combining public resources with reviewed academic context.</p>
+                        <p class="facodi-label">Where this sits</p>
+                        <h2>Community-built. Academically aware. Still very much open.</h2>
+                        <p>FACODI is a community-learning project connected to the University of Algarve and the SEA-EU ecosystem. Official curricular references provide context; the community layer helps people discover, discuss and improve public learning resources.</p>
                     </div>
                     <div class="facodi-actions">
-                        <a href="/sobre" class="btn facodi-button facodi-button-secondary">About FACODI</a>
-                        <a href="/contact?source=institutional_contact_cta&amp;section=institutional&amp;topic=partnership" class="facodi-text-link">Collaborate with FACODI</a>
+                        <a href="/sobre" class="btn facodi-button facodi-button-secondary">Read the project file</a>
+                        <a href="/contact?source=institutional_contact_cta&amp;section=institutional&amp;topic=partnership" class="facodi-text-link">Build something with FACODI</a>
                         <a href="https://sea-eu.org/" class="facodi-text-link" target="_blank" rel="noopener noreferrer">
                             SEA-EU
                             <i class="fa fa-external-link ms-1" aria-hidden="true" t-translation="off"/>
