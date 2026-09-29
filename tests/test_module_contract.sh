@@ -9,12 +9,15 @@ fail() {
 [[ -f theme_facodi/__manifest__.py ]] || fail "theme_facodi manifest missing"
 [[ ! -e website_facodi ]] || fail "legacy website_facodi addon must not remain installable"
 [[ -f theme_facodi/data/ir_asset.xml ]] || fail "theme primary asset record missing"
-[[ ! -d theme_facodi/controllers ]] || fail "presentation theme must not add parallel learning routes/controllers"
+[[ -f theme_facodi/controllers/public.py ]] || fail "theme public controller contract missing"
+if grep -R -nE '/(courses|slides|explore|roadmaps|my/|unidades-curriculares)' theme_facodi/controllers --include='*.py'; then
+  fail "presentation theme must not own parallel learning routes/controllers"
+fi
 
 grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.67.0"' theme_facodi/__manifest__.py || fail "visual direction release version missing"
+grep -Fq '"version": "19.0.10.67.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
 grep -Fq 'id="visual_direction_page"' theme_facodi/views/website_public.xml || fail "visual direction page missing"
 if grep -R -nE '<template[^>]+page=' theme_facodi/views --include='*.xml'; then
   fail "Odoo 19 theme templates must not use the removed page attribute"
