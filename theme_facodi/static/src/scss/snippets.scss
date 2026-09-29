@@ -38,14 +38,20 @@
     }
 
     .facodi-hero-study-board {
-        min-height: 28rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        min-height: 34rem;
         position: relative;
     }
 
     .facodi-study-sheet {
+        grid-column: 1;
+        grid-row: 1;
         margin-left: auto;
         max-width: 28rem;
         padding: 2rem;
+        padding-right: clamp(2rem, 10vw, 5.5rem);
         transform: rotate(1deg);
 
         h2 {
@@ -83,13 +89,14 @@
     }
 
     .facodi-study-note {
-        bottom: 1rem;
+        bottom: .75rem;
         left: 0;
         max-width: 14rem;
         overflow-wrap: anywhere;
         padding: 1.15rem;
         position: absolute;
         transform: rotate(-2deg);
+        z-index: 3;
 
         .facodi-study-note-copy {
             font-weight: 700;
@@ -100,7 +107,8 @@
     .facodi-study-note-secondary {
         bottom: auto;
         left: auto;
-        right: 0;
+        max-width: 13rem;
+        right: -1rem;
         top: 1.25rem;
         transform: rotate(2deg);
     }
@@ -426,6 +434,24 @@
     }
 
 }
+
+
+    @media (min-width: 768px) {
+        .facodi-hero-study-board {
+            padding-right: clamp(1rem, 4vw, 3rem);
+        }
+
+        .facodi-study-sheet h2 {
+            max-width: 12ch;
+        }
+
+        .facodi-study-note-secondary {
+            // Keep the overlapping sticky-note effect without covering the
+            // study question. The primary content column reserves horizontal
+            // breathing room for this note.
+            pointer-events: none;
+        }
+    }
 
 @media (max-width: 1100px) {
     .facodi-site {
