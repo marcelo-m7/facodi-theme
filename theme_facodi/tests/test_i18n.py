@@ -90,7 +90,7 @@ class TestFacodiThemeTranslations(HttpCase):
     def test_builder_snippet_copy_uses_native_translations(self):
         hero = self._website_view("theme_facodi.s_facodi_hero")
         expected_by_lang = {
-            "en_US": (
+            "en_GB": (
                 "Knowledge is everywhere.",
                 "Find your next step.",
                 "Explore courses",
