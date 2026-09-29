@@ -2234,3 +2234,29 @@ msgstr "Validado com referências públicas universitárias"
 msgid "<span>Knowledge is everywhere.</span> <span class=\"facodi-marker facodi-marker-cyan\">Find your next step.</span>"
 msgstr "<span>Há conhecimento por todo o lado.</span> <span class=\"facodi-marker facodi-marker-cyan\">Encontra o teu próximo passo.</span>"
 
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid ""
+"<strong>Find the next useful rabbit hole</strong>\n"
+"                        <span>Browse published courses and follow the thread into learning resources.</span>"
+msgstr ""
+"<strong>Encontra o próximo caminho útil para explorar</strong>\n"
+"                        <span>Explora os cursos publicados e segue o fio até aos recursos de aprendizagem.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid ""
+"<strong>Bring the messy question</strong>\n"
+"                        <span>Ask, compare notes and leave a useful answer for the next learner.</span>"
+msgstr ""
+"<strong>Traz a pergunta ainda por organizar</strong>\n"
+"                        <span>Faz perguntas, compara apontamentos e deixa uma resposta útil para quem vier a seguir.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid ""
+"<strong>Found a gap? Drop it here.</strong>\n"
+"                        <span>Share a resource, a correction or a collaboration idea with enough context to be useful.</span>"
+msgstr ""
+"<strong>Encontraste uma lacuna? Deixa-a aqui.</strong>\n"
+"                        <span>Partilha um recurso, uma correção ou uma ideia de colaboração com contexto suficiente para ser útil.</span>"

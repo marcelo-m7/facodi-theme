@@ -208,3 +208,44 @@ class TestFacodiThemeTranslations(HttpCase):
                 arch = showcase.with_context(lang=lang).arch_db
                 for expected in expected_terms:
                     self.assertIn(expected, arch)
+
+
+    def test_editorial_route_cards_use_native_translations(self):
+        routes = self._website_view("theme_facodi.s_facodi_editorial_routes")
+        expected_by_lang = {
+            "pt_PT": (
+                "Mantém alguns separadores abertos.",
+                "Destinos editoriais da FACODI",
+                "Encontra o próximo caminho útil para explorar",
+                "Explora os cursos publicados e segue o fio até aos recursos de aprendizagem.",
+                "Traz a pergunta ainda por organizar",
+                "Faz perguntas, compara apontamentos e deixa uma resposta útil para quem vier a seguir.",
+                "Encontraste uma lacuna? Deixa-a aqui.",
+                "Partilha um recurso, uma correção ou uma ideia de colaboração com contexto suficiente para ser útil.",
+            ),
+            "es_ES": (
+                "Mantén unas cuantas pestañas abiertas.",
+                "Destinos editoriales de FACODI",
+                "Encuentra el próximo hilo útil que explorar",
+                "Explora los cursos publicados y sigue el hilo hasta los recursos de aprendizaje.",
+                "Trae esa pregunta todavía desordenada",
+                "Pregunta, compara apuntes y deja una respuesta útil para quien venga después.",
+                "¿Has encontrado un vacío? Déjalo aquí.",
+                "Comparte un recurso, una corrección o una idea de colaboración con suficiente contexto para que resulte útil.",
+            ),
+            "fr_FR": (
+                "Gardez quelques onglets ouverts.",
+                "Destinations éditoriales de FACODI",
+                "Trouvez la prochaine piste utile à explorer",
+                "Parcourez les cours publiés et suivez le fil jusqu’aux ressources d’apprentissage.",
+                "Apportez la question encore brouillonne",
+                "Posez vos questions, comparez vos notes et laissez une réponse utile à la personne suivante.",
+                "Vous avez repéré un manque ? Déposez-le ici.",
+                "Partagez une ressource, une correction ou une idée de collaboration avec assez de contexte pour qu’elle soit utile.",
+            ),
+        }
+        for lang, expected_terms in expected_by_lang.items():
+            with self.subTest(language=lang):
+                arch = routes.with_context(lang=lang).arch_db
+                for expected in expected_terms:
+                    self.assertIn(expected, arch)
