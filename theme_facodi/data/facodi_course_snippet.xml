@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dynamic_filter_published_courses" model="website.snippet.filter">
+            <field name="filter_id" ref="website_slides.dynamic_snippet_latest_courses_filter"/>
+            <field name="field_names">name,description_short,total_slides,website_url</field>
+            <field name="limit" eval="6"/>
+            <field name="name">FACODI Published Courses</field>
+        </record>
+    </data>
+</odoo>
