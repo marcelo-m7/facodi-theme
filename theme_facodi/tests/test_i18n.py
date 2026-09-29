@@ -15,6 +15,7 @@ class TestFacodiThemeTranslations(HttpCase):
 
         Lang = cls.env["res.lang"]
         cls.lang_en = cls.env.ref("base.lang_en")
+        cls.lang_en_gb = Lang._activate_lang("en_GB")
         cls.lang_pt = Lang._activate_lang("pt_PT")
         cls.lang_es = Lang._activate_lang("es_ES")
         cls.lang_fr = Lang._activate_lang("fr_FR")
