@@ -18,17 +18,18 @@ body.o_wslides_body {
 
             > div > a {
                 min-height: 3.25rem;
-                background: transparent;
-                color: var(--facodi-ink);
-                font-weight: 700;
+                background: var(--facodi-surface-sheet) !important;
+                color: var(--facodi-ink) !important;
+                border-right: 1px solid color-mix(in srgb, var(--facodi-ink) 24%, transparent);
+                font-weight: 800;
                 text-decoration: none !important;
                 transition: background-color 160ms ease, color 160ms ease;
 
                 &:hover,
                 &:focus-visible,
                 &.active {
-                    background: var(--facodi-sun);
-                    color: var(--facodi-ink);
+                    background: var(--facodi-sun) !important;
+                    color: var(--facodi-ink) !important;
                 }
 
                 &:focus-visible {
@@ -226,10 +227,10 @@ body.o_wslides_body {
             min-height: 2.35rem;
             padding: .4rem .7rem;
             flex: 0 0 auto;
-            background: var(--facodi-surface-sheet);
+            background: var(--facodi-surface-sheet) !important;
             border: 1px solid var(--facodi-ink);
             border-radius: var(--facodi-radius-sm);
-            color: var(--facodi-ink);
+            color: var(--facodi-ink) !important;
             font-size: .78rem;
             font-weight: 800;
             line-height: 1;
@@ -239,12 +240,35 @@ body.o_wslides_body {
             &:focus-visible,
             &.is-active,
             &[aria-selected="true"] {
-                background: var(--facodi-cyan);
+                background: var(--facodi-sun) !important;
+                color: var(--facodi-ink) !important;
             }
 
             &:focus-visible {
                 outline: 0;
                 box-shadow: var(--facodi-focus-ring);
+            }
+        }
+
+        // Odoo fullscreen ships dark utility colours on the native sidebar.
+        // Keep every interactive label readable even when those utilities win
+        // elsewhere in the player.
+        .facodi-study-tools__contribution {
+            .facodi-button-primary {
+                background: var(--facodi-sun) !important;
+                color: var(--facodi-ink) !important;
+                border-color: var(--facodi-ink) !important;
+            }
+
+            .facodi-button-secondary {
+                background: var(--facodi-surface-sheet) !important;
+                color: var(--facodi-ink) !important;
+                border-color: var(--facodi-ink) !important;
+            }
+
+            a:hover,
+            a:focus-visible {
+                color: var(--facodi-ink) !important;
             }
         }
 
