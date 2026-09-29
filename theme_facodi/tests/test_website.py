@@ -331,6 +331,23 @@ class TestFacodiTheme(HttpCase):
             self.assertIn(f'href="{route}"', journey.arch_db)
             self.assertIn(label, journey.arch_db)
 
+    def test_visual_direction_reference_page_renders(self):
+        response = self.url_open("/visual-direction")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('data-facodi-visual-direction="1"', response.text)
+        for marker in (
+            "Digital Highlighter Campus",
+            "#E8FD36",
+            "#72F6B8",
+            "#34B6CE",
+            "#FF70A6",
+            "#FFAE33",
+            "Space Grotesk",
+            "Plus Jakarta Sans",
+            "JetBrains Mono",
+        ):
+            self.assertIn(marker, response.text)
+
     def test_homepage_metadata_uses_public_canonical_and_localized_descriptions(self):
         from lxml import html
 

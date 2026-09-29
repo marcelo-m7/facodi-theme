@@ -19,4 +19,237 @@
             <attribute name="class" add="facodi-contact-context" separator=" "/>
         </xpath>
     </template>
+
+    <template id="visual_direction_page" name="FACODI Visual Direction" page="True">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Visual Direction · FACODI</t>
+            <t t-set="website_meta_description">FACODI Digital Highlighter Campus visual direction: colors, typography, spacing, highlighter accents, cards, buttons and interface rules.</t>
+            <div id="wrap" class="oe_structure">
+                <section class="facodi-visual-direction py-5" data-facodi-visual-direction="1">
+                    <div class="container">
+                        <header class="facodi-visual-direction__hero mb-5">
+                            <p class="facodi-kicker mb-2">Digital Highlighter Campus · Visual Direction</p>
+                            <h1 class="display-4 fw-bold mb-3">Paper structure. Highlighter energy. Open campus.</h1>
+                            <p class="lead mb-4">A practical reference for designing FACODI interfaces, editorial pages and campaign materials with a coherent academic-but-playful visual language.</p>
+                            <div class="facodi-visual-direction__swatches">
+                                <span class="facodi-vd-swatch facodi-highlight-lime">#E8FD36 · Yellow</span>
+                                <span class="facodi-vd-swatch facodi-highlight-mint">#72F6B8 · Mint</span>
+                                <span class="facodi-vd-swatch facodi-highlight-cyan">#34B6CE · Cyan</span>
+                                <span class="facodi-vd-swatch facodi-highlight-pink">#FF70A6 · Pink</span>
+                                <span class="facodi-vd-swatch facodi-highlight-orange">#FFAE33 · Orange</span>
+                            </div>
+                        </header>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">01</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Brand idea</p>
+                                    <h2 class="h2 mb-0">Digital Highlighter Campus</h2>
+                                </div>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-12 col-lg-7">
+                                    <article class="facodi-vd-paper-card h-100">
+                                        <h3 class="h4">Structured like a notebook. Alive like a study desk.</h3>
+                                        <p>FACODI translates highlighters, graph paper, sticky tabs, margin notes and course notebooks into a crisp digital interface.</p>
+                                        <p class="mb-0">The visual system should feel trustworthy without becoming institutional, and playful without becoming decorative noise.</p>
+                                    </article>
+                                </div>
+                                <div class="col-12 col-lg-5">
+                                    <article class="facodi-vd-grid-card h-100">
+                                        <span class="facodi-vd-tab facodi-highlight-lime">CORE PRINCIPLE</span>
+                                        <h3 class="h4 mt-3">Optimistic, organized, student-first.</h3>
+                                        <p class="mb-0">Use fluorescent accents to guide attention and communicate learning states.</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">02</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Color system</p>
+                                    <h2 class="h2 mb-0">Ink first. Marker second.</h2>
+                                </div>
+                            </div>
+                            <div class="facodi-vd-color-grid">
+                                <article class="facodi-vd-color facodi-vd-color--ink"><strong>Ink</strong><code>#112340</code><span>Structure · body text · primary actions</span></article>
+                                <article class="facodi-vd-color facodi-highlight-lime"><strong>Yellow</strong><code>#E8FD36</code><span>Primary callout · active · start</span></article>
+                                <article class="facodi-vd-color facodi-highlight-mint"><strong>Mint</strong><code>#72F6B8</code><span>Done · success · enrolled</span></article>
+                                <article class="facodi-vd-color facodi-highlight-cyan"><strong>Cyan</strong><code>#34B6CE</code><span>Navigation · information · course codes</span></article>
+                                <article class="facodi-vd-color facodi-highlight-pink"><strong>Pink</strong><code>#FF70A6</code><span>Priority · open gaps · alerts</span></article>
+                                <article class="facodi-vd-color facodi-highlight-orange"><strong>Orange</strong><code>#FFAE33</code><span>Review · partial · continue</span></article>
+                            </div>
+                            <div class="facodi-vd-rule mt-3"><strong>Rule:</strong> highlighter colors are fills, tabs, marker strokes and state surfaces. They are not small-body-text colors.</div>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">03</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Typography</p>
+                                    <h2 class="h2 mb-0">Three voices, one campus.</h2>
+                                </div>
+                            </div>
+                            <div class="facodi-vd-type-stack">
+                                <article><span>HEADLINES · SPACE GROTESK</span><strong class="facodi-vd-type-display">Find your next useful tab.</strong></article>
+                                <article><span>BODY · PLUS JAKARTA SANS</span><p class="facodi-vd-type-body mb-0">Warm, readable and calm enough for long-form study material and explanatory copy.</p></article>
+                                <article><span>METADATA · JETBRAINS MONO</span><code>UC-19411018 // OPEN LEARNING // FACODI</code></article>
+                            </div>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">04</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Layout &amp; rhythm</p>
+                                    <h2 class="h2 mb-0">8px rhythm. 24px graph paper.</h2>
+                                </div>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-4"><article class="facodi-vd-paper-card h-100"><strong>8px rhythm</strong><p class="mb-0 mt-2">Spacing and interior padding follow a simple, repeatable base rhythm.</p></article></div>
+                                <div class="col-12 col-md-4"><article class="facodi-vd-grid-card h-100"><strong>Graph paper</strong><p class="mb-0 mt-2">Use subtle 24px grid lines on large canvases and study surfaces.</p></article></div>
+                                <div class="col-12 col-md-4"><article class="facodi-vd-paper-card h-100"><strong>Breathing room</strong><p class="mb-0 mt-2">Bright accents need whitespace to stay useful.</p></article></div>
+                            </div>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">05</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Depth &amp; shape</p>
+                                    <h2 class="h2 mb-0">Hard shadows, trimmed paper.</h2>
+                                </div>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-12 col-md-4"><article class="facodi-vd-depth facodi-vd-depth--1"><strong>Layer 1</strong><span>White paper · crisp border</span></article></div>
+                                <div class="col-12 col-md-4"><article class="facodi-vd-depth facodi-vd-depth--2"><strong>Layer 2</strong><span>3px hard shadow · interactive card</span></article></div>
+                                <div class="col-12 col-md-4"><article class="facodi-vd-depth facodi-vd-depth--3"><strong>Layer 3</strong><span>6px hard shadow · drawer / modal</span></article></div>
+                            </div>
+                            <p class="small text-muted mt-3 mb-0">Corners stay compact. Full pills are reserved for true live/status indicators.</p>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">06</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Components</p>
+                                    <h2 class="h2 mb-0">Buttons, tabs and study cards.</h2>
+                                </div>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-12 col-lg-6">
+                                    <article class="facodi-vd-paper-card h-100">
+                                        <h3 class="h4">Buttons</h3>
+                                        <div class="d-flex flex-wrap gap-3 mt-3">
+                                            <a href="#" class="facodi-vd-button facodi-vd-button--primary">Primary action</a>
+                                            <a href="#" class="facodi-vd-button facodi-vd-button--secondary">Secondary</a>
+                                            <a href="#" class="facodi-vd-button facodi-vd-button--ghost">Ghost action</a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <article class="facodi-vd-paper-card h-100">
+                                        <h3 class="h4">Tabs &amp; sticky labels</h3>
+                                        <div class="d-flex flex-wrap gap-2 mt-3">
+                                            <span class="facodi-vd-tab facodi-highlight-cyan">TECH / DIGITAL</span>
+                                            <span class="facodi-vd-tab facodi-highlight-lime">CORE REQUIREMENT</span>
+                                            <span class="facodi-vd-tab facodi-highlight-pink">PRIORITY</span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-12">
+                                    <article class="facodi-vd-course-card">
+                                        <span class="facodi-vd-tab facodi-highlight-lime">COURSE CARD</span>
+                                        <div>
+                                            <h3 class="h3 mb-2">Algorithms &amp; Critical Thinking</h3>
+                                            <p class="mb-0">Strong title, visible metadata, real progress and one obvious next action.</p>
+                                        </div>
+                                        <a href="/courses" class="facodi-vd-button facodi-vd-button--primary">Continue →</a>
+                                    </article>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">07</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Semantic accents</p>
+                                    <h2 class="h2 mb-0">Color should mean something.</h2>
+                                </div>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6 col-xl-3"><article class="facodi-vd-semantic facodi-highlight-lime"><strong>Yellow</strong><span>Start here · active · key idea</span></article></div>
+                                <div class="col-12 col-md-6 col-xl-3"><article class="facodi-vd-semantic facodi-highlight-mint"><strong>Mint</strong><span>Done · enrolled · affirmative</span></article></div>
+                                <div class="col-12 col-md-6 col-xl-3"><article class="facodi-vd-semantic facodi-highlight-orange"><strong>Orange</strong><span>Review · partial · continue</span></article></div>
+                                <div class="col-12 col-md-6 col-xl-3"><article class="facodi-vd-semantic facodi-highlight-pink"><strong>Pink</strong><span>Open gap · priority · warning</span></article></div>
+                            </div>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">08</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Content voice</p>
+                                    <h2 class="h2 mb-0">Cool, useful and academically careful.</h2>
+                                </div>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-12 col-lg-6"><article class="facodi-vd-paper-card h-100"><span class="facodi-vd-tab facodi-highlight-mint">DO</span><h3 class="h5 mt-3">Use study-oriented microcopy.</h3><p class="mb-0">“Find your next useful tab.” · “Continue where you paused.” · “Help fill this stop.”</p></article></div>
+                                <div class="col-12 col-lg-6"><article class="facodi-vd-paper-card h-100"><span class="facodi-vd-tab facodi-highlight-pink">DON’T</span><h3 class="h5 mt-3">Avoid fake prestige and invented academic claims.</h3><p class="mb-0">Do not imply official equivalence, accreditation, guaranteed outcomes or fabricated community metrics.</p></article></div>
+                            </div>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">09</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Reference composition</p>
+                                    <h2 class="h2 mb-0">The desk, assembled.</h2>
+                                </div>
+                            </div>
+                            <article class="facodi-vd-reference">
+                                <div>
+                                    <span class="facodi-vd-tab facodi-highlight-lime">FACODI VISUAL SAMPLE</span>
+                                    <h3 class="display-6 fw-bold mt-3">FACODI: your open digital campus.</h3>
+                                    <p class="lead mb-0">Notebook structure, community notes and highlighter accents should always reinforce study flow.</p>
+                                </div>
+                                <div class="facodi-vd-sticky-stack">
+                                    <div class="facodi-highlight-lime">Open education</div>
+                                    <div class="facodi-highlight-mint">Collaborative learning</div>
+                                    <div class="facodi-highlight-cyan">Community courses</div>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section class="facodi-vd-section">
+                            <div class="facodi-vd-section__head">
+                                <span class="facodi-vd-index">10</span>
+                                <div>
+                                    <p class="facodi-kicker mb-1">Usage checklist</p>
+                                    <h2 class="h2 mb-0">Before shipping a FACODI surface.</h2>
+                                </div>
+                            </div>
+                            <article class="facodi-vd-paper-card">
+                                <ul class="facodi-vd-checklist mb-0">
+                                    <li>Start from white/paper surfaces and dark ink structure.</li>
+                                    <li>Use one dominant highlighter accent per component.</li>
+                                    <li>Keep borders crisp and shadows hard, not blurred.</li>
+                                    <li>Use Space Grotesk for titles, Plus Jakarta Sans for body and JetBrains Mono for metadata.</li>
+                                    <li>Preserve strong contrast and never rely on color alone to communicate state.</li>
+                                    <li>Use graph-paper backgrounds sparingly on large canvases.</li>
+                                    <li>Keep CTAs practical: start, continue, explore, contribute, compare, review.</li>
+                                    <li>Favor genuine Odoo/FACODI data over decorative fake statistics.</li>
+                                </ul>
+                            </article>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
 </odoo>
