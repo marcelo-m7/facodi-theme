@@ -2153,3 +2153,64 @@ msgstr "Partager une ressource"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
 msgid "This editable column is designed to frame the Website contact form without replacing its submission behaviour."
 msgstr "Cette colonne modifiable est conçue pour encadrer le formulaire de contact du site sans remplacer son comportement d’envoi."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "Where this sits"
+msgstr "Où cela s’inscrit"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "FACODI is a community-learning project connected to the University of Algarve and the SEA-EU ecosystem. Official curricular references provide context; the community layer helps people discover, discuss and improve public learning resources."
+msgstr "FACODI est un projet d’apprentissage communautaire lié à l’Université de l’Algarve et à l’écosystème SEA-EU. Les références curriculaires officielles apportent du contexte ; la couche communautaire aide à découvrir, discuter et améliorer des ressources d’apprentissage publiques."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "Read the project file"
+msgstr "Lire le dossier du projet"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "Build something with FACODI"
+msgstr "Construire quelque chose avec FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Keep a few tabs open."
+msgstr "Gardez quelques onglets ouverts."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "FACODI editorial destinations"
+msgstr "Destinations éditoriales de FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Find the next useful rabbit hole"
+msgstr "Trouvez la prochaine piste utile à explorer"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Browse published courses and follow the thread into learning resources."
+msgstr "Parcourez les cours publiés et suivez le fil jusqu’aux ressources d’apprentissage."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Bring the messy question"
+msgstr "Apportez la question encore brouillonne"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Ask, compare notes and leave a useful answer for the next learner."
+msgstr "Posez vos questions, comparez vos notes et laissez une réponse utile à la personne suivante."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Found a gap? Drop it here."
+msgstr "Vous avez repéré un manque ? Déposez-le ici."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
+msgid "Share a resource, a correction or a collaboration idea with enough context to be useful."
+msgstr "Partagez une ressource, une correction ou une idée de collaboration avec assez de contexte pour qu’elle soit utile."
+
