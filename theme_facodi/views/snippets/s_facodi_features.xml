@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_features" name="FACODI Learning principles">
-        <section class="s_facodi_features facodi-section facodi-grid-paper o_cc o_cc1"
+        <section class="s_facodi_features facodi-section facodi-grid-paper o_cc o_cc1 facodi-dot-grid-host"
                  data-snippet="s_facodi_features"
                  data-name="FACODI Learning principles">
+            <div class="facodi-dot-grid facodi-dot-grid--section"
+                 data-facodi-dot-grid="1"
+                 data-dot-size="3"
+                 data-gap="24"
+                 data-proximity="130"
+                 data-shock-radius="180"
+                 data-shock-strength="4.5"
+                 data-base-color="#3979C8"
+                 data-active-color="#37BED2"
+                 aria-hidden="true">
+                <canvas class="facodi-dot-grid__canvas"/>
+            </div>
             <div class="container">
                 <div class="facodi-section-heading" data-facodi-motion="rise">
                     <div>
