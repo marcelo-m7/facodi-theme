@@ -50,14 +50,31 @@
         border: var(--facodi-border);
         border-radius: var(--facodi-radius);
         box-shadow: var(--facodi-shadow);
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
         min-width: 0;
-        padding: clamp(1rem, 2.5vw, 1.5rem);
+        padding: clamp(1.25rem, 2.5vw, 1.75rem);
 
         h3,
         p,
         a {
             overflow-wrap: anywhere;
         }
+
+        h3 {
+            line-height: 1.08;
+            margin: .75rem 0 .7rem;
+        }
+
+        p {
+            margin: 0;
+            max-width: 38ch;
+        }
+    }
+
+    .facodi-principles-ledger {
+        align-items: stretch;
     }
 
     .facodi-principles-ledger__index,
@@ -75,34 +92,47 @@
 
     .facodi-process-timeline {
         display: grid;
-        gap: 0;
+        gap: clamp(1rem, 2.2vw, 1.5rem);
         list-style: none;
         margin: 0;
         min-width: 0;
         padding: 0;
 
         &__step {
-            align-items: start;
+            align-items: stretch;
             display: grid;
             gap: 1rem;
-            grid-template-columns: auto minmax(0, 1fr);
+            grid-template-columns: 3rem minmax(0, 1fr);
             min-width: 0;
-            padding: 0 0 1.5rem;
             position: relative;
 
             &:not(:last-child)::after {
                 background: var(--facodi-ink);
+                bottom: calc(-1 * clamp(1rem, 2.2vw, 1.5rem));
                 content: "";
-                height: calc(100% - 2.5rem);
-                left: 1.2rem;
+                left: 1.45rem;
                 position: absolute;
-                top: 2.5rem;
+                top: 3rem;
                 width: 2px;
+            }
+
+            > div {
+                min-width: 0;
             }
 
             h3,
             p {
                 overflow-wrap: anywhere;
+            }
+
+            h3 {
+                line-height: 1.08;
+                margin: 0 0 .35rem;
+            }
+
+            p {
+                margin: 0;
+                max-width: 56rem;
             }
         }
     }
@@ -401,14 +431,17 @@
     }
 
     .facodi-process-timeline {
-        margin-top: 1.5rem;
-        max-width: 58rem;
+        margin-top: clamp(1rem, 2vw, 1.5rem);
+        max-width: 64rem;
 
         &__step > div {
+            align-content: center;
             background: var(--facodi-white);
             border: 1px solid color-mix(in srgb, var(--facodi-ink) 35%, transparent);
             border-radius: var(--facodi-radius-sm);
-            padding: .85rem 1rem;
+            display: grid;
+            min-height: 5.25rem;
+            padding: 1rem 1.15rem;
         }
     }
 
@@ -439,5 +472,39 @@
 @media (prefers-reduced-motion: reduce) {
     .facodi-site .facodi-about-page .facodi-about-note {
         transform: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .facodi-site .facodi-about-page {
+        .facodi-principles-ledger {
+            grid-auto-rows: 1fr;
+        }
+
+        .facodi-principles-ledger__item {
+            min-height: 13rem;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site .facodi-about-page {
+        .facodi-process-timeline {
+            gap: 1rem;
+
+            &__step {
+                grid-template-columns: 2.5rem minmax(0, 1fr);
+
+                &:not(:last-child)::after {
+                    left: 1.2rem;
+                    top: 2.5rem;
+                }
+            }
+
+            &__index {
+                min-height: 2.25rem;
+                min-width: 2.25rem;
+            }
+        }
     }
 }
