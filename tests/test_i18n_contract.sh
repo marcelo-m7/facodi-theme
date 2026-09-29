@@ -239,7 +239,7 @@ D2_EDITORIAL_OCCURRENCES = {
     "Use Contact for collaboration, project questions, or general enquiries. If you are suggesting a learning resource, the guided contribution route keeps the review context together.": ["theme_facodi.s_facodi_contact_sheet"],
     "Contact form area": ["theme_facodi.s_facodi_contact_sheet"],
     "Keep the native Odoo form here.": ["theme_facodi.s_facodi_contact_sheet"],
-    "This editable column is designed to frame the Website contact form without replacing its submission behavior.": ["theme_facodi.s_facodi_contact_sheet"],
+    "This editable column is designed to frame the Website contact form without replacing its submission behaviour.": ["theme_facodi.s_facodi_contact_sheet"],
     "Policy document": ["theme_facodi.s_facodi_policy_document", "theme_facodi.snippets"],
     "Document title": ["theme_facodi.s_facodi_policy_document"],
     "Use this component as a readable shell around policy text maintained by the Website editor.": ["theme_facodi.s_facodi_policy_document"],
