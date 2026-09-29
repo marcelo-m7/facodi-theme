@@ -201,8 +201,12 @@ class TestFacodiTheme(HttpCase):
         self.assertEqual(dynamic_filter.model_name, "slide.channel")
         self.assertEqual(dynamic_filter.limit, 6)
         self.assertEqual(
+            dynamic_filter.filter_id,
+            self.env.ref("website_slides.dynamic_snippet_latest_courses_filter"),
+        )
+        self.assertEqual(
             dynamic_filter.filter_id.domain,
-            '[("website_published", "=", True)]',
+            "[('visibility', 'in', ['public', 'connected'])]",
         )
 
         defaults = self.env["website"]._get_snippet_defaults(
