@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_facodi_course_showcase" name="FACODI Course Showcase">
-        <section class="s_facodi_course_showcase s_dynamic_snippet s_dynamic o_cc o_cc1"
+        <section class="s_facodi_course_showcase s_dynamic_snippet s_dynamic o_cc o_cc1 facodi-dot-grid-host"
                  data-snippet="s_facodi_course_showcase"
                  data-name="FACODI Course Showcase"
                  t-att-data-filter-id="env.ref('theme_facodi.dynamic_filter_published_courses').id"
@@ -9,6 +9,14 @@
                  data-number-of-records="6"
                  data-extra-classes="g-3"
                  data-column-classes="col-12 col-sm-6 col-lg-4">
+            <div class="facodi-dot-grid facodi-dot-grid--section"
+                 data-facodi-dot-grid="1"
+                 data-dot-size="3"
+                 data-gap="24"
+                 data-proximity="130"
+                 data-base-color="#3979C8"
+                 data-active-color="#37BED2"
+                 aria-hidden="true"><canvas class="facodi-dot-grid__canvas"></canvas></div>
             <div class="s_dynamic_snippet_container facodi-dynamic-shell facodi-course-catalogue-paper">
                 <div class="container">
                     <div class="facodi-section-heading" data-facodi-motion="rise">

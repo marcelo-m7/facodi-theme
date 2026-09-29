@@ -26,11 +26,11 @@ for anchor in 'From a question to the next useful link.' 'Choose a question' 'St
   grep -Fq "$anchor" "$FEATURES" || fail "learning steps missing: $anchor"
 done
 
-for page in "$JOURNEY" "$FEATURES" "theme_facodi/views/snippets/s_facodi_community.xml" "theme_facodi/views/snippets/s_facodi_course_cta.xml"; do
+for page in "$JOURNEY" "$FEATURES" "theme_facodi/views/snippets/s_facodi_course_showcase.xml" "theme_facodi/views/snippets/s_facodi_academic_areas.xml" "theme_facodi/views/snippets/s_facodi_community.xml" "theme_facodi/views/snippets/s_facodi_institutional.xml" "theme_facodi/views/snippets/s_facodi_course_cta.xml"; do
   grep -Fq 'facodi-dot-grid-host' "$page" \
-    || fail "white homepage section must expose the shared dot-grid host: $page"
+    || fail "homepage section must expose the shared dot-grid host: $page"
   grep -Fq 'facodi-dot-grid--section' "$page" \
-    || fail "white homepage section must reuse the hero dot-grid canvas: $page"
+    || fail "homepage section must reuse the hero dot-grid canvas: $page"
 done
 
 AREAS="theme_facodi/views/snippets/s_facodi_academic_areas.xml"
