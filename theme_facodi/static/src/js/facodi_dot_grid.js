@@ -43,6 +43,9 @@ class FacodiDotGrid {
         this.pointer = { x: -10000, y: -10000, active: false };
         this.frame = null;
         this.resizeObserver = null;
+        this.intersectionObserver = null;
+        this.isVisible = true;
+        this.animate = true;
 
         this.dotSize = Number(root.dataset.dotSize || 3);
         this.gap = Number(root.dataset.gap || 24);
@@ -53,6 +56,7 @@ class FacodiDotGrid {
         this.active = hexToRgb(root.dataset.activeColor || "#37BED2");
         this.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         this.coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+        this.animate = !this.reducedMotion && !this.coarsePointer;
 
         this.onPointerMove = this.onPointerMove.bind(this);
         this.onPointerLeave = this.onPointerLeave.bind(this);
@@ -75,13 +79,31 @@ class FacodiDotGrid {
             window.addEventListener("resize", this.resize, { passive: true });
         }
 
-        if (!this.reducedMotion && !this.coarsePointer && this.host) {
+        if (this.animate && this.host) {
             this.host.addEventListener("pointermove", this.onPointerMove, { passive: true });
             this.host.addEventListener("pointerleave", this.onPointerLeave, { passive: true });
             this.host.addEventListener("pointerdown", this.onPointerDown, { passive: true });
         }
 
-        this.draw();
+        if ("IntersectionObserver" in window && this.animate) {
+            this.isVisible = false;
+            this.intersectionObserver = new IntersectionObserver(
+                (entries) => {
+                    const entry = entries[0];
+                    this.isVisible = Boolean(entry?.isIntersecting);
+                    if (this.isVisible && this.frame === null) {
+                        this.draw();
+                    } else if (!this.isVisible && this.frame !== null) {
+                        window.cancelAnimationFrame(this.frame);
+                        this.frame = null;
+                    }
+                },
+                { rootMargin: "120px 0px" }
+            );
+            this.intersectionObserver.observe(this.root);
+        } else {
+            this.draw();
+        }
     }
 
     resize() {
@@ -210,7 +232,11 @@ class FacodiDotGrid {
         }
 
         context.globalAlpha = 1;
-        this.frame = window.requestAnimationFrame(this.draw);
+        if (this.animate && this.isVisible) {
+            this.frame = window.requestAnimationFrame(this.draw);
+        } else {
+            this.frame = null;
+        }
     }
 }
 
