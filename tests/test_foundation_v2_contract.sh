@@ -26,6 +26,13 @@ for anchor in 'From a question to the next useful link.' 'Choose a question' 'St
   grep -Fq "$anchor" "$FEATURES" || fail "learning steps missing: $anchor"
 done
 
+for page in "$JOURNEY" "$FEATURES" "theme_facodi/views/snippets/s_facodi_community.xml" "theme_facodi/views/snippets/s_facodi_course_cta.xml"; do
+  grep -Fq 'facodi-dot-grid-host' "$page" \
+    || fail "white homepage section must expose the shared dot-grid host: $page"
+  grep -Fq 'facodi-dot-grid--section' "$page" \
+    || fail "white homepage section must reuse the hero dot-grid canvas: $page"
+done
+
 AREAS="theme_facodi/views/snippets/s_facodi_academic_areas.xml"
 ECOSYSTEM="theme_facodi/views/snippets/s_facodi_ecosystem.xml"
 REGISTRY="theme_facodi/views/snippets/snippets.xml"
@@ -176,7 +183,9 @@ DOT_GRID="theme_facodi/static/src/js/facodi_dot_grid.js"
 grep -Fq 'requestAnimationFrame' "$DOT_GRID" \
   || fail "dot grid must render through requestAnimationFrame"
 grep -Fq 'ResizeObserver' "$DOT_GRID" \
-  || fail "dot grid must resize with its hero"
+  || fail "dot grid must resize with its host"
+grep -Fq 'IntersectionObserver' "$DOT_GRID" \
+  || fail "multiple homepage dot grids must pause when offscreen"
 grep -Fq 'prefers-reduced-motion: reduce' "$DOT_GRID" \
   || fail "dot grid must respect reduced motion"
 if grep -Eq 'from .(react|gsap)|import .(react|gsap)' "$DOT_GRID"; then
