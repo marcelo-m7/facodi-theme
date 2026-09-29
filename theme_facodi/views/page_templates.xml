@@ -13,16 +13,34 @@
     <!-- Odoo 19 page generator cannot format qualified snippet keys (list vs tuple).
          Keep native primary section templates explicit until upstream fixes it. -->
     <template id="new_page_template_sections_facodi_about" name="FACODI About">
-        <div id="wrap">
-            <t t-snippet-call="theme_facodi.s_facodi_intro"/>
-            <t t-snippet-call="theme_facodi.s_facodi_project_story"/>
-            <t t-snippet-call="theme_facodi.s_facodi_principles_ledger"/>
-            <section id="how-it-works">
-                <t t-snippet-call="theme_facodi.s_facodi_process_timeline"/>
-            </section>
+        <div id="wrap" class="facodi-about-page">
+            <t t-snippet-call="theme_facodi.s_facodi_about_hero"/>
+            <div class="facodi-about-band facodi-about-band--story">
+                <div class="container">
+                    <t t-snippet-call="theme_facodi.s_facodi_project_story"/>
+                </div>
+            </div>
+            <div class="facodi-about-band facodi-about-band--principles">
+                <div class="container">
+                    <p class="facodi-kicker">The house rules</p>
+                    <h2 class="facodi-about-band__title">Open learning, with fewer mystery boxes.</h2>
+                    <t t-snippet-call="theme_facodi.s_facodi_principles_ledger"/>
+                </div>
+            </div>
+            <div id="how-it-works" class="facodi-about-band facodi-about-band--process">
+                <div class="container">
+                    <p class="facodi-kicker">How the desk works</p>
+                    <h2 class="facodi-about-band__title">From useful tab to useful learning context.</h2>
+                    <t t-snippet-call="theme_facodi.s_facodi_process_timeline"/>
+                </div>
+            </div>
             <t t-snippet-call="theme_facodi.s_facodi_institutional"/>
             <t t-snippet-call="theme_facodi.s_facodi_editorial_routes"/>
-            <t t-snippet-call="theme_facodi.s_facodi_cta_sheet"/>
+            <div class="facodi-about-band facodi-about-band--cta">
+                <div class="container">
+                    <t t-snippet-call="theme_facodi.s_facodi_cta_sheet"/>
+                </div>
+            </div>
         </div>
     </template>
     <template id="new_page_template_sections_facodi_community" name="FACODI Community">
