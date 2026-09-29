@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="facodi-section-heading" data-facodi-motion="rise">
                     <div>
-                        <p class="facodi-kicker">
+                        <p class="facodi-kicker facodi-kicker-ruled">
                             <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
                             Choose your route
                         </p>
@@ -29,22 +29,22 @@
                 </div>
                 <div class="facodi-learning-entry-grid">
                     <a href="/courses" class="facodi-learning-card facodi-learning-card-mint" data-facodi-motion="tilt" data-facodi-motion-delay="0">
-                        <p class="facodi-label">Quick start</p>
-                        <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
+                        <p class="facodi-label">Quick start · direct modules</p>
+                        <span class="facodi-card-icon facodi-card-icon-mint"><i class="fa fa-book" aria-hidden="true" t-translation="off"/></span>
                         <h3>Courses</h3>
                         <p>Curated collections of public resources that give a topic a useful structure.</p>
                         <div class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                     <a href="/roadmaps" class="facodi-learning-card facodi-learning-card-sky" data-facodi-motion="tilt" data-facodi-motion-delay="70">
-                        <p class="facodi-label">Follow a direction</p>
-                        <i class="fa fa-map" aria-hidden="true" t-translation="off"/>
+                        <p class="facodi-label">Connected view · pathways</p>
+                        <span class="facodi-card-icon facodi-card-icon-cyan"><i class="fa fa-map" aria-hidden="true" t-translation="off"/></span>
                         <h3>Roadmaps</h3>
                         <p>See how topics, courses and study resources connect across a learning direction.</p>
                         <div class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                     <a href="/curricular-units" class="facodi-learning-card facodi-learning-card-sun" data-facodi-motion="tilt" data-facodi-motion-delay="140">
-                        <p class="facodi-label">Academic context</p>
-                        <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
+                        <p class="facodi-label">University reference · context</p>
+                        <span class="facodi-card-icon facodi-card-icon-sun"><i class="fa fa-university" aria-hidden="true" t-translation="off"/></span>
                         <h3>Curricular units</h3>
                         <p>Start from a reviewed academic reference and discover related open learning.</p>
                         <div class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
