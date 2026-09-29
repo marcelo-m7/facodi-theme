@@ -179,8 +179,9 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
     def test_homepage_standard_filter_matches_public_catalogue_in_multilingual_contexts(self):
         website = self.env["website"].get_current_website()
         public_user = self.env.ref("base.public_user")
+        en_gb = self.env["res.lang"]._activate_lang("en_GB")
         pt = self.env["res.lang"]._activate_lang("pt_PT")
-        website.language_ids |= pt
+        website.language_ids |= en_gb | pt
 
         visible = self._channel(
             "FACODI Homepage Public",
@@ -196,10 +197,29 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
 
         standard_filter = self.env.ref("theme_facodi.dynamic_filter_published_courses")
         self.assertEqual(
-            standard_filter.filter_id,
-            self.env.ref("website_slides.dynamic_snippet_latest_courses_filter"),
+            standard_filter.filter_id.domain,
+            "[('visibility', 'in', ['public', 'connected'])]",
         )
-        for lang in ("en_US", "pt_PT"):
+        self.assertEqual(
+            standard_filter.filter_id.sort,
+            '["published_date desc"]',
+        )
+
+        upstream_filter = self.env.ref(
+            "website_slides.dynamic_snippet_latest_courses_filter",
+            raise_if_not_found=False,
+        )
+        if upstream_filter:
+            self.assertEqual(
+                standard_filter.filter_id.domain,
+                upstream_filter.domain,
+            )
+            self.assertEqual(
+                standard_filter.filter_id.sort,
+                upstream_filter.sort,
+            )
+
+        for lang in ("en_GB", "pt_PT"):
             with self.subTest(lang=lang):
                 values = (
                     standard_filter
