@@ -337,7 +337,7 @@ grep -Fq '"/unidades-curriculares": "/curricular-units"' "$CANONICAL_ROUTE_MIGRA
 grep -Fq '"s_facodi_course_showcase"' "$CANONICAL_ROUTE_MIGRATION" \
   || fail "canonical migration must stay scoped to persisted course-showcase navigation"
 
-RETIRED_HERO_MIGRATION="theme_facodi/migrations/19.0.10.61.0/post-10-remove-legacy-hero-visual.py"
+RETIRED_HERO_MIGRATION="theme_facodi/migrations/19.0.10.60.0/post-10-remove-legacy-hero-visual.py"
 [[ -f "$RETIRED_HERO_MIGRATION" ]] || fail "retired hero visual cleanup migration missing"
 grep -Fq '"facodi-dither-veil"' "$RETIRED_HERO_MIGRATION" \
   || fail "cleanup migration must remove persisted retired hero layers"
