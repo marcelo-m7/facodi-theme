@@ -200,8 +200,8 @@ grep -Fq 'id="published_courses_filter" model="ir.filters"' theme_facodi/data/fa
   || fail "version-tolerant eLearning visibility compatibility filter missing"
 grep -Fq "[('visibility', 'in', ['public', 'connected'])]" theme_facodi/data/facodi_course_snippet.xml \
   || fail "FACODI compatibility filter must mirror Odoo eLearning visibility semantics"
-grep -Fq '["published_date desc"]' theme_facodi/data/facodi_course_snippet.xml \
-  || fail "FACODI compatibility filter must mirror Odoo eLearning ordering"
+grep -Fq '<field name="sort">[]</field>' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "FACODI compatibility filter must defer to native slide.channel ordering"
 if grep -Fq 'website_published' theme_facodi/data/facodi_course_snippet.xml; then
   fail "theme must not ship its former publication-only course domain"
 fi
