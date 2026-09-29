@@ -28,8 +28,8 @@ grep -Fq 's_dynamic_snippet_content' "$SNIPPET" \
   || fail "course showcase must preserve Odoo dynamic snippet content contract"
 grep -Fq 'dynamic_snippet_template' "$SNIPPET" \
   || fail "course showcase must provide Odoo dynamic snippet render target"
-grep -Fq "t-att-data-filter-id=\"env.ref('website_slides.dynamic_filter_latest_courses').id\"" "$SNIPPET" \
-  || fail "course showcase must persist Odoo's standard eLearning filter on the snippet root"
+grep -Fq "t-att-data-filter-id=\"env.ref('theme_facodi.dynamic_filter_published_courses').id\"" "$SNIPPET" \
+  || fail "course showcase must persist the FACODI presentation wrapper on the snippet root"
 grep -Fq 'data-template-key="theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card"' "$SNIPPET" \
   || fail "course showcase must persist its card template on the snippet root"
 grep -Fq 'data-number-of-records="6"' "$SNIPPET" \
@@ -68,10 +68,15 @@ if grep -Eq 'request\.env|sudo\(\)' "$SNIPPET"; then
   fail "course showcase must not query business data directly from QWeb"
 fi
 
-[[ ! -e theme_facodi/data/facodi_course_snippet.xml ]] \
-  || fail "theme must not ship a parallel eLearning visibility filter"
-grep -Fq 'website_slides.dynamic_filter_latest_courses' "$SNIPPET" \
-  || fail "course showcase must reuse the standard website_slides course filter"
+[[ -f theme_facodi/data/facodi_course_snippet.xml ]] \
+  || fail "FACODI course presentation wrapper data is missing"
+if grep -Fq 'model="ir.filters"' theme_facodi/data/facodi_course_snippet.xml; then
+  fail "theme must not define a parallel eLearning visibility domain"
+fi
+grep -Fq 'model="website.snippet.filter"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "course showcase presentation wrapper must use website.snippet.filter"
+grep -Fq 'ref="website_slides.dynamic_snippet_latest_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
+  || fail "course showcase wrapper must bind to Odoo's canonical eLearning filter"
 grep -Fq 'dynamic_filter_template_slide_channel_facodi_course_card' "$SNIPPET" \
   || fail "course showcase course-card template is missing"
 
@@ -79,18 +84,17 @@ grep -Fq 'def _get_snippet_defaults' "$MODEL" \
   || fail "Website snippet defaults override is missing"
 grep -Fq 'theme_facodi.s_facodi_course_showcase' "$MODEL" \
   || fail "course showcase defaults are not registered"
-grep -Fq 'website_slides.dynamic_filter_latest_courses' "$MODEL" \
-  || fail "course showcase builder defaults must reuse the standard eLearning filter"
+grep -Fq 'theme_facodi.dynamic_filter_published_courses' "$MODEL" \
+  || fail "course showcase builder defaults must reference the FACODI presentation wrapper"
 grep -Fq 'theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card' "$MODEL" \
   || fail "course showcase does not reference its card template"
 
 grep -Fq 'from . import website' theme_facodi/models/__init__.py \
   || fail "theme models package must load Website snippet defaults"
-if grep -Fq 'data/facodi_course_snippet.xml' "$MANIFEST"; then
-  fail "retired duplicate course-filter data must not remain in the manifest"
-fi
+grep -Fq 'data/facodi_course_snippet.xml' "$MANIFEST" \
+  || fail "course presentation wrapper data must remain in the manifest"
 [[ -f theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py ]] \
-  || fail "legacy course-filter cleanup migration is missing"
+  || fail "legacy visibility-domain cleanup migration is missing"
 grep -Fq 'views/snippets/s_facodi_course_showcase.xml' "$MANIFEST" \
   || fail "course showcase view is missing from the manifest"
 grep -Fq 't-snippet="theme_facodi.s_facodi_course_showcase"' "$REGISTRY" \
