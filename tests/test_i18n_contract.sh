@@ -76,7 +76,7 @@ FOUNDATION_MSGIDS=(
   'Open resources'
   'Community learning'
   'University network'
-  'Send something back to FACODI'
+  'Contribute to FACODI'
 )
 
 for catalogue in pt es fr; do
@@ -121,10 +121,10 @@ CAMPUS_PAPER_MSGIDS=(
   'Open learning becomes easier to navigate when useful resources connect.'
   'Explore courses'
   'See how FACODI works'
-  'Open the campus map in the way that makes sense to you.'
+  'Explore learning in the way that makes sense to you.'
   'From a question to the next useful link.'
   'Choose a question'
-  'Open the good tabs at your pace'
+  'Study at your pace'
   'Follow the useful thread'
   'Leave the trail clearer'
   'A useful discovery deserves company.'
@@ -206,7 +206,7 @@ D2_EDITORIAL_OCCURRENCES = {
     "Open beats locked": ["theme_facodi.s_facodi_principles_ledger"],
     "Start with public learning resources people can actually open, share and revisit without a paywall getting in the way.": ["theme_facodi.s_facodi_principles_ledger"],
     "Context beats link dumps": ["theme_facodi.s_facodi_principles_ledger"],
-    "Connect the dots useful resources to a course, curricular unit or learning question instead of dropping isolated links into a pile.": ["theme_facodi.s_facodi_principles_ledger"],
+    "Connect useful resources to a course, curricular unit or learning question instead of dropping isolated links into a pile.": ["theme_facodi.s_facodi_principles_ledger"],
     "Review beats guesswork": ["theme_facodi.s_facodi_principles_ledger"],
     "Keep community contribution separate from publication, and make the editorial boundary visible when something is still under review.": ["theme_facodi.s_facodi_principles_ledger"],
     "Pick a route": ["theme_facodi.s_facodi_process_timeline"],
@@ -220,7 +220,7 @@ D2_EDITORIAL_OCCURRENCES = {
     "Resource": ["theme_facodi.s_facodi_contribution_board"],
     "Suggest a public learning resource": ["theme_facodi.s_facodi_contribution_board"],
     "Share a useful course, video, playlist, article, or other public resource for review.": ["theme_facodi.s_facodi_contribution_board"],
-    "Drop a resource": ["theme_facodi.s_facodi_contribution_board", "theme_facodi.s_facodi_contact_sheet"],
+    "Suggest a resource": ["theme_facodi.s_facodi_contribution_board", "theme_facodi.s_facodi_contact_sheet"],
     "Context": ["theme_facodi.s_facodi_contribution_board"],
     "Improve context or translation": ["theme_facodi.s_facodi_contribution_board"],
     "Help make descriptions, routes, and learning references clearer for more people.": ["theme_facodi.s_facodi_contribution_board"],
@@ -292,20 +292,20 @@ REUSABLE_BLOCK_MSGIDS=(
   'Build a compact learning card'
   'Summarize a topic, assignment, resource collection, or community activity in a tactile paper surface.'
   'Explore courses'
-  'Open the good tabs note'
+  'Study note'
   'Write down the question you want to answer next.'
   'Short reminders work best when they stay specific, useful, and easy to revisit.'
   'Learning sections'
   'Courses'
   'Roadmaps'
   'Curricular Units'
-  'Send something back'
+  'Contribute'
   'Topic labels'
   'All topics'
   'Open learning'
   'Technology'
   'Community'
-  'Open the good tabs notes'
+  'Study notes'
   'Open course'
   '4 modules'
   'Open access'
@@ -317,9 +317,9 @@ REUSABLE_BLOCK_MSGIDS=(
   'Choose a question'
   'Start from something concrete you want to understand or build.'
   'Follow the thread'
-  'Connect the dots courses, curricular units, and public resources around that question.'
+  'Connect courses, curricular units, and public resources around that question.'
   'Share what helped'
-  'Send something back useful resources so the next learner starts with better context.'
+  'Contribute useful resources so the next learner starts with better context.'
   'Community notebook // open page'
   'Found a gem?'
   'Put the good tab on the shared desk.'
@@ -339,7 +339,7 @@ REUSABLE_BUILDER_MSGIDS=(
   'Folder tabs'
   'Filter pills'
   'Static course card'
-  'Open the good tabs steps'
+  'Study steps'
   'CTA sheet'
   'Metadata row'
   'Highlighter callout'
