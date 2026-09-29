@@ -19,7 +19,7 @@
                         <h1 t-out="user.name"/>
                         <p class="facodi-profile-rank" t-if="user.rank_id">
                             <i class="fa fa-star" aria-hidden="true"/>
-                            <span t-field="user.rank_id"/>
+                            <span t-out="user.rank_id.name"/>
                         </p>
                         <p class="facodi-profile-intro">Perfil de aprendizagem e participação na comunidade FACODI.</p>
                     </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="facodi-profile-stat">
                         <strong><i class="fa fa-calendar-check-o" aria-hidden="true"/></strong>
-                        <span>Membro desde <t t-field="user.create_date" t-options="{'format': 'MMM Y'}"/></span>
+                        <span>Membro desde <span t-out="user.create_date.strftime(&quot;%b %Y&quot;) if user.create_date else &quot;—&quot;"/></span>
                     </div>
                 </div>
             </section>
