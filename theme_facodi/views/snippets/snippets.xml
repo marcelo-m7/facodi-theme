@@ -35,6 +35,7 @@
             <t t-snippet="theme_facodi.s_facodi_highlighter_callout" string="Highlighter callout" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="5">
                 <keywords>facodi callout study note warning hint highlighter paperclip</keywords>
             </t>
+            <t t-snippet="theme_facodi.s_facodi_about_hero" string="About hero" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi about hero project campus mission open learning</keywords></t>
             <t t-snippet="theme_facodi.s_facodi_project_story" string="Project story" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi project story about dossier origin mission</keywords></t>
             <t t-snippet="theme_facodi.s_facodi_principles_ledger" string="Principles ledger" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi principles manifesto ledger values</keywords></t>
             <t t-snippet="theme_facodi.s_facodi_process_timeline" string="Process timeline" group="facodi" t-thumbnail="/theme_facodi/static/description/theme_facodi.svg" t-grid-column-span="6"><keywords>facodi process timeline how works contribution</keywords></t>
