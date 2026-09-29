@@ -2214,3 +2214,18 @@ msgstr "Vous avez repéré un manque ? Déposez-le ici."
 msgid "Share a resource, a correction or a collaboration idea with enough context to be useful."
 msgstr "Partagez une ressource, une correction ou une idée de collaboration avec assez de contexte pour qu’elle soit utile."
 
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Explore courses, Roadmaps and curricular units built from public learning resources, reviewed context and community contribution."
+msgstr "Explorez des cours, des parcours et des unités d’enseignement construits à partir de ressources d’apprentissage publiques, de contexte vérifié et de contributions de la communauté."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Study question #042"
+msgstr "Question d’étude #042"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Validated against public university references"
+msgstr "Validé à partir de références universitaires publiques"
+
