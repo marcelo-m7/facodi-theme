@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Global chatter / notification wrapper.
+         Email clients are intentionally styled inline; frontend SCSS is not relied upon. -->
+    <template id="facodi_mail_notification_layout"
+              inherit_id="mail.mail_notification_layout"
+              name="FACODI Mail Notification Layout">
+        <xpath expr="//body" position="attributes">
+            <attribute name="style">margin:0; padding:24px 12px; background:#F9FAFB; font-family:Arial,Helvetica,sans-serif; color:#142846;</attribute>
+        </xpath>
+        <xpath expr="//div[@style='max-width: 900px; width: 100%;']" position="attributes">
+            <attribute name="style">max-width:680px; width:100%; margin:0 auto; background:#FFFFFF; border:2px solid #142846; border-radius:12px; overflow:hidden;</attribute>
+        </xpath>
+        <xpath expr="//div[@style='max-width: 900px; width: 100%;']/div[1]" position="before">
+            <div style="background:#142846; color:#FFFFFF; padding:18px 22px; border-bottom:6px solid #EFFF00;">
+                <div style="font-size:20px; font-weight:800; letter-spacing:-0.02em;">FACODI</div>
+                <div style="font-size:11px; margin-top:4px; color:#A7E8BE; text-transform:uppercase; letter-spacing:0.08em;">Faculdade Comunitária Digital</div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@t-if='show_header and (subtitles or has_button_access or not is_discussion)']" position="attributes">
+            <attribute name="style">padding:18px 22px 0 22px;</attribute>
+        </xpath>
+        <xpath expr="//div[@t-out='message.body']" position="attributes">
+            <attribute name="style">font-size:14px; line-height:1.6; padding:22px; color:#142846;</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='show_footer' and contains(@style, 'margin-top:16px')]" position="attributes">
+            <attribute name="style">margin:0; padding:16px 22px 8px 22px; border-top:1px solid #D8DEE8; background:#F9FAFB;</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='show_footer' and contains(@style, 'color: #555555')]" position="replace">
+            <div t-if="show_footer" style="padding:8px 22px 18px 22px; background:#F9FAFB; color:#667085; font-size:11px;">
+                FACODI · conhecimento aberto, acessível e comunitário.
+                <span t-if="show_unfollow" id="mail_unfollow">
+                    · <a href="/mail/unfollow" style="text-decoration:none; color:#3979C8;">Unfollow</a>
+                </span>
+            </div>
+        </xpath>
+    </template>
+
+    <record id="auth_signup.portal_set_password_email" model="mail.template">
+        <field name="subject">Bem-vindo à FACODI — ativa a tua conta</field>
+        <field name="body_html" type="html">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; background:#F9FAFB; padding:24px 12px; font-family:Arial,Helvetica,sans-serif; color:#142846;">
+                <tr><td align="center">
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="640" style="width:100%; max-width:640px; background:#FFFFFF; border:2px solid #142846; border-radius:12px; overflow:hidden;">
+                        <tr>
+                            <td style="background:#142846; color:#FFFFFF; padding:22px 26px; border-bottom:6px solid #EFFF00;">
+                                <div style="font-size:22px; font-weight:800;">FACODI</div>
+                                <div style="font-size:11px; margin-top:4px; color:#A7E8BE; text-transform:uppercase; letter-spacing:0.08em;">Faculdade Comunitária Digital</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:30px 26px;">
+                                <div style="display:inline-block; background:#A7E8BE; border:1px solid #142846; padding:5px 9px; font-size:11px; font-weight:700; text-transform:uppercase;">Conta FACODI</div>
+                                <h1 style="font-size:28px; line-height:1.15; margin:18px 0 12px; color:#142846;">Bem-vindo, <t t-out="object.name or ''">Estudante</t>.</h1>
+                                <p style="font-size:15px; line-height:1.6; margin:0 0 14px;">Foi criada uma conta de portal para <strong><t t-out="object.login or ''">utilizador@example.com</t></strong>.</p>
+                                <p style="font-size:15px; line-height:1.6; margin:0 0 22px;">Define a tua palavra-passe para entrares na tua área FACODI e acompanhares cursos, contribuições e atividade da comunidade.</p>
+                                <div style="margin:24px 0;">
+                                    <a t-att-href="object.partner_id._get_signup_url()" style="display:inline-block; background:#EFFF00; color:#142846; border:2px solid #142846; padding:12px 18px; text-decoration:none; font-size:14px; font-weight:800; border-radius:7px;">Ativar conta →</a>
+                                </div>
+                                <t t-if="ctx.get('welcome_message')"><div style="margin-top:20px; padding:14px 16px; background:#F9FAFB; border-left:4px solid #37BED2;" t-out="ctx.get('welcome_message')"/></t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:18px 26px; background:#F9FAFB; border-top:1px solid #D8DEE8; font-size:12px; line-height:1.5; color:#667085;">
+                                FACODI · conhecimento aberto, acessível e comunitário.<br/>
+                                <a href="https://facodi.com" style="color:#3979C8; text-decoration:none;">facodi.com</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td></tr>
+            </table>
+        </field>
+    </record>
+
+    <record id="auth_signup.mail_template_user_signup_account_created" model="mail.template">
+        <field name="subject">A tua conta FACODI está pronta</field>
+        <field name="body_html" type="html">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; background:#F9FAFB; padding:24px 12px; font-family:Arial,Helvetica,sans-serif; color:#142846;">
+                <tr><td align="center">
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="640" style="width:100%; max-width:640px; background:#FFFFFF; border:2px solid #142846; border-radius:12px; overflow:hidden;">
+                        <tr><td style="background:#142846; color:#FFFFFF; padding:22px 26px; border-bottom:6px solid #37BED2;">
+                            <div style="font-size:22px; font-weight:800;">FACODI</div>
+                            <div style="font-size:11px; margin-top:4px; color:#A7E8BE; text-transform:uppercase; letter-spacing:0.08em;">Faculdade Comunitária Digital</div>
+                        </td></tr>
+                        <tr><td style="padding:30px 26px;">
+                            <div style="display:inline-block; background:#EFFF00; border:1px solid #142846; padding:5px 9px; font-size:11px; font-weight:700; text-transform:uppercase;">Área pessoal</div>
+                            <h1 style="font-size:28px; line-height:1.15; margin:18px 0 12px; color:#142846;">A tua conta está pronta.</h1>
+                            <p style="font-size:15px; line-height:1.6;">Olá <t t-out="object.name or ''">Estudante</t>, a tua conta FACODI foi criada com sucesso.</p>
+                            <p style="font-size:15px; line-height:1.6;">Login: <strong><t t-out="object.email or object.login or ''">utilizador@example.com</t></strong></p>
+                            <div style="margin:24px 0;">
+                                <a t-attf-href="/web/login?auth_login={{ object.email or object.login }}" style="display:inline-block; background:#142846; color:#FFFFFF; border:2px solid #142846; padding:12px 18px; text-decoration:none; font-size:14px; font-weight:800; border-radius:7px;">Entrar na FACODI →</a>
+                            </div>
+                        </td></tr>
+                        <tr><td style="padding:18px 26px; background:#F9FAFB; border-top:1px solid #D8DEE8; font-size:12px; color:#667085;">
+                            <a href="https://facodi.com" style="color:#3979C8; text-decoration:none;">facodi.com</a> · ensino aberto e comunitário
+                        </td></tr>
+                    </table>
+                </td></tr>
+            </table>
+        </field>
+    </record>
+
+    <record id="auth_signup.set_password_email" model="mail.template">
+        <field name="subject">Convite para a FACODI</field>
+        <field name="body_html" type="html">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; background:#F9FAFB; padding:24px 12px; font-family:Arial,Helvetica,sans-serif; color:#142846;">
+                <tr><td align="center">
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="640" style="width:100%; max-width:640px; background:#FFFFFF; border:2px solid #142846; border-radius:12px; overflow:hidden;">
+                        <tr><td style="background:#142846; color:#FFFFFF; padding:22px 26px; border-bottom:6px solid #A7E8BE;">
+                            <div style="font-size:22px; font-weight:800;">FACODI</div>
+                            <div style="font-size:11px; margin-top:4px; color:#EFFF00; text-transform:uppercase; letter-spacing:0.08em;">Convite de acesso</div>
+                        </td></tr>
+                        <tr><td style="padding:30px 26px;">
+                            <h1 style="font-size:28px; line-height:1.15; margin:0 0 14px; color:#142846;">Há um lugar para ti na FACODI.</h1>
+                            <p style="font-size:15px; line-height:1.6;">Olá <t t-out="object.name or ''">Estudante</t>. Foi criado um acesso para <strong><t t-out="object.email or object.login or ''">utilizador@example.com</t></strong>.</p>
+                            <p style="font-size:15px; line-height:1.6;">Usa o botão abaixo para escolher a tua palavra-passe e começar.</p>
+                            <div style="margin:24px 0;">
+                                <a t-att-href="object.partner_id._get_signup_url()" style="display:inline-block; background:#37BED2; color:#142846; border:2px solid #142846; padding:12px 18px; text-decoration:none; font-size:14px; font-weight:800; border-radius:7px;">Aceitar convite →</a>
+                            </div>
+                        </td></tr>
+                        <tr><td style="padding:18px 26px; background:#F9FAFB; border-top:1px solid #D8DEE8; font-size:12px; color:#667085;">FACODI · <a href="https://facodi.com" style="color:#3979C8; text-decoration:none;">facodi.com</a></td></tr>
+                    </table>
+                </td></tr>
+            </table>
+        </field>
+    </record>
+</odoo>
