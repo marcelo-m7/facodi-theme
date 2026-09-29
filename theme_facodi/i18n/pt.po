@@ -2148,3 +2148,8 @@ msgstr "Envia um recurso público com contexto suficiente para ser útil. A FACO
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
 msgid "Drop a resource"
 msgstr "Partilhar um recurso"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "This editable column is designed to frame the Website contact form without replacing its submission behaviour."
+msgstr "Esta coluna editável foi concebida para enquadrar o formulário de contacto do Website sem substituir o seu comportamento de submissão."
