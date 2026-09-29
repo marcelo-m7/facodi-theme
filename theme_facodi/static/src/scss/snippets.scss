@@ -998,7 +998,7 @@
 
 /* Homepage motion language — progressive enhancement inspired by the hero
    interaction. Motion is intentionally subtle and scoped to the homepage. */
-.facodi-site .facodi-home-v4 {
+.facodi-site {
     [data-facodi-motion] {
         opacity: 0;
         transform: translateY(18px);
