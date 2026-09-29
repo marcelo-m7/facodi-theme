@@ -23,10 +23,7 @@
         <xpath expr="//div[@t-out='message.body']" position="attributes">
             <attribute name="style">font-size:14px; line-height:1.6; padding:22px; color:#142846;</attribute>
         </xpath>
-        <xpath expr="//div[@t-if='show_footer' and contains(@style, 'margin-top:16px')]" position="attributes">
-            <attribute name="style">margin:0; padding:16px 22px 8px 22px; border-top:1px solid #D8DEE8; background:#F9FAFB;</attribute>
-        </xpath>
-        <xpath expr="//div[@t-if='show_footer' and contains(@style, 'color: #555555')]" position="replace">
+        <xpath expr="//div[@style='color: #555555; font-size:11px;']" position="replace">
             <div t-if="show_footer" style="padding:8px 22px 18px 22px; background:#F9FAFB; color:#667085; font-size:11px;">
                 FACODI · conhecimento aberto, acessível e comunitário.
                 <span t-if="show_unfollow" id="mail_unfollow">
