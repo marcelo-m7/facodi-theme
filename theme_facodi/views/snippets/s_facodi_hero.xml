@@ -21,7 +21,7 @@
                     <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
                     FACODI · An open digital campus
                 </p>
-                <h1 class="facodi-highlight-cyan">Knowledge is everywhere. Find your next step.</h1>
+                <h1>Knowledge is everywhere. <span class="facodi-marker facodi-marker-cyan">Find your</span> <span class="facodi-marker facodi-marker-sun">next step.</span></h1>
                 <p class="facodi-hero-subtitle">Open learning becomes easier to navigate when useful resources connect.</p>
                 <p class="facodi-lead">
                     Explore courses, Roadmaps and curricular units built from public learning resources, reviewed context and community contribution.
@@ -44,18 +44,18 @@
                         <p class="facodi-tab">Field notebook</p>
                         <span class="facodi-status-chip">Open</span>
                     </div>
-                    <p class="facodi-label">Study question</p>
+                    <div class="facodi-study-meta"><p class="facodi-tab">Field notebook</p><span class="facodi-study-chip">Study question #042</span></div>
                     <h2>What do you want to understand next?</h2>
                     <div class="facodi-study-route" aria-hidden="true">
                         <span>01</span><i/><span>02</span><i/><span>03</span>
                     </div>
                 </article>
                 <article class="facodi-note facodi-study-note">
-                    <p class="facodi-label">Curricular unit</p>
-                    <p class="facodi-study-note-copy">Start from reviewed academic context.</p>
+                    <p class="facodi-label">Contexto académico revisto</p>
+                    <p class="facodi-study-note-copy">Start from reviewed academic context.</p><p class="facodi-study-note-meta">Validated against public university references</p>
                 </article>
                 <article class="facodi-postit facodi-study-note facodi-study-note-secondary">
-                    <p class="facodi-label">Course</p>
+                    <p class="facodi-label">Course · #GET-01</p>
                     <p class="facodi-study-note-copy">Keep following the useful thread.</p>
                 </article>
             </div>
