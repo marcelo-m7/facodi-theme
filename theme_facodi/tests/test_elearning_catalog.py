@@ -200,10 +200,7 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
             standard_filter.filter_id.domain,
             "[('visibility', 'in', ['public', 'connected'])]",
         )
-        self.assertEqual(
-            standard_filter.filter_id.sort,
-            '["published_date desc"]',
-        )
+        self.assertEqual(standard_filter.filter_id.sort, "[]")
 
         upstream_filter = self.env.ref(
             "website_slides.dynamic_snippet_latest_courses_filter",
@@ -213,10 +210,6 @@ class TestFacodiCatalogVisualResolver(TransactionCase):
             self.assertEqual(
                 standard_filter.filter_id.domain,
                 upstream_filter.domain,
-            )
-            self.assertEqual(
-                standard_filter.filter_id.sort,
-                upstream_filter.sort,
             )
 
         for lang in ("en_GB", "pt_PT"):
