@@ -6,7 +6,7 @@
             <field name="model_id">slide.channel</field>
             <field name="user_ids" eval="False"/>
             <field name="domain">[('visibility', 'in', ['public', 'connected'])]</field>
-            <field name="sort">["published_date desc"]</field>
+            <field name="sort">[]</field>
             <field name="action_id" ref="website.action_website"/>
         </record>
         <record id="dynamic_filter_published_courses" model="website.snippet.filter">
