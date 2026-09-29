@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="facodi-community-grid">
                     <article class="facodi-note facodi-community-card" data-facodi-motion="tilt">
-                        <p class="facodi-label">Community notebook</p>
+                        <p class="facodi-label facodi-label-mint">Collective intelligence</p>
                         <h2>A useful discovery deserves company.</h2>
                         <p>Found a video, course or public resource that made something click? Leave a useful trail for the next learner.</p>
                         <div class="facodi-actions">
@@ -29,8 +29,8 @@
                         </div>
                     </article>
                     <article class="facodi-sheet facodi-community-card facodi-community-card-build" data-facodi-motion="tilt" data-facodi-motion-delay="100">
-                        <p class="facodi-label">Open campus</p>
-                        <h2>Still building. You can improve the trail.</h2>
+                        <p class="facodi-label facodi-label-sun">Still open</p>
+                        <h2>We are still building. You can be part of it.</h2>
                         <p>Translations, corrections, context and better links can turn a public resource into something much easier to learn from.</p>
                         <div class="facodi-actions">
                             <a href="/submissions/new?type=correction&amp;source=translation_correction_cta&amp;section=translation" class="btn facodi-button facodi-button-secondary">Improve a translation</a>
