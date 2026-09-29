@@ -20,7 +20,7 @@
         </xpath>
     </template>
 
-    <template id="visual_direction_page" name="FACODI Visual Direction" page="True">
+    <template id="visual_direction_page" name="FACODI Visual Direction">
         <t t-call="website.layout">
             <t t-set="additional_title">Visual Direction · FACODI</t>
             <t t-set="website_meta_description">FACODI Digital Highlighter Campus visual direction: colors, typography, spacing, highlighter accents, cards, buttons and interface rules.</t>
