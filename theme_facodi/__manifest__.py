@@ -7,7 +7,7 @@
     "author": "FACODI",
     "website": "https://facodi.com",
     "license": "LGPL-3",
-    "depends": ["theme_common", "website_slides", "website_blog", "auth_signup"],
+    "depends": ["theme_common", "website_slides", "website_blog"],
     "data": [
         "data/ir_asset.xml",
         "data/website_rewrites.xml",
