@@ -11,7 +11,7 @@ def migrate(cr, version):
         compatibility_filter.write(
             {
                 "domain": "[('visibility', 'in', ['public', 'connected'])]",
-                "sort": '["published_date desc"]',
+                "sort": "[]",
             }
         )
 
