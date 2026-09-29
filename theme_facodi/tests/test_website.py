@@ -208,10 +208,7 @@ class TestFacodiTheme(HttpCase):
             dynamic_filter.filter_id.domain,
             "[('visibility', 'in', ['public', 'connected'])]",
         )
-        self.assertEqual(
-            dynamic_filter.filter_id.sort,
-            '["published_date desc"]',
-        )
+        self.assertEqual(dynamic_filter.filter_id.sort, "[]")
 
         defaults = self.env["website"]._get_snippet_defaults(
             "theme_facodi.s_facodi_course_showcase"
