@@ -19,6 +19,7 @@
         "views/website_slides_player.xml",
         "views/website_blog.xml",
         "views/website_public.xml",
+        "views/website_profile.xml",
         "views/snippets/s_facodi_hero.xml",
         "views/snippets/s_facodi_learning_journey.xml",
         "views/snippets/s_facodi_course_showcase.xml",
