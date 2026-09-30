@@ -32,7 +32,7 @@ msgstr ""
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
-msgid "Digital Community College. Open, collaborative and accessible higher education."
+msgid "Open learning resources, curricular context and community contributions — organised to help people study, discover and share knowledge."
 msgstr ""
 
 #. module: theme_facodi
@@ -2243,4 +2243,14 @@ msgstr ""
 msgid ""
 "<strong>Found a gap? Drop it here.</strong>\n"
 "                        <span>Share a resource, a correction or a collaboration idea with enough context to be useful.</span>"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Policies"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Accessibility"
 msgstr ""
