@@ -29,7 +29,7 @@
                 <div class="container-fluid facodi-footer-inner">
                     <div class="facodi-footer-note">
                         <a href="/" class="facodi-wordmark" t-translation="off">FACODI<span>.</span></a>
-                        <p>Digital Community College. Open, collaborative and accessible higher education.</p>
+                        <p>Open learning resources, curricular context and community contributions — organised to help people study, discover and share knowledge.</p>
                     </div>
 
                     <nav class="facodi-footer-links" aria-label="Footer navigation">
@@ -58,6 +58,13 @@
                                 </ul>
                             </div>
                         </t>
+                        <div class="facodi-footer-group">
+                            <span class="facodi-footer-heading">Policies</span>
+                            <ul>
+                                <li><a href="/accessibility">Accessibility</a></li>
+                                <li><a href="/cookie-policy">Cookie Policy</a></li>
+                            </ul>
+                        </div>
                         <div class="facodi-footer-group">
                             <span class="facodi-footer-heading">Account</span>
                             <ul>

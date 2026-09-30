@@ -167,3 +167,37 @@ grep -Fq 'facodi-language-selector' theme_facodi/views/header.xml \
   || fail "FACODI language selector hook missing"
 grep -Fq '.facodi-language-selector' theme_facodi/static/src/scss/website.scss \
   || fail "FACODI language selector styling missing"
+
+python3 - <<'PY'
+from pathlib import Path
+
+source = Path("theme_facodi/static/src/scss/website.scss").read_text(encoding="utf-8")
+
+checks = {
+    ".facodi-nav-split-toggle": ("min-height: 2.75rem", "min-width: 2.75rem"),
+    ".nav-link": ("min-height: 2.75rem",),
+    ".facodi-language-selector": ("min-height: 2.75rem",),
+    ".dropdown-item": ("min-height: 2.75rem",),
+    ".o_header_mobile_buttons_wrap .btn": ("min-height: 2.75rem", "min-width: 2.75rem"),
+    ".facodi-split-menu": ("min-width: 2.75rem",),
+}
+for selector, markers in checks.items():
+    pos = source.find(selector)
+    if pos < 0:
+        raise SystemExit(f"FAIL: shell navigation selector missing: {selector}")
+    block = source[pos:pos + 1200]
+    for marker in markers:
+        if marker not in block:
+            raise SystemExit(
+                f"FAIL: shell navigation target contract missing {marker} near {selector}"
+            )
+
+footer_mobile = source.split("@media (max-width: 43.99rem)", 1)[1]
+if "min-height: 2.75rem" not in footer_mobile:
+    raise SystemExit("FAIL: mobile footer links need a 44px minimum target")
+PY
+
+grep -Fq 'href="/accessibility"' theme_facodi/views/customizations.xml \
+  || fail "footer must expose the accessibility statement"
+grep -Fq 'href="/cookie-policy"' theme_facodi/views/customizations.xml \
+  || fail "footer must expose the cookie policy"
