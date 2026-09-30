@@ -16,7 +16,7 @@ if grep -Fq 'facodi-live-dot' "$HERO"; then fail "hero must not imply live statu
 JOURNEY="theme_facodi/views/snippets/s_facodi_learning_journey.xml"
 FEATURES="theme_facodi/views/snippets/s_facodi_features.xml"
 
-for anchor in 'Explore learning in the way that makes sense to you.' 'Courses' 'Roadmaps' 'Curricular units' 'facodi-learning-entry-grid'; do
+for anchor in 'Explore learning in the way that makes sense to you.' 'Courses' 'Learning paths' 'Curricular units' 'facodi-learning-entry-grid'; do
   grep -Fq "$anchor" "$JOURNEY" || fail "learning entry section missing: $anchor"
 done
 for route in '/courses' '/roadmaps' '/curricular-units'; do
