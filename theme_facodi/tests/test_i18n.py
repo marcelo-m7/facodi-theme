@@ -145,21 +145,21 @@ class TestFacodiThemeTranslations(HttpCase):
                 "Escolhe o teu caminho",
                 "Explora a aprendizagem da forma que faz sentido para ti.",
                 "Cursos",
-                "Roadmaps",
+                "Percursos de aprendizagem",
                 "Unidades curriculares",
             ),
             "es_ES": (
                 "Elige tu ruta",
                 "Explora el aprendizaje de la forma que tenga sentido para ti.",
                 "Cursos",
-                "Rutas",
+                "Rutas de aprendizaje",
                 "Unidades curriculares",
             ),
             "fr_FR": (
                 "Choisissez votre parcours",
                 "Explorez l’apprentissage de la manière qui vous convient.",
                 "Cours",
-                "Parcours",
+                "Parcours d’apprentissage",
                 "Unités d’enseignement",
             ),
         }
@@ -174,8 +174,8 @@ class TestFacodiThemeTranslations(HttpCase):
         expected_by_lang = {
             "pt_PT": (
                 "Catálogo de aprendizagem",
-                "Roadmaps",
-                "Unidades Curriculares",
+                "Percursos de aprendizagem",
+                "Unidades curriculares",
                 "Cursos",
                 "Contribua",
                 "Começa por algo útil.",
@@ -184,8 +184,8 @@ class TestFacodiThemeTranslations(HttpCase):
             ),
             "es_ES": (
                 "Catálogo de aprendizaje",
-                "Rutas",
-                "Unidades Curriculares",
+                "Rutas de aprendizaje",
+                "Unidades curriculares",
                 "Cursos",
                 "Contribuye",
                 "Empieza por algo útil.",
@@ -194,7 +194,7 @@ class TestFacodiThemeTranslations(HttpCase):
             ),
             "fr_FR": (
                 "Catalogue d’apprentissage",
-                "Parcours",
+                "Parcours d’apprentissage",
                 "Unités d’enseignement",
                 "Cours",
                 "Contribuez",
