@@ -122,7 +122,14 @@ class TestFacodiThemeTranslations(HttpCase):
         for locale in ("pt", "es", "fr"):
             with self.subTest(locale=locale):
                 canonical, alternates = seo_links(f"/{locale}")
-                self.assertEqual(urlparse(canonical).path, f"/{locale}")
+                # Odoo keeps the homepage canonical on the root URL even when
+                # the rendered request uses a language prefix. Language
+                # variants are expressed through hreflang alternates instead.
+                self.assertEqual(urlparse(canonical).path, "/")
+                localized_paths = {
+                    urlparse(href).path for href in alternates.values()
+                }
+                self.assertIn(f"/{locale}", localized_paths)
                 self.assertEqual(urlparse(alternates["x-default"]).path, "/")
 
     def test_native_odoo_sitemap_remains_available(self):
