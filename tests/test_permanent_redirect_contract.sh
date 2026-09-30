@@ -40,4 +40,11 @@ grep -Fq "/roadmaps" "$MIGRATION" && fail "migration must not touch curriculum /
 grep -Fq 'background-color: #0B1325 !important' theme_facodi/static/src/scss/website.scss   || fail "footer shell must remain #0B1325"
 grep -Fq 'background: #0B1325' theme_facodi/static/src/scss/website.scss   || fail "FACODI footer must remain #0B1325"
 
+MIGRATION="theme_facodi/migrations/19.0.10.74.0/post-10-canonical-about-route.py"
+[[ -f "$MIGRATION" ]] || fail "canonical About migration missing"
+grep -Fq '("/sobre", "/about")' "$MIGRATION" \
+  || fail "canonical About migration must retain /sobre as a 301 source"
+grep -Fq 'canonical_page.write({"url": "/about"})' "$MIGRATION" \
+  || fail "canonical About migration must preserve the editor-owned page"
+
 echo "PASS: permanent editorial redirect contract"
