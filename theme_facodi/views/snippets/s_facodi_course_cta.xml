@@ -19,7 +19,7 @@
             <div class="container">
                 <article class="facodi-sheet facodi-closing-sheet facodi-closing-sheet-v4" data-facodi-motion="rise">
                     <div>
-                        <p class="facodi-label">Open campus</p>
+                        <p class="facodi-label facodi-closing-label">Open campus</p>
                         <h2>Still building. You can help shape what comes next.</h2>
                         <p class="facodi-lead">Explore what is already public, or contribute a useful resource that deserves a place in the learning trail.</p>
                     </div>
