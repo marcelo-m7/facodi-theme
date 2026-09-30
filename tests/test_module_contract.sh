@@ -383,6 +383,13 @@ grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must doc
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
 grep -Fq '"version": "19.0.10.75.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
+LEARNING_PATH_COPY_MIGRATION="theme_facodi/migrations/19.0.10.75.0/post-10-learning-path-terminology.py"
+[[ -f "$LEARNING_PATH_COPY_MIGRATION" ]] || fail "learning-path terminology migration missing"
+grep -Fq '"Roadmaps": "Learning paths"' "$LEARNING_PATH_COPY_MIGRATION" \
+  || fail "learning-path migration must reconcile persisted English labels"
+grep -Fq '"Roadmaps": "Percursos de aprendizagem"' "$LEARNING_PATH_COPY_MIGRATION" \
+  || fail "learning-path migration must reconcile persisted PT labels"
+
 ABOUT_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.74.0/post-10-canonical-about-route.py"
 [[ -f "$ABOUT_ROUTE_MIGRATION" ]] || fail "canonical About-route migration missing"
 grep -Fq '("/sobre", "/about")' "$ABOUT_ROUTE_MIGRATION" \
