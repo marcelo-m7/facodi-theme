@@ -631,7 +631,6 @@ class TestFacodiTheme(HttpCase):
 
         rendered_templates = [template["template"] for template in group["templates"]]
         for class_name in (
-            "facodi-project-story",
             "facodi-principles-ledger",
             "facodi-process-timeline",
             "facodi-contribution-board",
@@ -643,9 +642,19 @@ class TestFacodiTheme(HttpCase):
             )
 
         home_blocks = None
+        about_templates = 0
         for template in group["templates"]:
             tree = html.fromstring(template["template"])
             blocks = tree.xpath("//*[@data-snippet]")
+            if "facodi-about-rebuilt" in template["template"]:
+                about_templates += 1
+                self.assertEqual(blocks, [])
+                self.assertIn("overflow-x:hidden", template["template"])
+                self.assertIn('id="how-it-works"', template["template"])
+                self.assertNotIn("data-facodi-motion", template["template"])
+                self.assertNotIn("data-facodi-dot-grid", template["template"])
+                continue
+
             self.assertGreaterEqual(len(blocks), 3, template)
             self.assertTrue(
                 all(
@@ -660,6 +669,7 @@ class TestFacodiTheme(HttpCase):
                 self.assertIn("A useful discovery deserves company.", template["template"])
                 self.assertIn("Still building. You can help shape what comes next.", template["template"])
 
+        self.assertEqual(about_templates, 1, "FACODI About must have one static rebuilt template")
         self.assertIsNotNone(home_blocks, "FACODI Home must render the learner hero")
         sections_arch = "".join(
             etree.tostring(block, encoding="unicode") for block in home_blocks
