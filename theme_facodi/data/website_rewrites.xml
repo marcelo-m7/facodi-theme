@@ -11,7 +11,7 @@
     <record id="redirect_legacy_manifesto" model="website.rewrite">
         <field name="name">FACODI legacy manifesto</field>
         <field name="url_from">/manifesto</field>
-        <field name="url_to">/sobre</field>
+        <field name="url_to">/about</field>
         <field name="redirect_type">301</field>
         <field name="sequence">20</field>
     </record>
@@ -19,7 +19,7 @@
     <record id="redirect_legacy_community" model="website.rewrite">
         <field name="name">FACODI legacy community</field>
         <field name="url_from">/comunidade</field>
-        <field name="url_to">/sobre</field>
+        <field name="url_to">/about</field>
         <field name="redirect_type">301</field>
         <field name="sequence">30</field>
     </record>
@@ -27,7 +27,7 @@
     <record id="redirect_legacy_partners" model="website.rewrite">
         <field name="name">FACODI legacy partners</field>
         <field name="url_from">/parceiros</field>
-        <field name="url_to">/sobre</field>
+        <field name="url_to">/about</field>
         <field name="redirect_type">301</field>
         <field name="sequence">40</field>
     </record>
@@ -35,9 +35,17 @@
     <record id="redirect_legacy_project_roadmap" model="website.rewrite">
         <field name="name">FACODI legacy project roadmap</field>
         <field name="url_from">/roadmap</field>
-        <field name="url_to">/sobre#how-it-works</field>
+        <field name="url_to">/about#how-it-works</field>
         <field name="redirect_type">301</field>
         <field name="sequence">50</field>
+    </record>
+
+    <record id="redirect_legacy_sobre" model="website.rewrite">
+        <field name="name">FACODI legacy About route</field>
+        <field name="url_from">/sobre</field>
+        <field name="url_to">/about</field>
+        <field name="redirect_type">301</field>
+        <field name="sequence">55</field>
     </record>
 
     <record id="redirect_legacy_how_to_contribute" model="website.rewrite">
