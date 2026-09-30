@@ -43,6 +43,16 @@ class OdooDataQualityTest(unittest.TestCase):
             ),
         )
 
+    def test_github_actions_are_commit_pinned(self):
+        workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            workflow,
+        )
+        self.assertNotIn("actions/checkout@v4", workflow)
+
     def test_manifest_asset_sources_resolve(self):
         missing = []
         for bundle, entries in MANIFEST.get("assets", {}).items():
