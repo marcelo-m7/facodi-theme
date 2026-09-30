@@ -22,7 +22,7 @@ for mapping in   '/facodi|/'   '/sobre|/about'   '/manifesto|/about'   '/comunid
 done
 
 count="$(grep -c '<field name="redirect_type">301</field>' "$DATA")"
-[[ "$count" -eq 7 ]] || fail "expected exactly seven permanent redirect records"
+[[ "$count" -eq 8 ]] || fail "expected exactly eight permanent redirect records"
 
 if grep -Fq '<field name="url_from">/roadmaps</field>' "$DATA"; then
   fail "curriculum /roadmaps route must never be redirected"
