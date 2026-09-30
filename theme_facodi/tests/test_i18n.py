@@ -114,15 +114,15 @@ class TestFacodiThemeTranslations(HttpCase):
         self.assertTrue(canonical.endswith("/"))
         alternate_paths = {urlparse(href).path for href in alternates.values()}
         self.assertIn("/", alternate_paths)
-        self.assertIn("/pt/", alternate_paths)
-        self.assertIn("/es/", alternate_paths)
-        self.assertIn("/fr/", alternate_paths)
+        self.assertIn("/pt", alternate_paths)
+        self.assertIn("/es", alternate_paths)
+        self.assertIn("/fr", alternate_paths)
         self.assertEqual(urlparse(alternates["x-default"]).path, "/")
 
         for locale in ("pt", "es", "fr"):
             with self.subTest(locale=locale):
-                canonical, alternates = seo_links(f"/{locale}/")
-                self.assertEqual(urlparse(canonical).path, f"/{locale}/")
+                canonical, alternates = seo_links(f"/{locale}")
+                self.assertEqual(urlparse(canonical).path, f"/{locale}")
                 self.assertEqual(urlparse(alternates["x-default"]).path, "/")
 
     def test_native_odoo_sitemap_remains_available(self):
