@@ -177,6 +177,11 @@ grep -Fq 'facodi-editorial-route-card' "$ROUTES" \
 grep -Fq 'facodi-editorial-pathway-sheet' "$PATHWAY" \
   || fail "editorial pathway needs a paper-sheet hook"
 
+grep -Fq 'facodi-closing-label' theme_facodi/views/snippets/s_facodi_course_cta.xml \
+  || fail "closing CTA must expose the high-contrast campus label hook"
+grep -Fq '.facodi-closing-label' theme_facodi/static/src/scss/snippets.scss \
+  || fail "closing CTA high-contrast label styling missing"
+
 echo "PASS: FACODI Website Foundation v2 contract"
 
 DOT_GRID="theme_facodi/static/src/js/facodi_dot_grid.js"
