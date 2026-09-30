@@ -24,30 +24,30 @@
                         <p class="facodi-section-copy">FACODI is designed for movement: ask, explore, connect and leave a better trail behind.</p>
                     </div>
                 </div>
-                <div class="facodi-learning-steps facodi-learning-steps-three">
-                    <article class="facodi-sheet facodi-learning-step facodi-learning-step-pink" data-facodi-motion="rise" data-facodi-motion-delay="0">
+                <div class="facodi-learning-steps facodi-learning-steps-four">
+                    <article class="facodi-sheet facodi-learning-step" data-facodi-motion="rise" data-facodi-motion-delay="0">
                         <span class="facodi-tape facodi-tape-pink" aria-hidden="true"/>
-                        <p class="facodi-step-number">01</p>
-                        <p class="facodi-label">Choose a question</p>
-                        <h3>Start with curiosity.</h3>
-                        <p>Find a real question, doubt or topic. You do not need a perfect plan before you begin.</p>
-                        <p class="facodi-step-footnote">Start here · turn curiosity into a route</p>
+                        <p class="facodi-label">01 · Ask</p>
+                        <h3>Choose a question</h3>
+                        <p>Begin with something you genuinely want to understand.</p>
                     </article>
-                    <article class="facodi-sheet facodi-learning-step facodi-learning-step-sun" data-facodi-motion="rise" data-facodi-motion-delay="70">
+                    <article class="facodi-postit facodi-learning-step" data-facodi-motion="rise" data-facodi-motion-delay="70">
                         <span class="facodi-tape facodi-tape-sun" aria-hidden="true"/>
-                        <p class="facodi-step-number">02</p>
-                        <p class="facodi-label">Study at your pace</p>
-                        <h3>Use the rhythm that fits.</h3>
-                        <p>Combine courses, videos, notes and curricular references without forcing every learner through the same sequence.</p>
-                        <p class="facodi-step-footnote">Made from public learning resources</p>
+                        <p class="facodi-label">02 · Explore</p>
+                        <h3>Study at your pace</h3>
+                        <p>Use courses and resources without pretending every learner follows the same sequence.</p>
                     </article>
-                    <article class="facodi-sheet facodi-learning-step facodi-learning-step-cyan" data-facodi-motion="rise" data-facodi-motion-delay="140">
+                    <article class="facodi-note facodi-learning-step" data-facodi-motion="rise" data-facodi-motion-delay="140">
                         <span class="facodi-tape facodi-tape-cyan" aria-hidden="true"/>
-                        <p class="facodi-step-number">03</p>
-                        <p class="facodi-label">Follow the next clue</p>
-                        <h3>Keep the useful thread.</h3>
-                        <p>Discover related references, move between fields and share a better trail with the community.</p>
-                        <p class="facodi-step-footnote">Transfer knowledge to new contexts</p>
+                        <p class="facodi-label">03 · Connect</p>
+                        <h3>Follow the useful thread</h3>
+                        <p>Move between topics, courses, Roadmaps and academic context when a connection helps.</p>
+                    </article>
+                    <article class="facodi-sheet facodi-learning-step facodi-learning-step-contribute" data-facodi-motion="rise" data-facodi-motion-delay="210">
+                        <span class="facodi-tape facodi-tape-pink" aria-hidden="true"/>
+                        <p class="facodi-label">04 · Contribute</p>
+                        <h3>Leave the trail clearer</h3>
+                        <p>Share a resource, correction or context that may help the next learner.</p>
                     </article>
                 </div>
             </div>
