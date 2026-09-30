@@ -4,7 +4,7 @@
         <ol class="facodi-process-timeline" data-snippet="s_facodi_process_timeline" data-name="FACODI Process Timeline">
             <li class="facodi-process-timeline__step">
                 <span class="facodi-process-timeline__index">1</span>
-                <div><h3>Pick a route</h3><p>Start with a course, Roadmap, curricular unit or one very concrete question.</p></div>
+                <div><h3>Pick a route</h3><p>Start with a course, learning path, curricular unit or one very concrete question.</p></div>
             </li>
             <li class="facodi-process-timeline__step">
                 <span class="facodi-process-timeline__index">2</span>
