@@ -17,7 +17,7 @@ fi
 grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.70.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
+grep -Fq '"version": "19.0.10.71.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
 grep -Fq 'id="visual_direction_page"' theme_facodi/views/website_public.xml || fail "visual direction page missing"
 if grep -R -nE '<template[^>]+page=' theme_facodi/views --include='*.xml'; then
   fail "Odoo 19 theme templates must not use the removed page attribute"
@@ -207,13 +207,13 @@ if grep -Fq 'website_published' theme_facodi/data/facodi_course_snippet.xml; the
 fi
 grep -Fq 'ref="theme_facodi.published_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
   || fail "FACODI snippet wrapper must reference the compatibility filter"
-COURSE_FILTER_MIGRATION="theme_facodi/migrations/19.0.10.70.0/post-10-align-course-filter.py"
+COURSE_FILTER_MIGRATION="theme_facodi/migrations/19.0.10.71.0/post-10-align-course-filter.py"
 [[ -f "$COURSE_FILTER_MIGRATION" ]] || fail "course-filter alignment migration missing"
 grep -Fq 'theme_facodi.dynamic_filter_published_courses' "$COURSE_FILTER_MIGRATION" \
   || fail "course-filter wrapper migration missing"
 grep -Fq "[('visibility', 'in', ['public', 'connected'])]" "$COURSE_FILTER_MIGRATION" \
   || fail "migration must align legacy filter to standard eLearning visibility semantics"
-[[ ! -f theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py ]] \
+[[ ! -f theme_facodi/migrations/19.0.10.71.0/post-10-retire-course-filter.py ]] \
   || fail "obsolete retire-course-filter migration must stay removed"
 grep -Fq 'source=cta_sheet_resource_cta&amp;section=cta-sheet' theme_facodi/views/snippets/components/s_facodi_cta_sheet.xml \
   || fail "CTA Sheet must preserve its contribution source context"
@@ -343,6 +343,16 @@ grep -Fq '.o_record_cover_container[data-res-model="slide.channel"]' theme_facod
   || fail "live eLearning course cover styling missing"
 grep -Fq '.o_wslides_js_course_join_link.btn-primary' theme_facodi/static/src/scss/website_slides.scss \
   || fail "live eLearning join action styling missing"
+grep -Fq 'facodi-course-gap-callout' theme_facodi/views/website_slides.xml \
+  || fail "catalogue gap callout missing"
+grep -Fq 'source=course_gap&amp;section=course' theme_facodi/views/website_slides.xml \
+  || fail "coverage-gap contribution CTA must preserve course context"
+grep -Fq 'Learning paths' theme_facodi/views/website_slides.xml \
+  || fail "catalogue navigation should use learner-facing path terminology"
+grep -Fq '.facodi-course-gap-callout' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "coverage-gap callout styling missing"
+grep -Fq 'min-height: 44px' theme_facodi/static/src/scss/website_slides.scss \
+  || fail "mobile catalogue targets must meet the FACODI tap-target contract"
 
 if grep -R -n '<record[^>]*model="website.page"' theme_facodi --include='*.xml'; then
   fail "presentation theme must not import editorial Website pages"
@@ -365,7 +375,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.70.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.71.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
