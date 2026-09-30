@@ -42,7 +42,7 @@ for selector in 'data-facodi-content-type="roadmaps"' 'data-facodi-content-type=
 done
 grep -Fq 'source=course_showcase_contribute&amp;section=learning-catalogue' "$SNIPPET" \
   || fail "course showcase contribution tab must preserve catalogue context"
-for label in 'Roadmaps' 'Curricular Units' 'Courses' 'Contribute'; do
+for label in 'Learning paths' 'Curricular units' 'Courses' 'Contribute'; do
   grep -Fq "$label" "$SNIPPET" \
     || fail "course showcase learning navigation is missing label: $label"
 done
