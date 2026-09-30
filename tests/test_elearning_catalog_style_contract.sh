@@ -51,6 +51,10 @@ for hook in \
   grep -Fq "$hook" "$SLIDES_XML" || fail "missing D1 course QWeb hook: $hook"
 done
 
+grep -Fq "facodi_course_visuals" "$SLIDES_XML" || fail "course page must resolve the same first-video visual as catalogue cards"
+grep -Fq "//div[@t-field='channel.image_1920']" "$SLIDES_XML" || fail "course page must replace the native Odoo channel image widget"
+grep -Fq "facodi-course-cover" "$SLIDES_XML" || fail "course page canonical cover hook missing"
+
 for native_hook in \
   'website_slides.courses_home' \
   'website_slides.courses_search_results' \
