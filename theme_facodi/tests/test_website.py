@@ -684,7 +684,7 @@ class TestFacodiTheme(HttpCase):
         pages = self.env["website.page"].search(
             [
                 ("website_id", "=", website.id),
-                ("url", "in", ["/sobre", "/contribuir", "/manifesto", "/parceiros"]),
+                ("url", "in", ["/about", "/sobre", "/contribuir", "/manifesto", "/parceiros"]),
             ]
         )
         self.assertFalse(
