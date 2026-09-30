@@ -31,7 +31,7 @@
                         Explore courses
                         <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
                     </a>
-                    <a class="btn facodi-button facodi-button-secondary" href="/sobre">See how FACODI works</a>
+                    <a class="btn facodi-button facodi-button-secondary" href="/about">See how FACODI works</a>
                 </div>
                 <p class="facodi-hero-open-note">
                     <i class="fa fa-check-circle" aria-hidden="true" t-translation="off"/>
