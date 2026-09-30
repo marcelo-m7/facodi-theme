@@ -207,13 +207,13 @@ if grep -Fq 'website_published' theme_facodi/data/facodi_course_snippet.xml; the
 fi
 grep -Fq 'ref="theme_facodi.published_courses_filter"' theme_facodi/data/facodi_course_snippet.xml \
   || fail "FACODI snippet wrapper must reference the compatibility filter"
-COURSE_FILTER_MIGRATION="theme_facodi/migrations/19.0.10.71.0/post-10-align-course-filter.py"
+COURSE_FILTER_MIGRATION="theme_facodi/migrations/19.0.10.70.0/post-10-align-course-filter.py"
 [[ -f "$COURSE_FILTER_MIGRATION" ]] || fail "course-filter alignment migration missing"
 grep -Fq 'theme_facodi.dynamic_filter_published_courses' "$COURSE_FILTER_MIGRATION" \
   || fail "course-filter wrapper migration missing"
 grep -Fq "[('visibility', 'in', ['public', 'connected'])]" "$COURSE_FILTER_MIGRATION" \
   || fail "migration must align legacy filter to standard eLearning visibility semantics"
-[[ ! -f theme_facodi/migrations/19.0.10.71.0/post-10-retire-course-filter.py ]] \
+[[ ! -f theme_facodi/migrations/19.0.10.70.0/post-10-retire-course-filter.py ]] \
   || fail "obsolete retire-course-filter migration must stay removed"
 grep -Fq 'source=cta_sheet_resource_cta&amp;section=cta-sheet' theme_facodi/views/snippets/components/s_facodi_cta_sheet.xml \
   || fail "CTA Sheet must preserve its contribution source context"
