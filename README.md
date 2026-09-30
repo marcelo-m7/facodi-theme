@@ -3,7 +3,7 @@
 `facodi-theme` provides the Odoo 19 Community addon **`theme_facodi`** for
 FACODI Website and eLearning presentation.
 
-The public Website at [edu-open2.odoo.com](https://edu-open2.odoo.com) remains
+The public Website at [edu-open2.odoo.com](https://facodi.com) remains
 the historical implementation baseline. Release `19.0.6.0.0` introduces the
 approved FACODI Campus Paper direction while keeping navigation, Website Builder
 and eLearning behavior on standard Odoo 19 mechanisms. The theme still avoids a
