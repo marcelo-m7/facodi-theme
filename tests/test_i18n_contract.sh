@@ -192,7 +192,7 @@ files = [
     Path("theme_facodi/i18n/es.po"),
     Path("theme_facodi/i18n/fr.po"),
 ]
-messages = ["Learning catalogue", "Courses", "Roadmaps", "Curricular Units"]
+messages = ["Learning catalogue", "Courses", "Learning paths", "Curricular units"]
 occurrence = "#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home"
 
 for path in files:
@@ -236,7 +236,7 @@ D2_EDITORIAL_OCCURRENCES = {
     "Review beats guesswork": ["theme_facodi.s_facodi_principles_ledger"],
     "Keep community contribution separate from publication, and make the editorial boundary visible when something is still under review.": ["theme_facodi.s_facodi_principles_ledger"],
     "Pick a route": ["theme_facodi.s_facodi_process_timeline"],
-    "Start with a course, Roadmap, curricular unit or one very concrete question.": ["theme_facodi.s_facodi_process_timeline"],
+    "Start with a course, learning path, curricular unit or one very concrete question.": ["theme_facodi.s_facodi_process_timeline"],
     "Open the good tabs": ["theme_facodi.s_facodi_process_timeline"],
     "Use public resources and follow only the context that helps you move forwards.": ["theme_facodi.s_facodi_process_timeline"],
     "Connect the dots": ["theme_facodi.s_facodi_process_timeline"],
@@ -323,8 +323,8 @@ REUSABLE_BLOCK_MSGIDS=(
   'Short reminders work best when they stay specific, useful, and easy to revisit.'
   'Learning sections'
   'Courses'
-  'Roadmaps'
-  'Curricular Units'
+  'Learning paths'
+  'Curricular units'
   'Contribute'
   'Topic labels'
   'All topics'

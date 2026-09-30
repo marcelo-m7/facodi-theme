@@ -619,8 +619,8 @@ msgstr "Explorer le catalogue"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Explore Roadmaps"
-msgstr "Explorer les parcours"
+msgid "Explore learning paths"
+msgstr "Explorer les parcours d’apprentissage"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
@@ -791,14 +791,14 @@ msgstr "Utilisez les Roadmaps pour vous orienter, les unites d'enseignement pour
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
-msgid "Roadmaps"
-msgstr "Parcours"
+msgid "Learning paths"
+msgstr "Parcours d’apprentissage"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
-msgid "Curricular Units"
+msgid "Curricular units"
 msgstr "Unités d’enseignement"
 
 #. module: theme_facodi
@@ -1782,8 +1782,8 @@ msgstr "Suivez le fil utile"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
-msgid "Move between topics, courses, Roadmaps and academic context when a connection helps."
-msgstr "Passez entre sujets, cours, parcours et contexte académique lorsqu’un lien est utile."
+msgid "Move between topics, courses, learning paths and academic context when a connection helps."
+msgstr "Passez entre thèmes, cours, parcours d’apprentissage et contexte académique lorsqu’un lien est utile."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
@@ -2086,8 +2086,8 @@ msgstr "Choisissez une route"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
-msgid "Start with a course, Roadmap, curricular unit or one very concrete question."
-msgstr "Commencez par un cours, une Roadmap, une unité ou une question très concrète."
+msgid "Start with a course, learning path, curricular unit or one very concrete question."
+msgstr "Commencez par un cours, un parcours d’apprentissage, une unité d’enseignement ou une question très concrète."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
@@ -2216,8 +2216,8 @@ msgstr "Partagez une ressource, une correction ou une idée de collaboration ave
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Explore courses, Roadmaps and curricular units built from public learning resources, reviewed context and community contribution."
-msgstr "Explorez des cours, des parcours et des unités d’enseignement construits à partir de ressources d’apprentissage publiques, de contexte vérifié et de contributions de la communauté."
+msgid "Explore courses, learning paths and curricular units built from public learning resources, reviewed context and community contributions."
+msgstr "Explorez des cours, des parcours d’apprentissage et des unités d’enseignement qui relient des ressources d’apprentissage publiques, un contexte vérifié et des contributions de la communauté."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero

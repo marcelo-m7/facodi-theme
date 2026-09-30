@@ -16,10 +16,10 @@ EXPECTED_MARKERS = {
 }
 EXPECTED_HREFS = ["/roadmaps", "/curricular-units", "/courses", "/contribuir/recurso"]
 EXPECTED_NAV_TEXT = {
-    "en_US": "Roadmaps Curricular Units Courses Contribute",
-    "pt_PT": "Roadmaps Unidades Curriculares Cursos Contribua",
-    "es_ES": "Rutas Unidades Curriculares Cursos Contribuye",
-    "fr_FR": "Parcours Unités d’enseignement Cours Contribuez",
+    "en_US": "Learning paths Curricular units Courses Contribute",
+    "pt_PT": "Percursos de aprendizagem Unidades curriculares Cursos Contribua",
+    "es_ES": "Rutas de aprendizaje Unidades curriculares Cursos Contribuye",
+    "fr_FR": "Parcours d’apprentissage Unités d’enseignement Cours Contribuez",
 }
 EXPECTED_ARIA = {
     "en_US": "Learning catalogue",
