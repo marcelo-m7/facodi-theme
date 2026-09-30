@@ -38,9 +38,9 @@
                     <a href="/roadmaps" class="facodi-learning-card facodi-learning-card-sky" data-facodi-motion="tilt" data-facodi-motion-delay="70">
                         <p class="facodi-label">Connected view · pathways</p>
                         <span class="facodi-card-icon facodi-card-icon-cyan"><i class="fa fa-map" aria-hidden="true" t-translation="off"/></span>
-                        <h3>Roadmaps</h3>
+                        <h3>Learning paths</h3>
                         <p>See how topics, courses and study resources connect across a learning direction.</p>
-                        <div class="facodi-text-link">Explore Roadmaps <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
+                        <div class="facodi-text-link">Explore learning paths <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                     <a href="/curricular-units" class="facodi-learning-card facodi-learning-card-sun" data-facodi-motion="tilt" data-facodi-motion-delay="140">
                         <p class="facodi-label">University reference · context</p>
