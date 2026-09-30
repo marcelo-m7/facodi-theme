@@ -43,7 +43,7 @@ done
 # smoke anchors used by the runtime translation tests.
 grep -Fq 'An open digital campus' "$VIEWS_DIR/snippets/s_facodi_hero.xml" \
   || fail "hero source language must remain English"
-grep -Fq 'Digital Community College. Open, collaborative and accessible higher education.' "$VIEWS_DIR/customizations.xml" \
+grep -Fq 'Open learning resources, curricular context and community contributions — organised to help people study, discover and share knowledge.' "$VIEWS_DIR/customizations.xml" \
   || fail "website shell source language must be English"
 grep -Fq 'Start somewhere useful.' "$VIEWS_DIR/snippets/s_facodi_course_showcase.xml" \
   || fail "course showcase source language must remain English"
@@ -82,8 +82,12 @@ FOUNDATION_MSGIDS=(
 for catalogue in pt es fr; do
   grep -Fq 'msgid "Knowledge is everywhere. Find your next step."' "$I18N_DIR/${catalogue}.po" \
     || fail "${catalogue}.po does not translate the hero language anchor"
-  grep -Fq 'msgid "Digital Community College. Open, collaborative and accessible higher education."' "$I18N_DIR/${catalogue}.po" \
+  grep -Fq 'msgid "Open learning resources, curricular context and community contributions — organised to help people study, discover and share knowledge."' "$I18N_DIR/${catalogue}.po" \
     || fail "${catalogue}.po does not translate the website shell language anchor"
+  for footer_msgid in 'Policies' 'Accessibility' 'Cookie Policy'; do
+    grep -Fq "msgid \"${footer_msgid}\"" "$I18N_DIR/${catalogue}.po" \
+      || fail "${catalogue}.po does not translate footer label: ${footer_msgid}"
+  done
   for msgid in "${FOUNDATION_MSGIDS[@]}"; do
     grep -Fq "msgid \"${msgid}\"" "$I18N_DIR/${catalogue}.po" \
       || fail "${catalogue}.po does not translate Foundation v2 string: ${msgid}"
