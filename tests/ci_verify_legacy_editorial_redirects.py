@@ -22,7 +22,12 @@ for index, (url_from, url_to) in enumerate(REDIRECTS, start=1):
         ("key", "=", f"theme_facodi.ci_legacy_redirect_{index}"),
     ], limit=1)
     assert page, f"missing legacy page fixture for {url_from}"
-    assert not page.is_published, f"{url_from} must be unpublished before 301 fallback"
+    if url_from == "/sobre":
+        assert page.url == "/about", "/sobre page must move to the canonical /about URL"
+        assert page.is_published, "canonical About page must preserve publication state"
+    else:
+        assert page.url == url_from
+        assert not page.is_published, f"{url_from} must be unpublished before 301 fallback"
 
     menu = Menu.search([
         ("website_id", "=", website.id),
