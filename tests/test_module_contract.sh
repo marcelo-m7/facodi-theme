@@ -383,6 +383,16 @@ grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must doc
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
 grep -Fq '"version": "19.0.10.74.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
+ABOUT_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.74.0/post-10-canonical-about-route.py"
+[[ -f "$ABOUT_ROUTE_MIGRATION" ]] || fail "canonical About-route migration missing"
+grep -Fq '("/sobre", "/about")' "$ABOUT_ROUTE_MIGRATION" \
+  || fail "canonical About migration must preserve the /sobre compatibility redirect"
+grep -Fq 'canonical_page.write({"url": "/about"})' "$ABOUT_ROUTE_MIGRATION" \
+  || fail "canonical About migration must move the editor-owned page instead of recreating it"
+if grep -R -Fq 'href="/sobre"' theme_facodi/views/snippets --include='*.xml'; then
+  fail "live FACODI snippets must use canonical /about"
+fi
+
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
 grep -Fq '"/slides": "/courses"' "$CANONICAL_ROUTE_MIGRATION" \
