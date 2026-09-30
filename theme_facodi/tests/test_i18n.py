@@ -48,29 +48,29 @@ class TestFacodiThemeTranslations(HttpCase):
         response = self.url_open("/")
         self.assertEqual(response.status_code, 200)
         self.assertIn(
-            "Digital Community College. Open, collaborative and accessible higher education.",
+            "Open learning resources, curricular context and community contributions — organised to help people study, discover and share knowledge.",
             response.text,
         )
-        self.assertNotIn("Faculdade Comunitária Digital.", response.text)
+        self.assertNotIn("Recursos de aprendizagem abertos", response.text)
 
     def test_standard_website_language_routes_render_theme_translations(self):
         from lxml import html
 
         cases = {
             "pt": (
-                "Faculdade Comunitária Digital. Ensino superior aberto, colaborativo e acessível.",
+                "Recursos de aprendizagem abertos, contexto curricular e contributos da comunidade — organizados para ajudar pessoas a estudar, descobrir e partilhar conhecimento.",
                 "Código aberto para aprender em público.",
                 "Criado por",
                 "Explore os cursos abertos, percursos de aprendizagem e recursos comunitários da FACODI",
             ),
             "es": (
-                "Facultad Comunitaria Digital. Educación superior abierta, colaborativa y accesible.",
+                "Recursos de aprendizaje abiertos, contexto curricular y contribuciones de la comunidad — organizados para ayudar a estudiar, descubrir y compartir conocimiento.",
                 "Código abierto para aprender en público.",
                 "Creado por",
                 "Descubre los cursos abiertos, itinerarios de aprendizaje y recursos comunitarios de FACODI",
             ),
             "fr": (
-                "Faculté Communautaire Numérique. Enseignement supérieur ouvert, collaboratif et accessible.",
+                "Ressources d’apprentissage ouvertes, contexte curriculaire et contributions de la communauté — organisés pour aider à étudier, découvrir et partager des connaissances.",
                 "Code ouvert pour apprendre en public.",
                 "Créé par",
                 "Découvrez les cours ouverts, parcours d'apprentissage et ressources communautaires de FACODI",
