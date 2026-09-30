@@ -1608,6 +1608,15 @@
         .facodi-lead {
             color: white;
         }
+
+        .facodi-closing-label {
+            background: var(--facodi-sun);
+            border: 1px solid var(--facodi-ink-deep);
+            box-shadow: 2px 2px 0 var(--facodi-ink-deep);
+            color: var(--facodi-ink-deep) !important;
+            display: inline-flex;
+            padding: .28rem .5rem;
+        }
     }
 }
 

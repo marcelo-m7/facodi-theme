@@ -22,7 +22,7 @@ done
 for route in '/courses' '/roadmaps' '/curricular-units'; do
   grep -Fq "href=\"$route\"" "$JOURNEY" || fail "learning entry route missing: $route"
 done
-for anchor in 'From a question to the next useful link.' 'Choose a question' 'Study at your pace' 'Follow the next clue' 'facodi-learning-steps-three'; do
+for anchor in 'From a question to the next useful link.' 'Choose a question' 'Study at your pace' 'Follow the useful thread' 'Leave the trail clearer' 'facodi-learning-steps-four' 'facodi-tape-pink' 'facodi-tape-sun' 'facodi-tape-cyan'; do
   grep -Fq "$anchor" "$FEATURES" || fail "learning steps missing: $anchor"
 done
 
@@ -176,6 +176,11 @@ grep -Fq 'facodi-editorial-route-card' "$ROUTES" \
   || fail "editorial routes need reusable paper cards"
 grep -Fq 'facodi-editorial-pathway-sheet' "$PATHWAY" \
   || fail "editorial pathway needs a paper-sheet hook"
+
+grep -Fq 'facodi-closing-label' theme_facodi/views/snippets/s_facodi_course_cta.xml \
+  || fail "closing CTA must expose the high-contrast campus label hook"
+grep -Fq '.facodi-closing-label' theme_facodi/static/src/scss/snippets.scss \
+  || fail "closing CTA high-contrast label styling missing"
 
 echo "PASS: FACODI Website Foundation v2 contract"
 
