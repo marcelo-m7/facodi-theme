@@ -34,8 +34,8 @@ msgstr "Ouvrir la navigation"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
-msgid "Digital Community College. Open, collaborative and accessible higher education."
-msgstr "Faculté Communautaire Numérique. Enseignement supérieur ouvert, collaboratif et accessible."
+msgid "Open learning resources, curricular context and community contributions — organised to help people study, discover and share knowledge."
+msgstr "Ressources d’apprentissage ouvertes, contexte curriculaire et contributions de la communauté — organisés pour aider à étudier, découvrir et partager des connaissances."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
@@ -2260,3 +2260,13 @@ msgid ""
 msgstr ""
 "<strong>Vous avez repéré un manque ? Déposez-le ici.</strong>\n"
 "                        <span>Partagez une ressource, une correction ou une idée de collaboration avec assez de contexte pour qu’elle soit utile.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Policies"
+msgstr "Politiques"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Accessibility"
+msgstr "Accessibilité"
