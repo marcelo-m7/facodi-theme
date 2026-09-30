@@ -14,7 +14,7 @@ MIGRATION="theme_facodi/migrations/19.0.10.1.0/post-10-permanent-editorial-redir
 
 grep -Fq '"data/website_rewrites.xml"' theme_facodi/__manifest__.py   || fail "redirect data must be loaded by manifest"
 
-for mapping in   '/facodi|/'   '/manifesto|/sobre'   '/comunidade|/sobre'   '/parceiros|/sobre'   '/roadmap|/sobre#how-it-works'   '/como-contribuir|/contribuir/recurso'   '/contribuir|/contribuir/recurso'; do
+for mapping in   '/facodi|/'   '/sobre|/about'   '/manifesto|/about'   '/comunidade|/about'   '/parceiros|/about'   '/roadmap|/about#how-it-works'   '/como-contribuir|/contribuir/recurso'   '/contribuir|/contribuir/recurso'; do
   from="${mapping%%|*}"
   to="${mapping#*|}"
   grep -Fq "<field name=\"url_from\">${from}</field>" "$DATA"     || fail "missing 301 source ${from}"
