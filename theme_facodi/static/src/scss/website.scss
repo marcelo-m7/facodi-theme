@@ -101,7 +101,8 @@
                 border-bottom-left-radius: 0;
                 border-left: 1px solid color-mix(in srgb, var(--facodi-ink) 24%, transparent);
                 border-top-left-radius: 0;
-                min-width: 2rem;
+                min-height: 2.75rem;
+                min-width: 2.75rem;
                 padding-inline: .45rem !important;
             }
 
@@ -113,11 +114,14 @@
         }
 
         .nav-link {
+            align-items: center;
             border-radius: var(--facodi-radius-sm);
             color: var(--facodi-ink);
+            display: inline-flex;
             font-size: clamp(.78rem, .82vw, .9rem);
             font-weight: 600;
             max-width: 12rem;
+            min-height: 2.75rem;
             overflow: hidden;
             padding: .45rem clamp(.45rem, .8vw, .8rem) !important;
             text-overflow: ellipsis;
@@ -148,7 +152,7 @@
                 border-radius: var(--facodi-radius-sm);
                 color: var(--facodi-ink);
                 max-width: 10rem;
-                min-height: 2.25rem;
+                min-height: 2.75rem;
                 padding: .35rem .6rem !important;
             }
 
@@ -165,6 +169,13 @@
         border: var(--facodi-border);
         border-radius: var(--facodi-radius);
         box-shadow: var(--facodi-shadow);
+
+        .dropdown-item {
+            align-items: center;
+            display: flex;
+            min-height: 2.75rem;
+            white-space: normal;
+        }
     }
 
     .o_header_mobile {
@@ -263,8 +274,13 @@
         }
 
         .o_header_mobile_buttons_wrap .btn {
+            align-items: center;
             border-color: var(--facodi-ink);
             color: var(--facodi-ink);
+            display: inline-flex;
+            justify-content: center;
+            min-height: 2.75rem;
+            min-width: 2.75rem;
         }
     }
 
@@ -351,7 +367,8 @@
             }
 
             a {
-                display: inline-block;
+                align-items: center;
+                display: inline-flex;
                 font-size: .84rem;
                 font-weight: 600;
                 line-height: 1.45;
@@ -397,6 +414,10 @@
             .facodi-footer-links {
                 column-gap: 1.5rem;
                 grid-template-columns: minmax(0, 1fr);
+
+                a {
+                    min-height: 2.75rem;
+                }
             }
 
             .facodi-footer-meta {
@@ -475,7 +496,8 @@
             display: inline-flex;
             flex: 0 0 auto;
             justify-content: center;
-            min-width: 2.15rem;
+            min-height: 2.75rem;
+            min-width: 2.75rem;
             padding-inline: .45rem !important;
 
             &::after {
