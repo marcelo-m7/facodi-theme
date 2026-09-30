@@ -15,6 +15,66 @@ body.o_wslides_body .facodi-site {
         justify-content: flex-end;
     }
 
+
+    .facodi-learning-catalogue-intro {
+        min-width: 0;
+    }
+
+    .facodi-learning-catalogue-copy {
+        color: color-mix(in srgb, var(--facodi-ink) 76%, transparent);
+        line-height: 1.55;
+        max-width: 44rem;
+    }
+
+    .facodi-course-record-card {
+        min-height: 100%;
+        position: relative;
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+        }
+
+        .card-footer {
+            margin-top: auto;
+        }
+    }
+
+    .facodi-course-gap-badge {
+        background: var(--facodi-sun);
+        border: 1px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius-sm);
+        color: var(--facodi-ink);
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: .66rem;
+        font-weight: 800;
+        left: .75rem;
+        letter-spacing: .04em;
+        padding: .35rem .5rem;
+        position: absolute;
+        text-transform: uppercase;
+        top: .75rem;
+        z-index: 2;
+    }
+
+    .facodi-course-gap-callout {
+        align-items: center;
+        background: color-mix(in srgb, var(--facodi-sun) 24%, var(--facodi-surface-sheet));
+        border: 1px dashed var(--facodi-ink);
+        border-radius: var(--facodi-radius);
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: minmax(0, 1fr) auto;
+        margin: clamp(1.25rem, 3vw, 2rem) 0;
+        padding: clamp(1rem, 2.5vw, 1.5rem);
+
+        .btn {
+            min-height: 44px;
+            white-space: nowrap;
+        }
+    }
+
     .facodi-course-record-card {
         min-width: 0;
 
@@ -340,6 +400,32 @@ body.o_wslides_body .facodi-site {
 
         .facodi-index-tabs--courses {
             justify-content: flex-start;
+            max-width: 100%;
+            overflow-x: auto;
+            overscroll-behavior-inline: contain;
+            scroll-snap-type: x proximity;
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+
+            a {
+                min-height: 44px;
+                scroll-snap-align: start;
+                white-space: nowrap;
+            }
+        }
+
+        .facodi-learning-catalogue-copy {
+            font-size: .98rem;
+        }
+
+        .facodi-course-gap-callout {
+            align-items: stretch;
+            grid-template-columns: minmax(0, 1fr);
+
+            .btn {
+                justify-self: stretch;
+                text-align: center;
+            }
         }
 
         // website_slides_forum adds a third native tab; keep the tab rail inside the phone viewport.

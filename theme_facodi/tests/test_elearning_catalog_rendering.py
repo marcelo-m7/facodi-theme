@@ -273,3 +273,41 @@ class TestFacodiElearningCatalogRendering(HttpCase):
                 "//a[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_course_card ')]"
             )
         )
+
+    def test_catalogue_explains_learning_journey_and_coverage_gap(self):
+        gap = self._channel("FACODI Coverage Gap")
+        response = self.url_open("/slides")
+        self.assertEqual(response.status_code, 200)
+        tree = html.fromstring(response.text)
+
+        self.assertIn(
+            "Start with a topic, explore the curated open resources inside it",
+            response.text,
+        )
+        self.assertTrue(
+            tree.xpath(
+                "//nav[contains(@class, 'facodi-index-tabs--courses')]/a[normalize-space()='Learning paths']"
+            )
+        )
+        self.assertTrue(
+            tree.xpath(
+                f"//a[contains(@href, '-{gap.id}') or contains(@href, '/slides/{gap.id}')]"
+                "//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-course-gap-badge ')]"
+            )
+        )
+
+        detail = self.url_open(gap.website_url)
+        self.assertEqual(detail.status_code, 200)
+        detail_tree = html.fromstring(detail.text)
+        callout = detail_tree.xpath(
+            "//*[contains(concat(' ', normalize-space(@class), ' '), ' facodi-course-gap-callout ')]"
+        )
+        self.assertEqual(len(callout), 1)
+        self.assertIn(
+            "waiting for its first reviewed learning resource",
+            callout[0].text_content(),
+        )
+        links = callout[0].xpath(".//a[contains(@href, '/submissions/new?type=resource')]")
+        self.assertEqual(len(links), 1)
+        self.assertIn("source=course_gap", links[0].get("href", ""))
+        self.assertIn(f"channel_id={gap.id}", links[0].get("href", ""))

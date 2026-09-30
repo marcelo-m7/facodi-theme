@@ -6,15 +6,16 @@
         <xpath expr="//div[@id='wrap']/div[contains(concat(' ', normalize-space(@class), ' '), ' container ')][1]"
                position="before">
             <section class="container facodi-learning-hero facodi-learning-catalogue-hero my-4">
-                <div>
+                <div class="facodi-learning-catalogue-intro">
                     <span class="facodi-label">Learning catalogue</span>
-                    <h1 class="display-5 mb-0">Courses</h1>
+                    <h1 class="display-5 mb-2">Courses</h1>
+                    <p class="facodi-learning-catalogue-copy mb-0">Start with a topic, explore the curated open resources inside it, and move between courses, learning paths and curricular context without losing your place.</p>
                 </div>
                 <nav class="facodi-index-tabs facodi-index-tabs--courses"
                      aria-label="Learning catalogue">
                     <a href="/courses" aria-current="page">Courses</a>
-                    <a href="/roadmaps">Roadmaps</a>
-                    <a href="/curricular-units">Curricular Units</a>
+                    <a href="/roadmaps">Learning paths</a>
+                    <a href="/curricular-units">Curricular units</a>
                 </nav>
             </section>
         </xpath>
@@ -44,6 +45,12 @@
         <xpath expr="//a[contains(@t-attf-class, 'o_wslides_course_card')]"
                position="attributes">
             <attribute name="t-attf-class" add="facodi-record-card facodi-course-record-card" separator=" "/>
+        </xpath>
+        <xpath expr="//a[contains(@t-attf-class, 'o_wslides_course_card')]" position="inside">
+            <span t-if="not channel.total_slides"
+                  class="facodi-course-gap-badge">
+                Coverage gap
+            </span>
         </xpath>
         <xpath expr="//div[@t-field='channel.image_1920']" position="replace">
             <t t-set="facodi_visual" t-value="facodi_catalog_visuals.get(channel.id)"/>
@@ -76,6 +83,22 @@
         <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_course_main ')]"
                position="attributes">
             <attribute name="class" add="facodi-course-study-shell" separator=" "/>
+        </xpath>
+        <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_course_main ')]"
+               position="inside">
+            <aside t-if="not channel.total_slides"
+                   class="facodi-course-gap-callout"
+                   aria-label="Course coverage gap">
+                <div>
+                    <p class="facodi-label mb-2">Coverage gap</p>
+                    <h2 class="h4 mb-2">This course is waiting for its first reviewed learning resource.</h2>
+                    <p class="mb-0">You can still use this page as curricular context, or help the community by suggesting a relevant open resource for editorial review.</p>
+                </div>
+                <a class="btn facodi-button facodi-button-primary"
+                   t-att-href="'/submissions/new?type=resource&amp;source=course_gap&amp;section=course&amp;channel_id=%s' % channel.id">
+                    Suggest a resource
+                </a>
+            </aside>
         </xpath>
     </template>
 
