@@ -122,12 +122,20 @@ grep -Fq 'min-height: 5.25rem' theme_facodi/static/src/scss/editorial_interfaces
 ABOUT_TEMPLATE="theme_facodi/views/page_templates.xml"
 grep -Fq 'class="oe_structure facodi-about-rebuilt"' "$ABOUT_TEMPLATE" \
   || fail "rebuilt About page root missing"
-grep -Fq 'overflow-x:hidden' "$ABOUT_TEMPLATE" \
-  || fail "rebuilt About page must hard-stop page-level horizontal overflow"
+grep -Fq 'overflow:hidden' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About page must hard-stop page-level overflow"
+grep -Fq 'min-width:0' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About page descendants must be allowed to shrink"
+grep -Fq 'overflow-wrap:anywhere' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About copy must not force horizontal overflow"
 grep -Fq 'id="how-it-works"' "$ABOUT_TEMPLATE" \
   || fail "rebuilt About page must preserve the how-it-works anchor"
 grep -Fq 'about_resource_cta&amp;section=about' "$ABOUT_TEMPLATE" \
   || fail "rebuilt About page contribution CTA must preserve provenance"
 if awk '/new_page_template_sections_facodi_about/{flag=1} /new_page_template_sections_facodi_community/{flag=0} flag' "$ABOUT_TEMPLATE" | grep -Eq 't-snippet-call|data-facodi-dot-grid|data-facodi-motion'; then
   fail "rebuilt About page must not use interactive snippet composition"
+fi
+
+if awk '/new_page_template_sections_facodi_about/{flag=1} /new_page_template_sections_facodi_community/{flag=0} flag' "$ABOUT_TEMPLATE" | grep -Eq 'position:fixed|position:absolute|100vw'; then
+  fail "rebuilt About page must not introduce viewport-sized or detached layout primitives"
 fi
