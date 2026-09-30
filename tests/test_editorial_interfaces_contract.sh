@@ -63,15 +63,7 @@ from xml.etree import ElementTree as ET
 root = ET.parse("theme_facodi/views/page_templates.xml").getroot()
 
 expected = {
-    "new_page_template_sections_facodi_about": [
-        "s_facodi_about_hero",
-        "s_facodi_project_story",
-        "s_facodi_principles_ledger",
-        "s_facodi_process_timeline",
-        "s_facodi_institutional",
-        "s_facodi_editorial_routes",
-        "s_facodi_cta_sheet",
-    ],
+    "new_page_template_sections_facodi_about": [],
     "new_page_template_sections_facodi_how": [
         "s_facodi_intro",
         "s_facodi_process_timeline",
@@ -126,3 +118,16 @@ grep -Fq 'grid-template-columns: 3rem minmax(0, 1fr)' theme_facodi/static/src/sc
   || fail "process timeline must use a fixed index rail"
 grep -Fq 'min-height: 5.25rem' theme_facodi/static/src/scss/editorial_interfaces.scss \
   || fail "process timeline content blocks need consistent vertical rhythm"
+
+ABOUT_TEMPLATE="theme_facodi/views/page_templates.xml"
+grep -Fq 'class="oe_structure facodi-about-rebuilt"' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About page root missing"
+grep -Fq 'overflow-x:hidden' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About page must hard-stop page-level horizontal overflow"
+grep -Fq 'id="how-it-works"' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About page must preserve the how-it-works anchor"
+grep -Fq 'about_resource_cta&amp;section=about' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About page contribution CTA must preserve provenance"
+if awk '/new_page_template_sections_facodi_about/{flag=1} /new_page_template_sections_facodi_community/{flag=0} flag' "$ABOUT_TEMPLATE" | grep -Eq 't-snippet-call|data-facodi-dot-grid|data-facodi-motion'; then
+  fail "rebuilt About page must not use interactive snippet composition"
+fi
