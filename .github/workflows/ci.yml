@@ -16,6 +16,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Odoo theme data quality contract
+        run: python3 tests/test_odoo_data_quality.py
+
       - name: Theme repository contract
         run: bash tests/test_module_contract.sh
 
