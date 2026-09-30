@@ -619,14 +619,14 @@ msgstr ""
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
-msgid "Roadmaps"
+msgid "Learning paths"
 msgstr ""
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
-msgid "Curricular Units"
+msgid "Curricular units"
 msgstr ""
 
 #. module: theme_facodi
@@ -638,7 +638,7 @@ msgstr ""
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
-msgid "Explore Roadmaps"
+msgid "Explore learning paths"
 msgstr ""
 
 #. module: theme_facodi
@@ -1772,7 +1772,7 @@ msgstr ""
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
-msgid "Move between topics, courses, Roadmaps and academic context when a connection helps."
+msgid "Move between topics, courses, learning paths and academic context when a connection helps."
 msgstr ""
 
 #. module: theme_facodi
@@ -2076,7 +2076,7 @@ msgstr ""
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
-msgid "Start with a course, Roadmap, curricular unit or one very concrete question."
+msgid "Start with a course, learning path, curricular unit or one very concrete question."
 msgstr ""
 
 #. module: theme_facodi
@@ -2206,7 +2206,7 @@ msgstr ""
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
-msgid "Explore courses, Roadmaps and curricular units built from public learning resources, reviewed context and community contribution."
+msgid "Explore courses, learning paths and curricular units built from public learning resources, reviewed context and community contributions."
 msgstr ""
 
 #. module: theme_facodi
