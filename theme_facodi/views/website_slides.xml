@@ -80,6 +80,32 @@
     <template id="facodi_course_main"
               inherit_id="website_slides.course_main"
               name="FACODI Course Study Shell">
+        <xpath expr="//div[@t-field='channel.image_1920']" position="replace">
+            <t t-set="facodi_course_visuals" t-value="channel._facodi_catalog_visuals()"/>
+            <t t-set="facodi_course_visual" t-value="facodi_course_visuals.get(channel.id)"/>
+            <div class="d-flex align-items-end justify-content-around h-100">
+                <img t-if="facodi_course_visual and facodi_course_visual.get('kind') == 'slide'"
+                     t-att-src="'/web/image/slide.slide/%s/image_512' % facodi_course_visual['slide'].id"
+                     t-att-alt="facodi_course_visual.get('alt') or channel.name or 'FACODI course'"
+                     class="o_wslides_course_pict d-inline-block mb-2 mt-3 my-md-0 facodi-course-cover"
+                     loading="eager"
+                     decoding="async"/>
+                <img t-elif="facodi_course_visual and facodi_course_visual.get('kind') == 'youtube'"
+                     t-att-src="facodi_course_visual.get('url')"
+                     t-att-alt="facodi_course_visual.get('alt') or channel.name or 'FACODI course'"
+                     class="o_wslides_course_pict d-inline-block mb-2 mt-3 my-md-0 facodi-course-cover"
+                     loading="eager"
+                     decoding="async"
+                     referrerpolicy="strict-origin-when-cross-origin"/>
+                <div t-else=""
+                     class="facodi-course-fallback facodi-course-cover"
+                     aria-hidden="true">
+                    <span class="facodi-course-fallback-brand" t-translation="off">FACODI.</span>
+                    <strong t-out="(channel.name or '')[:2].upper()"/>
+                    <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
+                </div>
+            </div>
+        </xpath>
         <xpath expr="//div[contains(concat(' ', normalize-space(@class), ' '), ' o_wslides_course_main ')]"
                position="attributes">
             <attribute name="class" add="facodi-course-study-shell" separator=" "/>
