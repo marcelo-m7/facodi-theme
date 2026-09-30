@@ -17,7 +17,7 @@ fi
 grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.71.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
+grep -Fq '"version": "19.0.10.72.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
 grep -Fq 'id="visual_direction_page"' theme_facodi/views/website_public.xml || fail "visual direction page missing"
 if grep -R -nE '<template[^>]+page=' theme_facodi/views --include='*.xml'; then
   fail "Odoo 19 theme templates must not use the removed page attribute"
@@ -268,6 +268,12 @@ grep -Fq 'web._assets_frontend_helpers' theme_facodi/data/ir_asset.xml || fail "
 grep -Fq 'facodi-footer' theme_facodi/views/customizations.xml || fail "live FACODI footer missing"
 grep -Fq 'facodi-footer-heading-link' theme_facodi/views/customizations.xml || fail "footer parent destinations must remain clickable"
 grep -Fq 'content="#142846"' theme_facodi/views/customizations.xml || fail "live browser theme color missing"
+grep -Fq 'Open learning resources, curricular context and community contributions' theme_facodi/views/customizations.xml \
+  || fail "footer purpose copy must avoid qualification ambiguity"
+grep -Fq 'href="/accessibility"' theme_facodi/views/customizations.xml \
+  || fail "footer accessibility link missing"
+grep -Fq 'href="/cookie-policy"' theme_facodi/views/customizations.xml \
+  || fail "footer cookie policy link missing"
 
 python3 - <<'PY'
 from pathlib import Path
@@ -375,7 +381,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.71.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.72.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"
