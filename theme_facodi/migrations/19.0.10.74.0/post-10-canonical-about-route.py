@@ -67,6 +67,20 @@ def migrate(cr, version):
         _normalise_rewrite(env, Rewrite, sequence, url_from, url_to)
 
     for website in env["website"].search([]):
+        # Older FACODI redirect migrations may already have rewritten menu
+        # sources to the previous canonical About destination. Collapse those
+        # persisted targets too so chained upgrades end at the current IA.
+        legacy_target_menus = Menu.search([
+            ("website_id", "=", website.id),
+            ("url", "in", ["/sobre", "/sobre#how-it-works"]),
+        ])
+        for menu in legacy_target_menus:
+            menu.url = (
+                "/about#how-it-works"
+                if menu.url == "/sobre#how-it-works"
+                else "/about"
+            )
+
         about_pages = Page.search([
             ("website_id", "in", [False, website.id]),
             ("url", "=", "/about"),
