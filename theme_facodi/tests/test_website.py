@@ -23,10 +23,11 @@ class TestFacodiTheme(HttpCase):
         website = self.env["website"].get_current_website()
         expected = {
             "/facodi": "/",
-            "/manifesto": "/sobre",
-            "/comunidade": "/sobre",
-            "/parceiros": "/sobre",
-            "/roadmap": "/sobre#how-it-works",
+            "/sobre": "/about",
+            "/manifesto": "/about",
+            "/comunidade": "/about",
+            "/parceiros": "/about",
+            "/roadmap": "/about#how-it-works",
             "/como-contribuir": "/contribuir/recurso",
             "/contribuir": "/contribuir/recurso",
         }
@@ -683,7 +684,7 @@ class TestFacodiTheme(HttpCase):
         pages = self.env["website.page"].search(
             [
                 ("website_id", "=", website.id),
-                ("url", "in", ["/sobre", "/contribuir", "/manifesto", "/parceiros"]),
+                ("url", "in", ["/about", "/sobre", "/contribuir", "/manifesto", "/parceiros"]),
             ]
         )
         self.assertFalse(

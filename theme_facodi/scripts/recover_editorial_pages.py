@@ -88,7 +88,7 @@ about = _upsert_view(
   </t>
 </t>""",
 )
-_upsert_page("/sobre", "About FACODI", about)
+_upsert_page("/about", "About FACODI", about)
 
 PAGES = {
     "/academic-model": {
@@ -149,4 +149,4 @@ for url, spec in PAGES.items():
         _set_translation(view, lang, name, arch)
 
 env.cr.commit()
-print("FACODI editorial recovery complete: homepage, /sobre and %s public pages" % len(PAGES))
+print("FACODI editorial recovery complete: homepage, /about and %s public pages" % len(PAGES))

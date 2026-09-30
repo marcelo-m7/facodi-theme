@@ -2,6 +2,7 @@
 
 REDIRECTS = (
     ("/facodi", "/"),
+    ("/sobre", "/about"),
     ("/manifesto", "/sobre"),
     ("/comunidade", "/sobre"),
     ("/parceiros", "/sobre"),

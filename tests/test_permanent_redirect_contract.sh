@@ -14,7 +14,7 @@ MIGRATION="theme_facodi/migrations/19.0.10.1.0/post-10-permanent-editorial-redir
 
 grep -Fq '"data/website_rewrites.xml"' theme_facodi/__manifest__.py   || fail "redirect data must be loaded by manifest"
 
-for mapping in   '/facodi|/'   '/manifesto|/sobre'   '/comunidade|/sobre'   '/parceiros|/sobre'   '/roadmap|/sobre#how-it-works'   '/como-contribuir|/contribuir/recurso'   '/contribuir|/contribuir/recurso'; do
+for mapping in   '/facodi|/'   '/sobre|/about'   '/manifesto|/about'   '/comunidade|/about'   '/parceiros|/about'   '/roadmap|/about#how-it-works'   '/como-contribuir|/contribuir/recurso'   '/contribuir|/contribuir/recurso'; do
   from="${mapping%%|*}"
   to="${mapping#*|}"
   grep -Fq "<field name=\"url_from\">${from}</field>" "$DATA"     || fail "missing 301 source ${from}"
@@ -22,7 +22,7 @@ for mapping in   '/facodi|/'   '/manifesto|/sobre'   '/comunidade|/sobre'   '/pa
 done
 
 count="$(grep -c '<field name="redirect_type">301</field>' "$DATA")"
-[[ "$count" -eq 7 ]] || fail "expected exactly seven permanent redirect records"
+[[ "$count" -eq 8 ]] || fail "expected exactly eight permanent redirect records"
 
 if grep -Fq '<field name="url_from">/roadmaps</field>' "$DATA"; then
   fail "curriculum /roadmaps route must never be redirected"
@@ -39,5 +39,12 @@ grep -Fq "/roadmaps" "$MIGRATION" && fail "migration must not touch curriculum /
 
 grep -Fq 'background-color: #0B1325 !important' theme_facodi/static/src/scss/website.scss   || fail "footer shell must remain #0B1325"
 grep -Fq 'background: #0B1325' theme_facodi/static/src/scss/website.scss   || fail "FACODI footer must remain #0B1325"
+
+MIGRATION="theme_facodi/migrations/19.0.10.74.0/post-10-canonical-about-route.py"
+[[ -f "$MIGRATION" ]] || fail "canonical About migration missing"
+grep -Fq '("/sobre", "/about")' "$MIGRATION" \
+  || fail "canonical About migration must retain /sobre as a 301 source"
+grep -Fq 'canonical_page.write({"url": "/about"})' "$MIGRATION" \
+  || fail "canonical About migration must preserve the editor-owned page"
 
 echo "PASS: permanent editorial redirect contract"

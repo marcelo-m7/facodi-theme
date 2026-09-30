@@ -17,7 +17,7 @@ fi
 grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.73.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
+grep -Fq '"version": "19.0.10.74.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
 grep -Fq 'id="visual_direction_page"' theme_facodi/views/website_public.xml || fail "visual direction page missing"
 if grep -R -nE '<template[^>]+page=' theme_facodi/views --include='*.xml'; then
   fail "Odoo 19 theme templates must not use the removed page attribute"
@@ -165,12 +165,12 @@ done
 
 # Default snippets use the canonical FACODI editorial and learning routes.
 # General contact/contribution actions go through the contextual intake.
-# Production FACODI owns the editor-managed /sobre page. Homepage snippets may
+# Production FACODI owns the editor-managed /about page. Homepage snippets may
 # link to it, but the theme must not create or overwrite that page.
 if grep -R -Fq 'href="/contactus"' theme_facodi/views/snippets --include='*.xml'; then
   fail "FACODI snippets must not bypass the contextual contact intake"
 fi
-grep -Fq 'href="/sobre">See how FACODI works' theme_facodi/views/snippets/s_facodi_hero.xml \
+grep -Fq 'href="/about">See how FACODI works' theme_facodi/views/snippets/s_facodi_hero.xml \
   || fail "hero explanation CTA must use the live editor-managed About page"
 if grep -Riq 'dither[- _]veil' theme_facodi/static theme_facodi/views theme_facodi/__manifest__.py; then
   fail "removed Dither Veil implementation must not remain in the live theme"
@@ -381,7 +381,17 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.73.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.74.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+
+ABOUT_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.74.0/post-10-canonical-about-route.py"
+[[ -f "$ABOUT_ROUTE_MIGRATION" ]] || fail "canonical About-route migration missing"
+grep -Fq '("/sobre", "/about")' "$ABOUT_ROUTE_MIGRATION" \
+  || fail "canonical About migration must preserve the /sobre compatibility redirect"
+grep -Fq 'canonical_page.write({"url": "/about"})' "$ABOUT_ROUTE_MIGRATION" \
+  || fail "canonical About migration must move the editor-owned page instead of recreating it"
+if grep -R -Fq 'href="/sobre"' theme_facodi/views/snippets --include='*.xml'; then
+  fail "live FACODI snippets must use canonical /about"
+fi
 
 CANONICAL_ROUTE_MIGRATION="theme_facodi/migrations/19.0.10.20.0/post-20-canonical-learning-routes.py"
 [[ -f "$CANONICAL_ROUTE_MIGRATION" ]] || fail "canonical learning-route upgrade migration missing"

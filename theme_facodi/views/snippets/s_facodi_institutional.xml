@@ -20,7 +20,7 @@
                         <p>FACODI is a community-learning project connected to the University of Algarve and the SEA-EU ecosystem. Official curricular references provide context; the community layer helps people discover, discuss and improve public learning resources.</p>
                     </div>
                     <div class="facodi-actions">
-                        <a href="/sobre" class="btn facodi-button facodi-button-secondary">Read the project file</a>
+                        <a href="/about" class="btn facodi-button facodi-button-secondary">Read the project file</a>
                         <a href="/contact?source=institutional_contact_cta&amp;section=institutional&amp;topic=partnership" class="facodi-text-link">Build something with FACODI</a>
                         <a href="https://sea-eu.org/" class="facodi-text-link" target="_blank" rel="noopener noreferrer">
                             SEA-EU
