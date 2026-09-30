@@ -13,7 +13,6 @@
     <!-- Odoo 19 page generator cannot format qualified snippet keys (list vs tuple).
          Keep native primary section templates explicit until upstream fixes it. -->
     <template id="new_page_template_sections_facodi_about" name="FACODI About">
-        <t t-set="facodi_lang" t-value="request.env.context.get('lang') or 'en_GB'"/>
         <div id="wrap" class="oe_structure facodi-about-rebuilt">
             <style>
                 .facodi-about-rebuilt{overflow-x:hidden;background:#F9FAFB;color:#142846}
@@ -51,24 +50,13 @@
             <section class="fa-section fa-grid">
                 <div class="container">
                     <div class="fa-hero">
-                        <t t-if="facodi_lang == 'pt_PT'">
-                            <span class="fa-kicker">Sobre a FACODI</span>
-                            <h1 class="fa-title">Aprendizagem aberta com contexto para não perder o fio.</h1>
-                            <p class="fa-lead">A FACODI organiza cursos, vídeos e recursos públicos em percursos mais claros. O objetivo é tornar mais fácil estudar, descobrir ligações úteis e contribuir com bons recursos sem confundir contexto curricular com equivalência académica.</p>
-                            <div class="fa-actions">
-                                <a class="fa-btn fa-btn-primary" href="/courses">Explorar cursos</a>
-                                <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about">Contribuir com um recurso</a>
-                            </div>
-                        </t>
-                        <t t-else="">
-                            <span class="fa-kicker">About FACODI</span>
-                            <h1 class="fa-title">Open learning with enough context to keep the thread.</h1>
-                            <p class="fa-lead">FACODI organises public courses, videos and learning resources into clearer paths. The goal is to make studying, discovering useful connections and contributing good resources easier—without confusing curricular context with academic equivalence.</p>
-                            <div class="fa-actions">
-                                <a class="fa-btn fa-btn-primary" href="/courses">Explore courses</a>
-                                <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about">Contribute a resource</a>
-                            </div>
-                        </t>
+                        <span class="fa-kicker">About FACODI</span>
+                        <h1 class="fa-title">Open learning with enough context to keep the thread.</h1>
+                        <p class="fa-lead">FACODI organises public courses, videos and learning resources into clearer paths. The goal is to make studying, discovering useful connections and contributing good resources easier—without confusing curricular context with academic equivalence.</p>
+                        <div class="fa-actions">
+                            <a class="fa-btn fa-btn-primary" href="/courses">Explore courses</a>
+                            <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about">Contribute a resource</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -77,31 +65,16 @@
                 <div class="container">
                     <div class="row g-4 align-items-start">
                         <div class="col-lg-7">
-                            <t t-if="facodi_lang == 'pt_PT'">
-                                <span class="fa-kicker">Porquê existe</span>
-                                <h2 class="fa-section-title mt-3">Demasiados bons separadores. Pouco mapa.</h2>
-                                <p class="fa-copy">A FACODI nasceu de um hábito simples: estudar através de excelentes aulas, vídeos, documentação e materiais públicos espalhados pela Internet — e depois perder a relação entre eles.</p>
-                                <p class="fa-copy">A plataforma organiza esses recursos em torno de cursos, unidades curriculares e percursos de aprendizagem, deixando explícito o que é contexto, o que é contribuição comunitária e o que foi efetivamente publicado.</p>
-                            </t>
-                            <t t-else="">
-                                <span class="fa-kicker">Why it exists</span>
-                                <h2 class="fa-section-title mt-3">Too many good tabs. Not enough map.</h2>
-                                <p class="fa-copy">FACODI grew from a simple study habit: learning from excellent public lessons, videos, documentation and open materials scattered across the web—and then losing the relationship between them.</p>
-                                <p class="fa-copy">The platform organises those resources around courses, curricular units and learning paths, while keeping context, community contribution and published material clearly distinct.</p>
-                            </t>
+                            <span class="fa-kicker">Why it exists</span>
+                            <h2 class="fa-section-title mt-3">Too many good tabs. Not enough map.</h2>
+                            <p class="fa-copy">FACODI grew from a simple study habit: learning from excellent public lessons, videos, documentation and open materials scattered across the web—and then losing the relationship between them.</p>
+                            <p class="fa-copy">The platform organises those resources around courses, curricular units and learning paths, while keeping context, community contribution and published material clearly distinct.</p>
                         </div>
                         <div class="col-lg-5">
                             <div class="fa-card fa-card--cyan">
-                                <t t-if="facodi_lang == 'pt_PT'">
-                                    <span class="fa-kicker">Limite importante</span>
-                                    <h3 class="h4 mt-3">Contexto não é equivalência.</h3>
-                                    <p class="mb-0">Referências curriculares ajudam a navegar. Não criam ECTS, equivalência académica ou uma qualificação formal.</p>
-                                </t>
-                                <t t-else="">
-                                    <span class="fa-kicker">Important boundary</span>
-                                    <h3 class="h4 mt-3">Context is not equivalence.</h3>
-                                    <p class="mb-0">Curricular references help navigation. They do not create ECTS, academic equivalence or a formal qualification.</p>
-                                </t>
+                                <span class="fa-kicker">Important boundary</span>
+                                <h3 class="h4 mt-3">Context is not equivalence.</h3>
+                                <p class="mb-0">Curricular references help navigation. They do not create ECTS, academic equivalence or a formal qualification.</p>
                             </div>
                         </div>
                     </div>
@@ -110,37 +83,25 @@
 
             <section class="fa-section fa-grid fa-rule">
                 <div class="container">
-                    <t t-if="facodi_lang == 'pt_PT'">
-                        <span class="fa-kicker">Princípios</span>
-                        <h2 class="fa-section-title mt-3">Como a FACODI decide o que faz sentido.</h2>
-                    </t>
-                    <t t-else="">
-                        <span class="fa-kicker">Principles</span>
-                        <h2 class="fa-section-title mt-3">How FACODI decides what makes sense.</h2>
-                    </t>
+                    <span class="fa-kicker">Principles</span>
+                    <h2 class="fa-section-title mt-3">How FACODI decides what makes sense.</h2>
                     <div class="row g-4 mt-1">
-                        <div class="col-md-4"><div class="fa-card fa-card--sun"><h3 class="h4">01 · <t t-if="facodi_lang == 'pt_PT'">Aberto primeiro</t><t t-else="">Open first</t></h3><p class="mb-0"><t t-if="facodi_lang == 'pt_PT'">Preferimos recursos públicos que qualquer pessoa consiga abrir, partilhar e rever.</t><t t-else="">We prefer public resources people can open, share and revisit.</t></p></div></div>
-                        <div class="col-md-4"><div class="fa-card fa-card--mint"><h3 class="h4">02 · <t t-if="facodi_lang == 'pt_PT'">Contexto primeiro</t><t t-else="">Context first</t></h3><p class="mb-0"><t t-if="facodi_lang == 'pt_PT'">Um bom link é mais útil quando sabemos a que curso, tema ou pergunta de aprendizagem está ligado.</t><t t-else="">A good link is more useful when we know which course, topic or learning question it supports.</t></p></div></div>
-                        <div class="col-md-4"><div class="fa-card fa-card--cyan"><h3 class="h4">03 · <t t-if="facodi_lang == 'pt_PT'">Fronteiras claras</t><t t-else="">Clear boundaries</t></h3><p class="mb-0"><t t-if="facodi_lang == 'pt_PT'">Partilha comunitária, revisão editorial e publicação são estados diferentes e devem continuar visíveis.</t><t t-else="">Community sharing, editorial review and publication are different states and should remain visible.</t></p></div></div>
+                        <div class="col-md-4"><div class="fa-card fa-card--sun"><h3 class="h4">01 · Open first</h3><p class="mb-0">We prefer public resources people can open, share and revisit.</p></div></div>
+                        <div class="col-md-4"><div class="fa-card fa-card--mint"><h3 class="h4">02 · Context first</h3><p class="mb-0">A good link is more useful when we know which course, topic or learning question it supports.</p></div></div>
+                        <div class="col-md-4"><div class="fa-card fa-card--cyan"><h3 class="h4">03 · Clear boundaries</h3><p class="mb-0">Community sharing, editorial review and publication are different states and should remain visible.</p></div></div>
                     </div>
                 </div>
             </section>
 
             <section id="how-it-works" class="fa-section">
                 <div class="container">
-                    <t t-if="facodi_lang == 'pt_PT'">
-                        <span class="fa-kicker">Como funciona</span>
-                        <h2 class="fa-section-title mt-3">Da pergunta ao recurso útil.</h2>
-                    </t>
-                    <t t-else="">
-                        <span class="fa-kicker">How it works</span>
-                        <h2 class="fa-section-title mt-3">From a question to a useful resource.</h2>
-                    </t>
+                    <span class="fa-kicker">How it works</span>
+                    <h2 class="fa-section-title mt-3">From a question to a useful resource.</h2>
                     <div class="row g-4 mt-1">
-                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">1</span><div><h3 class="h5"><t t-if="facodi_lang == 'pt_PT'">Escolhe um ponto de partida</t><t t-else="">Choose a starting point</t></h3><p class="mb-0"><t t-if="facodi_lang == 'pt_PT'">Curso, unidade curricular, tema ou uma pergunta muito concreta.</t><t t-else="">A course, curricular unit, topic or one very concrete question.</t></p></div></div></div></div>
-                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">2</span><div><h3 class="h5"><t t-if="facodi_lang == 'pt_PT'">Explora recursos públicos</t><t t-else="">Explore public resources</t></h3><p class="mb-0"><t t-if="facodi_lang == 'pt_PT'">Segue apenas as ligações que ajudam a avançar.</t><t t-else="">Follow only the links that help you move forward.</t></p></div></div></div></div>
-                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">3</span><div><h3 class="h5"><t t-if="facodi_lang == 'pt_PT'">Liga o conteúdo ao contexto</t><t t-else="">Connect content to context</t></h3><p class="mb-0"><t t-if="facodi_lang == 'pt_PT'">Relaciona o recurso com o percurso para que não fique isolado.</t><t t-else="">Relate the resource to the learning path so it does not remain isolated.</t></p></div></div></div></div>
-                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">4</span><div><h3 class="h5"><t t-if="facodi_lang == 'pt_PT'">Devolve algo útil</t><t t-else="">Send something useful back</t></h3><p class="mb-0"><t t-if="facodi_lang == 'pt_PT'">Partilha um recurso, uma correção ou uma lacuna com contexto suficiente para ajudar outra pessoa.</t><t t-else="">Share a resource, correction or gap with enough context to help someone else.</t></p></div></div></div></div>
+                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">1</span><div><h3 class="h5">Choose a starting point</h3><p class="mb-0">A course, curricular unit, topic or one very concrete question.</p></div></div></div></div>
+                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">2</span><div><h3 class="h5">Explore public resources</h3><p class="mb-0">Follow only the links that help you move forward.</p></div></div></div></div>
+                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">3</span><div><h3 class="h5">Connect content to context</h3><p class="mb-0">Relate the resource to the learning path so it does not remain isolated.</p></div></div></div></div>
+                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">4</span><div><h3 class="h5">Send something useful back</h3><p class="mb-0">Share a resource, correction or gap with enough context to help someone else.</p></div></div></div></div>
                     </div>
                 </div>
             </section>
@@ -150,21 +111,14 @@
                     <div class="fa-cta">
                         <div class="row g-4 align-items-center">
                             <div class="col-lg-8">
-                                <t t-if="facodi_lang == 'pt_PT'">
-                                    <span class="fa-kicker">Campus em construção</span>
-                                    <h2 class="display-5 mt-3 mb-3">A FACODI melhora quando os bons recursos deixam de ficar perdidos.</h2>
-                                    <p class="fa-lead mb-0">Explora o catálogo ou partilha um recurso público que possa ser útil para outra pessoa.</p>
-                                </t>
-                                <t t-else="">
-                                    <span class="fa-kicker">Campus in progress</span>
-                                    <h2 class="display-5 mt-3 mb-3">FACODI gets better when good resources stop getting lost.</h2>
-                                    <p class="fa-lead mb-0">Explore the catalogue or share a public resource that could help someone else.</p>
-                                </t>
+                                <span class="fa-kicker">Campus in progress</span>
+                                <h2 class="display-5 mt-3 mb-3">FACODI gets better when good resources stop getting lost.</h2>
+                                <p class="fa-lead mb-0">Explore the catalogue or share a public resource that could help someone else.</p>
                             </div>
                             <div class="col-lg-4">
                                 <div class="d-grid gap-2">
-                                    <a class="fa-btn fa-btn-primary" href="/courses"><t t-if="facodi_lang == 'pt_PT'">Explorar catálogo</t><t t-else="">Explore catalogue</t></a>
-                                    <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about"><t t-if="facodi_lang == 'pt_PT'">Contribuir com um recurso</t><t t-else="">Contribute a resource</t></a>
+                                    <a class="fa-btn fa-btn-primary" href="/courses">Explore catalogue</a>
+                                    <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about">Contribute a resource</a>
                                 </div>
                             </div>
                         </div>
