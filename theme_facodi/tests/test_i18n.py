@@ -88,6 +88,59 @@ class TestFacodiThemeTranslations(HttpCase):
                 self.assertEqual(len(description), 1)
                 self.assertIn(expected_terms[3], description[0])
 
+    def test_native_odoo_canonical_and_hreflang_contract(self):
+        from lxml import html
+        from urllib.parse import urlparse
+
+        def seo_links(path):
+            response = self.url_open(path)
+            self.assertEqual(response.status_code, 200)
+            tree = html.fromstring(response.text)
+            canonical = tree.xpath('//link[@rel="canonical"]/@href')
+            alternates = {
+                node.get("hreflang"): node.get("href")
+                for node in tree.xpath('//link[@rel="alternate"][@hreflang]')
+            }
+            self.assertEqual(len(canonical), 1)
+            self.assertIn("x-default", alternates)
+            self.assertGreaterEqual(len(alternates), 5)
+            for href in [canonical[0], *alternates.values()]:
+                parsed = urlparse(href)
+                self.assertTrue(parsed.scheme)
+                self.assertTrue(parsed.netloc)
+            return canonical[0], alternates
+
+        canonical, alternates = seo_links("/")
+        self.assertTrue(canonical.endswith("/"))
+        alternate_paths = {urlparse(href).path for href in alternates.values()}
+        self.assertIn("/", alternate_paths)
+        self.assertIn("/pt", alternate_paths)
+        self.assertIn("/es", alternate_paths)
+        self.assertIn("/fr", alternate_paths)
+        self.assertEqual(urlparse(alternates["x-default"]).path, "/")
+
+        for locale in ("pt", "es", "fr"):
+            with self.subTest(locale=locale):
+                canonical, alternates = seo_links(f"/{locale}")
+                # Odoo keeps the homepage canonical on the root URL even when
+                # the rendered request uses a language prefix. Language
+                # variants are expressed through hreflang alternates instead.
+                self.assertEqual(urlparse(canonical).path, "/")
+                localized_paths = {
+                    urlparse(href).path for href in alternates.values()
+                }
+                self.assertIn(f"/{locale}", localized_paths)
+                self.assertEqual(urlparse(alternates["x-default"]).path, "/")
+
+    def test_native_odoo_sitemap_remains_available(self):
+        response = self.url_open("/sitemap.xml")
+        self.assertEqual(response.status_code, 200)
+        content_type = response.headers.get("Content-Type", "")
+        self.assertIn("xml", content_type.lower())
+        self.assertIn("<loc>", response.text)
+        self.assertIn(self.base_url(), response.text)
+        self.assertNotIn("/web/login", response.text)
+
     def test_builder_snippet_copy_uses_native_translations(self):
         hero = self._website_view("theme_facodi.s_facodi_hero")
         expected_by_lang = {
