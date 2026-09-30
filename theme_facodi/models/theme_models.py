@@ -57,7 +57,7 @@ class WebsiteMenu(models.Model):
         if "/courses" in child_urls and "/roadmaps" in child_urls:
             return "/explore"
         if "/academic-model" in child_urls or "/about-ualg" in child_urls:
-            return "/sobre"
+            return "/about"
         # Community intentionally remains a disclosure-only parent until
         # FACODI has a dedicated community landing page. A child such as /forum
         # is not silently promoted to a different information-architecture role.
