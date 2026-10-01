@@ -649,7 +649,7 @@ class TestFacodiTheme(HttpCase):
             if "facodi-about-rebuilt" in template["template"]:
                 about_templates += 1
                 self.assertEqual(blocks, [])
-                self.assertIn("overflow:hidden", template["template"])
+                self.assertIn("overflow-x:hidden", template["template"])
                 self.assertIn('id="how-it-works"', template["template"])
                 self.assertNotIn("data-facodi-motion", template["template"])
                 self.assertNotIn("data-facodi-dot-grid", template["template"])
