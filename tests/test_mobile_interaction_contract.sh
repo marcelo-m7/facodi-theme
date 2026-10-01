@@ -28,6 +28,33 @@ if ".navbar-toggler-icon" not in website_scss:
         "FAIL: mobile header must explicitly keep the native hamburger icon visible"
     )
 
+# The mobile shell must remain usable on narrow/notched devices and with long
+# translated labels. These are presentation contracts around Odoo's native
+# offcanvas markup, not a replacement navigation implementation.
+mobile_start = website_scss.find(".o_header_mobile {")
+if mobile_start < 0:
+    raise SystemExit("FAIL: native mobile header styling block missing")
+mobile = website_scss[mobile_start:mobile_start + 9000]
+for marker in (
+    "safe-area-inset-left",
+    "safe-area-inset-right",
+    "safe-area-inset-bottom",
+    "overscroll-behavior-y: contain",
+    "overflow-wrap: anywhere",
+    "white-space: normal",
+    "max-width: 100vw",
+):
+    if marker not in mobile:
+        raise SystemExit(f"FAIL: mobile navigation containment marker missing: {marker}")
+if 'max-width: #{"min(10rem, 42vw)"}' not in mobile:
+    raise SystemExit("FAIL: mobile brand must shrink instead of pushing controls off-screen")
+if ".offcanvas .btn-close {" not in mobile:
+    raise SystemExit("FAIL: mobile offcanvas close control styling missing")
+close_block = mobile.split(".offcanvas .btn-close {", 1)[1].split("}", 1)[0]
+for marker in ("min-height: 2.75rem", "min-width: 2.75rem"):
+    if marker not in close_block:
+        raise SystemExit(f"FAIL: offcanvas close target missing {marker}")
+
 # The FACODI content-type cue must live inside Odoo's standard lesson link.
 # Keeping it as a sibling of the icon creates a non-clickable touch target on
 # narrow screens and shrinks the title link users need to open the lesson.
@@ -191,6 +218,14 @@ for selector, markers in checks.items():
             raise SystemExit(
                 f"FAIL: shell navigation target contract missing {marker} near {selector}"
             )
+
+mobile_split_pos = source.find(".facodi-split-menu--mobile")
+if mobile_split_pos < 0:
+    raise SystemExit("FAIL: mobile split-menu containment block missing")
+mobile_split = source[mobile_split_pos:mobile_split_pos + 1200]
+for marker in ("grid-template-columns: minmax(0, 1fr) auto", "width: 100%", "width: 3rem"):
+    if marker not in mobile_split:
+        raise SystemExit(f"FAIL: mobile split-menu control missing {marker}")
 
 footer_mobile = source.split("@media (max-width: 43.99rem)", 1)[1]
 if "min-height: 2.75rem" not in footer_mobile:
