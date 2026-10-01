@@ -9,7 +9,7 @@ Odoo 19 Community
 ├── website + Website Builder
 ├── portal
 ├── website_slides
-└── theme_common (pinned from odoo/design-themes)
+└── website_blog
           │
           ▼
      theme_facodi
@@ -88,7 +88,7 @@ assets.
 The addon follows Odoo design-theme conventions:
 
 - technical module name `theme_facodi`;
-- `theme_common` sourced from official `odoo/design-themes`;
+- no external design-theme runtime dependency;
 - primary variables registered in `web._assets_primary_variables`;
 - Bootstrap overrides registered in `web._assets_frontend_helpers`;
 - Website Builder extensions registered through `html_builder.assets`;
