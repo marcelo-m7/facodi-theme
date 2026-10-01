@@ -15,8 +15,8 @@
     <template id="new_page_template_sections_facodi_about" name="FACODI About">
         <div id="wrap" class="oe_structure facodi-about-rebuilt">
             <style>
-                .facodi-about-rebuilt{overflow-x:hidden;background:#F9FAFB;color:#142846}
-                .facodi-about-rebuilt *{box-sizing:border-box}
+                .facodi-about-rebuilt{position:relative;isolation:isolate;width:100%;max-width:100%;overflow-x:hidden;overflow-y:visible;background:#F9FAFB;color:#142846}
+                .facodi-about-rebuilt *{box-sizing:border-box;min-width:0}.facodi-about-rebuilt p,.facodi-about-rebuilt h1,.facodi-about-rebuilt h2,.facodi-about-rebuilt h3,.facodi-about-rebuilt a{overflow-wrap:anywhere}
                 .facodi-about-rebuilt .fa-section{padding:clamp(2.5rem,6vw,5rem) 0;position:relative;max-width:100%}
                 .facodi-about-rebuilt .fa-grid{background-image:linear-gradient(rgba(20,40,70,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(20,40,70,.08) 1px,transparent 1px);background-size:28px 28px}
                 .facodi-about-rebuilt .fa-hero{background:#142846;color:#fff;border:2px solid #142846;border-radius:24px;box-shadow:8px 8px 0 #EFFF00;padding:clamp(1.5rem,5vw,4rem)}

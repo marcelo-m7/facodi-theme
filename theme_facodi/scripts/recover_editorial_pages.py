@@ -79,14 +79,21 @@ homepage.write(
     }
 )
 
+about_template = env.ref("theme_facodi.new_page_template_sections_facodi_about")
+about_body = about_template.with_context(lang="en_GB").arch_db.strip()
+if "t-snippet-call" in about_body:
+    raise RuntimeError("FACODI About recovery requires a static, runtime-safe composition")
+if 'id="wrap"' not in about_body:
+    raise RuntimeError("FACODI About recovery composition must own the Website wrap")
+
 about = _upsert_view(
     "website.facodi_about",
     "About FACODI",
     """<t name="About FACODI" t-name="website.facodi_about">
   <t t-call="website.layout">
-    <t t-call="theme_facodi.new_page_template_sections_facodi_about"/>
+%s
   </t>
-</t>""",
+</t>""" % about_body,
 )
 _upsert_page("/about", "About FACODI", about)
 
