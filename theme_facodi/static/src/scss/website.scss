@@ -182,10 +182,46 @@
         background: var(--facodi-paper-warm);
         border-bottom: var(--facodi-border);
 
+        > .o_main_nav {
+            align-items: center;
+            display: flex;
+            gap: .4rem;
+            min-width: 0;
+            padding-left: #{"max(.75rem, env(safe-area-inset-left))"};
+            padding-right: #{"max(.75rem, env(safe-area-inset-right))"};
+        }
+
+        > .o_main_nav .navbar-brand {
+            flex: 1 1 auto;
+            margin-right: 0;
+            max-width: #{"min(10rem, 42vw)"};
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        > .o_main_nav .navbar-brand img {
+            display: block;
+            height: auto;
+            max-height: 2.5rem;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .o_header_mobile_buttons_wrap {
+            align-items: center;
+            display: flex;
+            flex: 0 0 auto;
+            flex-wrap: nowrap;
+            gap: .25rem;
+            margin-left: auto;
+            min-width: 0;
+        }
+
         // The standard Odoo mobile navigation/search drawers used to expose
         // the default Bootstrap surface. Keep their mechanics native while
         // making the whole mobile shell unmistakably FACODI.
         .offcanvas {
+            --bs-offcanvas-width: #{"min(24rem, calc(100vw - .75rem))"};
             background:
                 linear-gradient(color-mix(in srgb, var(--facodi-cyan) 8%, transparent) 1px, transparent 1px),
                 linear-gradient(90deg, color-mix(in srgb, var(--facodi-cyan) 8%, transparent) 1px, transparent 1px),
@@ -193,16 +229,38 @@
             background-size: 24px 24px;
             border-color: var(--facodi-ink);
             color: var(--facodi-ink);
+            max-width: 100vw;
         }
 
         .offcanvas-header {
             background: var(--facodi-surface-sheet);
             border-bottom: 2px solid var(--facodi-ink);
             min-height: 4rem;
+            padding-left: #{"max(1rem, env(safe-area-inset-left))"};
+            padding-right: #{"max(1rem, env(safe-area-inset-right))"};
+            padding-top: #{"max(1rem, env(safe-area-inset-top))"};
         }
 
         .offcanvas-body {
-            padding: 1rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+            overscroll-behavior-y: contain;
+            padding:
+                1rem
+                #{"max(1rem, env(safe-area-inset-right))"}
+                #{"max(1rem, env(safe-area-inset-bottom))"}
+                #{"max(1rem, env(safe-area-inset-left))"};
+        }
+
+        .offcanvas .navbar-nav {
+            min-width: 0;
+            width: 100%;
+        }
+
+        .offcanvas .nav-item,
+        .offcanvas .accordion-item {
+            min-width: 0;
+            width: 100%;
         }
 
         .offcanvas .navbar-nav,
@@ -210,22 +268,32 @@
             gap: .45rem;
         }
 
-        .offcanvas .nav-link,
-        .offcanvas .dropdown-toggle {
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle),
+        .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle),
+        .offcanvas .accordion-button:not(.facodi-split-menu__toggle) {
             background: var(--facodi-surface-sheet);
             border: 1px solid color-mix(in srgb, var(--facodi-ink) 38%, transparent);
             border-radius: var(--facodi-radius-sm);
             color: var(--facodi-ink);
             font-weight: 700;
+            justify-content: flex-start;
+            max-width: 100%;
             min-height: 2.75rem;
+            min-width: 0;
+            overflow-wrap: anywhere;
             padding: .65rem .75rem;
+            text-align: start;
+            white-space: normal;
+            width: 100%;
         }
 
-        .offcanvas .nav-link:hover,
-        .offcanvas .nav-link:focus-visible,
-        .offcanvas .nav-link.active,
-        .offcanvas .dropdown-toggle:hover,
-        .offcanvas .dropdown-toggle:focus-visible {
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle):hover,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle):focus-visible,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle).active,
+        .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle):hover,
+        .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle):focus-visible,
+        .offcanvas .accordion-button:not(.facodi-split-menu__toggle):hover,
+        .offcanvas .accordion-button:not(.facodi-split-menu__toggle):focus-visible {
             background: var(--facodi-sun);
             border-color: var(--facodi-ink);
             color: var(--facodi-ink);
@@ -242,6 +310,8 @@
         .offcanvas .btn-close {
             border: 1px solid var(--facodi-ink);
             border-radius: 50%;
+            min-height: 2.75rem;
+            min-width: 2.75rem;
             opacity: 1;
         }
 
@@ -257,6 +327,8 @@
             color: var(--facodi-ink);
             display: inline-flex;
             justify-content: center;
+            border-radius: var(--facodi-radius-sm);
+            flex: 0 0 auto;
             min-height: 2.75rem;
             min-width: 2.75rem;
         }
@@ -513,10 +585,15 @@
             .facodi-split-menu__link {
                 align-items: center;
                 display: flex;
+                max-width: 100%;
+                overflow-wrap: anywhere;
+                white-space: normal;
             }
 
             .facodi-split-menu__toggle {
+                align-self: stretch;
                 min-width: 3rem;
+                width: 3rem;
             }
         }
     }
