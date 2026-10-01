@@ -270,19 +270,19 @@ surfaces while preserving Odoo Website as the content owner.
 
 ## Runtime dependencies
 
-The module depends only on:
+The module depends only on Odoo Community modules shipped with the standard runtime:
 
-- `theme_common`, from the pinned Odoo 19-compatible
-  `odoo/design-themes@a1818df4ade65406c0cacae8b1ea676e6f70095f` checkout;
-- `website_slides`, supplied by Odoo Community;
-- `website_blog`, supplied by Odoo Community.
+- `website`;
+- `website_slides`;
+- `website_blog`.
+
+`theme_common` is no longer a runtime dependency, so FACODI deployment does not need the `odoo/design-themes` repository.
 
 There is no dependency on Odoo Enterprise or on a FACODI business addon.
 
 ## Installation
 
-Make Odoo core, the pinned `odoo/design-themes` checkout and this repository
-available on `addons_path`:
+Make Odoo core and this repository available on `addons_path`:
 
 ```bash
 odoo -d facodi \
