@@ -388,19 +388,80 @@ if grep -R -n 'website_facodi' README.md docs/architecture.md; then
   fail "current docs still describe website_facodi as the active addon"
 fi
 
-grep -Fq 'facodi-about-rebuilt' theme_facodi/views/page_templates.xml \
-  || fail "rebuilt About composition missing"
-grep -Fq 'overflow-x:hidden' theme_facodi/views/page_templates.xml \
-  || fail "About composition must prevent horizontal page drag"
-grep -Fq 'isolation:isolate;width:100%;max-width:100%' theme_facodi/views/page_templates.xml \
-  || fail "About composition must stay inside the viewport"
-grep -Fq 'min-width:0' theme_facodi/views/page_templates.xml \
+ABOUT_TEMPLATE="$(sed -n '/id="new_page_template_sections_facodi_about"/,/id="new_page_template_sections_facodi_community"/p' theme_facodi/views/page_templates.xml)"
+grep -Fq 'facodi-about-stable' <<<"$ABOUT_TEMPLATE" \
+  || fail "stable About composition missing"
+grep -Fq 'overflow-x:clip' <<<"$ABOUT_TEMPLATE" \
+  || fail "About composition must clip horizontal overflow"
+grep -Fq 'touch-action:pan-y pinch-zoom' <<<"$ABOUT_TEMPLATE" \
+  || fail "About composition must preserve pinch zoom while reserving single-finger vertical navigation"
+grep -Fq 'overscroll-behavior-x:none' <<<"$ABOUT_TEMPLATE" \
+  || fail "About composition must suppress horizontal overscroll"
+grep -Fq 'min-width:0' <<<"$ABOUT_TEMPLATE" \
   || fail "About descendants must be allowed to shrink"
-grep -Fq 'overflow-wrap:anywhere' theme_facodi/views/page_templates.xml \
+grep -Fq 'overflow-wrap:anywhere' <<<"$ABOUT_TEMPLATE" \
   || fail "About long copy/links must not force horizontal overflow"
+if grep -Fq 'class="row' <<<"$ABOUT_TEMPLATE"; then
+  fail "About composition must not use Bootstrap negative-margin rows"
+fi
+if grep -Eq 'data-facodi-motion|data-facodi-dot-grid|<canvas|(^|[;{[:space:]])transform:' <<<"$ABOUT_TEMPLATE"; then
+  fail "About composition must remain static and free of motion/canvas transforms"
+fi
 if sed -n '/id="new_page_template_sections_facodi_about"/,/id="new_page_template_sections_facodi_community"/p' theme_facodi/views/page_templates.xml | grep -Fq 't-snippet-call'; then
   fail "rebuilt About composition must not use runtime snippet calls"
 fi
+python3 - <<'PY'
+import json
+from pathlib import Path
+
+about_msgids = [
+    "FACODI organises public courses, videos and open learning resources into clearer study paths. The goal is simple: make it easier to study, discover useful connections and contribute good resources without confusing curricular context with formal academic recognition.",
+    "Too many useful tabs. Not enough map.",
+    "FACODI grew from a familiar study habit: learning from excellent public lectures, videos, documentation and open materials spread across the web, then losing the relationship between them.",
+    "The platform organises those resources around courses, curricular topics and learning paths so a useful link becomes part of a useful learning context.",
+    "Principles",
+    "How FACODI decides what belongs.",
+    "Prefer resources people can actually open, revisit and share.",
+    "A resource is more useful when learners can see the course, topic or question it supports.",
+    "03 · Clear states",
+    "Community sharing, editorial review and curated publication are different states and should remain visible.",
+    "From one question to one useful next step.",
+    "A course, topic, curricular unit or a very specific question.",
+    "Explore open resources",
+    "Use the links that genuinely help you move forward.",
+    "Relate resources to the learning path so they do not remain isolated.",
+    "Leave something useful behind",
+    "Share a resource, correction or gap with enough context to help the next learner.",
+    "What you can do here",
+    "Study, connect and contribute.",
+    "Browse open courses and community-shared resources.",
+    "Move between courses, learning paths and curricular context.",
+    "Share a public resource without pretending it is already curated.",
+    "Report gaps, corrections and useful context for the next learner.",
+    "Still under construction, by design.",
+    "FACODI is a living community platform. Public resources can appear quickly, while editorial curation remains a separate layer.",
+    "Build the trail",
+    "Useful resources should not disappear into browser history.",
+    "Explore what is already public or contribute a resource that deserves a place in the learning map.",
+]
+
+catalogues = [
+    Path("theme_facodi/i18n/theme_facodi.pot"),
+    Path("theme_facodi/i18n/pt.po"),
+    Path("theme_facodi/i18n/es.po"),
+    Path("theme_facodi/i18n/fr.po"),
+]
+for path in catalogues:
+    content = path.read_text(encoding="utf-8")
+    for msgid in about_msgids:
+        marker = f"msgid {json.dumps(msgid, ensure_ascii=False)}"
+        if marker not in content:
+            raise SystemExit(f"FAIL: {path} missing About translation key: {msgid}")
+        if path.suffix == ".po":
+            tail = content.split(marker, 1)[1].split("\n\n", 1)[0]
+            if 'msgstr ""' in tail:
+                raise SystemExit(f"FAIL: {path} has empty About translation: {msgid}")
+PY
 grep -Fq 'about_body = about_template.with_context(lang="en_GB").arch_db.strip()' theme_facodi/scripts/recover_editorial_pages.py \
   || fail "About recovery must copy the hardened static composition"
 grep -Fq 'if "t-snippet-call" in about_body' theme_facodi/scripts/recover_editorial_pages.py \

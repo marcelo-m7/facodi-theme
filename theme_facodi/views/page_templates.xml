@@ -13,46 +13,64 @@
     <!-- Odoo 19 page generator cannot format qualified snippet keys (list vs tuple).
          Keep native primary section templates explicit until upstream fixes it. -->
     <template id="new_page_template_sections_facodi_about" name="FACODI About">
-        <div id="wrap" class="oe_structure facodi-about-rebuilt">
+        <div id="wrap" class="oe_structure facodi-about-stable">
             <style>
-                .facodi-about-rebuilt{position:relative;isolation:isolate;width:100%;max-width:100%;overflow-x:hidden;overflow-y:visible;background:#F9FAFB;color:#142846}
-                .facodi-about-rebuilt *{box-sizing:border-box;min-width:0}.facodi-about-rebuilt p,.facodi-about-rebuilt h1,.facodi-about-rebuilt h2,.facodi-about-rebuilt h3,.facodi-about-rebuilt a{overflow-wrap:anywhere}
-                .facodi-about-rebuilt .fa-section{padding:clamp(2.5rem,6vw,5rem) 0;position:relative;max-width:100%}
-                .facodi-about-rebuilt .fa-grid{background-image:linear-gradient(rgba(20,40,70,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(20,40,70,.08) 1px,transparent 1px);background-size:28px 28px}
-                .facodi-about-rebuilt .fa-hero{background:#142846;color:#fff;border:2px solid #142846;border-radius:24px;box-shadow:8px 8px 0 #EFFF00;padding:clamp(1.5rem,5vw,4rem)}.facodi-about-rebuilt .fa-hero h1,.facodi-about-rebuilt .fa-hero p{color:#fff!important}.facodi-about-rebuilt .fa-hero .fa-kicker,.facodi-about-rebuilt .fa-hero .fa-btn{color:#142846!important}
-                .facodi-about-rebuilt .fa-kicker{display:inline-flex;background:#EFFF00;color:#142846;border:1px solid #142846;border-radius:8px;padding:.35rem .55rem;font:800 .75rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase}
-                .facodi-about-rebuilt .fa-title{font-size:clamp(2.5rem,7vw,5.8rem);line-height:.95;max-width:11ch;margin:1rem 0 1.25rem}
-                .facodi-about-rebuilt .fa-lead{font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.55;max-width:48rem}
-                .facodi-about-rebuilt .fa-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
-                .facodi-about-rebuilt .fa-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;border:2px solid #142846;border-radius:10px;padding:.75rem 1rem;font-weight:800;text-decoration:none}
-                .facodi-about-rebuilt .fa-btn-primary{background:#EFFF00;color:#142846}
-                .facodi-about-rebuilt .fa-btn-secondary{background:#fff;color:#142846}
-                .facodi-about-rebuilt .fa-card{height:100%;background:#fff;border:2px solid #142846;border-radius:18px;box-shadow:5px 5px 0 #142846;padding:1.4rem;min-width:0}
-                .facodi-about-rebuilt .fa-card--cyan{box-shadow:5px 5px 0 #37BED2}
-                .facodi-about-rebuilt .fa-card--mint{box-shadow:5px 5px 0 #A7E8BE}
-                .facodi-about-rebuilt .fa-card--sun{box-shadow:5px 5px 0 #EFFF00}
-                .facodi-about-rebuilt .fa-section-title{font-size:clamp(2rem,4vw,3.6rem);line-height:1;max-width:16ch;margin:0 0 1rem}
-                .facodi-about-rebuilt .fa-copy{font-size:1.05rem;line-height:1.65;max-width:65ch}
-                .facodi-about-rebuilt .fa-rule{border-top:2px solid #142846}
-                .facodi-about-rebuilt .fa-step{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:1rem;align-items:start}
-                .facodi-about-rebuilt .fa-step-index{width:2.75rem;height:2.75rem;display:flex;align-items:center;justify-content:center;background:#EFFF00;border:2px solid #142846;border-radius:10px;font-weight:900}
-                .facodi-about-rebuilt .fa-cta{background:#142846;color:#fff;border-radius:22px;padding:clamp(1.5rem,4vw,3rem)}.facodi-about-rebuilt .fa-cta h2,.facodi-about-rebuilt .fa-cta p{color:#fff!important}.facodi-about-rebuilt .fa-cta .fa-kicker,.facodi-about-rebuilt .fa-cta .fa-btn{color:#142846!important}
-                .facodi-about-rebuilt img,.facodi-about-rebuilt iframe,.facodi-about-rebuilt video{max-width:100%;height:auto}
-                @media(max-width:767.98px){
-                    .facodi-about-rebuilt .fa-section{padding:2.25rem 0}
-                    .facodi-about-rebuilt .fa-hero{border-radius:16px;box-shadow:5px 5px 0 #EFFF00}
-                    .facodi-about-rebuilt .fa-title{font-size:clamp(2.2rem,13vw,4rem)}
-                    .facodi-about-rebuilt .fa-actions{flex-direction:column}
-                    .facodi-about-rebuilt .fa-btn{width:100%}
+                .facodi-about-stable{
+                    --fa-ink:#142846;--fa-cyan:#37BED2;--fa-blue:#3979C8;--fa-mint:#A7E8BE;--fa-sun:#EFFF00;--fa-paper:#F9FAFB;
+                    background:var(--fa-paper);color:var(--fa-ink);max-width:100%;overflow-x:clip;touch-action:pan-y pinch-zoom;overscroll-behavior-x:none
+                }
+                .facodi-about-stable,.facodi-about-stable *{box-sizing:border-box;min-width:0}
+                .facodi-about-stable img,.facodi-about-stable video,.facodi-about-stable iframe{display:block;max-width:100%;height:auto}
+                .facodi-about-stable a,.facodi-about-stable p,.facodi-about-stable h1,.facodi-about-stable h2,.facodi-about-stable h3{overflow-wrap:anywhere}
+                .facodi-about-stable .fa-shell{width:min(1180px,calc(100% - 32px));margin:0 auto}
+                .facodi-about-stable .fa-section{padding:clamp(2.5rem,6vw,5.5rem) 0;overflow:clip}
+                .facodi-about-stable .fa-grid-bg{background-image:linear-gradient(rgba(20,40,70,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(20,40,70,.08) 1px,transparent 1px);background-size:28px 28px}
+                .facodi-about-stable .fa-hero{background:var(--fa-ink);color:white;border:2px solid var(--fa-ink);border-radius:24px;box-shadow:8px 8px 0 var(--fa-sun);padding:clamp(1.5rem,5vw,4rem)}
+                .facodi-about-stable .fa-hero h1,.facodi-about-stable .fa-hero p,.facodi-about-stable .fa-cta h2,.facodi-about-stable .fa-cta p{color:white!important}
+                .facodi-about-stable .fa-kicker{display:inline-flex;align-items:center;background:var(--fa-sun);color:var(--fa-ink)!important;border:1px solid var(--fa-ink);border-radius:8px;padding:.36rem .58rem;font:800 .75rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase}
+                .facodi-about-stable .fa-title{font-size:clamp(2.45rem,6vw,5.5rem);line-height:.96;max-width:12ch;margin:1rem 0 1.25rem}
+                .facodi-about-stable .fa-lead{font-size:clamp(1.05rem,1.7vw,1.28rem);line-height:1.6;max-width:48rem}
+                .facodi-about-stable .fa-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+                .facodi-about-stable .fa-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--fa-ink);border-radius:10px;padding:.75rem 1rem;font-weight:800;text-decoration:none}
+                .facodi-about-stable .fa-btn-primary{background:var(--fa-sun);color:var(--fa-ink)!important}
+                .facodi-about-stable .fa-btn-secondary{background:white;color:var(--fa-ink)!important}
+                .facodi-about-stable .fa-eyebrow{font:800 .78rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--fa-blue)}
+                .facodi-about-stable .fa-heading{font-size:clamp(2rem,4vw,3.4rem);line-height:1.02;max-width:16ch;margin:.7rem 0 1rem}
+                .facodi-about-stable .fa-copy{font-size:1.05rem;line-height:1.7;max-width:68ch}
+                .facodi-about-stable .fa-two{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:clamp(1.2rem,3vw,2.5rem);align-items:start}
+                .facodi-about-stable .fa-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+                .facodi-about-stable .fa-four{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+                .facodi-about-stable .fa-card{background:white;border:2px solid var(--fa-ink);border-radius:18px;box-shadow:5px 5px 0 var(--fa-ink);padding:1.35rem;height:100%}
+                .facodi-about-stable .fa-card-cyan{box-shadow:5px 5px 0 var(--fa-cyan)}
+                .facodi-about-stable .fa-card-mint{box-shadow:5px 5px 0 var(--fa-mint)}
+                .facodi-about-stable .fa-card-sun{box-shadow:5px 5px 0 var(--fa-sun)}
+                .facodi-about-stable .fa-step{display:grid;grid-template-columns:44px minmax(0,1fr);gap:1rem;align-items:start}
+                .facodi-about-stable .fa-step-n{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--fa-sun);border:2px solid var(--fa-ink);border-radius:10px;font-weight:900}
+                .facodi-about-stable .fa-divider{border-top:2px solid var(--fa-ink)}
+                .facodi-about-stable .fa-cta{background:var(--fa-ink);color:white;border:2px solid var(--fa-ink);border-radius:22px;box-shadow:6px 6px 0 var(--fa-sun);padding:clamp(1.5rem,4vw,3rem)}
+                .facodi-about-stable .fa-cta-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:1.5rem;align-items:center}
+                .facodi-about-stable .fa-list{margin:0;padding-left:1.2rem}
+                .facodi-about-stable .fa-list li+li{margin-top:.65rem}
+                @media(max-width:900px){
+                    .facodi-about-stable .fa-two,.facodi-about-stable .fa-three,.facodi-about-stable .fa-four,.facodi-about-stable .fa-cta-grid{grid-template-columns:1fr}
+                    .facodi-about-stable .fa-title{max-width:14ch}
+                    .facodi-about-stable .fa-shell{width:min(100% - 24px,1180px)}
+                }
+                @media(max-width:600px){
+                    .facodi-about-stable .fa-section{padding:2.25rem 0}
+                    .facodi-about-stable .fa-hero,.facodi-about-stable .fa-cta{border-radius:16px;box-shadow:5px 5px 0 var(--fa-sun)}
+                    .facodi-about-stable .fa-actions{flex-direction:column}
+                    .facodi-about-stable .fa-btn{width:100%}
+                    .facodi-about-stable .fa-title{font-size:clamp(2.2rem,13vw,3.8rem)}
                 }
             </style>
 
-            <section class="fa-section fa-grid">
-                <div class="container">
+            <section class="fa-section fa-grid-bg">
+                <div class="fa-shell">
                     <div class="fa-hero">
                         <span class="fa-kicker">About FACODI</span>
                         <h1 class="fa-title">Open learning with enough context to keep the thread.</h1>
-                        <p class="fa-lead">FACODI organises public courses, videos and learning resources into clearer paths. The goal is to make studying, discovering useful connections and contributing good resources easier—without confusing curricular context with academic equivalence.</p>
+                        <p class="fa-lead">FACODI organises public courses, videos and open learning resources into clearer study paths. The goal is simple: make it easier to study, discover useful connections and contribute good resources without confusing curricular context with formal academic recognition.</p>
                         <div class="fa-actions">
                             <a class="fa-btn fa-btn-primary" href="/courses">Explore courses</a>
                             <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about">Contribute a resource</a>
@@ -62,64 +80,78 @@
             </section>
 
             <section class="fa-section">
-                <div class="container">
-                    <div class="row g-4 align-items-start">
-                        <div class="col-lg-7">
-                            <span class="fa-kicker">Why it exists</span>
-                            <h2 class="fa-section-title mt-3">Too many good tabs. Not enough map.</h2>
-                            <p class="fa-copy">FACODI grew from a simple study habit: learning from excellent public lessons, videos, documentation and open materials scattered across the web—and then losing the relationship between them.</p>
-                            <p class="fa-copy">The platform organises those resources around courses, curricular units and learning paths, while keeping context, community contribution and published material clearly distinct.</p>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="fa-card fa-card--cyan">
-                                <span class="fa-kicker">Important boundary</span>
-                                <h3 class="h4 mt-3">Context is not equivalence.</h3>
-                                <p class="mb-0">Curricular references help navigation. They do not create ECTS, academic equivalence or a formal qualification.</p>
-                            </div>
-                        </div>
+                <div class="fa-shell fa-two">
+                    <div>
+                        <div class="fa-eyebrow">Why it exists</div>
+                        <h2 class="fa-heading">Too many useful tabs. Not enough map.</h2>
+                        <p class="fa-copy">FACODI grew from a familiar study habit: learning from excellent public lectures, videos, documentation and open materials spread across the web, then losing the relationship between them.</p>
+                        <p class="fa-copy">The platform organises those resources around courses, curricular topics and learning paths so a useful link becomes part of a useful learning context.</p>
                     </div>
+                    <aside class="fa-card fa-card-cyan">
+                        <div class="fa-eyebrow">Important boundary</div>
+                        <h3 class="h4 mt-3">Context is not equivalence.</h3>
+                        <p class="mb-0">Curricular references help navigation. They do not create ECTS, academic equivalence or a formal qualification.</p>
+                    </aside>
                 </div>
             </section>
 
-            <section class="fa-section fa-grid fa-rule">
-                <div class="container">
-                    <span class="fa-kicker">Principles</span>
-                    <h2 class="fa-section-title mt-3">How FACODI decides what makes sense.</h2>
-                    <div class="row g-4 mt-1">
-                        <div class="col-md-4"><div class="fa-card fa-card--sun"><h3 class="h4">01 · Open first</h3><p class="mb-0">We prefer public resources people can open, share and revisit.</p></div></div>
-                        <div class="col-md-4"><div class="fa-card fa-card--mint"><h3 class="h4">02 · Context first</h3><p class="mb-0">A good link is more useful when we know which course, topic or learning question it supports.</p></div></div>
-                        <div class="col-md-4"><div class="fa-card fa-card--cyan"><h3 class="h4">03 · Clear boundaries</h3><p class="mb-0">Community sharing, editorial review and publication are different states and should remain visible.</p></div></div>
+            <section class="fa-section fa-grid-bg fa-divider">
+                <div class="fa-shell">
+                    <div class="fa-eyebrow">Principles</div>
+                    <h2 class="fa-heading">How FACODI decides what belongs.</h2>
+                    <div class="fa-three">
+                        <article class="fa-card fa-card-sun"><h3 class="h4">01 · Open first</h3><p class="mb-0">Prefer resources people can actually open, revisit and share.</p></article>
+                        <article class="fa-card fa-card-mint"><h3 class="h4">02 · Context first</h3><p class="mb-0">A resource is more useful when learners can see the course, topic or question it supports.</p></article>
+                        <article class="fa-card fa-card-cyan"><h3 class="h4">03 · Clear states</h3><p class="mb-0">Community sharing, editorial review and curated publication are different states and should remain visible.</p></article>
                     </div>
                 </div>
             </section>
 
             <section id="how-it-works" class="fa-section">
-                <div class="container">
-                    <span class="fa-kicker">How it works</span>
-                    <h2 class="fa-section-title mt-3">From a question to a useful resource.</h2>
-                    <div class="row g-4 mt-1">
-                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">1</span><div><h3 class="h5">Choose a starting point</h3><p class="mb-0">A course, curricular unit, topic or one very concrete question.</p></div></div></div></div>
-                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">2</span><div><h3 class="h5">Explore public resources</h3><p class="mb-0">Follow only the links that help you move forward.</p></div></div></div></div>
-                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">3</span><div><h3 class="h5">Connect content to context</h3><p class="mb-0">Relate the resource to the learning path so it does not remain isolated.</p></div></div></div></div>
-                        <div class="col-lg-6"><div class="fa-card"><div class="fa-step"><span class="fa-step-index">4</span><div><h3 class="h5">Send something useful back</h3><p class="mb-0">Share a resource, correction or gap with enough context to help someone else.</p></div></div></div></div>
+                <div class="fa-shell">
+                    <div class="fa-eyebrow">How it works</div>
+                    <h2 class="fa-heading">From one question to one useful next step.</h2>
+                    <div class="fa-four">
+                        <article class="fa-card"><div class="fa-step"><div class="fa-step-n">1</div><div><h3 class="h5">Choose a starting point</h3><p class="mb-0">A course, topic, curricular unit or a very specific question.</p></div></div></article>
+                        <article class="fa-card"><div class="fa-step"><div class="fa-step-n">2</div><div><h3 class="h5">Explore open resources</h3><p class="mb-0">Use the links that genuinely help you move forward.</p></div></div></article>
+                        <article class="fa-card"><div class="fa-step"><div class="fa-step-n">3</div><div><h3 class="h5">Connect content to context</h3><p class="mb-0">Relate resources to the learning path so they do not remain isolated.</p></div></div></article>
+                        <article class="fa-card"><div class="fa-step"><div class="fa-step-n">4</div><div><h3 class="h5">Leave something useful behind</h3><p class="mb-0">Share a resource, correction or gap with enough context to help the next learner.</p></div></div></article>
                     </div>
                 </div>
             </section>
 
-            <section class="fa-section fa-rule">
-                <div class="container">
+            <section class="fa-section fa-divider">
+                <div class="fa-shell fa-two">
+                    <div>
+                        <div class="fa-eyebrow">What you can do here</div>
+                        <h2 class="fa-heading">Study, connect and contribute.</h2>
+                        <ul class="fa-list fa-copy">
+                            <li>Browse open courses and community-shared resources.</li>
+                            <li>Move between courses, learning paths and curricular context.</li>
+                            <li>Share a public resource without pretending it is already curated.</li>
+                            <li>Report gaps, corrections and useful context for the next learner.</li>
+                        </ul>
+                    </div>
+                    <aside class="fa-card fa-card-mint">
+                        <div class="fa-eyebrow">Open campus</div>
+                        <h3 class="h4 mt-3">Still under construction, by design.</h3>
+                        <p class="mb-0">FACODI is a living community platform. Public resources can appear quickly, while editorial curation remains a separate layer.</p>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="fa-section">
+                <div class="fa-shell">
                     <div class="fa-cta">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-lg-8">
-                                <span class="fa-kicker">Campus in progress</span>
-                                <h2 class="display-5 mt-3 mb-3">FACODI gets better when good resources stop getting lost.</h2>
-                                <p class="fa-lead mb-0">Explore the catalogue or share a public resource that could help someone else.</p>
+                        <div class="fa-cta-grid">
+                            <div>
+                                <span class="fa-kicker">Build the trail</span>
+                                <h2 class="display-5 mt-3 mb-3">Useful resources should not disappear into browser history.</h2>
+                                <p class="fa-lead mb-0">Explore what is already public or contribute a resource that deserves a place in the learning map.</p>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="d-grid gap-2">
-                                    <a class="fa-btn fa-btn-primary" href="/courses">Explore catalogue</a>
-                                    <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about">Contribute a resource</a>
-                                </div>
+                            <div class="d-grid gap-2">
+                                <a class="fa-btn fa-btn-primary" href="/courses">Explore catalogue</a>
+                                <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about">Contribute a resource</a>
                             </div>
                         </div>
                     </div>

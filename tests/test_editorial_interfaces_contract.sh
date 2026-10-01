@@ -120,20 +120,26 @@ grep -Fq 'min-height: 5.25rem' theme_facodi/static/src/scss/editorial_interfaces
   || fail "process timeline content blocks need consistent vertical rhythm"
 
 ABOUT_TEMPLATE="theme_facodi/views/page_templates.xml"
-grep -Fq 'class="oe_structure facodi-about-rebuilt"' "$ABOUT_TEMPLATE" \
-  || fail "rebuilt About page root missing"
-grep -Fq 'overflow-x:hidden' "$ABOUT_TEMPLATE" \
-  || fail "rebuilt About page must hard-stop page-level horizontal overflow"
+grep -Fq 'class="oe_structure facodi-about-stable"' "$ABOUT_TEMPLATE" \
+  || fail "stable About page root missing"
+grep -Fq 'overflow-x:clip' "$ABOUT_TEMPLATE" \
+  || fail "stable About page must clip horizontal overflow"
+grep -Fq 'touch-action:pan-y' "$ABOUT_TEMPLATE" \
+  || fail "stable About page must reserve touch gestures for vertical navigation"
+grep -Fq 'overscroll-behavior-x:none' "$ABOUT_TEMPLATE" \
+  || fail "stable About page must suppress horizontal overscroll"
 grep -Fq 'id="how-it-works"' "$ABOUT_TEMPLATE" \
-  || fail "rebuilt About page must preserve the how-it-works anchor"
+  || fail "stable About page must preserve the how-it-works anchor"
 grep -Fq 'about_resource_cta&amp;section=about' "$ABOUT_TEMPLATE" \
-  || fail "rebuilt About page contribution CTA must preserve provenance"
-if awk '/new_page_template_sections_facodi_about/{flag=1} /new_page_template_sections_facodi_community/{flag=0} flag' "$ABOUT_TEMPLATE" | grep -Eq 't-snippet-call|data-facodi-dot-grid|data-facodi-motion'; then
-  fail "rebuilt About page must not use interactive snippet composition"
+  || fail "stable About page contribution CTA must preserve provenance"
+ABOUT_BLOCK="$(awk '/new_page_template_sections_facodi_about/{flag=1} /new_page_template_sections_facodi_community/{flag=0} flag' "$ABOUT_TEMPLATE")"
+if grep -Eq 't-snippet-call|data-facodi-dot-grid|data-facodi-motion|<canvas' <<<"$ABOUT_BLOCK"; then
+  fail "stable About page must not use interactive snippet composition"
 fi
-grep -Fq '.facodi-about-rebuilt .fa-hero h1,.facodi-about-rebuilt .fa-hero p{color:#fff!important}' "$ABOUT_TEMPLATE" \
-  || fail "rebuilt About dark surfaces must force light text"
-grep -Fq '.facodi-about-rebuilt .fa-cta h2,.facodi-about-rebuilt .fa-cta p{color:#fff!important}' "$ABOUT_TEMPLATE" \
-  || fail "rebuilt About closing CTA must force light text"
-grep -Fq '.facodi-about-rebuilt .fa-hero .fa-kicker,.facodi-about-rebuilt .fa-hero .fa-btn{color:#142846!important}' "$ABOUT_TEMPLATE" \
-  || fail "rebuilt About light controls on dark surfaces must keep ink text"
+if grep -Fq 'class="row' <<<"$ABOUT_BLOCK"; then
+  fail "stable About page must not use Bootstrap negative-margin rows"
+fi
+grep -Fq '.facodi-about-stable .fa-hero h1,.facodi-about-stable .fa-hero p,.facodi-about-stable .fa-cta h2,.facodi-about-stable .fa-cta p{color:white!important}' "$ABOUT_TEMPLATE" \
+  || fail "stable About dark surfaces must force light text"
+grep -Fq '.facodi-about-stable .fa-kicker{' "$ABOUT_TEMPLATE" \
+  || fail "stable About high-contrast kicker styling missing"
