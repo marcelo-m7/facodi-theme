@@ -388,16 +388,25 @@ if grep -R -n 'website_facodi' README.md docs/architecture.md; then
   fail "current docs still describe website_facodi as the active addon"
 fi
 
-grep -Fq 'facodi-about-rebuilt' theme_facodi/views/page_templates.xml \
-  || fail "rebuilt About composition missing"
-grep -Fq 'overflow-x:hidden' theme_facodi/views/page_templates.xml \
-  || fail "About composition must prevent horizontal page drag"
-grep -Fq 'isolation:isolate;width:100%;max-width:100%' theme_facodi/views/page_templates.xml \
-  || fail "About composition must stay inside the viewport"
+grep -Fq 'facodi-about-stable' theme_facodi/views/page_templates.xml \
+  || fail "stable About composition missing"
+grep -Fq 'overflow-x:clip' theme_facodi/views/page_templates.xml \
+  || fail "About composition must clip horizontal overflow"
+grep -Fq 'touch-action:pan-y' theme_facodi/views/page_templates.xml \
+  || fail "About composition must reserve touch gestures for vertical page navigation"
+grep -Fq 'overscroll-behavior-x:none' theme_facodi/views/page_templates.xml \
+  || fail "About composition must suppress horizontal overscroll"
 grep -Fq 'min-width:0' theme_facodi/views/page_templates.xml \
   || fail "About descendants must be allowed to shrink"
 grep -Fq 'overflow-wrap:anywhere' theme_facodi/views/page_templates.xml \
   || fail "About long copy/links must not force horizontal overflow"
+ABOUT_TEMPLATE="$(sed -n '/id="new_page_template_sections_facodi_about"/,/id="new_page_template_sections_facodi_community"/p' theme_facodi/views/page_templates.xml)"
+if grep -Fq 'class="row' <<<"$ABOUT_TEMPLATE"; then
+  fail "About composition must not use Bootstrap negative-margin rows"
+fi
+if grep -Eq 'data-facodi-motion|data-facodi-dot-grid|<canvas|transform:' <<<"$ABOUT_TEMPLATE"; then
+  fail "About composition must remain static and free of motion/canvas transforms"
+fi
 if sed -n '/id="new_page_template_sections_facodi_about"/,/id="new_page_template_sections_facodi_community"/p' theme_facodi/views/page_templates.xml | grep -Fq 't-snippet-call'; then
   fail "rebuilt About composition must not use runtime snippet calls"
 fi
