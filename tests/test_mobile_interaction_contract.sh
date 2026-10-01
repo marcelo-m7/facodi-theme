@@ -206,7 +206,7 @@ checks = {
     ".facodi-language-selector": ("min-height: 2.75rem",),
     ".dropdown-item": ("min-height: 2.75rem",),
     ".o_header_mobile_buttons_wrap .btn": ("min-height: 2.75rem", "min-width: 2.75rem"),
-    ".facodi-split-menu": ("min-width: 2.75rem",),
+    ".facodi-split-menu__toggle": ("min-height: 2.75rem", "min-width: 2.75rem"),
 }
 for selector, markers in checks.items():
     pos = source.find(selector)
