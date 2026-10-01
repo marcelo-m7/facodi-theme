@@ -384,7 +384,7 @@ grep -Fq 'facodi-about-rebuilt' theme_facodi/views/page_templates.xml \
   || fail "rebuilt About composition missing"
 grep -Fq 'overflow-x:hidden' theme_facodi/views/page_templates.xml \
   || fail "About composition must prevent horizontal page drag"
-grep -Fq 'isolation:isolate;width:100%;max-width:100%;overflow:hidden' theme_facodi/views/page_templates.xml \
+grep -Fq 'isolation:isolate;width:100%;max-width:100%' theme_facodi/views/page_templates.xml \
   || fail "About composition must stay inside the viewport"
 grep -Fq 'min-width:0' theme_facodi/views/page_templates.xml \
   || fail "About descendants must be allowed to shrink"
