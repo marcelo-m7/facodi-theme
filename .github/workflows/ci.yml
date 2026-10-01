@@ -88,6 +88,38 @@ jobs:
           git -C "$RUNNER_TEMP/design-themes" checkout a1818df4ade65406c0cacae8b1ea676e6f70095f
           test -f "$RUNNER_TEMP/design-themes/theme_common/__manifest__.py"
 
+      - name: Prove current theme installs without design-themes
+        run: |
+          docker network create facodi-theme-vendorless-ci
+          docker run -d --name facodi-theme-vendorless-db \
+            --network facodi-theme-vendorless-ci \
+            -e POSTGRES_USER=odoo \
+            -e POSTGRES_PASSWORD=odoo \
+            -e POSTGRES_DB=theme_facodi_vendorless_ci \
+            postgres:16
+          for i in $(seq 1 30); do
+            if docker exec facodi-theme-vendorless-db pg_isready -U odoo -d theme_facodi_vendorless_ci; then
+              break
+            fi
+            sleep 2
+          done
+          docker run --rm \
+            --network facodi-theme-vendorless-ci \
+            -e HOST=facodi-theme-vendorless-db \
+            -e PORT=5432 \
+            -e USER=odoo \
+            -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            odoo:19.0 \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/facodi-addons \
+            --workers=0 \
+            --without-demo=True \
+            -d theme_facodi_vendorless_ci \
+            -i theme_facodi \
+            --stop-after-init
+          docker rm -f facodi-theme-vendorless-db
+          docker network rm facodi-theme-vendorless-ci
+
       - name: Prepare legacy theme release
         run: |
           LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
