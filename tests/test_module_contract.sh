@@ -388,19 +388,19 @@ if grep -R -n 'website_facodi' README.md docs/architecture.md; then
   fail "current docs still describe website_facodi as the active addon"
 fi
 
-grep -Fq 'facodi-about-stable' theme_facodi/views/page_templates.xml \
-  || fail "stable About composition missing"
-grep -Fq 'overflow-x:clip' theme_facodi/views/page_templates.xml \
-  || fail "About composition must clip horizontal overflow"
-grep -Fq 'touch-action:pan-y' theme_facodi/views/page_templates.xml \
-  || fail "About composition must reserve touch gestures for vertical page navigation"
-grep -Fq 'overscroll-behavior-x:none' theme_facodi/views/page_templates.xml \
-  || fail "About composition must suppress horizontal overscroll"
-grep -Fq 'min-width:0' theme_facodi/views/page_templates.xml \
-  || fail "About descendants must be allowed to shrink"
-grep -Fq 'overflow-wrap:anywhere' theme_facodi/views/page_templates.xml \
-  || fail "About long copy/links must not force horizontal overflow"
 ABOUT_TEMPLATE="$(sed -n '/id="new_page_template_sections_facodi_about"/,/id="new_page_template_sections_facodi_community"/p' theme_facodi/views/page_templates.xml)"
+grep -Fq 'facodi-about-stable' <<<"$ABOUT_TEMPLATE" \
+  || fail "stable About composition missing"
+grep -Fq 'overflow-x:clip' <<<"$ABOUT_TEMPLATE" \
+  || fail "About composition must clip horizontal overflow"
+grep -Fq 'touch-action:pan-y pinch-zoom' <<<"$ABOUT_TEMPLATE" \
+  || fail "About composition must preserve pinch zoom while reserving single-finger vertical navigation"
+grep -Fq 'overscroll-behavior-x:none' <<<"$ABOUT_TEMPLATE" \
+  || fail "About composition must suppress horizontal overscroll"
+grep -Fq 'min-width:0' <<<"$ABOUT_TEMPLATE" \
+  || fail "About descendants must be allowed to shrink"
+grep -Fq 'overflow-wrap:anywhere' <<<"$ABOUT_TEMPLATE" \
+  || fail "About long copy/links must not force horizontal overflow"
 if grep -Fq 'class="row' <<<"$ABOUT_TEMPLATE"; then
   fail "About composition must not use Bootstrap negative-margin rows"
 fi
