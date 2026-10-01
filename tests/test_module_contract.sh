@@ -20,7 +20,7 @@ fi
 grep -Fq '"website"' theme_facodi/__manifest__.py || fail "website dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.79.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
+grep -Fq '"version": "19.0.10.80.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
 grep -Fq 'theme_facodi_vendorless_ci' .github/workflows/ci.yml \
   || fail "CI must prove current theme installs without external design themes"
 grep -Fq -- '--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/facodi-addons' .github/workflows/ci.yml \
