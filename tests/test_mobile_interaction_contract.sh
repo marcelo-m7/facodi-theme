@@ -218,13 +218,22 @@ for selector, markers in checks.items():
                 f"FAIL: shell navigation target contract missing {marker} near {selector}"
             )
 
-mobile_split_pos = source.find(".facodi-split-menu--mobile")
+mobile_split_pos = source.find("&--mobile {")
 if mobile_split_pos < 0:
     raise SystemExit("FAIL: mobile split-menu containment block missing")
 mobile_split = source[mobile_split_pos:mobile_split_pos + 1200]
 for marker in ("grid-template-columns: minmax(0, 1fr) auto", "width: 100%", "width: 3rem"):
     if marker not in mobile_split:
         raise SystemExit(f"FAIL: mobile split-menu control missing {marker}")
+
+for selector in (
+    ".offcanvas .nav-link:not(.facodi-split-menu__toggle)",
+    ".offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle)",
+):
+    if selector not in source:
+        raise SystemExit(
+            f"FAIL: broad mobile menu rule must exclude split disclosure control: {selector}"
+        )
 
 footer_mobile = source.split("@media (max-width: 43.99rem)", 1)[1]
 if "min-height: 2.75rem" not in footer_mobile:
