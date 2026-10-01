@@ -131,3 +131,9 @@ grep -Fq 'about_resource_cta&amp;section=about' "$ABOUT_TEMPLATE" \
 if awk '/new_page_template_sections_facodi_about/{flag=1} /new_page_template_sections_facodi_community/{flag=0} flag' "$ABOUT_TEMPLATE" | grep -Eq 't-snippet-call|data-facodi-dot-grid|data-facodi-motion'; then
   fail "rebuilt About page must not use interactive snippet composition"
 fi
+grep -Fq '.facodi-about-rebuilt .fa-hero h1,.facodi-about-rebuilt .fa-hero p{color:#fff!important}' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About dark surfaces must force light text"
+grep -Fq '.facodi-about-rebuilt .fa-cta h2,.facodi-about-rebuilt .fa-cta p{color:#fff!important}' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About closing CTA must force light text"
+grep -Fq '.facodi-about-rebuilt .fa-hero .fa-kicker,.facodi-about-rebuilt .fa-hero .fa-btn{color:#142846!important}' "$ABOUT_TEMPLATE" \
+  || fail "rebuilt About light controls on dark surfaces must keep ink text"
