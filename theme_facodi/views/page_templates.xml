@@ -19,7 +19,7 @@
                 .facodi-about-rebuilt *{box-sizing:border-box;min-width:0}.facodi-about-rebuilt p,.facodi-about-rebuilt h1,.facodi-about-rebuilt h2,.facodi-about-rebuilt h3,.facodi-about-rebuilt a{overflow-wrap:anywhere}
                 .facodi-about-rebuilt .fa-section{padding:clamp(2.5rem,6vw,5rem) 0;position:relative;max-width:100%}
                 .facodi-about-rebuilt .fa-grid{background-image:linear-gradient(rgba(20,40,70,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(20,40,70,.08) 1px,transparent 1px);background-size:28px 28px}
-                .facodi-about-rebuilt .fa-hero{background:#142846;color:#fff;border:2px solid #142846;border-radius:24px;box-shadow:8px 8px 0 #EFFF00;padding:clamp(1.5rem,5vw,4rem)}
+                .facodi-about-rebuilt .fa-hero{background:#142846;color:#fff;border:2px solid #142846;border-radius:24px;box-shadow:8px 8px 0 #EFFF00;padding:clamp(1.5rem,5vw,4rem)}.facodi-about-rebuilt .fa-hero h1,.facodi-about-rebuilt .fa-hero p{color:#fff!important}.facodi-about-rebuilt .fa-hero .fa-kicker,.facodi-about-rebuilt .fa-hero .fa-btn{color:#142846!important}
                 .facodi-about-rebuilt .fa-kicker{display:inline-flex;background:#EFFF00;color:#142846;border:1px solid #142846;border-radius:8px;padding:.35rem .55rem;font:800 .75rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase}
                 .facodi-about-rebuilt .fa-title{font-size:clamp(2.5rem,7vw,5.8rem);line-height:.95;max-width:11ch;margin:1rem 0 1.25rem}
                 .facodi-about-rebuilt .fa-lead{font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.55;max-width:48rem}
@@ -36,7 +36,7 @@
                 .facodi-about-rebuilt .fa-rule{border-top:2px solid #142846}
                 .facodi-about-rebuilt .fa-step{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:1rem;align-items:start}
                 .facodi-about-rebuilt .fa-step-index{width:2.75rem;height:2.75rem;display:flex;align-items:center;justify-content:center;background:#EFFF00;border:2px solid #142846;border-radius:10px;font-weight:900}
-                .facodi-about-rebuilt .fa-cta{background:#142846;color:#fff;border-radius:22px;padding:clamp(1.5rem,4vw,3rem)}
+                .facodi-about-rebuilt .fa-cta{background:#142846;color:#fff;border-radius:22px;padding:clamp(1.5rem,4vw,3rem)}.facodi-about-rebuilt .fa-cta h2,.facodi-about-rebuilt .fa-cta p{color:#fff!important}.facodi-about-rebuilt .fa-cta .fa-kicker,.facodi-about-rebuilt .fa-cta .fa-btn{color:#142846!important}
                 .facodi-about-rebuilt img,.facodi-about-rebuilt iframe,.facodi-about-rebuilt video{max-width:100%;height:auto}
                 @media(max-width:767.98px){
                     .facodi-about-rebuilt .fa-section{padding:2.25rem 0}
