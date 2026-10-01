@@ -1,13 +1,13 @@
 {
     "name": "FACODI Theme",
     "summary": "FACODI visual identity for Odoo Website and eLearning",
-    "version": "19.0.10.77.0",
+    "version": "19.0.10.78.0",
     "category": "Theme/Education",
     "sequence": 120,
     "author": "FACODI",
     "website": "https://facodi.com",
     "license": "LGPL-3",
-    "depends": ["theme_common", "website_slides", "website_blog"],
+    "depends": ["website", "website_slides", "website_blog"],
     "data": [
         "data/ir_asset.xml",
         "data/website_rewrites.xml",

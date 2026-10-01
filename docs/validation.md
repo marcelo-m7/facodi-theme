@@ -2,9 +2,7 @@
 
 ## Environment and scope
 
-Validation uses disposable PostgreSQL 16 and the official Odoo 19.0 Community
-container with `odoo/design-themes` pinned at
-`a1818df4ade65406c0cacae8b1ea676e6f70095f`. The public FACODI sites are evidence
+Validation uses disposable PostgreSQL 16 and the official Odoo 19.0 Community container. The current FACODI theme must install and upgrade without `odoo/design-themes` on the runtime addons path. The public FACODI sites are evidence
 and deployment targets only; this repository's CI does not modify production.
 
 Release under validation: `theme_facodi` `19.0.7.0.0`.
@@ -19,7 +17,7 @@ The workflow performs:
 
 - repository, homepage, Foundation v2 and native-i18n contracts;
 - responsive eLearning catalogue style contract;
-- pinned official Odoo design-theme checkout;
+- vendor-independent current-theme runtime validation;
 - installation of the pinned legacy `19.0.5.0.1` theme on a clean PostgreSQL 16 database;
 - real Odoo 19 addon tests and frontend/Website Builder asset compilation;
 - seeding of persisted legacy course-showcase markup;
@@ -263,8 +261,7 @@ canonical theme source language and Website language routing remains native Odoo
 
 ## Reproduction
 
-With Odoo core, the pinned design-themes checkout and this repository available on
-`addons_path`, the fast contracts are:
+With Odoo core and this repository available on `addons_path`, the fast contracts are:
 
 ```sh
 bash tests/test_module_contract.sh

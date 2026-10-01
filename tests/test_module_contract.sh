@@ -14,10 +14,17 @@ if grep -R -nE '/(courses|slides|explore|roadmaps|my/|unidades-curriculares)' th
   fail "presentation theme must not own parallel learning routes/controllers"
 fi
 
-grep -Fq '"theme_common"' theme_facodi/__manifest__.py || fail "theme_common dependency missing"
+if grep -Fq '"theme_common"' theme_facodi/__manifest__.py; then
+  fail "theme_common must not remain a runtime dependency"
+fi
+grep -Fq '"website"' theme_facodi/__manifest__.py || fail "website dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.77.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
+grep -Fq '"version": "19.0.10.78.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
+grep -Fq 'theme_facodi_vendorless_ci' .github/workflows/ci.yml \
+  || fail "CI must prove current theme installs without external design themes"
+grep -Fq -- '--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/facodi-addons' .github/workflows/ci.yml \
+  || fail "vendorless current-theme install must use only core Odoo plus FACODI source"
 grep -Fq 'id="visual_direction_page"' theme_facodi/views/website_public.xml || fail "visual direction page missing"
 if grep -R -nE '<template[^>]+page=' theme_facodi/views --include='*.xml'; then
   fail "Odoo 19 theme templates must not use the removed page attribute"
@@ -386,7 +393,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.77.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.78.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 LEARNING_PATH_COPY_MIGRATION="theme_facodi/migrations/19.0.10.75.0/post-10-learning-path-terminology.py"
 [[ -f "$LEARNING_PATH_COPY_MIGRATION" ]] || fail "learning-path terminology migration missing"
