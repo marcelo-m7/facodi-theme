@@ -268,8 +268,8 @@
             gap: .45rem;
         }
 
-        .offcanvas .nav-link,
-        .offcanvas .dropdown-toggle,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle),
+        .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle),
         .offcanvas .accordion-button:not(.facodi-split-menu__toggle) {
             background: var(--facodi-surface-sheet);
             border: 1px solid color-mix(in srgb, var(--facodi-ink) 38%, transparent);
@@ -287,11 +287,11 @@
             width: 100%;
         }
 
-        .offcanvas .nav-link:hover,
-        .offcanvas .nav-link:focus-visible,
-        .offcanvas .nav-link.active,
-        .offcanvas .dropdown-toggle:hover,
-        .offcanvas .dropdown-toggle:focus-visible,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle):hover,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle):focus-visible,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle).active,
+        .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle):hover,
+        .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle):focus-visible,
         .offcanvas .accordion-button:not(.facodi-split-menu__toggle):hover,
         .offcanvas .accordion-button:not(.facodi-split-menu__toggle):focus-visible {
             background: var(--facodi-sun);
