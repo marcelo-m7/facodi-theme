@@ -20,7 +20,7 @@ fi
 grep -Fq '"website"' theme_facodi/__manifest__.py || fail "website dependency missing"
 grep -Fq '"website_slides"' theme_facodi/__manifest__.py || fail "website_slides dependency missing"
 grep -Fq '"website_blog"' theme_facodi/__manifest__.py || fail "website_blog dependency missing"
-grep -Fq '"version": "19.0.10.78.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
+grep -Fq '"version": "19.0.10.79.0"' theme_facodi/__manifest__.py || fail "theme release version missing"
 grep -Fq 'theme_facodi_vendorless_ci' .github/workflows/ci.yml \
   || fail "CI must prove current theme installs without external design themes"
 grep -Fq -- '--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/facodi-addons' .github/workflows/ci.yml \
@@ -384,6 +384,19 @@ grep -Fq 'facodi-about-rebuilt' theme_facodi/views/page_templates.xml \
   || fail "rebuilt About composition missing"
 grep -Fq 'overflow-x:hidden' theme_facodi/views/page_templates.xml \
   || fail "About composition must prevent horizontal page drag"
+grep -Fq 'isolation:isolate;width:100%;max-width:100%;overflow:hidden' theme_facodi/views/page_templates.xml \
+  || fail "About composition must stay inside the viewport"
+grep -Fq 'min-width:0' theme_facodi/views/page_templates.xml \
+  || fail "About descendants must be allowed to shrink"
+grep -Fq 'overflow-wrap:anywhere' theme_facodi/views/page_templates.xml \
+  || fail "About long copy/links must not force horizontal overflow"
+if sed -n '/id="new_page_template_sections_facodi_about"/,/id="new_page_template_sections_facodi_community"/p' theme_facodi/views/page_templates.xml | grep -Fq 't-snippet-call'; then
+  fail "rebuilt About composition must not use runtime snippet calls"
+fi
+grep -Fq 'about_body = about_template.with_context(lang="en_GB").arch_db.strip()' theme_facodi/scripts/recover_editorial_pages.py \
+  || fail "About recovery must copy the hardened static composition"
+grep -Fq 'if "t-snippet-call" in about_body' theme_facodi/scripts/recover_editorial_pages.py \
+  || fail "About recovery must reject dynamic snippet compositions"
 
 grep -Fq 'theme_common' README.md || fail "README must document theme_common"
 grep -Fq 'odoo/design-themes' docs/architecture.md || fail "architecture must document upstream design-themes"
@@ -393,7 +406,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.78.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.79.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 LEARNING_PATH_COPY_MIGRATION="theme_facodi/migrations/19.0.10.75.0/post-10-learning-path-terminology.py"
 [[ -f "$LEARNING_PATH_COPY_MIGRATION" ]] || fail "learning-path terminology migration missing"
