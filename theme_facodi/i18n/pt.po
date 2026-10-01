@@ -2270,3 +2270,144 @@ msgstr "Políticas"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Accessibility"
 msgstr "Acessibilidade"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Open learning with enough context to keep the thread."
+msgstr "Aprendizagem aberta com contexto suficiente para não perder o fio."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "FACODI organises public courses, videos and learning resources into clearer paths. The goal is to make studying, discovering useful connections and contributing good resources easier—without confusing curricular context with academic equivalence."
+msgstr "A FACODI organiza cursos públicos, vídeos e recursos de aprendizagem em percursos mais claros. O objetivo é facilitar o estudo, a descoberta de ligações úteis e a contribuição de bons recursos — sem confundir contexto curricular com equivalência académica."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Why it exists"
+msgstr "Porque existe"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "FACODI grew from a simple study habit: learning from excellent public lessons, videos, documentation and open materials scattered across the web—and then losing the relationship between them."
+msgstr "A FACODI nasceu de um hábito simples de estudo: aprender com excelentes aulas públicas, vídeos, documentação e materiais abertos espalhados pela internet — e depois perder a relação entre eles."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "The platform organises those resources around courses, curricular units and learning paths, while keeping context, community contribution and published material clearly distinct."
+msgstr "A plataforma organiza esses recursos em torno de cursos, unidades curriculares e percursos de aprendizagem, mantendo separados o contexto, a contribuição comunitária e o conteúdo editorialmente publicado."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Important boundary"
+msgstr "Fronteira importante"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Context is not equivalence."
+msgstr "Contexto não é equivalência."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Curricular references help navigation. They do not create ECTS, academic equivalence or a formal qualification."
+msgstr "As referências curriculares ajudam a navegar. Não criam ECTS, equivalência académica nem uma qualificação formal."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "How FACODI decides what makes sense."
+msgstr "Como a FACODI decide o que faz sentido."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "01 · Open first"
+msgstr "01 · Aberto primeiro"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "We prefer public resources people can open, share and revisit."
+msgstr "Preferimos recursos públicos que as pessoas possam abrir, partilhar e revisitar."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "02 · Context first"
+msgstr "02 · Contexto primeiro"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "A good link is more useful when we know which course, topic or learning question it supports."
+msgstr "Um bom link é mais útil quando sabemos que curso, tema ou pergunta de aprendizagem ele apoia."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "03 · Clear boundaries"
+msgstr "03 · Fronteiras claras"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Community sharing, editorial review and publication are different states and should remain visible."
+msgstr "Partilha comunitária, revisão editorial e publicação são estados diferentes e devem continuar visíveis."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "From a question to a useful resource."
+msgstr "De uma pergunta a um recurso útil."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Choose a starting point"
+msgstr "Escolhe um ponto de partida"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "A course, curricular unit, topic or one very concrete question."
+msgstr "Um curso, unidade curricular, tema ou uma pergunta muito concreta."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Explore public resources"
+msgstr "Explora recursos públicos"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Follow only the links that help you move forward."
+msgstr "Segue apenas as ligações que te ajudam a avançar."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Connect content to context"
+msgstr "Liga conteúdo a contexto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Relate the resource to the learning path so it does not remain isolated."
+msgstr "Relaciona o recurso com o percurso de aprendizagem para que ele não fique isolado."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Send something useful back"
+msgstr "Deixa algo útil de volta"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Share a resource, correction or gap with enough context to help someone else."
+msgstr "Partilha um recurso, correção ou lacuna com contexto suficiente para ajudar outra pessoa."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Campus in progress"
+msgstr "Campus em construção"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "FACODI gets better when good resources stop getting lost."
+msgstr "A FACODI melhora quando bons recursos deixam de se perder."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Explore the catalogue or share a public resource that could help someone else."
+msgstr "Explora o catálogo ou partilha um recurso público que possa ajudar outra pessoa."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "Explore catalogue"
+msgstr "Explorar catálogo"
+
