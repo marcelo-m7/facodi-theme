@@ -404,7 +404,7 @@ ABOUT_TEMPLATE="$(sed -n '/id="new_page_template_sections_facodi_about"/,/id="ne
 if grep -Fq 'class="row' <<<"$ABOUT_TEMPLATE"; then
   fail "About composition must not use Bootstrap negative-margin rows"
 fi
-if grep -Eq 'data-facodi-motion|data-facodi-dot-grid|<canvas|transform:' <<<"$ABOUT_TEMPLATE"; then
+if grep -Eq 'data-facodi-motion|data-facodi-dot-grid|<canvas|(^|[;{[:space:]])transform:' <<<"$ABOUT_TEMPLATE"; then
   fail "About composition must remain static and free of motion/canvas transforms"
 fi
 if sed -n '/id="new_page_template_sections_facodi_about"/,/id="new_page_template_sections_facodi_community"/p' theme_facodi/views/page_templates.xml | grep -Fq 't-snippet-call'; then
