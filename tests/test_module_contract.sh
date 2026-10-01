@@ -406,7 +406,7 @@ grep -Fq '#EFFF00' README.md || fail "README must document live FACODI sun"
 grep -Fq 'does not import Website pages' README.md || fail "README must document the editorial-page boundary"
 grep -Fq 'facodi-online.css' docs/architecture.md || fail "architecture must document the database asset source"
 grep -Fq 'theme_default' docs/architecture.md || fail "architecture must document the live standard theme baseline"
-grep -Fq '"version": "19.0.10.79.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
+grep -Fq '"version": "19.0.10.80.0"' theme_facodi/__manifest__.py || fail "Campus Paper reusable-learning release version missing"
 
 LEARNING_PATH_COPY_MIGRATION="theme_facodi/migrations/19.0.10.75.0/post-10-learning-path-terminology.py"
 [[ -f "$LEARNING_PATH_COPY_MIGRATION" ]] || fail "learning-path terminology migration missing"
