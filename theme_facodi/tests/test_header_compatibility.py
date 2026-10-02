@@ -24,6 +24,33 @@ class TestFacodiHeaderCompatibility(HttpCase):
         self.assertNotIn("555-555", mobile.text_content())
         self.assertNotIn("Contact Us", mobile.text_content())
 
+        for width in (320, 390, 768):
+            self.browser_size = f"{width}x844"
+            self.browser_js("/", """
+                (async () => {
+                    const assert = (ok, message) => { if (!ok) throw new Error(message); };
+                    const drawer = document.querySelector('#top_menu_collapse_mobile');
+                    const waitEvent = (node, name, action) => new Promise(resolve => {
+                        node.addEventListener(name, resolve, {once: true}); action();
+                    });
+                    const open = document.querySelector('[data-bs-target="#top_menu_collapse_mobile"]');
+                    assert(open.getBoundingClientRect().width >= 44, 'Mobile toggle must have a 44px target');
+                    await waitEvent(drawer, 'shown.bs.offcanvas', () => open.click());
+                    assert(drawer.scrollWidth <= drawer.clientWidth + 1, 'Drawer must not overflow horizontally');
+                    const link = [...drawer.querySelectorAll('.facodi-split-menu__link')].find(a => a.textContent.trim() === 'Learning');
+                    const toggle = link.parentElement.querySelector('button');
+                    const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+                    assert(toggle.getBoundingClientRect().width >= 44, 'Submenu target must be at least 44px');
+                    await waitEvent(panel, 'shown.bs.collapse', () => toggle.click());
+                    assert(toggle.getAttribute('aria-expanded') === 'true', 'Submenu expanded state');
+                    assert(panel.querySelector('a[href$="/courses"]').getBoundingClientRect().height >= 44, 'Child links need a 44px target');
+                    await waitEvent(panel, 'hidden.bs.collapse', () => toggle.click());
+                    await waitEvent(drawer, 'hidden.bs.offcanvas', () => drawer.querySelector('[data-bs-dismiss="offcanvas"]').click());
+                    assert(!drawer.classList.contains('show'), 'Close control must close the drawer');
+                    console.log('test successful');
+                })().catch(error => console.error(error));
+            """, ready="document.querySelector('#top_menu_collapse_mobile')", timeout=60)
+
     def test_header_survives_existing_website_header_customization(self):
         website = self.env["website"].get_current_website()
         theme = self.env["ir.module.module"].search(
