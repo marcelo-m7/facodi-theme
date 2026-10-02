@@ -268,7 +268,7 @@
             gap: .45rem;
         }
 
-        .offcanvas .nav-link:not(.facodi-split-menu__toggle),
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle):not(.btn-close),
         .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle),
         .offcanvas .accordion-button:not(.facodi-split-menu__toggle) {
             background: var(--facodi-surface-sheet);
@@ -287,9 +287,9 @@
             width: 100%;
         }
 
-        .offcanvas .nav-link:not(.facodi-split-menu__toggle):hover,
-        .offcanvas .nav-link:not(.facodi-split-menu__toggle):focus-visible,
-        .offcanvas .nav-link:not(.facodi-split-menu__toggle).active,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle):not(.btn-close):hover,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle):not(.btn-close):focus-visible,
+        .offcanvas .nav-link:not(.facodi-split-menu__toggle):not(.btn-close).active,
         .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle):hover,
         .offcanvas .dropdown-toggle:not(.facodi-split-menu__toggle):focus-visible,
         .offcanvas .accordion-button:not(.facodi-split-menu__toggle):hover,
@@ -601,5 +601,44 @@
     .facodi-header .facodi-split-menu:has(.facodi-split-menu__link.active) {
         border-radius: var(--facodi-radius-sm);
         box-shadow: inset 0 -2px 0 var(--facodi-ink);
+    }
+}
+
+// Native drawer containment: utility buttons must never inherit full-row links.
+.facodi-site .o_header_mobile {
+    .offcanvas { border-radius: 0; box-shadow: none; height: 100dvh; }
+    .offcanvas-header .btn-close {
+        flex: 0 0 2.75rem;
+        height: 2.75rem;
+        width: 2.75rem;
+        padding: .6rem;
+        margin: 0;
+        background-color: transparent;
+        background-size: 1rem;
+    }
+    .facodi-mobile-title { font-weight: 900; font-size: 1.35rem; }
+    .offcanvas-body { height: auto !important; flex: 1 1 auto; gap: 1rem; }
+    .facodi-mobile-menu { margin: 0 !important; gap: .5rem; }
+    .facodi-mobile-menu > li { border: 0 !important; }
+    .facodi-mobile-menu .accordion-item { background: transparent; border: 0; }
+    .facodi-mobile-menu .facodi-split-menu--mobile {
+        border: 1px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius-sm);
+        overflow: hidden;
+        .facodi-split-menu__link { border: 0; }
+        .facodi-split-menu__toggle {
+            background: var(--facodi-surface-sheet);
+            color: var(--facodi-ink);
+            border: 0;
+            border-left: 1px solid var(--facodi-ink) !important;
+            border-radius: 0;
+            padding: .65rem !important;
+        }
+    }
+    .facodi-mobile-menu .accordion-collapse {
+        margin-top: .35rem;
+        padding-left: .75rem;
+        border-left: 2px solid var(--facodi-cyan);
+        .nav-link { display: flex; padding: .65rem .75rem !important; }
     }
 }

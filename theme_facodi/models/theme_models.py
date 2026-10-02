@@ -56,7 +56,7 @@ class WebsiteMenu(models.Model):
         child_urls = set(self.child_id.filtered("is_visible").mapped("url"))
         if "/courses" in child_urls and "/roadmaps" in child_urls:
             return "/explore"
-        if "/academic-model" in child_urls or "/about-ualg" in child_urls:
+        if child_urls.intersection({"/academic-model", "/about-ualg", "/about#project", "/partners"}):
             return "/about"
         # Community intentionally remains a disclosure-only parent until
         # FACODI has a dedicated community landing page. A child such as /forum

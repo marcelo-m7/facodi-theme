@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <template id="template_header_facodi"
-              inherit_id="website.layout"
-              name="FACODI Header Template">
+    <template id="template_header_facodi" inherit_id="website.layout" name="FACODI Header Template">
         <!--
             Replace the stable outer header rather than assuming that its current
             contents still contain a <nav>. Existing websites can carry Website
@@ -14,14 +12,7 @@
             for logo, menus, submenus, account state and the mobile header.
         -->
         <xpath expr="//header" position="replace">
-            <header t-if="not no_header"
-                    id="top"
-                    data-anchor="true"
-                    data-name="Header"
-                    t-att-data-extra-items-toggle-aria-label="extra_items_toggle_aria_label"
-                    t-attf-class="#{header_bg_color_class} #{header_text_color_class} #{'d-none o_snippet_invisible' if 'header_visible' in main_object and not main_object.sudo().header_visible else ''}"
-                    t-attf-style="#{header_bg_color_style and ('background-color: %s;' % header_bg_color_style)} #{header_text_color_style and ('color: %s;' % header_text_color_style)}"
-                    t-att-data-invisible="'1' if 'header_visible' in main_object and not main_object.sudo().header_visible else None">
+            <header t-if="not no_header" id="top" data-anchor="true" data-name="Header" t-att-data-extra-items-toggle-aria-label="extra_items_toggle_aria_label" t-attf-class="#{header_bg_color_class} #{header_text_color_class} #{'d-none o_snippet_invisible' if 'header_visible' in main_object and not main_object.sudo().header_visible else ''}" t-attf-style="#{header_bg_color_style and ('background-color: %s;' % header_bg_color_style)} #{header_text_color_style and ('color: %s;' % header_text_color_style)}" t-att-data-invisible="'1' if 'header_visible' in main_object and not main_object.sudo().header_visible else None">
                 <t t-call="website.navbar">
                     <t t-set="_navbar_classes" t-valuef="d-none d-lg-block facodi-header"/>
                     <t t-set="_navbar_name">Primary navigation</t>
@@ -34,24 +25,15 @@
                             <t t-foreach="website.menu_id.child_id" t-as="submenu">
                                 <t t-if="submenu.is_visible and submenu.child_id.filtered(lambda menu: menu.is_visible) and submenu._facodi_landing_url()">
                                     <li class="nav-item dropdown facodi-nav-split">
-                                        <a t-att-href="submenu._facodi_landing_url()"
-                                           t-attf-class="nav-link facodi-nav-split-link #{submenu._is_active() and 'active'}"
-                                           role="menuitem">
+                                        <a t-att-href="submenu._facodi_landing_url()" t-attf-class="nav-link facodi-nav-split-link #{submenu._is_active() and 'active'}" role="menuitem">
                                             <span t-field="submenu.name"/>
                                         </a>
-                                        <button type="button"
-                                                class="nav-link dropdown-toggle dropdown-toggle-split facodi-nav-split-toggle"
-                                                data-bs-toggle="dropdown"
-                                                data-bs-auto-close="outside"
-                                                aria-expanded="false"
-                                                aria-label="Open submenu">
+                                        <button type="button" class="nav-link dropdown-toggle dropdown-toggle-split facodi-nav-split-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" aria-label="Open submenu">
                                             <span class="visually-hidden">Open submenu</span>
                                         </button>
                                         <ul class="dropdown-menu facodi-dropdown-menu" role="menu">
                                             <t t-foreach="submenu.child_id" t-as="submenu">
-                                                <t t-call="website.submenu"
-                                                   item_class="None"
-                                                   link_class.f="dropdown-item"/>
+                                                <t t-call="website.submenu" item_class="None" link_class.f="dropdown-item"/>
                                             </t>
                                         </ul>
                                     </li>
@@ -95,68 +77,40 @@
         Bootstrap mechanics, but splits navigation from disclosure whenever
         the parent itself has a real destination.
     -->
-    <template id="submenu_split_navigation"
-              inherit_id="website.submenu"
-              name="FACODI Split Submenu Navigation">
+    <template id="submenu_split_navigation" inherit_id="website.submenu" name="FACODI Split Submenu Navigation">
         <xpath expr="//a[@t-if='not is_accordion_nav']" position="replace">
-            <t t-if="submenu._facodi_landing_url()">
+            <t t-if="not is_accordion_nav"><t t-if="submenu._facodi_landing_url()">
                 <div class="facodi-split-menu">
-                    <a t-att-href="submenu._facodi_landing_url()"
-                       t-attf-class="#{link_class or ''} facodi-split-menu__link #{submenu._is_active() and 'active'}"
-                       role="menuitem"
-                       t-ignore="true"
-                       t-att-target="'_blank' if submenu.new_window else None">
+                    <a t-att-href="submenu._facodi_landing_url()" t-attf-class="#{link_class or ''} facodi-split-menu__link #{submenu._is_active() and 'active'}" role="menuitem" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
                         <span t-field="submenu.name"/>
                     </a>
-                    <button type="button"
-                            t-attf-class="dropdown-toggle #{link_class or ''} facodi-split-menu__toggle #{dropdown_toggler_classes}"
-                            data-bs-toggle="dropdown"
-                            t-att-data-bs-display="'static' if submenu.is_mega_menu else None"
-                            data-bs-auto-close="outside"
-                            aria-label="Open submenu">
+                    <button type="button" t-attf-class="dropdown-toggle #{link_class or ''} facodi-split-menu__toggle #{dropdown_toggler_classes}" data-bs-toggle="dropdown" t-att-data-bs-display="'static' if submenu.is_mega_menu else None" data-bs-auto-close="outside" aria-label="Open submenu">
                         <span class="visually-hidden">Open submenu</span>
                     </button>
                 </div>
             </t>
-            <a t-else=""
-               href="#"
-               t-attf-class="dropdown-toggle #{link_class or ''} #{submenu.is_mega_menu and 'o_mega_menu_toggle'} #{submenu._is_active() and 'active'} #{dropdown_toggler_classes}"
-               data-bs-toggle="dropdown"
-               t-att-data-bs-display="'static' if submenu.is_mega_menu else None"
-               data-bs-auto-close="outside"
-               role="menuitem">
+            <a t-else="" href="#" t-attf-class="dropdown-toggle #{link_class or ''} #{submenu.is_mega_menu and 'o_mega_menu_toggle'} #{submenu._is_active() and 'active'} #{dropdown_toggler_classes}" data-bs-toggle="dropdown" t-att-data-bs-display="'static' if submenu.is_mega_menu else None" data-bs-auto-close="outside" role="menuitem">
                 <span t-field="submenu.name"/>
             </a>
-        </xpath>
+        </t></xpath>
         <xpath expr="//div[@t-elif='is_accordion_nav']/a[@href='#']" position="replace">
-            <div t-if="submenu._facodi_landing_url()"
-                 class="facodi-split-menu facodi-split-menu--mobile">
-                <a t-att-href="submenu._facodi_landing_url()"
-                   t-attf-class="#{link_class or ''} facodi-split-menu__link"
-                   role="menuitem"
-                   t-ignore="true"
-                   t-att-target="'_blank' if submenu.new_window else None">
+            <div t-if="submenu._facodi_landing_url()" class="facodi-split-menu facodi-split-menu--mobile">
+                <a t-att-href="submenu._facodi_landing_url()" t-attf-class="#{link_class or ''} facodi-split-menu__link" role="menuitem" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
                     <span t-field="submenu.name"/>
                 </a>
-                <button type="button"
-                        t-attf-class="#{link_class or ''} accordion-button collapsed facodi-split-menu__toggle"
-                        data-bs-toggle="collapse"
-                        t-attf-data-bs-target=".o_accordion_target_#{submenu.id}"
-                        aria-expanded="false"
-                        t-attf-aria-controls="o_accordion_target_#{submenu.id}"
-                        aria-label="Open submenu">
+                <button type="button" t-attf-class="#{link_class or ''} accordion-button collapsed facodi-split-menu__toggle" data-bs-toggle="collapse" t-attf-data-bs-target="#facodi_mobile_panel_#{submenu.id}" aria-expanded="false" t-attf-aria-controls="facodi_mobile_panel_#{submenu.id}" aria-label="Open submenu" t-attf-id="facodi_mobile_toggle_#{submenu.id}">
                     <span class="visually-hidden">Open submenu</span>
                 </button>
             </div>
-            <a t-else=""
-               href="#"
-               t-attf-class="#{link_class or ''} accordion-button collapsed"
-               data-bs-toggle="collapse"
-               t-attf-data-bs-target=".o_accordion_target_#{submenu.id}"
-               aria-expanded="false"
-               t-attf-aria-controls="o_accordion_target_#{submenu.id}">
+            <a t-else="" href="#" t-attf-class="#{link_class or ''} accordion-button collapsed" data-bs-toggle="collapse" t-attf-data-bs-target="#facodi_mobile_panel_#{submenu.id}" aria-expanded="false" t-attf-aria-controls="facodi_mobile_panel_#{submenu.id}" t-attf-id="facodi_mobile_toggle_#{submenu.id}">
                 <span t-field="submenu.name"/>
             </a>
         </xpath>
-    </template>
-</odoo>
+    <xpath expr="//div[@t-elif='is_accordion_nav']/div[contains(@t-attf-class, 'accordion-collapse')]" position="attributes"><attribute name="t-attf-id">facodi_mobile_panel_#{submenu.id}</attribute><attribute name="t-attf-aria-labelledby">facodi_mobile_toggle_#{submenu.id}</attribute></xpath></template>
+<template id="mobile_header_facodi" inherit_id="website.template_header_mobile" name="FACODI Mobile Navigation">
+<xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="replace"/>
+<xpath expr="//t[@t-call='website.header_call_to_action_large']" position="replace"/>
+<xpath expr="//div[hasclass('offcanvas-header')]" position="attributes"><attribute name="class" remove="justify-content-end" add="justify-content-between" separator=" "/></xpath>
+<xpath expr="//div[hasclass('offcanvas-header')]/button" position="before"><span class="facodi-mobile-title">FACODI<span class="text-primary">.</span></span></xpath>
+<xpath expr="//t[@t-call='website.navbar_nav']" position="attributes"><attribute name="_nav_class.f">facodi-mobile-menu</attribute></xpath>
+</template></odoo>

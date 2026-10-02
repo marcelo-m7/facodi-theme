@@ -1,8 +1,29 @@
 from odoo.tests import HttpCase, tagged
+from lxml import html
 
 
 @tagged("-at_install", "post_install")
 class TestFacodiHeaderCompatibility(HttpCase):
+    def test_mobile_navigation_renders_one_control_per_group(self):
+        website = self.env["website"].get_current_website()
+        theme = self.env["ir.module.module"].search([("name", "=", "theme_facodi")], limit=1)
+        website.theme_id = theme
+        theme._theme_get_stream_themes().with_context(
+            load_all_views=True, apply_new_theme=True
+        )._theme_load(website)
+        Menu = self.env["website.menu"]
+        parent = Menu.create({"name": "Learning", "url": "#", "parent_id": website.menu_id.id, "website_id": website.id})
+        for name, url in (("Courses", "/courses"), ("Paths", "/roadmaps")):
+            Menu.create({"name": name, "url": url, "parent_id": parent.id, "website_id": website.id})
+        response = self.url_open("/")
+        self.assertEqual(response.status_code, 200)
+        mobile = html.fromstring(response.text).get_element_by_id("top_menu_collapse_mobile")
+        self.assertFalse(mobile.xpath('.//*[@data-bs-toggle="dropdown" and @role="menuitem"]'))
+        self.assertFalse(mobile.xpath('.//div[@class="facodi-split-menu"]'))
+        self.assertEqual(len(mobile.xpath('.//a[contains(@href,"/explore") and normalize-space()="Learning"]')), 1)
+        self.assertNotIn("555-555", mobile.text_content())
+        self.assertNotIn("Contact Us", mobile.text_content())
+
     def test_header_survives_existing_website_header_customization(self):
         website = self.env["website"].get_current_website()
         theme = self.env["ir.module.module"].search(
