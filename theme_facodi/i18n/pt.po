@@ -2550,3 +2550,103 @@ msgstr "Recursos úteis não deviam desaparecer no histórico do navegador."
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
 msgid "Explore what is already public or contribute a resource that deserves a place in the learning map."
 msgstr "Explora o que já está público ou contribui com um recurso que merece um lugar no mapa de aprendizagem."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "FACODI · AN OPEN DIGITAL CAMPUS"
+msgstr "FACODI · UM CAMPUS DIGITAL ABERTO"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "— Open, collaborative, and free higher education"
+msgstr "— Ensino superior aberto, colaborativo e gratuito"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "Semester 2026.1 Open"
+msgstr "Semestre 2026.1 Aberto"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "View learning catalogue"
+msgstr "Ver catálogo de aprendizagem"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "Search courses, concepts..."
+msgstr "Pesquisar UCs, código, conceitos..."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "Contribute"
+msgstr "Contribuir"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "What do you want to learn today? (e.g. Algorithms, Calculus, Odoo...)"
+msgstr "O que quer aprender hoje? (ex.: Algoritmos, Cálculo, Odoo...)"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Real time"
+msgstr "Em tempo real"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "FEATURED TODAY:"
+msgstr "DESTAQUE DE HOJE:"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "How the Internet really works"
+msgstr "Como a internet realmente funciona"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Learning path: Networks & Open Systems"
+msgstr "Percurso: Redes & Sistemas Livres"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "UNIT IN REVIEW:"
+msgstr "UNIDADE EM REVISÃO:"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Computational Thinking"
+msgstr "Pensamento Computacional"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "12 resources · 4 open readings"
+msgstr "12 recursos · 4 leituras abertas"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "\"learning in public\""
+msgstr "\"aprender em público\""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Study materials · guides"
+msgstr "Materiais e guias"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Resources"
+msgstr "Recursos"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Cheat-sheets, laboratory guides, exam references and open notebooks."
+msgstr "Fórmulas sintetizadas, cheat-sheets de laboratório, simuladores de exame e cadernos Jupyter abertos."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Access collection"
+msgstr "Aceder ao acervo"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Open Educational Resources (REA/OER)"
+msgstr "Recursos Educacionais Abertos (REA/OER)"

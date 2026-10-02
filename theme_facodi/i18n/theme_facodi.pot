@@ -2534,3 +2534,103 @@ msgstr ""
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
 msgid "Explore what is already public or contribute a resource that deserves a place in the learning map."
 msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "FACODI · AN OPEN DIGITAL CAMPUS"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "— Open, collaborative, and free higher education"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "Semester 2026.1 Open"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "View learning catalogue"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "Search courses, concepts..."
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "Contribute"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "What do you want to learn today? (e.g. Algorithms, Calculus, Odoo...)"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Real time"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "FEATURED TODAY:"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "How the Internet really works"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Learning path: Networks & Open Systems"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "UNIT IN REVIEW:"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Computational Thinking"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "12 resources · 4 open readings"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "\"learning in public\""
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Study materials · guides"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Resources"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Cheat-sheets, laboratory guides, exam references and open notebooks."
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Access collection"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Open Educational Resources (REA/OER)"
+msgstr ""
