@@ -9,7 +9,20 @@
     --facodi-blue: #3979C8;
     --facodi-sky: #38BDF8;
     --facodi-coral: #FF8A7A;
-    --facodi-pink: #F9A8D4;
+    --facodi-pink: #FF70A6;
+    --facodi-orange: #FFAE33;
+    // Canonical color tokens matching Stitch design specification
+    --facodi-color-ink: #142846;
+    --facodi-color-ink-deep: #0B1325;
+    --facodi-color-sun: #EFFF00;
+    --facodi-color-cyan: #37BED2;
+    --facodi-color-mint: #A7E8BE;
+    --facodi-color-blue: #3979C8;
+    --facodi-color-coral: #FF8A7A;
+    --facodi-color-pink: #FF70A6;
+    --facodi-color-orange: #FFAE33;
+    --facodi-color-status-success: #107C41;
+    --facodi-color-status-error: #BA1A1A;
     // Digital Highlighter Campus accents from the approved reusable-block source.
     // They complement the core FACODI brand palette without replacing it.
     --facodi-marker-yellow: #E8FD36;
@@ -36,8 +49,49 @@
     --facodi-border: 2px solid var(--facodi-ink);
     --facodi-shadow: 4px 4px 0 var(--facodi-ink);
     --facodi-shadow-hover: 2px 2px 0 var(--facodi-ink);
+    --facodi-shadow-sm: 2px 2px 0 var(--facodi-ink);
+    --facodi-shadow-btn: 3px 3px 0 var(--facodi-ink);
+    --facodi-shadow-card: 4px 4px 0 var(--facodi-ink);
+    --facodi-shadow-lg: 6px 6px 0 var(--facodi-ink);
     --facodi-focus-ring: 0 0 0 3px var(--facodi-paper-warm), 0 0 0 6px var(--facodi-ink);
     --facodi-radius-sm: .25rem;
     --facodi-radius: .5rem;
     --facodi-radius-lg: .75rem;
+    --facodi-radius-tag: 10px;
+    --facodi-radius-btn: 12px;
+    --facodi-radius-card: 18px;
+    --facodi-radius-panel: 20px;
+    --facodi-radius-hero: 24px;
+    --facodi-radius-pill: 9999px;
+    --facodi-space-xs: 0.25rem;
+    --facodi-space-sm: 0.5rem;
+    --facodi-space-md: 1rem;
+    --facodi-space-lg: 1.5rem;
+    --facodi-space-xl: 2rem;
+    --facodi-font-display: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+    --facodi-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --facodi-font-mono: "JetBrains Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+// Dark Mode Native Theme tokens
+.facodi-site[data-bs-theme="dark"],
+.facodi-site.o_dark_theme {
+    --facodi-ink: #F0F1F2;
+    --facodi-ink-deep: #FFFFFF;
+    --facodi-paper: #0B1325;
+    --facodi-paper-warm: #111E36;
+    --facodi-white: #142846;
+    --facodi-campus-paper: #0B1325;
+    --facodi-campus-grid-line: #1E293B;
+    --facodi-surface-page: #0B1325;
+    --facodi-surface-sheet: #142846;
+    --facodi-line: #37BED2;
+    --facodi-border: 2px solid #37BED2;
+    --facodi-shadow: 4px 4px 0 #000000;
+    --facodi-shadow-hover: 2px 2px 0 #000000;
+    --facodi-shadow-sm: 2px 2px 0 #000000;
+    --facodi-shadow-btn: 3px 3px 0 #000000;
+    --facodi-shadow-card: 4px 4px 0 #000000;
+    --facodi-shadow-lg: 6px 6px 0 #000000;
+    --facodi-focus-ring: 0 0 0 3px #142846, 0 0 0 6px #37BED2;
 }

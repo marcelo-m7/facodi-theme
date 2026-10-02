@@ -104,7 +104,115 @@
         }
     }
 
-    :is(.facodi-sheet, .facodi-note, .facodi-postit, .facodi-button):focus-visible {
+    // Stitch Tactile Academic Neobrutalism Primitives
+    .bg-graph-matrix,
+    .facodi-grid-matrix {
+        background-color: var(--facodi-surface-page);
+        background-image:
+            linear-gradient(to right, var(--facodi-campus-grid-line) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--facodi-campus-grid-line) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .marker-highlight {
+        background: linear-gradient(transparent 58%, color-mix(in srgb, var(--facodi-sun) 85%, transparent) 58%);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
+    .marker-mint {
+        background: linear-gradient(transparent 58%, color-mix(in srgb, var(--facodi-mint) 85%, transparent) 58%);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
+    .marker-cyan {
+        background: linear-gradient(transparent 58%, color-mix(in srgb, var(--facodi-cyan) 50%, transparent) 58%);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
+    .btn-tactile {
+        transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+
+        &:active {
+            transform: translate(2px, 2px) !important;
+            box-shadow: 1px 1px 0 var(--facodi-ink) !important;
+        }
+    }
+
+    .card-hover {
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0 var(--facodi-ink) !important;
+        }
+    }
+
+    // Unified Card Family
+    .facodi-card {
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius-card, 18px);
+        box-shadow: var(--facodi-shadow-card, 4px 4px 0 var(--facodi-ink));
+        color: var(--facodi-ink);
+        position: relative;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+
+        &--learning {
+            border-top: 3px solid var(--facodi-cyan);
+        }
+
+        &--resource {
+            border-top: 3px solid var(--facodi-mint);
+        }
+
+        &--institutional {
+            border-top: 3px solid var(--facodi-blue);
+        }
+
+        &--editorial {
+            border-top: 3px solid var(--facodi-sun);
+        }
+    }
+
+    .facodi-badge {
+        align-items: center;
+        border: 1px solid var(--facodi-ink);
+        border-radius: var(--facodi-radius-tag, 10px);
+        display: inline-flex;
+        font-family: var(--facodi-font-mono);
+        font-size: .68rem;
+        font-weight: 700;
+        gap: .35rem;
+        letter-spacing: .04em;
+        line-height: 1;
+        padding: .35rem .6rem;
+        text-transform: uppercase;
+        width: fit-content;
+
+        &--sun {
+            background: var(--facodi-sun);
+            color: var(--facodi-ink);
+        }
+
+        &--mint {
+            background: var(--facodi-mint);
+            color: var(--facodi-ink);
+        }
+
+        &--cyan {
+            background: var(--facodi-cyan);
+            color: var(--facodi-ink);
+        }
+
+        &--pill {
+            border-radius: var(--facodi-radius-pill, 9999px);
+        }
+    }
+
+    :is(.facodi-sheet, .facodi-note, .facodi-postit, .facodi-button, .facodi-card):focus-visible {
         outline: 0;
         box-shadow: var(--facodi-focus-ring);
     }
@@ -114,7 +222,10 @@
     .facodi-site {
         .facodi-sheet,
         .facodi-note,
-        .facodi-postit {
+        .facodi-postit,
+        .facodi-card,
+        .card-hover,
+        .btn-tactile {
             transition: none;
         }
 
