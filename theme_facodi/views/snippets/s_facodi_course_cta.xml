@@ -17,15 +17,38 @@
                 <canvas class="facodi-dot-grid__canvas"/>
             </div>
             <div class="container">
-                <article class="facodi-sheet facodi-closing-sheet facodi-closing-sheet-v4" data-facodi-motion="rise">
-                    <div>
+                <article class="facodi-sheet facodi-closing-sheet facodi-closing-sheet-v4 row align-items-center g-4" data-facodi-motion="rise">
+                    <div class="col-lg-8">
                         <p class="facodi-label facodi-closing-label">Open campus</p>
-                        <h2>Still building. You can help shape what comes next.</h2>
+                        <h2 class="mt-2">Still building. You can help shape what comes next.</h2>
                         <p class="facodi-lead">Explore what is already public, or contribute a useful resource that deserves a place in the learning trail.</p>
+                        <div class="facodi-actions mt-3">
+                            <a href="/courses" class="btn facodi-button facodi-button-primary">
+                                <span>Explore the catalogue</span>
+                                <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
+                            </a>
+                            <a href="/submissions/new?type=resource&amp;source=closing_cta&amp;section=homepage" class="btn facodi-button facodi-button-secondary">Contribute a resource</a>
+                            <a href="https://github.com/marcelo-m7/facodi-deploy" target="_blank" rel="noopener noreferrer" class="btn facodi-button facodi-button-ghost text-white">
+                                <i class="fa fa-github me-1" aria-hidden="true" t-translation="off"/>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="facodi-actions">
-                        <a href="/courses" class="btn facodi-button facodi-button-primary">Explore the catalogue</a>
-                        <a href="/submissions/new?type=resource&amp;source=closing_cta&amp;section=homepage" class="btn facodi-button facodi-button-secondary">Contribute a resource</a>
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="facodi-postit p-3" style="transform: rotate(2deg);">
+                            <div class="d-flex align-items-center justify-content-between pb-2 mb-2 border-bottom border-dark">
+                                <span class="font-monospace small fw-bold">HOW TO START TODAY:</span>
+                                <i class="fa fa-pencil small" aria-hidden="true" t-translation="off"/>
+                            </div>
+                            <ul class="small mb-0 ps-3">
+                                <li>Fix a typo or code snippet in a guide</li>
+                                <li>Share an open exercise or cheatsheet</li>
+                                <li>Suggest improvements to an existing syllabus</li>
+                            </ul>
+                            <div class="small text-muted pt-2 mt-2 border-top border-dark">
+                                Peer review in &lt; 48 hours.
+                            </div>
+                        </div>
                     </div>
                 </article>
             </div>

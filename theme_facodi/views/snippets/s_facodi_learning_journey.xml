@@ -49,6 +49,13 @@
                         <p>Start from a reviewed academic reference and discover related open learning.</p>
                         <div class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
+                    <a href="/explore" class="facodi-learning-card facodi-learning-card-paper" data-facodi-motion="tilt" data-facodi-motion-delay="210">
+                        <p class="facodi-label">Study materials · guides</p>
+                        <span class="facodi-card-icon facodi-card-icon-sun"><i class="fa fa-folder-open" aria-hidden="true" t-translation="off"/></span>
+                        <h3>Resources</h3>
+                        <p>Cheat-sheets, laboratory guides, exam references and open notebooks.</p>
+                        <div class="facodi-text-link">Access collection <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
+                    </a>
                 </div>
             </div>
         </section>

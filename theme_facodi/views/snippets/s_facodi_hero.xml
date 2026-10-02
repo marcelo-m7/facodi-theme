@@ -26,6 +26,16 @@
                 <p class="facodi-lead">
                     Explore courses, learning paths and curricular units built from public learning resources, reviewed context and community contributions.
                 </p>
+                <form action="/courses" method="get" class="facodi-hero-search-box d-flex align-items-stretch gap-2 mb-3">
+                    <div class="facodi-hero-search-inner d-flex align-items-center flex-grow-1 px-3">
+                        <i class="fa fa-search text-muted me-2" aria-hidden="true" t-translation="off"/>
+                        <input type="search" name="search" class="facodi-hero-search-input flex-grow-1" placeholder="What do you want to learn today? (e.g. Algorithms, Calculus, Odoo...)" aria-label="Search courses"/>
+                    </div>
+                    <button type="submit" class="btn facodi-button facodi-button-primary facodi-hero-search-btn">
+                        <span>Search</span>
+                        <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
+                    </button>
+                </form>
                 <div class="facodi-actions">
                     <a class="btn facodi-button facodi-button-primary" href="/courses">
                         Explore courses
@@ -39,15 +49,28 @@
                 </p>
             </div>
             <div class="facodi-hero-study-board" aria-label="FACODI learning map">
-                <article class="facodi-sheet facodi-study-sheet">
-                    <div class="facodi-study-sheet-topline">
+                <article class="facodi-sheet facodi-study-sheet facodi-caderno-card">
+                    <div class="facodi-caderno-tape" aria-hidden="true"/>
+                    <div class="facodi-study-sheet-topline d-flex align-items-center justify-content-between mb-2">
                         <p class="facodi-tab">Field notebook</p>
-                        <span class="facodi-status-chip">Open</span>
+                        <span class="facodi-badge facodi-badge--mint facodi-badge--pill">Real time</span>
                     </div>
-                    <div class="facodi-study-meta"><p class="facodi-tab">Field notebook</p><span class="facodi-study-chip">Study question #042</span></div>
-                    <h2>What do you want to understand next?</h2>
-                    <div class="facodi-study-route" aria-hidden="true">
+                    <div class="facodi-caderno-block facodi-caderno-block--yellow mb-2">
+                        <span class="facodi-caderno-kicker">FEATURED TODAY:</span>
+                        <h3 class="facodi-caderno-title">How the Internet really works</h3>
+                        <p class="facodi-caderno-subtitle">Learning path: Networks &amp; Open Systems</p>
+                    </div>
+                    <div class="facodi-caderno-block facodi-caderno-block--cyan mb-2">
+                        <span class="facodi-caderno-kicker">UNIT IN REVIEW:</span>
+                        <h3 class="facodi-caderno-title">Computational Thinking</h3>
+                        <p class="facodi-caderno-subtitle">12 resources · 4 open readings</p>
+                    </div>
+                    <div class="facodi-study-route mb-2" aria-hidden="true">
                         <span>01</span><i/><span>02</span><i/><span>03</span>
+                    </div>
+                    <div class="facodi-caderno-footer d-flex align-items-center justify-content-between pt-2 border-top">
+                        <em class="facodi-caderno-quote">"learning in public"</em>
+                        <span class="facodi-badge facodi-badge-year" t-translation="off">FACODI 2026</span>
                     </div>
                 </article>
                 <article class="facodi-note facodi-study-note">
