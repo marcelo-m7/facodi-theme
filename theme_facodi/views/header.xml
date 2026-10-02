@@ -60,13 +60,6 @@
                                     </t>
                                 </t>
                             </t>
-                            <li class="nav-item d-none d-xl-flex align-items-center me-1">
-                                <form method="get" action="/courses" class="facodi-header-search d-flex align-items-center">
-                                    <i class="fa fa-search text-muted me-2" aria-hidden="true" t-translation="off"/>
-                                    <input type="search" name="search" class="facodi-header-search-input" placeholder="Search courses, concepts..." aria-label="Search courses"/>
-                                    <kbd class="facodi-search-kbd d-none d-xxl-inline-block" t-translation="off">⌘K</kbd>
-                                </form>
-                            </li>
                             <t t-call="website.placeholder_header_language_selector">
                                 <t t-set="_item_class" t-valuef="nav-item dropdown ms-lg-1 facodi-language-selector"/>
                                 <t t-set="_btn_class" t-valuef="nav-link d-flex align-items-center gap-1"/>

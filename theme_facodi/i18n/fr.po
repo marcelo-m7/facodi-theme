@@ -2573,11 +2573,6 @@ msgstr "Voir le catalogue d’apprentissage"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
-msgid "Search courses, concepts..."
-msgstr "Rechercher des cours, du code, des concepts..."
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
 msgid "Contribute"
 msgstr "Contribuer"
 
