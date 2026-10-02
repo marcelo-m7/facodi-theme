@@ -30,6 +30,10 @@
                     <div class="facodi-footer-note">
                         <a href="/" class="facodi-wordmark" t-translation="off">FACODI<span>.</span></a>
                         <p>Open learning resources, curricular context and community contributions — organised to help people study, discover and share knowledge.</p>
+                        <div class="facodi-footer-badge mt-2 d-flex align-items-center gap-1">
+                            <i class="fa fa-check-circle" style="color: #107C41;" aria-hidden="true" t-translation="off"/>
+                            <span class="small">Open Educational Resources (REA/OER)</span>
+                        </div>
                     </div>
 
                     <nav class="facodi-footer-links" aria-label="Footer navigation">
@@ -81,6 +85,13 @@
                             <a href="https://github.com/marcelo-m7" target="_blank" rel="noopener noreferrer" t-translation="off">Marcelo Santos</a>
                             <span aria-hidden="true"> · </span>
                             <span t-translation="off">Monynha Softwares</span>
+                        </div>
+                        <div class="mt-2 d-flex align-items-center justify-content-lg-end gap-2">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="facodi-badge facodi-badge--pill text-decoration-none" style="background: var(--facodi-paper-warm); color: #142846;" t-translation="off">
+                                <span>CC BY-SA 4.0</span>
+                                <i class="fa fa-unlock-alt ms-1" aria-hidden="true"/>
+                            </a>
+                            <span class="facodi-build-tag text-muted" t-translation="off">BUILD: 2026.02-REL</span>
                         </div>
                     </div>
                 </div>
