@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="facodi_http_500" inherit_id="http_routing.500" name="FACODI 500 Error Page">
-        <xpath expr="//style" position="inside">
+        <xpath expr="//style" position="inside" t-translation="off">
             :root { --ink:#142846; --ink-deep:#0B1325; --paper:#FDFCF7; --sheet:#FFFFFF; --sun:#EFFF00; --cyan:#37BED2; --pink:#F9A8D4; --radius:8px; }
             * { box-sizing:border-box; } html,body { margin:0; min-height:100%; background:var(--paper); color:var(--ink); }
             body { font-family:Arial,Helvetica,sans-serif; background-image:linear-gradient(rgba(20,40,70,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(17,35,64,.06) 1px,transparent 1px); background-size:24px 24px; }

@@ -15,27 +15,27 @@
                          t-att-src="website.image_url(user, 'avatar_256')"
                          t-att-alt="user.name or ''"/>
                     <div class="facodi-profile-heading">
-                        <span class="facodi-profile-eyebrow">FACODI · Comunidade</span>
+                        <span class="facodi-profile-eyebrow">FACODI · Community</span>
                         <h1 t-out="user.name"/>
                         <p class="facodi-profile-rank" t-if="user.rank_id">
                             <i class="fa fa-star" aria-hidden="true"/>
                             <span t-out="user.rank_id.name"/>
                         </p>
-                        <p class="facodi-profile-intro">Perfil de aprendizagem e participação na comunidade FACODI.</p>
+                        <p class="facodi-profile-intro">Learning profile and participation in the FACODI community.</p>
                     </div>
                 </div>
-                <div class="facodi-profile-stats" aria-label="Resumo do perfil">
+                <div class="facodi-profile-stats" aria-label="Profile summary">
                     <div class="facodi-profile-stat">
                         <strong t-out="user.karma"/>
                         <span>XP</span>
                     </div>
                     <div class="facodi-profile-stat">
                         <strong t-out="len(user.badge_ids.filtered(lambda b: b.badge_id.website_published))"/>
-                        <span>Distintivos</span>
+                        <span>Badges</span>
                     </div>
                     <div class="facodi-profile-stat">
                         <strong><i class="fa fa-calendar-check-o" aria-hidden="true"/></strong>
-                        <span>Membro desde <span t-out="user.create_date.strftime(&quot;%b %Y&quot;) if user.create_date else &quot;—&quot;"/></span>
+                        <span>Member since <span t-out="user.create_date" t-options='{"widget": "date", "format": "MMM yyyy"}' t-if="user.create_date"/><span t-else="">—</span></span>
                     </div>
                 </div>
             </section>

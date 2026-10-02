@@ -65,7 +65,9 @@ jobs:
         run: bash tests/test_public_pages_contract.sh
 
       - name: Native Odoo i18n contract
-        run: bash tests/test_i18n_contract.sh
+        run: |
+          bash tests/test_i18n_contract.sh
+          python3 tests/test_translation_catalogues.py
 
       - name: Responsive eLearning catalogue style contract
         run: bash tests/test_elearning_catalog_style_contract.sh

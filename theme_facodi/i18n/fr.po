@@ -5,6 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
+"PO-Revision-Date: 2026-10-02 23:50+0000\n"
+"Last-Translator: FACODI\n"
+"Language-Team: fr_FR\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,6 +27,7 @@ msgstr "Parcourez les cours ouverts et ressources d'apprentissage de FACODI pour
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_header
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
 msgid "Primary navigation"
 msgstr "Navigation principale"
 
@@ -128,13 +132,15 @@ msgstr "Le savoir est partout. Trouvez votre prochaine étape."
 msgid "Open learning resources and a community that turns knowledge into possibility."
 msgstr "Ressources d’apprentissage ouvertes et une communauté qui transforme les connaissances en possibilités."
 
+#. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
-#. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_paper_card
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 msgid "Explore courses"
 msgstr "Explorer les cours"
 
@@ -184,8 +190,9 @@ msgstr "À votre rythme"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
 msgid "Contribute"
-msgstr "Contribuez"
+msgstr "Contribuer"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
@@ -195,6 +202,7 @@ msgstr "En communauté"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
 msgid "How it works"
 msgstr "Comment ça fonctionne"
 
@@ -240,6 +248,7 @@ msgstr "Le savoir en mouvement"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 msgid "We are still building. You can be part of it."
 msgstr "Nous construisons encore. Tu peux en faire partie."
 
@@ -410,8 +419,8 @@ msgstr "Mon parcours d’apprentissage"
 msgid "Overview"
 msgstr "Vue d’ensemble"
 
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
@@ -423,8 +432,8 @@ msgstr "Cours"
 msgid "Saved"
 msgstr "Enregistrés"
 
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_metadata_row
@@ -472,8 +481,8 @@ msgstr "Ouvre le catalogue et choisis le prochain sujet de ton parcours d’appr
 msgid "View catalogue"
 msgstr "Voir le catalogue"
 
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.dynamic_filter_template_slide_channel_facodi_course_card
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 msgid "lessons"
 msgstr "leçons"
@@ -683,8 +692,8 @@ msgstr "Les vidéos, cours et ressources prennent plus de sens ensemble. Explore
 msgid "Find what to study"
 msgstr "Trouver quoi étudier"
 
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Meet FACODI"
 msgstr "Découvrir FACODI"
@@ -699,8 +708,8 @@ msgstr "Commencez là où vous êtes"
 msgid "Choose a topic, watch, read and find an accessible way in."
 msgstr "Choisissez un sujet, regardez, lisez et trouvez une manière accessible de commencer."
 
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Follow a Roadmap"
 msgstr "Suivre un parcours"
@@ -710,8 +719,8 @@ msgstr "Suivre un parcours"
 msgid "See how topics, modules and courses can support the same direction."
 msgstr "Voyez comment sujets, modules et cours peuvent soutenir une même direction."
 
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Find a curricular unit"
 msgstr "Trouver une unité d’enseignement"
@@ -721,8 +730,8 @@ msgstr "Trouver une unité d’enseignement"
 msgid "Understand the official reference, related modules and reviewed course coverage."
 msgstr "Comprenez la référence officielle, les modules associés et la couverture de cours révisée."
 
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
 msgid "From curiosity to the next click."
 msgstr "De la curiosité au prochain clic."
@@ -786,8 +795,8 @@ msgstr "Contribuer à façonner FACODI"
 msgid "Use Roadmaps for direction, curricular units for verified context, and courses to start learning."
 msgstr "Utilisez les Roadmaps pour vous orienter, les unites d'enseignement pour un contexte verifie et les cours pour commencer a apprendre."
 
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
@@ -798,6 +807,7 @@ msgstr "Parcours d’apprentissage"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Curricular units"
 msgstr "Unités d’enseignement"
 
@@ -943,11 +953,6 @@ msgstr "Contexte académique"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
-msgid "Curricular units"
-msgstr "Unités d’enseignement"
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Start from a reviewed academic reference and see related learning."
 msgstr "Pars d’une référence académique vérifiée et consulte les apprentissages associés."
 
@@ -1012,6 +1017,8 @@ msgstr "Tu as trouvé une ressource qui a déclenché un déclic ? Laisse une pi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_course_main
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
 msgid "Suggest a resource"
 msgstr "Suggérer une ressource"
 
@@ -1042,6 +1049,7 @@ msgstr "FACODI relie des ressources d’apprentissage ouvertes, un contexte acad
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
 msgid "Explore SEA-EU"
 msgstr "Explorer SEA-EU"
 
@@ -1330,8 +1338,6 @@ msgstr "Citation éditoriale"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
 msgid "Contact sheet"
 msgstr "Fiche de contact"
-
-
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_heading
@@ -1853,6 +1859,7 @@ msgstr "Rejoindre le forum"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
 msgid "Open campus"
 msgstr "Campus ouvert"
 
@@ -1903,19 +1910,18 @@ msgstr "Explorez ce qui est déjà public ou proposez une ressource utile qui m�
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
 msgid "Contribute a resource"
 msgstr "Proposer une ressource"
-
-
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_routes
 msgid "Ask questions and share useful resources with the FACODI community."
 msgstr "Posez des questions et partagez des ressources utiles avec la communauté FACODI."
 
-
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.submenu_split_navigation
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
 msgid "Open submenu"
 msgstr "Ouvrir le sous-menu"
 
@@ -2572,11 +2578,6 @@ msgid "View learning catalogue"
 msgstr "Voir le catalogue d’apprentissage"
 
 #. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
-msgid "Contribute"
-msgstr "Contribuer"
-
-#. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "What do you want to learn today? (e.g. Algorithms, Calculus, Odoo...)"
 msgstr "Que souhaitez-vous apprendre aujourd’hui ? (ex. : Algorithmes, Calcul, Odoo...)"
@@ -2628,6 +2629,7 @@ msgstr "Matériels et guides"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
 msgid "Resources"
 msgstr "Ressources"
 
@@ -2645,3 +2647,1973 @@ msgstr "Accéder à la collection"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Open Educational Resources (REA/OER)"
 msgstr "Ressources Éducatives Libres (REL/OER)"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "<span>server detour</span>"
+msgstr "<span>détour du serveur</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_http_500
+msgid "This page hit a <mark>rough patch.</mark>"
+msgstr "Cette page a rencontré un <mark>contretemps.</mark>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_mail_notification_layout
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_groups
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "FACODI"
+msgstr "FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_mail_notification_layout
+msgid "Digital Community College"
+msgstr "Établissement communautaire numérique"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_mail_notification_layout
+msgid "FACODI · open, accessible and community-built learning."
+msgstr ""
+"FACODI · apprentissage ouvert, accessible et construit par la communauté."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_mail_notification_layout
+msgid "·"
+msgstr "·"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_mail_notification_layout
+msgid "Unfollow"
+msgstr "Ne plus suivre"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid ""
+"<span class=\"facodi-status-dot\" aria-hidden=\"true\">●</span>\n"
+"                            <span class=\"facodi-announcement-title\">FACODI · AN OPEN DIGITAL CAMPUS</span>\n"
+"                            <span class=\"facodi-announcement-subtitle d-none d-xl-inline\">— Open, collaborative, and free higher education</span>"
+msgstr ""
+"<span class=\"facodi-status-dot\" aria-hidden=\"true\">●</span>\n"
+"                            <span class=\"facodi-announcement-title\">FACODI · UN CAMPUS NUMÉRIQUE OUVERT</span>\n"
+"                            <span class=\"facodi-announcement-subtitle d-none d-xl-inline\">— Enseignement supérieur ouvert, collaboratif et gratuit</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid ""
+"<span class=\"facodi-badge facodi-badge--sun facodi-badge-"
+"semester\">Semester 2026.1 Open</span>"
+msgstr ""
+"<span class=\"facodi-badge facodi-badge--sun facodi-badge-"
+"semester\">Semestre 2026.1 Ouvert</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.submenu_split_navigation
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "<span class=\"visually-hidden\">Open submenu</span>"
+msgstr "<span class=\"visually-hidden\">Ouvrir le sous-menu</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+msgid "<span>Contribute</span>"
+msgstr "<span>Contribuer</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.mobile_header_facodi
+msgid ""
+"<span class=\"facodi-mobile-title\">FACODI<span class=\"text-"
+"primary\">.</span></span>"
+msgstr ""
+"<span class=\"facodi-mobile-title\">FACODI<span class=\"text-"
+"primary\">.</span></span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "<span class=\"small\">Open Educational Resources (REA/OER)</span>"
+msgstr "<span class=\"small\">Ressources Éducatives Libres (REL/OER)</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "<span class=\"facodi-footer-heading\">Policies</span>"
+msgstr "<span class=\"facodi-footer-heading\">Politiques</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "<span class=\"facodi-footer-heading\">Account</span>"
+msgstr "<span class=\"facodi-footer-heading\">Compte</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Built with Odoo"
+msgstr "Créé avec Odoo"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "<span class=\"small\"> · affiliate link</span>"
+msgstr "<span class=\"small\"> · lien d’affiliation</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "FACODI on Instagram"
+msgstr "FACODI sur Instagram"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "<span aria-hidden=\"true\"> · </span>"
+msgstr "<span aria-hidden=\"true\"> · </span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Visual Direction · FACODI"
+msgstr "Direction visuelle · FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"FACODI Digital Highlighter Campus visual direction: colors, typography, "
+"spacing, highlighter accents, cards, buttons and interface rules."
+msgstr ""
+"Direction visuelle du campus numérique FACODI : couleurs, typographie, "
+"espacement, surlignages, cartes, boutons et règles d’interface."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Digital Highlighter Campus · Visual Direction"
+msgstr "Campus numérique surligné · Direction visuelle"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Paper structure. Highlighter energy. Open campus."
+msgstr "Structure de papier. Énergie des surlignages. Campus ouvert."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"A practical reference for designing FACODI interfaces, editorial pages and "
+"campaign materials with a coherent academic-but-playful visual language."
+msgstr ""
+"Une référence pratique pour créer des interfaces FACODI, des pages "
+"éditoriales et des supports de campagne dans un langage visuel académique, "
+"convivial et cohérent."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<span class=\"facodi-vd-swatch facodi-highlight-lime\">#E8FD36 · Yellow</span>\n"
+"                                <span class=\"facodi-vd-swatch facodi-highlight-mint\">#72F6B8 · Mint</span>\n"
+"                                <span class=\"facodi-vd-swatch facodi-highlight-cyan\">#34B6CE · Cyan</span>\n"
+"                                <span class=\"facodi-vd-swatch facodi-highlight-pink\">#FF70A6 · Pink</span>\n"
+"                                <span class=\"facodi-vd-swatch facodi-highlight-orange\">#FFAE33 · Orange</span>"
+msgstr ""
+"<span class=\"facodi-vd-swatch facodi-highlight-lime\">#E8FD36 · Jaune</span>\n"
+"                                <span class=\"facodi-vd-swatch facodi-highlight-mint\">#72F6B8 · Menthe</span>\n"
+"                                <span class=\"facodi-vd-swatch facodi-highlight-cyan\">#34B6CE · Cyan</span>\n"
+"                                <span class=\"facodi-vd-swatch facodi-highlight-pink\">#FF70A6 · Rose</span>\n"
+"                                <span class=\"facodi-vd-swatch facodi-highlight-orange\">#FFAE33 · Orange</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">01</span>"
+msgstr "<span class=\"facodi-vd-index\">01</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Brand idea"
+msgstr "Concept de marque"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Digital Highlighter Campus"
+msgstr "Campus numérique surligné"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Structured like a notebook. Alive like a study desk."
+msgstr "Structuré comme un carnet. Vivant comme un bureau d’étude."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"FACODI translates highlighters, graph paper, sticky tabs, margin notes and "
+"course notebooks into a crisp digital interface."
+msgstr ""
+"FACODI transforme surligneurs, papier quadrillé, onglets adhésifs, notes en "
+"marge et carnets de cours en une interface numérique nette."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"The visual system should feel trustworthy without becoming institutional, "
+"and playful without becoming decorative noise."
+msgstr ""
+"Le système visuel doit inspirer confiance sans devenir institutionnel et "
+"rester convivial sans créer de bruit décoratif."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-tab facodi-highlight-lime\">CORE PRINCIPLE</span>"
+msgstr ""
+"<span class=\"facodi-vd-tab facodi-highlight-lime\">PRINCIPE CENTRAL</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Optimistic, organized, student-first."
+msgstr "Optimiste, organisé et centré sur les apprenants."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Use fluorescent accents to guide attention and communicate learning states."
+msgstr ""
+"Utilise des accents fluorescents pour guider l’attention et communiquer les "
+"états d’apprentissage."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">02</span>"
+msgstr "<span class=\"facodi-vd-index\">02</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Color system"
+msgstr "Système de couleurs"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Ink first. Marker second."
+msgstr "L’encre d’abord. Le surlignage ensuite."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<strong>Ink</strong><code>#112340</code><span>Structure · body text · "
+"primary actions</span>"
+msgstr ""
+"<strong>Encre</strong><code>#112340</code><span>Structure · texte · actions "
+"principales</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<strong>Yellow</strong><code>#E8FD36</code><span>Primary callout · active · "
+"start</span>"
+msgstr ""
+"<strong>Jaune</strong><code>#E8FD36</code><span>Mise en évidence principale "
+"· actif · début</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<strong>Mint</strong><code>#72F6B8</code><span>Done · success · "
+"enrolled</span>"
+msgstr ""
+"<strong>Menthe</strong><code>#72F6B8</code><span>Terminé · réussite · "
+"inscrit</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<strong>Cyan</strong><code>#34B6CE</code><span>Navigation · information · "
+"course codes</span>"
+msgstr ""
+"<strong>Cyan</strong><code>#34B6CE</code><span>Navigation · information · "
+"codes de cours</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<strong>Pink</strong><code>#FF70A6</code><span>Priority · open gaps · "
+"alerts</span>"
+msgstr ""
+"<strong>Rose</strong><code>#FF70A6</code><span>Priorité · lacunes ouvertes ·"
+" alertes</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<strong>Orange</strong><code>#FFAE33</code><span>Review · partial · "
+"continue</span>"
+msgstr ""
+"<strong>Orange</strong><code>#FFAE33</code><span>Vérification · partiel · "
+"continuer</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<strong>Rule:</strong> highlighter colors are fills, tabs, marker strokes "
+"and state surfaces. They are not small-body-text colors."
+msgstr ""
+"<strong>Règle :</strong> les couleurs de surlignage servent aux fonds, "
+"onglets, traits de marqueur et états. Elles ne conviennent pas aux petits "
+"textes."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">03</span>"
+msgstr "<span class=\"facodi-vd-index\">03</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Typography"
+msgstr "Typographie"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Three voices, one campus."
+msgstr "Trois voix, un campus."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<span>HEADLINES · SPACE GROTESK</span><strong class=\"facodi-vd-type-"
+"display\">Find your next useful tab.</strong>"
+msgstr ""
+"<span>TITRES · SPACE GROTESK</span><strong class=\"facodi-vd-type-"
+"display\">Trouve ton prochain lien utile.</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span>BODY · PLUS JAKARTA SANS</span>"
+msgstr "<span>TEXTE · PLUS JAKARTA SANS</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Warm, readable and calm enough for long-form study material and explanatory "
+"copy."
+msgstr ""
+"Chaleureux, lisible et calme pour les longs supports d’étude et les textes "
+"explicatifs."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<span>METADATA · JETBRAINS MONO</span><code>UC-19411018 // OPEN LEARNING // "
+"FACODI</code>"
+msgstr ""
+"<span>MÉTADONNÉES · JETBRAINS MONO</span><code>UC-19411018 // OPEN LEARNING "
+"// FACODI</code>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">04</span>"
+msgstr "<span class=\"facodi-vd-index\">04</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Layout &amp; rhythm"
+msgstr "Composition et rythme"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "8px rhythm. 24px graph paper."
+msgstr "Rythme de 8px. Papier quadrillé de 24px."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>8px rhythm</strong>"
+msgstr "<strong>Rythme de 8px</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Spacing and interior padding follow a simple, repeatable base rhythm."
+msgstr ""
+"L’espacement et les marges intérieures suivent un rythme de base simple et "
+"reproductible."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>Graph paper</strong>"
+msgstr "<strong>Papier quadrillé</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Use subtle 24px grid lines on large canvases and study surfaces."
+msgstr ""
+"Utilise des grilles discrètes de 24px sur les grandes surfaces et les "
+"espaces d’étude."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>Breathing room</strong>"
+msgstr "<strong>Espace de respiration</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Bright accents need whitespace to stay useful."
+msgstr "Les accents vifs ont besoin d’espace libre pour rester utiles."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">05</span>"
+msgstr "<span class=\"facodi-vd-index\">05</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Depth &amp; shape"
+msgstr "Profondeur et forme"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Hard shadows, trimmed paper."
+msgstr "Ombres nettes, papier découpé."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>Layer 1</strong><span>White paper · crisp border</span>"
+msgstr "<strong>Couche 1</strong><span>Papier blanc · contour net</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<strong>Layer 2</strong><span>3px hard shadow · interactive card</span>"
+msgstr ""
+"<strong>Couche 2</strong><span>Ombre nette de 3px · carte interactive</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>Layer 3</strong><span>6px hard shadow · drawer / modal</span>"
+msgstr ""
+"<strong>Couche 3</strong><span>Ombre nette de 6px · panneau / fenêtre "
+"modale</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Corners stay compact. Full pills are reserved for true live/status "
+"indicators."
+msgstr ""
+"Les coins restent discrets. Les formes entièrement arrondies sont réservées "
+"aux véritables indicateurs d’état ou d’activité."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">06</span>"
+msgstr "<span class=\"facodi-vd-index\">06</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Components"
+msgstr "Composants"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Buttons, tabs and study cards."
+msgstr "Boutons, onglets et fiches d’étude."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Buttons"
+msgstr "Boutons"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Primary action"
+msgstr "Action principale"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Secondary"
+msgstr "Secondaire"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Ghost action"
+msgstr "Action discrète"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Tabs &amp; sticky labels"
+msgstr "Onglets et étiquettes adhésives"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<span class=\"facodi-vd-tab facodi-highlight-cyan\">TECH / DIGITAL</span>\n"
+"                                            <span class=\"facodi-vd-tab facodi-highlight-lime\">CORE REQUIREMENT</span>\n"
+"                                            <span class=\"facodi-vd-tab facodi-highlight-pink\">PRIORITY</span>"
+msgstr ""
+"<span class=\"facodi-vd-tab facodi-highlight-cyan\">TECHNOLOGIE / NUMÉRIQUE</span>\n"
+"                                            <span class=\"facodi-vd-tab facodi-highlight-lime\">EXIGENCE CENTRALE</span>\n"
+"                                            <span class=\"facodi-vd-tab facodi-highlight-pink\">PRIORITÉ</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-tab facodi-highlight-lime\">COURSE CARD</span>"
+msgstr "<span class=\"facodi-vd-tab facodi-highlight-lime\">CARTE DE COURS</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Algorithms &amp; Critical Thinking"
+msgstr "Algorithmes et pensée critique"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Strong title, visible metadata, real progress and one obvious next action."
+msgstr ""
+"Titre fort, métadonnées visibles, progression réelle et une prochaine action"
+" claire."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Continue →"
+msgstr "Continuer →"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">07</span>"
+msgstr "<span class=\"facodi-vd-index\">07</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Semantic accents"
+msgstr "Accents sémantiques"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Color should mean something."
+msgstr "La couleur doit avoir un sens."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>Yellow</strong><span>Start here · active · key idea</span>"
+msgstr "<strong>Jaune</strong><span>Commencer ici · actif · idée clé</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>Mint</strong><span>Done · enrolled · affirmative</span>"
+msgstr "<strong>Menthe</strong><span>Terminé · inscrit · affirmatif</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>Orange</strong><span>Review · partial · continue</span>"
+msgstr ""
+"<strong>Orange</strong><span>Vérification · partiel · continuer</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<strong>Pink</strong><span>Open gap · priority · warning</span>"
+msgstr ""
+"<strong>Rose</strong><span>Lacune ouverte · priorité · avertissement</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">08</span>"
+msgstr "<span class=\"facodi-vd-index\">08</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Content voice"
+msgstr "Ton du contenu"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Cool, useful and academically careful."
+msgstr "Convivial, utile et rigoureux sur le plan académique."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-tab facodi-highlight-mint\">DO</span>"
+msgstr "<span class=\"facodi-vd-tab facodi-highlight-mint\">À FAIRE</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Use study-oriented microcopy."
+msgstr "Utilise des textes courts orientés vers l’étude."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"“Find your next useful tab.” · “Continue where you paused.” · “Help fill "
+"this stop.”"
+msgstr ""
+"“Trouve ton prochain lien utile.” · “Reprends là où tu t’es arrêté.” · “Aide"
+" à compléter cette étape.”"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-tab facodi-highlight-pink\">DON’T</span>"
+msgstr "<span class=\"facodi-vd-tab facodi-highlight-pink\">À ÉVITER</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Avoid fake prestige and invented academic claims."
+msgstr ""
+"Évite le prestige artificiel et les affirmations académiques inventées."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Do not imply official equivalence, accreditation, guaranteed outcomes or "
+"fabricated community metrics."
+msgstr ""
+"Ne suggère pas d’équivalence officielle, d’accréditation, de résultats "
+"garantis ni de statistiques communautaires inventées."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">09</span>"
+msgstr "<span class=\"facodi-vd-index\">09</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Reference composition"
+msgstr "Composition de référence"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "The desk, assembled."
+msgstr "L’espace d’étude, assemblé."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"<span class=\"facodi-vd-tab facodi-highlight-lime\">FACODI VISUAL "
+"SAMPLE</span>"
+msgstr ""
+"<span class=\"facodi-vd-tab facodi-highlight-lime\">EXEMPLE VISUEL "
+"FACODI</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "FACODI: your open digital campus."
+msgstr "FACODI : ton campus numérique ouvert."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Notebook structure, community notes and highlighter accents should always "
+"reinforce study flow."
+msgstr ""
+"La structure de carnet, les notes communautaires et les surlignages doivent "
+"renforcer le parcours d’étude."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Open education"
+msgstr "Éducation ouverte"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Collaborative learning"
+msgstr "Apprentissage collaboratif"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Community courses"
+msgstr "Cours de la communauté"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "<span class=\"facodi-vd-index\">10</span>"
+msgstr "<span class=\"facodi-vd-index\">10</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Usage checklist"
+msgstr "Liste de vérification d’utilisation"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Before shipping a FACODI surface."
+msgstr "Avant de publier une interface FACODI."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Start from white/paper surfaces and dark ink structure."
+msgstr ""
+"Pars de surfaces blanches ou de papier et d’une structure d’encre sombre."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Use one dominant highlighter accent per component."
+msgstr "Utilise un surlignage dominant par composant."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Keep borders crisp and shadows hard, not blurred."
+msgstr "Garde des contours nets et des ombres franches, sans flou."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Use Space Grotesk for titles, Plus Jakarta Sans for body and JetBrains Mono "
+"for metadata."
+msgstr ""
+"Utilise Space Grotesk pour les titres, Plus Jakarta Sans pour le texte et "
+"JetBrains Mono pour les métadonnées."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Preserve strong contrast and never rely on color alone to communicate state."
+msgstr ""
+"Conserve un contraste fort et ne t’appuie jamais uniquement sur la couleur "
+"pour communiquer un état."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Use graph-paper backgrounds sparingly on large canvases."
+msgstr "Utilise les fonds quadrillés avec modération sur de grandes surfaces."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid ""
+"Keep CTAs practical: start, continue, explore, contribute, compare, review."
+msgstr ""
+"Garde des actions pratiques : commencer, continuer, explorer, contribuer, "
+"comparer et vérifier."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.visual_direction_page
+msgid "Favor genuine Odoo/FACODI data over decorative fake statistics."
+msgstr ""
+"Privilégie les données réelles Odoo/FACODI plutôt que des statistiques "
+"décoratives inventées."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_user_profile_content
+msgid "<span class=\"facodi-profile-eyebrow\">FACODI · Community</span>"
+msgstr "<span class=\"facodi-profile-eyebrow\">FACODI · Communauté</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_user_profile_content
+msgid "Learning profile and participation in the FACODI community."
+msgstr "Profil d’apprentissage et participation à la communauté FACODI."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_user_profile_content
+msgid "<span>XP</span>"
+msgstr "<span>XP</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_user_profile_content
+msgid "<span>Badges</span>"
+msgstr "<span>Insignes</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_user_profile_content
+msgid "Member since"
+msgstr "Membre depuis"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_user_profile_content
+msgid "—"
+msgstr "—"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_user_profile_content
+msgid "Profile summary"
+msgstr "Résumé du profil"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "About"
+msgstr "À propos"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Notes"
+msgstr "Notes"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "AI"
+msgstr "IA"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Lesson study tools"
+msgstr "Outils d’étude de la leçon"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "<span class=\"facodi-study-tools__eyebrow\">Current lesson</span>"
+msgstr "<span class=\"facodi-study-tools__eyebrow\">Leçon actuelle</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "<span class=\"facodi-study-tools__eyebrow\">Resources</span>"
+msgstr "<span class=\"facodi-study-tools__eyebrow\">Ressources</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid ""
+"Lesson resources, when available, remain in the native course index above."
+msgstr ""
+"Les ressources de la leçon, lorsqu’elles sont disponibles, restent dans "
+"l’index natif du cours ci-dessus."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "<span class=\"facodi-study-tools__eyebrow\">Notebook</span>"
+msgstr "<span class=\"facodi-study-tools__eyebrow\">Carnet</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Personal notes are not saved in this release."
+msgstr "Les notes personnelles ne sont pas enregistrées dans cette version."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "<span class=\"facodi-study-tools__eyebrow\">Study assistant</span>"
+msgstr "<span class=\"facodi-study-tools__eyebrow\">Assistant d’étude</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Summarize lesson"
+msgstr "Résumer la leçon"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Generate flashcards"
+msgstr "Créer des fiches de révision"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Explain concept"
+msgstr "Expliquer un concept"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Generate quiz"
+msgstr "Créer un questionnaire"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "AI tools coming soon"
+msgstr "Outils d’IA bientôt disponibles"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "AI study tools are coming soon."
+msgstr "Les outils d’étude avec IA seront bientôt disponibles."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Report a problem"
+msgstr "Signaler un problème"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Ask FACODI"
+msgstr "Poser une question à FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_slide_fullscreen
+msgid "Study tools"
+msgstr "Outils d’étude"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
+msgid "<span class=\"facodi-label\">Learning catalogue</span>"
+msgstr "<span class=\"facodi-label\">Catalogue d’apprentissage</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
+msgid ""
+"Start with a topic, explore the curated open resources inside it, and move "
+"between courses, learning paths and curricular context without losing your "
+"place."
+msgstr ""
+"Commence par un sujet, explore les ressources ouvertes sélectionnées et "
+"navigue entre cours, parcours d’apprentissage et contexte du programme sans "
+"perdre le fil."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_course_card
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_course_main
+msgid "Coverage gap"
+msgstr "Lacune de couverture"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_course_main
+msgid "This course is waiting for its first reviewed learning resource."
+msgstr "Ce cours attend sa première ressource d’apprentissage vérifiée."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_course_main
+msgid ""
+"You can still use this page as curricular context, or help the community by "
+"suggesting a relevant open resource for editorial review."
+msgstr ""
+"Tu peux utiliser cette page comme contexte du programme ou aider la "
+"communauté en proposant une ressource ouverte pertinente pour vérification "
+"éditoriale."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_course_main
+msgid "Course coverage gap"
+msgstr "Lacune de couverture du cours"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "<span class=\"fa-kicker\">About FACODI</span>"
+msgstr "<span class=\"fa-kicker\">À propos de FACODI</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "1"
+msgstr "1"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "2"
+msgstr "2"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "3"
+msgstr "3"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "4"
+msgstr "4"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_sections_facodi_about
+msgid "<span class=\"fa-kicker\">Build the trail</span>"
+msgstr "<span class=\"fa-kicker\">Construire le parcours</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_intro
+msgid "<span class=\"facodi-highlight\">Learning means building together.</span>"
+msgstr ""
+"<span class=\"facodi-highlight\">Apprendre, c’est construire "
+"ensemble.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "<span>Explore the catalogue</span>"
+msgstr "<span>Explorer le catalogue</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "<span>GitHub</span>"
+msgstr "<span>GitHub</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "<span class=\"font-monospace small fw-bold\">HOW TO START TODAY:</span>"
+msgstr ""
+"<span class=\"font-monospace small fw-bold\">COMMENT COMMENCER AUJOURD’HUI "
+":</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "Fix a typo or code snippet in a guide"
+msgstr "Corriger une faute ou un extrait de code dans un guide"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "Share an open exercise or cheatsheet"
+msgstr "Partager un exercice ouvert ou une fiche de référence"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "Suggest improvements to an existing syllabus"
+msgstr "Proposer des améliorations à un programme existant"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_cta
+msgid "Peer review in &lt; 48 hours."
+msgstr "Vérification par les pairs en &lt; 48 heures."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_pathway
+msgid "Editorial pathways"
+msgstr "Parcours éditoriaux"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_pathway
+msgid "Build a pathway from published courses."
+msgstr "Crée un parcours à partir de cours publiés."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_pathway
+msgid "Start with a clear question"
+msgstr "Commencer par une question claire"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_pathway
+msgid "Select an existing course that introduces the subject."
+msgstr "Sélectionne un cours existant qui présente le sujet."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_pathway
+msgid "Choose a published course"
+msgstr "Choisir un cours publié"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_pathway
+msgid "Build depth"
+msgstr "Approfondir"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_editorial_pathway
+msgid "Add a course that develops the ideas or skills."
+msgstr "Ajoute un cours qui développe les idées ou compétences."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+msgid "Collective intelligence"
+msgstr "Intelligence collective"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+msgid "Follow"
+msgstr "Suivre"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_community
+msgid "Still open"
+msgstr "Encore ouvert"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_faq
+msgid "<span class=\"text-muted mx-2\">·</span>"
+msgstr "<span class=\"text-muted mx-2\">·</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_faq
+msgid "Open full contact form"
+msgstr "Ouvrir le formulaire de contact complet"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+msgid "<span class=\"facodi-ecosystem-index\">01</span>"
+msgstr "<span class=\"facodi-ecosystem-index\">01</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+msgid "<span class=\"facodi-ecosystem-index\">02</span>"
+msgstr "<span class=\"facodi-ecosystem-index\">02</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+msgid "<span class=\"facodi-ecosystem-index\">03</span>"
+msgstr "<span class=\"facodi-ecosystem-index\">03</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+msgid "Partners and networks"
+msgstr "Partenaires et réseaux"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
+msgid "Meet Corvanis"
+msgstr "Découvrir Corvanis"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Quick start · direct modules"
+msgstr "Démarrage rapide · modules directs"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Connected view · pathways"
+msgstr "Vue connectée · parcours"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "University reference · context"
+msgstr "Référence universitaire · contexte"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap
+msgid "Organise resources and develop learning experiences."
+msgstr ""
+"Organiser les ressources et développer des expériences d’apprentissage."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi highlighter marker heading title academic highlight"
+msgstr "facodi highlighter marker heading title academic highlight"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi paper card module flashcard academic note content"
+msgstr "facodi paper card module flashcard academic note content"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi sticky note post-it reminder annotation study"
+msgstr "facodi sticky note post-it reminder annotation study"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi folder tabs index navigation divider categories"
+msgstr "facodi folder tabs index navigation divider categories"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi filters chips labels topics tags highlighter"
+msgstr "facodi filters chips labels topics tags highlighter"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi course card curricular unit module learning editorial"
+msgstr "facodi course card curricular unit module learning editorial"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi study steps process how learning sequence notebook"
+msgstr "facodi study steps process how learning sequence notebook"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi call to action contribution sheet banner community"
+msgstr "facodi call to action contribution sheet banner community"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi metadata badges chips tags course code status"
+msgstr "facodi metadata badges chips tags course code status"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi callout study note warning hint highlighter paperclip"
+msgstr "facodi callout study note warning hint highlighter paperclip"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi about hero project campus mission open learning"
+msgstr "facodi about hero project campus mission open learning"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "About hero"
+msgstr "Bloc de présentation"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi project story about dossier origin mission"
+msgstr "facodi project story about dossier origin mission"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi principles manifesto ledger values"
+msgstr "facodi principles manifesto ledger values"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi process timeline how works contribution"
+msgstr "facodi process timeline how works contribution"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi contribution community noticeboard resource"
+msgstr "facodi contribution community noticeboard resource"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi news blog bulletin editorial hero"
+msgstr "facodi news blog bulletin editorial hero"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi quote manifesto editorial callout"
+msgstr "facodi quote manifesto editorial callout"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi contact form sheet correspondence"
+msgstr "facodi contact form sheet correspondence"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi policy legal privacy terms document"
+msgstr "facodi policy legal privacy terms document"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi student profile identity learner portfolio badge"
+msgstr "facodi student profile identity learner portfolio badge"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Student ID card"
+msgstr "Carte d’étudiant"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi progress metrics dashboard study completion statistics"
+msgstr "facodi progress metrics dashboard study completion statistics"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Progress meter"
+msgstr "Indicateur de progression"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi curricular unit course progress card uc learning"
+msgstr "facodi curricular unit course progress card uc learning"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_uc_progress_card
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Curricular unit progress"
+msgstr "Progression de l’unité d’enseignement"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi notebook ruled study log notes checklist learning"
+msgstr "facodi notebook ruled study log notes checklist learning"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Notebook sheet"
+msgstr "Feuille de carnet"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi module index fichario study cards navigation"
+msgstr "facodi module index fichario study cards navigation"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_module_index
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Module index"
+msgstr "Index des modules"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi code exercise practice terminal editor programming"
+msgstr "facodi code exercise practice terminal editor programming"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Code exercise"
+msgstr "Exercice de code"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi forum question community postit discussion notes"
+msgstr "facodi forum question community postit discussion notes"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Community post-it"
+msgstr "Note de la communauté"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "facodi roadmap metro timeline phases learning path"
+msgstr "facodi roadmap metro timeline phases learning path"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Roadmap metro"
+msgstr "Carte du parcours"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "FACODI Hero"
+msgstr "Présentation FACODI"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Community process"
+msgstr "Processus communautaire"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Editorial pathway"
+msgstr "Parcours éditorial"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+msgid "Editorial routes"
+msgstr "Destinations éditoriales"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_academic_areas
+msgid ""
+"<span class=\"facodi-label\">01</span>\n"
+"                        <strong>Computing &amp; Technology</strong>\n"
+"                        <small>Programming · systems · software</small>"
+msgstr ""
+"<span class=\"facodi-label\">01</span>\n"
+"                        <strong>Informatique et Technologie</strong>\n"
+"                        <small>Programmation · systèmes · logiciels</small>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_academic_areas
+msgid ""
+"<span class=\"facodi-label\">02</span>\n"
+"                        <strong>Mathematics &amp; Data</strong>\n"
+"                        <small>Calculus · statistics · data</small>"
+msgstr ""
+"<span class=\"facodi-label\">02</span>\n"
+"                        <strong>Mathématiques et Données</strong>\n"
+"                        <small>Calcul · statistiques · données</small>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_academic_areas
+msgid ""
+"<span class=\"facodi-label\">03</span>\n"
+"                        <strong>Design &amp; Visual Culture</strong>\n"
+"                        <small>Typography · communication · art</small>"
+msgstr ""
+"<span class=\"facodi-label\">03</span>\n"
+"                        <strong>Design et culture visuelle</strong>\n"
+"                        <small>Typographie · communication · art</small>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_academic_areas
+msgid ""
+"<span class=\"facodi-label\">04</span>\n"
+"                        <strong>Business &amp; Organisations</strong>\n"
+"                        <small>ERP · workflows · management</small>"
+msgstr ""
+"<span class=\"facodi-label\">04</span>\n"
+"                        <strong>Entreprises et organisations</strong>\n"
+"                        <small>ERP · processus · gestion</small>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_academic_areas
+msgid ""
+"<span class=\"facodi-label\">05</span>\n"
+"                        <strong>Community learning</strong>\n"
+"                        <small>Open resources beyond a single discipline</small>"
+msgstr ""
+"<span class=\"facodi-label\">05</span>\n"
+"                        <strong>Apprentissage en communauté</strong>\n"
+"                        <small>Ressources ouvertes au-delà d’une seule discipline</small>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_academic_areas
+msgid "Learning areas"
+msgstr "Domaines d’apprentissage"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
+msgid "SEA-EU"
+msgstr "SEA-EU"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Search courses"
+msgstr "Rechercher des cours"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "<span>Search</span>"
+msgstr "<span>Rechercher</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid ""
+"<span class=\"facodi-badge facodi-badge--mint facodi-badge--pill\">Real "
+"time</span>"
+msgstr ""
+"<span class=\"facodi-badge facodi-badge--mint facodi-badge--pill\">En temps "
+"réel</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "<span class=\"facodi-caderno-kicker\">FEATURED TODAY:</span>"
+msgstr "<span class=\"facodi-caderno-kicker\">À LA UNE AUJOURD’HUI :</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Learning path: Networks &amp; Open Systems"
+msgstr "Parcours d’apprentissage : Réseaux et systèmes ouverts"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "<span class=\"facodi-caderno-kicker\">UNIT IN REVIEW:</span>"
+msgstr "<span class=\"facodi-caderno-kicker\">UNITÉ EN VÉRIFICATION :</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "<span>01</span><i/><span>02</span><i/><span>03</span>"
+msgstr "<span>01</span><i/><span>02</span><i/><span>03</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "<em class=\"facodi-caderno-quote\">\"learning in public\"</em>"
+msgstr "<em class=\"facodi-caderno-quote\">\"apprendre en public\"</em>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "<span class=\"facodi-process-timeline__index\">1</span>"
+msgstr "<span class=\"facodi-process-timeline__index\">1</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "<span class=\"facodi-process-timeline__index\">2</span>"
+msgstr "<span class=\"facodi-process-timeline__index\">2</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "<span class=\"facodi-process-timeline__index\">3</span>"
+msgstr "<span class=\"facodi-process-timeline__index\">3</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
+msgid "<span class=\"facodi-process-timeline__index\">4</span>"
+msgstr "<span class=\"facodi-process-timeline__index\">4</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_uc_progress_card
+msgid ""
+"<span class=\"facodi-label\">UC-101</span>\n"
+"                <span class=\"facodi-uc-status\">In progress</span>"
+msgstr ""
+"<span class=\"facodi-label\">UC-101</span>\n"
+"                <span class=\"facodi-uc-status\">En cours</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_uc_progress_card
+msgid "Algorithms and Critical Thinking"
+msgstr "Algorithmes et pensée critique"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_uc_progress_card
+msgid ""
+"Keep an editable summary of the curricular unit, current topic, or next "
+"learning milestone."
+msgstr ""
+"Conserve un résumé modifiable de l’unité d’enseignement, du sujet actuel ou "
+"de la prochaine étape d’apprentissage."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_uc_progress_card
+msgid "<span>72% complete</span>"
+msgstr "<span>72% terminé</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_uc_progress_card
+msgid "Continue studying"
+msgstr "Continuer à étudier"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "<span class=\"facodi-label\">Resource</span>"
+msgstr "<span class=\"facodi-label\">Ressource</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "<span class=\"facodi-label\">Context</span>"
+msgstr "<span class=\"facodi-label\">Contexte</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contribution_board
+msgid "<span class=\"facodi-label\">Collaboration</span>"
+msgstr "<span class=\"facodi-label\">Collaboration</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_module_index
+msgid "Study cards"
+msgstr "Fiches d’étude"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_module_index
+msgid "<span>5.1</span><strong>Concept review</strong>"
+msgstr "<span>5.1</span><strong>Révision des concepts</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_module_index
+msgid "<span>5.2</span><strong>Worked example</strong>"
+msgstr "<span>5.2</span><strong>Exemple résolu</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_module_index
+msgid "<span>5.3</span><strong>Practical exercise</strong>"
+msgstr "<span>5.3</span><strong>Exercice pratique</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_module_index
+msgid "<span>5.4</span><strong>Open challenge</strong>"
+msgstr "<span>5.4</span><strong>Défi ouvert</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_highlighter_heading
+msgid ""
+"Turn a useful idea into a <span class=\"facodi-highlighter-stroke facodi-"
+"highlighter-stroke-yellow\">visible next step</span>."
+msgstr ""
+"Transforme une idée utile en une <span class=\"facodi-highlighter-stroke "
+"facodi-highlighter-stroke-yellow\">prochaine étape visible</span>."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_notebook_sheet
+msgid "Study notebook"
+msgstr "Carnet d’étude"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_notebook_sheet
+msgid "Learning log and practical activities"
+msgstr "Journal d’apprentissage et activités pratiques"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_notebook_sheet
+msgid "<span>Review the main concepts from the latest module.</span>"
+msgstr "<span>Révise les principaux concepts du dernier module.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_notebook_sheet
+msgid "<span>Write one example in your own words.</span>"
+msgstr "<span>Écris un exemple avec tes propres mots.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_notebook_sheet
+msgid "<span>Share a useful reference with the community.</span>"
+msgstr "<span>Partage une référence utile avec la communauté.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_notebook_sheet
+msgid ""
+"Everything in this sheet is regular Website Builder content and can be "
+"rewritten directly."
+msgstr ""
+"Tout le contenu de cette fiche est du contenu standard de Website Builder et"
+" peut être modifié directement."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid ""
+"<span class=\"facodi-static-course-card-flag\">Open course</span>\n"
+"            <span class=\"facodi-paper-card-stripe facodi-paper-card-stripe-yellow\" aria-hidden=\"true\"/>"
+msgstr ""
+"<span class=\"facodi-static-course-card-flag\">Ouvrir le cours</span>\n"
+"            <span class=\"facodi-paper-card-stripe facodi-paper-card-stripe-yellow\" aria-hidden=\"true\"/>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid ""
+"<span>UC-000</span>\n"
+"                <span>4 modules</span>\n"
+"                <span>Open access</span>"
+msgstr ""
+"<span>UC-000</span>\n"
+"                <span>4 modules</span>\n"
+"                <span>Accès libre</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid ""
+"Course title with a <span class=\"facodi-highlighter-stroke facodi-"
+"highlighter-stroke-yellow\">highlighted idea</span>"
+msgstr ""
+"Titre du cours avec une <span class=\"facodi-highlighter-stroke facodi-"
+"highlighter-stroke-yellow\">idée mise en évidence</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+msgid "<span class=\"facodi-label\">Community learning</span>"
+msgstr "<span class=\"facodi-label\">Apprentissage en communauté</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_student_id_card
+msgid "Open learner profile"
+msgstr "Ouvrir le profil d’apprentissage"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_student_id_card
+msgid "Student learning card"
+msgstr "Carte d’apprentissage"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_student_id_card
+msgid "<span class=\"facodi-label\">FACODI // ID</span>"
+msgstr "<span class=\"facodi-label\">FACODI // ID</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_student_id_card
+msgid "Learner name"
+msgstr "Nom de l’apprenant"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_student_id_card
+msgid "Community learner"
+msgstr "Apprenant de la communauté"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_student_id_card
+msgid ""
+"Use this editable card for a portfolio, mentor profile, study group, or "
+"public learning identity."
+msgstr ""
+"Utilise cette carte modifiable pour un portfolio, un profil de mentor, un "
+"groupe d’étude ou une identité publique d’apprentissage."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_student_id_card
+msgid ""
+"<span>Open learning</span>\n"
+"                        <span>Self-directed</span>\n"
+"                        <span>Community</span>"
+msgstr ""
+"<span>Apprentissage ouvert</span>\n"
+"                        <span>Autonome</span>\n"
+"                        <span>Communauté</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_student_id_card
+msgid ""
+"<span>Public learning record</span>\n"
+"                <span>Updated this semester</span>"
+msgstr ""
+"<span>Parcours public d’apprentissage</span>\n"
+"                <span>Mis à jour ce semestre</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_forum_postit
+msgid ""
+"<span class=\"facodi-label\">UC-101</span>\n"
+"                <span>Question</span>"
+msgstr ""
+"<span class=\"facodi-label\">UC-101</span>\n"
+"                <span>Question</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_forum_postit
+msgid "How would you explain this idea without relying on trial and error?"
+msgstr ""
+"Comment expliquerais-tu cette idée sans procéder par essais et erreurs ?"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_forum_postit
+msgid ""
+"Turn a question, peer note, study-group invitation, or shared summary into a"
+" reusable community board card."
+msgstr ""
+"Transforme une question, une note d’un pair, une invitation à un groupe "
+"d’étude ou un résumé partagé en une carte communautaire réutilisable."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_forum_postit
+msgid "<code># Optional example or short excerpt</code>"
+msgstr "<code># Exemple facultatif ou court extrait</code>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_forum_postit
+msgid "<span>Community notebook</span>"
+msgstr "<span>Carnet de la communauté</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_forum_postit
+msgid "Continue the conversation"
+msgstr "Poursuivre la conversation"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_project_story
+msgid "<span class=\"facodi-label\">Working note</span>"
+msgstr "<span class=\"facodi-label\">Note de travail</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_code_exercise
+msgid "Practice sheet"
+msgstr "Fiche d’exercices"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_code_exercise
+msgid "Recursive search with an explicit invariant"
+msgstr "Recherche récursive avec un invariant explicite"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_code_exercise
+msgid "<span class=\"facodi-code-exercise-status\">Exercise 01</span>"
+msgstr "<span class=\"facodi-code-exercise-status\">Exercice 01</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_code_exercise
+msgid ""
+"Replace the prompt and code with your own practical exercise. This block is "
+"intentionally static and editor-owned."
+msgstr ""
+"Remplace l’énoncé et le code par ton exercice pratique. Ce bloc est statique"
+" et géré dans l’éditeur."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_code_exercise
+msgid "<span>solution.py</span><span>terminal</span>"
+msgstr "<span>solution.py</span><span>terminal</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_code_exercise
+msgid ""
+"<span>Expected outcome: explain the stopping condition before optimizing the"
+" implementation.</span>"
+msgstr ""
+"<span>Résultat attendu : expliquer la condition d’arrêt avant d’optimiser "
+"l’implémentation.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid ""
+"<span class=\"facodi-highlight\">A digital campus built from the good stuff "
+"already out there.</span>"
+msgstr ""
+"<span class=\"facodi-highlight\">Un campus numérique construit à partir des "
+"bonnes ressources déjà disponibles.</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid ""
+"FACODI organises open courses, videos and public learning resources into clearer paths,\n"
+"                            with academic context where it helps and community review where it matters."
+msgstr ""
+"FACODI organise des cours ouverts, des vidéos et des ressources publiques en"
+" parcours plus clairs, avec un contexte académique là où il aide et une "
+"vérification communautaire là où elle compte."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid ""
+"<span class=\"facodi-label\">Open by default</span>\n"
+"                            <strong>Public resources first.</strong>"
+msgstr ""
+"<span class=\"facodi-label\">Ouvert par principe</span>\n"
+"                            <strong>Les ressources publiques d’abord.</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid ""
+"<span class=\"facodi-label\">Context, not claims</span>\n"
+"                            <strong>Map the learning. Keep the boundary clear.</strong>"
+msgstr ""
+"<span class=\"facodi-label\">Du contexte, sans fausses promesses</span>\n"
+"                            <strong>Cartographie l’apprentissage. Garde des limites claires.</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_about_hero
+msgid ""
+"<span class=\"facodi-label\">Built in public</span>\n"
+"                            <strong>Good finds can travel.</strong>"
+msgstr ""
+"<span class=\"facodi-label\">Construit en public</span>\n"
+"                            <strong>Les bonnes découvertes méritent d’être partagées.</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+msgid ""
+"<span class=\"facodi-tab-dot facodi-tab-dot-yellow\" aria-"
+"hidden=\"true\"/>Courses"
+msgstr ""
+"<span class=\"facodi-tab-dot facodi-tab-dot-yellow\" aria-"
+"hidden=\"true\"/>Cours"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+msgid ""
+"<span class=\"facodi-tab-dot facodi-tab-dot-cyan\" aria-"
+"hidden=\"true\"/>Learning paths"
+msgstr ""
+"<span class=\"facodi-tab-dot facodi-tab-dot-cyan\" aria-"
+"hidden=\"true\"/>Parcours d’apprentissage"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+msgid ""
+"<span class=\"facodi-tab-dot facodi-tab-dot-mint\" aria-"
+"hidden=\"true\"/>Curricular units"
+msgstr ""
+"<span class=\"facodi-tab-dot facodi-tab-dot-mint\" aria-"
+"hidden=\"true\"/>Unités d’enseignement"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+msgid ""
+"<span class=\"facodi-tab-dot facodi-tab-dot-pink\" aria-"
+"hidden=\"true\"/>Contribute"
+msgstr ""
+"<span class=\"facodi-tab-dot facodi-tab-dot-pink\" aria-"
+"hidden=\"true\"/>Contribuer"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_cta_sheet
+msgid ""
+"<span class=\"facodi-cta-sheet-tape\">Community notebook // open page</span>"
+msgstr ""
+"<span class=\"facodi-cta-sheet-tape\">Carnet de la communauté // page "
+"ouverte</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_contact_sheet
+msgid "Instagram"
+msgstr "Instagram"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_progress_meter
+msgid "Learning progress"
+msgstr "Progression de l’apprentissage"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_progress_meter
+msgid "68% of this study plan completed"
+msgstr "68% de ce plan d’étude terminé"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_progress_meter
+msgid "<strong>68%</strong>"
+msgstr "<strong>68%</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_progress_meter
+msgid "<strong>12</strong><span>study notes</span>"
+msgstr "<strong>12</strong><span>notes d’étude</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_progress_meter
+msgid "<strong>4</strong><span>completed modules</span>"
+msgstr "<strong>4</strong><span>modules terminés</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_progress_meter
+msgid "<strong>3</strong><span>community contributions</span>"
+msgstr "<strong>3</strong><span>contributions communautaires</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "<span class=\"facodi-principles-ledger__index\">01</span>"
+msgstr "<span class=\"facodi-principles-ledger__index\">01</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "<span class=\"facodi-principles-ledger__index\">02</span>"
+msgstr "<span class=\"facodi-principles-ledger__index\">02</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_principles_ledger
+msgid "<span class=\"facodi-principles-ledger__index\">03</span>"
+msgstr "<span class=\"facodi-principles-ledger__index\">03</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "Learning roadmap"
+msgstr "Parcours d’apprentissage"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "From foundations to a public final project"
+msgstr "Des bases à un projet final public"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid ""
+"Edit the phases to describe a degree pathway, thematic roadmap, onboarding "
+"path, or project sequence."
+msgstr ""
+"Modifie les phases pour décrire un parcours de licence, un parcours "
+"thématique, une intégration ou une séquence de projet."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "<span>01</span>"
+msgstr "<span>01</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "<strong>Foundations</strong>"
+msgstr "<strong>Fondements</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "Build vocabulary and core concepts."
+msgstr "Développe le vocabulaire et les concepts fondamentaux."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "<span>02</span>"
+msgstr "<span>02</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "<strong>Practice</strong>"
+msgstr "<strong>Pratique</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "Work through guided exercises and examples."
+msgstr "Travaille sur des exercices guidés et des exemples."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "<span>03</span>"
+msgstr "<span>03</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "<strong>Integration</strong>"
+msgstr "<strong>Intégration</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "Connect the topic with adjacent curricular units."
+msgstr "Relie le sujet aux unités d’enseignement associées."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "<span>04</span>"
+msgstr "<span>04</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "<strong>Share in public</strong>"
+msgstr "<strong>Partager en public</strong>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_roadmap_metro
+msgid "Document a project, resource, or learning reflection."
+msgstr ""
+"Documente un projet, une ressource ou une réflexion sur l’apprentissage."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
+msgid ""
+"<span class=\"is-active\">All topics</span>\n"
+"            <span>Open learning</span>\n"
+"            <span>Technology</span>\n"
+"            <span>Community</span>\n"
+"            <span>Study notes</span>"
+msgstr ""
+"<span class=\"is-active\">Tous les sujets</span>\n"
+"            <span>Apprentissage ouvert</span>\n"
+"            <span>Technologie</span>\n"
+"            <span>Communauté</span>\n"
+"            <span>Notes d’étude</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
+msgid ""
+"<span class=\"facodi-study-step-number facodi-study-step-number-"
+"yellow\">1</span>"
+msgstr ""
+"<span class=\"facodi-study-step-number facodi-study-step-number-"
+"yellow\">1</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
+msgid ""
+"<span class=\"facodi-study-step-number facodi-study-step-number-"
+"mint\">2</span>"
+msgstr ""
+"<span class=\"facodi-study-step-number facodi-study-step-number-"
+"mint\">2</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_study_steps
+msgid ""
+"<span class=\"facodi-study-step-number facodi-study-step-number-"
+"cyan\">3</span>"
+msgstr ""
+"<span class=\"facodi-study-step-number facodi-study-step-number-"
+"cyan\">3</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_metadata_row
+msgid ""
+"<span class=\"facodi-metadata-chip facodi-metadata-chip-cyan\">UC-000</span>\n"
+"            <span class=\"facodi-metadata-chip facodi-metadata-chip-yellow\">Core topic</span>\n"
+"            <span class=\"facodi-metadata-chip facodi-metadata-chip-mint\">Open access</span>\n"
+"            <span class=\"facodi-metadata-chip facodi-metadata-chip-pink\">Community</span>"
+msgstr ""
+"<span class=\"facodi-metadata-chip facodi-metadata-chip-cyan\">UC-000</span>\n"
+"            <span class=\"facodi-metadata-chip facodi-metadata-chip-yellow\">Sujet fondamental</span>\n"
+"            <span class=\"facodi-metadata-chip facodi-metadata-chip-mint\">Accès libre</span>\n"
+"            <span class=\"facodi-metadata-chip facodi-metadata-chip-pink\">Communauté</span>"

@@ -14,7 +14,7 @@
             <p>Replace the prompt and code with your own practical exercise. This block is intentionally static and editor-owned.</p>
             <div class="facodi-code-window">
                 <div class="facodi-code-window-tabs"><span>solution.py</span><span>terminal</span></div>
-                <pre><code>def search(items, target):
+                <pre t-translation="off"><code>def search(items, target):
     if not items:
         return -1
     # continue the exercise here</code></pre>
