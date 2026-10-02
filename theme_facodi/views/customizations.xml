@@ -80,6 +80,13 @@
                     <div class="facodi-footer-meta">
                         <div>Open source for learning in public.</div>
                         <div>
+                            <a href="https://www.odoo.com/r/aff-marcelo-m7"
+                               target="_blank"
+                               rel="sponsored noopener noreferrer"
+                               class="facodi-text-link">Built with Odoo</a>
+                            <span class="small"> · affiliate link</span>
+                        </div>
+                        <div>
                             <a href="https://www.instagram.com/somosfacodi/"
                                target="_blank"
                                rel="noopener noreferrer"
