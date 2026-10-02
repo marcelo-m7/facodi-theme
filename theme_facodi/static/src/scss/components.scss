@@ -13,12 +13,32 @@
     }
 
     .facodi-wordmark {
+        align-items: center;
         color: var(--facodi-ink);
+        display: inline-flex;
         font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
         font-size: 1.35rem;
         font-weight: 700;
+        gap: .5rem;
         letter-spacing: 0;
         text-decoration: none;
+
+        &::before {
+            align-items: center;
+            background: var(--facodi-ink);
+            border: 2px solid var(--facodi-ink);
+            border-radius: 10px;
+            box-shadow: 2px 2px 0 0 var(--facodi-ink);
+            color: var(--facodi-sun);
+            content: "F";
+            display: inline-flex;
+            flex-shrink: 0;
+            font-size: 1.15rem;
+            font-weight: 800;
+            height: 2.25rem;
+            justify-content: center;
+            width: 2.25rem;
+        }
 
         span {
             color: var(--facodi-blue);

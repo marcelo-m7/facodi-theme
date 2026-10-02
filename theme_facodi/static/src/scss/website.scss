@@ -56,6 +56,100 @@
         position: relative;
         z-index: 10;
 
+        .facodi-announcement-bar {
+            background: color-mix(in srgb, var(--facodi-paper-warm) 80%, var(--facodi-sun));
+            border-bottom: 1px solid color-mix(in srgb, var(--facodi-ink) 20%, transparent);
+            color: var(--facodi-ink);
+            font-family: var(--facodi-font-mono, "JetBrains Mono", monospace);
+            font-size: .68rem;
+            width: 100%;
+
+            .facodi-status-dot {
+                color: var(--facodi-color-status-success, #107C41);
+                font-size: .6rem;
+            }
+
+            .facodi-announcement-title {
+                font-weight: 700;
+                letter-spacing: .04em;
+            }
+
+            .facodi-announcement-subtitle {
+                color: color-mix(in srgb, var(--facodi-ink) 70%, transparent);
+            }
+
+            .facodi-badge-semester {
+                background: var(--facodi-surface-sheet);
+                border: 1px solid var(--facodi-ink);
+                border-radius: var(--facodi-radius-tag, 10px);
+                color: var(--facodi-ink);
+                font-size: .65rem;
+                padding: .2rem .5rem;
+            }
+
+            .facodi-announcement-link {
+                color: var(--facodi-ink);
+                font-weight: 700;
+                text-decoration: underline;
+                text-underline-offset: 2px;
+
+                &:hover {
+                    color: var(--facodi-blue);
+                }
+            }
+        }
+
+        .facodi-header-search {
+            background: var(--facodi-paper-warm);
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-btn, 12px);
+            box-shadow: 2px 2px 0 var(--facodi-ink);
+            height: 2.625rem;
+            padding: 0 .65rem;
+            transition: box-shadow 160ms ease;
+
+            &:focus-within {
+                box-shadow: 3px 3px 0 var(--facodi-ink);
+            }
+
+            .facodi-header-search-input {
+                background: transparent;
+                border: none;
+                color: var(--facodi-ink);
+                font-size: .82rem;
+                outline: none;
+                width: 11rem;
+
+                &::placeholder {
+                    color: color-mix(in srgb, var(--facodi-ink) 50%, transparent);
+                }
+            }
+
+            .facodi-search-kbd {
+                background: var(--facodi-surface-page);
+                border: 1px solid var(--facodi-ink);
+                border-radius: 4px;
+                color: var(--facodi-ink);
+                font-family: var(--facodi-font-mono, "JetBrains Mono", monospace);
+                font-size: .65rem;
+                padding: .1rem .3rem;
+            }
+        }
+
+        .facodi-header-cta {
+            background: var(--facodi-sun) !important;
+            border: 2px solid var(--facodi-ink) !important;
+            box-shadow: 3px 3px 0 var(--facodi-ink) !important;
+            color: var(--facodi-ink) !important;
+            font-weight: 700;
+
+            &:hover {
+                background: var(--facodi-cyan) !important;
+                box-shadow: 1px 1px 0 var(--facodi-ink) !important;
+                transform: translate(2px, 2px);
+            }
+        }
+
         .facodi-nav-shell {
             align-items: center;
             display: flex;
@@ -308,29 +402,44 @@
         }
 
         .offcanvas .btn-close {
-            border: 1px solid var(--facodi-ink);
-            border-radius: 50%;
+            background-color: var(--facodi-surface-sheet);
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-tag, 10px);
+            box-shadow: 2px 2px 0 var(--facodi-ink);
             min-height: 2.75rem;
             min-width: 2.75rem;
             opacity: 1;
+
+            &:active {
+                box-shadow: 1px 1px 0 var(--facodi-ink);
+                transform: translate(1px, 1px);
+            }
         }
 
         .offcanvas .form-control,
         .offcanvas .form-select {
             background: var(--facodi-surface-sheet);
-            border-color: var(--facodi-ink);
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-btn, 12px);
         }
 
         > .o_main_nav > button[data-bs-target="#top_menu_collapse_mobile"] {
             align-items: center;
-            border: 1px solid var(--facodi-ink);
+            background: var(--facodi-sun);
+            border: 2px solid var(--facodi-ink);
+            border-radius: var(--facodi-radius-btn, 12px);
+            box-shadow: 2px 2px 0 var(--facodi-ink);
             color: var(--facodi-ink);
             display: inline-flex;
             justify-content: center;
-            border-radius: var(--facodi-radius-sm);
             flex: 0 0 auto;
             min-height: 2.75rem;
             min-width: 2.75rem;
+
+            &:active {
+                box-shadow: 1px 1px 0 var(--facodi-ink);
+                transform: translate(1px, 1px);
+            }
         }
 
         .navbar-toggler-icon {
