@@ -26,6 +26,10 @@
                             <a href="/submissions/new?type=resource&amp;source=community_resource_cta&amp;section=community" class="btn facodi-button facodi-button-primary">Suggest a resource</a>
                             <a href="/forum" class="btn facodi-button facodi-button-secondary">Join the forum</a>
                             <a href="/contact?source=community_collaboration_cta&amp;section=community&amp;topic=collaboration" class="facodi-text-link">Collaborate with FACODI</a>
+                            <a href="https://www.instagram.com/somosfacodi/" target="_blank" rel="noopener noreferrer" class="facodi-text-link">
+                                Follow <span t-translation="off">@somosfacodi</span>
+                                <i class="fa fa-instagram ms-1" aria-hidden="true" t-translation="off"/>
+                            </a>
                         </div>
                     </article>
                     <article class="facodi-sheet facodi-community-card facodi-community-card-build" data-facodi-motion="tilt" data-facodi-motion-delay="100">
