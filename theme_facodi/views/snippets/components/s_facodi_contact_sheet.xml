@@ -7,6 +7,10 @@
                 <h2>Choose the shortest path to the right conversation.</h2>
                 <p>Use Contact for collaboration, project questions, or general enquiries. If you are suggesting a learning resource, the guided contribution route keeps the review context together.</p>
                 <a class="facodi-text-link" href="/submissions/new?type=resource&amp;source=contact_sheet_resource_cta&amp;section=contact">Suggest a resource</a>
+                <a class="facodi-text-link ms-3" href="https://www.instagram.com/somosfacodi/" target="_blank" rel="noopener noreferrer">
+                    Instagram <span t-translation="off">@somosfacodi</span>
+                    <i class="fa fa-instagram ms-1" aria-hidden="true" t-translation="off"/>
+                </a>
             </div>
             <div class="facodi-contact-sheet__form-slot">
                 <p class="facodi-label">Contact form area</p>
