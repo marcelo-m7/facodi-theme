@@ -24,6 +24,7 @@ function initStudyPlayer(root) {
     }
     root.dataset.facodiStudyEnhanced = "true";
     root.classList.add("facodi-study-player--enhanced");
+    document.body.classList.add("o_wslides_body");
 
     const sidebar = root.querySelector(".facodi-study-player__index");
     const nativeToggles = root.querySelectorAll(".o_wslides_fs_toggle_sidebar");

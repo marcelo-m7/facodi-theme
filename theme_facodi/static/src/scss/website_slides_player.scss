@@ -1,99 +1,130 @@
-body.o_wslides_body {
-    .facodi-study-player {
-        background-color: var(--facodi-campus-paper);
-        background-image:
-            linear-gradient(var(--facodi-campus-grid-line) 1px, transparent 1px),
-            linear-gradient(90deg, var(--facodi-campus-grid-line) 1px, transparent 1px);
-        background-size: 24px 24px;
-        color: var(--facodi-ink);
+body.o_wslides_body .facodi-study-player,
+body:has(.facodi-study-player) .facodi-study-player,
+.facodi-study-player {
+    background-color: var(--facodi-campus-paper);
+    background-image:
+        linear-gradient(var(--facodi-campus-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--facodi-campus-grid-line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--facodi-ink);
 
-        .o_wslides_slide_fs_header {
-            min-height: 3.25rem;
-            height: auto;
-            background: var(--facodi-surface-sheet);
-            border-bottom: var(--facodi-border);
-            box-shadow: 0 3px 0 var(--facodi-ink);
-            color: var(--facodi-ink);
-            z-index: 3;
+    .o_wslides_slide_fs_header {
+        min-height: 3.5rem;
+        height: auto;
+        background: var(--facodi-surface-sheet) !important;
+        border-bottom: 2px solid var(--facodi-ink) !important;
+        box-shadow: 0 3px 0 var(--facodi-ink) !important;
+        color: var(--facodi-ink) !important;
+        padding: .35rem .75rem !important;
+        align-items: center !important;
+        z-index: 1040;
 
-            > div > a {
-                min-height: 3.25rem;
-                background: transparent;
-                color: var(--facodi-ink);
-                font-weight: 700;
-                text-decoration: none !important;
-                transition: background-color 160ms ease, color 160ms ease;
+        > div > a {
+            min-height: 2.5rem;
+            background: var(--facodi-paper-warm) !important;
+            border: 1.5px solid var(--facodi-ink) !important;
+            border-radius: var(--facodi-radius-tag, 10px) !important;
+            box-shadow: 2px 2px 0 var(--facodi-ink) !important;
+            color: var(--facodi-ink) !important;
+            font-family: var(--facodi-font-mono, monospace);
+            font-size: .78rem;
+            font-weight: 700;
+            margin: 0 .25rem;
+            padding: .4rem .85rem !important;
+            text-decoration: none !important;
+            transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
 
-                &:hover,
-                &:focus-visible,
-                &.active {
-                    background: var(--facodi-sun);
-                    color: var(--facodi-ink);
-                }
+            &:hover,
+            &:focus-visible,
+            &.active {
+                background: var(--facodi-sun) !important;
+                color: var(--facodi-ink) !important;
+                box-shadow: 1px 1px 0 var(--facodi-ink) !important;
+                transform: translate(1px, 1px);
+            }
 
-                &:focus-visible {
-                    outline: 0;
-                    box-shadow: inset var(--facodi-focus-ring);
-                }
+            &:focus-visible {
+                outline: 0;
+                box-shadow: inset var(--facodi-focus-ring);
+            }
+
+            i {
+                color: var(--facodi-ink) !important;
             }
         }
+    }
 
-        .o_wslides_fs_container {
-            gap: clamp(.65rem, 1.5vw, 1.15rem);
-            padding: clamp(.65rem, 1.5vw, 1.15rem);
-        }
+    .o_wslides_fs_container {
+        gap: clamp(.65rem, 1.5vw, 1.15rem);
+        padding: clamp(.65rem, 1.5vw, 1.15rem);
+    }
 
-        .facodi-study-player__content {
+    .facodi-study-player__content {
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+        background: var(--facodi-ink-deep);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius-card, 18px);
+        box-shadow: var(--facodi-shadow);
+
+        // Native Odoo mounts video/document players dynamically into this
+        // region. Keep the full available height and never collapse the
+        // iframe/player wrapper when the lesson is a video.
+        > .o_wslides_fs_player,
+        .o_wslides_fs_player,
+        .player,
+        .ratio,
+        iframe,
+        video {
             min-width: 0;
-            min-height: 0;
-            overflow: hidden;
-            background: var(--facodi-ink-deep);
-            border: var(--facodi-border);
-            border-radius: var(--facodi-radius);
-            box-shadow: var(--facodi-shadow);
-
-            // Native Odoo mounts video/document players dynamically into this
-            // region. Keep the full available height and never collapse the
-            // iframe/player wrapper when the lesson is a video.
-            > .o_wslides_fs_player,
-            .o_wslides_fs_player,
-            .player,
-            .ratio,
-            iframe,
-            video {
-                min-width: 0;
-                max-width: 100%;
-            }
-
-            > .o_wslides_fs_player,
-            .o_wslides_fs_player,
-            .player,
-            iframe,
-            video {
-                width: 100%;
-                height: 100%;
-            }
-
-            .ratio {
-                width: 100%;
-                min-height: 72vh;
-            }
-
-            iframe,
-            video {
-                display: block;
-                border: 0;
-            }
+            max-width: 100%;
         }
 
-        .facodi-study-player__index {
-            overflow: visible;
-            background: var(--facodi-surface-sheet);
-            background-image: none;
-            border: var(--facodi-border);
-            border-radius: var(--facodi-radius);
-            box-shadow: var(--facodi-shadow);
-            color: var(--facodi-ink);
+        > .o_wslides_fs_player,
+        .o_wslides_fs_player,
+        .player,
+        iframe,
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ratio {
+            width: 100%;
+            min-height: 72vh;
+        }
+
+        iframe,
+        video {
+            display: block;
+            border: 0;
+        }
+    }
+
+    .facodi-study-player__index {
+        background: var(--facodi-surface-sheet);
+        background-image: none;
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius-card, 18px);
+        box-shadow: var(--facodi-shadow);
+        color: var(--facodi-ink);
+        width: clamp(19rem, 24vw, 24rem);
+        min-width: 18rem;
+        max-width: 90vw;
+        transition: width 200ms ease, opacity 200ms ease, border-color 200ms ease;
+
+        &.o_wslides_fs_sidebar_hidden {
+            width: 0 !important;
+            min-width: 0 !important;
+            border: 0 solid transparent !important;
+            box-shadow: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
 
             .o_wslides_fs_sidebar_content {
                 color: var(--facodi-ink);
@@ -359,7 +390,8 @@ body.o_wslides_body {
 }
 
 @media (max-width: 767.98px) {
-    body.o_wslides_body .facodi-study-player {
+    body.o_wslides_body .facodi-study-player,
+    .facodi-study-player {
         .o_wslides_slide_fs_header {
             min-height: 3rem;
 
@@ -384,6 +416,10 @@ body.o_wslides_body {
             max-width: 23rem;
             border-radius: 0 var(--facodi-radius) var(--facodi-radius) 0;
             box-shadow: 4px 0 0 var(--facodi-ink);
+
+            &.o_wslides_fs_sidebar_hidden {
+                display: none !important;
+            }
         }
 
         .facodi-study-tools__ai-actions {
@@ -393,7 +429,8 @@ body.o_wslides_body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    body.o_wslides_body .facodi-study-player {
+    body.o_wslides_body .facodi-study-player,
+    .facodi-study-player {
         .o_wslides_slide_fs_header > div > a,
         .facodi-study-player__index .o_wslides_fs_sidebar_list_item,
         .facodi-study-tools__tab {
@@ -407,7 +444,8 @@ body.o_wslides_body {
 }
 
 @media (min-width: 768px) {
-    body.o_wslides_body .facodi-study-player {
+    body.o_wslides_body .facodi-study-player,
+    .facodi-study-player {
         .facodi-study-player__content {
             min-height: calc(100vh - 6.5rem);
         }
