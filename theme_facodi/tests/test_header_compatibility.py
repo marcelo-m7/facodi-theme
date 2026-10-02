@@ -49,7 +49,7 @@ class TestFacodiHeaderCompatibility(HttpCase):
                     assert(!drawer.classList.contains('show'), 'Close control must close the drawer');
                     console.log('test successful');
                 })().catch(error => console.error(error));
-            """, ready="document.querySelector('#top_menu_collapse_mobile')", timeout=60)
+            """, ready="!!document.querySelector('#top_menu_collapse_mobile')", timeout=60)
 
     def test_header_survives_existing_website_header_customization(self):
         website = self.env["website"].get_current_website()

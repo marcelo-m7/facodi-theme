@@ -359,6 +359,7 @@ jobs:
             echo 'Native mobile navigation browser test must execute, not skip.'
             exit 1
           fi
+          grep -q '0 failed, 0 error(s) of 2 tests' /tmp/facodi-mobile-tests.log
 
       - name: PostgreSQL logs on failure
         if: failure()
