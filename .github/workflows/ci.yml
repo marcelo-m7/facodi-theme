@@ -354,7 +354,11 @@ jobs:
             --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
             --workers=0 --without-demo=True \
             -d theme_facodi_ci -u theme_facodi \
-            --test-tags /theme_facodi:TestFacodiHeaderCompatibility --stop-after-init
+            --test-tags /theme_facodi:TestFacodiHeaderCompatibility --stop-after-init 2>&1 | tee /tmp/facodi-mobile-tests.log
+          if grep -q 'skipped TestFacodiHeaderCompatibility' /tmp/facodi-mobile-tests.log; then
+            echo 'Native mobile navigation browser test must execute, not skip.'
+            exit 1
+          fi
 
       - name: PostgreSQL logs on failure
         if: failure()

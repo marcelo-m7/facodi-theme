@@ -1,6 +1,9 @@
 FROM odoo:19.0
 USER root
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends chromium python3-websocket \
+    && apt-get install -y --no-install-recommends wget python3-websocket \
+    && wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb \
+    && apt-get install -y --no-install-recommends /tmp/chrome.deb \
+    && rm /tmp/chrome.deb \
     && rm -rf /var/lib/apt/lists/*
 USER odoo
