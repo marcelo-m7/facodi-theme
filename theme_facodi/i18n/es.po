@@ -22,8 +22,8 @@ msgstr "Descubre los cursos abiertos, itinerarios de aprendizaje y recursos comu
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home_metadata
-msgid "Browse FACODI open courses and learning resources for accessible higher education."
-msgstr "Explora los cursos abiertos y recursos de aprendizaje de FACODI para una educación superior accesible."
+msgid "Browse FACODI's open course catalogue and community learning resources with curricular context."
+msgstr "Explora el catálogo de cursos abiertos de FACODI y recursos de aprendizaje comunitario con contexto curricular."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_header
@@ -2167,8 +2167,8 @@ msgstr "Dónde encaja esto"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
-msgid "FACODI is a community-learning project connected to the University of Algarve and the SEA-EU ecosystem. Official curricular references provide context; the community layer helps people discover, discuss and improve public learning resources."
-msgstr "FACODI es un proyecto de aprendizaje comunitario vinculado a la Universidad del Algarve y al ecosistema SEA-EU. Las referencias curriculares oficiales aportan contexto; la capa comunitaria ayuda a las personas a descubrir, debatir y mejorar recursos públicos de aprendizaje."
+msgid "FACODI was selected for funding through SEA-EU Student-Led Projects 2026, with a project leader at the University of Algarve. It uses official curricular references as learning context; its community resources do not award credits or academic equivalence."
+msgstr "FACODI fue seleccionado para recibir financiación en SEA-EU Student-Led Projects 2026, con un responsable del proyecto en la Universidad del Algarve. Utiliza referencias curriculares oficiales como contexto de aprendizaje; sus recursos comunitarios no otorgan créditos ni equivalencia académica."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_institutional
@@ -3688,13 +3688,8 @@ msgstr "<span class=\"facodi-ecosystem-index\">03</span>"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
-msgid "Partners and networks"
-msgstr "Socios y redes"
-
-#. module: theme_facodi
-#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
-msgid "Meet Corvanis"
-msgstr "Conocer Corvanis"
+msgid "SEA-EU project context"
+msgstr "Contexto del proyecto SEA-EU"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey

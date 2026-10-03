@@ -51,6 +51,13 @@ grep -Fq 'Move across fields without losing the thread.' "$VIEWS_DIR/snippets/s_
   || fail "academic areas source language must remain English"
 grep -Fq 'A learning ecosystem designed to stay open.' "$VIEWS_DIR/snippets/s_facodi_ecosystem.xml" \
   || fail "ecosystem source language must remain English"
+grep -Fq 'selected for funding through SEA-EU Student-Led Projects 2026' "$VIEWS_DIR/snippets/s_facodi_institutional.xml" \
+  || fail "institutional copy must state the documented project status precisely"
+grep -Fq 'SEA-EU project context' "$VIEWS_DIR/snippets/s_facodi_ecosystem.xml" \
+  || fail "ecosystem must distinguish context from formal partnerships"
+if grep -Fq 'Meet Corvanis' "$VIEWS_DIR/snippets/s_facodi_ecosystem.xml"; then
+  fail "ecosystem must not present an unconfirmed formal partner"
+fi
 
 # Portuguese content must be supplied through pt.po instead of being embedded
 # as an alternate QWeb branch or left as the source language.
@@ -151,7 +158,7 @@ done
 
 ABOUT_PAGE_MSGIDS=(
   'Where this sits'
-  'FACODI is a community-learning project connected to the University of Algarve and the SEA-EU ecosystem. Official curricular references provide context; the community layer helps people discover, discuss and improve public learning resources.'
+  'FACODI was selected for funding through SEA-EU Student-Led Projects 2026, with a project leader at the University of Algarve. It uses official curricular references as learning context; its community resources do not award credits or academic equivalence.'
   'Read the project file'
   'Build something with FACODI'
   'Keep a few tabs open.'

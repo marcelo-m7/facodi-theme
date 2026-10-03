@@ -7,7 +7,7 @@
     </template>
     <template id="facodi_courses_home_metadata" inherit_id="website_slides.courses_home" name="FACODI course catalogue metadata">
         <xpath expr="//t[@t-call='website.layout']" position="before">
-            <t t-set="website_meta_description">Browse FACODI open courses and learning resources for accessible higher education.</t>
+            <t t-set="website_meta_description">Browse FACODI's open course catalogue and community learning resources with curricular context.</t>
         </xpath>
     </template>
     <!-- Odoo 19 page generator cannot format qualified snippet keys (list vs tuple).
