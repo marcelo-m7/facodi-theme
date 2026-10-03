@@ -25,6 +25,9 @@ jobs:
       - name: FACODI resilient 500-page contract
         run: bash tests/test_http_error_contract.sh
 
+      - name: FACODI official design-system contract
+        run: bash tests/test_design_system_contract.sh
+
       - name: FACODI Campus Paper design-system contract
         run: bash tests/test_campus_paper_contract.sh
 
