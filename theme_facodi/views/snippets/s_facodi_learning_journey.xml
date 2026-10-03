@@ -27,34 +27,34 @@
                         <p class="facodi-section-copy">Start with a ready-made course, follow a direction or begin from an academic reference.</p>
                     </div>
                 </div>
-                <div class="facodi-learning-entry-grid">
-                    <a href="/courses" class="facodi-learning-card facodi-learning-card-mint" data-facodi-motion="tilt" data-facodi-motion-delay="0">
+                <div class="facodi-learning-entry-grid facodi-learning-bento">
+                    <a href="/courses" class="facodi-card facodi-card--learning facodi-learning-card facodi-learning-card-mint facodi-learning-bento__wide" data-facodi-motion="tilt" data-facodi-motion-delay="0">
                         <p class="facodi-label">Quick start · direct modules</p>
                         <span class="facodi-card-icon facodi-card-icon-mint"><i class="fa fa-book" aria-hidden="true" t-translation="off"/></span>
                         <h3>Courses</h3>
                         <p>Curated collections of public resources that give a topic a useful structure.</p>
                         <div class="facodi-text-link">Explore courses <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
-                    <a href="/roadmaps" class="facodi-learning-card facodi-learning-card-sky" data-facodi-motion="tilt" data-facodi-motion-delay="70">
+                    <a href="/roadmaps" class="facodi-card facodi-card--institutional facodi-learning-card facodi-learning-card-sky" data-facodi-motion="tilt" data-facodi-motion-delay="70">
                         <p class="facodi-label">Connected view · pathways</p>
                         <span class="facodi-card-icon facodi-card-icon-cyan"><i class="fa fa-map" aria-hidden="true" t-translation="off"/></span>
                         <h3>Learning paths</h3>
                         <p>See how topics, courses and study resources connect across a learning direction.</p>
                         <div class="facodi-text-link">Explore learning paths <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
-                    <a href="/curricular-units" class="facodi-learning-card facodi-learning-card-sun" data-facodi-motion="tilt" data-facodi-motion-delay="140">
+                    <a href="/curricular-units" class="facodi-card facodi-card--learning facodi-learning-card facodi-learning-card-sun" data-facodi-motion="tilt" data-facodi-motion-delay="140">
                         <p class="facodi-label">University reference · context</p>
                         <span class="facodi-card-icon facodi-card-icon-sun"><i class="fa fa-university" aria-hidden="true" t-translation="off"/></span>
                         <h3>Curricular units</h3>
                         <p>Start from a reviewed academic reference and discover related open learning.</p>
                         <div class="facodi-text-link">Explore curricular units <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
-                    <a href="/explore" class="facodi-learning-card facodi-learning-card-paper" data-facodi-motion="tilt" data-facodi-motion-delay="210">
+                    <a href="/explore" class="facodi-card facodi-card--resource facodi-learning-card facodi-learning-card-paper facodi-learning-bento__wide" data-facodi-motion="tilt" data-facodi-motion-delay="210">
                         <p class="facodi-label">Study materials · guides</p>
                         <span class="facodi-card-icon facodi-card-icon-sun"><i class="fa fa-folder-open" aria-hidden="true" t-translation="off"/></span>
                         <h3>Resources</h3>
-                        <p>Cheat-sheets, laboratory guides, exam references and open notebooks.</p>
-                        <div class="facodi-text-link">Access collection <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
+                        <p>Browse public learning materials connected to useful study context.</p>
+                        <div class="facodi-text-link">Explore resources <i class="fa fa-arrow-right" aria-hidden="true" t-translation="off"/></div>
                     </a>
                 </div>
             </div>
