@@ -41,7 +41,7 @@
         background: var(--facodi-surface-sheet);
         border: 2px solid var(--facodi-ink);
         border-radius: var(--facodi-radius-card, 18px);
-        box-shadow: 4px 4px 0 var(--facodi-ink);
+        box-shadow: var(--facodi-shadow-card);
         max-width: 36rem;
         padding: .35rem .5rem;
         transition: box-shadow 160ms ease;
@@ -78,8 +78,7 @@
     .facodi-hero-study-board {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: auto auto;
-        min-height: 34rem;
+        min-height: 28rem;
         position: relative;
     }
 
@@ -231,6 +230,97 @@
         transform: rotate(2deg);
     }
 
+    .facodi-knowledge-map {
+        align-items: center;
+        justify-items: stretch;
+    }
+
+    .facodi-knowledge-map__sheet {
+        animation: none !important;
+        margin: 0;
+        max-width: 31rem;
+        min-height: 27rem;
+        padding: 1.5rem !important;
+        transform: none !important;
+        width: 100%;
+    }
+
+    .facodi-knowledge-map__canvas {
+        min-height: 20rem;
+        position: relative;
+    }
+
+    .facodi-knowledge-node {
+        align-items: center;
+        background: var(--facodi-surface-sheet);
+        border: var(--facodi-border);
+        border-radius: var(--facodi-radius-btn);
+        box-shadow: var(--facodi-shadow-sm);
+        display: inline-flex;
+        gap: .5rem;
+        max-width: #{"min(13rem, 58%)"};
+        padding: .7rem .85rem;
+        position: absolute;
+        z-index: 2;
+
+        font-family: var(--facodi-font-display);
+        font-size: .9rem;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .facodi-knowledge-node--unit {
+        background: color-mix(in srgb, var(--facodi-blue) 14%, var(--facodi-surface-sheet));
+        left: 4%;
+        top: 7%;
+    }
+
+    .facodi-knowledge-node--path {
+        background: color-mix(in srgb, var(--facodi-cyan) 18%, var(--facodi-surface-sheet));
+        right: 4%;
+        top: 30%;
+    }
+
+    .facodi-knowledge-node--course {
+        background: color-mix(in srgb, var(--facodi-sun) 22%, var(--facodi-surface-sheet));
+        left: 12%;
+        top: 56%;
+    }
+
+    .facodi-knowledge-node--resource {
+        background: color-mix(in srgb, var(--facodi-mint) 24%, var(--facodi-surface-sheet));
+        bottom: 2%;
+        right: 7%;
+    }
+
+    .facodi-knowledge-line {
+        border-top: 2px dashed color-mix(in srgb, var(--facodi-ink) 66%, transparent);
+        position: absolute;
+        transform-origin: left center;
+        z-index: 1;
+    }
+
+    .facodi-knowledge-line--one {
+        left: 35%;
+        top: 24%;
+        transform: rotate(18deg);
+        width: 34%;
+    }
+
+    .facodi-knowledge-line--two {
+        left: 39%;
+        top: 53%;
+        transform: rotate(-19deg);
+        width: 31%;
+    }
+
+    .facodi-knowledge-line--three {
+        left: 37%;
+        top: 71%;
+        transform: rotate(12deg);
+        width: 35%;
+    }
+
     .facodi-section-heading {
         align-items: end;
         display: flex;
@@ -252,6 +342,14 @@
         display: grid;
         gap: 1.25rem;
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .facodi-learning-bento {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .facodi-learning-bento__wide {
+        grid-column: span 2;
     }
 
     .facodi-learning-card {
@@ -579,6 +677,18 @@
     }
 }
 
+@media (min-width: 768px) and (max-width: 1100px) {
+    .facodi-site .facodi-home-v4 {
+        .facodi-learning-bento {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .facodi-learning-bento__wide {
+            grid-column: span 1;
+        }
+    }
+}
+
 @media (max-width: 767.98px) {
     .facodi-site {
         .facodi-hero {
@@ -626,9 +736,18 @@
         }
 
         .facodi-learning-entry-grid,
+        .facodi-learning-bento,
         .facodi-learning-steps,
         .facodi-community-grid {
             grid-template-columns: minmax(0, 1fr);
+        }
+
+        .facodi-learning-bento__wide {
+            grid-column: auto;
+        }
+
+        .facodi-knowledge-map__sheet {
+            min-height: 24rem;
         }
 
         .facodi-institutional-sheet,
@@ -1535,7 +1654,7 @@
 
     .facodi-study-sheet {
         border-width: 2px;
-        box-shadow: 6px 6px 0 var(--facodi-ink);
+        box-shadow: var(--facodi-shadow-lg);
         border-radius: .75rem;
     }
 
@@ -1575,8 +1694,8 @@
     .facodi-learning-card {
         background: var(--facodi-surface-sheet);
         border-width: 2px;
-        border-radius: .65rem;
-        box-shadow: 4px 4px 0 var(--facodi-ink);
+        border-radius: var(--facodi-radius-card);
+        box-shadow: var(--facodi-shadow-card);
         min-height: 20rem;
         overflow: hidden;
         position: relative;
@@ -1590,7 +1709,7 @@
 
         &:hover,
         &:focus-visible {
-            box-shadow: 6px 6px 0 var(--facodi-ink);
+            box-shadow: var(--facodi-shadow-lg);
             transform: translateY(-3px);
         }
     }
@@ -1598,6 +1717,7 @@
     .facodi-learning-card-mint::before { background: var(--facodi-mint); }
     .facodi-learning-card-sky::before { background: var(--facodi-cyan); }
     .facodi-learning-card-sun::before { background: var(--facodi-sun); }
+    .facodi-learning-card-paper::before { background: var(--facodi-mint); }
 
     .facodi-learning-card-mint,
     .facodi-learning-card-sky,
@@ -1630,8 +1750,8 @@
     .facodi-learning-step {
         background: var(--facodi-surface-sheet);
         border: 2px solid var(--facodi-ink);
-        border-radius: .65rem;
-        box-shadow: 4px 4px 0 var(--facodi-ink);
+        border-radius: var(--facodi-radius-card);
+        box-shadow: var(--facodi-shadow-card);
         min-height: 20rem;
         padding: 1.6rem;
         position: relative;
@@ -1684,8 +1804,8 @@
 
     .facodi-community-card {
         border: 2px solid var(--facodi-ink);
-        border-radius: .65rem;
-        box-shadow: 4px 4px 0 var(--facodi-ink);
+        border-radius: var(--facodi-radius-card);
+        box-shadow: var(--facodi-shadow-card);
     }
 
     .facodi-community-card:first-child {
@@ -1710,14 +1830,14 @@
 
     .facodi-course-card {
         border-width: 2px;
-        border-radius: .65rem;
-        box-shadow: 4px 4px 0 var(--facodi-ink);
+        border-radius: var(--facodi-radius-card);
+        box-shadow: var(--facodi-shadow-card);
     }
 
     .facodi-closing-sheet-v4 {
         background: var(--facodi-ink);
         border: 2px solid var(--facodi-ink);
-        border-radius: .65rem;
+        border-radius: var(--facodi-radius-card);
         box-shadow: 5px 5px 0 var(--facodi-sun);
         color: white;
 

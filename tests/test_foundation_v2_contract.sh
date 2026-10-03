@@ -8,15 +8,18 @@ fail() {
 
 HERO="theme_facodi/views/snippets/s_facodi_hero.xml"
 
-for anchor in 'Knowledge is everywhere.' 'Find your next step.' 'Explore courses' 'See how FACODI works' 'facodi-hero-study-board' 'facodi-study-sheet' 'facodi-study-note' 'facodi-study-route' 'data-facodi-dot-grid' 'facodi-dot-grid__canvas'; do
+for anchor in 'Knowledge is everywhere.' 'Find your next step.' 'Explore courses' 'See how FACODI works' 'facodi-hero-study-board' 'facodi-knowledge-map' 'facodi-knowledge-map__sheet' 'facodi-knowledge-node--unit' 'facodi-knowledge-node--resource' 'data-facodi-dot-grid' 'facodi-dot-grid__canvas'; do
   grep -Fq "$anchor" "$HERO" || fail "Campus Paper hero missing: $anchor"
+done
+for forbidden in 'FEATURED TODAY:' 'UNIT IN REVIEW:' 'Real time' '12 resources · 4 open readings'; do
+  if grep -Fq "$forbidden" "$HERO"; then fail "hero must not ship fabricated learning data: $forbidden"; fi
 done
 if grep -Fq 'facodi-live-dot' "$HERO"; then fail "hero must not imply live status without real data"; fi
 
 JOURNEY="theme_facodi/views/snippets/s_facodi_learning_journey.xml"
 FEATURES="theme_facodi/views/snippets/s_facodi_features.xml"
 
-for anchor in 'Explore learning in the way that makes sense to you.' 'Courses' 'Learning paths' 'Curricular units' 'facodi-learning-entry-grid'; do
+for anchor in 'Explore learning in the way that makes sense to you.' 'Courses' 'Learning paths' 'Curricular units' 'facodi-learning-entry-grid' 'facodi-learning-bento' 'facodi-card--learning' 'facodi-card--resource' 'facodi-card--institutional'; do
   grep -Fq "$anchor" "$JOURNEY" || fail "learning entry section missing: $anchor"
 done
 for route in '/courses' '/roadmaps' '/curricular-units'; do
@@ -124,6 +127,13 @@ for composition, snippets in required.items():
         raise SystemExit(f"FAIL: {composition} missing {sorted(missing)}")
 PY
 
+grep -Fq '.facodi-knowledge-map__sheet' theme_facodi/static/src/scss/snippets.scss \
+  || fail "hero knowledge-map styles are missing"
+grep -Fq '.facodi-learning-bento' theme_facodi/static/src/scss/snippets.scss \
+  || fail "homepage bento layout styles are missing"
+grep -Fq '.facodi-learning-bento__wide' theme_facodi/static/src/scss/snippets.scss \
+  || fail "homepage bento span rules are missing"
+
 grep -Fq '.s_facodi_academic_areas' "$SCSS" \
   || fail "academic areas styles are missing"
 grep -Fq '.facodi-area-card' "$SCSS" \
@@ -154,8 +164,8 @@ home = root.find(".//template[@id='new_page_template_sections_facodi_home']")
 calls = [n.get("t-snippet-call") for n in home.iter("t") if n.get("t-snippet-call")]
 expected = [
     "theme_facodi.s_facodi_hero",
-    "theme_facodi.s_facodi_course_showcase",
     "theme_facodi.s_facodi_learning_journey",
+    "theme_facodi.s_facodi_course_showcase",
     "theme_facodi.s_facodi_features",
     "theme_facodi.s_facodi_academic_areas",
     "theme_facodi.s_facodi_community",

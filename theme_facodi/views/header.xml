@@ -16,20 +16,6 @@
                 <t t-call="website.navbar">
                     <t t-set="_navbar_classes" t-valuef="d-none d-lg-block facodi-header"/>
                     <t t-set="_navbar_name">Primary navigation</t>
-                    <div class="facodi-announcement-bar d-none d-lg-flex align-items-center justify-content-between px-3 px-xl-4 py-1">
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="facodi-status-dot" aria-hidden="true">●</span>
-                            <span class="facodi-announcement-title">FACODI · AN OPEN DIGITAL CAMPUS</span>
-                            <span class="facodi-announcement-subtitle d-none d-xl-inline">— Open resources and community learning</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3">
-                            <span class="facodi-badge facodi-badge--sun facodi-badge-semester">Learning catalogue · in progress</span>
-                            <a href="/courses" class="facodi-announcement-link">
-                                View learning catalogue
-                                <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
-                            </a>
-                        </div>
-                    </div>
                     <div id="o_main_nav" class="container-fluid facodi-nav-shell facodi-paper-nav">
                         <t t-call="website.placeholder_header_brand">
                             <t t-set="_link_class" t-valuef="facodi-wordmark"/>
@@ -60,6 +46,16 @@
                                     </t>
                                 </t>
                             </t>
+                            <li class="nav-item ms-lg-1 d-none d-xl-flex">
+                                <form action="/courses" method="get" class="facodi-header-search d-flex align-items-center" role="search">
+                                    <i class="fa fa-search me-2" aria-hidden="true" t-translation="off"/>
+                                    <input type="search"
+                                           name="search"
+                                           class="facodi-header-search-input"
+                                           placeholder="Search"
+                                           aria-label="Search courses"/>
+                                </form>
+                            </li>
                             <t t-call="website.placeholder_header_language_selector">
                                 <t t-set="_item_class" t-valuef="nav-item dropdown ms-lg-1 facodi-language-selector"/>
                                 <t t-set="_btn_class" t-valuef="nav-link d-flex align-items-center gap-1"/>
