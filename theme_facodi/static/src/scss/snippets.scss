@@ -263,11 +263,10 @@
         position: absolute;
         z-index: 2;
 
-        strong {
-            font-family: var(--facodi-font-display);
-            font-size: .9rem;
-            line-height: 1.1;
-        }
+        font-family: var(--facodi-font-display);
+        font-size: .9rem;
+        font-weight: 700;
+        line-height: 1.1;
     }
 
     .facodi-knowledge-node--unit {
