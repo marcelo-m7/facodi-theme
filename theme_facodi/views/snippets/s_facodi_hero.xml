@@ -49,25 +49,25 @@
                 </p>
             </div>
 
-            <div class="facodi-hero-study-board facodi-knowledge-map" aria-label="FACODI learning map">
+            <div class="facodi-hero-study-board facodi-knowledge-map">
                 <article class="facodi-sheet facodi-knowledge-map__sheet">
                     <p class="facodi-tab">Learning map</p>
-                    <div class="facodi-knowledge-map__canvas" aria-hidden="true">
+                    <div class="facodi-knowledge-map__canvas">
                         <span class="facodi-knowledge-node facodi-knowledge-node--unit">
                             <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
                             <strong>Curricular unit</strong>
                         </span>
-                        <span class="facodi-knowledge-line facodi-knowledge-line--one"/>
+                        <span class="facodi-knowledge-line facodi-knowledge-line--one" aria-hidden="true"/>
                         <span class="facodi-knowledge-node facodi-knowledge-node--path">
                             <i class="fa fa-map" aria-hidden="true" t-translation="off"/>
                             <strong>Learning paths</strong>
                         </span>
-                        <span class="facodi-knowledge-line facodi-knowledge-line--two"/>
+                        <span class="facodi-knowledge-line facodi-knowledge-line--two" aria-hidden="true"/>
                         <span class="facodi-knowledge-node facodi-knowledge-node--course">
                             <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
                             <strong>Courses</strong>
                         </span>
-                        <span class="facodi-knowledge-line facodi-knowledge-line--three"/>
+                        <span class="facodi-knowledge-line facodi-knowledge-line--three" aria-hidden="true"/>
                         <span class="facodi-knowledge-node facodi-knowledge-node--resource">
                             <i class="fa fa-play-circle" aria-hidden="true" t-translation="off"/>
                             <strong>Open resources</strong>
