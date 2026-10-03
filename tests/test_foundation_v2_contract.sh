@@ -127,6 +127,13 @@ for composition, snippets in required.items():
         raise SystemExit(f"FAIL: {composition} missing {sorted(missing)}")
 PY
 
+grep -Fq '.facodi-knowledge-map__sheet' theme_facodi/static/src/scss/snippets.scss \
+  || fail "hero knowledge-map styles are missing"
+grep -Fq '.facodi-learning-bento' theme_facodi/static/src/scss/snippets.scss \
+  || fail "homepage bento layout styles are missing"
+grep -Fq '.facodi-learning-bento__wide' theme_facodi/static/src/scss/snippets.scss \
+  || fail "homepage bento span rules are missing"
+
 grep -Fq '.s_facodi_academic_areas' "$SCSS" \
   || fail "academic areas styles are missing"
 grep -Fq '.facodi-area-card' "$SCSS" \
