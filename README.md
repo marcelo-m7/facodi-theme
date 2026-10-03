@@ -320,6 +320,7 @@ Run the fast repository contracts:
 
 ```bash
 bash tests/test_module_contract.sh
+bash tests/test_design_system_contract.sh
 bash tests/test_campus_paper_contract.sh
 bash tests/test_global_shell_contract.sh
 bash tests/test_homepage_dashboard_contract.sh
