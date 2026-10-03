@@ -11,6 +11,12 @@ for anchor in   'facodi-nav-shell'   'website.navbar_nav'   'portal.placeholder_
   grep -Fq "$anchor" "$HEADER" || fail "native header hook missing: $anchor"
 done
 
+
+grep -Fq 'facodi-header-search' "$HEADER"   || fail "desktop header must expose catalogue search"
+if grep -Fq 'facodi-announcement-bar' "$HEADER"; then
+  fail "desktop header must stay compact and must not reintroduce the announcement strip"
+fi
+
 for anchor in 'facodi-footer-campus' 'facodi-footer-note' 'facodi-footer-links'; do
   grep -Fq "$anchor" "$FOOTER" || fail "footer Campus Paper hook missing: $anchor"
 done
