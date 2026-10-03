@@ -2564,13 +2564,13 @@ msgstr "FACODI · UN CAMPUS DIGITAL ABIERTO"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
-msgid "— Open, collaborative, and free higher education"
-msgstr "— Educación superior abierta, colaborativa y gratuita"
+msgid "— Open resources and community learning"
+msgstr "— Recursos abiertos y aprendizaje comunitario"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
-msgid "Semester 2026.1 Open"
-msgstr "Semestre 2026.1 Abierto"
+msgid "Learning catalogue · in progress"
+msgstr "Catálogo de aprendizaje · en desarrollo"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi

@@ -20,10 +20,10 @@
                         <div class="d-flex align-items-center gap-2">
                             <span class="facodi-status-dot" aria-hidden="true">●</span>
                             <span class="facodi-announcement-title">FACODI · AN OPEN DIGITAL CAMPUS</span>
-                            <span class="facodi-announcement-subtitle d-none d-xl-inline">— Open, collaborative, and free higher education</span>
+                            <span class="facodi-announcement-subtitle d-none d-xl-inline">— Open resources and community learning</span>
                         </div>
                         <div class="d-flex align-items-center gap-3">
-                            <span class="facodi-badge facodi-badge--sun facodi-badge-semester">Semester 2026.1 Open</span>
+                            <span class="facodi-badge facodi-badge--sun facodi-badge-semester">Learning catalogue · in progress</span>
                             <a href="/courses" class="facodi-announcement-link">
                                 View learning catalogue
                                 <i class="fa fa-arrow-right ms-1" aria-hidden="true" t-translation="off"/>
