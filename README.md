@@ -29,6 +29,15 @@ bright calls to action and responsive layouts. Font stacks prefer Space
 Grotesk, Inter and JetBrains Mono when already available and fall back to
 system fonts without making remote font requests.
 
+## Official visual design system
+
+The canonical visual rules for FACODI are documented in
+[docs/design-system.md](docs/design-system.md). The system is named **Tactile
+Academic Neobrutalism**, implemented through the existing **Campus Paper**
+tokens and primitives. New pages and refactors should use that document as the
+source of truth for palette, typography, borders, shadows, cards, interaction,
+responsiveness, accessibility and the page-convergence checklist.
+
 ## Campus Paper visual system
 
 Release `19.0.6.0.0` introduces the FACODI Campus Paper presentation
