@@ -286,6 +286,7 @@ msgid "Knowledge grows when it is shared."
 msgstr "Le savoir grandit lorsqu’il est partagé."
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
 msgid "Open resources"
@@ -420,6 +421,7 @@ msgid "Overview"
 msgstr "Vue d’ensemble"
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
@@ -796,6 +798,7 @@ msgid "Use Roadmaps for direction, curricular units for verified context, and co
 msgstr "Utilisez les Roadmaps pour vous orienter, les unites d'enseignement pour un contexte verifie et les cours pour commencer a apprendre."
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
@@ -4612,3 +4615,18 @@ msgstr ""
 "            <span class=\"facodi-metadata-chip facodi-metadata-chip-yellow\">Sujet fondamental</span>\n"
 "            <span class=\"facodi-metadata-chip facodi-metadata-chip-mint\">Accès libre</span>\n"
 "            <span class=\"facodi-metadata-chip facodi-metadata-chip-pink\">Communauté</span>"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Reviewed context helps connect one useful resource to the next learning step."
+msgstr "Le contexte vérifié aide à relier une ressource utile à la prochaine étape d’apprentissage."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Browse public learning materials connected to useful study context."
+msgstr "Explorez des ressources pédagogiques publiques reliées à un contexte d’étude utile."
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Explore resources"
+msgstr "Explorer les ressources"
