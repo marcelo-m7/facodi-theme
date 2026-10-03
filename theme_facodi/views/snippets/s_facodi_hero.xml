@@ -21,8 +21,8 @@
                     <i class="fa fa-circle" aria-hidden="true" t-translation="off"/>
                     FACODI · An open digital campus
                 </p>
-                <h1><span>Knowledge is everywhere.</span> <span class="facodi-marker facodi-marker-cyan">Find your next step.</span></h1>
-                <p class="facodi-hero-subtitle">Open learning becomes easier to navigate when useful resources connect.</p>
+                <h1><span>Open knowledge.</span> <span class="facodi-marker facodi-marker-cyan">Clear next steps.</span></h1>
+                <p class="facodi-hero-subtitle">Courses, learning paths, curricular units and public resources connected with context.</p>
                 <p class="facodi-lead">
                     Explore courses, learning paths and curricular units built from public learning resources, reviewed context and community contributions.
                 </p>
@@ -52,24 +52,24 @@
                 <article class="facodi-sheet facodi-study-sheet facodi-caderno-card">
                     <div class="facodi-caderno-tape" aria-hidden="true"/>
                     <div class="facodi-study-sheet-topline d-flex align-items-center justify-content-between mb-2">
-                        <p class="facodi-tab">Field notebook</p>
-                        <span class="facodi-badge facodi-badge--mint facodi-badge--pill">Real time</span>
+                        <p class="facodi-tab">Knowledge map</p>
+                        <span class="facodi-badge facodi-badge--mint facodi-badge--pill">Open by design</span>
                     </div>
                     <div class="facodi-caderno-block facodi-caderno-block--yellow mb-2">
-                        <span class="facodi-caderno-kicker">FEATURED TODAY:</span>
-                        <h3 class="facodi-caderno-title">How the Internet really works</h3>
-                        <p class="facodi-caderno-subtitle">Learning path: Networks &amp; Open Systems</p>
+                        <span class="facodi-caderno-kicker">CURRICULAR CONTEXT</span>
+                        <h3 class="facodi-caderno-title">Curricular unit</h3>
+                        <p class="facodi-caderno-subtitle">Start from a formal learning reference when one is available.</p>
                     </div>
                     <div class="facodi-caderno-block facodi-caderno-block--cyan mb-2">
-                        <span class="facodi-caderno-kicker">UNIT IN REVIEW:</span>
-                        <h3 class="facodi-caderno-title">Computational Thinking</h3>
-                        <p class="facodi-caderno-subtitle">12 resources · 4 open readings</p>
+                        <span class="facodi-caderno-kicker">OPEN LEARNING</span>
+                        <h3 class="facodi-caderno-title">Course + resources</h3>
+                        <p class="facodi-caderno-subtitle">Follow useful public material without losing its learning context.</p>
                     </div>
                     <div class="facodi-study-route mb-2" aria-hidden="true">
                         <span>01</span><i/><span>02</span><i/><span>03</span>
                     </div>
                     <div class="facodi-caderno-footer d-flex align-items-center justify-content-between pt-2 border-top">
-                        <em class="facodi-caderno-quote">"learning in public"</em>
+                        <em class="facodi-caderno-quote">"knowledge with context"</em>
                         <span class="facodi-badge facodi-badge-year" t-translation="off">FACODI 2026</span>
                     </div>
                 </article>
