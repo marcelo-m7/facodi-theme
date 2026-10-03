@@ -281,6 +281,7 @@ msgid "Knowledge grows when it is shared."
 msgstr ""
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_features
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_ecosystem
 msgid "Open resources"
@@ -415,6 +416,7 @@ msgid "Overview"
 msgstr ""
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
@@ -621,6 +623,7 @@ msgid "Explore the catalogue"
 msgstr ""
 
 #. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
@@ -4422,4 +4425,19 @@ msgid ""
 "            <span class=\"facodi-metadata-chip facodi-metadata-chip-yellow\">Core topic</span>\n"
 "            <span class=\"facodi-metadata-chip facodi-metadata-chip-mint\">Open access</span>\n"
 "            <span class=\"facodi-metadata-chip facodi-metadata-chip-pink\">Community</span>"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Reviewed context helps connect one useful resource to the next learning step."
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Browse public learning materials connected to useful study context."
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+msgid "Explore resources"
 msgstr ""
