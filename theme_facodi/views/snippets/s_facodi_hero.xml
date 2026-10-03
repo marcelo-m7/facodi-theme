@@ -55,22 +55,22 @@
                     <div class="facodi-knowledge-map__canvas">
                         <span class="facodi-knowledge-node facodi-knowledge-node--unit">
                             <i class="fa fa-university" aria-hidden="true" t-translation="off"/>
-                            <strong>Curricular unit</strong>
+                            <strong>Academic context</strong>
                         </span>
                         <span class="facodi-knowledge-line facodi-knowledge-line--one" aria-hidden="true"/>
                         <span class="facodi-knowledge-node facodi-knowledge-node--path">
                             <i class="fa fa-map" aria-hidden="true" t-translation="off"/>
-                            <strong>Learning paths</strong>
+                            <strong>Learning pathway</strong>
                         </span>
                         <span class="facodi-knowledge-line facodi-knowledge-line--two" aria-hidden="true"/>
                         <span class="facodi-knowledge-node facodi-knowledge-node--course">
                             <i class="fa fa-book" aria-hidden="true" t-translation="off"/>
-                            <strong>Courses</strong>
+                            <strong>Open course</strong>
                         </span>
                         <span class="facodi-knowledge-line facodi-knowledge-line--three" aria-hidden="true"/>
                         <span class="facodi-knowledge-node facodi-knowledge-node--resource">
                             <i class="fa fa-play-circle" aria-hidden="true" t-translation="off"/>
-                            <strong>Open resources</strong>
+                            <strong>Public resource</strong>
                         </span>
                     </div>
                     <p class="facodi-study-note-meta">Reviewed context helps connect one useful resource to the next learning step.</p>
