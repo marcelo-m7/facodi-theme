@@ -951,6 +951,7 @@ msgstr "Conecta temas, cursos y recursos de estudio en torno a una dirección."
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Academic context"
 msgstr "Contexto académico"
 
@@ -1424,6 +1425,7 @@ msgstr "Notas de estudio"
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Open course"
 msgstr "Curso abierto"
 
@@ -4618,3 +4620,13 @@ msgstr "Explora materiales públicos de aprendizaje conectados con un contexto d
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Explore resources"
 msgstr "Explorar recursos"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Learning pathway"
+msgstr "Ruta de aprendizaje"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Public resource"
+msgstr "Recurso público"
