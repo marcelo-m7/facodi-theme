@@ -108,10 +108,10 @@ class TestFacodiTheme(HttpCase):
         self.assertEqual(len(ecosystem), 1)
         self.assertIn("facodi-ecosystem-partners", ecosystem.arch_db)
         self.assertIn('href="https://sea-eu.org/"', ecosystem.arch_db)
-        self.assertIn('href="https://corvanis.com/"', ecosystem.arch_db)
+        self.assertNotIn('href="https://corvanis.com/"', ecosystem.arch_db)
         self.assertEqual(
             ecosystem.arch_db.count('target="_blank" rel="noopener noreferrer"'),
-            2,
+            1,
         )
 
     def test_reusable_campus_paper_blocks_are_native_builder_snippets(self):
@@ -451,9 +451,25 @@ class TestFacodiTheme(HttpCase):
             footer[0].xpath(".//*[contains(concat(' ', normalize-space(@class), ' '), ' o_brand_promotion ')]"),
             "native Odoo brand promotion must not render",
         )
+        affiliate_links = footer[0].xpath(
+            ".//a[@href='https://www.odoo.com/r/aff-marcelo-m7']"
+        )
+        self.assertEqual(
+            len(affiliate_links),
+            1,
+            "FACODI footer should expose the explicitly disclosed Odoo affiliate link",
+        )
+        self.assertIn(
+            "sponsored",
+            (affiliate_links[0].get("rel") or "").split(),
+            "affiliate link must remain explicitly marked as sponsored",
+        )
         self.assertFalse(
-            footer[0].xpath(".//a[contains(translate(@href, 'ODOO', 'odoo'), 'odoo.com')]"),
-            "footer must not render Odoo promotional links",
+            footer[0].xpath(
+                ".//a[contains(translate(@href, 'ODOO', 'odoo'), 'odoo.com') "
+                "and @href != 'https://www.odoo.com/r/aff-marcelo-m7']"
+            ),
+            "footer must not render additional native Odoo promotional links",
         )
 
     def test_standard_favicon_is_not_replaced(self):
@@ -471,7 +487,7 @@ class TestFacodiTheme(HttpCase):
         tree = html.fromstring(response.text)
         description = tree.xpath('//meta[@name="description"]/@content')
         self.assertEqual(len(description), 1)
-        self.assertIn("Browse FACODI open courses", description[0])
+        self.assertIn("Browse FACODI's open course catalogue", description[0])
         self.assertIn("facodi-learning-catalogue-hero", response.text)
         self.assertIn("facodi-index-tabs--courses", response.text)
 
