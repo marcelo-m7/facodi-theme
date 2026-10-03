@@ -938,6 +938,7 @@ msgstr ""
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Academic context"
 msgstr ""
 
@@ -1411,6 +1412,7 @@ msgstr ""
 
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_card
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Open course"
 msgstr ""
 
@@ -4440,4 +4442,14 @@ msgstr ""
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
 msgid "Explore resources"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Learning pathway"
+msgstr ""
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
+msgid "Public resource"
 msgstr ""
