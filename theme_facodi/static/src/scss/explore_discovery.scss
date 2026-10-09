@@ -1,0 +1,356 @@
+// FACODI Explore discovery workbench.
+// Presentation only: the course/catalogue routes remain owned by facodi_learning and Odoo.
+.facodi-site .facodi-explore-v2 {
+    --explore-stroke: 2px solid var(--facodi-ink);
+
+    .facodi-explore-map__hero {
+        background:
+            radial-gradient(circle at 90% 2%, color-mix(in srgb, var(--facodi-highlight-cyan) 43%, transparent) 0, transparent 44%),
+            var(--facodi-white);
+        border: var(--explore-stroke);
+        box-shadow: 7px 7px 0 var(--facodi-ink);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .facodi-explore-map__copy {
+        min-width: 0;
+        position: relative;
+        z-index: 1;
+
+        h1 {
+            color: var(--facodi-ink-deep);
+            font-family: "Space Grotesk", Inter, "Segoe UI", sans-serif;
+            font-size: clamp(2.1rem, 5.2vw, 4.3rem);
+            letter-spacing: -.045em;
+            line-height: 1.04;
+            max-width: 14ch;
+            text-wrap: balance;
+        }
+
+        .lead {
+            color: var(--facodi-ink);
+            font-size: clamp(1rem, 1.8vw, 1.19rem);
+            line-height: 1.55;
+            max-width: 34rem;
+        }
+    }
+
+    .facodi-explore-v2__underline {
+        background: linear-gradient(transparent 68%, var(--facodi-highlight-lime) 68%);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
+    .facodi-explore-v2__search {
+        align-items: stretch;
+        background: var(--facodi-white);
+        border: var(--explore-stroke);
+        border-radius: var(--facodi-radius-sm);
+        box-shadow: 4px 4px 0 var(--facodi-ink);
+        display: flex;
+        max-width: 42rem;
+        min-height: 3.65rem;
+        overflow: hidden;
+        transition: box-shadow .16s ease;
+
+        > .fa {
+            align-self: center;
+            color: var(--facodi-ink);
+            flex: 0 0 auto;
+            font-size: 1.15rem;
+            margin-left: 1rem;
+        }
+
+        input[type="search"] {
+            background: transparent;
+            border: 0;
+            color: var(--facodi-ink);
+            flex: 1 1 auto;
+            font-size: 1rem;
+            min-width: 0;
+            outline: 0;
+            padding: .75rem .9rem;
+            width: 100%;
+
+            &::placeholder { color: #596477; opacity: 1; }
+        }
+
+        button {
+            background: var(--facodi-highlight-lime);
+            border: 0;
+            border-left: var(--explore-stroke);
+            color: var(--facodi-ink);
+            flex: 0 0 auto;
+            font-size: .84rem;
+            font-weight: 800;
+            padding: .6rem 1rem;
+
+            .fa { margin-left: .35rem; }
+            &:hover { background: var(--facodi-highlight-mint); }
+            &:focus-visible { outline: 3px solid var(--facodi-ink); outline-offset: -5px; }
+        }
+
+        &:focus-within { box-shadow: 4px 4px 0 var(--facodi-highlight-cyan); outline: 2px solid var(--facodi-ink); outline-offset: 2px; }
+    }
+
+    .facodi-explore-v2__quicklinks {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .45rem .85rem;
+
+        span {
+            color: var(--facodi-ink);
+            font-size: .78rem;
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--facodi-ink);
+            font-size: .8rem;
+            font-weight: 800;
+            text-decoration: underline;
+            text-decoration-color: var(--facodi-highlight-cyan);
+            text-decoration-thickness: 3px;
+            text-underline-offset: 3px;
+
+            &:hover { text-decoration-color: var(--facodi-highlight-lime); }
+            &:focus-visible { outline: 3px solid var(--facodi-ink); outline-offset: 4px; }
+        }
+    }
+
+    .facodi-explore-v2__compass {
+        background: color-mix(in srgb, var(--facodi-highlight-mint) 24%, var(--facodi-white));
+        border: var(--explore-stroke);
+        border-radius: var(--facodi-radius);
+        box-shadow: 5px 5px 0 var(--facodi-ink);
+        min-width: 0;
+        padding: clamp(1.15rem, 2.2vw, 1.75rem);
+        transform: rotate(1.3deg);
+    }
+
+    .facodi-explore-v2__compass-top {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 1rem;
+
+        .fa { font-size: 2rem; }
+    }
+
+    .facodi-explore-v2__steps {
+        counter-reset: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            align-items: start;
+            border-top: 1px dashed var(--facodi-ink);
+            display: flex;
+            gap: .8rem;
+            padding: 1rem 0;
+
+            strong, small { display: block; }
+            strong { color: var(--facodi-ink-deep); font-family: "Space Grotesk", Inter, sans-serif; font-size: 1.05rem; }
+            small { color: var(--facodi-ink); font-size: .83rem; line-height: 1.5; margin-top: .16rem; }
+        }
+    }
+
+    .facodi-explore-v2__step-no {
+        background: var(--facodi-white);
+        border: 1px solid var(--facodi-ink);
+        border-radius: 50%;
+        flex: 0 0 2.2rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: .72rem;
+        font-weight: 800;
+        line-height: 2.2rem;
+        text-align: center;
+    }
+
+    .facodi-explore-v2__compass-bottom {
+        background: var(--facodi-highlight-lime);
+        display: inline-block;
+        font-size: .75rem;
+        font-weight: 800;
+        padding: .4rem .65rem;
+    }
+
+    .facodi-explore-map__snapshot {
+        grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+
+        .facodi-stat-note {
+            min-width: 0;
+            padding: .9rem 1rem;
+        }
+    }
+
+    .facodi-explore-v2__section-head {
+        align-items: end;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+
+        h2 {
+            color: var(--facodi-ink-deep);
+            font-family: "Space Grotesk", Inter, sans-serif;
+            font-size: clamp(1.8rem, 3.2vw, 2.65rem);
+            letter-spacing: -.035em;
+            line-height: 1.12;
+        }
+
+        p { color: var(--facodi-ink); }
+    }
+
+    .facodi-explore-v2__section-stamp {
+        border: 1px dashed var(--facodi-ink);
+        border-radius: 50%;
+        color: var(--facodi-ink);
+        font-size: .7rem;
+        font-weight: 800;
+        max-width: 6.6rem;
+        padding: 1rem .65rem;
+        text-align: center;
+        transform: rotate(7deg);
+    }
+
+    .facodi-explore-v2__toolbar {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .9rem 1.4rem;
+        justify-content: space-between;
+    }
+
+    .facodi-explore-v2__filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+        min-width: 0;
+    }
+
+    .facodi-explore-v2__filter {
+        background: var(--facodi-white);
+        border: var(--explore-stroke);
+        border-radius: 999px;
+        color: var(--facodi-ink);
+        font-size: .85rem;
+        font-weight: 800;
+        min-height: 2.7rem;
+        padding: .5rem 1rem;
+        transition: background .16s ease, box-shadow .16s ease;
+
+        &:hover { background: var(--facodi-highlight-mint); }
+        &:focus-visible { outline: 3px solid var(--facodi-ink); outline-offset: 3px; }
+        &[aria-pressed="true"] {
+            background: var(--facodi-highlight-lime);
+            box-shadow: 3px 3px 0 var(--facodi-ink);
+        }
+    }
+
+    .facodi-explore-v2__results {
+        color: var(--facodi-ink);
+        font-family: "JetBrains Mono", monospace;
+        font-size: .8rem;
+        font-weight: 700;
+        white-space: nowrap;
+
+        strong { font-size: 1.15rem; }
+    }
+
+    .facodi-explore-card-grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: clamp(.85rem, 2vw, 1.25rem);
+    }
+
+    .facodi-explore-card {
+        background: var(--facodi-white);
+        display: flex;
+        flex-direction: column;
+        grid-column: span 4;
+        min-height: 18rem;
+        min-width: 0;
+        padding: clamp(1.1rem, 2.4vw, 1.65rem);
+        position: relative;
+
+        &:nth-child(1) { grid-column: span 7; background: color-mix(in srgb, var(--facodi-highlight-cyan) 18%, var(--facodi-white)); }
+        &:nth-child(2) { grid-column: span 5; background: color-mix(in srgb, var(--facodi-highlight-mint) 28%, var(--facodi-white)); }
+
+        h3 {
+            color: var(--facodi-ink-deep);
+            font-family: "Space Grotesk", Inter, sans-serif;
+            font-size: clamp(1.45rem, 2.8vw, 2.05rem);
+            letter-spacing: -.03em;
+            line-height: 1.1;
+            margin: .6rem 0 .8rem;
+            text-wrap: balance;
+        }
+
+        > p:not(.facodi-label) { line-height: 1.5; }
+        &:focus-visible { outline: 3px solid var(--facodi-ink); outline-offset: 4px; }
+        &[hidden] { display: none !important; }
+    }
+
+    .facodi-explore-card__cta {
+        bottom: auto;
+        display: inline-flex;
+        gap: .5rem;
+        justify-content: space-between;
+        left: auto;
+        margin-top: auto;
+        padding-top: 1.1rem;
+        position: static;
+
+        .fa { transition: transform .18s ease; }
+    }
+
+    .facodi-explore-card:hover .facodi-explore-card__cta .fa,
+    .facodi-explore-card:focus-visible .facodi-explore-card__cta .fa {
+        transform: translateX(4px);
+    }
+
+    .facodi-explore-v2__noscript {
+        border-left: 4px solid var(--facodi-highlight-cyan);
+        margin-top: 1.5rem;
+        padding-left: .8rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .facodi-site .facodi-explore-v2 {
+        .facodi-explore-v2__compass { transform: none; }
+        .facodi-explore-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .facodi-explore-card, .facodi-explore-card:nth-child(1), .facodi-explore-card:nth-child(2) {
+            grid-column: span 1;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .facodi-site .facodi-explore-v2 {
+        .facodi-explore-map__hero { padding: 1.3rem; }
+        .facodi-explore-v2__search {
+            flex-wrap: wrap;
+            input[type="search"] { width: calc(100% - 4rem); }
+            button { border-left: 0; border-top: var(--explore-stroke); flex: 1 0 100%; min-height: 2.8rem; }
+        }
+        .facodi-explore-card-grid { grid-template-columns: minmax(0, 1fr); }
+        .facodi-explore-card, .facodi-explore-card:nth-child(1), .facodi-explore-card:nth-child(2) { grid-column: span 1; }
+        .facodi-explore-v2__section-stamp { display: none; }
+        .facodi-explore-v2__filters { width: 100%; }
+        .facodi-explore-v2__filter { flex: 1 1 auto; }
+        .facodi-explore-v2__results { white-space: normal; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .facodi-site .facodi-explore-v2 {
+        .facodi-explore-v2__search, .facodi-explore-v2__filter,
+        .facodi-explore-card__cta .fa { transition: none; }
+        .facodi-explore-card__cta .fa { transform: none !important; }
+    }
+}

@@ -57,4 +57,25 @@ grep -Fq 'grid-template-columns: minmax(0, 8fr) minmax(18rem, 4fr)' "$CURRICULUM
 grep -Fq '@media (max-width: 1023.98px)' "$CURRICULUM" \
   || fail "UC reference rail needs a tablet collapse gate"
 
+EXPLORE="theme_facodi/static/src/scss/explore_discovery.scss"
+[[ -f "$EXPLORE" ]] || fail "Explore discovery stylesheet missing"
+grep -Fq '"theme_facodi/static/src/scss/explore_discovery.scss"' theme_facodi/__manifest__.py \
+  || fail "Explore stylesheet must be registered in frontend assets"
+for selector in \
+  '.facodi-explore-v2__search' \
+  '.facodi-explore-v2__compass' \
+  '.facodi-explore-v2__filters' \
+  '.facodi-explore-card-grid' \
+  '.facodi-explore-card__cta' \
+  '[hidden]'; do
+  grep -Fq "$selector" "$EXPLORE" || fail "missing interactive Explore style: $selector"
+done
+for marker in \
+  ':focus-visible' \
+  'prefers-reduced-motion' \
+  'max-width: 767.98px' \
+  'grid-template-columns: minmax(0, 1fr)'; do
+  grep -Fq "$marker" "$EXPLORE" || fail "missing Explore accessibility/mobile guard: $marker"
+done
+
 echo "PASS: D1 learning interface primitives contract"

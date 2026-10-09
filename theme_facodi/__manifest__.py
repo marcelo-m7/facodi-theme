@@ -1,7 +1,7 @@
 {
     "name": "FACODI Theme",
     "summary": "FACODI visual identity for Odoo Website and eLearning",
-    "version": "19.0.10.89.0",
+    "version": "19.0.10.90.0",
     "category": "Theme/Education",
     "sequence": 120,
     "author": "FACODI",
@@ -76,6 +76,7 @@
             "theme_facodi/static/src/scss/components.scss",
             "theme_facodi/static/src/scss/odoo_surfaces.scss",
             "theme_facodi/static/src/scss/enriched_surfaces.scss",
+            "theme_facodi/static/src/scss/explore_discovery.scss",
             "theme_facodi/static/src/scss/portal.scss",
             "theme_facodi/static/src/scss/website.scss",
             "theme_facodi/static/src/scss/snippets.scss",
