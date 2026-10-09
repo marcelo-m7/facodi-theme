@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Snapshot exported from live FACODI Odoo ir.ui.view id=5176, 2026-10-09. Not loaded by module automatically. -->
+<data inherit_id="website.layout" name="FACODI Footer">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" class="facodi-footer facodi-footer-campus" data-name="FACODI Footer" t-if="not no_footer">
+                <div class="container-fluid facodi-footer-inner">
+                    <div class="facodi-footer-note">
+                        <a href="/" class="facodi-wordmark" t-translation="off">FACODI<span>.</span></a>
+                        <p>Open learning resources, curricular context and community contributions — organised to help people study, discover and share knowledge.</p>
+                        <div class="facodi-footer-badge mt-2 d-flex align-items-center gap-1">
+                            <i class="fa fa-check-circle" style="color: #107C41;" aria-hidden="true" t-translation="off"/>
+                            <span class="small">Open Educational Resources (REA/OER)</span>
+                        </div>
+                    </div>
+
+                    <nav class="facodi-footer-links" aria-label="Footer navigation">
+                        <t t-foreach="website.menu_id.child_id" t-as="footer_menu">
+                            <div t-if="footer_menu.is_visible" class="facodi-footer-group">
+                                <a t-if="not footer_menu.child_id" t-att-href="footer_menu._clean_url()">
+                                    <span t-field="footer_menu.name"/>
+                                </a>
+                                <a t-elif="footer_menu._facodi_landing_url()" t-att-href="footer_menu._facodi_landing_url()" class="facodi-footer-heading facodi-footer-heading-link">
+                                    <span t-field="footer_menu.name"/>
+                                </a>
+                                <span t-else="" class="facodi-footer-heading">
+                                    <span t-field="footer_menu.name"/>
+                                </span>
+                                <ul t-if="footer_menu.child_id">
+                                    <t t-foreach="footer_menu.child_id" t-as="footer_item">
+                                        <li t-if="footer_item.is_visible">
+                                            <a t-att-href="footer_item._clean_url()">
+                                                <span t-field="footer_item.name"/>
+                                            </a>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </t>
+                        <div class="facodi-footer-group">
+                            <span class="facodi-footer-heading">Policies</span>
+                            <ul>
+                                <li><a href="/accessibility">Accessibility</a></li>
+                                <li><a href="/cookie-policy">Cookie Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="facodi-footer-group">
+                            <span class="facodi-footer-heading">Account</span>
+                            <ul>
+                                <li><a href="/my/home">My account</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <div class="facodi-footer-meta">
+                        <div>Open source for learning in public.</div>
+                        <div>
+                            <a href="https://www.odoo.com/r/aff-marcelo-m7" target="_blank" rel="sponsored noopener noreferrer" class="facodi-text-link">Built with Odoo</a>
+                            <span class="small"> · affiliate link</span>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/somosfacodi/" target="_blank" rel="noopener noreferrer" class="facodi-text-link" aria-label="FACODI on Instagram">
+                                <i class="fa fa-instagram me-1" aria-hidden="true" t-translation="off"/>
+                                <span t-translation="off">@somosfacodi</span>
+                            </a>
+                        </div>
+                        <div t-translation="off"><span t-esc="datetime.datetime.now().year"/> FACODI</div>
+                        <div>
+                            Created by
+                            <a href="https://github.com/marcelo-m7" target="_blank" rel="noopener noreferrer" t-translation="off">Marcelo Santos</a>
+                            <span aria-hidden="true"> · </span>
+                            <span t-translation="off">Monynha Softwares</span>
+                        </div>
+                        <div class="mt-2 d-flex align-items-center justify-content-lg-end gap-2">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="facodi-badge facodi-badge--pill text-decoration-none" style="background: var(--facodi-paper-warm); color: #142846;" t-translation="off">
+                                <span>CC BY-SA 4.0</span>
+                                <i class="fa fa-unlock-alt ms-1" aria-hidden="true"/>
+                            </a>
+                            <span class="facodi-build-tag text-muted" t-translation="off">BUILD: 2026.02-REL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </data>

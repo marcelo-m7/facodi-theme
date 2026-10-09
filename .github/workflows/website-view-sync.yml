@@ -1,0 +1,21 @@
+name: FACODI website view sync gate
+
+on:
+  pull_request:
+    paths:
+      - 'theme_facodi/views/customizations.xml'
+      - 'theme_facodi/data/website_snapshots/**'
+      - 'tests/test_website_view_sync.py'
+      - '.github/workflows/website-view-sync.yml'
+  workflow_dispatch:
+
+jobs:
+  static-qweb-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check tracked QWeb + translations + URLs
+        run: python3 tests/test_website_view_sync.py
+      - name: Deployment safety note
+        run: |
+          echo 'Static gate passed. A separate --live-export check and staging tests are mandatory before deployment.'

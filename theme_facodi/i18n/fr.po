@@ -175,6 +175,7 @@ msgstr "Trouvez un cours"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Learn"
 msgstr "Apprenez"
 
@@ -191,6 +192,7 @@ msgstr "À votre rythme"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Contribute"
 msgstr "Contribuer"
 
@@ -426,6 +428,7 @@ msgstr "Vue d’ensemble"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Courses"
 msgstr "Cours"
 
@@ -439,6 +442,7 @@ msgstr "Enregistrés"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_metadata_row
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Community"
 msgstr "Communauté"
 
@@ -803,6 +807,7 @@ msgstr "Utilisez les Roadmaps pour vous orienter, les unites d'enseignement pour
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Learning paths"
 msgstr "Parcours d’apprentissage"
 
@@ -811,6 +816,7 @@ msgstr "Parcours d’apprentissage"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Curricular units"
 msgstr "Unités d’enseignement"
 
@@ -2667,6 +2673,7 @@ msgstr "Cette page a rencontré un <mark>contretemps.</mark>"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_mail_notification_layout
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_groups
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "FACODI"
 msgstr "FACODI"
 
@@ -4642,3 +4649,84 @@ msgstr "Parcours d’apprentissage"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 msgid "Public resource"
 msgstr "Ressource publique"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Learning resources"
+msgstr "Ressources pédagogiques"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Discussions"
+msgstr "Discussions"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "News"
+msgstr "Actualités"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Contact"
+msgstr "Contact"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "About the project"
+msgstr "À propos du projet"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Academic model"
+msgstr "Modèle académique"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Technical infrastructure"
+msgstr "Infrastructure technique"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Partnerships"
+msgstr "Partenariats"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "University of Algarve"
+msgstr "Université de l’Algarve"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Project author"
+msgstr "Auteur du projet"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Legal & accessibility"
+msgstr "Mentions légales et accessibilité"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Privacy policy"
+msgstr "Politique de confidentialité"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Terms of use"
+msgstr "Conditions d’utilisation"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Legal notice"
+msgstr "Mentions légales"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Content & copyright"
+msgstr "Contenus et droits d’auteur"
+
+#. module: theme_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
+msgid "Cookie policy"
+msgstr "Politique des cookies"
+

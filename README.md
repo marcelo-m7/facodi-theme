@@ -9,6 +9,8 @@ approved FACODI Campus Paper direction while keeping navigation, Website Builder
 and eLearning behavior on standard Odoo 19 mechanisms. The theme still avoids a
 parallel course system and preserves editor-owned Website pages.
 
+The original educational Website reference was `edu-open2.odoo.com`; the current FACODI production site is `facodi.com`. The reference site is historical context, not a deployment target.
+
 ## Verified visual identity
 
 The live site uses Odoo `theme_default` plus Website Builder customizations.
