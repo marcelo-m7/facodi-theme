@@ -19,7 +19,7 @@ import websocket
 
 OUTPUT = Path(os.environ.get("FACODI_VISUAL_DIR", "/tmp/facodi-visual"))
 BASE = os.environ.get("FACODI_VISUAL_BASE", "http://127.0.0.1:8069").rstrip("/")
-PAGES = [("/", "home"), ("/courses", "courses"), ("/blog", "blog")]
+PAGES = [("/", "home"), ("/about", "about"), ("/partnerships", "partnerships"), ("/blog", "blog"), ("/slides", "slides")]
 WIDTHS = [320, 390, 768, 1440]
 HEIGHT = 900
 
@@ -103,7 +103,7 @@ AUDIT_JS = r"""(() => {
     left: Math.round(el.getBoundingClientRect().left),
  }));
  return {viewport, pageWidth, overflow:pageWidth > viewport + 2, boxes, offenders,
-         title:document.title, pathname:location.pathname, hasFooter:!!document.querySelector('#footer')};
+         title:document.title, pathname:location.pathname, hasFooter:!!document.querySelector('#footer.facodi-footer'), themeActive:!!document.querySelector('.facodi-site'), genericLogo:document.body.innerText.includes('Your Logo')};
 })()"""
 
 
@@ -134,10 +134,10 @@ def main():
     finally:
         browser.close()
         (OUTPUT / "report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False))
-    failures = [r for r in report if r["overflow"] or not r["hasFooter"]]
+    failures = [r for r in report if r["overflow"] or not r["hasFooter"] or not r["themeActive"] or r["genericLogo"] or "Page Not Found" in r["title"]]
     if failures:
         for r in failures:
-            print(f"FAIL: {r['route']} @ {r['width']}px: overflow={r['overflow']} footer={r['hasFooter']} offenders={r['offenders']}")
+            print(f"FAIL: {r['route']} @ {r['width']}px: overflow={r['overflow']} footer={r['hasFooter']} theme={r['themeActive']} title={r['title']} offenders={r['offenders']}")
         raise SystemExit(1)
     print(f"PASS: {len(report)} Chromium screenshots and layout audits")
 
