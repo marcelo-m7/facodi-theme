@@ -19,7 +19,7 @@ Translations are inline `request.lang.code` dictionaries in the captured QWeb. T
 ## Deployment gate
 
 1. Back up the live database and export current `arch_db` of every view above before rebuilding or upgrading the theme.
-2. Diff the fresh export against these snapshots and the relevant theme XML. Any divergence is a manual review gate. Do **not** overwrite the live instance automatically.
+2. Run the read-only Odoo shell script `scripts/export_website_views.py` to produce a private export in `/tmp/facodi-live-views.json`. Then run `python3 tests/test_website_view_sync.py --live-export /tmp/facodi-live-views.json` against the proposed branch. This check compares **the footer against current code** (not its archived snapshot), both the website copy and source theme template; editorial pages remain compared against their captured versions. Any divergence blocks release. Do **not** overwrite the live instance automatically.
 3. For `theme_facodi.facodi_footer`, compare the QWeb inside `views/customizations.xml` with the live website-specific copy. A module upgrade may re-render/re-copy the theme template.
 4. For site pages, inspect `website.page`, `ir.ui.view`, `theme.ir.ui.view`, `ir.model.data` and update hooks to determine their actual ownership **before** registering XML records or changing `noupdate`.
 5. Validate QWeb, PT/EN/FR/ES rendering, permissions, all navigation URLs, responsive layout and the public website in staging.
@@ -27,7 +27,7 @@ Translations are inline `request.lang.code` dictionaries in the captured QWeb. T
 
 ### Important drift observed during export
 
-The production API returned footer view 5176 with the **old menu-driven footer** (only Accessibility and Cookie Policy under Policies), despite an earlier confirmed edit showing 21 links. The snapshot preserves what the API returned at export time; `views/customizations.xml` now tracks the intended 21-link multilingual footer. **Do not deploy it without reconciling this drift.**
+The production API returned **both** the source theme template and footer view 5176 with the **old menu-driven footer** (only Accessibility and Cookie Policy under Policies), despite an earlier confirmed edit showing 21 links. The snapshot preserves what the API returned at export time; `views/customizations.xml` now tracks the intended 21-link multilingual footer. **Do not deploy it without reconciling this drift.**
 
 Other considerations: SVG/PNG logos of Corvanis and University of Algarve are currently external assets referenced by the Partnerships page, not bundled licensed assets in the repository. Verify official asset URLs and permission, and prefer local versioned files. The snapshot is not proof of external image availability.
 
