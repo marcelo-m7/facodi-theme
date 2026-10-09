@@ -100,18 +100,48 @@ def check_live(path):
         die(f"invalid live export: {exc}")
     if set(VIEWS).difference(views):
         die(f"live export incomplete: missing IDs {sorted(set(VIEWS).difference(views))}")
+
     drift = []
     for id_, name in VIEWS.items():
+        if id_ == 5176:
+            continue  # footer must match CURRENT CODE, not the old archived snapshot
         recorded = (SNAP / f"{name}.xml").read_text(encoding="utf-8")
-        # Snapshots have a comment/header, so comparing parsed XML safely skips them.
         try:
             if normalize(recorded) != normalize(views[id_]):
                 drift.append(f"{id_} ({name})")
         except ET.ParseError as exc:
             die(f"invalid live XML {id_}: {exc}")
     if drift:
-        die("LIVE DATABASE DRIFT: " + ", ".join(drift) + "; manual reconciliation required")
-    print("PASS: all live QWeb views equal checked-in snapshots")
+        die("LIVE EDITORIAL PAGE DRIFT: " + ", ".join(drift) +
+            "; manual reconciliation required")
+
+    try:
+        root = ET.parse(FOOTER).getroot()
+        source = next(t for t in root.findall(".//template")
+                      if t.get("id") == "facodi_footer")
+        source_nav = source.find(".//nav")
+        live_nav = ET.fromstring(views[5176]).find(".//nav")
+        if source_nav is None or live_nav is None:
+            die("footer nav absent from source or Odoo export")
+        if normalize(ET.tostring(source_nav, encoding="unicode")) != normalize(
+                ET.tostring(live_nav, encoding="unicode")):
+            die("LIVE FOOTER NOT SYNCED: Odoo website copy differs from the "
+                "21-link native-translation source; do not deploy until reconciled")
+        # A theme source template is a second independent record when themes
+        # are installed; a copied website view alone does not prove ownership.
+        theme_views = data.get("theme_templates", [])
+        if theme_views:
+            original = next((t for t in theme_views
+                             if t.get("key") == "theme_facodi.facodi_footer"), None)
+            if original is None:
+                die("theme.ir.ui.view footer missing from export")
+            theme_nav = ET.fromstring(original["arch"]).find(".//nav")
+            if theme_nav is None or normalize(ET.tostring(theme_nav, encoding="unicode")) != normalize(
+                    ET.tostring(source_nav, encoding="unicode")):
+                die("LIVE THEME TEMPLATE NOT SYNCED: source theme template differs")
+    except ET.ParseError as exc:
+        die(f"malformed live/source footer XML: {exc}")
+    print("PASS: live editorial views match snapshots and website/theme footer matches code")
 
 
 if __name__ == "__main__":
