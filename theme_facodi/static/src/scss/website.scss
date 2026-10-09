@@ -151,6 +151,9 @@
         }
 
         .facodi-nav-shell {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
             align-items: center;
             display: flex;
             gap: clamp(.75rem, 2vw, 1.5rem);
