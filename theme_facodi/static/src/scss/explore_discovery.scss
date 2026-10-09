@@ -180,7 +180,7 @@
     }
 
     .facodi-explore-map__snapshot {
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
 
         .facodi-stat-note {
             min-width: 0;
