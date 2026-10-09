@@ -10,7 +10,7 @@ Snapshot first and review target website. Idempotent upserts, no deletion.
 import json
 from pathlib import Path
 
-payload = json.loads((Path(__file__).resolve().parents[1] / "data" / "facodi_navigation_editorial.json").read_text(encoding="utf-8"))
+payload = json.loads((Path(globals().get("__file__", "/mnt/addons/theme_facodi/scripts/apply_navigation_editorial.py")).resolve().parents[1] / "data" / "facodi_navigation_editorial.json").read_text(encoding="utf-8"))
 website = env["website"].search([("domain", "ilike", "facodi.com")], limit=1)
 if not website:
     websites = env["website"].search([])
@@ -54,7 +54,7 @@ for item in payload["menus"]:
 
 about = Menu.search([("parent_id", "=", root.id), ("name", "=", "About")], limit=1)
 for url in payload["hidden_header_urls"]:
-    Menu.search([("parent_id", "=", about.id), ("url", "=", url)]).write({"is_visible": False})
+    Menu.search([("parent_id", "=", about.id), ("url", "=", url)]).unlink()  # website.menu only; never delete legal website.page
 
 for item in payload["pages"]:
     view = View.search([("key", "=", item["view_key"]), ("website_id", "=", website.id)], limit=1)
