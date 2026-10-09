@@ -69,9 +69,16 @@ def check_source():
     if missing:
         die(f"required footer destinations missing: {sorted(missing)}")
     text = ET.tostring(footer, encoding="unicode")
-    for lang in ("pt_PT", "fr_FR", "es_ES"):
-        if lang not in text:
-            die(f"footer has lost inline translation for {lang}")
+    if "request.lang" in text or "pt_PT" in text:
+        die("theme footer must use native Odoo gettext, not inline language branching")
+    for locale in ("pt", "fr", "es"):
+        po = (ROOT / "theme_facodi/i18n" / f"{locale}.po").read_text(encoding="utf-8")
+        if "model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer" not in po:
+            die(f"{locale}.po missing native footer translation references")
+        for term in ("Legal & accessibility", "Privacy policy", "Content & copyright",
+                     "Learning resources", "Project author"):
+            if f'msgid "{term}"' not in po:
+                die(f"{locale}.po missing footer string: {term}")
     for id_, name in VIEWS.items():
         path = SNAP / f"{name}.xml"
         try:
