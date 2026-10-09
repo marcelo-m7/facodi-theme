@@ -366,6 +366,7 @@ jobs:
       - name: Capture responsive frontend screenshots and detect overflow
         run: |
           mkdir -p "$RUNNER_TEMP/facodi-visual"
+          chmod 0777 "$RUNNER_TEMP/facodi-visual" # disposable CI screenshot volume; container user is non-root
           docker run -d --name facodi-theme-visual-server \
             --network facodi-theme-ci \
             -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
