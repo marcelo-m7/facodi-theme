@@ -163,6 +163,20 @@
             padding: 0 clamp(1rem, 3vw, 2rem);
         }
 
+        // At desktop widths the combined logo, search, menus and CTA can
+        // exceed the flex row by ~13px (Chromium 1440px screenshot).
+        // Reduce only desktop chrome spacing; keep mobile controls untouched.
+        @media (min-width: 992px) {
+            .facodi-nav-shell {
+                gap: .5rem;
+                padding-inline: 1rem;
+            }
+
+            .facodi-header-search .facodi-header-search-input {
+                width: 9rem;
+            }
+        }
+
         .facodi-wordmark {
             flex: 0 0 auto;
             max-width: clamp(7.5rem, 16vw, 12rem);
