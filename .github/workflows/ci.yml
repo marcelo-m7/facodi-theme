@@ -363,6 +363,19 @@ jobs:
           fi
           grep -q '0 failed, 0 error(s) of 2 tests' /tmp/facodi-mobile-tests.log
 
+      - name: Activate actual FACODI theme and editorial fixtures for visual CI
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_prepare_visual_site.py
+
       - name: Capture responsive frontend screenshots and detect overflow
         run: |
           mkdir -p "$RUNNER_TEMP/facodi-visual"
