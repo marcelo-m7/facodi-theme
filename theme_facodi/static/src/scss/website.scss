@@ -138,7 +138,10 @@
 
         .facodi-header-cta {
             // Reduce the CTA's flex contribution rather than merely moving it visually.
-            margin-left: -2rem;
+            margin-left: -1rem;
+            max-width: 7rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
             background: var(--facodi-sun) !important;
             border: 2px solid var(--facodi-ink) !important;
             box-shadow: 3px 3px 0 var(--facodi-ink) !important;
