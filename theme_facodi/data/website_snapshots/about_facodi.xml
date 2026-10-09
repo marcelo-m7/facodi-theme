@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Snapshot exported from live FACODI Odoo ir.ui.view id=2669, 2026-10-09. Not loaded by module automatically. -->
+<t name="About FACODI" t-name="website.facodi_about">
+  <t t-call="website.layout">
+    <div id="wrap" class="oe_structure facodi-about-stable">
+      <style>
+        .facodi-about-stable{
+          --fa-ink:#142846;--fa-cyan:#37BED2;--fa-blue:#3979C8;--fa-mint:#A7E8BE;--fa-sun:#EFFF00;--fa-paper:#F9FAFB;
+          background:var(--fa-paper);color:var(--fa-ink);max-width:100%;overflow-x:clip;touch-action:pan-y;overscroll-behavior-x:none;
+        }
+        .facodi-about-stable,.facodi-about-stable *{box-sizing:border-box;min-width:0}
+        .facodi-about-stable img,.facodi-about-stable video,.facodi-about-stable iframe{display:block;max-width:100%;height:auto}
+        .facodi-about-stable a,.facodi-about-stable p,.facodi-about-stable h1,.facodi-about-stable h2,.facodi-about-stable h3{overflow-wrap:anywhere}
+        .fa-shell{width:min(1180px,calc(100% - 32px));margin:0 auto}
+        .fa-section{padding:clamp(2.5rem,6vw,5.5rem) 0;overflow:clip}
+        .fa-grid-bg{background-image:linear-gradient(rgba(20,40,70,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(20,40,70,.08) 1px,transparent 1px);background-size:28px 28px}
+        .fa-hero{background:var(--fa-ink);color:white;border:2px solid var(--fa-ink);border-radius:24px;box-shadow:8px 8px 0 var(--fa-sun);padding:clamp(1.5rem,5vw,4rem)}
+        .fa-hero h1,.fa-hero p,.fa-cta h2,.fa-cta p{color:white!important}
+        .fa-kicker{display:inline-flex;align-items:center;background:var(--fa-sun);color:var(--fa-ink)!important;border:1px solid var(--fa-ink);border-radius:8px;padding:.36rem .58rem;font:800 .75rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase}
+        .fa-title{font-size:clamp(2.45rem,6vw,5.5rem);line-height:.96;max-width:12ch;margin:1rem 0 1.25rem}
+        .fa-lead{font-size:clamp(1.05rem,1.7vw,1.28rem);line-height:1.6;max-width:48rem}
+        .fa-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+        .fa-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--fa-ink);border-radius:10px;padding:.75rem 1rem;font-weight:800;text-decoration:none}
+        .fa-btn-primary{background:var(--fa-sun);color:var(--fa-ink)!important}
+        .fa-btn-secondary{background:white;color:var(--fa-ink)!important}
+        .fa-eyebrow{font:800 .78rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--fa-blue)}
+        .fa-heading{font-size:clamp(2rem,4vw,3.4rem);line-height:1.02;max-width:16ch;margin:.7rem 0 1rem}
+        .fa-copy{font-size:1.05rem;line-height:1.7;max-width:68ch}
+        .fa-two{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:clamp(1.2rem,3vw,2.5rem);align-items:start}
+        .fa-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+        .fa-four{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+        .fa-card{background:white;border:2px solid var(--fa-ink);border-radius:18px;box-shadow:5px 5px 0 var(--fa-ink);padding:1.35rem;height:100%}
+        .fa-card-cyan{box-shadow:5px 5px 0 var(--fa-cyan)}
+        .fa-card-mint{box-shadow:5px 5px 0 var(--fa-mint)}
+        .fa-card-sun{box-shadow:5px 5px 0 var(--fa-sun)}
+        .fa-card h3{margin-bottom:.7rem}
+        .fa-step{display:grid;grid-template-columns:44px minmax(0,1fr);gap:1rem;align-items:start}
+        .fa-step-n{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--fa-sun);border:2px solid var(--fa-ink);border-radius:10px;font-weight:900}
+        .fa-divider{border-top:2px solid var(--fa-ink)}
+        .fa-cta{background:var(--fa-ink);color:white;border:2px solid var(--fa-ink);border-radius:22px;box-shadow:6px 6px 0 var(--fa-sun);padding:clamp(1.5rem,4vw,3rem)}
+        .fa-cta-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:1.5rem;align-items:center}
+        .fa-list{margin:0;padding-left:1.2rem}
+        .fa-list li+li{margin-top:.65rem}
+        @media(max-width:900px){.fa-two,.fa-three,.fa-four,.fa-cta-grid{grid-template-columns:1fr}.fa-title{max-width:14ch}.fa-shell{width:min(100% - 24px,1180px)}}
+        @media(max-width:600px){.fa-section{padding:2.25rem 0}.fa-hero,.fa-cta{border-radius:16px;box-shadow:5px 5px 0 var(--fa-sun)}.fa-actions{flex-direction:column}.fa-btn{width:100%}.fa-title{font-size:clamp(2.2rem,13vw,3.8rem)}}
+      </style>
+
+      <section class="fa-section fa-grid-bg">
+        <div class="fa-shell">
+          <div class="fa-hero">
+            <span class="fa-kicker"><t t-esc="({'pt_PT': &quot;Sobre a FACODI&quot;, 'fr_FR': &quot;À propos de FACODI&quot;, 'es_ES': &quot;Acerca de FACODI&quot;}).get(request.lang.code, &quot;About FACODI&quot;)"/></span>
+            <h1 class="fa-title"><t t-esc="({'pt_PT': &quot;Aprendizagem aberta, com contexto para não perder o fio.&quot;, 'fr_FR': &quot;Un apprentissage ouvert avec le contexte nécessaire pour garder le fil.&quot;, 'es_ES': &quot;Aprendizaje abierto con contexto para no perder el hilo.&quot;}).get(request.lang.code, &quot;Open learning with enough context to keep the thread.&quot;)"/></h1>
+            <p class="fa-lead">FACODI organises public courses, videos and open learning resources into clearer study paths. The goal is simple: make it easier to study, discover useful connections and contribute good resources without confusing curricular context with formal academic recognition.</p>
+            <div class="fa-actions">
+              <a class="fa-btn fa-btn-primary" href="/courses"><t t-esc="({'pt_PT': &quot;Explorar cursos&quot;, 'fr_FR': &quot;Explorer les cours&quot;, 'es_ES': &quot;Explorar cursos&quot;}).get(request.lang.code, &quot;Explore courses&quot;)"/></a>
+              <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about"><t t-esc="({'pt_PT': &quot;Contribuir com um recurso&quot;, 'fr_FR': &quot;Proposer une ressource&quot;, 'es_ES': &quot;Aportar un recurso&quot;}).get(request.lang.code, &quot;Contribute a resource&quot;)"/></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fa-section">
+        <div class="fa-shell fa-two">
+          <div>
+            <div class="fa-eyebrow"><t t-esc="({'pt_PT': &quot;Porque existe&quot;, 'fr_FR': &quot;Pourquoi FACODI existe&quot;, 'es_ES': &quot;Por qué existe&quot;}).get(request.lang.code, &quot;Why it exists&quot;)"/></div>
+            <h2 class="fa-heading"><t t-esc="({'pt_PT': &quot;Muitos recursos úteis. Falta um mapa.&quot;, 'fr_FR': &quot;Beaucoup de ressources. Pas assez de repères.&quot;, 'es_ES': &quot;Muchos recursos útiles. Falta un mapa.&quot;}).get(request.lang.code, &quot;Too many useful tabs. Not enough map.&quot;)"/></h2>
+            <p class="fa-copy">FACODI grew from a familiar study habit: learning from excellent public lectures, videos, documentation and open materials spread across the web, then losing the relationship between them.</p>
+            <p class="fa-copy">The platform organises those resources around courses, curricular topics and learning paths so a useful link becomes part of a useful learning context.</p>
+          </div>
+          <aside class="fa-card fa-card-cyan">
+            <div class="fa-eyebrow"><t t-esc="({'pt_PT': &quot;Distinção importante&quot;, 'fr_FR': &quot;Distinction importante&quot;, 'es_ES': &quot;Distinción importante&quot;}).get(request.lang.code, &quot;Important boundary&quot;)"/></div>
+            <h3 class="h4 mt-3"><t t-esc="({'pt_PT': &quot;Contexto não é equivalência.&quot;, 'fr_FR': &quot;Le contexte ne vaut pas équivalence.&quot;, 'es_ES': &quot;El contexto no equivale a convalidación.&quot;}).get(request.lang.code, &quot;Context is not equivalence.&quot;)"/></h3>
+            <p class="mb-0">Curricular references help navigation. They do not create ECTS, academic equivalence or a formal qualification.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="fa-section fa-grid-bg fa-divider">
+        <div class="fa-shell">
+          <div class="fa-eyebrow"><t t-esc="({'pt_PT': &quot;Princípios&quot;, 'fr_FR': &quot;Principes&quot;, 'es_ES': &quot;Principios&quot;}).get(request.lang.code, &quot;Principles&quot;)"/></div>
+          <h2 class="fa-heading"><t t-esc="({'pt_PT': &quot;Como a FACODI seleciona conteúdos.&quot;, 'fr_FR': &quot;Comment FACODI sélectionne les contenus.&quot;, 'es_ES': &quot;Cómo FACODI selecciona los contenidos.&quot;}).get(request.lang.code, &quot;How FACODI decides what belongs.&quot;)"/></h2>
+          <div class="fa-three">
+            <article class="fa-card fa-card-sun">
+              <h3 class="h4"><t t-esc="({'pt_PT': &quot;01 · Primeiro, aberto&quot;, 'fr_FR': &quot;01 · Ouvert avant tout&quot;, 'es_ES': &quot;01 · Primero, abierto&quot;}).get(request.lang.code, &quot;01 · Open first&quot;)"/></h3>
+              <p class="mb-0">Prefer resources people can actually open, revisit and share.</p>
+            </article>
+            <article class="fa-card fa-card-mint">
+              <h3 class="h4"><t t-esc="({'pt_PT': &quot;02 · Primeiro, contexto&quot;, 'fr_FR': &quot;02 · Le contexte d’abord&quot;, 'es_ES': &quot;02 · Primero, contexto&quot;}).get(request.lang.code, &quot;02 · Context first&quot;)"/></h3>
+              <p class="mb-0">A resource is more useful when learners can see the course, topic or question it supports.</p>
+            </article>
+            <article class="fa-card fa-card-cyan">
+              <h3 class="h4"><t t-esc="({'pt_PT': &quot;03 · Estados claros&quot;, 'fr_FR': &quot;03 · Des étapes claires&quot;, 'es_ES': &quot;03 · Estados claros&quot;}).get(request.lang.code, &quot;03 · Clear states&quot;)"/></h3>
+              <p class="mb-0">Community sharing, editorial review and curated publication are different states and should remain visible.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="facodi-curation-flow" class="fa-section" aria-labelledby="facodi-curation-title"><style>
+#facodi-curation-flow{background:var(--fa-paper);color:var(--fa-ink);overflow:clip}
+#facodi-curation-flow .fa-curation-shell{width:min(1180px,calc(100% - 32px));margin:auto}
+#facodi-curation-flow .fa-curation-title{font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;color:var(--fa-ink);max-width:19ch;margin:.7rem 0 1rem;font-weight:850}
+#facodi-curation-flow .fa-curation-lead{font-size:1.08rem;line-height:1.65;color:var(--fa-ink);opacity:.8;max-width:64ch;margin-bottom:2rem}
+#facodi-curation-flow .fa-curation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+#facodi-curation-flow .fa-curation-card{position:relative;min-width:0;min-height:215px;padding:1.3rem;background:#fff;border:2px solid var(--fa-ink);border-radius:18px;box-shadow:5px 5px 0 var(--fa-cyan);color:var(--fa-ink)}
+#facodi-curation-flow .fa-curation-card:nth-child(3n+2){box-shadow:5px 5px 0 var(--fa-mint)}
+#facodi-curation-flow .fa-curation-card:nth-child(3n){box-shadow:5px 5px 0 var(--fa-sun)}
+#facodi-curation-flow .fa-curation-num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--fa-sun);border:2px solid var(--fa-ink);border-radius:10px;font-weight:900}
+#facodi-curation-flow .fa-curation-symbol{position:absolute;right:1.25rem;top:1.25rem;font-size:1.4rem;color:var(--fa-blue)}
+#facodi-curation-flow h3{font-size:1.1rem;line-height:1.25;font-weight:800;margin:1.25rem 0 .6rem;color:var(--fa-ink);text-transform:none}
+#facodi-curation-flow .fa-curation-card p{font-size:.97rem;line-height:1.6;color:var(--fa-ink);opacity:.84;margin:0}
+#facodi-curation-flow .fa-curation-next{position:absolute;right:-21px;top:48%;z-index:2;background:var(--fa-paper);border-radius:6px;padding:0 3px;color:var(--fa-ink);font-size:1.5rem}
+#facodi-curation-flow .fa-curation-note{margin-top:2rem;max-width:75ch;line-height:1.65}
+#facodi-curation-flow .fa-curation-note a{color:var(--fa-blue);font-weight:800;text-underline-offset:3px}
+@media(min-width:1200px){#facodi-curation-flow .fa-curation-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){#facodi-curation-flow .fa-curation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#facodi-curation-flow .fa-curation-next{display:none}}
+@media(max-width:600px){#facodi-curation-flow .fa-curation-grid{grid-template-columns:1fr}#facodi-curation-flow .fa-curation-card{min-height:0}#facodi-curation-flow .fa-curation-title{max-width:none}}
+</style><div class="fa-curation-shell"><p class="fa-eyebrow"><t t-esc="({'pt_PT': &quot;Fluxo editorial&quot;, 'fr_FR': &quot;Processus éditorial&quot;, 'es_ES': &quot;Proceso editorial&quot;}).get(request.lang.code, &quot;Editorial workflow&quot;)"/></p><h2 id="facodi-curation-title" class="fa-curation-title"><t t-esc="({'pt_PT': &quot;De uma ligação a um percurso&quot;, 'fr_FR': &quot;D’un lien à un parcours&quot;, 'es_ES': &quot;De un enlace a un itinerario&quot;}).get(request.lang.code, &quot;From link to learning path&quot;)"/></h2><p class="fa-curation-lead">A human editorial process that turns an isolated video into meaningful learning.</p><div class="fa-curation-grid"><article class="fa-curation-card"><span class="fa-curation-num">01</span><span class="fa-curation-symbol" aria-hidden="true">↗</span><h3><t t-esc="({'pt_PT': &quot;Ligação recebida&quot;, 'fr_FR': &quot;Lien reçu&quot;, 'es_ES': &quot;Enlace recibido&quot;}).get(request.lang.code, &quot;Link received&quot;)"/></h3><p>We receive the video link and check whether it is useful learning material.</p><span class="fa-curation-next" aria-hidden="true">→</span></article><article class="fa-curation-card"><span class="fa-curation-num">02</span><span class="fa-curation-symbol" aria-hidden="true">◎</span><h3><t t-esc="({'pt_PT': &quot;Curadoria inicial&quot;, 'fr_FR': &quot;Première sélection&quot;, 'es_ES': &quot;Revisión inicial&quot;}).get(request.lang.code, &quot;Quick curation&quot;)"/></h3><p>A first pass gathers summary, language, tags and category without relying on external AI.</p><span class="fa-curation-next" aria-hidden="true">→</span></article><article class="fa-curation-card"><span class="fa-curation-num">03</span><span class="fa-curation-symbol" aria-hidden="true">▱</span><h3><t t-esc="({'pt_PT': &quot;Classificação&quot;, 'fr_FR': &quot;Catégorisation&quot;, 'es_ES': &quot;Clasificación&quot;}).get(request.lang.code, &quot;Categorisation&quot;)"/></h3><p>The resource gains a topic, context and a place where learners can find it.</p><span class="fa-curation-next" aria-hidden="true">→</span></article><article class="fa-curation-card"><span class="fa-curation-num">04</span><span class="fa-curation-symbol" aria-hidden="true">⌕</span><h3><t t-esc="({'pt_PT': &quot;Análise aprofundada&quot;, 'fr_FR': &quot;Analyse approfondie&quot;, 'es_ES': &quot;Análisis detallado&quot;}).get(request.lang.code, &quot;Deep analysis&quot;)"/></h3><p>The second-stage analysis may run later, without blocking the initial submission.</p><span class="fa-curation-next" aria-hidden="true">→</span></article><article class="fa-curation-card"><span class="fa-curation-num">05</span><span class="fa-curation-symbol" aria-hidden="true">✎</span><h3><t t-esc="({'pt_PT': &quot;Revisão editorial&quot;, 'fr_FR': &quot;Révision éditoriale&quot;, 'es_ES': &quot;Revisión editorial&quot;}).get(request.lang.code, &quot;Editorial review&quot;)"/></h3><p>People verify and refine the summary, categories, tags and curricular relevance.</p><span class="fa-curation-next" aria-hidden="true">→</span></article><article class="fa-curation-card"><span class="fa-curation-num">06</span><span class="fa-curation-symbol" aria-hidden="true">⚑</span><h3><t t-esc="({'pt_PT': &quot;Percurso de aprendizagem&quot;, 'fr_FR': &quot;Parcours d’apprentissage&quot;, 'es_ES': &quot;Itinerario de aprendizaje&quot;}).get(request.lang.code, &quot;Learning pathway&quot;)"/></h3><p>Once appropriate, the resource joins relevant pathways and collections.</p></article></div><p class="fa-curation-note">Community submission, automated processing and editorial approval are distinct stages. Deep analysis can happen asynchronously; inclusion in a learning path depends on review and relevance. <a href="/submissions/new?type=resource&amp;source=about_curation_flow"><t t-esc="({'pt_PT': &quot;Sugerir recurso&quot;, 'fr_FR': &quot;Proposer une ressource&quot;, 'es_ES': &quot;Sugerir recurso&quot;}).get(request.lang.code, &quot;Suggest a resource&quot;)"/></a>.</p></div></section>
+      <section id="how-it-works" class="fa-section">
+        <div class="fa-shell">
+          <div class="fa-eyebrow">How it works</div>
+          <h2 class="fa-heading">From one question to one useful next step.</h2>
+          <div class="fa-four">
+            <article class="fa-card"><div class="fa-step"><div class="fa-step-n">1</div><div><h3 class="h5">Choose a starting point</h3><p class="mb-0">A course, topic, curricular unit or a very specific question.</p></div></div></article>
+            <article class="fa-card"><div class="fa-step"><div class="fa-step-n">2</div><div><h3 class="h5">Explore open resources</h3><p class="mb-0">Use the links that genuinely help you move forward.</p></div></div></article>
+            <article class="fa-card"><div class="fa-step"><div class="fa-step-n">3</div><div><h3 class="h5">Connect content to context</h3><p class="mb-0">Relate resources to the learning path so they do not remain isolated.</p></div></div></article>
+            <article class="fa-card"><div class="fa-step"><div class="fa-step-n">4</div><div><h3 class="h5">Leave something useful behind</h3><p class="mb-0">Share a resource, correction or gap with enough context to help the next learner.</p></div></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="fa-section fa-divider">
+        <div class="fa-shell fa-two">
+          <div>
+            <div class="fa-eyebrow">What you can do here</div>
+            <h2 class="fa-heading">Study, connect and contribute.</h2>
+            <ul class="fa-list fa-copy">
+              <li>Browse open courses and community-shared resources.</li>
+              <li>Move between courses, learning paths and curricular context.</li>
+              <li>Share a public resource without pretending it is already curated.</li>
+              <li>Report gaps, corrections and useful context for the next learner.</li>
+            </ul>
+          </div>
+          <aside class="fa-card fa-card-mint">
+            <div class="fa-eyebrow">Open campus</div>
+            <h3 class="h4 mt-3">Still under construction, by design.</h3>
+            <p class="mb-0">FACODI is a living community platform. Public resources can appear quickly, while editorial curation remains a separate layer.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="fa-section">
+        <div class="fa-shell">
+          <div class="fa-cta">
+            <div class="fa-cta-grid">
+              <div>
+                <span class="fa-kicker">Build the trail</span>
+                <h2 class="display-5 mt-3 mb-3">Useful resources should not disappear into browser history.</h2>
+                <p class="fa-lead mb-0">Explore what is already public or contribute a resource that deserves a place in the learning map.</p>
+              </div>
+              <div class="d-grid gap-2">
+                <a class="fa-btn fa-btn-primary" href="/courses">Explore catalogue</a>
+                <a class="fa-btn fa-btn-secondary" href="/submissions/new?type=resource&amp;source=about_resource_cta&amp;section=about"><t t-esc="({'pt_PT': &quot;Contribuir com um recurso&quot;, 'fr_FR': &quot;Proposer une ressource&quot;, 'es_ES': &quot;Aportar un recurso&quot;}).get(request.lang.code, &quot;Contribute a resource&quot;)"/></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="academic-model" class="fa-section fa-divider"><div class="fa-shell"><div class="fa-eyebrow">Academic model</div><h2 class="fa-heading">Curricular context is not academic equivalence.</h2><p class="fa-copy">FACODI links open resources to official study plans and curricular units. Year, semester and ECTS are useful references, not an award of credits, equivalence or degrees.</p><div class="fa-actions"><a class="fa-btn fa-btn-primary" href="/curricular-units"><t t-esc="({'pt_PT': &quot;Unidades curriculares&quot;, 'fr_FR': &quot;Unités d’enseignement&quot;, 'es_ES': &quot;Asignaturas&quot;}).get(request.lang.code, &quot;Curricular units&quot;)"/></a><a class="fa-btn fa-btn-secondary" href="/roadmaps"><t t-esc="({'pt_PT': &quot;Percursos de aprendizagem&quot;, 'fr_FR': &quot;Parcours d’apprentissage&quot;, 'es_ES': &quot;Itinerarios de aprendizaje&quot;}).get(request.lang.code, &quot;Learning paths&quot;)"/></a></div></div></section>
+      <section id="technology" class="fa-section fa-divider"><div class="fa-shell fa-two"><div><div class="fa-eyebrow">Platform and editorial process</div><h2 class="fa-heading">From contribution to curated learning.</h2><p class="fa-copy">FACODI brings together Odoo Website, eLearning, community submissions and editorial review. Resources are checked, enriched and classified before publication; people remain responsible for the final decision.</p></div><aside class="fa-card fa-card-cyan"><h3 class="h4">Editorial journey</h3><p>Suggest → Validate → Enrich → Review → Publish</p><a href="/submissions/new?type=resource&amp;source=about&amp;section=technology"><t t-esc="({'pt_PT': &quot;Sugerir recurso&quot;, 'fr_FR': &quot;Proposer une ressource&quot;, 'es_ES': &quot;Sugerir recurso&quot;}).get(request.lang.code, &quot;Suggest a resource&quot;)"/></a></aside></div></section>
+      <section id="team" class="fa-section fa-divider"><div class="fa-shell fa-two"><div><div class="fa-eyebrow">People</div><h2 class="fa-heading">Built around open learning.</h2><p class="fa-copy">Initiated by Marcelo Santos, FACODI connects software engineering, open education and contributions from learners and collaborators.</p></div><aside class="fa-card fa-card-mint"><h3 class="h4">Our ecosystem</h3><p>Academic references, European student initiatives and technical collaborators.</p><a href="/partnerships">Explore partnerships</a></aside></div></section>
+      <section id="next-steps" class="fa-section fa-divider"><div class="fa-shell"><div class="fa-eyebrow">Keep building</div><h2 class="fa-heading">Discover, learn and contribute.</h2><p class="fa-copy">More connected learning paths, clearer curricular coverage and a growing community of contributors.</p><div class="fa-actions"><a class="fa-btn fa-btn-primary" href="/explore"><t t-esc="({'pt_PT': &quot;Explorar&quot;, 'fr_FR': &quot;Explorer&quot;, 'es_ES': &quot;Explorar&quot;}).get(request.lang.code, &quot;Explore&quot;)"/></a><a class="fa-btn fa-btn-secondary" href="/partnerships">Partners and collaborators</a></div></div></section>
+    </div>
+  </t>
+</t>
