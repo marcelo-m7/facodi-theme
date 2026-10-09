@@ -84,7 +84,7 @@ class Browser:
 
 
 AUDIT_JS = r"""(() => {
- const viewport = document.documentElement.clientWidth;
+ const viewport = window.innerWidth; // include scrollbar gutter; clientWidth may be 15px smaller
  const pageWidth = document.documentElement.scrollWidth;
  const selectors = ['#wrap', '#footer', '.facodi-footer', '.facodi-header', '.facodi-partner-grid', '.o_wslides', '.container-fluid'];
  const boxes = selectors.flatMap(selector => Array.from(document.querySelectorAll(selector)).slice(0, 4).map(el => {
