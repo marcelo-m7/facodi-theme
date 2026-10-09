@@ -137,6 +137,9 @@
         }
 
         .facodi-header-cta {
+            // Keep the final CTA inside the viewport when homepage navigation is longest.
+            position: relative;
+            right: 1rem;
             background: var(--facodi-sun) !important;
             border: 2px solid var(--facodi-ink) !important;
             box-shadow: 3px 3px 0 var(--facodi-ink) !important;
