@@ -37,42 +37,45 @@
                     </div>
 
                     <nav class="facodi-footer-links" aria-label="Footer navigation">
-                        <t t-foreach="website.menu_id.child_id" t-as="footer_menu">
-                            <div t-if="footer_menu.is_visible" class="facodi-footer-group">
-                                <a t-if="not footer_menu.child_id"
-                                   t-att-href="footer_menu._clean_url()">
-                                    <span t-field="footer_menu.name"/>
-                                </a>
-                                <a t-elif="footer_menu._facodi_landing_url()"
-                                   t-att-href="footer_menu._facodi_landing_url()"
-                                   class="facodi-footer-heading facodi-footer-heading-link">
-                                    <span t-field="footer_menu.name"/>
-                                </a>
-                                <span t-else="" class="facodi-footer-heading">
-                                    <span t-field="footer_menu.name"/>
-                                </span>
-                                <ul t-if="footer_menu.child_id">
-                                    <t t-foreach="footer_menu.child_id" t-as="footer_item">
-                                        <li t-if="footer_item.is_visible">
-                                            <a t-att-href="footer_item._clean_url()">
-                                                <span t-field="footer_item.name"/>
-                                            </a>
-                                        </li>
-                                    </t>
-                                </ul>
-                            </div>
-                        </t>
                         <div class="facodi-footer-group">
-                            <span class="facodi-footer-heading">Policies</span>
+                            <span class="facodi-footer-heading"><t t-esc="({'pt_PT': &quot;Aprender&quot;, 'fr_FR': &quot;Apprendre&quot;, 'es_ES': &quot;Aprender&quot;}).get(request.lang.code, &quot;Learn&quot;)"/></span>
                             <ul>
-                                <li><a href="/accessibility">Accessibility</a></li>
-                                <li><a href="/cookie-policy">Cookie Policy</a></li>
+                                <li><a href="/courses"><t t-esc="({'pt_PT': &quot;Cursos&quot;, 'fr_FR': &quot;Cours&quot;, 'es_ES': &quot;Cursos&quot;}).get(request.lang.code, &quot;Courses&quot;)"/></a></li>
+                                <li><a href="/roadmaps"><t t-esc="({'pt_PT': &quot;Percursos de aprendizagem&quot;, 'fr_FR': &quot;Parcours d’apprentissage&quot;, 'es_ES': &quot;Itinerarios de aprendizaje&quot;}).get(request.lang.code, &quot;Learning paths&quot;)"/></a></li>
+                                <li><a href="/curricular-units"><t t-esc="({'pt_PT': &quot;Unidades curriculares&quot;, 'fr_FR': &quot;Unités d’enseignement&quot;, 'es_ES': &quot;Unidades curriculares&quot;}).get(request.lang.code, &quot;Curricular units&quot;)"/></a></li>
+                                <li><a href="/explore/content"><t t-esc="({'pt_PT': &quot;Recursos educativos&quot;, 'fr_FR': &quot;Ressources pédagogiques&quot;, 'es_ES': &quot;Recursos educativos&quot;}).get(request.lang.code, &quot;Learning resources&quot;)"/></a></li>
                             </ul>
                         </div>
                         <div class="facodi-footer-group">
-                            <span class="facodi-footer-heading">Account</span>
+                            <span class="facodi-footer-heading"><t t-esc="({'pt_PT': &quot;Comunidade&quot;, 'fr_FR': &quot;Communauté&quot;, 'es_ES': &quot;Comunidad&quot;}).get(request.lang.code, &quot;Community&quot;)"/></span>
                             <ul>
-                                <li><a href="/my/home">My account</a></li>
+                                <li><a href="/forum"><t t-esc="({'pt_PT': &quot;Discussões&quot;, 'fr_FR': &quot;Discussions&quot;, 'es_ES': &quot;Debates&quot;}).get(request.lang.code, &quot;Discussions&quot;)"/></a></li>
+                                <li><a href="/blog"><t t-esc="({'pt_PT': &quot;Notícias&quot;, 'fr_FR': &quot;Actualités&quot;, 'es_ES': &quot;Noticias&quot;}).get(request.lang.code, &quot;News&quot;)"/></a></li>
+                                <li><a href="/submissions/new?type=resource&amp;source=footer"><t t-esc="({'pt_PT': &quot;Contribuir&quot;, 'fr_FR': &quot;Contribuer&quot;, 'es_ES': &quot;Contribuir&quot;}).get(request.lang.code, &quot;Contribute&quot;)"/></a></li>
+                                <li><a href="/contact"><t t-esc="({'pt_PT': &quot;Contacto&quot;, 'fr_FR': &quot;Contact&quot;, 'es_ES': &quot;Contacto&quot;}).get(request.lang.code, &quot;Contact&quot;)"/></a></li>
+                                <li><a href="/my/home"><t t-esc="({'pt_PT': &quot;A minha conta&quot;, 'fr_FR': &quot;Mon compte&quot;, 'es_ES': &quot;Mi cuenta&quot;}).get(request.lang.code, &quot;My account&quot;)"/></a></li>
+                            </ul>
+                        </div>
+                        <div class="facodi-footer-group">
+                            <span class="facodi-footer-heading"><t t-esc="({'pt_PT': &quot;FACODI&quot;, 'fr_FR': &quot;FACODI&quot;, 'es_ES': &quot;FACODI&quot;}).get(request.lang.code, &quot;FACODI&quot;)"/></span>
+                            <ul>
+                                <li><a href="/about"><t t-esc="({'pt_PT': &quot;Sobre o projeto&quot;, 'fr_FR': &quot;À propos du projet&quot;, 'es_ES': &quot;Sobre el proyecto&quot;}).get(request.lang.code, &quot;About the project&quot;)"/></a></li>
+                                <li><a href="/academic-model"><t t-esc="({'pt_PT': &quot;Modelo académico&quot;, 'fr_FR': &quot;Modèle académique&quot;, 'es_ES': &quot;Modelo académico&quot;}).get(request.lang.code, &quot;Academic model&quot;)"/></a></li>
+                                <li><a href="/infrastructure"><t t-esc="({'pt_PT': &quot;Infraestrutura técnica&quot;, 'fr_FR': &quot;Infrastructure technique&quot;, 'es_ES': &quot;Infraestructura técnica&quot;}).get(request.lang.code, &quot;Technical infrastructure&quot;)"/></a></li>
+                                <li><a href="/partnerships"><t t-esc="({'pt_PT': &quot;Parcerias&quot;, 'fr_FR': &quot;Partenariats&quot;, 'es_ES': &quot;Colaboraciones&quot;}).get(request.lang.code, &quot;Partnerships&quot;)"/></a></li>
+                                <li><a href="/about-ualg"><t t-esc="({'pt_PT': &quot;Universidade do Algarve&quot;, 'fr_FR': &quot;Université de l’Algarve&quot;, 'es_ES': &quot;Universidad del Algarve&quot;}).get(request.lang.code, &quot;University of Algarve&quot;)"/></a></li>
+                                <li><a href="/about-marcelo"><t t-esc="({'pt_PT': &quot;Autor do projeto&quot;, 'fr_FR': &quot;Auteur du projet&quot;, 'es_ES': &quot;Autor del proyecto&quot;}).get(request.lang.code, &quot;Project author&quot;)"/></a></li>
+                            </ul>
+                        </div>
+                        <div class="facodi-footer-group">
+                            <span class="facodi-footer-heading"><t t-esc="({'pt_PT': &quot;Legal e acessibilidade&quot;, 'fr_FR': &quot;Mentions légales et accessibilité&quot;, 'es_ES': &quot;Legal y accesibilidad&quot;}).get(request.lang.code, &quot;Legal &amp; accessibility&quot;)"/></span>
+                            <ul>
+                                <li><a href="/privacy-policy"><t t-esc="({'pt_PT': &quot;Política de privacidade&quot;, 'fr_FR': &quot;Politique de confidentialité&quot;, 'es_ES': &quot;Política de privacidad&quot;}).get(request.lang.code, &quot;Privacy policy&quot;)"/></a></li>
+                                <li><a href="/terms-of-use"><t t-esc="({'pt_PT': &quot;Termos de utilização&quot;, 'fr_FR': &quot;Conditions d’utilisation&quot;, 'es_ES': &quot;Condiciones de uso&quot;}).get(request.lang.code, &quot;Terms of use&quot;)"/></a></li>
+                                <li><a href="/legal-notice"><t t-esc="({'pt_PT': &quot;Aviso legal&quot;, 'fr_FR': &quot;Mentions légales&quot;, 'es_ES': &quot;Aviso legal&quot;}).get(request.lang.code, &quot;Legal notice&quot;)"/></a></li>
+                                <li><a href="/content-rights"><t t-esc="({'pt_PT': &quot;Conteúdos e direitos de autor&quot;, 'fr_FR': &quot;Contenus et droits d’auteur&quot;, 'es_ES': &quot;Contenidos y derechos de autor&quot;}).get(request.lang.code, &quot;Content &amp; copyright&quot;)"/></a></li>
+                                <li><a href="/cookie-policy"><t t-esc="({'pt_PT': &quot;Política de cookies&quot;, 'fr_FR': &quot;Politique des cookies&quot;, 'es_ES': &quot;Política de cookies&quot;}).get(request.lang.code, &quot;Cookie policy&quot;)"/></a></li>
+                                <li><a href="/accessibility"><t t-esc="({'pt_PT': &quot;Acessibilidade&quot;, 'fr_FR': &quot;Accessibilité&quot;, 'es_ES': &quot;Accesibilidad&quot;}).get(request.lang.code, &quot;Accessibility&quot;)"/></a></li>
                             </ul>
                         </div>
                     </nav>
