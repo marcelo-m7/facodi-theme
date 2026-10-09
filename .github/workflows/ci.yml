@@ -363,6 +363,51 @@ jobs:
           fi
           grep -q '0 failed, 0 error(s) of 2 tests' /tmp/facodi-mobile-tests.log
 
+      - name: Activate actual FACODI theme and editorial fixtures for visual CI
+        run: |
+          docker run --rm -i \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            odoo:19.0 odoo shell \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 -d theme_facodi_ci \
+            < tests/ci_prepare_visual_site.py
+
+      - name: Capture responsive frontend screenshots and detect overflow
+        run: |
+          mkdir -p "$RUNNER_TEMP/facodi-visual"
+          chmod 0777 "$RUNNER_TEMP/facodi-visual" # disposable CI screenshot volume; container user is non-root
+          docker run -d --name facodi-theme-visual-server \
+            --network facodi-theme-ci \
+            -e HOST=facodi-theme-db -e USER=odoo -e PASSWORD=odoo \
+            -e FACODI_VISUAL_DIR=/tmp/facodi-visual \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            -v "$RUNNER_TEMP/facodi-visual:/tmp/facodi-visual" \
+            -v facodi-theme-data:/var/lib/odoo \
+            -v "$RUNNER_TEMP/design-themes:/mnt/design-themes:ro" \
+            facodi-theme-browser-ci \
+            --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/design-themes,/mnt/facodi-addons \
+            --workers=0 --http-interface=0.0.0.0 \
+            -d theme_facodi_ci
+          docker exec facodi-theme-visual-server \
+            python3 /mnt/facodi-addons/tests/visual_capture.py
+
+      - name: Upload responsive screenshots and overflow report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: facodi-responsive-screenshots
+          path: ${{ runner.temp }}/facodi-visual/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Stop disposable visual server
+        if: always()
+        run: docker rm -f facodi-theme-visual-server || true
+
       - name: PostgreSQL logs on failure
         if: failure()
         run: docker logs facodi-theme-db || true

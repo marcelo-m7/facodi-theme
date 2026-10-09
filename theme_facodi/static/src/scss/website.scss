@@ -136,7 +136,24 @@
             }
         }
 
+        // The homepage header is the densest navigation configuration.
+        // Keep its CTA in the layout flow, without clipping document overflow.
+        @media (min-width: 992px) {
+            .facodi-header-cta {
+                flex-shrink: 1;
+                min-width: 0;
+                max-width: calc(100vw - 2rem);
+                padding-inline: .35rem !important;
+                font-size: .78rem;
+            }
+        }
+
         .facodi-header-cta {
+            // Reduce the CTA's flex contribution rather than merely moving it visually.
+            margin-left: -1rem;
+            max-width: 7rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
             background: var(--facodi-sun) !important;
             border: 2px solid var(--facodi-ink) !important;
             box-shadow: 3px 3px 0 var(--facodi-ink) !important;
@@ -151,6 +168,10 @@
         }
 
         .facodi-nav-shell {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            flex-wrap: wrap;
             align-items: center;
             display: flex;
             gap: clamp(.75rem, 2vw, 1.5rem);
@@ -158,6 +179,20 @@
             min-height: 4.25rem;
             min-width: 0;
             padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+
+        // At desktop widths the combined logo, search, menus and CTA can
+        // exceed the flex row by ~13px (Chromium 1440px screenshot).
+        // Reduce only desktop chrome spacing; keep mobile controls untouched.
+        @media (min-width: 992px) {
+            .facodi-nav-shell {
+                gap: .5rem;
+                padding-inline: 1rem;
+            }
+
+            .facodi-header-search .facodi-header-search-input {
+                width: 9rem;
+            }
         }
 
         .facodi-wordmark {
