@@ -175,6 +175,7 @@ msgstr "Encontre um curso"
 #. module: theme_facodi
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_hero
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Learn"
 msgstr "Aprenda"
 
@@ -191,6 +192,7 @@ msgstr "Ao seu ritmo"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_process_timeline
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.template_header_facodi
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Contribute"
 msgstr "Contribuir"
 
@@ -426,6 +428,7 @@ msgstr "Visão geral"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Courses"
 msgstr "Cursos"
 
@@ -439,6 +442,7 @@ msgstr "Guardados"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_filter_pills
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_metadata_row
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Community"
 msgstr "Comunidade"
 
@@ -803,6 +807,7 @@ msgstr "Use Roadmaps para orientação, unidades curriculares para contexto veri
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_course_showcase
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Learning paths"
 msgstr "Percursos de aprendizagem"
 
@@ -811,6 +816,7 @@ msgstr "Percursos de aprendizagem"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_courses_home
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_folder_tabs
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.s_facodi_learning_journey
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "Curricular units"
 msgstr "Unidades curriculares"
 
@@ -2667,6 +2673,7 @@ msgstr "Esta página encontrou um <mark>contratempo.</mark>"
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_mail_notification_layout
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.new_page_template_groups
 #: model_terms:theme.ir.ui.view,arch:theme_facodi.snippets
+#: model_terms:theme.ir.ui.view,arch:theme_facodi.facodi_footer
 msgid "FACODI"
 msgstr "FACODI"
 
