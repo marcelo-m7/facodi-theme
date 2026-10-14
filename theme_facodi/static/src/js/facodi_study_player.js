@@ -125,6 +125,19 @@ function initStudyPlayer(root) {
             });
         });
     }
+
+    const reviewLink = root.querySelector(".o_wslides_fs_review");
+    if (reviewLink) {
+        reviewLink.addEventListener("click", (event) => {
+            if (event.target.closest(".modal")) {
+                return;
+            }
+            const modalBtn = reviewLink.querySelector("button[data-bs-toggle='modal']");
+            if (modalBtn && !event.target.closest("button")) {
+                modalBtn.click();
+            }
+        });
+    }
 }
 
 function initStudyPlayers() {

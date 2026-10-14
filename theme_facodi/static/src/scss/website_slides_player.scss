@@ -51,6 +51,52 @@ body:has(.facodi-study-player) .facodi-study-player,
             i {
                 color: var(--facodi-ink) !important;
             }
+
+            // The review trigger is rendered as an <a> wrapping Odoo's rating popup composer.
+            // That composer embeds both the <button> trigger and the <div class="modal">.
+            // 1. Any CSS transform (such as translate) on an ancestor creates a new containing
+            //    block for position: fixed elements (CSS Transforms Module Level 1). That would
+            //    break the modal bounds to the small <a> element, causing layout breaking and
+            //    erratic open/close oscillations when hovering/moving the mouse.
+            // 2. The native composer sets 'text-white' on the button. Against the warm-paper /
+            //    sun header buttons, white text lacks contrast. We force var(--facodi-ink).
+            // 3. Remove outer <a> padding so the inner button covers the full clickable area.
+            &.o_wslides_fs_review {
+                padding: 0 !important;
+                transform: none !important;
+
+                &:hover,
+                &:focus-visible,
+                &.active {
+                    transform: none !important;
+                }
+
+                .o_rating_popup_composer,
+                .o_rating_popup_composer > div {
+                    display: inline-flex;
+                    align-items: center;
+                    height: 100%;
+                }
+
+                .btn,
+                .btn.text-white,
+                .o_rating_popup_composer_text {
+                    color: var(--facodi-ink) !important;
+                    font-family: var(--facodi-font-mono, monospace);
+                    font-size: .78rem;
+                    font-weight: 700;
+                }
+
+                .btn {
+                    padding: .4rem .85rem !important;
+                    border: none !important;
+                    background: transparent !important;
+                    box-shadow: none !important;
+                    display: inline-flex !important;
+                    align-items: center !important;
+                    gap: .35rem;
+                }
+            }
         }
     }
 
@@ -397,6 +443,14 @@ body:has(.facodi-study-player) .facodi-study-player,
             > div > a {
                 min-height: 3rem;
                 padding-inline: .7rem !important;
+
+                &.o_wslides_fs_review {
+                    padding: 0 !important;
+
+                    .btn {
+                        padding-inline: .7rem !important;
+                    }
+                }
             }
         }
 
