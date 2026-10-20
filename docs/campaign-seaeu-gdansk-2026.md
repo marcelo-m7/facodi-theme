@@ -27,9 +27,11 @@ The campaign is **separate** from recovering accounts lost before the post-Gdań
 
 ## Tracking and data minimisation
 
-Reuse utm.campaign **2** (FACODI · Divulgação SEA-EU 2026). The following utm.source records were created: **19** Gdańsk Organisers, **20** SEA-EU/UAlg Communications, **21** partner institutions, **22** FACODI LinkedIn. Existing utm.medium **4** Email, **11** FACODI Social, **12** QR print.
+Intended to reuse utm.campaign **2** (FACODI · Divulgação SEA-EU 2026), subject to the attribution gate below. The following utm.source records were created: **19** Gdańsk Organisers, **20** SEA-EU/UAlg Communications, **21** partner institutions, **22** FACODI LinkedIn. Existing utm.medium **4** Email, **11** FACODI Social, **12** QR print.
 
-Example tagged URLs (only after public page QA):
+**Attribution gate (pending in Odoo):** The existing campaign record #2 and newly created source records #19–22 currently have human-readable names. The machine-readable values in the examples below do **not** exactly match those names. Do not distribute these URLs or report attribution until UTM campaign, source and medium records are reconciled, or an Odoo link-tracker URL has been generated and verified. This discrepancy is tracked in Odoo task #292 and must be resolved when API access resumes.
+
+Example tagged URLs (provisional; not ready to distribute):
 - /sea-eu?utm_source=seaeu_organizers&utm_medium=email&utm_campaign=facodi_gdansk_2026
 - /sea-eu?utm_source=seaeu_ualg&utm_medium=email&utm_campaign=facodi_gdansk_2026
 - /sea-eu?utm_source=seaeu_partners&utm_medium=email&utm_campaign=facodi_gdansk_2026
