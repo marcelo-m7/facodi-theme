@@ -1,0 +1,26 @@
+name: FACODI SEA-EU campaign snapshot contract
+
+on:
+  pull_request:
+    paths:
+      - 'theme_facodi/data/website_snapshots/sea_eu_2026.xml'
+      - 'tests/test_seaeu_campaign_snapshot.py'
+      - '.github/workflows/sea-eu-snapshot.yml'
+  push:
+    branches:
+      - 'feat/sea-eu-2026-campaign-snapshot'
+    paths:
+      - 'theme_facodi/data/website_snapshots/sea_eu_2026.xml'
+      - 'tests/test_seaeu_campaign_snapshot.py'
+      - '.github/workflows/sea-eu-snapshot.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate QWeb snapshot, consent boundaries and deployment safety
+        run: python3 -m unittest discover -s tests -p 'test_seaeu_campaign_snapshot.py' -v
