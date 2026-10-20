@@ -8,6 +8,7 @@ This directory holds **read-only captures** of QWeb `ir.ui.view.arch_db` read fr
 | --- | ---: | --- | --- |
 | `facodi_footer.xml` | 5176 | `theme_facodi.facodi_footer` | Theme-owned; updated `views/customizations.xml` with multilingual curated navigation |
 | `partnerships.xml` | 6144 | `website.facodi_partnerships` | Website page; database owns current publishing |
+| `sea_eu_2026.xml` | 6761 | `website.facodi_seaeu_2026` | Campaign landing `/sea-eu` (page #19); database owns current publishing; snapshot is not auto-installed |
 | `about_facodi.xml` | 2669 | `website.about-facodi` | Website page; database owns current publishing |
 | `privacy_policy.xml` | 6140 | `website.facodi_privacy_policy` | Website page; database owns current publishing |
 | `terms_of_use.xml` | 6141 | `website.facodi_terms_of_use` | Website page; database owns current publishing |
@@ -34,3 +35,7 @@ Other considerations: SVG/PNG logos of Corvanis and University of Algarve are cu
 ## Rule
 
 Code-owned views belong in tracked module XML; website-owned records should be captured, diffed and managed via an explicit, idempotent migration that retains their `website.page` relations and translations. Never silently prefer GitHub over live edits.
+
+## SEA-EU Gdańsk 2026 campaign
+
+The `/sea-eu` Website Builder page is owned by the live Odoo database. The new snapshot is an archival source of its 20 October 2026 QWeb, not a migration or a declaration that the campaign is publicly launched. Editorial assets, consent requirements and the separate QA/publication gate are documented in [`docs/campaign-seaeu-gdansk-2026.md`](../../../docs/campaign-seaeu-gdansk-2026.md). A future deploy must not automatically replace the live page or subscribe users to newsletters.
