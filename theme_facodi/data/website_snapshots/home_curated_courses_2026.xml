@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Read-only Odoo snapshot, 22 October 2026. Editor-owned ir.ui.view #6762. Not loaded by theme manifest. -->
+<data>
+  <xpath expr="//section[contains(@class, 's_dynamic_snippet_content')]" position="before">
+    <t t-set="facodi_is_pt" t-value="env.lang.startswith('pt')"/>
+    <div class="facodi-featured-curation mt-4 mb-4" t-att-aria-label="({'pt_PT': 'Cursos em destaque', 'es_ES': 'Cursos destacados', 'fr_FR': 'Cours à la une'}).get(env.lang, 'Featured courses')">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-2 mb-3">
+        <div>
+          <p class="facodi-kicker mb-1"><t t-out="({'pt_PT': 'Novos percursos · Aprende ao teu ritmo', 'es_ES': 'Nuevos itinerarios · Aprende a tu ritmo', 'fr_FR': 'Nouveaux parcours · Apprenez à votre rythme'}).get(env.lang, 'New learning paths · Learn at your own pace')"/></p>
+          <h2 class="h4 fw-bold mb-0 text-body"><t t-out="({'pt_PT': 'Escolhe por onde começar', 'es_ES': 'Elige por dónde empezar', 'fr_FR': 'Choisissez par où commencer'}).get(env.lang, 'Pick your starting point')"/></h2>
+        </div>
+      </div>
+      <div class="row g-3 align-items-stretch">
+      <div class="col-12 col-md-4 d-flex">
+        <a class="card w-100 h-100 text-decoration-none border-0 shadow-sm overflow-hidden rounded-4" href="/slides/pre-calculo-professor-aquino-fundamentos-para-calculo-44">
+          <img class="w-100 d-block" src="/web/image/slide.channel/44/image_512" loading="lazy" decoding="async" style="aspect-ratio: 16 / 9; object-fit: cover;" t-att-alt="({'pt_PT': 'Curvas matemáticas abstratas em azul e ciano', 'es_ES': 'Curvas matemáticas abstractas en azul y cian', 'fr_FR': 'Courbes mathématiques abstraites en bleu et cyan'}).get(env.lang, 'Abstract mathematical curves in blue and cyan')"/>
+          <div class="card-body d-flex flex-column gap-2 p-3 p-lg-4">
+            <span class="small text-body-secondary"><t t-out="({'pt_PT': 'Matemática · 7 aulas', 'es_ES': 'Matemáticas · 7 lecciones', 'fr_FR': 'Mathématiques · 7 leçons'}).get(env.lang, 'Mathematics · 7 lessons')"/></span>
+            <h3 class="h5 fw-semibold mb-0 text-body"><t t-out="({'pt_PT': 'Pré-Cálculo para começar com confiança', 'es_ES': 'Precálculo para empezar con confianza', 'fr_FR': 'Commencez le pré-calcul en confiance'}).get(env.lang, 'Get confident with Pre-Calculus')"/></h3>
+            <p class="small text-body-secondary mb-2"><t t-out="({'pt_PT': 'Álgebra, funções e gráficos com aulas abertas do Professor Aquino.', 'es_ES': 'Álgebra, funciones y gráficas con clases abiertas del profesor Aquino.', 'fr_FR': 'Algèbre, fonctions et graphiques avec les cours ouverts du professeur Aquino.'}).get(env.lang, 'Algebra, functions and graphs with an open playlist by Professor Aquino.')"/></p>
+            <span class="fw-semibold mt-auto" style="color: #3979C8;"><t t-out="({'pt_PT': 'Começar agora →', 'es_ES': 'Empezar ahora →', 'fr_FR': 'Commencer maintenant →'}).get(env.lang, 'Start learning →')"/></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-4 d-flex">
+        <a class="card w-100 h-100 text-decoration-none border-0 shadow-sm overflow-hidden rounded-4" href="/slides/python-essencial-live-de-python-dunossauro-46">
+          <img class="w-100 d-block" src="/web/image/slide.channel/46/image_512" loading="lazy" decoding="async" style="aspect-ratio: 16 / 9; object-fit: cover;" t-att-alt="({'pt_PT': 'Ilustração abstrata do percurso de programação Python', 'es_ES': 'Ilustración abstracta de un recorrido de programación en Python', 'fr_FR': 'Illustration abstraite d’un parcours de programmation Python'}).get(env.lang, 'Abstract illustration of a Python programming journey')"/>
+          <div class="card-body d-flex flex-column gap-2 p-3 p-lg-4">
+            <span class="small text-body-secondary"><t t-out="({'pt_PT': 'Programação · 8 vídeos', 'es_ES': 'Programación · 8 vídeos', 'fr_FR': 'Programmation · 8 vidéos'}).get(env.lang, 'Programming · 8 videos')"/></span>
+            <h3 class="h5 fw-semibold mb-0 text-body"><t t-out="({'pt_PT': 'Python do zero, com Dunossauro', 'es_ES': 'Python desde cero con Dunossauro', 'fr_FR': 'Apprenez Python depuis zéro avec Dunossauro'}).get(env.lang, 'Learn Python with Dunossauro')"/></h3>
+            <p class="small text-body-secondary mb-2"><t t-out="({'pt_PT': 'Estruturas de dados, funções, ambientes e testes num percurso para evoluir ao teu ritmo.', 'es_ES': 'Estructuras de datos, funciones, entornos y pruebas en un recorrido guiado a tu ritmo.', 'fr_FR': 'Structures de données, fonctions, environnements et tests dans un parcours guidé à votre rythme.'}).get(env.lang, 'Data structures, functions, environments and testing in a guided route at your own pace.')"/></p>
+            <span class="fw-semibold mt-auto" style="color: #3979C8;"><t t-out="({'pt_PT': 'Explorar aulas →', 'es_ES': 'Explorar las clases →', 'fr_FR': 'Explorer les vidéos →'}).get(env.lang, 'Explore the videos →')"/></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-4 d-flex">
+        <a class="card w-100 h-100 text-decoration-none border-0 shadow-sm overflow-hidden rounded-4" href="/slides/fastapi-do-zero-percurso-em-video-dunossauro-47">
+          <img class="w-100 d-block" src="/web/image/slide.channel/47/image_512" loading="lazy" decoding="async" style="aspect-ratio: 16 / 9; object-fit: cover;" t-att-alt="({'pt_PT': 'Rede abstrata de servidores e ligações de APIs', 'es_ES': 'Red abstracta de servidores y conexiones de API', 'fr_FR': 'Réseau abstrait de serveurs et de connexions API'}).get(env.lang, 'Abstract network of API servers and connections')"/>
+          <div class="card-body d-flex flex-column gap-2 p-3 p-lg-4">
+            <span class="small text-body-secondary"><t t-out="({'pt_PT': 'APIs web · 11 vídeos', 'es_ES': 'API web · 11 vídeos', 'fr_FR': 'API web · 11 vidéos'}).get(env.lang, 'Web APIs · 11 videos')"/></span>
+            <h3 class="h5 fw-semibold mb-0 text-body"><t t-out="({'pt_PT': 'Da primeira rota à tua API com FastAPI', 'es_ES': 'De tu primera ruta a tu API con FastAPI', 'fr_FR': 'De votre première route à votre API avec FastAPI'}).get(env.lang, 'Build your first API with FastAPI')"/></h3>
+            <p class="small text-body-secondary mb-2"><t t-out="({'pt_PT': 'Rotas HTTP, bases de dados, autenticação e Python assíncrono, passo a passo.', 'es_ES': 'Rutas HTTP, bases de datos, autenticación y Python asíncrono, paso a paso.', 'fr_FR': 'Routes HTTP, bases de données, authentification et Python asynchrone, étape par étape.'}).get(env.lang, 'HTTP routes, databases, authentication and asynchronous Python, step by step.')"/></p>
+            <span class="fw-semibold mt-auto" style="color: #3979C8;"><t t-out="({'pt_PT': 'Seguir percurso →', 'es_ES': 'Seguir el recorrido →', 'fr_FR': 'Suivre le parcours →'}).get(env.lang, 'Follow the course →')"/></span>
+          </div>
+        </a>
+      </div>
+      </div>
+    </div>
+  </xpath>
+</data>
