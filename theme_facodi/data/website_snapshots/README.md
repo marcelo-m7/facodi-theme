@@ -9,6 +9,7 @@ This directory holds **read-only captures** of QWeb `ir.ui.view.arch_db` read fr
 | `facodi_footer.xml` | 5176 | `theme_facodi.facodi_footer` | Theme-owned; updated `views/customizations.xml` with multilingual curated navigation |
 | `partnerships.xml` | 6144 | `website.facodi_partnerships` | Website page; database owns current publishing |
 | `sea_eu_2026.xml` | 6761 | `website.facodi_seaeu_2026` | Campaign landing `/sea-eu` (page #19); database owns current publishing; snapshot is not auto-installed |
+| `home_curated_courses_2026.xml` | 6762 | `gen_key.be8f2d` | Homepage featured-course block (PT/EN/ES/FR) — editor-owned view, read-only recovery snapshot |
 | `about_facodi.xml` | 2669 | `website.about-facodi` | Website page; database owns current publishing |
 | `privacy_policy.xml` | 6140 | `website.facodi_privacy_policy` | Website page; database owns current publishing |
 | `terms_of_use.xml` | 6141 | `website.facodi_terms_of_use` | Website page; database owns current publishing |
@@ -39,3 +40,7 @@ Code-owned views belong in tracked module XML; website-owned records should be c
 ## SEA-EU Gdańsk 2026 campaign
 
 The `/sea-eu` Website Builder page is owned by the live Odoo database. The new snapshot is an archival source of its 20 October 2026 QWeb, not a migration or a declaration that the campaign is publicly launched. Editorial assets, consent requirements and the separate QA/publication gate are documented in [`docs/campaign-seaeu-gdansk-2026.md`](../../../docs/campaign-seaeu-gdansk-2026.md). A future deploy must not automatically replace the live page or subscribe users to newsletters.
+
+## Homepage featured-courses localization (22 October 2026)
+
+Website editor-owned view `6762` was updated to use `env.lang` dictionaries in 18 visible labels (including image alt text) across `pt_PT`, `es_ES`, `fr_FR` and English fallback. This snapshot preserves the corrected QWeb for disaster recovery and comparison after upgrades; it is NOT added to the module manifest and must NEVER be imported automatically. GitHub changes alone do not change the live Odoo page. See production audit task #299.
