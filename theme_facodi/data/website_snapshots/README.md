@@ -16,7 +16,7 @@ This directory holds **read-only captures** of QWeb `ir.ui.view.arch_db` read fr
 | `legal_notice.xml` | 6142 | `website.facodi_legal_notice` | Website page; database owns current publishing |
 | `content_rights.xml` | 6143 | `website.facodi_content_rights` | Website page; database owns current publishing |
 
-Translations are inline `request.lang.code` dictionaries in the captured QWeb. These are part of the source, not separate gettext catalogs. Do not replace them with plain EN text.
+Captured QWeb may contain editor-owned inline language dictionaries. The corrected homepage snapshot uses `env.lang`; older captures may still contain deprecated `request.lang.code` expressions. Do not replace localized content with plain English or assume an archive is safe to import into a newer template.
 
 ## Deployment gate
 
@@ -44,3 +44,15 @@ The `/sea-eu` Website Builder page is owned by the live Odoo database. The new s
 ## Homepage featured-courses localization (22 October 2026)
 
 Website editor-owned view `6762` was updated to use `env.lang` dictionaries in 18 visible labels (including image alt text) across `pt_PT`, `es_ES`, `fr_FR` and English fallback. This snapshot preserves the corrected QWeb for disaster recovery and comparison after upgrades; it is NOT added to the module manifest and must NEVER be imported automatically. GitHub changes alone do not change the live Odoo page. See production audit task #299.
+
+**Recovery compatibility:** On 22 October, the installed parent `ir.ui.view` #5200 still contained `<section class="s_dynamic_snippet_content ...">`, while the version-controlled `s_facodi_course_showcase.xml` uses a `<div>` for that class. The archived `//section[...]` XPath is therefore faithful to the *installed* parent and must stay untouched. It is not a portable import artifact for an arbitrary future theme version.
+
+For an operator-reviewed recovery, first export the exact target parent `arch_db` to an XML file and then prepare a separate candidate:
+
+```bash
+python3 scripts/prepare_home_curated_snapshot.py \
+  --parent /tmp/facodi-course-showcase-parent.xml \
+  --output /tmp/facodi-home-curation-candidate.xml
+```
+
+The helper rewrites only the candidate's XPath to match the class token independently of the element tag, and refuses a parent with zero or multiple matching targets. It neither connects to Odoo nor overwrites the archive. Review the generated XML, compare all language variants and links with the live export, test on staging, and obtain explicit approval before any manual database repair. The standard theme CI tests this offline guard.

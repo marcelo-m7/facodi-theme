@@ -122,6 +122,14 @@ jobs:
           docker rm -f facodi-theme-vendorless-db
           docker network rm facodi-theme-vendorless-ci
 
+      - name: Editor-owned homepage snapshot recovery contract
+        run: |
+          docker run --rm \
+            --entrypoint python3 \
+            -v "$GITHUB_WORKSPACE:/mnt/facodi-addons:ro" \
+            odoo:19.0 \
+            /mnt/facodi-addons/tests/test_editorial_home_curated_snapshot.py
+
       - name: Prepare legacy theme release
         run: |
           LEGACY_SHA="4d384edf2709ff7cad1a432e3391de0673f3b24d"
